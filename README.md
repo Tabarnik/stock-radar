@@ -14,14 +14,24 @@ price, and flagged for penny/pump risk. Pushed to your phone every weekday morni
 Reddit Radar — Jun 15
 Trends only · not advice · high risk
 
-1. $LFVN (Lifevantage) $6.50 (-29%) ↑
-   37 mentions (was 3)
+Reddit Radar — Jun 15
+Trends only · not advice · high risk
+
+🔥 REDDIT SQUEEZE/PENNY BUZZ
+🟢 GAINERS
+  $XYZ (Some Co) $4.20 +18% · 22 mentions ↑
+   📈 running today + chatter rising
+   why: <latest headline>
+🔻 DECLINERS
+  $LFVN (Lifevantage) $6.46 -29% · 40 mentions ↑
+   🔻 already dumped today (crowd still piling in)
    ⚠️ micro-cap, vol 4x normal, squeeze/penny sub
-2. $CTM (Castellum) $0.67 (-7%) ↑          <- name shown so collisions are obvious
-   31 mentions (was 1)
-   ⚠️ penny <$5, micro-cap, vol 112x normal, squeeze/penny sub
-3. $SPCE (Virgin Galactic) $3.65 (-6%) ✦
-   5 mentions   ⚠️ penny <$5, squeeze/penny sub
+   why: LifeVantage pays a US$0.05 dividend...
+
+📈 BIGGEST MARKET GAINERS TODAY
+(already up most — NOT a prediction)
+  $XNDU (Xanadu Quantum) +19%  $13.99
+   why: Xanadu quantum breakthroughs reshape photonic hardware...
 ```
 ↑/↓/→ = mentions vs. 24h ago, ✦ = new on the board.
 

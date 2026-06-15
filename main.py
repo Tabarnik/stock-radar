@@ -263,28 +263,97 @@ def arrow(now, prev):
     return "→"
 
 
-def format_digest(results):
+def news_headline(sym):
+    """Best-effort latest Yahoo headline for a ticker (the 'why')."""
+    try:
+        for it in (yf.Ticker(sym).news or []):
+            title = it.get("title") or (it.get("content") or {}).get("title")
+            if title:
+                return title.strip()
+    except Exception as e:
+        print(f"[warn] news {sym}: {e}")
+    return ""
+
+
+def momentum_label(pct, rising):
+    """Honest, descriptive tag — never a prediction."""
+    if pct is None:
+        return ""
+    if pct <= -10:
+        return "🔻 already dumped today" + (" (crowd still piling in)" if rising else "")
+    if pct >= 10:
+        return "📈 running today" + (" + chatter rising" if rising else "")
+    return "chatter rising" if rising else ""
+
+
+def market_gainers(n):
+    """Today's biggest US-exchange % gainers (factual — NOT a prediction)."""
+    try:
+        quotes = (yf.screen("day_gainers") or {}).get("quotes") or []
+    except Exception as e:
+        print(f"[warn] gainers screen: {e}")
+        return []
+    out = []
+    for q in quotes:
+        sym, pct = q.get("symbol"), q.get("regularMarketChangePercent")
+        exch = (q.get("fullExchangeName") or "").upper()
+        if not sym or pct is None or any(x in exch for x in ("OTC", "PINK")):
+            continue
+        out.append({"sym": sym, "pct": float(pct),
+                    "price": q.get("regularMarketPrice"),
+                    "name": q.get("shortName") or q.get("longName") or ""})
+        if len(out) >= n:
+            break
+    return out
+
+
+def _fmt_price(p):
+    return f"${p:.2f}" if isinstance(p, (int, float)) else "n/a"
+
+
+def _buzz_line(r):
+    pct = f" {r['pct']:+.0f}%" if r.get("pct") is not None else ""
+    name = f" ({r['name'][:20]})" if r.get("name") else ""
+    out = [f"  ${r['sym']}{name} {_fmt_price(r.get('price'))}{pct}"
+           f" · {r['mentions']} mentions {r['mom']}"]
+    if r.get("label"):
+        out.append(f"   {r['label']}")
+    if r.get("flags"):
+        out.append(f"   ⚠️ {', '.join(r['flags'])}")
+    if r.get("why"):
+        out.append(f"   why: {r['why'][:72]}")
+    return out
+
+
+def format_message(results, mkt):
     today = datetime.now(timezone.utc).astimezone().strftime("%b %d")
-    lines = [f"Reddit Radar — {today}", "Trends only · not advice · high risk", ""]
+    L = [f"Reddit Radar — {today}", "Trends only · not advice · high risk", ""]
+
+    L.append("🔥 REDDIT SQUEEZE/PENNY BUZZ")
     if not results:
-        lines.append("No clear ticker signal today.")
-        return "\n".join(lines)
-    for i, r in enumerate(results, 1):
-        price = f"${r['price']:.2f}" if r.get("price") else "n/a"
-        pct = f" ({r['pct']:+.0f}%)" if r.get("pct") is not None else ""
-        dot = ""
-        if r.get("sent") is not None:
-            dot = " " + ("🟢" if r["sent"] > 0.15 else "🔴" if r["sent"] < -0.15 else "⚪")
-        nm = r.get("name")
-        tag = f" ({nm[:22]})" if nm else ""
-        lines.append(f"{i}. ${r['sym']}{tag} {price}{pct} {r['mom']}")
-        sub = f"   {r['mentions']} mentions"
-        if r.get("mentions_prev"):
-            sub += f" (was {r['mentions_prev']})"
-        lines.append(sub + dot)
-        if r["flags"]:
-            lines.append(f"   ⚠️ {', '.join(r['flags'])}")
-    return "\n".join(lines)
+        L.append("  no clear signal today")
+    else:
+        gain = [r for r in results if (r.get("pct") or 0) >= 0]
+        decl = [r for r in results if (r.get("pct") or 0) < 0]
+        if gain:
+            L.append("🟢 GAINERS")
+            for r in gain:
+                L += _buzz_line(r)
+        if decl:
+            L.append("🔻 DECLINERS")
+            for r in decl:
+                L += _buzz_line(r)
+
+    L += ["", "📈 BIGGEST MARKET GAINERS TODAY", "(already up most — NOT a prediction)"]
+    if not mkt:
+        L.append("  unavailable")
+    else:
+        for g in mkt:
+            nm = f" ({g['name'][:18]})" if g.get("name") else ""
+            L.append(f"  ${g['sym']}{nm} +{g['pct']:.0f}%  {_fmt_price(g.get('price'))}")
+            if g.get("why"):
+                L.append(f"   why: {g['why'][:72]}")
+    return "\n".join(L)
 
 
 # ---------------------------------------------------------------- main
@@ -328,7 +397,16 @@ def main():
             "flags": risk_flags(data, c["subs"]),
         })
 
-    msg = format_digest(results)
+    # enrich top names with a 'why' headline + a plain-language momentum label
+    for r in results:
+        r["why"] = news_headline(r["sym"])
+        r["label"] = momentum_label(r.get("pct"), r.get("mom") == "↑")
+
+    gainers = market_gainers(int(os.getenv("GAINERS_N", "5")))
+    for g in gainers:
+        g["why"] = news_headline(g["sym"])
+
+    msg = format_message(results, gainers)
     print("\n" + msg)
     notify.send(msg)
 
