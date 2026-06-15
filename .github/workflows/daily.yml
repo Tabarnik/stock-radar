@@ -1,0 +1,27 @@
+name: Reddit Stock Radar
+
+# Free cloud schedule (your "server") — runs even when your Mac is off.
+# Only secret needed: NTFY_TOPIC.
+
+on:
+  schedule:
+    - cron: '0 12 * * 1-5'   # 08:00 EDT (Mar–Nov); use '0 13 * * 1-5' for EST (Nov–Mar)
+  workflow_dispatch: {}        # run manually from the Actions tab to test
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Run radar
+        env:
+          NOTIFY_METHOD: ntfy
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          APEWISDOM_FILTER: Shortsqueeze,pennystocks
+          EXCHANGE_FILTER: '1'
+          INCLUDE_CANADIAN: '0'
+        run: python main.py
