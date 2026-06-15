@@ -288,7 +288,24 @@ def format_digest(results):
 
 
 # ---------------------------------------------------------------- main
+def _et_gate():
+    """For scheduled cloud runs, only proceed at the intended ET hour (DST-proof)."""
+    target = os.getenv("RUN_HOUR_ET")
+    if target and os.getenv("GITHUB_EVENT_NAME") == "schedule":
+        try:
+            from zoneinfo import ZoneInfo
+            hour = datetime.now(ZoneInfo("America/New_York")).hour
+            if hour != int(target):
+                print(f"[skip] ET hour {hour} != target {target}; not sending")
+                return False
+        except Exception as e:
+            print(f"[warn] et_gate: {e}")
+    return True
+
+
 def main():
+    if not _et_gate():
+        return
     cands = gather()
     print(f"gathered {len(cands)} candidate tickers")
     cands.sort(key=lambda c: c["mentions"] + 0.25 * math.log1p(max(c["engagement"], 0)),
