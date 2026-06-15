@@ -325,35 +325,80 @@ def _buzz_line(r):
     return out
 
 
+SECTION_SEP = "_" * 30
+MIN_STANDOUT_PCT = 2.0   # a standout must actually be up, not flat noise
+
+
+def _standouts(results, mkt):
+    """Names that are BOTH up today AND gaining attention. Descriptive, not advice."""
+    mkt_syms = {g["sym"] for g in mkt}
+    picks = []
+    for r in results:
+        pct, rising = r.get("pct"), r.get("mom") == "↑"
+        if pct is None or pct < MIN_STANDOUT_PCT or not rising:
+            continue
+        why = [f"up {pct:+.0f}% today"]
+        prev = r.get("mentions_prev") or 0
+        if prev:
+            mult = r["mentions"] / max(prev, 1)
+            why.append(f"mentions {mult:.0f}x vs yesterday" if mult >= 2 else "mentions rising")
+        else:
+            why.append("new + rising chatter")
+        if r["sym"] in mkt_syms:
+            why.append("also a top market gainer")
+        picks.append((r["sym"], r.get("name", ""), why))
+    return picks
+
+
 def format_message(results, mkt):
     today = datetime.now(timezone.utc).astimezone().strftime("%b %d")
-    L = [f"Reddit Radar — {today}", "Trends only · not advice · high risk", ""]
+    header = [f"Reddit Radar — {today}", "Trends only · not advice · high risk"]
 
-    L.append("🔥 REDDIT SQUEEZE/PENNY BUZZ")
+    # ⭐ research shortlist (NOT a buy/prediction) — honest stand-in for "what to look at"
+    star = ["⭐ WORTH A CLOSER LOOK",
+            "(research starting point — NOT a buy signal)"]
+    picks = _standouts(results, mkt)
+    if picks:
+        for sym, name, why in picks:
+            nm = f" ({name[:18]})" if name else ""
+            star.append(f"  ${sym}{nm}: " + ", ".join(why))
+        star.append("  → find out WHY it's moving before risking a cent.")
+    else:
+        star.append("  Nothing is both up AND gaining attention today.")
+        star.append("  Honest move: sit it out — no trade is a position.")
+
+    buzz = ["🔥 REDDIT SQUEEZE/PENNY BUZZ"]
     if not results:
-        L.append("  no clear signal today")
+        buzz.append("  no clear signal today")
     else:
         gain = [r for r in results if (r.get("pct") or 0) >= 0]
         decl = [r for r in results if (r.get("pct") or 0) < 0]
         if gain:
-            L.append("🟢 GAINERS")
+            buzz.append("🟢 GAINERS")
             for r in gain:
-                L += _buzz_line(r)
+                buzz += _buzz_line(r)
         if decl:
-            L.append("🔻 DECLINERS")
+            buzz.append("🔻 DECLINERS")
             for r in decl:
-                L += _buzz_line(r)
+                buzz += _buzz_line(r)
 
-    L += ["", "📈 BIGGEST MARKET GAINERS TODAY", "(already up most — NOT a prediction)"]
+    mk = ["📈 BIGGEST MARKET GAINERS TODAY", "(already up most — NOT a prediction)"]
     if not mkt:
-        L.append("  unavailable")
+        mk.append("  unavailable")
     else:
         for g in mkt:
             nm = f" ({g['name'][:18]})" if g.get("name") else ""
-            L.append(f"  ${g['sym']}{nm} +{g['pct']:.0f}%  {_fmt_price(g.get('price'))}")
+            mk.append(f"  ${g['sym']}{nm} +{g['pct']:.0f}%  {_fmt_price(g.get('price'))}")
             if g.get("why"):
-                L.append(f"   why: {g['why'][:72]}")
-    return "\n".join(L)
+                mk.append(f"   why: {g['why'][:72]}")
+
+    sections = [header, star, buzz, mk]
+    out = []
+    for i, sec in enumerate(sections):
+        out += sec
+        if i < len(sections) - 1:
+            out.append(SECTION_SEP)
+    return "\n".join(out)
 
 
 # ---------------------------------------------------------------- main
