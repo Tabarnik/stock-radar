@@ -403,14 +403,15 @@ def format_message(results, mkt):
 
 # ---------------------------------------------------------------- main
 def _et_gate():
-    """For scheduled cloud runs, only proceed at the intended ET hour (DST-proof)."""
-    target = os.getenv("RUN_HOUR_ET")
-    if target and os.getenv("GITHUB_EVENT_NAME") == "schedule":
+    """For scheduled cloud runs, only proceed at an intended ET hour (DST-proof)."""
+    targets_str = os.getenv("RUN_HOURS_ET") or os.getenv("RUN_HOUR_ET")
+    if targets_str and os.getenv("GITHUB_EVENT_NAME") == "schedule":
         try:
             from zoneinfo import ZoneInfo
             hour = datetime.now(ZoneInfo("America/New_York")).hour
-            if hour != int(target):
-                print(f"[skip] ET hour {hour} != target {target}; not sending")
+            targets = {int(h.strip()) for h in targets_str.split(",")}
+            if hour not in targets:
+                print(f"[skip] ET hour {hour} not in {sorted(targets)}; not sending")
                 return False
         except Exception as e:
             print(f"[warn] et_gate: {e}")
