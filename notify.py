@@ -61,13 +61,18 @@ def _telegram(message):
 
 
 def _ntfy(message, subject):
-    import json
     topic = os.environ["NTFY_TOPIC"]
+    # ntfy hard limit is 4096 bytes; truncate at a clean line boundary
+    encoded = message.encode("utf-8")
+    if len(encoded) > 4000:
+        truncated = encoded[:4000].decode("utf-8", errors="ignore")
+        # cut at last newline so we don't break mid-line
+        cut = truncated.rfind("\n")
+        message = (truncated[:cut] if cut > 0 else truncated) + "\n…"
     r = requests.post(
-        "https://ntfy.sh/",
-        data=json.dumps({"topic": topic, "title": subject,
-                         "message": message, "markdown": True}),
-        headers={"Content-Type": "application/json"},
+        f"https://ntfy.sh/{topic}",
+        data=message.encode("utf-8"),
+        headers={"Title": subject, "Markdown": "yes"},
         timeout=30,
     )
     r.raise_for_status()
