@@ -35,8 +35,8 @@ SUBREDDITS = [s.strip() for s in os.getenv(
     "SUBREDDITS", "wallstreetbets,stockstobuytoday,Shortsqueeze").split(",") if s.strip()]
 APEWISDOM_FILTER = os.getenv("APEWISDOM_FILTER", "Shortsqueeze,pennystocks")
 POSTS_PER_SUB = int(os.getenv("POSTS_PER_SUB", "60"))
-TOP_N = int(os.getenv("TOP_N", "5"))
-MAX_VALIDATE = int(os.getenv("MAX_VALIDATE", "30"))
+TOP_N = int(os.getenv("TOP_N", "10"))
+MAX_VALIDATE = int(os.getenv("MAX_VALIDATE", "50"))
 STATE_FILE = os.getenv("STATE_FILE", "state/history.json")
 HIGH_RISK_SUBS = {"shortsqueeze", "stockstobuytoday", "pennystocks", "squeezeplays"}
 USER_AGENT = os.getenv("REDDIT_USER_AGENT", "stock-radar/1.0 (personal daily digest)")
@@ -316,6 +316,50 @@ def analyst_info(sym):
         return None, None
 
 
+def yahoo_watchlist(n=5):
+    """
+    Yahoo most-actives screen filtered to analyst-buy stocks that haven't
+    run yet. Second data source alongside Reddit for the watch section.
+    """
+    out = []
+    try:
+        quotes = (yf.screen("most_actives") or {}).get("quotes", [])
+    except Exception as e:
+        print(f"[warn] yahoo_watchlist: {e}")
+        return []
+    for q in quotes:
+        sym = q.get("symbol")
+        if not sym:
+            continue
+        exch = (q.get("fullExchangeName") or "").upper()
+        if any(x in exch for x in ("OTC", "PINK")):
+            continue
+        pct = q.get("regularMarketChangePercent")
+        if pct is None:
+            continue
+        pct = float(pct)
+        if pct >= 15 or pct <= -10:   # already ran or already dumped
+            continue
+        rec, target = analyst_info(sym)
+        if not rec or "BUY" not in rec:  # BUY or STRONG_BUY
+            continue
+        price = q.get("regularMarketPrice")
+        out.append({
+            "sym": sym,
+            "name": q.get("shortName") or q.get("longName") or "",
+            "price": float(price) if price else None,
+            "pct": pct,
+            "analyst_rec": rec,
+            "analyst_target": target,
+            "headlines": news_headlines(sym),
+            "earnings": earnings_soon(sym),
+            "source": "yahoo",
+        })
+        if len(out) >= n:
+            break
+    return out
+
+
 def momentum_label(pct, rising):
     """Honest, descriptive tag — never a prediction."""
     if pct is None:
@@ -423,7 +467,7 @@ def _standouts(results, mkt):
     return picks
 
 
-def format_message(results, mkt):
+def format_message(results, mkt, yahoo_watches=None):
     today = datetime.now(timezone.utc).astimezone().strftime("%b %d")
     header = [f"Reddit Radar — {today}", "Trends only · not advice · high risk"]
 
@@ -465,26 +509,35 @@ def format_message(results, mkt):
             for h in (g.get("headlines") or [])[:1]:
                 mk.append(f"   📰 {h[:72]}")
 
-    # 🔭 worth watching — rising attention, hasn't moved yet
+    # 🔭 worth watching — rising attention or analyst buy, hasn't moved yet
     watch_sec = ["🔭 WORTH WATCHING",
-                 "(chatter rising, price flat/down — research before acting)"]
-    watches = _worth_watching(results)
-    if watches:
-        for r in watches[:3]:
-            nm = f" ({r['name'][:18]})" if r.get("name") else ""
-            prev = r.get("mentions_prev") or 0
-            mult = f"{r['mentions']/max(prev,1):.0f}x mentions" if prev else "new to radar"
-            pct_s = f" · {r.get('pct'):+.0f}% today" if r.get("pct") is not None else ""
-            watch_sec.append(f"  ${r['sym']}{nm} {_fmt_price(r.get('price'))}{pct_s} · {mult}")
-            al = _analyst_line(r)
-            if al:
-                watch_sec.append(al)
-            if r.get("earnings"):
-                watch_sec.append(f"   📅 earnings: {r['earnings']}")
-            for h in (r.get("headlines") or [])[:2]:
-                watch_sec.append(f"   📰 {h[:72]}")
-    else:
-        watch_sec.append("  Nothing with rising chatter + room to run today.")
+                 "(rising chatter or analyst buy, room to move — research only)"]
+
+    def _watch_entry(r, source_tag):
+        nm = f" ({r['name'][:18]})" if r.get("name") else ""
+        pct_s = f" · {r['pct']:+.0f}% today" if r.get("pct") is not None else ""
+        lines = [f"  ${r['sym']}{nm} {_fmt_price(r.get('price'))}{pct_s} · {source_tag}"]
+        al = _analyst_line(r)
+        if al:
+            lines.append(al)
+        if r.get("earnings"):
+            lines.append(f"   📅 earnings: {r['earnings']}")
+        for h in (r.get("headlines") or [])[:2]:
+            lines.append(f"   📰 {h[:72]}")
+        return lines
+
+    reddit_watches = _worth_watching(results)
+    for r in reddit_watches[:4]:
+        prev = r.get("mentions_prev") or 0
+        tag = (f"{r['mentions']/max(prev,1):.0f}x Reddit mentions"
+               if prev else "new to Reddit radar")
+        watch_sec += _watch_entry(r, tag)
+
+    for r in (yahoo_watches or [])[:4]:
+        watch_sec += _watch_entry(r, "Yahoo most-active")
+
+    if not reddit_watches and not (yahoo_watches):
+        watch_sec.append("  Nothing stands out today.")
 
     sections = [header, watch_sec, star, buzz, mk]
     out = []
@@ -550,7 +603,9 @@ def main():
         g["headlines"] = news_headlines(g["sym"])
         g["why"] = g["headlines"][0] if g["headlines"] else ""
 
-    msg = format_message(results, gainers)
+    yahoo_watches = yahoo_watchlist()
+
+    msg = format_message(results, gainers, yahoo_watches)
     print("\n" + msg)
     notify.send(msg)
 

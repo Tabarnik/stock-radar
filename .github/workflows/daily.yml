@@ -26,7 +26,9 @@ jobs:
         env:
           NOTIFY_METHOD: ntfy
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-          APEWISDOM_FILTER: Shortsqueeze,pennystocks
+          APEWISDOM_FILTER: Shortsqueeze,pennystocks,wallstreetbets,all-stocks
           EXCHANGE_FILTER: '1'
           INCLUDE_CANADIAN: '0'
+          TOP_N: '10'
+          MAX_VALIDATE: '50'
         run: python main.py
