@@ -1,20 +1,15 @@
 name: Reddit Stock Radar
 
-# Free cloud schedule (your "server") — runs even when your Mac is off.
-# Only secret needed: NTFY_TOPIC.
-# Two cron lines per target hour + RUN_HOURS_ET make it fire DST-proof:
-# whichever UTC time equals an intended ET hour sends; the others exit early.
-# Fires at 8 AM, 12 PM, and 4 PM ET on weekdays.
+# Three sends per weekday: pre-market, midday, close.
+# Single cron per slot — no ET gate needed, no missed sends.
+# Times shift 1 hour between EDT and EST (acceptable for a radar).
 
 on:
   schedule:
-    - cron: '0 12 * * 1-5'   # 08:00 EDT (summer)
-    - cron: '0 13 * * 1-5'   # 08:00 EST (winter)
-    - cron: '0 16 * * 1-5'   # 12:00 EDT (summer)
-    - cron: '0 17 * * 1-5'   # 12:00 EST (winter)
-    - cron: '0 20 * * 1-5'   # 16:00 EDT (summer)
-    - cron: '0 21 * * 1-5'   # 16:00 EST (winter)
-  workflow_dispatch: {}        # manual test (always runs, ignores the ET gate)
+    - cron: '0 13 * * 1-5'   # ~9 AM EDT / 8 AM EST
+    - cron: '0 17 * * 1-5'   # ~1 PM EDT / 12 PM EST
+    - cron: '0 21 * * 1-5'   # ~5 PM EDT / 4 PM EST
+  workflow_dispatch: {}        # manual trigger always runs
 
 jobs:
   radar:
@@ -34,5 +29,4 @@ jobs:
           APEWISDOM_FILTER: Shortsqueeze,pennystocks
           EXCHANGE_FILTER: '1'
           INCLUDE_CANADIAN: '0'
-          RUN_HOURS_ET: '8,12,16'
         run: python main.py
