@@ -61,9 +61,15 @@ def _telegram(message):
 
 
 def _ntfy(message, subject):
+    import json
     topic = os.environ["NTFY_TOPIC"]
-    r = requests.post(f"https://ntfy.sh/{topic}", data=message.encode("utf-8"),
-                      headers={"Title": subject}, timeout=30)
+    r = requests.post(
+        "https://ntfy.sh/",
+        data=json.dumps({"topic": topic, "title": subject,
+                         "message": message, "markdown": True}),
+        headers={"Content-Type": "application/json"},
+        timeout=30,
+    )
     r.raise_for_status()
     return "ok"
 
