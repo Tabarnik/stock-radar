@@ -263,16 +263,57 @@ def arrow(now, prev):
     return "→"
 
 
-def news_headline(sym):
-    """Best-effort latest Yahoo headline for a ticker (the 'why')."""
+def news_headlines(sym, n=2):
+    """Return up to n Yahoo headlines for a ticker."""
+    out = []
     try:
         for it in (yf.Ticker(sym).news or []):
             title = it.get("title") or (it.get("content") or {}).get("title")
             if title:
-                return title.strip()
+                out.append(title.strip())
+            if len(out) >= n:
+                break
     except Exception as e:
         print(f"[warn] news {sym}: {e}")
-    return ""
+    return out
+
+
+def earnings_soon(sym, days=7):
+    """Return 'Mon DD (Nd)' if earnings fall within `days` days, else None."""
+    try:
+        cal = yf.Ticker(sym).calendar
+        dates = []
+        if isinstance(cal, dict):
+            raw = cal.get("Earnings Date", [])
+            dates = raw if isinstance(raw, list) else [raw]
+        elif cal is not None and hasattr(cal, "columns"):
+            dates = list(cal.columns)
+        today = datetime.now().date()
+        for d in dates:
+            if d is None:
+                continue
+            if hasattr(d, "date"):
+                d = d.date()
+            try:
+                delta = (d - today).days
+            except Exception:
+                continue
+            if 0 <= delta <= days:
+                return f"{d.strftime('%b %d')} ({delta}d)"
+    except Exception as e:
+        print(f"[warn] earnings {sym}: {e}")
+    return None
+
+
+def analyst_info(sym):
+    """Return (consensus: str|None, target_price: float|None) from Yahoo."""
+    try:
+        info = yf.Ticker(sym).info
+        rec = (info.get("recommendationKey") or "").upper()
+        target = info.get("targetMeanPrice")
+        return rec or None, float(target) if target else None
+    except Exception:
+        return None, None
 
 
 def momentum_label(pct, rising):
@@ -311,6 +352,17 @@ def _fmt_price(p):
     return f"${p:.2f}" if isinstance(p, (int, float)) else "n/a"
 
 
+def _analyst_line(r):
+    rec, target, price = r.get("analyst_rec"), r.get("analyst_target"), r.get("price")
+    parts = []
+    if rec:
+        parts.append(f"analysts: {rec}")
+    if target and price:
+        upside = (target - price) / price * 100
+        parts.append(f"target ${target:.2f} ({upside:+.0f}%)")
+    return f"   → {' | '.join(parts)}" if parts else ""
+
+
 def _buzz_line(r):
     pct = f" {r['pct']:+.0f}%" if r.get("pct") is not None else ""
     name = f" ({r['name'][:20]})" if r.get("name") else ""
@@ -320,13 +372,34 @@ def _buzz_line(r):
         out.append(f"   {r['label']}")
     if r.get("flags"):
         out.append(f"   ⚠️ {', '.join(r['flags'])}")
-    if r.get("why"):
-        out.append(f"   why: {r['why'][:72]}")
+    al = _analyst_line(r)
+    if al:
+        out.append(al)
+    if r.get("earnings"):
+        out.append(f"   📅 earnings: {r['earnings']}")
+    for h in (r.get("headlines") or [])[:2]:
+        out.append(f"   📰 {h[:72]}")
     return out
 
 
 SECTION_SEP = "_" * 30
 MIN_STANDOUT_PCT = 2.0   # a standout must actually be up, not flat noise
+
+
+def _worth_watching(results):
+    """
+    Rising Reddit attention, price hasn't moved yet — the pattern that sometimes
+    precedes a run. Research signal only, not a prediction.
+    """
+    watches = []
+    for r in results:
+        if r.get("mom") != "↑":
+            continue
+        pct = r.get("pct") or 0.0
+        if pct >= 20 or pct <= -15:   # already spiked, or already dumped
+            continue
+        watches.append(r)
+    return watches
 
 
 def _standouts(results, mkt):
@@ -389,10 +462,31 @@ def format_message(results, mkt):
         for g in mkt:
             nm = f" ({g['name'][:18]})" if g.get("name") else ""
             mk.append(f"  ${g['sym']}{nm} +{g['pct']:.0f}%  {_fmt_price(g.get('price'))}")
-            if g.get("why"):
-                mk.append(f"   why: {g['why'][:72]}")
+            for h in (g.get("headlines") or [])[:1]:
+                mk.append(f"   📰 {h[:72]}")
 
-    sections = [header, star, buzz, mk]
+    # 🔭 worth watching — rising attention, hasn't moved yet
+    watch_sec = ["🔭 WORTH WATCHING",
+                 "(chatter rising, price flat/down — research before acting)"]
+    watches = _worth_watching(results)
+    if watches:
+        for r in watches[:3]:
+            nm = f" ({r['name'][:18]})" if r.get("name") else ""
+            prev = r.get("mentions_prev") or 0
+            mult = f"{r['mentions']/max(prev,1):.0f}x mentions" if prev else "new to radar"
+            pct_s = f" · {r.get('pct'):+.0f}% today" if r.get("pct") is not None else ""
+            watch_sec.append(f"  ${r['sym']}{nm} {_fmt_price(r.get('price'))}{pct_s} · {mult}")
+            al = _analyst_line(r)
+            if al:
+                watch_sec.append(al)
+            if r.get("earnings"):
+                watch_sec.append(f"   📅 earnings: {r['earnings']}")
+            for h in (r.get("headlines") or [])[:2]:
+                watch_sec.append(f"   📰 {h[:72]}")
+    else:
+        watch_sec.append("  Nothing with rising chatter + room to run today.")
+
+    sections = [header, watch_sec, star, buzz, mk]
     out = []
     for i, sec in enumerate(sections):
         out += sec
@@ -443,14 +537,18 @@ def main():
             "flags": risk_flags(data, c["subs"]),
         })
 
-    # enrich top names with a 'why' headline + a plain-language momentum label
+    # enrich top names with headlines, analyst data, earnings, and momentum label
     for r in results:
-        r["why"] = news_headline(r["sym"])
+        r["headlines"] = news_headlines(r["sym"])
+        r["why"] = r["headlines"][0] if r["headlines"] else ""
         r["label"] = momentum_label(r.get("pct"), r.get("mom") == "↑")
+        r["analyst_rec"], r["analyst_target"] = analyst_info(r["sym"])
+        r["earnings"] = earnings_soon(r["sym"])
 
     gainers = market_gainers(int(os.getenv("GAINERS_N", "5")))
     for g in gainers:
-        g["why"] = news_headline(g["sym"])
+        g["headlines"] = news_headlines(g["sym"])
+        g["why"] = g["headlines"][0] if g["headlines"] else ""
 
     msg = format_message(results, gainers)
     print("\n" + msg)
