@@ -72,10 +72,16 @@ def _ntfy(message, subject):
     r = requests.post(
         f"https://ntfy.sh/{topic}",
         data=message.encode("utf-8"),
-        headers={"Title": subject, "Markdown": "yes"},
+        headers={
+            "Title": subject,
+            "Markdown": "yes",
+            "Priority": "high",
+            "Tags": "chart_with_upwards_trend",
+        },
         timeout=30,
     )
     r.raise_for_status()
+    print(f"[notify] ntfy OK (HTTP {r.status_code})")
     return "ok"
 
 
