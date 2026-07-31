@@ -3,6 +3,8 @@ name: Reddit Stock Radar
 # Three sends per weekday: pre-market, midday, close.
 # Single cron per slot — no ET gate needed, no missed sends.
 # Times shift 1 hour between EDT and EST (acceptable for a radar).
+#
+# Each run also publishes the HTML dashboard in docs/ to GitHub Pages.
 
 on:
   schedule:
@@ -11,9 +13,22 @@ on:
     - cron: '0 21 * * 1-5'   # ~5 PM EDT / 4 PM EST
   workflow_dispatch: {}        # manual trigger always runs
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two runs deploy Pages at the same time.
+concurrency:
+  group: radar-pages
+  cancel-in-progress: false
+
 jobs:
   radar:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     env:
       ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: 'true'
     steps:
@@ -31,4 +46,13 @@ jobs:
           INCLUDE_CANADIAN: '0'
           TOP_N: '10'
           MAX_VALIDATE: '50'
+          DASHBOARD_DIR: docs
         run: python main.py
+
+      # ---- publish the dashboard to GitHub Pages ----
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4

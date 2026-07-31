@@ -544,6 +544,62 @@ def format_message(results, mkt, yahoo_watches=None):
     return "\n".join(L)
 
 
+# ---------------------------------------------------------------- dashboard
+DASHBOARD_DIR = os.getenv("DASHBOARD_DIR", "docs")
+
+
+def _dash_ticker(r, extra=None):
+    """Trim a result dict down to the fields the dashboard renders."""
+    out = {
+        "sym": r.get("sym"),
+        "name": r.get("name") or "",
+        "price": r.get("price"),
+        "pct": r.get("pct"),
+        "mentions": r.get("mentions"),
+        "mentions_prev": r.get("mentions_prev"),
+        "mom": r.get("mom"),
+        "label": r.get("label") or "",
+        "flags": r.get("flags") or [],
+        "analyst_rec": r.get("analyst_rec"),
+        "analyst_target": r.get("analyst_target"),
+        "earnings": r.get("earnings"),
+        "headlines": (r.get("headlines") or [])[:2],
+    }
+    if extra:
+        out.update(extra)
+    return out
+
+
+def write_dashboard(results, gainers, yahoo_watches):
+    """Dump the run's data as JSON for the HTML dashboard to render."""
+    now = datetime.now(timezone.utc)
+    watch = []
+    for r in _worth_watching(results)[:4]:
+        prev = r.get("mentions_prev") or 0
+        tag = (f"{r['mentions']/max(prev,1):.0f}x Reddit mentions"
+               if prev else "new to Reddit radar")
+        watch.append(_dash_ticker(r, {"tag": tag, "source": "reddit"}))
+    for r in (yahoo_watches or [])[:4]:
+        watch.append(_dash_ticker(r, {"tag": "Yahoo most-active", "source": "yahoo"}))
+
+    payload = {
+        "generated_at": now.isoformat(),
+        "watch": watch,
+        "buzz": [_dash_ticker(r) for r in results],
+        "gainers": [_dash_ticker(g) for g in gainers],
+        "standouts": [{"sym": s, "name": n, "why": w}
+                      for s, n, w in _standouts(results, gainers)],
+    }
+    try:
+        os.makedirs(DASHBOARD_DIR, exist_ok=True)
+        path = os.path.join(DASHBOARD_DIR, "data.json")
+        with open(path, "w") as f:
+            json.dump(payload, f, indent=1)
+        print(f"[dashboard] wrote {path}")
+    except Exception as e:
+        print(f"[warn] dashboard write: {e}")
+
+
 # ---------------------------------------------------------------- main
 def _et_gate():
     """For scheduled cloud runs, only proceed at an intended ET hour (DST-proof)."""
@@ -600,6 +656,8 @@ def main():
         g["why"] = g["headlines"][0] if g["headlines"] else ""
 
     yahoo_watches = yahoo_watchlist()
+
+    write_dashboard(results, gainers, yahoo_watches)
 
     msg = format_message(results, gainers, yahoo_watches)
     print("\n" + msg)

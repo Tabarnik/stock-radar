@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stock Radar</title>
+<style>
+  :root {
+    color-scheme: light;
+    --plane:        #f9f9f7;
+    --surface:      #fcfcfb;
+    --ink:          #0b0b0b;
+    --ink-2:        #52514e;
+    --muted:        #898781;
+    --grid:         #e1e0d9;
+    --rule:         #c3c2b7;
+    --ring:         rgba(11,11,11,0.10);
+    --series:       #2a78d6;
+    --up:           #006300;
+    --down:         #d03b3b;
+    --warn:         #fab219;
+    --accent-soft:  #cde2fb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --plane:       #0d0d0d;
+      --surface:     #1a1a19;
+      --ink:         #ffffff;
+      --ink-2:       #c3c2b7;
+      --muted:       #898781;
+      --grid:        #2c2c2a;
+      --rule:        #383835;
+      --ring:        rgba(255,255,255,0.10);
+      --series:      #3987e5;
+      --up:          #0ca30c;
+      --down:        #e66767;
+      --accent-soft: #184f95;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane:       #0d0d0d;
+    --surface:     #1a1a19;
+    --ink:         #ffffff;
+    --ink-2:       #c3c2b7;
+    --muted:       #898781;
+    --grid:        #2c2c2a;
+    --rule:        #383835;
+    --ring:        rgba(255,255,255,0.10);
+    --series:      #3987e5;
+    --up:          #0ca30c;
+    --down:        #e66767;
+    --accent-soft: #184f95;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--plane);
+    color: var(--ink);
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 24px 20px 64px; }
+
+  /* ── header ─────────────────────────────────────────────── */
+  header {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    align-items: baseline; justify-content: space-between;
+    padding-bottom: 16px; margin-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+  .stamp { font-size: 13px; color: var(--muted); }
+  .disclaimer {
+    font-size: 12px; color: var(--muted); margin: -12px 0 24px;
+  }
+  .btn {
+    font: inherit; font-size: 13px; cursor: pointer;
+    background: var(--surface); color: var(--ink-2);
+    border: 1px solid var(--ring); border-radius: 7px;
+    padding: 5px 11px;
+  }
+  .btn:hover { color: var(--ink); }
+
+  /* ── stat tiles ─────────────────────────────────────────── */
+  .tiles {
+    display: grid; gap: 12px; margin-bottom: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .tile {
+    background: var(--surface); border: 1px solid var(--ring);
+    border-radius: 10px; padding: 14px 16px;
+  }
+  .tile .k { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .tile .v { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+  .tile .s { font-size: 12px; color: var(--ink-2); margin-top: 3px; }
+
+  /* ── sections ───────────────────────────────────────────── */
+  section { margin-bottom: 38px; }
+  h2 {
+    font-size: 16px; font-weight: 620; margin: 0 0 3px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .sub { font-size: 12.5px; color: var(--muted); margin: 0 0 14px; }
+
+  /* ── cards ──────────────────────────────────────────────── */
+  .cards {
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  .card {
+    background: var(--surface); border: 1px solid var(--ring);
+    border-radius: 10px; padding: 14px 16px;
+  }
+  .card-top {
+    display: flex; align-items: baseline; gap: 8px;
+    flex-wrap: wrap; margin-bottom: 3px;
+  }
+  .sym { font-size: 17px; font-weight: 660; letter-spacing: -0.01em; }
+  .co  { font-size: 12.5px; color: var(--muted); }
+  .price { font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .delta {
+    font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums;
+    margin-left: auto;
+  }
+  .delta.up   { color: var(--up); }
+  .delta.down { color: var(--down); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 9px 0 0; }
+  .chip {
+    font-size: 11.5px; padding: 2px 8px; border-radius: 999px;
+    border: 1px solid var(--ring); color: var(--ink-2);
+    background: var(--plane);
+  }
+  .chip.buy  { color: var(--up);   border-color: color-mix(in oklab, var(--up) 35%, transparent); }
+  .chip.risk { color: var(--ink-2); }
+  .chip.tag  { color: var(--series); border-color: color-mix(in oklab, var(--series) 35%, transparent); }
+  .chip.earn { color: var(--ink-2); }
+
+  .target {
+    font-size: 13px; color: var(--ink-2); margin-top: 9px;
+    font-variant-numeric: tabular-nums;
+  }
+  .target b { color: var(--ink); font-weight: 600; }
+
+  .news { margin: 10px 0 0; padding: 9px 0 0; border-top: 1px solid var(--grid); }
+  .news li {
+    list-style: none; font-size: 12.5px; color: var(--ink-2);
+    margin-bottom: 5px; padding-left: 17px; position: relative;
+    line-height: 1.45;
+  }
+  .news li:last-child { margin-bottom: 0; }
+  .news li::before {
+    content: "▸"; position: absolute; left: 3px; color: var(--muted);
+  }
+
+  /* ── mention chart ──────────────────────────────────────── */
+  .chart { background: var(--surface); border: 1px solid var(--ring);
+           border-radius: 10px; padding: 16px 18px; }
+  .row {
+    display: grid; grid-template-columns: 62px 1fr 62px;
+    align-items: center; gap: 10px; margin-bottom: 9px;
+  }
+  .row:last-child { margin-bottom: 0; }
+  .row .lbl {
+    font-size: 13px; font-weight: 600; text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .track {
+    display: block; width: 100%; height: 15px;
+    background: var(--grid); border-radius: 0 4px 4px 0;
+  }
+  .bar {
+    display: block; height: 100%; background: var(--series);
+    border-radius: 0 4px 4px 0; min-width: 3px;
+    animation: grow .55s cubic-bezier(.22,.9,.3,1) both;
+  }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: none; } }
+  .bar { transform-origin: left center; }
+  .row .num {
+    font-size: 12.5px; color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── gainers list ───────────────────────────────────────── */
+  table { width: 100%; border-collapse: collapse; }
+  .chart th {
+    font-size: 11.5px; font-weight: 500; color: var(--muted);
+    text-align: left; padding: 0 0 8px; border-bottom: 1px solid var(--grid);
+  }
+  .chart th.r, .chart td.r { text-align: right; }
+  .chart td {
+    padding: 10px 0; border-bottom: 1px solid var(--grid);
+    font-size: 13.5px; vertical-align: top;
+  }
+  .chart tr:last-child td { border-bottom: 0; }
+  .chart td.r { font-variant-numeric: tabular-nums; }
+
+  .empty {
+    font-size: 13px; color: var(--muted); font-style: italic;
+    background: var(--surface); border: 1px solid var(--ring);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  footer {
+    margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--rule);
+    font-size: 12px; color: var(--muted);
+  }
+  @media (max-width: 560px) {
+    .row { grid-template-columns: 52px 1fr 48px; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>📡 Stock Radar</h1>
+      <div class="stamp" id="stamp">Loading…</div>
+    </div>
+    <button class="btn" id="theme">◐ Theme</button>
+  </header>
+
+  <p class="disclaimer">
+    Trends and public data only — not financial advice. These names carry high risk.
+    Do your own research before risking money.
+  </p>
+
+  <div class="tiles" id="tiles"></div>
+
+  <section>
+    <h2>🔭 Worth Watching</h2>
+    <p class="sub">Rising chatter or analyst buy with room to move — a research starting point, not a prediction.</p>
+    <div id="watch"></div>
+  </section>
+
+  <section>
+    <h2>💬 Reddit Mention Volume</h2>
+    <p class="sub">Total mentions across tracked subreddits this run.</p>
+    <div id="chart"></div>
+  </section>
+
+  <section>
+    <h2>🔥 Reddit Buzz</h2>
+    <p class="sub">Most-discussed tickers, with price action and analyst context.</p>
+    <div id="buzz"></div>
+  </section>
+
+  <section>
+    <h2>📈 Market Gainers Today</h2>
+    <p class="sub">Biggest movers across US exchanges — already up, not a forecast.</p>
+    <div id="gainers"></div>
+  </section>
+
+  <footer>
+    Auto-generated by <b>reddit-stock-radar</b> · Sources: ApeWisdom (Reddit) + Yahoo Finance
+  </footer>
+
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+
+const money = p => (typeof p === "number") ? "$" + p.toFixed(2) : "n/a";
+const pctTxt = p => (typeof p === "number") ? (p >= 0 ? "+" : "") + p.toFixed(1) + "%" : "";
+const dirClass = p => (typeof p === "number") ? (p >= 0 ? "up" : "down") : "";
+
+/* ── theme toggle ─────────────────────────────────────────── */
+const saved = localStorage.getItem("radar-theme");
+if (saved) document.documentElement.setAttribute("data-theme", saved);
+$("theme").onclick = () => {
+  const cur = document.documentElement.getAttribute("data-theme");
+  const sysDark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const next = cur ? (cur === "dark" ? "light" : "dark") : (sysDark ? "light" : "dark");
+  document.documentElement.setAttribute("data-theme", next);
+  localStorage.setItem("radar-theme", next);
+};
+
+/* ── card renderer ────────────────────────────────────────── */
+function card(t) {
+  const chips = [];
+  if (t.tag) chips.push(`<span class="chip tag">${esc(t.tag)}</span>`);
+  if (t.analyst_rec) {
+    const buy = /BUY/.test(t.analyst_rec);
+    chips.push(`<span class="chip ${buy ? "buy" : ""}">${esc(t.analyst_rec.replace(/_/g, " "))}</span>`);
+  }
+  if (t.earnings) chips.push(`<span class="chip earn">📅 ${esc(t.earnings)}</span>`);
+  (t.flags || []).forEach(f => chips.push(`<span class="chip risk">⚠️ ${esc(f)}</span>`));
+
+  let target = "";
+  if (typeof t.analyst_target === "number" && typeof t.price === "number" && t.price > 0) {
+    const up = (t.analyst_target - t.price) / t.price * 100;
+    target = `<div class="target">Analyst target <b>${money(t.analyst_target)}</b>
+      <span class="${dirClass(up)}" style="color:var(--${up >= 0 ? "up" : "down"})">
+      ${pctTxt(up)}</span></div>`;
+  }
+
+  const news = (t.headlines || []).length
+    ? `<ul class="news">${t.headlines.map(h => `<li>${esc(h)}</li>`).join("")}</ul>` : "";
+
+  const mentions = (typeof t.mentions === "number")
+    ? `<span class="co">${t.mentions.toLocaleString()} mentions ${esc(t.mom || "")}</span>` : "";
+
+  return `<div class="card">
+    <div class="card-top">
+      <span class="sym">$${esc(t.sym)}</span>
+      <span class="price">${money(t.price)}</span>
+      <span class="delta ${dirClass(t.pct)}">${pctTxt(t.pct)}</span>
+    </div>
+    <div class="card-top"><span class="co">${esc((t.name || "").slice(0, 34))}</span> ${mentions}</div>
+    ${chips.length ? `<div class="chips">${chips.join("")}</div>` : ""}
+    ${target}
+    ${news}
+  </div>`;
+}
+
+/* ── render ───────────────────────────────────────────────── */
+function render(d) {
+  const when = new Date(d.generated_at);
+  $("stamp").textContent = "Updated " + when.toLocaleString(undefined, {
+    month: "short", day: "numeric", hour: "numeric", minute: "2-digit"
+  });
+
+  const buzz = d.buzz || [], watch = d.watch || [], gainers = d.gainers || [];
+  const moved = buzz.filter(b => typeof b.pct === "number");
+  const upN = moved.filter(b => b.pct >= 0).length;
+  const top = [...moved].sort((a, b) => b.pct - a.pct)[0];
+  const mostTalked = buzz[0];
+
+  $("tiles").innerHTML = [
+    { k: "Tickers tracked", v: buzz.length, s: `${watch.length} worth watching` },
+    { k: "Up today", v: `${upN}/${moved.length}`, s: moved.length ? `${moved.length - upN} down` : "—" },
+    top ? { k: "Best mover", v: `$${esc(top.sym)}`, s: pctTxt(top.pct), c: dirClass(top.pct) } : null,
+    mostTalked ? { k: "Most discussed", v: `$${esc(mostTalked.sym)}`,
+                   s: `${(mostTalked.mentions || 0).toLocaleString()} mentions` } : null,
+  ].filter(Boolean).map(t => `<div class="tile">
+      <div class="k">${t.k}</div>
+      <div class="v">${t.v}</div>
+      <div class="s" ${t.c ? `style="color:var(--${t.c === "up" ? "up" : "down"})"` : ""}>${t.s}</div>
+    </div>`).join("");
+
+  $("watch").innerHTML = watch.length
+    ? `<div class="cards">${watch.map(card).join("")}</div>`
+    : `<div class="empty">Nothing stands out today.</div>`;
+
+  // mention volume — single series, direct-labeled, no legend needed
+  const withM = buzz.filter(b => typeof b.mentions === "number" && b.mentions > 0);
+  const max = Math.max(...withM.map(b => b.mentions), 1);
+  $("chart").innerHTML = withM.length
+    ? `<div class="chart">${withM.map(b => `<div class="row">
+        <span class="lbl">$${esc(b.sym)}</span>
+        <span class="track"><span class="bar" style="width:${(b.mentions / max * 100).toFixed(1)}%"
+          title="${esc(b.sym)}: ${b.mentions.toLocaleString()} mentions"></span></span>
+        <span class="num">${b.mentions.toLocaleString()}</span>
+      </div>`).join("")}</div>`
+    : `<div class="empty">No mention data this run.</div>`;
+
+  $("buzz").innerHTML = buzz.length
+    ? `<div class="cards">${buzz.map(card).join("")}</div>`
+    : `<div class="empty">No clear signal today.</div>`;
+
+  $("gainers").innerHTML = gainers.length
+    ? `<div class="chart"><table>
+        <thead><tr><th>Ticker</th><th>Company</th><th class="r">Price</th><th class="r">Change</th></tr></thead>
+        <tbody>${gainers.map(g => `<tr>
+          <td><b>$${esc(g.sym)}</b></td>
+          <td>${esc((g.name || "").slice(0, 40))}
+            ${(g.headlines || [])[0] ? `<div class="co" style="margin-top:3px">${esc(g.headlines[0])}</div>` : ""}</td>
+          <td class="r">${money(g.price)}</td>
+          <td class="r ${dirClass(g.pct)}" style="color:var(--${g.pct >= 0 ? "up" : "down"});font-weight:600">
+            ${pctTxt(g.pct)}</td>
+        </tr>`).join("")}</tbody></table></div>`
+    : `<div class="empty">Unavailable.</div>`;
+}
+
+fetch("data.json?" + Date.now())
+  .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(render)
+  .catch(e => {
+    $("stamp").textContent = "Could not load data.json";
+    $("tiles").innerHTML = `<div class="empty">
+      Waiting for the first radar run to write <b>data.json</b>. (${esc(e.message)})</div>`;
+  });
+</script>
+</body>
+</html>
