@@ -1,35 +1,13 @@
 {
- "generated_at": "2026-07-31T14:28:35.952578+00:00",
+ "generated_at": "2026-07-31T15:03:08.867509+00:00",
  "watch": [
-  {
-   "sym": "AAPL",
-   "name": "Apple",
-   "price": 302.82000732421875,
-   "pct": -3.045319692628267,
-   "mentions": 772,
-   "mentions_prev": 212,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "BUY",
-   "analyst_target": 321.6566,
-   "earnings": null,
-   "headlines": [
-    "Stock market today: Dow, S&P 500, Nasdaq give up gains as 10-year yield surges, Big Tech's AI spending ramps up",
-    "Tim Cook's final earnings call as Apple CEO"
-   ],
-   "tag": "4x Reddit mentions",
-   "source": "reddit"
-  },
   {
    "sym": "RDDT",
    "name": "Reddit",
-   "price": 137.8300018310547,
-   "pct": -13.586151570593655,
-   "mentions": 748,
-   "mentions_prev": 84,
+   "price": 140.3350067138672,
+   "pct": -12.01561460924603,
+   "mentions": 909,
+   "mentions_prev": 98,
    "mom": "\u2191",
    "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
    "flags": [
@@ -39,19 +17,119 @@
    "analyst_target": 226.4697,
    "earnings": null,
    "headlines": [
-    "RDDT Stock Is In The Limelight Today After Massive Pre-Market Fall \u2014 GOOGL Friction Raises AI Licensing Risks, Says Wells Fargo",
-    "The Best House On The Block Costs The Most: RDDT"
+    "Reddit Shares Plunge by Record on Dearth of New AI Deals",
+    "Reddit shares slump after management warns of search traffic volatility despite strong earnings beat",
+    "RDDT Stock Is In The Limelight Today After Massive Pre-Market Fall \u2014 GOOGL Friction Raises AI Licensing Risks, Says Wells Fargo"
    ],
+   "band": [
+    140.3350067138672,
+    179.22999572753906
+   ],
+   "spark": [
+    179.22999572753906,
+    178.44000244140625,
+    177.99000549316406,
+    178.0399932861328,
+    140.3350067138672
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$27.0B"
+    ],
+    [
+     "Float",
+     "138.5M"
+    ],
+    [
+     "Short interest",
+     "12.1%"
+    ],
+    [
+     "Avg vol",
+     "5.0M"
+    ],
+    [
+     "Vol today",
+     "14.4M"
+    ],
+    [
+     "52w range",
+     "$119.27 \u2013 $282.95"
+    ]
+   ],
+   "reason": "909 mentions today, 9x yesterday's 98. down 12% today while chatter keeps climbing; analyst consensus is buy with a $226.47 mean target (+61%); the scan flagged squeeze/penny sub.",
    "tag": "9x Reddit mentions",
+   "source": "reddit"
+  },
+  {
+   "sym": "AAPL",
+   "name": "Apple",
+   "price": 302.6499938964844,
+   "pct": -3.099753340125998,
+   "mentions": 790,
+   "mentions_prev": 198,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "BUY",
+   "analyst_target": 321.6566,
+   "earnings": null,
+   "headlines": [
+    "Apple stock plunges: CEO Tim Cook explains weak revenue forecast",
+    "Apple is growing without the AI spending spree engulfing Big Tech: Chart of the Day",
+    "Tim Cook's final earnings call as Apple CEO"
+   ],
+   "band": [
+    302.6050109863281,
+    340.0799865722656
+   ],
+   "spark": [
+    336.9100036621094,
+    340.0799865722656,
+    338.19000244140625,
+    333.42999267578125,
+    302.6050109863281
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$4.4T"
+    ],
+    [
+     "Float",
+     "14.6B"
+    ],
+    [
+     "Short interest",
+     "1.0%"
+    ],
+    [
+     "Avg vol",
+     "55.6M"
+    ],
+    [
+     "Vol today",
+     "48.0M"
+    ],
+    [
+     "52w range",
+     "$201.50 \u2013 $344.57"
+    ]
+   ],
+   "reason": "790 mentions today, 4x yesterday's 198. price is -3.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $321.66 mean target (+6%); the scan flagged squeeze/penny sub.",
+   "tag": "4x Reddit mentions",
    "source": "reddit"
   },
   {
    "sym": "AMZN",
    "name": "Amazon",
-   "price": 269.56500244140625,
-   "pct": 4.502811568678528,
-   "mentions": 647,
-   "mentions_prev": 132,
+   "price": 270.260009765625,
+   "pct": 4.772246468550112,
+   "mentions": 658,
+   "mentions_prev": 131,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -61,17 +139,56 @@
    "analyst_target": 313.0687,
    "earnings": null,
    "headlines": [
-    "Stock market today: Dow, S&P 500, Nasdaq give up gains as 10-year yield surges, Big Tech's AI spending ramps up",
-    "Amazon stock soars after Q2 earnings beat expectations as AI, chip businesses see $25 billion run rate"
+    "Amazon's AWS business has taken on a life of its own: Earnings call takeaways",
+    "Amazon's surging cloud business is growing at a breakneck pace: Chart",
+    "The AI spending boom is forcing a rethink on stock buybacks: One Big Investment Idea"
    ],
+   "band": [
+    226.64999389648438,
+    270.260009765625
+   ],
+   "spark": [
+    231.38999938964844,
+    230.86000061035156,
+    226.64999389648438,
+    235.5,
+    270.260009765625
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$2.9T"
+    ],
+    [
+     "Float",
+     "9.8B"
+    ],
+    [
+     "Short interest",
+     "1.1%"
+    ],
+    [
+     "Avg vol",
+     "48.2M"
+    ],
+    [
+     "Vol today",
+     "60.5M"
+    ],
+    [
+     "52w range",
+     "$196.00 \u2013 $278.56"
+    ]
+   ],
+   "reason": "658 mentions today, 5x yesterday's 131. price is +4.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $313.07 mean target (+16%); the scan flagged squeeze/penny sub.",
    "tag": "5x Reddit mentions",
    "source": "reddit"
   },
   {
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
-   "price": 9.12,
-   "pct": 0.3296674,
+   "price": 9.16,
+   "pct": 0.77007365,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -82,16 +199,51 @@
    "earnings": null,
    "headlines": [
     "European Equities Traded in the US as American Depositary Receipts Track Sharply Higher in Thursday Trading",
-    "Nokia Bulls Have One Level Left to Defend After 52% Crash From June Peak"
+    "Nokia Bulls Have One Level Left to Defend After 52% Crash From June Peak",
+    "1 Nvidia-Backed AI Stock Insiders Are Quietly Loading Up On"
    ],
+   "band": [
+    8.40999984741211,
+    9.279999732971191
+   ],
+   "spark": [
+    9.279999732971191,
+    8.930000305175781,
+    8.40999984741211,
+    9.09000015258789,
+    9.15999984741211
+   ],
+   "stats": [
+    [
+     "Float",
+     "4.4B"
+    ],
+    [
+     "Short interest",
+     "0.9%"
+    ],
+    [
+     "Avg vol",
+     "111.0M"
+    ],
+    [
+     "Vol today",
+     "43.3M"
+    ],
+    [
+     "52w range",
+     "$4.00 \u2013 $17.45"
+    ]
+   ],
+   "reason": "Price is +0.8% \u2014 the attention has moved further than the price. analyst consensus is buy with a $15.02 mean target (+64%).",
    "tag": "Yahoo most-active",
    "source": "yahoo"
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
-   "price": 196.68,
-   "pct": 0.84085286,
+   "price": 197.57,
+   "pct": 1.2971771,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -101,17 +253,56 @@
    "analyst_target": 302.82758,
    "earnings": null,
    "headlines": [
-    "Apple CEO Tim Cook says this '100-year flood' won't be receding anytime soon",
-    "Study Finds That A $1.2 Million Retirement and a $4 Million Retirement Look Almost Identical In Terms Of Spending"
+    "Amazon's AWS business has taken on a life of its own: Earnings call takeaways",
+    "Microsoft's $41 billion AI bet just cleared a major test: Chart of the Day",
+    "Qualcomm's automotive segment is the highlight of Q3: CFO"
    ],
+   "band": [
+    190.00999450683594,
+    197.57000732421875
+   ],
+   "spark": [
+    196.50999450683594,
+    197.00999450683594,
+    190.00999450683594,
+    195.0399932861328,
+    197.57000732421875
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$4.8T"
+    ],
+    [
+     "Float",
+     "23.2B"
+    ],
+    [
+     "Short interest",
+     "1.4%"
+    ],
+    [
+     "Avg vol",
+     "152.6M"
+    ],
+    [
+     "Vol today",
+     "38.5M"
+    ],
+    [
+     "52w range",
+     "$164.07 \u2013 $236.54"
+    ]
+   ],
+   "reason": "Price is +1.3% \u2014 the attention has moved further than the price. analyst consensus is strong buy with a $302.83 mean target (+53%).",
    "tag": "Yahoo most-active",
    "source": "yahoo"
   },
   {
    "sym": "SKHY",
    "name": "SK hynix Inc.",
-   "price": 149.05,
-   "pct": 0.033559095,
+   "price": 148.345,
+   "pct": -0.43981788,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -122,16 +313,51 @@
    "earnings": null,
    "headlines": [
     "Apple CEO Tim Cook says this '100-year flood' won't be receding anytime soon",
+    "Stocks to Watch: Apple, Amazon, SK Hynix, Roblox",
     "Stock markets rally on tech rebound"
    ],
+   "band": [
+    126.79000091552734,
+    149.0
+   ],
+   "spark": [
+    143.02000427246094,
+    130.1699981689453,
+    126.79000091552734,
+    149.0,
+    148.25999450683594
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$1.1T"
+    ],
+    [
+     "Float",
+     "5.7B"
+    ],
+    [
+     "Avg vol",
+     "55.3M"
+    ],
+    [
+     "Vol today",
+     "28.2M"
+    ],
+    [
+     "52w range",
+     "$124.80 \u2013 $194.80"
+    ]
+   ],
+   "reason": "Price is -0.4% \u2014 the attention has moved further than the price. analyst consensus is buy with a $246.37 mean target (+66%).",
    "tag": "Yahoo most-active",
    "source": "yahoo"
   },
   {
    "sym": "IREN",
    "name": "IREN LIMITED",
-   "price": 36.675,
-   "pct": -4.1427054,
+   "price": 36.96,
+   "pct": -3.3978026,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -142,8 +368,47 @@
    "earnings": null,
    "headlines": [
     "Bitcoin Miner IREN Stock Surges 30% After CEO Says Demand Outstrips Supply",
-    "IREN Ltd. (IREN) is Gaining Momentum. This Tech Giant May Be Playing a Big Role"
+    "IREN Ltd. (IREN) is Gaining Momentum. This Tech Giant May Be Playing a Big Role",
+    "TeraWulf and Cipher Digital Are up 50% in 2026 While IREN Lags Behind. Is It Time to Buy IREN for a Catch-Up Trade?"
    ],
+   "band": [
+    29.309999465942383,
+    38.2599983215332
+   ],
+   "spark": [
+    36.290000915527344,
+    33.93000030517578,
+    29.309999465942383,
+    38.2599983215332,
+    36.970001220703125
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$13.2B"
+    ],
+    [
+     "Float",
+     "308.9M"
+    ],
+    [
+     "Short interest",
+     "27.1%"
+    ],
+    [
+     "Avg vol",
+     "49.2M"
+    ],
+    [
+     "Vol today",
+     "27.9M"
+    ],
+    [
+     "52w range",
+     "$14.72 \u2013 $76.87"
+    ]
+   ],
+   "reason": "Price is -3.4% \u2014 the attention has moved further than the price. analyst consensus is buy with a $81.73 mean target (+121%).",
    "tag": "Yahoo most-active",
    "source": "yahoo"
   }
@@ -152,10 +417,10 @@
   {
    "sym": "MU",
    "name": "Micron Technology",
-   "price": 849.0468139648438,
-   "pct": -5.964478909145785,
-   "mentions": 1161,
-   "mentions_prev": 1687,
+   "price": 846.580078125,
+   "pct": -6.237680323105508,
+   "mentions": 1156,
+   "mentions_prev": 1707,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -166,36 +431,51 @@
    "earnings": null,
    "headlines": [
     "Apple CEO Tim Cook says this '100-year flood' won't be receding anytime soon",
+    "Stocks to Watch: Apple, Amazon, SK Hynix, Roblox",
     "Intel Stock's Operating Margin Turned Positive While Its Foundry Kept Losing Money"
-   ]
-  },
-  {
-   "sym": "AAPL",
-   "name": "Apple",
-   "price": 302.82000732421875,
-   "pct": -3.045319692628267,
-   "mentions": 772,
-   "mentions_prev": 212,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
    ],
-   "analyst_rec": "BUY",
-   "analyst_target": 321.6566,
-   "earnings": null,
-   "headlines": [
-    "Stock market today: Dow, S&P 500, Nasdaq give up gains as 10-year yield surges, Big Tech's AI spending ramps up",
-    "Tim Cook's final earnings call as Apple CEO"
-   ]
+   "band": [
+    739.0,
+    900.2000122070312
+   ],
+   "spark": [
+    900.2000122070312,
+    820.530029296875,
+    739.0,
+    874.6599731445312,
+    846.630126953125
+   ],
+   "stats": [
+    [
+     "Float",
+     "1.1B"
+    ],
+    [
+     "Short interest",
+     "3.2%"
+    ],
+    [
+     "Avg vol",
+     "53.4M"
+    ],
+    [
+     "Vol today",
+     "26.5M"
+    ],
+    [
+     "52w range",
+     "$103.38 \u2013 $1255.00"
+    ]
+   ],
+   "reason": "1,156 mentions, cooling from 1,707. price is -6.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,507.38 mean target (+78%); the scan flagged squeeze/penny sub."
   },
   {
    "sym": "RDDT",
    "name": "Reddit",
-   "price": 137.8300018310547,
-   "pct": -13.586151570593655,
-   "mentions": 748,
-   "mentions_prev": 84,
+   "price": 140.3350067138672,
+   "pct": -12.01561460924603,
+   "mentions": 909,
+   "mentions_prev": 98,
    "mom": "\u2191",
    "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
    "flags": [
@@ -205,17 +485,115 @@
    "analyst_target": 226.4697,
    "earnings": null,
    "headlines": [
-    "RDDT Stock Is In The Limelight Today After Massive Pre-Market Fall \u2014 GOOGL Friction Raises AI Licensing Risks, Says Wells Fargo",
-    "The Best House On The Block Costs The Most: RDDT"
-   ]
+    "Reddit Shares Plunge by Record on Dearth of New AI Deals",
+    "Reddit shares slump after management warns of search traffic volatility despite strong earnings beat",
+    "RDDT Stock Is In The Limelight Today After Massive Pre-Market Fall \u2014 GOOGL Friction Raises AI Licensing Risks, Says Wells Fargo"
+   ],
+   "band": [
+    140.3350067138672,
+    179.22999572753906
+   ],
+   "spark": [
+    179.22999572753906,
+    178.44000244140625,
+    177.99000549316406,
+    178.0399932861328,
+    140.3350067138672
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$27.0B"
+    ],
+    [
+     "Float",
+     "138.5M"
+    ],
+    [
+     "Short interest",
+     "12.1%"
+    ],
+    [
+     "Avg vol",
+     "5.0M"
+    ],
+    [
+     "Vol today",
+     "14.4M"
+    ],
+    [
+     "52w range",
+     "$119.27 \u2013 $282.95"
+    ]
+   ],
+   "reason": "909 mentions today, 9x yesterday's 98. down 12% today while chatter keeps climbing; analyst consensus is buy with a $226.47 mean target (+61%); the scan flagged squeeze/penny sub."
+  },
+  {
+   "sym": "AAPL",
+   "name": "Apple",
+   "price": 302.6499938964844,
+   "pct": -3.099753340125998,
+   "mentions": 790,
+   "mentions_prev": 198,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "BUY",
+   "analyst_target": 321.6566,
+   "earnings": null,
+   "headlines": [
+    "Apple stock plunges: CEO Tim Cook explains weak revenue forecast",
+    "Apple is growing without the AI spending spree engulfing Big Tech: Chart of the Day",
+    "Tim Cook's final earnings call as Apple CEO"
+   ],
+   "band": [
+    302.6050109863281,
+    340.0799865722656
+   ],
+   "spark": [
+    336.9100036621094,
+    340.0799865722656,
+    338.19000244140625,
+    333.42999267578125,
+    302.6050109863281
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$4.4T"
+    ],
+    [
+     "Float",
+     "14.6B"
+    ],
+    [
+     "Short interest",
+     "1.0%"
+    ],
+    [
+     "Avg vol",
+     "55.6M"
+    ],
+    [
+     "Vol today",
+     "48.0M"
+    ],
+    [
+     "52w range",
+     "$201.50 \u2013 $344.57"
+    ]
+   ],
+   "reason": "790 mentions today, 4x yesterday's 198. price is -3.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $321.66 mean target (+6%); the scan flagged squeeze/penny sub."
   },
   {
    "sym": "MSFT",
    "name": "Microsoft",
-   "price": 453.5849914550781,
-   "pct": 1.1405426126782388,
-   "mentions": 747,
-   "mentions_prev": 1952,
+   "price": 451.6099853515625,
+   "pct": 0.7001550497385495,
+   "mentions": 699,
+   "mentions_prev": 2075,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -225,17 +603,56 @@
    "analyst_target": 561.5792,
    "earnings": null,
    "headlines": [
-    "Stock market today: Dow, S&P 500, Nasdaq give up gains as 10-year yield surges, Big Tech's AI spending ramps up",
+    "Apple stock plunges: CEO Tim Cook explains weak revenue forecast",
+    "Apple is growing without the AI spending spree engulfing Big Tech: Chart of the Day",
     "The AI spending boom is forcing a rethink on stock buybacks: One Big Investment Idea"
-   ]
+   ],
+   "band": [
+    389.1000061035156,
+    451.6099853515625
+   ],
+   "spark": [
+    389.1000061035156,
+    393.3500061035156,
+    390.5400085449219,
+    451.1000061035156,
+    451.6099853515625
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$3.4T"
+    ],
+    [
+     "Float",
+     "7.4B"
+    ],
+    [
+     "Short interest",
+     "1.2%"
+    ],
+    [
+     "Avg vol",
+     "39.9M"
+    ],
+    [
+     "Vol today",
+     "18.4M"
+    ],
+    [
+     "52w range",
+     "$349.20 \u2013 $553.72"
+    ]
+   ],
+   "reason": "699 mentions, cooling from 2,075. price is +0.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $561.58 mean target (+24%); the scan flagged squeeze/penny sub."
   },
   {
    "sym": "AMZN",
    "name": "Amazon",
-   "price": 269.56500244140625,
-   "pct": 4.502811568678528,
-   "mentions": 647,
-   "mentions_prev": 132,
+   "price": 270.260009765625,
+   "pct": 4.772246468550112,
+   "mentions": 658,
+   "mentions_prev": 131,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -245,17 +662,56 @@
    "analyst_target": 313.0687,
    "earnings": null,
    "headlines": [
-    "Stock market today: Dow, S&P 500, Nasdaq give up gains as 10-year yield surges, Big Tech's AI spending ramps up",
-    "Amazon stock soars after Q2 earnings beat expectations as AI, chip businesses see $25 billion run rate"
-   ]
+    "Amazon's AWS business has taken on a life of its own: Earnings call takeaways",
+    "Amazon's surging cloud business is growing at a breakneck pace: Chart",
+    "The AI spending boom is forcing a rethink on stock buybacks: One Big Investment Idea"
+   ],
+   "band": [
+    226.64999389648438,
+    270.260009765625
+   ],
+   "spark": [
+    231.38999938964844,
+    230.86000061035156,
+    226.64999389648438,
+    235.5,
+    270.260009765625
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$2.9T"
+    ],
+    [
+     "Float",
+     "9.8B"
+    ],
+    [
+     "Short interest",
+     "1.1%"
+    ],
+    [
+     "Avg vol",
+     "48.2M"
+    ],
+    [
+     "Vol today",
+     "60.5M"
+    ],
+    [
+     "52w range",
+     "$196.00 \u2013 $278.56"
+    ]
+   ],
+   "reason": "658 mentions today, 5x yesterday's 131. price is +4.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $313.07 mean target (+16%); the scan flagged squeeze/penny sub."
   },
   {
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
-   "price": 740.1649780273438,
-   "pct": -0.4257896186964458,
-   "mentions": 560,
-   "mentions_prev": 957,
+   "price": 742.25,
+   "pct": -0.14529213135485464,
+   "mentions": 565,
+   "mentions_prev": 929,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -266,16 +722,43 @@
    "earnings": null,
    "headlines": [
     "Her Wisconsin Pension Rose 2.1%. The Other Part Jumped 18%. Only One Is Safe to Spend.",
-    "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Friday as Amazon Earnings Offset Apple Weakness"
-   ]
+    "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Friday as Amazon Earnings Offset Apple Weakness",
+    "How Much RTX Are You Quietly Betting On?"
+   ],
+   "band": [
+    729.4600219726562,
+    742.25
+   ],
+   "spark": [
+    739.0900268554688,
+    740.8599853515625,
+    729.4600219726562,
+    741.6900024414062,
+    742.25
+   ],
+   "stats": [
+    [
+     "Avg vol",
+     "52.6M"
+    ],
+    [
+     "Vol today",
+     "17.3M"
+    ],
+    [
+     "52w range",
+     "$619.29 \u2013 $760.40"
+    ]
+   ],
+   "reason": "565 mentions, cooling from 929. price is -0.1% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub."
   },
   {
    "sym": "SNDK",
    "name": "Sandisk",
-   "price": 1231.6500244140625,
-   "pct": -9.036193984471454,
-   "mentions": 497,
-   "mentions_prev": 627,
+   "price": 1255.85986328125,
+   "pct": -7.248170566512512,
+   "mentions": 507,
+   "mentions_prev": 640,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -286,16 +769,55 @@
    "earnings": "Aug 05 (5d)",
    "headlines": [
     "Memory Stocks Are Crashing\u2014Analysts\u2019 Lofty Targets Might Not Survive This Drop",
-    "Buy 5 AI Infrastructure Stocks as Big Techs Assure Lasting AI Frenzy"
-   ]
+    "Buy 5 AI Infrastructure Stocks as Big Techs Assure Lasting AI Frenzy",
+    "Tesla Snaps Losing Streak. Can It Start To Rebuild Momentum?"
+   ],
+   "band": [
+    1015.8900146484375,
+    1279.9599609375
+   ],
+   "spark": [
+    1278.22998046875,
+    1096.0999755859375,
+    1015.8900146484375,
+    1279.9599609375,
+    1255.85986328125
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$186.0B"
+    ],
+    [
+     "Float",
+     "146.0M"
+    ],
+    [
+     "Short interest",
+     "8.3%"
+    ],
+    [
+     "Avg vol",
+     "13.9M"
+    ],
+    [
+     "Vol today",
+     "12.1M"
+    ],
+    [
+     "52w range",
+     "$40.10 \u2013 $2354.39"
+    ]
+   ],
+   "reason": "507 mentions, cooling from 640. price is -7.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,217.77 mean target (+77%); earnings land Aug 05 (5d); the scan flagged squeeze/penny sub."
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA",
-   "price": 196.5050048828125,
-   "pct": -0.1696793405714816,
-   "mentions": 318,
-   "mentions_prev": 318,
+   "price": 197.57000732421875,
+   "pct": 0.3713732157848553,
+   "mentions": 330,
+   "mentions_prev": 311,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -305,16 +827,55 @@
    "analyst_target": 302.82758,
    "earnings": null,
    "headlines": [
-    "Apple CEO Tim Cook says this '100-year flood' won't be receding anytime soon",
-    "Study Finds That A $1.2 Million Retirement and a $4 Million Retirement Look Almost Identical In Terms Of Spending"
-   ]
+    "Amazon's AWS business has taken on a life of its own: Earnings call takeaways",
+    "Microsoft's $41 billion AI bet just cleared a major test: Chart of the Day",
+    "Qualcomm's automotive segment is the highlight of Q3: CFO"
+   ],
+   "band": [
+    190.00999450683594,
+    197.57000732421875
+   ],
+   "spark": [
+    196.50999450683594,
+    197.00999450683594,
+    190.00999450683594,
+    195.0399932861328,
+    197.57000732421875
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$4.8T"
+    ],
+    [
+     "Float",
+     "23.2B"
+    ],
+    [
+     "Short interest",
+     "1.4%"
+    ],
+    [
+     "Avg vol",
+     "152.6M"
+    ],
+    [
+     "Vol today",
+     "38.5M"
+    ],
+    [
+     "52w range",
+     "$164.07 \u2013 $236.54"
+    ]
+   ],
+   "reason": "330 mentions, flat against yesterday. price is +0.4% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+53%); the scan flagged squeeze/penny sub."
   },
   {
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
-   "price": 683.780029296875,
-   "pct": -0.6494690451325826,
-   "mentions": 305,
+   "price": 685.4600219726562,
+   "pct": -0.4053727609653106,
+   "mentions": 324,
    "mentions_prev": 661,
    "mom": "\u2193",
    "label": "",
@@ -325,17 +886,44 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Stock Market Today: Dow Rises But Apple Dives On Weak Forecast; Amazon Surges On Earnings (Live Coverage)",
-    "Forget QQQ: VGT\u2019s Pure Tech Focus Has Delivered 40% More Over Five Years"
-   ]
+    "Stock Market Today: Dow Turns Lower As Apple Dives On Soft View; Amazon Surges On Earnings (Live Coverage)",
+    "Forget QQQ: VGT\u2019s Pure Tech Focus Has Delivered 40% More Over Five Years",
+    "Apple Sinks 8%, Amazon Soars 12% as Traders Pick Tech Earnings Winners and Losers"
+   ],
+   "band": [
+    661.72998046875,
+    685.4600219726562
+   ],
+   "spark": [
+    682.1199951171875,
+    675.489990234375,
+    661.72998046875,
+    683.5499877929688,
+    685.4600219726562
+   ],
+   "stats": [
+    [
+     "Avg vol",
+     "44.0M"
+    ],
+    [
+     "Vol today",
+     "23.0M"
+    ],
+    [
+     "52w range",
+     "$551.68 \u2013 $748.65"
+    ]
+   ],
+   "reason": "324 mentions, cooling from 661. price is -0.4% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub."
   },
   {
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
-   "price": 547.9000244140625,
-   "pct": 0.9430732704195517,
-   "mentions": 257,
-   "mentions_prev": 982,
+   "price": 552.5900268554688,
+   "pct": 1.8071419672362894,
+   "mentions": 256,
+   "mentions_prev": 1031,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -346,16 +934,55 @@
    "earnings": null,
    "headlines": [
     "Tech stocks today: Amazon beats, Apple sinks",
+    "Apple is growing without the AI spending spree engulfing Big Tech: Chart of the Day",
     "The AI spending boom is forcing a rethink on stock buybacks: One Big Investment Idea"
-   ]
+   ],
+   "band": [
+    539.030029296875,
+    593.8699951171875
+   ],
+   "spark": [
+    593.8699951171875,
+    593.4099731445312,
+    585.6099853515625,
+    539.030029296875,
+    552.5900268554688
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$1.4T"
+    ],
+    [
+     "Float",
+     "2.2B"
+    ],
+    [
+     "Short interest",
+     "1.7%"
+    ],
+    [
+     "Avg vol",
+     "18.1M"
+    ],
+    [
+     "Vol today",
+     "9.3M"
+    ],
+    [
+     "52w range",
+     "$520.26 \u2013 $796.25"
+    ]
+   ],
+   "reason": "256 mentions, cooling from 1,031. price is +1.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $778.68 mean target (+41%); the scan flagged squeeze/penny sub."
   }
  ],
  "gainers": [
   {
    "sym": "IESC",
    "name": "IES Holdings, Inc.",
-   "price": 723.055,
-   "pct": 26.50996,
+   "price": 749.55,
+   "pct": 31.145678,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -367,13 +994,17 @@
    "headlines": [
     "Data Center Builder Spikes After Goldman Initiates Coverage At Buy Rating",
     "Nvidia\u2019s CEO Just Predicted a New Blue-Collar Millionaire Class. Here Are 5 Stocks Worth Watching."
-   ]
+   ],
+   "band": null,
+   "spark": [],
+   "stats": [],
+   "reason": ""
   },
   {
    "sym": "AXTI",
    "name": "AXT Inc",
-   "price": 59.37,
-   "pct": 26.480614,
+   "price": 59.02,
+   "pct": 25.734987,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -385,13 +1016,17 @@
    "headlines": [
     "AXT Inc (AXTI) (Q2 2026) Earnings Call Highlights: Record Revenue and Profitability Surge on ...",
     "AXT (AXTI) Q2 2026 Earnings Call Transcript"
-   ]
+   ],
+   "band": null,
+   "spark": [],
+   "stats": [],
+   "reason": ""
   },
   {
-   "sym": "NWL",
-   "name": "Newell Brands Inc.",
-   "price": 6.2,
-   "pct": 20.622566,
+   "sym": "AMZN",
+   "name": "Amazon.com, Inc.",
+   "price": 270.135,
+   "pct": 14.70701,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -401,15 +1036,19 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "We Found 5 Hot Summer Bargain Dividend Stocks Trading Under $10 Everyone Knows",
-    "Newell Brands Q2 Earnings Call Highlights"
-   ]
+    "Amazon's AWS business has taken on a life of its own: Earnings call takeaways",
+    "Amazon's surging cloud business is growing at a breakneck pace: Chart"
+   ],
+   "band": null,
+   "spark": [],
+   "stats": [],
+   "reason": ""
   },
   {
    "sym": "SPXC",
    "name": "SPX Technologies, Inc.",
-   "price": 229.64,
-   "pct": 15.223279,
+   "price": 228.28,
+   "pct": 14.540891,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -421,13 +1060,17 @@
    "headlines": [
     "SPX Technologies Inc (SPXC) (Q2 2026) Earnings Call Highlights: Strong Growth and Raised Guidance",
     "SPX Technologies (SPXC) Q2 Earnings and Revenues Surpass Estimates"
-   ]
+   ],
+   "band": null,
+   "spark": [],
+   "stats": [],
+   "reason": ""
   },
   {
-   "sym": "AMZN",
-   "name": "Amazon.com, Inc.",
-   "price": 269.45,
-   "pct": 14.4161415,
+   "sym": "BSBR",
+   "name": "Banco Santander Brasil SA",
+   "price": 5.709,
+   "pct": 13.049503,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -437,9 +1080,13 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Stock market today: Dow, S&P 500, Nasdaq give up gains as 10-year yield surges, Big Tech's AI spending ramps up",
-    "Amazon stock soars after Q2 earnings beat expectations as AI, chip businesses see $25 billion run rate"
-   ]
+    "Santander Brasil (BSBR) Q2 2026 Earnings Call Transcript",
+    "Banco Santander (Brasil) SA (BSBR) Q2 2026 Earnings Call Highlights: Navigating Challenges with ..."
+   ],
+   "band": null,
+   "spark": [],
+   "stats": [],
+   "reason": ""
   }
  ],
  "standouts": [
@@ -451,6 +1098,92 @@
     "mentions 5x vs yesterday",
     "also a top market gainer"
    ]
+  }
+ ],
+ "session": {
+  "tracked": 10,
+  "up": 4,
+  "down": 6,
+  "flagged": 7,
+  "standouts": 1
+ },
+ "history": [
+  {
+   "date": "2026-07-31",
+   "sym": "SKHY",
+   "name": "SK hynix Inc.",
+   "flag_price": 148.345,
+   "last_price": 148.345,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "Apple CEO Tim Cook says this '100-year flood' won't be receding anytime soon",
+   "age_days": 0
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "RDDT",
+   "name": "Reddit",
+   "flag_price": 140.3350067138672,
+   "last_price": 140.3350067138672,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "Reddit Shares Plunge by Record on Dearth of New AI Deals",
+   "age_days": 0
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "NVDA",
+   "name": "NVIDIA Corporation",
+   "flag_price": 197.57,
+   "last_price": 197.57,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "Amazon's AWS business has taken on a life of its own: Earnings call takeaways",
+   "age_days": 0
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "NOK",
+   "name": "Nokia Corporation Sponsored",
+   "flag_price": 9.16,
+   "last_price": 9.16,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "European Equities Traded in the US as American Depositary Receipts Track Sharply Higher in",
+   "age_days": 0
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "IREN",
+   "name": "IREN LIMITED",
+   "flag_price": 36.96,
+   "last_price": 36.96,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "Bitcoin Miner IREN Stock Surges 30% After CEO Says Demand Outstrips Supply",
+   "age_days": 0
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "AMZN",
+   "name": "Amazon",
+   "flag_price": 270.260009765625,
+   "last_price": 270.260009765625,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "Amazon's AWS business has taken on a life of its own: Earnings call takeaways",
+   "age_days": 0
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "AAPL",
+   "name": "Apple",
+   "flag_price": 302.6499938964844,
+   "last_price": 302.6499938964844,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "Apple stock plunges: CEO Tim Cook explains weak revenue forecast",
+   "age_days": 0
   }
  ]
 }
