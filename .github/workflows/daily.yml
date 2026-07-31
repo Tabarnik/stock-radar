@@ -50,9 +50,16 @@ jobs:
         run: python main.py
 
       # ---- publish the dashboard to GitHub Pages ----
+      # continue-on-error throughout: the notification is the primary job and
+      # already succeeded by this point, so a Pages problem must never fail the run.
       - uses: actions/configure-pages@v5
+        continue-on-error: true
+        with:
+          enablement: true      # turn Pages on the first time, no manual setup
       - uses: actions/upload-pages-artifact@v3
+        continue-on-error: true
         with:
           path: docs
       - id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
