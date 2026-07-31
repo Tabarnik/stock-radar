@@ -194,7 +194,7 @@ const money = p => typeof p === "number" ? "$" + p.toFixed(2) : "—";
 const pctT  = p => typeof p === "number" ? (p > 0 ? "+" : "") + p.toFixed(1) + "%" : "—";
 const chgC  = p => typeof p !== "number" ? "var(--ink-4)" : p > 0 ? G : p < 0 ? R : "var(--ink-4)";
 
-let D = null;
+let D = null, B = null;
 const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{} };
 
 /* ── small pieces ─────────────────────────────────────────── */
@@ -480,6 +480,90 @@ function watchlist(){
     : `<div class="panel"><div class="empty">Nothing stands out today.</div></div>`}`;
 }
 
+/* ── backtest (replay of every digest ever sent) ──────────── */
+const TIER = {
+  pick:  ["Picks", "Worth Watching / Worth a Closer Look — the only sections ever framed as actionable"],
+  buzz:  ["Reddit Buzz", "every name the digest listed"],
+  mover: ["Market gainers", "explicitly labelled “not a prediction”"],
+};
+function backtest(){
+  if (!B || !B.rows || !B.rows.length) return "";
+  const usd = n => (n < 0 ? "-" : "+") + "$" + Math.abs(n).toLocaleString(
+    undefined, { maximumFractionDigits: 0 });
+  const tiers = ["pick","buzz","mover"].filter(t => B.summary && B.summary[t]);
+  const totInv = tiers.reduce((a,t)=>a+B.summary[t].invested,0);
+  const totPnl = tiers.reduce((a,t)=>a+B.summary[t].pnl,0);
+
+  return `<div class="panel" style="margin-bottom:16px;">
+      <div class="phead"><div class="cap">If you had acted on every notification</div>
+        <div class="note">$${B.stake.toLocaleString()} per flagged name, held to the latest price</div></div>
+      <div style="padding:16px 18px;display:grid;gap:14px;
+        grid-template-columns:repeat(auto-fit,minmax(210px,1fr));">
+        ${tiers.map(t => {
+          const s = B.summary[t], c = s.pnl >= 0 ? G : R;
+          return `<div>
+            <div class="eyebrow" style="margin-bottom:6px;">${esc(TIER[t][0])}</div>
+            <div class="mono" style="font-size:24px;font-weight:600;color:${c};">
+              ${usd(s.pnl)}</div>
+            <div class="mono" style="font-size:12px;color:${c};">
+              ${s.return_pct > 0 ? "+" : ""}${s.return_pct}% on
+              $${s.invested.toLocaleString()}</div>
+            <div style="font-size:11px;color:var(--ink-5);margin-top:4px;">
+              ${s.winners}/${s.positions} winners · ${s.win_rate}% hit rate</div>
+            <div style="font-size:11px;color:var(--ink-6);margin-top:2px;">
+              best $${esc(s.best.sym)} ${s.best.ret > 0 ? "+" : ""}${s.best.ret}% ·
+              worst $${esc(s.worst.sym)} ${s.worst.ret}%</div>
+            <div class="note" style="margin-top:6px;">${esc(TIER[t][1])}</div>
+          </div>`;
+        }).join("")}
+      </div>
+      <div style="padding:0 18px 16px;">
+        <div style="border-top:1px solid var(--rule-2);padding-top:12px;
+          display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;">
+          <span class="eyebrow">All flags combined</span>
+          <span class="mono" style="font-size:16px;font-weight:600;
+            color:${totPnl>=0?G:R};">${usd(totPnl)}</span>
+          <span class="mono" style="font-size:12px;color:var(--ink-5);">
+            on $${totInv.toLocaleString()} (${(totPnl/totInv*100).toFixed(1)}%)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-bottom:16px;">
+      <div class="phead"><div class="cap">Every flag, oldest first</div>
+        <div class="note">price at send vs latest</div></div>
+      <div class="scroll"><div style="min-width:620px;">
+        <div class="tbl">
+          <div style="flex:0 0 92px;">Sent</div>
+          <div style="flex:0 0 74px;">Tier</div>
+          <div style="flex:0 0 74px;">Ticker</div>
+          <div style="flex:0 0 92px;text-align:right;">At send</div>
+          <div style="flex:0 0 92px;text-align:right;">Now</div>
+          <div style="flex:0 0 78px;text-align:right;">Return</div>
+          <div style="flex:1 1 80px;text-align:right;">P/L</div>
+        </div>
+        ${B.rows.map(r => `<div class="row"><div style="display:flex;gap:12px;
+            padding:11px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 92px;font-size:12px;color:var(--ink-5);">
+            ${esc(r.date)}</div>
+          <div style="flex:0 0 74px;"><span class="pill" style="${pillCss(
+            r.tier==="pick"?"good":r.tier==="mover"?"warn":"muted")};font-size:10px;">
+            ${esc(r.tier)}</span></div>
+          <div class="mono" style="flex:0 0 74px;font-size:13px;font-weight:600;
+            color:var(--ink-d);">$${esc(r.sym)}</div>
+          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:12px;
+            color:var(--ink-2);">${money(r.entry)}</div>
+          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:12px;
+            color:var(--ink-2);">${money(r.now)}</div>
+          <div class="mono" style="flex:0 0 78px;text-align:right;font-size:12px;
+            color:${chgC(r.ret)};">${pctT(r.ret)}</div>
+          <div class="mono" style="flex:1 1 80px;text-align:right;font-size:12px;
+            color:${chgC(r.pnl)};">${usd(r.pnl)}</div>
+        </div></div>`).join("")}
+      </div></div>
+    </div>`;
+}
+
 /* ── history ──────────────────────────────────────────────── */
 function history(){
   const h = D.history || [];
@@ -492,7 +576,7 @@ function history(){
       + `since the flag and ${f} ${f===1?"is":"are"} down more than 10%. `
       + `A flag is an attention reading, not a recommendation — a high "faded" count is the `
       + `expected outcome for crowd-driven names and is exactly why this table exists.`;
-  return `<div class="panel">
+  return backtest() + `<div class="panel">
       <div class="phead"><div class="cap">Radar track record</div>
         <div class="note">what happened after each flag · marked to the latest run</div></div>
       ${h.length ? `<div class="scroll"><div style="min-width:660px;">
@@ -632,6 +716,11 @@ document.addEventListener("click", e => {
   else if (d.filter)  { S.filter = d.filter; }
   render();
 });
+
+// backtest.json is optional — it only exists once the backtest workflow has run
+fetch("backtest.json?" + Date.now())
+  .then(r => r.ok ? r.json() : null).catch(() => null)
+  .then(b => { B = b; if (D) render(); });
 
 fetch("data.json?" + Date.now())
   .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
