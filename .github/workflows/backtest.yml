@@ -1,0 +1,41 @@
+name: Backtest
+
+# Replays every digest the radar ever sent against today's prices.
+# Manual only — this is an analysis run, not part of the daily schedule.
+
+on:
+  workflow_dispatch:
+    inputs:
+      stake:
+        description: 'Hypothetical $ per flagged name'
+        required: false
+        default: '1000'
+
+permissions:
+  contents: write
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    env:
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Run backtest
+        env:
+          STAKE: ${{ inputs.stake }}
+          DASHBOARD_DIR: docs
+        run: python backtest.py
+      - name: Commit results
+        continue-on-error: true
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/backtest.json
+          git diff --staged --quiet && echo "no change" && exit 0
+          git commit -m "backtest results $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push origin HEAD:main
