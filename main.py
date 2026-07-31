@@ -149,21 +149,39 @@ def extract(text):
 
 
 # ---------------------------------------------------------------- ticker validation
-_valid, _exch = {}, {}
+_valid, _exch, _hist5 = {}, {}, {}
 def is_real_ticker(sym):
     if sym in _valid:
         return _valid[sym]
     ok = False
     try:
         t = yf.Ticker(sym)
-        ok = not t.history(period="5d").empty
+        h = t.history(period="5d")
+        ok = not h.empty
         if ok:
+            # keep the frame — the dashboard's range band and sparkline reuse it
+            # rather than paying for a second download per ticker
+            try:
+                _hist5[sym] = [float(c) for c in h["Close"].tolist() if c == c]
+            except Exception:
+                pass
             md = getattr(t, "history_metadata", {}) or {}
             _exch[sym] = (md.get("exchangeName") or md.get("fullExchangeName") or "")
     except Exception:
         ok = False
     _valid[sym] = ok
     return ok
+
+
+_info_cache = {}
+def ticker_info(sym):
+    """yf .info is a slow call — fetch at most once per symbol per run."""
+    if sym not in _info_cache:
+        try:
+            _info_cache[sym] = yf.Ticker(sym).info or {}
+        except Exception:
+            _info_cache[sym] = {}
+    return _info_cache[sym]
 
 
 def tradeable(sym):
@@ -308,12 +326,101 @@ def earnings_soon(sym, days=7):
 def analyst_info(sym):
     """Return (consensus: str|None, target_price: float|None) from Yahoo."""
     try:
-        info = yf.Ticker(sym).info
+        info = ticker_info(sym)
         rec = (info.get("recommendationKey") or "").upper()
         target = info.get("targetMeanPrice")
         return rec or None, float(target) if target else None
     except Exception:
         return None, None
+
+
+def _human(n):
+    """1234567 -> '$1.2M'. Returns None when the value is missing."""
+    if not isinstance(n, (int, float)) or n != n:
+        return None
+    for cutoff, suffix in ((1e12, "T"), (1e9, "B"), (1e6, "M"), (1e3, "K")):
+        if abs(n) >= cutoff:
+            return f"{n / cutoff:.1f}{suffix}"
+    return f"{n:.0f}"
+
+
+def key_stats(sym):
+    """Rows for the detail screen's 'Key stats' block. Missing fields dropped."""
+    i = ticker_info(sym)
+    mc, fl = _human(i.get("marketCap")), _human(i.get("floatShares"))
+    av, vol = _human(i.get("averageVolume")), _human(i.get("volume"))
+    si = i.get("shortPercentOfFloat")
+    lo, hi = i.get("fiftyTwoWeekLow"), i.get("fiftyTwoWeekHigh")
+    rows = [
+        ("Market cap", f"${mc}" if mc else None),
+        ("Float", fl),
+        ("Short interest", f"{si * 100:.1f}%" if isinstance(si, (int, float)) else None),
+        ("Avg vol", av),
+        ("Vol today", vol),
+        ("52w range", f"${lo:.2f} – ${hi:.2f}"
+         if isinstance(lo, (int, float)) and isinstance(hi, (int, float)) else None),
+    ]
+    return [[k, v] for k, v in rows if v]
+
+
+def band_and_spark(sym, price):
+    """5-session low/high band plus the closes behind it, from the cached frame."""
+    closes = _hist5.get(sym) or []
+    if not closes:
+        return None, []
+    lo, hi = min(closes), max(closes)
+    if isinstance(price, (int, float)):     # today's move can exceed the 5d frame
+        lo, hi = min(lo, price), max(hi, price)
+    if hi <= lo:
+        hi = lo * 1.01 + 0.01
+    return [lo, hi], closes
+
+
+def reason_text(r):
+    """
+    Plain-language 'why it's here'. Assembled from what the scan actually saw —
+    never a forecast, and never worded as one.
+    """
+    sym, bits = r["sym"], []
+    mentions, prev = r.get("mentions") or 0, r.get("mentions_prev") or 0
+    if mentions and prev:
+        mult = mentions / max(prev, 1)
+        if mult >= 2:
+            bits.append(f"{mentions:,} mentions today, {mult:.0f}x yesterday's {prev:,}")
+        elif r.get("mom") == "↑":
+            bits.append(f"{mentions:,} mentions, up from {prev:,} yesterday")
+        elif r.get("mom") == "↓":
+            bits.append(f"{mentions:,} mentions, cooling from {prev:,}")
+        else:
+            bits.append(f"{mentions:,} mentions, flat against yesterday")
+    elif mentions:
+        bits.append(f"{mentions:,} mentions and new to the board")
+
+    pct = r.get("pct")
+    if isinstance(pct, (int, float)):
+        if pct >= 10:
+            bits.append(f"already up {pct:.0f}% today — the crowd is arriving after the move")
+        elif pct <= -10:
+            bits.append(f"down {abs(pct):.0f}% today while chatter keeps climbing")
+        else:
+            bits.append(f"price is {pct:+.1f}% — the attention has moved further than the price")
+
+    rec, target, price = r.get("analyst_rec"), r.get("analyst_target"), r.get("price")
+    if rec and target and price:
+        up = (target - price) / price * 100
+        bits.append(f"analyst consensus is {rec.replace('_', ' ').lower()} "
+                    f"with a ${target:,.2f} mean target ({up:+.0f}%)")
+    if r.get("earnings"):
+        bits.append(f"earnings land {r['earnings']}")
+
+    flags = r.get("flags") or []
+    if flags:
+        bits.append("the scan flagged " + ", ".join(flags))
+
+    if not bits:
+        return f"{sym} surfaced on mention volume alone; nothing else stood out."
+    body = bits[0][0].upper() + bits[0][1:]
+    return body + (". " + "; ".join(bits[1:]) + "." if len(bits) > 1 else ".")
 
 
 def yahoo_watchlist(n=5):
@@ -343,18 +450,23 @@ def yahoo_watchlist(n=5):
         rec, target = analyst_info(sym)
         if not rec or "BUY" not in rec:  # BUY or STRONG_BUY
             continue
-        price = q.get("regularMarketPrice")
-        out.append({
+        price = float(q.get("regularMarketPrice") or 0) or None
+        w = {
             "sym": sym,
             "name": q.get("shortName") or q.get("longName") or "",
-            "price": float(price) if price else None,
+            "price": price,
             "pct": pct,
             "analyst_rec": rec,
             "analyst_target": target,
-            "headlines": news_headlines(sym),
+            "headlines": news_headlines(sym, n=3),
             "earnings": earnings_soon(sym),
+            "stats": key_stats(sym),
             "source": "yahoo",
-        })
+        }
+        is_real_ticker(sym)      # warms the 5d frame the band/sparkline need
+        w["band"], w["spark"] = band_and_spark(sym, price)
+        w["reason"] = reason_text(w)
+        out.append(w)
         if len(out) >= n:
             break
     return out
@@ -548,6 +660,75 @@ def format_message(results, mkt, yahoo_watches=None):
 DASHBOARD_DIR = os.getenv("DASHBOARD_DIR", "docs")
 
 
+HISTORY_DAYS = int(os.getenv("HISTORY_DAYS", "30"))
+
+
+def _outcome(pct):
+    """How a flagged name actually did. Thresholds are deliberately wide —
+    anything inside ±10% on a meme ticker is noise, not a result."""
+    if pct >= 10:
+        return "worked"
+    if pct <= -10:
+        return "faded"
+    return "flat"
+
+
+def update_history(watch, results):
+    """
+    Maintain docs/history.json: what the radar flagged, at what price, and where
+    that price sits now. This is the only honest way to show a track record —
+    it records the call before the outcome is known, then marks it to market.
+    """
+    path = os.path.join(DASHBOARD_DIR, "history.json")
+    try:
+        with open(path) as f:
+            hist = json.load(f)
+    except Exception:
+        hist = []
+
+    today = datetime.now(timezone.utc).date()
+    # today's live prices, for marking every open entry to market
+    live = {r["sym"]: r.get("price") for r in results if r.get("price")}
+    live.update({w["sym"]: w.get("price") for w in watch if w.get("price")})
+
+    flagged_today = {e["sym"] for e in hist if e.get("date") == today.isoformat()}
+    for w in watch:
+        if w["sym"] in flagged_today or not w.get("price"):
+            continue
+        hist.append({
+            "date": today.isoformat(), "sym": w["sym"],
+            "name": (w.get("name") or "")[:40],
+            "flag_price": w["price"], "last_price": w["price"],
+            "pct": 0.0, "outcome": "flat",
+            "note": (w.get("headlines") or [""])[0][:90],
+        })
+
+    kept = []
+    for e in hist:
+        try:
+            age = (today - datetime.fromisoformat(e["date"]).date()).days
+        except Exception:
+            continue
+        if age > HISTORY_DAYS:
+            continue
+        now = live.get(e["sym"])
+        if now and e.get("flag_price"):
+            e["last_price"] = now
+            e["pct"] = (now - e["flag_price"]) / e["flag_price"] * 100
+            e["outcome"] = _outcome(e["pct"])
+        e["age_days"] = age
+        kept.append(e)
+
+    kept.sort(key=lambda e: (e["date"], e["sym"]), reverse=True)
+    try:
+        with open(path, "w") as f:
+            json.dump(kept, f, indent=1)
+        print(f"[dashboard] history: {len(kept)} entries")
+    except Exception as e:
+        print(f"[warn] history write: {e}")
+    return kept
+
+
 def _dash_ticker(r, extra=None):
     """Trim a result dict down to the fields the dashboard renders."""
     out = {
@@ -563,7 +744,11 @@ def _dash_ticker(r, extra=None):
         "analyst_rec": r.get("analyst_rec"),
         "analyst_target": r.get("analyst_target"),
         "earnings": r.get("earnings"),
-        "headlines": (r.get("headlines") or [])[:2],
+        "headlines": (r.get("headlines") or [])[:3],
+        "band": r.get("band"),
+        "spark": r.get("spark") or [],
+        "stats": r.get("stats") or [],
+        "reason": r.get("reason") or "",
     }
     if extra:
         out.update(extra)
@@ -582,6 +767,10 @@ def write_dashboard(results, gainers, yahoo_watches):
     for r in (yahoo_watches or [])[:4]:
         watch.append(_dash_ticker(r, {"tag": "Yahoo most-active", "source": "yahoo"}))
 
+    os.makedirs(DASHBOARD_DIR, exist_ok=True)
+    history = update_history(watch, results)
+    up = [r for r in results if (r.get("pct") or 0) > 0]
+
     payload = {
         "generated_at": now.isoformat(),
         "watch": watch,
@@ -589,9 +778,16 @@ def write_dashboard(results, gainers, yahoo_watches):
         "gainers": [_dash_ticker(g) for g in gainers],
         "standouts": [{"sym": s, "name": n, "why": w}
                       for s, n, w in _standouts(results, gainers)],
+        "session": {
+            "tracked": len(results),
+            "up": len(up),
+            "down": len(results) - len(up),
+            "flagged": len(watch),
+            "standouts": len(_standouts(results, gainers)),
+        },
+        "history": history,
     }
     try:
-        os.makedirs(DASHBOARD_DIR, exist_ok=True)
         path = os.path.join(DASHBOARD_DIR, "data.json")
         with open(path, "w") as f:
             json.dump(payload, f, indent=1)
@@ -644,11 +840,14 @@ def main():
 
     # enrich top names with headlines, analyst data, earnings, and momentum label
     for r in results:
-        r["headlines"] = news_headlines(r["sym"])
+        r["headlines"] = news_headlines(r["sym"], n=3)
         r["why"] = r["headlines"][0] if r["headlines"] else ""
         r["label"] = momentum_label(r.get("pct"), r.get("mom") == "↑")
         r["analyst_rec"], r["analyst_target"] = analyst_info(r["sym"])
         r["earnings"] = earnings_soon(r["sym"])
+        r["band"], r["spark"] = band_and_spark(r["sym"], r.get("price"))
+        r["stats"] = key_stats(r["sym"])
+        r["reason"] = reason_text(r)     # needs the fields set above
 
     gainers = market_gainers(int(os.getenv("GAINERS_N", "5")))
     for g in gainers:

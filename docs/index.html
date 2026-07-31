@@ -3,388 +3,653 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stock Radar</title>
+<title>Reddit Radar</title>
+<link rel="stylesheet" href="./fonts/plex.css">
 <style>
-  :root {
-    color-scheme: light;
-    --plane:        #f9f9f7;
-    --surface:      #fcfcfb;
-    --ink:          #0b0b0b;
-    --ink-2:        #52514e;
-    --muted:        #898781;
-    --grid:         #e1e0d9;
-    --rule:         #c3c2b7;
-    --ring:         rgba(11,11,11,0.10);
-    --series:       #2a78d6;
-    --up:           #006300;
-    --down:         #d03b3b;
-    --warn:         #fab219;
-    --accent-soft:  #cde2fb;
+  :root{
+    --g:#186B41; --r:#B0301F; --a:#8A5F12; --m:#4E4938;
+    --ink:#252219; --ink-d:#1B1913; --ink-2:#3B3729; --ink-3:#464130;
+    --ink-4:#55503F; --ink-5:#5F5947; --ink-6:#6B6553;
+    --rule:rgba(120,112,90,0.18); --rule-2:rgba(120,112,90,0.15);
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:where(:not([data-theme="light"])) {
-      color-scheme: dark;
-      --plane:       #0d0d0d;
-      --surface:     #1a1a19;
-      --ink:         #ffffff;
-      --ink-2:       #c3c2b7;
-      --muted:       #898781;
-      --grid:        #2c2c2a;
-      --rule:        #383835;
-      --ring:        rgba(255,255,255,0.10);
-      --series:      #3987e5;
-      --up:          #0ca30c;
-      --down:        #e66767;
-      --accent-soft: #184f95;
-    }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0; padding:0; background:#EFEDE1; background-attachment:fixed;
+    background-image:
+      radial-gradient(900px 700px at 10% -6%, rgba(255,255,255,0.95), transparent 60%),
+      radial-gradient(760px 620px at 88% 2%, rgba(198,214,206,0.40), transparent 62%),
+      radial-gradient(680px 560px at 74% 58%, rgba(224,208,182,0.32), transparent 62%),
+      radial-gradient(720px 640px at 22% 96%, rgba(200,206,220,0.36), transparent 62%);
   }
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --plane:       #0d0d0d;
-    --surface:     #1a1a19;
-    --ink:         #ffffff;
-    --ink-2:       #c3c2b7;
-    --muted:       #898781;
-    --grid:        #2c2c2a;
-    --rule:        #383835;
-    --ring:        rgba(255,255,255,0.10);
-    --series:      #3987e5;
-    --up:          #0ca30c;
-    --down:        #e66767;
-    --accent-soft: #184f95;
+  body{
+    color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.45;
+    -webkit-font-smoothing:antialiased; min-height:100vh;
   }
+  ::selection{background:#D9E4D8;}
+  ::-webkit-scrollbar{width:10px;height:10px;}
+  ::-webkit-scrollbar-thumb{background:rgba(120,112,90,0.32);border-radius:6px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  @keyframes pulseDot{0%,100%{opacity:1}50%{opacity:.25}}
 
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--plane);
-    color: var(--ink);
-    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
-    -webkit-font-smoothing: antialiased;
+  .panel{
+    background:rgba(255,255,255,0.26); border:1px solid rgba(255,255,255,0.55);
+    border-radius:18px; backdrop-filter:blur(30px) saturate(190%);
+    -webkit-backdrop-filter:blur(30px) saturate(190%);
+    box-shadow:0 1px 1px rgba(255,255,255,0.9) inset,
+               0 0 0 1px rgba(255,255,255,0.35) inset,
+               0 14px 40px rgba(90,82,58,0.13), 0 2px 6px rgba(90,82,58,0.06);
+    overflow:hidden;
   }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 24px 20px 64px; }
+  .panel.hero{background:linear-gradient(180deg,rgba(255,255,255,0.32),rgba(255,255,255,0.22));
+    border-color:rgba(255,255,255,0.40);}
+  .panel.dash{border:1px dashed rgba(120,112,90,0.26);}
 
-  /* ── header ─────────────────────────────────────────────── */
-  header {
-    display: flex; flex-wrap: wrap; gap: 12px;
-    align-items: baseline; justify-content: space-between;
-    padding-bottom: 16px; margin-bottom: 24px;
-    border-bottom: 1px solid var(--rule);
-  }
-  h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
-  .stamp { font-size: 13px; color: var(--muted); }
-  .disclaimer {
-    font-size: 12px; color: var(--muted); margin: -12px 0 24px;
-  }
-  .btn {
-    font: inherit; font-size: 13px; cursor: pointer;
-    background: var(--surface); color: var(--ink-2);
-    border: 1px solid var(--ring); border-radius: 7px;
-    padding: 5px 11px;
-  }
-  .btn:hover { color: var(--ink); }
+  .mono{font-family:var(--mono);}
+  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-5);}
+  .cap{font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink-2);font-weight:600;}
+  .note{font-size:11px;color:var(--ink-6);}
 
-  /* ── stat tiles ─────────────────────────────────────────── */
-  .tiles {
-    display: grid; gap: 12px; margin-bottom: 32px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
-  .tile {
-    background: var(--surface); border: 1px solid var(--ring);
-    border-radius: 10px; padding: 14px 16px;
-  }
-  .tile .k { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
-  .tile .v { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
-  .tile .s { font-size: 12px; color: var(--ink-2); margin-top: 3px; }
+  /* header */
+  .bar{position:sticky;top:0;z-index:20;background:rgba(247,245,236,0.55);
+    backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);
+    border-bottom:1px solid var(--rule);}
+  .bar-in{max-width:1320px;margin:0 auto;padding:0 20px;display:flex;align-items:center;
+    gap:20px;flex-wrap:wrap;min-height:56px;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--g);
+    animation:pulseDot 2.4s ease-in-out infinite;}
+  .brand{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink);}
+  .stamp{font-family:var(--mono);font-size:11px;color:var(--ink-5);letter-spacing:.06em;}
+  .nav{display:flex;gap:2px;background:rgba(255,255,255,0.20);
+    border:1px solid rgba(255,255,255,0.55);border-radius:8px;padding:3px;}
+  .nav button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:6px 12px;
+    border:0;border-radius:6px;background:transparent;color:var(--ink-6);cursor:pointer;}
+  .nav button:hover{color:var(--ink);}
+  .nav button[aria-current="true"]{background:rgba(255,255,255,0.62);color:var(--ink-d);
+    font-weight:600;box-shadow:0 1px 2px rgba(90,82,58,.10);}
 
-  /* ── sections ───────────────────────────────────────────── */
-  section { margin-bottom: 38px; }
-  h2 {
-    font-size: 16px; font-weight: 620; margin: 0 0 3px;
-    display: flex; align-items: center; gap: 7px;
-  }
-  .sub { font-size: 12.5px; color: var(--muted); margin: 0 0 14px; }
+  .wrap{max-width:1320px;margin:0 auto;padding:20px 20px 72px;}
+  .cols{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;}
+  .col-main{flex:3 1 560px;min-width:0;display:flex;flex-direction:column;gap:16px;}
+  .col-side{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px;}
+  /* grid, not flex: a lone card on the last row must keep its width */
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));
+    align-items:start;}
 
-  /* ── cards ──────────────────────────────────────────────── */
-  .cards {
-    display: grid; gap: 12px;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
-  .card {
-    background: var(--surface); border: 1px solid var(--ring);
-    border-radius: 10px; padding: 14px 16px;
-  }
-  .card-top {
-    display: flex; align-items: baseline; gap: 8px;
-    flex-wrap: wrap; margin-bottom: 3px;
-  }
-  .sym { font-size: 17px; font-weight: 660; letter-spacing: -0.01em; }
-  .co  { font-size: 12.5px; color: var(--muted); }
-  .price { font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
-  .delta {
-    font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums;
-    margin-left: auto;
-  }
-  .delta.up   { color: var(--up); }
-  .delta.down { color: var(--down); }
+  .phead{display:flex;align-items:center;gap:12px;padding:14px 18px;
+    border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+  .row{border-bottom:1px solid var(--rule-2);}
+  .row:last-child{border-bottom:0;}
+  .rowin{display:flex;align-items:center;gap:14px;padding:13px 18px;flex-wrap:wrap;}
+  .accent{width:3px;align-self:stretch;min-height:34px;border-radius:2px;}
+  .sym{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--ink-d);
+    letter-spacing:.01em;}
+  .co{font-size:11px;color:var(--ink-5);white-space:nowrap;overflow:hidden;
+    text-overflow:ellipsis;max-width:150px;}
+  .pill{font-family:var(--mono);font-size:11px;border-radius:999px;padding:4px 10px;
+    white-space:nowrap;}
+  .chip{font-family:var(--mono);font-size:11px;color:var(--ink-3);
+    background:rgba(120,112,90,0.15);border:1px solid rgba(120,112,90,0.26);
+    border-radius:999px;padding:5px 11px;}
+  .btn{background:rgba(120,112,90,0.15);border:1px solid rgba(120,112,90,0.26);
+    color:var(--ink-3);font-family:var(--mono);font-size:11px;padding:5px 10px;
+    border-radius:6px;cursor:pointer;}
+  .btn:hover{color:var(--ink);border-color:rgba(120,112,90,0.42);}
+  .btn.x{background:transparent;border-color:rgba(120,112,90,0.22);color:var(--ink-6);padding:5px 9px;}
+  .btn.x:hover{color:var(--r);border-color:rgba(192,57,43,0.35);}
+  .btn.wide{width:100%;background:rgba(255,255,255,0.24);border-color:rgba(58,95,148,0.28);
+    color:#345C90;letter-spacing:.08em;padding:9px 12px;border-radius:7px;margin-top:16px;}
+  .btn.wide:hover{background:rgba(255,255,255,0.40);}
+  .fbtn{font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:5px 10px;
+    border-radius:6px;border:1px solid rgba(120,112,90,0.22);background:transparent;
+    color:var(--ink-6);cursor:pointer;}
+  .fbtn[aria-pressed="true"]{background:rgba(255,255,255,0.55);color:var(--ink-d);
+    border-color:rgba(255,255,255,0.75);font-weight:600;}
 
-  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 9px 0 0; }
-  .chip {
-    font-size: 11.5px; padding: 2px 8px; border-radius: 999px;
-    border: 1px solid var(--ring); color: var(--ink-2);
-    background: var(--plane);
-  }
-  .chip.buy  { color: var(--up);   border-color: color-mix(in oklab, var(--up) 35%, transparent); }
-  .chip.risk { color: var(--ink-2); }
-  .chip.tag  { color: var(--series); border-color: color-mix(in oklab, var(--series) 35%, transparent); }
-  .chip.earn { color: var(--ink-2); }
+  .spark{display:flex;align-items:flex-end;gap:2px;height:26px;opacity:.85;}
+  .spark i{width:5px;border-radius:1px;display:block;}
+  .band{position:relative;height:34px;}
+  .band .track{position:absolute;top:12px;left:0;right:0;height:6px;border-radius:3px;
+    background:rgba(120,112,90,0.15);}
+  .band .fill{position:absolute;top:12px;height:6px;border-radius:3px;}
+  .band .mark{position:absolute;top:6px;width:2px;height:18px;border-radius:1px;}
+  .bandnum{display:flex;justify-content:space-between;font-family:var(--mono);
+    font-size:11px;color:var(--ink-5);margin-top:2px;}
 
-  .target {
-    font-size: 13px; color: var(--ink-2); margin-top: 9px;
-    font-variant-numeric: tabular-nums;
-  }
-  .target b { color: var(--ink); font-weight: 600; }
+  .expand{padding:4px 18px 20px 35px;display:flex;gap:20px;flex-wrap:wrap;
+    background:rgba(255,255,255,0.13);}
+  .news{display:flex;flex-direction:column;gap:9px;}
+  .news .it{display:flex;gap:10px;align-items:baseline;}
+  .news .bul{width:4px;height:4px;border-radius:50%;background:rgba(120,112,90,0.42);
+    flex:0 0 auto;transform:translateY(-2px);}
+  .news .t{font-size:13px;color:#2E2A21;text-wrap:pretty;}
 
-  .news { margin: 10px 0 0; padding: 9px 0 0; border-top: 1px solid var(--grid); }
-  .news li {
-    list-style: none; font-size: 12.5px; color: var(--ink-2);
-    margin-bottom: 5px; padding-left: 17px; position: relative;
-    line-height: 1.45;
-  }
-  .news li:last-child { margin-bottom: 0; }
-  .news li::before {
-    content: "▸"; position: absolute; left: 3px; color: var(--muted);
-  }
-
-  /* ── mention chart ──────────────────────────────────────── */
-  .chart { background: var(--surface); border: 1px solid var(--ring);
-           border-radius: 10px; padding: 16px 18px; }
-  .row {
-    display: grid; grid-template-columns: 62px 1fr 62px;
-    align-items: center; gap: 10px; margin-bottom: 9px;
-  }
-  .row:last-child { margin-bottom: 0; }
-  .row .lbl {
-    font-size: 13px; font-weight: 600; text-align: right;
-    font-variant-numeric: tabular-nums;
-  }
-  .track {
-    display: block; width: 100%; height: 15px;
-    background: var(--grid); border-radius: 0 4px 4px 0;
-  }
-  .bar {
-    display: block; height: 100%; background: var(--series);
-    border-radius: 0 4px 4px 0; min-width: 3px;
-    animation: grow .55s cubic-bezier(.22,.9,.3,1) both;
-  }
-  @keyframes grow { from { transform: scaleX(0); } to { transform: none; } }
-  .bar { transform-origin: left center; }
-  .row .num {
-    font-size: 12.5px; color: var(--ink-2);
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* ── gainers list ───────────────────────────────────────── */
-  table { width: 100%; border-collapse: collapse; }
-  .chart th {
-    font-size: 11.5px; font-weight: 500; color: var(--muted);
-    text-align: left; padding: 0 0 8px; border-bottom: 1px solid var(--grid);
-  }
-  .chart th.r, .chart td.r { text-align: right; }
-  .chart td {
-    padding: 10px 0; border-bottom: 1px solid var(--grid);
-    font-size: 13.5px; vertical-align: top;
-  }
-  .chart tr:last-child td { border-bottom: 0; }
-  .chart td.r { font-variant-numeric: tabular-nums; }
-
-  .empty {
-    font-size: 13px; color: var(--muted); font-style: italic;
-    background: var(--surface); border: 1px solid var(--ring);
-    border-radius: 10px; padding: 16px 18px;
-  }
-  footer {
-    margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--rule);
-    font-size: 12px; color: var(--muted);
-  }
-  @media (max-width: 560px) {
-    .row { grid-template-columns: 52px 1fr 48px; }
-    .cards { grid-template-columns: 1fr; }
+  .clickable{cursor:pointer;}
+  .clickable:hover{background:rgba(255,255,255,0.34);}
+  .empty{padding:34px 18px;text-align:center;color:var(--ink-6);
+    font-family:var(--mono);font-size:12px;}
+  .tbl{display:flex;gap:12px;padding:9px 18px;border-bottom:1px solid var(--rule-2);
+    font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-6);}
+  .scroll{overflow-x:auto;}
+  @media(max-width:640px){
+    .rowin{gap:10px;padding:12px 14px;}
+    .expand{padding:4px 14px 18px 14px;}
+    .wrap{padding:16px 14px 56px;}
   }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <div>
-      <h1>📡 Stock Radar</h1>
-      <div class="stamp" id="stamp">Loading…</div>
+<div class="bar">
+  <div class="bar-in">
+    <div style="display:flex;align-items:center;gap:10px;margin-right:4px;">
+      <div class="dot"></div>
+      <div class="brand">Reddit Radar</div>
+      <div class="stamp" id="stamp">—</div>
     </div>
-    <button class="btn" id="theme">◐ Theme</button>
-  </header>
+    <div class="nav" id="nav"></div>
+    <div style="flex:1 1 40px;"></div>
+    <div class="mono" style="display:flex;align-items:center;gap:14px;font-size:11px;color:var(--ink-5);">
+      <div style="display:flex;align-items:baseline;gap:6px;">
+        <span style="letter-spacing:.08em;">TRACKED</span>
+        <span id="hTracked" style="color:var(--ink);">—</span>
+      </div>
+      <div style="width:1px;height:16px;background:rgba(120,112,90,0.22);"></div>
+      <div style="letter-spacing:.08em;" id="hStamp">—</div>
+    </div>
+  </div>
+</div>
 
-  <p class="disclaimer">
-    Trends and public data only — not financial advice. These names carry high risk.
-    Do your own research before risking money.
-  </p>
-
-  <div class="tiles" id="tiles"></div>
-
-  <section>
-    <h2>🔭 Worth Watching</h2>
-    <p class="sub">Rising chatter or analyst buy with room to move — a research starting point, not a prediction.</p>
-    <div id="watch"></div>
-  </section>
-
-  <section>
-    <h2>💬 Reddit Mention Volume</h2>
-    <p class="sub">Total mentions across tracked subreddits this run.</p>
-    <div id="chart"></div>
-  </section>
-
-  <section>
-    <h2>🔥 Reddit Buzz</h2>
-    <p class="sub">Most-discussed tickers, with price action and analyst context.</p>
-    <div id="buzz"></div>
-  </section>
-
-  <section>
-    <h2>📈 Market Gainers Today</h2>
-    <p class="sub">Biggest movers across US exchanges — already up, not a forecast.</p>
-    <div id="gainers"></div>
-  </section>
-
-  <footer>
-    Auto-generated by <b>reddit-stock-radar</b> · Sources: ApeWisdom (Reddit) + Yahoo Finance
-  </footer>
-
+<div class="wrap" id="app">
+  <div class="panel" style="padding:34px;text-align:center;color:var(--ink-6);"
+       id="boot">Loading radar data…</div>
 </div>
 
 <script>
-const $ = id => document.getElementById(id);
+"use strict";
+const G="#186B41", R="#B0301F", A="#8A5F12";
+const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
-  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
-const money = p => (typeof p === "number") ? "$" + p.toFixed(2) : "n/a";
-const pctTxt = p => (typeof p === "number") ? (p >= 0 ? "+" : "") + p.toFixed(1) + "%" : "";
-const dirClass = p => (typeof p === "number") ? (p >= 0 ? "up" : "down") : "";
-
-/* ── theme toggle ─────────────────────────────────────────── */
-const saved = localStorage.getItem("radar-theme");
-if (saved) document.documentElement.setAttribute("data-theme", saved);
-$("theme").onclick = () => {
-  const cur = document.documentElement.getAttribute("data-theme");
-  const sysDark = matchMedia("(prefers-color-scheme: dark)").matches;
-  const next = cur ? (cur === "dark" ? "light" : "dark") : (sysDark ? "light" : "dark");
-  document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("radar-theme", next);
+const PILL = {
+  bad:  ["rgba(192,57,43,0.10)","rgba(192,57,43,0.28)","#A6342A"],
+  warn: ["rgba(169,120,27,0.12)","rgba(169,120,27,0.32)","#8A5F12"],
+  muted:["rgba(120,112,90,0.10)","rgba(120,112,90,0.26)","#55503F"],
+  good: ["rgba(31,138,84,0.10)","rgba(31,138,84,0.30)","#1B7548"],
 };
+const pillCss = k => {
+  const c = PILL[k] || PILL.muted;
+  return `background:${c[0]};border:1px solid ${c[1]};color:${c[2]};`;
+};
+const flagKind = f => /chasing|already \+/i.test(f) ? "bad"
+  : /penny|micro|vol \d/i.test(f) ? "warn" : "muted";
 
-/* ── card renderer ────────────────────────────────────────── */
-function card(t) {
-  const chips = [];
-  if (t.tag) chips.push(`<span class="chip tag">${esc(t.tag)}</span>`);
-  if (t.analyst_rec) {
-    const buy = /BUY/.test(t.analyst_rec);
-    chips.push(`<span class="chip ${buy ? "buy" : ""}">${esc(t.analyst_rec.replace(/_/g, " "))}</span>`);
-  }
-  if (t.earnings) chips.push(`<span class="chip earn">📅 ${esc(t.earnings)}</span>`);
-  (t.flags || []).forEach(f => chips.push(`<span class="chip risk">⚠️ ${esc(f)}</span>`));
+const money = p => typeof p === "number" ? "$" + p.toFixed(2) : "—";
+const pctT  = p => typeof p === "number" ? (p > 0 ? "+" : "") + p.toFixed(1) + "%" : "—";
+const chgC  = p => typeof p !== "number" ? "var(--ink-4)" : p > 0 ? G : p < 0 ? R : "var(--ink-4)";
 
-  let target = "";
-  if (typeof t.analyst_target === "number" && typeof t.price === "number" && t.price > 0) {
-    const up = (t.analyst_target - t.price) / t.price * 100;
-    target = `<div class="target">Analyst target <b>${money(t.analyst_target)}</b>
-      <span class="${dirClass(up)}" style="color:var(--${up >= 0 ? "up" : "down"})">
-      ${pctTxt(up)}</span></div>`;
-  }
+let D = null;
+const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{} };
 
-  const news = (t.headlines || []).length
-    ? `<ul class="news">${t.headlines.map(h => `<li>${esc(h)}</li>`).join("")}</ul>` : "";
+/* ── small pieces ─────────────────────────────────────────── */
+function spark(t){
+  const v = t.spark || [];
+  if (v.length < 2) return "";
+  const lo = Math.min(...v), hi = Math.max(...v), span = (hi - lo) || 1;
+  const col = chgC(t.pct);
+  return `<div class="spark" title="Last ${v.length} closes: ${v.map(x=>x.toFixed(2)).join(", ")}">` +
+    v.map((x,i) => {
+      const h = 6 + ((x - lo) / span) * 20;
+      return `<i style="height:${h.toFixed(1)}px;background:${col};opacity:${(0.35+0.65*(i/(v.length-1))).toFixed(2)}"></i>`;
+    }).join("") + `</div>`;
+}
 
-  const mentions = (typeof t.mentions === "number")
-    ? `<span class="co">${t.mentions.toLocaleString()} mentions ${esc(t.mom || "")}</span>` : "";
-
-  return `<div class="card">
-    <div class="card-top">
-      <span class="sym">$${esc(t.sym)}</span>
-      <span class="price">${money(t.price)}</span>
-      <span class="delta ${dirClass(t.pct)}">${pctTxt(t.pct)}</span>
+function bandHtml(t){
+  if (!t.band) return "";
+  const [lo,hi] = t.band, span = (hi - lo) || 1;
+  const p = Math.max(0, Math.min(1, ((t.price ?? lo) - lo) / span));
+  const col = chgC(t.pct);
+  return `<div class="band">
+      <div class="track"></div>
+      <div class="fill" style="left:6%;width:88%;background:${col}1f;"></div>
+      <div class="mark" style="left:${(6 + p*88).toFixed(1)}%;background:${col};"></div>
     </div>
-    <div class="card-top"><span class="co">${esc((t.name || "").slice(0, 34))}</span> ${mentions}</div>
-    ${chips.length ? `<div class="chips">${chips.join("")}</div>` : ""}
-    ${target}
-    ${news}
+    <div class="bandnum"><span>${money(lo)}</span><span>${money(hi)}</span></div>
+    <div class="note" style="margin-top:6px;">5-session realised range — not a target.
+      Where the last close sits inside its own recent noise.</div>`;
+}
+
+function flagsHtml(t, max){
+  const f = (t.flags || []).slice(0, max ?? 99).map(x =>
+    `<span class="pill" style="${pillCss(flagKind(x))}">${esc(x)}</span>`);
+  if (t.analyst_rec && /BUY/.test(t.analyst_rec))
+    f.unshift(`<span class="pill" style="${pillCss("good")}">${esc(t.analyst_rec.replace(/_/g," "))}</span>`);
+  if (t.earnings)
+    f.push(`<span class="pill" style="${pillCss("warn")}">ER ${esc(t.earnings)}</span>`);
+  return f.join("");
+}
+
+function newsHtml(t, n){
+  const h = (t.headlines || []).slice(0, n ?? 3);
+  if (!h.length) return `<div class="note">No headlines returned for this ticker.</div>`;
+  return `<div class="news">` + h.map(x =>
+    `<div class="it"><div class="bul"></div><div><div class="t">${esc(x)}</div>
+     <div class="mono" style="font-size:10px;color:var(--ink-4);letter-spacing:.06em;margin-top:2px;">
+     Yahoo Finance</div></div></div>`).join("") + `</div>`;
+}
+
+const trendIcon = t => t.mom === "↑" ? "▲" : t.mom === "↓" ? "▼" : "◆";
+const attention = t => t.mom === "↑" ? "rising" : t.mom === "↓" ? "cooling" : "flat";
+
+/* ── digest ───────────────────────────────────────────────── */
+function verdict(){
+  const s = D.session || {}, st = (D.standouts || []).length;
+  const title = st
+    ? `${st} name${st>1?"s":""} up today and still gaining attention`
+    : "Nothing is both up and gaining attention today";
+  const body = st
+    ? "These cleared both filters at once. That is a starting point for research, not a signal — find out why before risking anything."
+    : "The crowd is talking about names that are already falling. That pattern is the radar working as intended: it shows you where attention is, not where money should go.";
+  return `<div class="panel hero" style="flex:3 1 460px;padding:22px 24px;display:flex;
+      flex-direction:column;justify-content:center;">
+    <div class="eyebrow" style="margin-bottom:10px;">Today's verdict</div>
+    <div style="font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.12;
+      color:var(--ink-d);text-wrap:pretty;">${esc(title)}</div>
+    <div style="margin-top:10px;font-size:14px;color:var(--ink-3);max-width:62ch;text-wrap:pretty;">
+      ${esc(body)}</div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+      <div class="chip">${st} up + gaining attention</div>
+      <div class="chip">${s.flagged ?? 0} flagged for review</div>
+      <div class="chip" style="color:var(--a);background:rgba(169,120,27,0.12);
+        border-color:rgba(169,120,27,0.32);">trends only · not advice</div>
+    </div>
   </div>`;
 }
 
-/* ── render ───────────────────────────────────────────────── */
-function render(d) {
-  const when = new Date(d.generated_at);
-  $("stamp").textContent = "Updated " + when.toLocaleString(undefined, {
-    month: "short", day: "numeric", hour: "numeric", minute: "2-digit"
-  });
-
-  const buzz = d.buzz || [], watch = d.watch || [], gainers = d.gainers || [];
-  const moved = buzz.filter(b => typeof b.pct === "number");
-  const upN = moved.filter(b => b.pct >= 0).length;
-  const top = [...moved].sort((a, b) => b.pct - a.pct)[0];
-  const mostTalked = buzz[0];
-
-  $("tiles").innerHTML = [
-    { k: "Tickers tracked", v: buzz.length, s: `${watch.length} worth watching` },
-    { k: "Up today", v: `${upN}/${moved.length}`, s: moved.length ? `${moved.length - upN} down` : "—" },
-    top ? { k: "Best mover", v: `$${esc(top.sym)}`, s: pctTxt(top.pct), c: dirClass(top.pct) } : null,
-    mostTalked ? { k: "Most discussed", v: `$${esc(mostTalked.sym)}`,
-                   s: `${(mostTalked.mentions || 0).toLocaleString()} mentions` } : null,
-  ].filter(Boolean).map(t => `<div class="tile">
-      <div class="k">${t.k}</div>
-      <div class="v">${t.v}</div>
-      <div class="s" ${t.c ? `style="color:var(--${t.c === "up" ? "up" : "down"})"` : ""}>${t.s}</div>
-    </div>`).join("");
-
-  $("watch").innerHTML = watch.length
-    ? `<div class="cards">${watch.map(card).join("")}</div>`
-    : `<div class="empty">Nothing stands out today.</div>`;
-
-  // mention volume — single series, direct-labeled, no legend needed
-  const withM = buzz.filter(b => typeof b.mentions === "number" && b.mentions > 0);
-  const max = Math.max(...withM.map(b => b.mentions), 1);
-  $("chart").innerHTML = withM.length
-    ? `<div class="chart">${withM.map(b => `<div class="row">
-        <span class="lbl">$${esc(b.sym)}</span>
-        <span class="track"><span class="bar" style="width:${(b.mentions / max * 100).toFixed(1)}%"
-          title="${esc(b.sym)}: ${b.mentions.toLocaleString()} mentions"></span></span>
-        <span class="num">${b.mentions.toLocaleString()}</span>
-      </div>`).join("")}</div>`
-    : `<div class="empty">No mention data this run.</div>`;
-
-  $("buzz").innerHTML = buzz.length
-    ? `<div class="cards">${buzz.map(card).join("")}</div>`
-    : `<div class="empty">No clear signal today.</div>`;
-
-  $("gainers").innerHTML = gainers.length
-    ? `<div class="chart"><table>
-        <thead><tr><th>Ticker</th><th>Company</th><th class="r">Price</th><th class="r">Change</th></tr></thead>
-        <tbody>${gainers.map(g => `<tr>
-          <td><b>$${esc(g.sym)}</b></td>
-          <td>${esc((g.name || "").slice(0, 40))}
-            ${(g.headlines || [])[0] ? `<div class="co" style="margin-top:3px">${esc(g.headlines[0])}</div>` : ""}</td>
-          <td class="r">${money(g.price)}</td>
-          <td class="r ${dirClass(g.pct)}" style="color:var(--${g.pct >= 0 ? "up" : "down"});font-weight:600">
-            ${pctTxt(g.pct)}</td>
-        </tr>`).join("")}</tbody></table></div>`
-    : `<div class="empty">Unavailable.</div>`;
+function sessionPanel(){
+  const s = D.session || {};
+  const rows = [
+    ["Tickers tracked", s.tracked ?? 0, "var(--ink)"],
+    ["Up today", `${s.up ?? 0} / ${s.tracked ?? 0}`, (s.up||0) > (s.down||0) ? G : R],
+    ["Flagged for review", s.flagged ?? 0, "var(--ink)"],
+    ["Track record", `${(D.history||[]).length} logged`, "var(--ink)"],
+  ];
+  return `<div class="panel" style="flex:1 1 240px;padding:18px 20px;display:flex;
+      flex-direction:column;gap:14px;">
+    <div class="eyebrow">Session</div>
+    ${rows.map(([l,v,c],i)=>`<div style="display:flex;align-items:baseline;
+      justify-content:space-between;gap:12px;${i<rows.length-1?
+      "border-bottom:1px solid var(--rule-2);padding-bottom:9px;":""}">
+      <div style="font-size:12px;color:var(--m);">${esc(l)}</div>
+      <div class="mono" style="font-size:13px;color:${c};">${esc(String(v))}</div>
+    </div>`).join("")}
+  </div>`;
 }
+
+function buzzList(){
+  const F = [["all","All"],["gainers","Gainers"],["decliners","Decliners"],["risky","High risk"]];
+  let list = (D.buzz || []).filter(t => !S.dismissed[t.sym]);
+  if (S.filter === "gainers")   list = list.filter(t => (t.pct||0) > 0);
+  if (S.filter === "decliners") list = list.filter(t => (t.pct||0) < 0);
+  if (S.filter === "risky")     list = list.filter(t => (t.flags||[]).length);
+
+  const rows = list.map(t => {
+    const col = chgC(t.pct), open = S.expanded[t.sym];
+    return `<div class="row">
+      <div class="rowin">
+        <div class="accent" style="background:${col};"></div>
+        <div style="flex:1 1 118px;min-width:0;cursor:pointer;" data-open="${esc(t.sym)}">
+          <div style="display:flex;align-items:center;gap:7px;">
+            <span class="sym">$${esc(t.sym)}</span>
+            <span style="font-size:11px;color:var(--ink-6);">${trendIcon(t)}</span>
+          </div>
+          <div class="co">${esc(t.name || "")}</div>
+        </div>
+        <div class="mono" style="flex:0 1 auto;min-width:84px;text-align:right;">
+          <div style="font-size:14px;color:var(--ink);">${money(t.price)}</div>
+          <div style="font-size:12px;color:${col};">${pctT(t.pct)}</div>
+        </div>
+        ${spark(t)}
+        <div style="flex:0 1 auto;min-width:82px;">
+          <div class="mono" style="font-size:12px;color:var(--ink-2);">
+            ${(t.mentions ?? 0).toLocaleString()} mentions</div>
+          <div style="font-size:10px;color:var(--ink-6);letter-spacing:.06em;
+            text-transform:uppercase;">${attention(t)}</div>
+        </div>
+        <div style="flex:1 1 160px;min-width:0;display:flex;gap:6px;flex-wrap:wrap;">
+          ${flagsHtml(t, 3)}</div>
+        <div style="flex:0 0 auto;display:flex;gap:6px;">
+          <button class="btn" data-toggle="${esc(t.sym)}">${open ? "LESS" : "WHY"}</button>
+          <button class="btn x" data-dismiss="${esc(t.sym)}" title="Hide for this session">✕</button>
+        </div>
+      </div>
+      ${open ? `<div class="expand">
+        <div style="flex:1 1 320px;min-width:0;">
+          <div class="eyebrow" style="margin-bottom:8px;">Why it's here</div>
+          <div style="font-size:13px;color:#4A4535;text-wrap:pretty;margin-bottom:16px;">
+            ${esc(t.reason || "—")}</div>
+          <div class="eyebrow" style="margin-bottom:8px;">Headlines</div>
+          ${newsHtml(t, 3)}
+        </div>
+        <div style="flex:1 1 260px;min-width:0;">
+          <div class="eyebrow" style="margin-bottom:12px;">5-day range band</div>
+          ${bandHtml(t)}
+          <button class="btn" style="margin-top:14px;" data-open="${esc(t.sym)}">OPEN DETAIL →</button>
+        </div>
+      </div>` : ""}
+    </div>`;
+  }).join("");
+
+  return `<div class="panel">
+    <div class="phead">
+      <div class="cap">Reddit buzz</div>
+      <div class="note">ranked by attention</div>
+      <div style="flex:1 1 20px;"></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        ${F.map(([k,l])=>`<button class="fbtn" data-filter="${k}"
+          aria-pressed="${S.filter===k}">${l}</button>`).join("")}
+      </div>
+    </div>
+    ${rows || `<div class="empty">Nothing matches this filter.</div>`}
+  </div>`;
+}
+
+function moversPanel(){
+  const m = D.gainers || [];
+  return `<div class="panel">
+    <div class="phead"><div class="cap">Biggest movers</div>
+      <div class="note">already up most — not a prediction</div></div>
+    ${m.length ? m.map(x => `
+      <div class="row clickable" data-open="${esc(x.sym)}">
+        <div class="rowin">
+          <div class="mono" style="font-size:14px;font-weight:600;color:var(--ink-d);
+            flex:0 0 auto;min-width:58px;">$${esc(x.sym)}</div>
+          <div style="font-size:12px;color:var(--ink-5);flex:1 1 110px;min-width:0;
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${esc(x.name||"")}</div>
+          <div class="mono" style="font-size:13px;color:${chgC(x.pct)};flex:0 0 auto;
+            min-width:52px;text-align:right;">${pctT(x.pct)}</div>
+          <div class="mono" style="font-size:13px;color:var(--ink-2);flex:0 0 auto;
+            min-width:64px;text-align:right;">${money(x.price)}</div>
+          <div style="flex:1 1 240px;min-width:0;font-size:12px;color:var(--ink-4);
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+            ${esc((x.headlines||[])[0] || "")}</div>
+        </div>
+      </div>`).join("") : `<div class="empty">Unavailable.</div>`}
+  </div>`;
+}
+
+function queuePanel(){
+  const q = D.watch || [];
+  return `<div class="panel">
+    <div style="padding:14px 18px;border-bottom:1px solid var(--rule);">
+      <div class="cap">Review queue</div>
+      <div class="note" style="margin-top:2px;">research order · read-only</div>
+    </div>
+    ${q.length ? q.map((t,i) => `
+      <div class="row clickable" data-open="${esc(t.sym)}">
+        <div style="display:flex;gap:12px;padding:12px 18px;align-items:flex-start;">
+          <div class="mono" style="font-size:11px;color:#6E6754;width:16px;flex:0 0 auto;
+            padding-top:2px;">${i+1}</div>
+          <div style="flex:1 1 auto;min-width:0;">
+            <div style="display:flex;align-items:baseline;gap:8px;">
+              <span class="mono" style="font-size:13px;font-weight:600;color:var(--ink);">
+                $${esc(t.sym)}</span>
+              <span class="mono" style="font-size:12px;color:${chgC(t.pct)};">${pctT(t.pct)}</span>
+            </div>
+            <div style="font-size:12px;color:var(--ink-4);text-wrap:pretty;margin-top:2px;">
+              ${esc(t.tag || "")}</div>
+          </div>
+          <div class="pill" style="${pillCss(t.source === "yahoo" ? "muted" : "good")};
+            flex:0 0 auto;">${t.source === "yahoo" ? "YF" : "RDT"}</div>
+        </div>
+      </div>`).join("") : `<div class="empty">Nothing stands out today.</div>`}
+  </div>`;
+}
+
+function recordPanel(){
+  const h = D.history || [];
+  const w = h.filter(e => e.outcome === "worked").length;
+  const f = h.filter(e => e.outcome === "faded").length;
+  const n = h.filter(e => e.outcome === "flat").length;
+  const stats = [[w,"worked",G],[f,"faded",R],[n,"flat","var(--ink-4)"]];
+  return `<div class="panel" style="padding:16px 18px;">
+    <div class="cap" style="margin-bottom:12px;">Radar track record</div>
+    ${h.length ? `<div style="display:flex;gap:16px;flex-wrap:wrap;">
+      ${stats.map(([v,l,c])=>`<div style="flex:1 1 80px;">
+        <div class="mono" style="font-size:22px;font-weight:600;color:${c};">${v}</div>
+        <div style="font-size:11px;color:var(--ink-5);margin-top:1px;">${l}</div>
+      </div>`).join("")}</div>
+      <button class="btn wide" data-go="history">VIEW FULL HISTORY →</button>`
+    : `<div class="note">No history yet. Each run logs what it flagged and marks it to
+       market on later runs — the record fills in from here.</div>`}
+  </div>`;
+}
+
+function disclaimer(){
+  return `<div class="panel dash" style="padding:16px 18px;color:var(--ink-5);font-size:12px;">
+    <div class="eyebrow" style="margin-bottom:8px;">Disclaimer</div>
+    Mention counts from ApeWisdom, prices and fundamentals from Yahoo Finance.
+    These communities carry pump-and-dump activity — treat every name as high risk.
+    Nothing here is financial advice, and nothing here is a forecast.
+  </div>`;
+}
+
+function digest(){
+  return `<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:stretch;margin-bottom:18px;">
+      ${verdict()}${sessionPanel()}</div>
+    <div class="cols">
+      <div class="col-main">${buzzList()}${moversPanel()}</div>
+      <div class="col-side">${queuePanel()}${recordPanel()}${disclaimer()}</div>
+    </div>`;
+}
+
+/* ── watchlist ────────────────────────────────────────────── */
+function watchlist(){
+  const q = D.watch || [];
+  return `<div class="panel" style="margin-bottom:16px;padding:22px 24px;">
+      <div class="eyebrow" style="margin-bottom:10px;">Watching</div>
+      <div style="font-size:26px;font-weight:600;letter-spacing:-.02em;color:var(--ink-d);">
+        ${q.length} name${q.length===1?"":"s"} flagged for review</div>
+      <div style="margin-top:8px;font-size:13px;color:var(--ink-3);max-width:70ch;">
+        Rising Reddit chatter or an analyst buy with room left to move. No position is
+        implied — this is a reading list, ordered by how it surfaced.</div>
+    </div>
+    ${q.length ? `<div class="grid">${q.map(t => `
+      <div class="panel" style="min-width:0;padding:16px 18px;">
+        <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+          <span class="sym clickable" data-open="${esc(t.sym)}">$${esc(t.sym)}</span>
+          <span class="mono" style="font-size:13px;color:var(--ink-2);">${money(t.price)}</span>
+          <span class="mono" style="font-size:13px;color:${chgC(t.pct)};margin-left:auto;">
+            ${pctT(t.pct)}</span>
+        </div>
+        <div class="co" style="max-width:100%;margin-top:2px;">${esc(t.name||"")}</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;">
+          <span class="pill" style="${pillCss("muted")}">${esc(t.tag||"")}</span>
+          ${flagsHtml(t, 2)}
+        </div>
+        ${t.band ? bandHtml(t) : ""}
+        <div style="margin-top:12px;">${newsHtml(t, 2)}</div>
+        <button class="btn" style="margin-top:12px;" data-open="${esc(t.sym)}">OPEN DETAIL →</button>
+      </div>`).join("")}</div>`
+    : `<div class="panel"><div class="empty">Nothing stands out today.</div></div>`}`;
+}
+
+/* ── history ──────────────────────────────────────────────── */
+function history(){
+  const h = D.history || [];
+  const w = h.filter(e=>e.outcome==="worked").length;
+  const f = h.filter(e=>e.outcome==="faded").length;
+  const read = !h.length
+    ? "Nothing logged yet."
+    : `Of ${h.length} flagged name${h.length===1?"":"s"} still inside the ${
+        Math.max(...h.map(e=>e.age_days||0))}-day window, ${w} ${w===1?"is":"are"} up more than 10% `
+      + `since the flag and ${f} ${f===1?"is":"are"} down more than 10%. `
+      + `A flag is an attention reading, not a recommendation — a high "faded" count is the `
+      + `expected outcome for crowd-driven names and is exactly why this table exists.`;
+  return `<div class="panel">
+      <div class="phead"><div class="cap">Radar track record</div>
+        <div class="note">what happened after each flag · marked to the latest run</div></div>
+      ${h.length ? `<div class="scroll"><div style="min-width:660px;">
+        <div class="tbl">
+          <div style="flex:0 0 90px;">Flagged</div>
+          <div style="flex:0 0 90px;">Ticker</div>
+          <div style="flex:0 0 90px;text-align:right;">At flag</div>
+          <div style="flex:0 0 90px;text-align:right;">Now</div>
+          <div style="flex:0 0 80px;text-align:right;">Δ</div>
+          <div style="flex:1 1 160px;">Outcome</div>
+        </div>
+        ${h.map(e => {
+          const kind = e.outcome==="worked"?"good":e.outcome==="faded"?"bad":"muted";
+          return `<div class="row clickable" data-open="${esc(e.sym)}">
+            <div style="display:flex;gap:12px;padding:13px 18px;align-items:center;">
+              <div class="mono" style="flex:0 0 90px;font-size:12px;color:var(--ink-5);">
+                ${esc(e.date)}</div>
+              <div class="mono" style="flex:0 0 90px;font-size:13px;font-weight:600;
+                color:var(--ink-d);">$${esc(e.sym)}</div>
+              <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
+                color:var(--ink-2);">${money(e.flag_price)}</div>
+              <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
+                color:var(--ink-2);">${money(e.last_price)}</div>
+              <div class="mono" style="flex:0 0 80px;text-align:right;font-size:13px;
+                color:${chgC(e.pct)};">${pctT(e.pct)}</div>
+              <div style="flex:1 1 160px;display:flex;align-items:center;gap:10px;min-width:0;">
+                <span class="pill" style="${pillCss(kind)}">${esc(e.outcome)}</span>
+                <span style="font-size:12px;color:var(--ink-4);white-space:nowrap;
+                  overflow:hidden;text-overflow:ellipsis;">${esc(e.note||"")}</span>
+              </div>
+            </div></div>`;
+        }).join("")}
+      </div></div>` : `<div class="empty">No history yet — it builds from the next run onward.</div>`}
+    </div>
+    <div class="panel dash" style="margin-top:16px;padding:18px 20px;">
+      <div class="eyebrow" style="margin-bottom:8px;">Read of the record</div>
+      <div style="font-size:13px;color:var(--ink-3);max-width:78ch;text-wrap:pretty;">
+        ${esc(read)}</div>
+    </div>`;
+}
+
+/* ── detail ───────────────────────────────────────────────── */
+function detail(){
+  const all = [...(D.buzz||[]), ...(D.watch||[]), ...(D.gainers||[])];
+  const t = all.find(x => x.sym === S.sel);
+  if (!t) return `<div class="panel"><div class="empty">
+    $${esc(S.sel||"")} isn't in this run's data.</div></div>`;
+  const col = chgC(t.pct);
+  const past = (D.history||[]).filter(e => e.sym === t.sym);
+  return `<button class="btn" data-go="digest" style="margin-bottom:16px;">← BACK</button>
+    <div class="panel" style="padding:22px 24px;margin-bottom:16px;">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+        <div class="mono" style="font-size:26px;font-weight:600;color:var(--ink-d);">
+          $${esc(t.sym)}</div>
+        <div style="font-size:14px;color:var(--ink-5);">${esc(t.name||"")}</div>
+        <div style="flex:1 1 20px;"></div>
+        <div class="mono" style="font-size:22px;color:var(--ink);">${money(t.price)}</div>
+        <div class="mono" style="font-size:16px;color:${col};">${pctT(t.pct)}</div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">${flagsHtml(t)}</div>
+    </div>
+    <div class="cols">
+      <div class="col-main">
+        <div class="panel" style="padding:18px 20px;">
+          <div class="eyebrow" style="margin-bottom:8px;">Reason it surfaced</div>
+          <div style="font-size:14px;color:var(--ink-3);text-wrap:pretty;">
+            ${esc(t.reason || "—")}</div>
+        </div>
+        <div class="panel" style="padding:18px 20px;">
+          <div class="eyebrow" style="margin-bottom:12px;">News</div>
+          ${newsHtml(t, 3)}
+        </div>
+        ${past.length ? `<div class="panel" style="padding:18px 20px;">
+          <div class="eyebrow" style="margin-bottom:12px;">Flagged previously</div>
+          ${past.map(e=>`<div style="display:flex;gap:12px;align-items:baseline;
+            border-bottom:1px solid var(--rule-2);padding:8px 0;">
+            <span class="mono" style="font-size:12px;color:var(--ink-5);flex:0 0 90px;">
+              ${esc(e.date)}</span>
+            <span class="mono" style="font-size:12px;color:var(--ink-2);">
+              ${money(e.flag_price)} → ${money(e.last_price)}</span>
+            <span class="mono" style="font-size:12px;color:${chgC(e.pct)};margin-left:auto;">
+              ${pctT(e.pct)}</span>
+            <span class="pill" style="${pillCss(e.outcome==="worked"?"good":
+              e.outcome==="faded"?"bad":"muted")}">${esc(e.outcome)}</span>
+          </div>`).join("")}
+        </div>` : ""}
+      </div>
+      <div class="col-side">
+        <div class="panel" style="padding:18px 20px;">
+          <div class="eyebrow" style="margin-bottom:12px;">Short-term range band · 5 sessions</div>
+          ${t.band ? bandHtml(t) : `<div class="note">No recent price frame available.</div>`}
+        </div>
+        <div class="panel" style="padding:18px 20px;">
+          <div class="eyebrow" style="margin-bottom:12px;">Key stats</div>
+          ${(t.stats||[]).length ? (t.stats||[]).map(([k,v])=>`
+            <div style="display:flex;justify-content:space-between;gap:12px;
+              border-bottom:1px solid var(--rule-2);padding:8px 0;">
+              <span style="font-size:12px;color:var(--m);">${esc(k)}</span>
+              <span class="mono" style="font-size:12px;color:var(--ink-2);">${esc(v)}</span>
+            </div>`).join("") : `<div class="note">Yahoo returned no fundamentals for this symbol.</div>`}
+        </div>
+        ${t.analyst_rec || t.analyst_target ? `<div class="panel" style="padding:18px 20px;">
+          <div class="eyebrow" style="margin-bottom:12px;">Analyst view</div>
+          ${t.analyst_rec ? `<div style="display:flex;justify-content:space-between;
+            border-bottom:1px solid var(--rule-2);padding:8px 0;">
+            <span style="font-size:12px;color:var(--m);">Consensus</span>
+            <span class="mono" style="font-size:12px;color:var(--ink-2);">
+              ${esc(t.analyst_rec.replace(/_/g," "))}</span></div>` : ""}
+          ${t.analyst_target ? `<div style="display:flex;justify-content:space-between;
+            padding:8px 0;"><span style="font-size:12px;color:var(--m);">Mean target</span>
+            <span class="mono" style="font-size:12px;color:var(--ink-2);">
+              ${money(t.analyst_target)}${t.price ? ` (${pctT((t.analyst_target-t.price)/t.price*100)})` : ""}
+            </span></div>` : ""}
+        </div>` : ""}
+      </div>
+    </div>`;
+}
+
+/* ── shell ────────────────────────────────────────────────── */
+const SCREENS = { digest, watchlist, history, detail };
+function render(){
+  const nav = [["digest","Digest"],["watchlist","Watchlist"],["history","History"]];
+  $("#nav").innerHTML = nav.map(([k,l]) =>
+    `<button data-go="${k}" aria-current="${S.screen===k}">${l}</button>`).join("");
+  $("#app").innerHTML = (SCREENS[S.screen] || digest)();
+  window.scrollTo({ top: 0 });
+}
+
+document.addEventListener("click", e => {
+  const el = e.target.closest("[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter]");
+  if (!el) return;
+  const d = el.dataset;
+  if (d.go)       { S.screen = d.go; }
+  else if (d.open){ S.sel = d.open; S.screen = "detail"; }
+  else if (d.toggle)  { S.expanded[d.toggle] = !S.expanded[d.toggle]; }
+  else if (d.dismiss) { S.dismissed[d.dismiss] = true; }
+  else if (d.filter)  { S.filter = d.filter; }
+  render();
+});
 
 fetch("data.json?" + Date.now())
   .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-  .then(render)
-  .catch(e => {
-    $("stamp").textContent = "Could not load data.json";
-    $("tiles").innerHTML = `<div class="empty">
-      Waiting for the first radar run to write <b>data.json</b>. (${esc(e.message)})</div>`;
+  .then(d => {
+    D = d;
+    const when = new Date(d.generated_at);
+    const s = when.toLocaleString(undefined,
+      { month:"short", day:"numeric", hour:"2-digit", minute:"2-digit" });
+    $("#stamp").textContent = s;
+    $("#hStamp").textContent = when.toLocaleTimeString(undefined,
+      { hour:"2-digit", minute:"2-digit" });
+    $("#hTracked").textContent = (d.session && d.session.tracked) ?? (d.buzz||[]).length;
+    render();
+  })
+  .catch(err => {
+    $("#boot").innerHTML = `<div class="eyebrow" style="margin-bottom:8px;">No data</div>
+      Waiting for the first radar run to write <b>data.json</b>.
+      <div class="note" style="margin-top:6px;">${esc(err.message)}</div>`;
   });
 </script>
 </body>
