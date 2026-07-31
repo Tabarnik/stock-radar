@@ -387,9 +387,9 @@ def market_gainers(n):
         out.append({"sym": sym, "pct": float(pct),
                     "price": q.get("regularMarketPrice"),
                     "name": q.get("shortName") or q.get("longName") or ""})
-        if len(out) >= n:
-            break
-    return out
+    # the screener does not return them in order; "biggest movers" must be sorted
+    out.sort(key=lambda g: g["pct"], reverse=True)
+    return out[:n]
 
 
 def _fmt_price(p):
@@ -655,7 +655,11 @@ def main():
         g["headlines"] = news_headlines(g["sym"])
         g["why"] = g["headlines"][0] if g["headlines"] else ""
 
-    yahoo_watches = yahoo_watchlist()
+    # Yahoo most-actives overlap the Reddit watch list; keep the Reddit entry
+    # (it carries mention counts) and drop the duplicate rather than showing
+    # the same ticker twice at two slightly different prices.
+    seen = {r["sym"] for r in _worth_watching(results)}
+    yahoo_watches = [w for w in yahoo_watchlist(n=8) if w["sym"] not in seen][:4]
 
     write_dashboard(results, gainers, yahoo_watches)
 
