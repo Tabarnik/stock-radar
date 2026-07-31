@@ -419,8 +419,12 @@ def reason_text(r):
 
     if not bits:
         return f"{sym} surfaced on mention volume alone; nothing else stood out."
-    body = bits[0][0].upper() + bits[0][1:]
-    return body + (". " + "; ".join(bits[1:]) + "." if len(bits) > 1 else ".")
+    cap = lambda s: s[0].upper() + s[1:] if s else s
+    if len(bits) == 1:
+        return cap(bits[0]) + "."
+    # first clause is its own sentence; the rest run on semicolons after it
+    return f"{cap(bits[0])}. {cap(bits[1])}" + \
+           ("; " + "; ".join(bits[2:]) if len(bits) > 2 else "") + "."
 
 
 def yahoo_watchlist(n=5):
