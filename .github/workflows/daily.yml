@@ -14,7 +14,7 @@ on:
   workflow_dispatch: {}        # manual trigger always runs
 
 permissions:
-  contents: read
+  contents: write     # commit the refreshed docs/data.json back to main
   pages: write
   id-token: write
 
@@ -48,6 +48,19 @@ jobs:
           MAX_VALIDATE: '50'
           DASHBOARD_DIR: docs
         run: python main.py
+
+      # ---- commit the fresh data back to the repo ----
+      # Gives a working board (and a run history) even before Pages is enabled,
+      # and lets a Raspberry Pi pull data without running Python itself.
+      - name: Commit dashboard data
+        continue-on-error: true
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data.json
+          git diff --staged --quiet && echo "no change" && exit 0
+          git commit -m "radar data $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push origin HEAD:main
 
       # ---- publish the dashboard to GitHub Pages ----
       # continue-on-error throughout: the notification is the primary job and

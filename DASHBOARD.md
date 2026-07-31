@@ -11,24 +11,30 @@ step, no framework, no external requests — it works from any static file serve
 
 ## Option A — GitHub Pages (zero maintenance)
 
-Already wired up. The workflow publishes `docs/` after every run, so the board
-refreshes three times each weekday on its own.
+The workflow publishes `docs/` after every run, so the board refreshes three
+times each weekday on its own.
 
-**One-time setup:**
+**One-time setup — this step is required and cannot be automated.** The
+workflow's `GITHUB_TOKEN` is not allowed to switch Pages on, so the deploy
+step will keep 404-ing until you do this by hand:
 
-1. Go to your repo → **Settings** → **Pages**
+1. Go to **Settings** → **Pages**
+   (https://github.com/Tabarnik/reddit-stock-radar/settings/pages)
 2. Under *Build and deployment* → **Source**, pick **GitHub Actions**
 3. Save
 
-Your board will be live at:
+Then trigger a run from the Actions tab. The board goes live at:
 
 ```
 https://tabarnik.github.io/reddit-stock-radar/
 ```
 
-The first deploy happens on the next run (or trigger one manually from the
-Actions tab). Bookmark it on your phone — it's responsive and follows your
-system light/dark theme.
+Bookmark it on your phone — it's responsive and follows your system
+light/dark theme.
+
+> Until Pages is enabled the run still succeeds and the notification still
+> sends; only the deploy step fails, and it is marked `continue-on-error` so
+> it cannot take the digest down with it.
 
 ---
 
@@ -88,6 +94,17 @@ Tailscale from outside, same as Infuse.
 > instead and skip the service above.
 
 ### 4. Refresh the data on a schedule
+
+**Either** let the Pi compute the data itself (below), **or** — simpler — let
+GitHub Actions do the work and have the Pi just pull the result. Every run
+commits a fresh `docs/data.json` to `main`, so this one-liner is enough:
+
+```cron
+*/20 * * * * cd /home/pi/stock-radar && /usr/bin/git pull -q --ff-only
+```
+
+No Python, no API calls, no keys on the Pi. To have the Pi do its own runs
+instead:
 
 ```bash
 crontab -e
