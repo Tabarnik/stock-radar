@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-01T13:56:15.740783+00:00",
+ "generated_at": "2026-08-01T14:43:13.515992+00:00",
  "watch": [
   {
    "sym": "AAPL",
@@ -17,7 +17,7 @@
    "headlines": [
     "Apple stock falls on weak revenue forecast as CEO Tim Cook flags 'increasing impact' from memory shortage",
     "Listen to Tim Cook's first and last earnings calls as Apple CEO",
-    "Apple's iPhone leasing program: How it works, what to consider"
+    "Apple Just Did Something It Hasn't Done in Over a Year, and the Stock Can Keep Climbing Higher From Here"
    ],
    "band": [
     308.91,
@@ -206,8 +206,8 @@
    "earnings": null,
    "headlines": [
     "AI trade is a combination of 'perception and reality': Bradley Tusk",
-    "2 High-Yield Dividend Stocks Worth Buying Before 2026 Ends",
-    "State Street\u2019s $5.7 Trillion Portfolio Chief Missed Bitcoin at $500. But She Saw Gold\u2019s $3,000 Run Coming Years Earlier"
+    "Should You Buy Billionaire Investor Chase Coleman\u2019s Top 5 Growth Stocks in August?",
+    "SpaceX Is Down 19% From Its IPO Price. Tesla's History Suggests This May Happen Next"
    ],
    "band": [
     190.00999450683594,
@@ -248,8 +248,8 @@
    ],
    "reason": "Price is +2.9% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $302.83 mean target (+51%).",
    "tone": {
-    "label": "mixed",
-    "score": 0.02
+    "label": "positive",
+    "score": 0.18
    },
    "read": [
     "quiet",
@@ -413,10 +413,6 @@
     9.140000343322754
    ],
    "stats": [
-    [
-     "Market cap",
-     "$51.0B"
-    ],
     [
      "Float",
      "4.4B"
@@ -772,8 +768,8 @@
    "name": "Micron Technology",
    "price": 823.030029296875,
    "pct": -8.845947708182218,
-   "mentions": 734,
-   "mentions_prev": 1171,
+   "mentions": 614,
+   "mentions_prev": 1203,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -800,10 +796,6 @@
    ],
    "stats": [
     [
-     "Market cap",
-     "$929.5B"
-    ],
-    [
      "Float",
      "1.1B"
     ],
@@ -824,7 +816,7 @@
      "$105.46 \u2013 $1255.00"
     ]
    ],
-   "reason": "734 mentions, cooling from 1,171. Price is -8.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,507.38 mean target (+83%); the scan flagged squeeze/penny sub.",
+   "reason": "614 mentions, cooling from 1,203. Price is -8.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,507.38 mean target (+83%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.48
@@ -958,13 +950,183 @@
    }
   },
   {
+   "sym": "SPY",
+   "name": "SPDR S&P 500 ETF Trust",
+   "price": 747.030029296875,
+   "pct": 0.4977640209429135,
+   "mentions": 551,
+   "mentions_prev": 576,
+   "mom": "\u2192",
+   "label": "",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
+   "headlines": [
+    "JEPI vs JEPQ: After Comparing America\u2019s Two Biggest Income ETFs, One Is the Better Buy for the Rest of 2026",
+    "Apple\u2019s Safe Haven Illusion Faces an Impending Hangover",
+    "The 12% Yield Trap: How SPYI Returns Your Own Capital as \u2018Income\u2019"
+   ],
+   "band": [
+    729.4600219726562,
+    747.030029296875
+   ],
+   "spark": [
+    739.0900268554688,
+    740.8599853515625,
+    729.4600219726562,
+    741.6900024414062,
+    747.030029296875
+   ],
+   "stats": [
+    [
+     "Avg vol",
+     "52.9M"
+    ],
+    [
+     "Vol today",
+     "59.1M"
+    ],
+    [
+     "52w range",
+     "$625.58 \u2013 $760.40"
+    ]
+   ],
+   "reason": "551 mentions, flat against yesterday. Price is +0.5% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "positive",
+    "score": 0.19
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": null,
+   "chart": {
+    "period": "1y",
+    "closes": [
+     614.91,
+     630.2,
+     636.39,
+     638.24,
+     637.98,
+     640.15,
+     650.21,
+     658.25,
+     656.38,
+     663.71,
+     647.65,
+     658.93,
+     671.69,
+     676.46,
+     665.46,
+     666.41,
+     653.61,
+     677.77,
+     680.06,
+     676.16,
+     676.99,
+     686.66,
+     679.56,
+     690.4,
+     688.0,
+     685.59,
+     688.31,
+     686.97,
+     678.15,
+     685.79,
+     682.36,
+     668.83,
+     658.79,
+     646.9,
+     632.46,
+     654.14,
+     677.71,
+     708.32,
+     712.11,
+     718.8,
+     735.72,
+     737.27,
+     743.72,
+     754.54,
+     735.65,
+     739.84,
+     746.74,
+     728.99,
+     744.78,
+     754.95,
+     743.29,
+     738.93,
+     747.03
+    ],
+    "dates": [
+     "2025-07-28",
+     "2025-08-04",
+     "2025-08-11",
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27"
+    ]
+   }
+  },
+  {
    "sym": "RDDT",
    "name": "Reddit",
    "price": 140.6699981689453,
    "pct": -11.805588486923618,
-   "mentions": 645,
-   "mentions_prev": 692,
-   "mom": "\u2192",
+   "mentions": 431,
+   "mentions_prev": 768,
+   "mom": "\u2193",
    "label": "\ud83d\udd3b already dumped today",
    "flags": [
     "vol 6x normal",
@@ -1015,7 +1177,7 @@
      "$119.27 \u2013 $282.95"
     ]
    ],
-   "reason": "645 mentions, flat against yesterday. Down 12% today while chatter keeps climbing; analyst consensus is buy with a $226.47 mean target (+61%); the scan flagged vol 6x normal, squeeze/penny sub.",
+   "reason": "431 mentions, cooling from 768. Down 12% today while chatter keeps climbing; analyst consensus is buy with a $226.47 mean target (+61%); the scan flagged vol 6x normal, squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.05
@@ -1149,182 +1311,12 @@
    }
   },
   {
-   "sym": "SPY",
-   "name": "SPDR S&P 500 ETF Trust",
-   "price": 747.030029296875,
-   "pct": 0.4977640209429135,
-   "mentions": 605,
-   "mentions_prev": 572,
-   "mom": "\u2192",
-   "label": "",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "Apple\u2019s Safe Haven Illusion Faces an Impending Hangover",
-    "The 12% Yield Trap: How SPYI Returns Your Own Capital as \u2018Income\u2019",
-    "US Indices End Week Higher As Amazon Earnings Lift Sentiment, But Nasdaq Logs Worst Month In Over A Year \u2014 PSKY, BABA, RDDT, RIVN, AMZN In Focus"
-   ],
-   "band": [
-    729.4600219726562,
-    747.030029296875
-   ],
-   "spark": [
-    739.0900268554688,
-    740.8599853515625,
-    729.4600219726562,
-    741.6900024414062,
-    747.030029296875
-   ],
-   "stats": [
-    [
-     "Avg vol",
-     "52.9M"
-    ],
-    [
-     "Vol today",
-     "59.1M"
-    ],
-    [
-     "52w range",
-     "$625.58 \u2013 $760.40"
-    ]
-   ],
-   "reason": "605 mentions, flat against yesterday. Price is +0.5% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "negative",
-    "score": -0.21
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": null,
-   "chart": {
-    "period": "1y",
-    "closes": [
-     614.91,
-     630.2,
-     636.39,
-     638.24,
-     637.98,
-     640.15,
-     650.21,
-     658.25,
-     656.38,
-     663.71,
-     647.65,
-     658.93,
-     671.69,
-     676.46,
-     665.46,
-     666.41,
-     653.61,
-     677.77,
-     680.06,
-     676.16,
-     676.99,
-     686.66,
-     679.56,
-     690.4,
-     688.0,
-     685.59,
-     688.31,
-     686.97,
-     678.15,
-     685.79,
-     682.36,
-     668.83,
-     658.79,
-     646.9,
-     632.46,
-     654.14,
-     677.71,
-     708.32,
-     712.11,
-     718.8,
-     735.72,
-     737.27,
-     743.72,
-     754.54,
-     735.65,
-     739.84,
-     746.74,
-     728.99,
-     744.78,
-     754.95,
-     743.29,
-     738.93,
-     747.03
-    ],
-    "dates": [
-     "2025-07-28",
-     "2025-08-04",
-     "2025-08-11",
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27"
-    ]
-   }
-  },
-  {
    "sym": "MSFT",
    "name": "Microsoft",
    "price": 464.7200012207031,
    "pct": 3.623431047941467,
-   "mentions": 255,
-   "mentions_prev": 1041,
+   "mentions": 221,
+   "mentions_prev": 822,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -1335,8 +1327,8 @@
    "earnings": null,
    "headlines": [
     "Earnings live: Reddit stock tanks 21% on 'choppy' Google search referrals, Amazon and Apple swing",
-    "Where Apple is diverging from rest of Mag 7 earnings",
-    "Apple is growing without the AI spending spree engulfing Big Tech: Chart of the Day"
+    "Apple stock plunges: CEO Tim Cook explains weak revenue forecast",
+    "Apple Just Did Something It Hasn't Done in Over a Year, and the Stock Can Keep Climbing Higher From Here"
    ],
    "band": [
     389.1000061035156,
@@ -1375,10 +1367,10 @@
      "$349.20 \u2013 $553.72"
     ]
    ],
-   "reason": "255 mentions, cooling from 1,041. Price is +3.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $561.58 mean target (+21%); the scan flagged squeeze/penny sub.",
+   "reason": "221 mentions, cooling from 822. Price is +3.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $561.58 mean target (+21%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.12
+    "score": -0.09
    },
    "read": [
     "quiet",
@@ -1509,66 +1501,66 @@
    }
   },
   {
-   "sym": "AAPL",
-   "name": "Apple",
-   "price": 308.9100036621094,
-   "pct": -1.0954695052822498,
-   "mentions": 232,
-   "mentions_prev": 744,
-   "mom": "\u2193",
+   "sym": "SPCX",
+   "name": "SpaceX",
+   "price": 108.37000274658203,
+   "pct": -3.910265342629872,
+   "mentions": 206,
+   "mentions_prev": 226,
+   "mom": "\u2192",
    "label": "",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "BUY",
-   "analyst_target": 321.6566,
-   "earnings": null,
+   "analyst_target": 236.7143,
+   "earnings": "Aug 04 (3d)",
    "headlines": [
-    "Apple stock falls on weak revenue forecast as CEO Tim Cook flags 'increasing impact' from memory shortage",
-    "Listen to Tim Cook's first and last earnings calls as Apple CEO",
-    "Apple's iPhone leasing program: How it works, what to consider"
+    "AI trade is a combination of 'perception and reality': Bradley Tusk",
+    "SpaceX stock keeps sliding. What to do if you own shares.",
+    "SpaceX Is Down 19% From Its IPO Price. Tesla's History Suggests This May Happen Next"
    ],
    "band": [
-    308.9100036621094,
-    340.0799865722656
+    108.37000274658203,
+    116.41000366210938
    ],
    "spark": [
-    336.9100036621094,
-    340.0799865722656,
-    338.19000244140625,
-    333.42999267578125,
-    308.9100036621094
+    113.5,
+    116.41000366210938,
+    112.55000305175781,
+    112.19999694824219,
+    108.37000274658203
    ],
    "stats": [
     [
      "Market cap",
-     "$4.5T"
+     "$1.4T"
     ],
     [
      "Float",
-     "14.6B"
+     "281.1M"
     ],
     [
      "Short interest",
-     "1.0%"
+     "2.7%"
     ],
     [
      "Avg vol",
-     "56.5M"
+     "111.5M"
     ],
     [
      "Vol today",
-     "127.4M"
+     "54.9M"
     ],
     [
      "52w range",
-     "$201.68 \u2013 $344.57"
+     "$107.01 \u2013 $225.64"
     ]
    ],
-   "reason": "232 mentions, cooling from 744. Price is -1.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $321.66 mean target (+4%); the scan flagged squeeze/penny sub.",
+   "reason": "206 mentions, flat against yesterday. Price is -3.9% \u2014 the attention has moved further than the price; analyst consensus is buy with a $236.71 mean target (+118%); earnings land Aug 04 (3d); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "negative",
-    "score": -0.2
+    "label": "mixed",
+    "score": 0.1
    },
    "read": [
     "quiet",
@@ -1576,9 +1568,107 @@
     "No strong pattern between price and attention today."
    ],
    "er": {
-    "eps_estimate": 1.89,
+    "date": "Aug 04",
+    "days_away": 3,
+    "eps_estimate": -0.23
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     160.95,
+     185.0,
+     153.23,
+     162.0,
+     145.3,
+     123.99,
+     115.07,
+     108.37
+    ],
+    "dates": [
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27"
+    ]
+   }
+  },
+  {
+   "sym": "NVDA",
+   "name": "NVIDIA",
+   "price": 200.75,
+   "pct": 1.9869030019457532,
+   "mentions": 202,
+   "mentions_prev": 328,
+   "mom": "\u2193",
+   "label": "",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 302.82758,
+   "earnings": null,
+   "headlines": [
+    "AI trade is a combination of 'perception and reality': Bradley Tusk",
+    "Should You Buy Billionaire Investor Chase Coleman\u2019s Top 5 Growth Stocks in August?",
+    "SpaceX Is Down 19% From Its IPO Price. Tesla's History Suggests This May Happen Next"
+   ],
+   "band": [
+    190.00999450683594,
+    200.75
+   ],
+   "spark": [
+    196.50999450683594,
+    197.00999450683594,
+    190.00999450683594,
+    195.0399932861328,
+    200.75
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$4.9T"
+    ],
+    [
+     "Float",
+     "23.2B"
+    ],
+    [
+     "Short interest",
+     "1.4%"
+    ],
+    [
+     "Avg vol",
+     "152.8M"
+    ],
+    [
+     "Vol today",
+     "139.3M"
+    ],
+    [
+     "52w range",
+     "$164.07 \u2013 $236.54"
+    ]
+   ],
+   "reason": "202 mentions, cooling from 328. Price is +2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+51%); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "positive",
+    "score": 0.18
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "date": "Aug 26",
+    "days_away": 25,
+    "eps_estimate": 2.08,
     "beat_record": "beat 4 of last 4",
-    "avg_surprise": 6.1,
+    "avg_surprise": 4.6,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -1587,59 +1677,59 @@
    "chart": {
     "period": "1y",
     "closes": [
-     201.58,
-     228.44,
-     230.94,
-     227.12,
-     231.49,
-     239.01,
-     233.41,
-     244.81,
-     254.74,
-     257.29,
-     244.58,
-     251.58,
-     262.08,
-     269.61,
-     267.71,
-     271.9,
-     270.99,
-     278.33,
-     278.26,
-     277.76,
-     273.16,
-     272.89,
-     270.51,
-     258.89,
-     255.06,
-     247.58,
-     259.0,
-     277.6,
-     255.54,
-     264.34,
-     263.94,
-     257.22,
-     249.89,
-     247.76,
-     248.57,
-     255.68,
-     260.24,
-     269.98,
-     270.81,
-     279.88,
-     293.05,
-     300.23,
-     308.82,
-     312.06,
-     307.34,
-     291.13,
-     298.01,
-     283.78,
-     308.63,
-     315.32,
-     333.74,
-     333.02,
-     308.91
+     173.49,
+     182.46,
+     180.21,
+     177.75,
+     173.95,
+     166.8,
+     177.59,
+     176.44,
+     177.96,
+     187.38,
+     182.93,
+     182.99,
+     186.02,
+     202.23,
+     187.91,
+     189.93,
+     178.65,
+     176.77,
+     182.19,
+     174.81,
+     180.77,
+     190.3,
+     188.62,
+     184.63,
+     186.0,
+     187.44,
+     190.9,
+     185.18,
+     182.59,
+     189.59,
+     176.97,
+     177.6,
+     180.04,
+     172.5,
+     167.32,
+     177.18,
+     188.41,
+     201.45,
+     208.03,
+     198.22,
+     214.95,
+     225.06,
+     215.08,
+     210.89,
+     205.1,
+     205.19,
+     210.69,
+     192.53,
+     194.83,
+     210.96,
+     202.81,
+     206.84,
+     200.75
     ],
     "dates": [
      "2025-07-28",
@@ -1703,8 +1793,8 @@
    "name": "Sandisk",
    "price": 1214.8299560546875,
    "pct": -10.278444140832226,
-   "mentions": 231,
-   "mentions_prev": 581,
+   "mentions": 201,
+   "mentions_prev": 520,
    "mom": "\u2193",
    "label": "\ud83d\udd3b already dumped today",
    "flags": [
@@ -1715,8 +1805,8 @@
    "earnings": "Aug 05 (4d)",
    "headlines": [
     "Dow Jones Futures: Market Rebounds, Now Watch For This; SpaceX, AMD, Sandisk, Eli Lilly Earnings Loom",
-    "S&P 500 Posts Weekly Gain Amid AI Monetization Optimism",
-    "These Were the Best and Worst S&P 500 Stocks in July"
+    "AI Isn\u2019t a Catch-All Trade for Stocks in This Earnings Season",
+    "S&P 500 Posts Weekly Gain Amid AI Monetization Optimism"
    ],
    "band": [
     1015.8900146484375,
@@ -1755,7 +1845,7 @@
      "$40.53 \u2013 $2354.39"
     ]
    ],
-   "reason": "231 mentions, cooling from 581. Down 10% today while chatter keeps climbing; analyst consensus is buy with a $2,217.77 mean target (+83%); earnings land Aug 05 (4d); the scan flagged squeeze/penny sub.",
+   "reason": "201 mentions, cooling from 520. Down 10% today while chatter keeps climbing; analyst consensus is buy with a $2,217.77 mean target (+83%); earnings land Aug 05 (4d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.19
@@ -1891,66 +1981,66 @@
    }
   },
   {
-   "sym": "NVDA",
-   "name": "NVIDIA",
-   "price": 200.75,
-   "pct": 1.9869030019457532,
-   "mentions": 219,
-   "mentions_prev": 347,
+   "sym": "AAPL",
+   "name": "Apple",
+   "price": 308.9100036621094,
+   "pct": -1.0954695052822498,
+   "mentions": 193,
+   "mentions_prev": 794,
    "mom": "\u2193",
    "label": "",
    "flags": [
     "squeeze/penny sub"
    ],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 302.82758,
+   "analyst_rec": "BUY",
+   "analyst_target": 321.6566,
    "earnings": null,
    "headlines": [
-    "AI trade is a combination of 'perception and reality': Bradley Tusk",
-    "2 High-Yield Dividend Stocks Worth Buying Before 2026 Ends",
-    "State Street\u2019s $5.7 Trillion Portfolio Chief Missed Bitcoin at $500. But She Saw Gold\u2019s $3,000 Run Coming Years Earlier"
+    "Apple stock falls on weak revenue forecast as CEO Tim Cook flags 'increasing impact' from memory shortage",
+    "Listen to Tim Cook's first and last earnings calls as Apple CEO",
+    "Apple Just Did Something It Hasn't Done in Over a Year, and the Stock Can Keep Climbing Higher From Here"
    ],
    "band": [
-    190.00999450683594,
-    200.75
+    308.9100036621094,
+    340.0799865722656
    ],
    "spark": [
-    196.50999450683594,
-    197.00999450683594,
-    190.00999450683594,
-    195.0399932861328,
-    200.75
+    336.9100036621094,
+    340.0799865722656,
+    338.19000244140625,
+    333.42999267578125,
+    308.9100036621094
    ],
    "stats": [
     [
      "Market cap",
-     "$4.9T"
+     "$4.5T"
     ],
     [
      "Float",
-     "23.2B"
+     "14.6B"
     ],
     [
      "Short interest",
-     "1.4%"
+     "1.0%"
     ],
     [
      "Avg vol",
-     "152.8M"
+     "56.5M"
     ],
     [
      "Vol today",
-     "139.3M"
+     "127.4M"
     ],
     [
      "52w range",
-     "$164.07 \u2013 $236.54"
+     "$201.68 \u2013 $344.57"
     ]
    ],
-   "reason": "219 mentions, cooling from 347. Price is +2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+51%); the scan flagged squeeze/penny sub.",
+   "reason": "193 mentions, cooling from 794. Price is -1.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $321.66 mean target (+4%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": 0.02
+    "label": "negative",
+    "score": -0.2
    },
    "read": [
     "quiet",
@@ -1958,11 +2048,9 @@
     "No strong pattern between price and attention today."
    ],
    "er": {
-    "date": "Aug 26",
-    "days_away": 25,
-    "eps_estimate": 2.08,
+    "eps_estimate": 1.89,
     "beat_record": "beat 4 of last 4",
-    "avg_surprise": 4.6,
+    "avg_surprise": 6.1,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -1971,59 +2059,59 @@
    "chart": {
     "period": "1y",
     "closes": [
-     173.49,
-     182.46,
-     180.21,
-     177.75,
-     173.95,
-     166.8,
-     177.59,
-     176.44,
-     177.96,
-     187.38,
-     182.93,
-     182.99,
-     186.02,
-     202.23,
-     187.91,
-     189.93,
-     178.65,
-     176.77,
-     182.19,
-     174.81,
-     180.77,
-     190.3,
-     188.62,
-     184.63,
-     186.0,
-     187.44,
-     190.9,
-     185.18,
-     182.59,
-     189.59,
-     176.97,
-     177.6,
-     180.04,
-     172.5,
-     167.32,
-     177.18,
-     188.41,
-     201.45,
-     208.03,
-     198.22,
-     214.95,
-     225.06,
-     215.08,
-     210.89,
-     205.1,
-     205.19,
-     210.69,
-     192.53,
-     194.83,
-     210.96,
-     202.81,
-     206.84,
-     200.75
+     201.58,
+     228.44,
+     230.94,
+     227.12,
+     231.49,
+     239.01,
+     233.41,
+     244.81,
+     254.74,
+     257.29,
+     244.58,
+     251.58,
+     262.08,
+     269.61,
+     267.71,
+     271.9,
+     270.99,
+     278.33,
+     278.26,
+     277.76,
+     273.16,
+     272.89,
+     270.51,
+     258.89,
+     255.06,
+     247.58,
+     259.0,
+     277.6,
+     255.54,
+     264.34,
+     263.94,
+     257.22,
+     249.89,
+     247.76,
+     248.57,
+     255.68,
+     260.24,
+     269.98,
+     270.81,
+     279.88,
+     293.05,
+     300.23,
+     308.82,
+     312.06,
+     307.34,
+     291.13,
+     298.01,
+     283.78,
+     308.63,
+     315.32,
+     333.74,
+     333.02,
+     308.91
     ],
     "dates": [
      "2025-07-28",
@@ -2087,8 +2175,8 @@
    "name": "Invesco QQQ ETF",
    "price": 687.989990234375,
    "pct": -0.03777838948419906,
-   "mentions": 212,
-   "mentions_prev": 336,
+   "mentions": 185,
+   "mentions_prev": 306,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2127,7 +2215,7 @@
      "$555.60 \u2013 $748.65"
     ]
    ],
-   "reason": "212 mentions, cooling from 336. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "185 mentions, cooling from 306. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.05
@@ -2253,108 +2341,12 @@
    }
   },
   {
-   "sym": "SPCX",
-   "name": "SpaceX",
-   "price": 108.37000274658203,
-   "pct": -3.910265342629872,
-   "mentions": 209,
-   "mentions_prev": 209,
-   "mom": "\u2192",
-   "label": "",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "BUY",
-   "analyst_target": 236.7143,
-   "earnings": "Aug 04 (3d)",
-   "headlines": [
-    "AI trade is a combination of 'perception and reality': Bradley Tusk",
-    "SpaceX stock keeps sliding. What to do if you own shares.",
-    "Amazon's AWS business has taken on a life of its own: Earnings call takeaways"
-   ],
-   "band": [
-    108.37000274658203,
-    116.41000366210938
-   ],
-   "spark": [
-    113.5,
-    116.41000366210938,
-    112.55000305175781,
-    112.19999694824219,
-    108.37000274658203
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$1.4T"
-    ],
-    [
-     "Float",
-     "281.1M"
-    ],
-    [
-     "Short interest",
-     "2.7%"
-    ],
-    [
-     "Avg vol",
-     "111.5M"
-    ],
-    [
-     "Vol today",
-     "54.9M"
-    ],
-    [
-     "52w range",
-     "$107.01 \u2013 $225.64"
-    ]
-   ],
-   "reason": "209 mentions, flat against yesterday. Price is -3.9% \u2014 the attention has moved further than the price; analyst consensus is buy with a $236.71 mean target (+118%); earnings land Aug 04 (3d); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "mixed",
-    "score": 0.1
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "date": "Aug 04",
-    "days_away": 3,
-    "eps_estimate": -0.23
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     160.95,
-     185.0,
-     153.23,
-     162.0,
-     145.3,
-     123.99,
-     115.07,
-     108.37
-    ],
-    "dates": [
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27"
-    ]
-   }
-  },
-  {
    "sym": "AMZN",
    "name": "Amazon",
    "price": 271.5799865722656,
    "pct": 5.28396455602467,
-   "mentions": 182,
-   "mentions_prev": 650,
+   "mentions": 158,
+   "mentions_prev": 668,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2366,7 +2358,7 @@
    "headlines": [
     "Amazon stock soars 15% as e-commerce giant's AWS cloud business booms in 'home run' quarter",
     "Earnings live: Reddit stock tanks 21% on 'choppy' Google search referrals, Amazon and Apple swing",
-    "Apple is growing without the AI spending spree engulfing Big Tech: Chart of the Day"
+    "Should You Buy Billionaire Investor Chase Coleman\u2019s Top 5 Growth Stocks in August?"
    ],
    "band": [
     226.64999389648438,
@@ -2405,10 +2397,10 @@
      "$196.00 \u2013 $278.56"
     ]
    ],
-   "reason": "182 mentions, cooling from 650. Price is +5.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $313.07 mean target (+15%); the scan flagged squeeze/penny sub.",
+   "reason": "158 mentions, cooling from 668. Price is +5.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $313.07 mean target (+15%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.18
+    "score": 0.29
    },
    "read": [
     "quiet",
@@ -2416,9 +2408,9 @@
     "No strong pattern between price and attention today."
    ],
    "er": {
-    "eps_estimate": 1.82,
+    "eps_estimate": 1.9,
     "beat_record": "beat 3 of last 4",
-    "avg_surprise": 29.8,
+    "avg_surprise": 0.8,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -2682,47 +2674,411 @@
  "history": [
   {
    "date": "2026-08-01",
+   "sym": "RDDT",
+   "name": "",
+   "flag_price": 140.67,
+   "last_price": 140.6699981689453,
+   "pct": -1.3016667910673549e-06,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 0
+  },
+  {
+   "date": "2026-08-01",
    "sym": "NVDA",
-   "name": "NVIDIA Corporation",
+   "name": "",
    "flag_price": 200.75,
    "last_price": 200.75,
    "pct": 0.0,
    "outcome": "flat",
-   "note": "AI trade is a combination of 'perception and reality': Bradley Tusk",
+   "simulated": false,
+   "note": "from the sent digest",
    "age_days": 0
   },
   {
    "date": "2026-08-01",
    "sym": "NOK",
-   "name": "Nokia Corporation Sponsored",
+   "name": "",
    "flag_price": 9.14,
    "last_price": 9.14,
    "pct": 0.0,
    "outcome": "flat",
-   "note": "Is IDCC Stock a Buy After Strong Earnings and Higher Revenue Guidance?",
+   "simulated": false,
+   "note": "from the sent digest",
    "age_days": 0
   },
   {
    "date": "2026-08-01",
    "sym": "IREN",
-   "name": "IREN LIMITED",
+   "name": "",
    "flag_price": 36.8,
    "last_price": 36.8,
    "pct": 0.0,
    "outcome": "flat",
-   "note": "Bitcoin Miner IREN Stock Surges 30% After CEO Says Demand Outstrips Supply",
+   "simulated": false,
+   "note": "from the sent digest",
    "age_days": 0
   },
   {
    "date": "2026-08-01",
    "sym": "AAPL",
-   "name": "Apple Inc.",
+   "name": "",
    "flag_price": 308.91,
    "last_price": 308.91,
    "pct": 0.0,
    "outcome": "flat",
-   "note": "Apple stock falls on weak revenue forecast as CEO Tim Cook flags 'increasing impact' from ",
+   "simulated": false,
+   "note": "from the sent digest",
    "age_days": 0
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "RDDT",
+   "name": "",
+   "flag_price": 137.17,
+   "last_price": 140.6699981689453,
+   "pct": 2.5515769985749985,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 1
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "NVDA",
+   "name": "",
+   "flag_price": 196.22,
+   "last_price": 200.75,
+   "pct": 2.3086331668535323,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 1
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "NOK",
+   "name": "",
+   "flag_price": 9.095,
+   "last_price": 9.14,
+   "pct": 0.49477735019241265,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 1
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "AMZN",
+   "name": "",
+   "flag_price": 269.81,
+   "last_price": 271.5799865722656,
+   "pct": 0.6560122205498768,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 1
+  },
+  {
+   "date": "2026-07-31",
+   "sym": "AAPL",
+   "name": "",
+   "flag_price": 303.33,
+   "last_price": 308.91,
+   "pct": 1.8395806547324831,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 1
+  },
+  {
+   "date": "2026-07-30",
+   "sym": "TSLA",
+   "name": "",
+   "flag_price": 304.11,
+   "last_price": 311.21,
+   "pct": 2.33,
+   "outcome": "flat",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 2
+  },
+  {
+   "date": "2026-07-30",
+   "sym": "SPY",
+   "name": "",
+   "flag_price": 736.05,
+   "last_price": 747.030029296875,
+   "pct": 1.491750464897092,
+   "outcome": "flat",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 2
+  },
+  {
+   "date": "2026-07-30",
+   "sym": "QQQ",
+   "name": "",
+   "flag_price": 679.17,
+   "last_price": 687.989990234375,
+   "pct": 1.298642495159539,
+   "outcome": "flat",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 2
+  },
+  {
+   "date": "2026-07-30",
+   "sym": "NVDA",
+   "name": "",
+   "flag_price": 194.89,
+   "last_price": 200.75,
+   "pct": 3.0068243624608826,
+   "outcome": "flat",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 2
+  },
+  {
+   "date": "2026-07-30",
+   "sym": "META",
+   "name": "",
+   "flag_price": 534.22,
+   "last_price": 556.71,
+   "pct": 4.21,
+   "outcome": "flat",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 2
+  },
+  {
+   "date": "2026-07-30",
+   "sym": "AAPL",
+   "name": "",
+   "flag_price": 331.58,
+   "last_price": 308.91,
+   "pct": -6.836962422341504,
+   "outcome": "flat",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 2
+  },
+  {
+   "date": "2026-07-29",
+   "sym": "T",
+   "name": "",
+   "flag_price": 23.94,
+   "last_price": 23.25,
+   "pct": -2.88,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 3
+  },
+  {
+   "date": "2026-07-29",
+   "sym": "SPY",
+   "name": "",
+   "flag_price": 729.46,
+   "last_price": 747.030029296875,
+   "pct": 2.408635058382223,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 3
+  },
+  {
+   "date": "2026-07-29",
+   "sym": "SNDK",
+   "name": "",
+   "flag_price": 1015.89,
+   "last_price": 1214.8299560546875,
+   "pct": 19.582824523785796,
+   "outcome": "worked",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 3
+  },
+  {
+   "date": "2026-07-29",
+   "sym": "SKHY",
+   "name": "",
+   "flag_price": 126.79,
+   "last_price": 143.73,
+   "pct": 13.36,
+   "outcome": "worked",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 3
+  },
+  {
+   "date": "2026-07-29",
+   "sym": "NVDA",
+   "name": "",
+   "flag_price": 190.01,
+   "last_price": 200.75,
+   "pct": 5.652334087679601,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 3
+  },
+  {
+   "date": "2026-07-29",
+   "sym": "NOK",
+   "name": "",
+   "flag_price": 8.41,
+   "last_price": 9.14,
+   "pct": 8.680142687277057,
+   "outcome": "flat",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 3
+  },
+  {
+   "date": "2026-07-29",
+   "sym": "MU",
+   "name": "",
+   "flag_price": 739.0,
+   "last_price": 823.030029296875,
+   "pct": 11.370775276979025,
+   "outcome": "worked",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 3
+  },
+  {
+   "date": "2026-07-29",
+   "sym": "MSFT",
+   "name": "",
+   "flag_price": 390.54,
+   "last_price": 464.7200012207031,
+   "pct": 18.99421345334744,
+   "outcome": "worked",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 3
+  },
+  {
+   "date": "2026-07-06",
+   "sym": "CXAI",
+   "name": "",
+   "flag_price": 0.16,
+   "last_price": 0.12,
+   "pct": -23.12,
+   "outcome": "faded",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 26
+  },
+  {
+   "date": "2026-06-22",
+   "sym": "SLS",
+   "name": "",
+   "flag_price": 8.55,
+   "last_price": 10.01,
+   "pct": 17.08,
+   "outcome": "worked",
+   "simulated": false,
+   "note": "from the sent digest",
+   "age_days": 40
+  },
+  {
+   "date": "2026-06-22",
+   "sym": "CXAI",
+   "name": "",
+   "flag_price": 0.23,
+   "last_price": 0.12,
+   "pct": -46.52,
+   "outcome": "faded",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 40
+  },
+  {
+   "date": "2026-06-17",
+   "sym": "RS",
+   "name": "",
+   "flag_price": 408.79,
+   "last_price": 406.1,
+   "pct": -0.66,
+   "outcome": "flat",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 45
+  },
+  {
+   "date": "2026-06-17",
+   "sym": "OTLK",
+   "name": "",
+   "flag_price": 1.67,
+   "last_price": 0.98,
+   "pct": -41.5,
+   "outcome": "faded",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 45
+  },
+  {
+   "date": "2026-06-17",
+   "sym": "CXAI",
+   "name": "",
+   "flag_price": 0.21,
+   "last_price": 0.12,
+   "pct": -41.43,
+   "outcome": "faded",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 45
+  },
+  {
+   "date": "2026-06-17",
+   "sym": "CRVO",
+   "name": "",
+   "flag_price": 3.82,
+   "last_price": 2.58,
+   "pct": -32.46,
+   "outcome": "faded",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 45
+  },
+  {
+   "date": "2026-06-15",
+   "sym": "RS",
+   "name": "",
+   "flag_price": 408.28,
+   "last_price": 406.1,
+   "pct": -0.53,
+   "outcome": "flat",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 47
+  },
+  {
+   "date": "2026-06-15",
+   "sym": "CXAI",
+   "name": "",
+   "flag_price": 0.2,
+   "last_price": 0.12,
+   "pct": -38.5,
+   "outcome": "faded",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 47
+  },
+  {
+   "date": "2026-06-15",
+   "sym": "CTM",
+   "name": "",
+   "flag_price": 0.68,
+   "last_price": 0.72,
+   "pct": 5.59,
+   "outcome": "flat",
+   "simulated": true,
+   "note": "would have been picked \u2014 rule replayed on that day's list",
+   "age_days": 47
   }
  ],
  "feeds": {
