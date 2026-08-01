@@ -209,7 +209,8 @@ let D = null, B = null;
 const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{},
             sort:{ key:"ret", dir:-1 },        // "every ticker" table
             daySort:{ key:"date", dir:1 },      // day-by-day table
-            section:"pick" };                    // section dropdown filter
+            section:"all",
+            day:"today" };                    // section dropdown filter
 
 // Click a column to sort by it; click again to reverse. Text sorts A→Z first,
 // numbers sort biggest-first, since that's the useful default for each.
@@ -372,12 +373,34 @@ const trendIcon = t => t.mom === "↑" ? "▲" : t.mom === "↓" ? "▼" : "◆"
 const attention = t => t.mom === "↑" ? "rising" : t.mom === "↓" ? "cooling" : "flat";
 
 /* ── digest ───────────────────────────────────────────────── */
+/* The radar only runs Mon-Fri, so on a weekend (or before the first run of the
+   day) the newest data is from an earlier session. Calling that "today" is a
+   lie the rest of the page then builds on. */
+function sessionInfo(){
+  const gen = new Date(D.generated_at);
+  const now = new Date();
+  const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${
+    String(d.getDate()).padStart(2,"0")}`;
+  const sameDay = ymd(gen) === ymd(now);
+  const weekend = now.getDay() === 0 || now.getDay() === 6;
+  const nice = gen.toLocaleDateString(undefined, { weekday:"long", month:"short", day:"numeric" });
+  return {
+    sameDay, weekend, nice,
+    eyebrow: sameDay ? "Today's verdict" : "Last session",
+    word: sameDay ? "today" : "that session",
+    note: sameDay ? "" : weekend
+      ? `Markets are closed this weekend — showing the last session, ${nice}.`
+      : `Showing the last completed run, ${nice}.`,
+  };
+}
+
 function verdict(){
   const s = D.session || {}, st = (D.standouts || []).length;
   const n = (D.watch || []).length;
+  const SI = sessionInfo();
   const title = n
-    ? `${n} pick${n>1?"s":""} today`
-    : "No picks today";
+    ? `${n} pick${n>1?"s":""} ${SI.sameDay ? "today" : "last session"}`
+    : `No picks ${SI.sameDay ? "today" : "last session"}`;
   const body = n
     ? `${n} name${n>1?"s":""} cleared the filter: rising Reddit chatter or an analyst buy, `
       + `with room left to move. ` + (st
@@ -389,7 +412,7 @@ function verdict(){
       + "the crowd is loudest about names that have already moved.";
   return `<div class="panel hero" style="flex:3 1 460px;padding:22px 24px;display:flex;
       flex-direction:column;justify-content:center;">
-    <div class="eyebrow" style="margin-bottom:10px;">Today's verdict</div>
+    <div class="eyebrow" style="margin-bottom:10px;">${esc(SI.eyebrow)}</div>
     <div style="font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.12;
       color:var(--ink-d);text-wrap:pretty;">${esc(title)}</div>
     <div style="margin-top:10px;font-size:14px;color:var(--ink-3);max-width:62ch;text-wrap:pretty;">
@@ -400,6 +423,7 @@ function verdict(){
       <div class="chip">${s.tracked ?? 0} tickers scanned</div>
       <div class="chip" style="color:var(--a);background:rgba(169,120,27,0.12);
         border-color:rgba(169,120,27,0.32);">trends only · not advice</div>
+      ${SI.note ? `<div class="chip" style="color:var(--ink-4);">🗓 ${esc(SI.note)}</div>` : ""}
     </div>
   </div>`;
 }
@@ -451,7 +475,9 @@ function upsideLine(t){
     return "";
   const up = (t.analyst_target - t.price) / t.price * 100;
   return `<div class="mono" style="font-size:12px;color:var(--ink-4);margin-top:8px;">
-    Analyst target <b style="color:var(--ink-2);">${money(t.analyst_target)}</b>
+    <span title="Mean of analyst price targets. These are conventionally 12-month
+targets; Yahoo publishes no target date, so no exact deadline is implied."
+      >12-mo target</span> <b style="color:var(--ink-2);">${money(t.analyst_target)}</b>
     <span style="color:${chgC(up)};font-weight:600;">${pctT(up)}</span></div>`;
 }
 
@@ -648,16 +674,77 @@ function digest(){
 
 /* ── watchlist ────────────────────────────────────────────── */
 function watchlist(){
+  // Every run appends that day's picks to history.json, so past lists are real
+  // records rather than a re-derivation from today's prices.
+  const hist = D.history || [];
+  const byDay = {};
+  hist.forEach(e => { (byDay[e.date] = byDay[e.date] || []).push(e); });
+  const days = Object.keys(byDay).sort().reverse();
+  const today = (D.generated_at || "").slice(0, 10);
+  const showing = S.day && (S.day === "today" || byDay[S.day]) ? S.day : "today";
+  const isToday = showing === "today";
   const q = D.watch || [];
-  return `<div class="panel" style="margin-bottom:16px;padding:22px 24px;">
-      <div class="eyebrow" style="margin-bottom:10px;">Watching</div>
-      <div style="font-size:26px;font-weight:600;letter-spacing:-.02em;color:var(--ink-d);">
-        ${q.length} name${q.length===1?"":"s"} flagged for review</div>
+  const past = isToday ? [] : byDay[showing] || [];
+
+  const options = [`<option value="today"${isToday ? " selected" : ""}>Today (${
+    q.length})</option>`].concat(days
+      .filter(d => d !== today)
+      .map(d => `<option value="${d}"${showing === d ? " selected" : ""}>${d} (${
+        byDay[d].length})</option>`)).join("");
+
+  const head = `<div class="panel" style="margin-bottom:16px;padding:22px 24px;">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:10px;">Picks of the day</div>
+          <div style="font-size:26px;font-weight:600;letter-spacing:-.02em;
+            color:var(--ink-d);">${isToday ? `${q.length} pick${q.length===1?"":"s"} today`
+              : `${past.length} pick${past.length===1?"":"s"} on ${esc(showing)}`}</div>
+        </div>
+        <div style="flex:1 1 20px;"></div>
+        <label class="note" for="dayfilter" style="letter-spacing:.06em;">Show</label>
+        <select id="dayfilter" class="sel" data-day>${options}</select>
+      </div>
       <div style="margin-top:8px;font-size:13px;color:var(--ink-3);max-width:70ch;">
-        Rising Reddit chatter or an analyst buy with room left to move. No position is
-        implied — this is a reading list, ordered by how it surfaced.</div>
-    </div>
-    ${q.length ? `<div class="grid">${q.map(t => `
+        ${isToday
+          ? `Refreshed three times every weekday — pre-market, midday and after the
+             close. Each run appends its picks here, so this list is also the record.`
+          : `What was picked on ${esc(showing)}, priced at the flag and marked to the
+             latest run. This is the record as it was made, not a re-run with
+             hindsight.`}</div>
+    </div>`;
+
+  if (!isToday) {
+    if (!past.length) return head + `<div class="panel"><div class="empty">
+      Nothing was picked on ${esc(showing)}.</div></div>`;
+    return head + `<div class="panel"><div class="scroll"><div style="min-width:600px;">
+      <div class="tbl">
+        <div style="flex:0 0 84px;">Ticker</div>
+        <div style="flex:0 0 96px;text-align:right;">At pick</div>
+        <div style="flex:0 0 96px;text-align:right;">Now</div>
+        <div style="flex:0 0 84px;text-align:right;">Change</div>
+        <div style="flex:1 1 160px;">Since</div>
+      </div>
+      ${past.map(e => `<div class="row clickable" data-open="${esc(e.sym)}">
+        <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 84px;font-size:14px;font-weight:600;
+            color:var(--ink-d);">$${esc(e.sym)}</div>
+          <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(e.flag_price)}</div>
+          <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(e.last_price)}</div>
+          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+            color:${chgC(e.pct)};">${pctT(e.pct)}</div>
+          <div style="flex:1 1 160px;min-width:0;display:flex;align-items:center;gap:10px;">
+            <span class="pill" style="${pillCss(e.outcome==="worked"?"good":
+              e.outcome==="faded"?"bad":"muted")};font-size:10px;">${esc(e.outcome)}</span>
+            <span style="font-size:12px;color:var(--ink-4);white-space:nowrap;
+              overflow:hidden;text-overflow:ellipsis;">${esc(e.note||"")}</span>
+          </div>
+        </div></div>`).join("")}
+    </div></div></div>`;
+  }
+
+  return head + (q.length ? `<div class="grid">${q.map(t => `
       <div class="panel" style="min-width:0;padding:16px 18px;">
         <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
           <span class="sym clickable" data-open="${esc(t.sym)}">$${esc(t.sym)}</span>
@@ -668,13 +755,14 @@ function watchlist(){
         <div class="co" style="max-width:100%;margin-top:2px;">${esc(t.name||"")}</div>
         <div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;">
           <span class="pill" style="${pillCss("muted")}">${esc(t.tag||"")}</span>
-          ${flagsHtml(t, 2)}
+          ${readPill(t)}${erHtml(t, true)}${flagsHtml(t, 1)}
         </div>
+        ${upsideLine(t)}
         ${t.band ? bandHtml(t) : ""}
         <div style="margin-top:12px;">${newsHtml(t, 2)}</div>
         <button class="btn" style="margin-top:12px;" data-open="${esc(t.sym)}">OPEN DETAIL →</button>
       </div>`).join("")}</div>`
-    : `<div class="panel"><div class="empty">Nothing stands out today.</div></div>`}`;
+    : `<div class="panel"><div class="empty">Nothing cleared the filter today.</div></div>`);
 }
 
 /* ── backtest (replay of every digest ever sent) ──────────── */
@@ -801,8 +889,13 @@ function exitRules(){
 function backtest(){
   if (!B || !B.rows || !B.rows.length) return "";
   const o = B.overall || {};
-  const tiers = ["pick","buzz","mover"].filter(t => B.summary && B.summary[t]);
-  const best = B.rows[0], worst = B.rows[B.rows.length - 1];
+  // picks only: buzz and movers are no longer acted on, so their record is
+  // corroboration in the sell panel rather than a section of this view
+  const tiers = ["pick"].filter(t => B.summary && B.summary[t]);
+  // this table shows picks only, so its extremes must come from picks
+  const pickRows = B.rows.filter(r => r.tier === "pick");
+  const best = pickRows[0], worst = pickRows[pickRows.length - 1];
+  if (!best) return "";
   const pickS = B.summary && B.summary.pick;
   const buzzS = B.summary && B.summary.buzz;
 
@@ -914,12 +1007,7 @@ function backtest(){
         <div style="flex:1 1 20px;"></div>
         <label class="note" for="secfilter" style="letter-spacing:.06em;">Section</label>
         <select id="secfilter" class="sel" data-section>
-          <option value="all"${S.section==="all"?" selected":""}>All sections (${B.rows.length})</option>
-          ${["pick","buzz","mover"].map(k => {
-            const n = B.rows.filter(r => r.tier === k).length;
-            return n ? `<option value="${k}"${S.section===k?" selected":""}>${
-              esc(TIER[k][0])} (${n})</option>` : "";
-          }).join("")}
+          <option value="all"${S.section==="all"?" selected":""}>All picks (${pickRows.length})</option>
           <option value="up"${S.section==="up"?" selected":""}>Winners only</option>
           <option value="down"${S.section==="down"?" selected":""}>Losers only</option>
         </select>
@@ -935,10 +1023,9 @@ function backtest(){
           ${sortHead("pnl",  "Profit / loss", "1 1 96px", 1)}
         </div>
         ${(() => {
-          const rows = applySort(B.rows.filter(r =>
-            S.section === "all"  ? true :
+          const rows = applySort(pickRows.filter(r =>
             S.section === "up"   ? r.ret > 0 :
-            S.section === "down" ? r.ret <= 0 : r.tier === S.section), S.sort);
+            S.section === "down" ? r.ret <= 0 : true), S.sort);
           if (!rows.length) return `<div class="empty">Nothing in this section.</div>`;
           return rows.map(r => `<div class="row"><div style="display:flex;gap:12px;
             padding:11px 18px;align-items:center;">
@@ -1103,8 +1190,11 @@ function detail(){
             <span style="font-size:12px;color:var(--m);">Consensus</span>
             <span class="mono" style="font-size:12px;color:var(--ink-2);">
               ${esc(t.analyst_rec.replace(/_/g," "))}</span></div>` : ""}
-          ${t.analyst_target ? `<div style="display:flex;justify-content:space-between;
-            padding:8px 0;"><span style="font-size:12px;color:var(--m);">Mean target</span>
+          ${t.analyst_target ? `<div class="note" style="margin-top:10px;">
+            Analyst price targets are conventionally 12 months out. Yahoo publishes
+            no target date with them, so treat the horizon as a convention rather
+            than a deadline.</div><div style="display:flex;justify-content:space-between;
+            padding:8px 0;"><span style="font-size:12px;color:var(--m);">Mean target · 12-mo</span>
             <span class="mono" style="font-size:12px;color:var(--ink-2);">
               ${money(t.analyst_target)}${t.price ? ` (${pctT((t.analyst_target-t.price)/t.price*100)})` : ""}
             </span></div>` : ""}
@@ -1143,10 +1233,10 @@ document.addEventListener("click", e => {
 
 // a <select> fires change, not click
 document.addEventListener("change", e => {
-  const sel = e.target.closest("[data-section]");
-  if (!sel) return;
-  S.section = sel.value;
-  render();
+  const sec = e.target.closest("[data-section]");
+  if (sec) { S.section = sec.value; render(); return; }
+  const day = e.target.closest("[data-day]");
+  if (day) { S.day = day.value; render(); }
 });
 
 // backtest.json is optional — it only exists once the backtest workflow has run
