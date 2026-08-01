@@ -73,6 +73,9 @@ def gather():
     return _from_apewisdom()
 
 
+FEED_STATUS = {}   # feed name -> tickers returned, or None if the feed failed
+
+
 def _from_apewisdom():
     """Fetch one or more comma-separated ApeWisdom feeds and merge by ticker."""
     agg = {}
@@ -82,8 +85,10 @@ def _from_apewisdom():
             r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=30)
             r.raise_for_status()
             results = r.json().get("results", [])
+            FEED_STATUS[filt] = len(results)
         except Exception as e:
             print(f"[warn] apewisdom {filt}: {e}")
+            FEED_STATUS[filt] = None
             continue
         for x in results:
             sym = (x.get("ticker") or "").upper()
@@ -867,6 +872,14 @@ def main():
     yahoo_watches = [w for w in yahoo_watchlist(n=8) if w["sym"] not in seen][:4]
 
     write_dashboard(results, gainers, yahoo_watches)
+
+    # Printed last so it survives a truncated log tail — a feed that silently
+    # stops resolving would otherwise just look like quieter chatter.
+    if FEED_STATUS:
+        ok = [f"{k}={v}" for k, v in FEED_STATUS.items() if v is not None]
+        dead = [k for k, v in FEED_STATUS.items() if v is None]
+        print(f"[feeds] ok: {', '.join(ok) or 'none'}"
+              + (f" | FAILED: {', '.join(dead)}" if dead else ""))
 
     msg = format_message(results, gainers, yahoo_watches)
     print("\n" + msg)
