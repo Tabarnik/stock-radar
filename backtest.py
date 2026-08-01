@@ -416,8 +416,15 @@ def main():
         r = sum(rets) / len(rets)
         opened = bal
         bal *= (1 + r)
+        # how long that day's basket was actually held — the return above covers
+        # exactly this window, not a fixed horizon
+        from datetime import date as _d
+        a = _d.fromisoformat(date)
+        b = _d.fromisoformat(nxt) if nxt else _d.today()
         equity.append({
             "date": date,
+            "exit_date": nxt or "open",
+            "held_days": (b - a).days,
             "picks": len(rets),
             "return_pct": round(r * 100, 1),
             "opened": round(opened, 2),

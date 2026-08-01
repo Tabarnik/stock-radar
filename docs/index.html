@@ -161,7 +161,7 @@
     <div style="display:flex;align-items:center;gap:10px;margin-right:4px;">
       <div class="dot"></div>
       <div class="brand">Reddit Radar</div>
-      <div class="stamp" id="stamp">—</div>
+      <button class="stamp" id="stamp" data-go="watchlist" title="Browse previous pick days" style="background:none;border:0;cursor:pointer;padding:0;">—</button>
     </div>
     <div class="nav" id="nav"></div>
     <div style="flex:1 1 40px;"></div>
@@ -917,7 +917,7 @@ function backtest(){
         text-wrap:pretty;">
         ${wins} of ${eq.length} pick days made money. Each day's picks are held until
         the next pick day, then the whole balance rotates into the new list — so
-        nothing overlaps and the balance is a real running total. <b>Each</b> is what to put into one ticker that day — the balance divided by how many picks there were.
+        nothing overlaps and the balance is a real running total. <b>Each</b> is what to put into one ticker that day. <b>Held</b> is how long that basket ran before the next pick day replaced it — the return covers exactly that window, not a fixed horizon. Click any row for that day's picks.
       </div>
     </div>
 
@@ -926,10 +926,12 @@ function backtest(){
         <div style="flex:1 1 120px;">Pick day</div>
         <div style="flex:0 0 70px;text-align:right;">Picks</div>
         <div style="flex:0 0 100px;text-align:right;">Each</div>
+        <div style="flex:0 0 78px;text-align:right;">Held</div>
         <div style="flex:0 0 90px;text-align:right;">Return</div>
         <div style="flex:0 0 110px;text-align:right;">Balance</div>
       </div>
-      ${eq.map(e => `<div class="row"><div style="display:flex;gap:12px;
+      ${eq.map(e => `<div class="row clickable" data-day-go="${esc(e.date)}"
+        title="Open the picks sent on ${esc(e.date)}"><div style="display:flex;gap:12px;
           padding:11px 18px;align-items:center;">
         <div style="flex:1 1 120px;min-width:0;display:flex;align-items:center;gap:8px;">
           <span class="mono" style="font-size:12px;color:var(--ink-2);">${esc(e.date)}</span>
@@ -939,6 +941,8 @@ function backtest(){
           color:var(--ink-4);">${e.picks}</div>
         <div class="mono" style="flex:0 0 100px;text-align:right;font-size:12px;
           color:var(--ink-2);">$${Math.round(e.per_ticker||0).toLocaleString()}</div>
+        <div class="mono" style="flex:0 0 78px;text-align:right;font-size:12px;
+          color:var(--ink-5);">${e.held_days}d</div>
         <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
           color:${chgC(e.return_pct)};">${pctT(e.return_pct)}</div>
         <div class="mono" style="flex:0 0 110px;text-align:right;font-size:13px;
@@ -1117,7 +1121,7 @@ function render(){
 }
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort]");
+  const el = e.target.closest("[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
   if (!el) return;
   const d = el.dataset;
   // text columns open A→Z, numeric columns open biggest-first
@@ -1130,6 +1134,7 @@ document.addEventListener("click", e => {
   else if (d.open){ S.sel = d.open; S.screen = "detail"; }
   else if (d.toggle)  { S.expanded[d.toggle] = !S.expanded[d.toggle]; }
   else if (d.dismiss) { S.dismissed[d.dismiss] = true; }
+  else if (d.dayGo)   { S.day = d.dayGo; S.screen = "watchlist"; }
   else if (d.filter)  { S.filter = d.filter; }
   render();
 });
