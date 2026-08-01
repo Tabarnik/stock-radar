@@ -873,18 +873,19 @@ def main():
 
     write_dashboard(results, gainers, yahoo_watches)
 
-    # Printed last so it survives a truncated log tail — a feed that silently
-    # stops resolving would otherwise just look like quieter chatter.
+    msg = format_message(results, gainers, yahoo_watches)
+    print("\n" + msg)
+    today = datetime.now(timezone.utc).astimezone().strftime("%b %d")
+    notify.send(msg, subject=f"Stock Radar · {today}")
+
+    # Last line of the step on purpose: the digest is ~90 lines and the Pages
+    # steps add ~110 more, so anything printed earlier falls outside a readable
+    # log tail. A feed that quietly stops resolving should not be easy to miss.
     if FEED_STATUS:
         ok = [f"{k}={v}" for k, v in FEED_STATUS.items() if v is not None]
         dead = [k for k, v in FEED_STATUS.items() if v is None]
         print(f"[feeds] ok: {', '.join(ok) or 'none'}"
               + (f" | FAILED: {', '.join(dead)}" if dead else ""))
-
-    msg = format_message(results, gainers, yahoo_watches)
-    print("\n" + msg)
-    today = datetime.now(timezone.utc).astimezone().strftime("%b %d")
-    notify.send(msg, subject=f"Stock Radar · {today}")
 
 
 if __name__ == "__main__":
