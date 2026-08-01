@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-01T13:11:44.664292+00:00",
+ "generated_at": "2026-08-01T13:13:37.171643+00:00",
  "watch": [
   {
    "sym": "AAPL",
@@ -244,7 +244,7 @@
    "name": "Micron Technology",
    "price": 823.030029296875,
    "pct": -8.845947708182218,
-   "mentions": 824,
+   "mentions": 818,
    "mentions_prev": 1191,
    "mom": "\u2193",
    "label": "",
@@ -296,14 +296,14 @@
      "$105.46 \u2013 $1255.00"
     ]
    ],
-   "reason": "824 mentions, cooling from 1,191. Price is -8.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,507.38 mean target (+83%); the scan flagged squeeze/penny sub."
+   "reason": "818 mentions, cooling from 1,191. Price is -8.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,507.38 mean target (+83%); the scan flagged squeeze/penny sub."
   },
   {
    "sym": "RDDT",
    "name": "Reddit",
    "price": 140.6699981689453,
    "pct": -11.805588486923618,
-   "mentions": 714,
+   "mentions": 712,
    "mentions_prev": 622,
    "mom": "\u2192",
    "label": "\ud83d\udd3b already dumped today",
@@ -356,7 +356,7 @@
      "$119.27 \u2013 $282.95"
     ]
    ],
-   "reason": "714 mentions, flat against yesterday. Down 12% today while chatter keeps climbing; analyst consensus is buy with a $226.47 mean target (+61%); the scan flagged vol 6x normal, squeeze/penny sub."
+   "reason": "712 mentions, flat against yesterday. Down 12% today while chatter keeps climbing; analyst consensus is buy with a $226.47 mean target (+61%); the scan flagged vol 6x normal, squeeze/penny sub."
   },
   {
    "sym": "SPY",
@@ -410,7 +410,7 @@
    "name": "Apple",
    "price": 308.9100036621094,
    "pct": -1.0954695052822498,
-   "mentions": 303,
+   "mentions": 301,
    "mentions_prev": 726,
    "mom": "\u2193",
    "label": "",
@@ -462,7 +462,7 @@
      "$201.68 \u2013 $344.57"
     ]
    ],
-   "reason": "303 mentions, cooling from 726. Price is -1.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $321.66 mean target (+4%); the scan flagged squeeze/penny sub."
+   "reason": "301 mentions, cooling from 726. Price is -1.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $321.66 mean target (+4%); the scan flagged squeeze/penny sub."
   },
   {
    "sym": "MSFT",
@@ -587,7 +587,7 @@
    "name": "NVIDIA",
    "price": 200.75,
    "pct": 1.9869030019457532,
-   "mentions": 228,
+   "mentions": 226,
    "mentions_prev": 345,
    "mom": "\u2193",
    "label": "",
@@ -639,7 +639,7 @@
      "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "228 mentions, cooling from 345. Price is +2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+51%); the scan flagged squeeze/penny sub."
+   "reason": "226 mentions, cooling from 345. Price is +2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+51%); the scan flagged squeeze/penny sub."
   },
   {
    "sym": "QQQ",
@@ -972,5 +972,13 @@
    "note": "Apple stock falls on weak revenue forecast as CEO Tim Cook flags 'increasing impact' from ",
    "age_days": 0
   }
- ]
+ ],
+ "feeds": {
+  "Shortsqueeze": 88,
+  "pennystocks": 100,
+  "wallstreetbets": 100,
+  "all-stocks": 100,
+  "stocks": 100,
+  "tradingwithcongress": 0
+ }
 }
