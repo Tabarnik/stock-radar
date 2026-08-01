@@ -27,8 +27,11 @@ from collections import defaultdict
 
 import yfinance as yf
 
-# Per position: buy this much of every ticker the radar flags.
+# Per position, for the per-ticker tables.
 STAKE = float(os.getenv("STAKE", "1000"))
+# One account for the compounding curve: the whole balance rotates into each
+# day's picks, so profits fund the next day's trades.
+START_CASH = float(os.getenv("START_CASH", "1000"))
 OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "backtest.json")
 
 # One position per ticker. A name flagged on five different days is still one
@@ -109,6 +112,27 @@ FLAGS = [
     ("2026-07-30", "mover", "BHC", 5.99), ("2026-07-30", "mover", "NBIS", 188.92),
     ("2026-07-30", "mover", "BE", 206.43),
 ]
+
+
+def daily_closes(sym):
+    """date string -> close, for the whole flag window."""
+    try:
+        h = yf.Ticker(sym).history(period="1y", interval="1d")
+        if h.empty:
+            return {}
+        return {idx.strftime("%Y-%m-%d"): float(c)
+                for idx, c in h["Close"].items() if c == c}
+    except Exception as e:
+        print(f"[warn] closes {sym}: {e}")
+        return {}
+
+
+def close_on_or_before(closes, date):
+    """Last close at or before date — markets are shut on the day itself sometimes."""
+    if not closes or not date:
+        return None
+    keys = [k for k in closes if k <= date]
+    return closes[max(keys)] if keys else None
 
 
 def last_price(sym):
@@ -346,6 +370,90 @@ def main():
     picks_only = [r for r in rows if r["tier"] == "pick"]
     exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
 
+    # One account, compounded. Start with START_CASH, put the whole balance into
+    # that day's picks split equally, hold until the next pick day, then rotate
+    # into the new picks. The last set is still open and marked to the latest
+    # price. Positions never overlap, so the balance is a real running total
+    # rather than a sum of parallel what-ifs.
+    pick_days = defaultdict(dict)
+    for date, tier, sym, entry in FLAGS:
+        if tier != "pick":
+            continue
+        pick_days[date].setdefault(sym, entry)
+
+    equity, bal = [], START_CASH
+    days = sorted(pick_days)
+    closes = {s: daily_closes(s) for s in {s for d in days for s in pick_days[d]}}
+    for i, date in enumerate(days):
+        nxt = days[i + 1] if i + 1 < len(days) else None
+        rets = []
+        for sym, entry in pick_days[date].items():
+            exit_px = close_on_or_before(closes.get(sym), nxt) if nxt else now.get(sym)
+            if exit_px and entry:
+                rets.append((exit_px - entry) / entry)
+        if not rets:
+            continue
+        r = sum(rets) / len(rets)
+        opened = bal
+        bal *= (1 + r)
+        equity.append({
+            "date": date,
+            "picks": len(rets),
+            "return_pct": round(r * 100, 1),
+            "opened": round(opened, 2),
+            "balance": round(bal, 2),
+            "pnl": round(bal - opened, 2),
+            "open": nxt is None,
+        })
+
+    overall = basket(rows)
+    overall["losers"] = overall["positions"] - overall["winners"]
+
+    print("\nreplaying exit rules over every position…")
+    exits = test_exit_rules(rows)
+    picks_only = [r for r in rows if r["tier"] == "pick"]
+    exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
+
+    # Day-by-day: deploy the same STAKE into whatever that single digest listed,
+    # split equally, still held to today. Answers "if I traded 10k a day on this"
+    # without pretending the capital was ever recycled.
+    per_day = defaultdict(dict)
+    for date, tier, sym, entry in FLAGS:
+        cur = now.get(sym)
+        if not cur or not entry:
+            continue
+        # a ticker listed twice in one digest (pick + buzz) is still one buy
+        per_day[date].setdefault(sym, {"sym": sym, "tier": tier, "entry": entry,
+                                       "ret": (cur - entry) / entry * 100})
+        if TIER_RANK[tier] < TIER_RANK[per_day[date][sym]["tier"]]:
+            per_day[date][sym]["tier"] = tier
+
+    daily = []
+    for date in sorted(per_day):
+        names = list(per_day[date].values())
+        picks = [n for n in names if n["tier"] == "pick"]
+        if not picks:
+            continue          # picks-only view: a day with no pick has no row
+        avg = sum(n["ret"] for n in picks) / len(picks)
+        daily.append({
+            "date": date,
+            "names": len(picks),
+            "up": sum(1 for n in picks if n["ret"] > 0),
+            "invested": round(STAKE * len(picks), 2),
+            "pnl": round(STAKE * len(picks) * avg / 100, 2),
+            "return_pct": round(avg, 1),
+            "best": max(picks, key=lambda n: n["ret"])["sym"],
+            "worst": min(picks, key=lambda n: n["ret"])["sym"],
+        })
+
+    overall = basket(rows)
+    overall["losers"] = overall["positions"] - overall["winners"]
+
+    print("\nreplaying exit rules over every position…")
+    exits = test_exit_rules(rows)
+    picks_only = [r for r in rows if r["tier"] == "pick"]
+    exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
+
     # Day-by-day: deploy the same STAKE into whatever that single digest listed,
     # split equally, still held to today. Answers "if I traded 10k a day on this"
     # without pretending the capital was ever recycled.
@@ -383,7 +491,8 @@ def main():
         "summary": summary,
         "missing": missing,
         "overall": overall,
-        "daily": daily,
+        "equity": equity,
+        "start_cash": START_CASH,
         "exit_rules": exits,
         "exit_rules_picks": exits_picks,
     }
@@ -417,31 +526,19 @@ def main():
     print(f"            ${STAKE:,.0f} -> ${STAKE + o['pnl']:,.0f}"
           f"   P/L ${o['pnl']:+,.0f}   ({o['return_pct']:+.1f}%)")
 
-    print(f"\n{'-'*74}\nDAY BY DAY — ${STAKE:,.0f} into each digest\n{'-'*74}")
-    print(f"{'date':<12}{'names':>6}{'up':>4}{'return':>9}{'P/L':>12}   "
-          f"{'picks only':>12}")
-    for d in daily:
-        po = (f"{d['pick_return_pct']:+.1f}% ${d['pick_pnl']:+,.0f}"
-              if "pick_pnl" in d else "—")
-        print(f"{d['date']:<12}{d['names']:>6}{d['up']:>4}{d['return_pct']:>8.1f}%"
-              f"{d['pnl']:>+12,.0f}   {po:>12}")
-
-    if exits:
-        base = next((e for e in exits if e["rule"] == "Hold, never sell"), None)
-        print(f"\n{'='*80}\nWHEN TO SELL — every rule replayed over the same "
-              f"{exits[0]['positions']} positions\n{'='*80}")
-        print(f"{'rule':<30}{'$10k ends':>12}{'avg ret':>9}{'win%':>7}"
-              f"{'held':>7}{'worst':>8}{'exited':>8}")
-        for e in exits:
-            mark = "  <- buy and hold" if e["rule"] == "Hold, never sell" else ""
-            print(f"{e['rule']:<30}{e['final']:>12,.0f}{e['avg_return']:>8.1f}%"
-                  f"{e['win_rate']:>7.0f}{e['avg_days_held']:>7.0f}"
-                  f"{e['worst']:>7.0f}%{e['exited']:>8}{mark}")
-        if base:
-            best = exits[0]
-            print(f"\nbest rule beats buy-and-hold by "
-                  f"{best['avg_return'] - base['avg_return']:+.1f} points "
-                  f"(${best['final'] - base['final']:+,.0f} on ${STAKE:,.0f})")
+    if equity:
+        final = equity[-1]["balance"]
+        tot = (final - START_CASH) / START_CASH * 100
+        print(f"\n{'='*70}")
+        print(f"COMPOUNDED — ${START_CASH:,.0f} rotated through each day's picks")
+        print(f"{'='*70}")
+        print(f"{'date':<12}{'picks':>6}{'return':>9}{'balance':>12}")
+        for e in equity:
+            tag = "  (open)" if e["open"] else ""
+            print(f"{e['date']:<12}{e['picks']:>6}{e['return_pct']:>8.1f}%"
+                  f"{e['balance']:>12,.0f}{tag}")
+        print(f"\n${START_CASH:,.0f} -> ${final:,.0f}  ({tot:+.1f}%) "
+              f"over {len(equity)} pick days")
 
     print(f"\n{'-'*74}\nONE ROW PER TICKER, BEST FIRST\n{'-'*74}")
     print(f"{'sym':<7}{'tier':<7}{'first seen':<12}{'bought':>10}{'now':>10}"
