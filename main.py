@@ -797,6 +797,10 @@ def write_dashboard(results, gainers, yahoo_watches):
             "standouts": len(_standouts(results, gainers)),
         },
         "history": history,
+        # which Reddit feeds answered this run, and with how many tickers.
+        # In the payload rather than only the log, because a feed that quietly
+        # stops resolving is invisible in a truncated Actions log tail.
+        "feeds": FEED_STATUS,
     }
     try:
         path = os.path.join(DASHBOARD_DIR, "data.json")
