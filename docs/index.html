@@ -576,33 +576,41 @@ function backtest(){
   // headline sentence, driven by the numbers rather than hand-written
   let read;
   if (o.pnl < 0 && pickS && pickS.return_pct > 0)
-    read = `Buying everything the radar mentioned would have lost you ${usd(o.pnl).slice(1)}. `
-         + `The one section that held up is Worth Watching — treat the rest as context, `
-         + `not a shopping list.`;
+    read = `Spreading it across everything the radar mentioned would have lost `
+         + `${usd(o.pnl).slice(1)}. Putting the same money only into Picks would have `
+         + `turned it into ${"$" + Math.round(stakeOf() + pickS.pnl).toLocaleString()}. `
+         + `Treat Buzz and Movers as context, not a shopping list.`;
   else if (o.pnl < 0)
-    read = `Buying everything the radar mentioned would have lost you ${usd(o.pnl).slice(1)}. `
-         + `No section has earned the right to be traded yet.`;
+    read = `Spreading it across everything the radar mentioned would have lost `
+         + `${usd(o.pnl).slice(1)}. No section has earned the right to be traded yet.`;
   else
-    read = `Buying everything the radar mentioned would have made you ${usd(o.pnl).slice(1)}, `
-         + `but check the per-section split before reading anything into that.`;
+    read = `Spreading it across everything the radar mentioned would have made `
+         + `${usd(o.pnl).slice(1)} — check the per-section split before reading much `
+         + `into that.`;
+  function stakeOf(){ return B.stake || 0; }
+
+  const stake = B.stake || 0;
+  const end = n => "$" + Math.round(stake + n).toLocaleString();
 
   return `<div class="panel" style="margin-bottom:16px;">
-      <div class="phead"><div class="cap">If you had bought everything it flagged</div>
-        <div class="note">$${B.stake.toLocaleString()} per ticker · bought the first
-          time it appeared · held until now</div></div>
+      <div class="phead"><div class="cap">If you had traded it with $${stake.toLocaleString()}</div>
+        <div class="note">your whole stake into each list, split equally ·
+          bought the first time a ticker appeared · still held today</div></div>
 
       <div style="padding:20px 18px;display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;">
         <div>
+          <div class="mono" style="font-size:15px;color:var(--ink-5);">
+            $${stake.toLocaleString()} →</div>
           <div class="mono" style="font-size:40px;font-weight:600;letter-spacing:-.02em;
-            color:${o.pnl>=0?G:R};line-height:1;">${usd(o.pnl)}</div>
+            color:${o.pnl>=0?G:R};line-height:1;">${end(o.pnl)}</div>
           <div class="mono" style="font-size:13px;color:${o.pnl>=0?G:R};margin-top:6px;">
-            ${o.return_pct>0?"+":""}${o.return_pct}% on $${(o.invested||0).toLocaleString()}</div>
+            ${usd(o.pnl)} · ${o.return_pct>0?"+":""}${o.return_pct}%</div>
         </div>
         <div style="flex:1 1 260px;min-width:0;">
           <div style="font-size:14px;color:var(--ink-3);text-wrap:pretty;">${esc(read)}</div>
           <div class="mono" style="font-size:12px;color:var(--ink-5);margin-top:8px;">
-            ${o.positions} tickers · ${o.winners} up · ${o.losers} down
-            · ${o.win_rate}% went up</div>
+            ${o.positions} tickers · about $${Math.round(o.per_ticker||0).toLocaleString()} each
+            · ${o.winners} up · ${o.losers} down</div>
         </div>
       </div>
 
@@ -617,10 +625,12 @@ function backtest(){
               <span class="pill" style="${pillCss(kind)};font-size:10px;">${esc(tag)}</span>
             </div>
             <div class="mono" style="font-size:22px;font-weight:600;color:${c};margin-top:6px;">
-              ${usd(s.pnl)}</div>
+              ${end(s.pnl)}</div>
             <div class="mono" style="font-size:12px;color:${c};">
-              ${s.return_pct>0?"+":""}${s.return_pct}% · ${s.positions} ticker${
-                s.positions===1?"":"s"}</div>
+              ${usd(s.pnl)} · ${s.return_pct>0?"+":""}${s.return_pct}%</div>
+            <div class="mono" style="font-size:11px;color:var(--ink-5);margin-top:3px;">
+              ${s.positions} ticker${s.positions===1?"":"s"} @ ~$${
+                Math.round(s.per_ticker||0).toLocaleString()}</div>
             <div style="font-size:12px;color:var(--ink-4);margin-top:6px;text-wrap:pretty;">
               ${esc(line)}</div>
             <div class="note" style="margin-top:4px;">${TIER[t][1]}</div>
@@ -628,6 +638,38 @@ function backtest(){
         }).join("")}
       </div>
     </div>
+
+    ${(B.daily||[]).length ? `<div class="panel" style="margin-bottom:16px;">
+      <div class="phead"><div class="cap">Day by day</div>
+        <div class="note">$${stake.toLocaleString()} into that day's digest, split equally,
+          held to today</div></div>
+      <div class="scroll"><div style="min-width:560px;">
+        <div class="tbl">
+          <div style="flex:0 0 96px;">Digest</div>
+          <div style="flex:0 0 70px;text-align:right;">Names</div>
+          <div style="flex:0 0 60px;text-align:right;">Up</div>
+          <div style="flex:0 0 88px;text-align:right;">Change</div>
+          <div style="flex:0 0 110px;text-align:right;">Everything</div>
+          <div style="flex:1 1 120px;text-align:right;">Picks only</div>
+        </div>
+        ${B.daily.map(d => `<div class="row"><div style="display:flex;gap:12px;
+            padding:11px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 96px;font-size:12px;color:var(--ink-5);">
+            ${esc(d.date)}</div>
+          <div class="mono" style="flex:0 0 70px;text-align:right;font-size:12px;
+            color:var(--ink-2);">${d.names}</div>
+          <div class="mono" style="flex:0 0 60px;text-align:right;font-size:12px;
+            color:var(--ink-5);">${d.up}</div>
+          <div class="mono" style="flex:0 0 88px;text-align:right;font-size:12px;
+            color:${chgC(d.return_pct)};">${pctT(d.return_pct)}</div>
+          <div class="mono" style="flex:0 0 110px;text-align:right;font-size:13px;
+            font-weight:600;color:${chgC(d.pnl)};">${usd(d.pnl)}</div>
+          <div class="mono" style="flex:1 1 120px;text-align:right;font-size:13px;
+            color:${d.pick_pnl===undefined?"var(--ink-6)":chgC(d.pick_pnl)};">
+            ${d.pick_pnl===undefined ? "no picks" : usd(d.pick_pnl)}</div>
+        </div></div>`).join("")}
+      </div></div>
+    </div>` : ""}
 
     <div class="panel" style="margin-bottom:16px;">
       <div class="phead"><div class="cap">Every ticker it ever flagged</div>

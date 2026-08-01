@@ -27,7 +27,10 @@ from collections import defaultdict
 
 import yfinance as yf
 
-STAKE = float(os.getenv("STAKE", "10000"))  # hypothetical $ per position
+# Total capital, NOT per position — this is the whole account, split equally
+# across whatever the radar flagged. Per-ticker staking would imply $690k of
+# capital for 69 tickers, which answers a question nobody asked.
+STAKE = float(os.getenv("STAKE", "10000"))
 OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "backtest.json")
 
 # One position per ticker. A name flagged on five different days is still one
@@ -157,70 +160,115 @@ def main():
         ret = (cur - p["entry"]) / p["entry"] * 100
         row = {"date": p["date"], "tier": p["tier"], "sym": sym,
                "entry": p["entry"], "now": round(cur, 2), "ret": round(ret, 1),
-               "pnl": round(STAKE * ret / 100, 2),
                "flags": p["flags"], "days": len(p["days"])}
         rows.append(row)
         by_tier[p["tier"]].append(row)
 
-    summary = {}
-    for tier, rs in by_tier.items():
+    # every basket is the same STAKE, equally weighted — so a tier's return is
+    # the mean of its tickers, and the answer to "what if I'd only followed
+    # the picks?" is directly comparable to "what if I'd bought everything?"
+    alloc = STAKE / len(rows) if rows else 0
+    for r in rows:
+        r["alloc"] = round(alloc, 2)
+        r["pnl"] = round(alloc * r["ret"] / 100, 2)
+
+    def basket(rs):
         wins = [r for r in rs if r["ret"] > 0]
-        pnl = sum(r["pnl"] for r in rs)
-        summary[tier] = {
+        avg = sum(r["ret"] for r in rs) / len(rs) if rs else 0
+        return {
             "positions": len(rs),
             "winners": len(wins),
             "win_rate": round(len(wins) / len(rs) * 100, 1) if rs else 0,
-            "invested": round(STAKE * len(rs), 2),
-            "pnl": round(pnl, 2),
-            "return_pct": round(pnl / (STAKE * len(rs)) * 100, 1) if rs else 0,
+            "invested": round(STAKE, 2),
+            "per_ticker": round(STAKE / len(rs), 2) if rs else 0,
+            "pnl": round(STAKE * avg / 100, 2),
+            "return_pct": round(avg, 1),
             "best": max(rs, key=lambda r: r["ret"]),
             "worst": min(rs, key=lambda r: r["ret"]),
         }
 
-    winners = [r for r in rows if r["ret"] > 0]
-    total_pnl = sum(r["pnl"] for r in rows)
+    summary = {tier: basket(rs) for tier, rs in by_tier.items()}
+
+    overall = basket(rows)
+    overall["losers"] = overall["positions"] - overall["winners"]
+
+    # Day-by-day: deploy the same STAKE into whatever that single digest listed,
+    # split equally, still held to today. Answers "if I traded 10k a day on this"
+    # without pretending the capital was ever recycled.
+    per_day = defaultdict(dict)
+    for date, tier, sym, entry in FLAGS:
+        cur = now.get(sym)
+        if not cur or not entry:
+            continue
+        # a ticker listed twice in one digest (pick + buzz) is still one buy
+        per_day[date].setdefault(sym, {"sym": sym, "tier": tier, "entry": entry,
+                                       "ret": (cur - entry) / entry * 100})
+        if TIER_RANK[tier] < TIER_RANK[per_day[date][sym]["tier"]]:
+            per_day[date][sym]["tier"] = tier
+
+    daily = []
+    for date in sorted(per_day):
+        names = list(per_day[date].values())
+        avg = sum(n["ret"] for n in names) / len(names)
+        picks = [n for n in names if n["tier"] == "pick"]
+        d = {"date": date, "names": len(names),
+             "pnl": round(STAKE * avg / 100, 2), "return_pct": round(avg, 1),
+             "up": sum(1 for n in names if n["ret"] > 0),
+             "best": max(names, key=lambda n: n["ret"])["sym"],
+             "worst": min(names, key=lambda n: n["ret"])["sym"]}
+        if picks:      # what the shortlist alone would have done that day
+            pavg = sum(n["ret"] for n in picks) / len(picks)
+            d["pick_names"] = len(picks)
+            d["pick_pnl"] = round(STAKE * pavg / 100, 2)
+            d["pick_return_pct"] = round(pavg, 1)
+        daily.append(d)
     payload = {
         "stake": STAKE,
         # best first — the shape of the outcome should be visible without sorting
         "rows": sorted(rows, key=lambda r: -r["ret"]),
         "summary": summary,
         "missing": missing,
-        "overall": {
-            "positions": len(rows),
-            "winners": len(winners),
-            "losers": len(rows) - len(winners),
-            "win_rate": round(len(winners) / len(rows) * 100, 1) if rows else 0,
-            "invested": round(STAKE * len(rows), 2),
-            "pnl": round(total_pnl, 2),
-            "return_pct": round(total_pnl / (STAKE * len(rows)) * 100, 1) if rows else 0,
-        },
+        "overall": overall,
+        "daily": daily,
     }
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
     with open(OUT, "w") as f:
         json.dump(payload, f, indent=1)
 
-    print(f"\n{'='*74}\nIF YOU HAD ACTED ON EVERY NOTIFICATION  (${STAKE:,.0f} per name)\n{'='*74}")
+    print(f"\n{'='*74}")
+    print(f"IF YOU HAD PUT ${STAKE:,.0f} INTO EACH LIST  (split equally, held to now)")
+    print(f"{'='*74}")
     for tier in ("pick", "buzz", "mover"):
         s = summary.get(tier)
         if not s:
             continue
-        label = {"pick": "PICKS  (Worth Watching / Worth a Closer Look)",
-                 "buzz": "BUZZ   (Reddit Buzz list)",
-                 "mover": "MOVERS (labelled 'not a prediction')"}[tier]
+        label = {"pick": "PICKS  (Worth Watching — act on these first)",
+                 "buzz": "BUZZ   (Reddit Buzz — watch, don't act)",
+                 "mover": "MOVERS (Biggest movers — don't chase)"}[tier]
         print(f"\n{label}")
-        print(f"  positions {s['positions']:>3}   winners {s['winners']:>3}"
-              f"   win rate {s['win_rate']:>5.1f}%")
-        print(f"  invested  ${s['invested']:>10,.0f}   P/L ${s['pnl']:>+11,.0f}"
-              f"   ({s['return_pct']:+.1f}%)")
+        print(f"  {s['positions']:>2} tickers @ ${s['per_ticker']:,.0f} each"
+              f"   {s['winners']} up / {s['positions']-s['winners']} down"
+              f"   ({s['win_rate']}% up)")
+        print(f"  ${STAKE:,.0f} -> ${STAKE + s['pnl']:,.0f}"
+              f"   P/L ${s['pnl']:>+10,.0f}   ({s['return_pct']:+.1f}%)")
         print(f"  best  {s['best']['sym']:<6} {s['best']['ret']:+7.1f}%"
               f"   worst {s['worst']['sym']:<6} {s['worst']['ret']:+7.1f}%")
 
     o = payload["overall"]
     print(f"\n{'='*74}")
-    print(f"OVERALL  {o['positions']} positions (one per ticker)  "
-          f"{o['winners']} up / {o['losers']} down  ({o['win_rate']}% win rate)")
-    print(f"         invested ${o['invested']:,.0f}   P/L ${o['pnl']:+,.0f}"
-          f"   ({o['return_pct']:+.1f}%)")
+    print(f"EVERYTHING  {o['positions']} tickers @ ${o['per_ticker']:,.0f} each  "
+          f"{o['winners']} up / {o['losers']} down  ({o['win_rate']}% up)")
+    print(f"            ${STAKE:,.0f} -> ${STAKE + o['pnl']:,.0f}"
+          f"   P/L ${o['pnl']:+,.0f}   ({o['return_pct']:+.1f}%)")
+
+    print(f"\n{'-'*74}\nDAY BY DAY — ${STAKE:,.0f} into each digest\n{'-'*74}")
+    print(f"{'date':<12}{'names':>6}{'up':>4}{'return':>9}{'P/L':>12}   "
+          f"{'picks only':>12}")
+    for d in daily:
+        po = (f"{d['pick_return_pct']:+.1f}% ${d['pick_pnl']:+,.0f}"
+              if "pick_pnl" in d else "—")
+        print(f"{d['date']:<12}{d['names']:>6}{d['up']:>4}{d['return_pct']:>8.1f}%"
+              f"{d['pnl']:>+12,.0f}   {po:>12}")
 
     print(f"\n{'-'*74}\nONE ROW PER TICKER, BEST FIRST\n{'-'*74}")
     print(f"{'sym':<7}{'tier':<7}{'first seen':<12}{'bought':>10}{'now':>10}"
