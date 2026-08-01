@@ -248,7 +248,7 @@ function spark(t){
 /* One-year weekly close chart. Drawn from real closes rather than embedding a
    Yahoo/Google widget — those cannot be framed, and an external embed would
    break the page's no-outside-requests guarantee. */
-function lineChart(chart, pct){
+function lineChart(chart){
   if (!chart || !(chart.closes||[]).length) return "";
   const v = chart.closes, d = chart.dates || [];
   const W = 520, H = 150, PADL = 6, PADR = 6, PADT = 10, PADB = 18;
@@ -257,9 +257,11 @@ function lineChart(chart, pct){
   const y = c => PADT + (1 - (c - lo) / span) * (H - PADT - PADB);
   const line = v.map((c,i) => `${i?"L":"M"}${x(i).toFixed(1)},${y(c).toFixed(1)}`).join("");
   const area = `${line}L${x(v.length-1).toFixed(1)},${H-PADB}L${x(0).toFixed(1)},${H-PADB}Z`;
-  const col = chgC(pct);
   const first = v[0], last = v[v.length-1];
   const chg = ((last - first) / first) * 100;
+  // coloured by the move the chart actually shows, not by today's tick —
+  // a stock up 53% on the year should not draw red because it dipped today
+  const col = chgC(chg);
   const id = "g" + Math.abs(v.length * 7 + Math.round(last * 100));
   // three faint gridlines, labelled at the extremes only
   const grid = [0, 0.5, 1].map(f => {
@@ -306,10 +308,15 @@ function tonePill(t){
 }
 function erHtml(t, compact){
   const e = t.er;
-  if (!e || !e.date) return "";
+  // a beat record is worth showing even when the next date is months out,
+  // so this must not require e.date
+  if (!e) return "";
   const exp = e.expect;
-  const when = e.days_away !== undefined ? `${e.date} (${e.days_away}d)` : e.date;
-  const bits = [`<span class="pill" style="${pillCss("warn")};font-size:10px;">📅 ${esc(when)}</span>`];
+  const bits = [];
+  if (e.date) {
+    const when = e.days_away !== undefined ? `${e.date} (${e.days_away}d)` : e.date;
+    bits.push(`<span class="pill" style="${pillCss("warn")};font-size:10px;">📅 ${esc(when)}</span>`);
+  }
   if (exp) bits.push(`<span class="pill" style="${pillCss(
     exp[0]==="good"?"good":exp[0]==="bad"?"bad":"muted")};font-size:10px;"
     title="${esc(exp[1])} — history, not a forecast">${esc(exp[0])} record</span>`);
@@ -919,7 +926,7 @@ function detail(){
             <div class="eyebrow">Last 12 months</div>
             <div class="note">weekly closes</div>
           </div>
-          ${lineChart(t.chart, t.pct)}
+          ${lineChart(t.chart)}
         </div>` : ""}
         <div class="panel" style="padding:18px 20px;">
           <div class="eyebrow" style="margin-bottom:8px;">Reason it surfaced</div>
@@ -946,8 +953,8 @@ function detail(){
         </div>` : ""}
       </div>
       <div class="col-side">
-        ${t.er && t.er.date ? `<div class="panel" style="padding:18px 20px;">
-          <div class="eyebrow" style="margin-bottom:12px;">Next earnings</div>
+        ${t.er ? `<div class="panel" style="padding:18px 20px;">
+          <div class="eyebrow" style="margin-bottom:12px;">${t.er.date ? "Next earnings" : "Earnings record"}</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap;">${erHtml(t)}</div>
         </div>` : ""}
         ${t.read ? `<div class="panel" style="padding:18px 20px;">
