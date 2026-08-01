@@ -328,6 +328,121 @@ def earnings_soon(sym, days=7):
     return None
 
 
+def news_tone(headlines):
+    """
+    Tone of the coverage, from VADER over the headlines already fetched.
+
+    This is NOT Reddit sentiment — ApeWisdom returns mention counts only, never
+    post text, so calling it Reddit sentiment would be inventing a measurement.
+    It answers a narrower question honestly: is the news around this name being
+    written up positively or negatively right now.
+    """
+    if not headlines:
+        return None
+    scores = [analyzer.polarity_scores(h)["compound"] for h in headlines]
+    avg = sum(scores) / len(scores)
+    label = "positive" if avg >= 0.15 else "negative" if avg <= -0.15 else "mixed"
+    return {"label": label, "score": round(avg, 2)}
+
+
+def crowd_read(pct, mom, tone):
+    """
+    Price direction crossed with attention direction — the thing a mention count
+    alone cannot tell you: whether the crowd is arriving before a move, chasing
+    one, or catching a falling knife.
+    """
+    if pct is None:
+        return None
+    rising = mom == "↑"
+    if pct <= -5 and rising:
+        return ["falling knife", "bad",
+                "Price is dropping while chatter climbs — the crowd is arriving into a decline."]
+    if pct >= 10 and rising:
+        return ["chasing", "warn",
+                "Already run hard today and the crowd is still piling in — late-arrival risk."]
+    if pct >= 2 and rising:
+        return ["moving with attention", "good",
+                "Up on the day with attention still building."]
+    if pct <= -5:
+        return ["fading", "muted",
+                "Down on the day and the chatter is cooling with it."]
+    if tone and tone["label"] == "negative" and rising:
+        return ["negative buzz", "bad",
+                "Attention is rising but the coverage around it is negative."]
+    return ["quiet", "muted", "No strong pattern between price and attention today."]
+
+
+def earnings_detail(sym):
+    """
+    Next earnings date, what the market expects, and how this name has handled
+    recent reports. The beat record is history — it is labelled that way
+    everywhere it is shown, never as a prediction of the next print.
+    """
+    out = {}
+    try:
+        try:
+            df = yf.Ticker(sym).earnings_dates
+        except Exception:
+            df = None
+        today = datetime.now().date()
+        if df is not None and not df.empty:
+            surprises = []
+            for idx, row in df.iterrows():
+                d = idx.date() if hasattr(idx, "date") else None
+                if d is None:
+                    continue
+                sur, est = row.get("Surprise(%)"), row.get("EPS Estimate")
+                if d <= today and sur is not None and sur == sur:
+                    surprises.append(float(sur))
+                elif d > today and "date" not in out:
+                    out["date"] = d.strftime("%b %d")
+                    out["days_away"] = (d - today).days
+                    if est is not None and est == est:
+                        out["eps_estimate"] = round(float(est), 2)
+            if surprises:
+                recent = surprises[:4]
+                beats = sum(1 for s in recent if s > 0)
+                out["beat_record"] = f"beat {beats} of last {len(recent)}"
+                out["avg_surprise"] = round(sum(recent) / len(recent), 1)
+                if beats >= 3 and out["avg_surprise"] > 0:
+                    out["expect"] = ["good", "Beaten estimates in most recent quarters"]
+                elif beats <= 1:
+                    out["expect"] = ["bad", "Missed estimates in most recent quarters"]
+                else:
+                    out["expect"] = ["mixed", "Mixed record against estimates"]
+    except Exception as e:
+        print(f"[warn] earnings_detail {sym}: {e}")
+
+    if "date" not in out:
+        legacy = earnings_soon(sym)
+        if legacy:
+            out["date"] = legacy.split(" (")[0]
+    return out or None
+
+
+_chart_cache = {}
+def price_chart(sym, period="1y", interval="1wk"):
+    """Weekly closes for the detail view's long-term chart (~52 points)."""
+    if sym in _chart_cache:
+        return _chart_cache[sym]
+    out = None
+    try:
+        h = yf.Ticker(sym).history(period=period, interval=interval)
+        if not h.empty:
+            closes, dates = [], []
+            for idx, c in h["Close"].items():
+                if c != c:
+                    continue
+                closes.append(round(float(c), 2))
+                dates.append(idx.strftime("%Y-%m-%d"))
+            if len(closes) >= 8:
+                out = {"period": period, "closes": closes, "dates": dates}
+    except Exception as e:
+        print(f"[warn] chart {sym}: {e}")
+    _chart_cache[sym] = out
+    return out
+
+
 def analyst_info(sym):
     """Return (consensus: str|None, target_price: float|None) from Yahoo."""
     try:
@@ -474,6 +589,10 @@ def yahoo_watchlist(n=5):
         }
         is_real_ticker(sym)      # warms the 5d frame the band/sparkline need
         w["band"], w["spark"] = band_and_spark(sym, price)
+        w["tone"] = news_tone(w["headlines"])
+        w["read"] = crowd_read(pct, None, w["tone"])
+        w["er"] = earnings_detail(sym)
+        w["chart"] = price_chart(sym)
         w["reason"] = reason_text(w)
         out.append(w)
         if len(out) >= n:
@@ -760,6 +879,10 @@ def _dash_ticker(r, extra=None):
         "spark": r.get("spark") or [],
         "stats": r.get("stats") or [],
         "reason": r.get("reason") or "",
+        "tone": r.get("tone"),
+        "read": r.get("read"),
+        "er": r.get("er"),
+        "chart": r.get("chart"),
     }
     if extra:
         out.update(extra)
@@ -862,6 +985,10 @@ def main():
         r["earnings"] = earnings_soon(r["sym"])
         r["band"], r["spark"] = band_and_spark(r["sym"], r.get("price"))
         r["stats"] = key_stats(r["sym"])
+        r["tone"] = news_tone(r["headlines"])
+        r["read"] = crowd_read(r.get("pct"), r.get("mom"), r["tone"])
+        r["er"] = earnings_detail(r["sym"])
+        r["chart"] = price_chart(r["sym"])
         r["reason"] = reason_text(r)     # needs the fields set above
 
     gainers = market_gainers(int(os.getenv("GAINERS_N", "5")))

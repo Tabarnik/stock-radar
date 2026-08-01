@@ -142,6 +142,11 @@
   .sortbtn:hover{color:var(--ink-d);}
   .sortbtn.on{color:var(--ink-d);font-weight:600;}
   .sortbtn:focus-visible{outline:2px solid var(--series,#345C90);outline-offset:2px;border-radius:3px;}
+  .sel{font-family:var(--mono);font-size:11px;color:var(--ink-2);
+    background:rgba(255,255,255,0.55);border:1px solid rgba(120,112,90,0.26);
+    border-radius:6px;padding:5px 8px;cursor:pointer;max-width:100%;}
+  .sel:hover{border-color:rgba(120,112,90,0.45);}
+  .sel:focus-visible{outline:2px solid #345C90;outline-offset:2px;}
   @media(max-width:640px){
     .rowin{gap:10px;padding:12px 14px;}
     .expand{padding:4px 14px 18px 14px;}
@@ -202,23 +207,27 @@ const chgC  = p => typeof p !== "number" ? "var(--ink-4)" : p > 0 ? G : p < 0 ? 
 
 let D = null, B = null;
 const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{},
-            sort:{ key:"ret", dir:-1 } };
+            sort:{ key:"ret", dir:-1 },        // "every ticker" table
+            daySort:{ key:"date", dir:1 },      // day-by-day table
+            section:"all" };                    // section dropdown filter
 
 // Click a column to sort by it; click again to reverse. Text sorts A→Z first,
 // numbers sort biggest-first, since that's the useful default for each.
-function applySort(rows){
-  const { key, dir } = S.sort;
-  const txt = key === "sym" || key === "tier" || key === "date";
+const TEXT_KEYS = new Set(["sym","tier","date"]);
+function applySort(rows, state){
+  const { key, dir } = state;
   return [...rows].sort((a,b) => {
     const x = a[key], y = b[key];
-    const c = txt ? String(x).localeCompare(String(y)) : (x - y);
+    const c = TEXT_KEYS.has(key) ? String(x).localeCompare(String(y)) : ((x||0) - (y||0));
     return c * dir;
   });
 }
-function sortHead(key, label, flex, right){
-  const on = S.sort.key === key;
-  const arrow = on ? (S.sort.dir === 1 ? " ↑" : " ↓") : "";
-  return `<button data-sort="${key}" class="sortbtn${on ? " on" : ""}"
+// attr picks which sort state the header drives, so the two tables stay independent
+function sortHead(key, label, flex, right, attr){
+  const state = attr === "daysort" ? S.daySort : S.sort;
+  const on = state.key === key;
+  const arrow = on ? (state.dir === 1 ? " ↑" : " ↓") : "";
+  return `<button data-${attr || "sort"}="${key}" class="sortbtn${on ? " on" : ""}"
     style="flex:${flex};${right ? "text-align:right;justify-content:flex-end;" : ""}"
     aria-label="Sort by ${esc(label)}">${esc(label)}${arrow}</button>`;
 }
@@ -234,6 +243,88 @@ function spark(t){
       const h = 6 + ((x - lo) / span) * 20;
       return `<i style="height:${h.toFixed(1)}px;background:${col};opacity:${(0.35+0.65*(i/(v.length-1))).toFixed(2)}"></i>`;
     }).join("") + `</div>`;
+}
+
+/* One-year weekly close chart. Drawn from real closes rather than embedding a
+   Yahoo/Google widget — those cannot be framed, and an external embed would
+   break the page's no-outside-requests guarantee. */
+function lineChart(chart, pct){
+  if (!chart || !(chart.closes||[]).length) return "";
+  const v = chart.closes, d = chart.dates || [];
+  const W = 520, H = 150, PADL = 6, PADR = 6, PADT = 10, PADB = 18;
+  const lo = Math.min(...v), hi = Math.max(...v), span = (hi - lo) || 1;
+  const x = i => PADL + (i / (v.length - 1)) * (W - PADL - PADR);
+  const y = c => PADT + (1 - (c - lo) / span) * (H - PADT - PADB);
+  const line = v.map((c,i) => `${i?"L":"M"}${x(i).toFixed(1)},${y(c).toFixed(1)}`).join("");
+  const area = `${line}L${x(v.length-1).toFixed(1)},${H-PADB}L${x(0).toFixed(1)},${H-PADB}Z`;
+  const col = chgC(pct);
+  const first = v[0], last = v[v.length-1];
+  const chg = ((last - first) / first) * 100;
+  const id = "g" + Math.abs(v.length * 7 + Math.round(last * 100));
+  // three faint gridlines, labelled at the extremes only
+  const grid = [0, 0.5, 1].map(f => {
+    const gy = PADT + f * (H - PADT - PADB);
+    return `<line x1="${PADL}" x2="${W-PADR}" y1="${gy}" y2="${gy}"
+      stroke="var(--rule-2)" stroke-width="1"/>`;
+  }).join("");
+  return `<div style="position:relative;">
+    <svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img"
+         aria-label="One year of weekly closes, ${chg>=0?"up":"down"} ${Math.abs(chg).toFixed(0)}%"
+         style="display:block;overflow:visible;">
+      <defs><linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="${col}" stop-opacity="0.20"/>
+        <stop offset="100%" stop-color="${col}" stop-opacity="0"/>
+      </linearGradient></defs>
+      ${grid}
+      <path d="${area}" fill="url(#${id})"/>
+      <path d="${line}" fill="none" stroke="${col}" stroke-width="2"
+        stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="${x(v.length-1).toFixed(1)}" cy="${y(last).toFixed(1)}" r="3.5"
+        fill="${col}" stroke="var(--surface,#fff)" stroke-width="2"/>
+    </svg>
+    <div class="bandnum" style="margin-top:4px;">
+      <span>${esc((d[0]||"").slice(0,7))} · ${money(first)}</span>
+      <span style="color:${col};font-weight:600;">${pctT(chg)} over the year</span>
+      <span>${money(hi)} high · ${money(lo)} low</span>
+    </div>
+  </div>`;
+}
+
+function readPill(t){
+  const r = t.read;
+  if (!r) return "";
+  return `<span class="pill" style="${pillCss(r[1])};font-size:10px;" title="${esc(r[2])}">
+    ${esc(r[0])}</span>`;
+}
+function tonePill(t){
+  const tone = t.tone;
+  if (!tone) return "";
+  const k = tone.label === "positive" ? "good" : tone.label === "negative" ? "bad" : "muted";
+  return `<span class="pill" style="${pillCss(k)};font-size:10px;"
+    title="Tone of recent headlines (VADER), not Reddit post sentiment">
+    news ${esc(tone.label)}</span>`;
+}
+function erHtml(t, compact){
+  const e = t.er;
+  if (!e || !e.date) return "";
+  const exp = e.expect;
+  const when = e.days_away !== undefined ? `${e.date} (${e.days_away}d)` : e.date;
+  const bits = [`<span class="pill" style="${pillCss("warn")};font-size:10px;">📅 ${esc(when)}</span>`];
+  if (exp) bits.push(`<span class="pill" style="${pillCss(
+    exp[0]==="good"?"good":exp[0]==="bad"?"bad":"muted")};font-size:10px;"
+    title="${esc(exp[1])} — history, not a forecast">${esc(exp[0])} record</span>`);
+  if (compact) return bits.join("");
+  const rows = [];
+  if (e.eps_estimate !== undefined) rows.push(["EPS expected", "$" + e.eps_estimate]);
+  if (e.beat_record) rows.push(["Recent record", e.beat_record]);
+  if (e.avg_surprise !== undefined) rows.push(["Avg surprise", pctT(e.avg_surprise)]);
+  return bits.join("") + (rows.length ? `<div style="margin-top:10px;">${rows.map(([k,v])=>`
+    <div style="display:flex;justify-content:space-between;gap:12px;
+      border-bottom:1px solid var(--rule-2);padding:7px 0;">
+      <span style="font-size:12px;color:var(--m);">${esc(k)}</span>
+      <span class="mono" style="font-size:12px;color:var(--ink-2);">${esc(String(v))}</span>
+    </div>`).join("")}</div>` : "")
+    + (exp ? `<div class="note" style="margin-top:8px;">${esc(exp[1])} — history, not a forecast.</div>` : "");
 }
 
 function bandHtml(t){
@@ -346,6 +437,17 @@ function tierHead(t){
   return bits.join("");
 }
 
+// Analyst mean target vs today's price. Their number, not ours — shown as the
+// gap it implies so the size of the claim is visible next to who is claiming it.
+function upsideLine(t){
+  if (typeof t.analyst_target !== "number" || typeof t.price !== "number" || !t.price)
+    return "";
+  const up = (t.analyst_target - t.price) / t.price * 100;
+  return `<div class="mono" style="font-size:12px;color:var(--ink-4);margin-top:8px;">
+    Analyst target <b style="color:var(--ink-2);">${money(t.analyst_target)}</b>
+    <span style="color:${chgC(up)};font-weight:600;">${pctT(up)}</span></div>`;
+}
+
 function picksPanel(){
   const q = D.watch || [];
   return `<div class="panel">
@@ -370,21 +472,26 @@ function picksPanel(){
         <div class="co" style="max-width:100%;margin-top:2px;">${esc(t.name||"")}</div>
         <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:9px;">
           <span class="pill" style="${pillCss("muted")};font-size:10px;">${esc(t.tag||"")}</span>
-          ${flagsHtml(t, 1)}
+          ${readPill(t)}${tonePill(t)}${erHtml(t, true)}${flagsHtml(t, 1)}
         </div>
+        ${upsideLine(t)}
         ${(t.headlines||[])[0] ? `<div style="font-size:12px;color:var(--ink-4);
           margin-top:9px;text-wrap:pretty;">${esc(t.headlines[0])}</div>` : ""}
+        <div class="note" style="margin-top:9px;">Open for the 1-year chart →</div>
       </div>`).join("")}
     </div>` : `<div class="empty">Nothing cleared the filter today.</div>`}
   </div>`;
 }
 
 function buzzList(){
-  const F = [["all","All"],["gainers","Gainers"],["decliners","Decliners"],["risky","High risk"]];
+  const F = [["all","All"],["gainers","Gainers"],["decliners","Decliners"],
+             ["knife","Falling knives"],["risky","High risk"]];
   let list = (D.buzz || []).filter(t => !S.dismissed[t.sym]);
   if (S.filter === "gainers")   list = list.filter(t => (t.pct||0) > 0);
   if (S.filter === "decliners") list = list.filter(t => (t.pct||0) < 0);
   if (S.filter === "risky")     list = list.filter(t => (t.flags||[]).length);
+  // loud AND dropping — the case where a big mention count is the opposite of good
+  if (S.filter === "knife")     list = list.filter(t => (t.read||[])[0] === "falling knife");
 
   const rows = list.map(t => {
     const col = chgC(t.pct), open = S.expanded[t.sym];
@@ -410,7 +517,7 @@ function buzzList(){
             text-transform:uppercase;">${attention(t)}</div>
         </div>
         <div style="flex:1 1 160px;min-width:0;display:flex;gap:6px;flex-wrap:wrap;">
-          ${flagsHtml(t, 3)}</div>
+          ${readPill(t)}${tonePill(t)}${flagsHtml(t, 2)}</div>
         <div style="flex:0 0 auto;display:flex;gap:6px;">
           <button class="btn" data-toggle="${esc(t.sym)}">${open ? "LESS" : "WHY"}</button>
           <button class="btn x" data-dismiss="${esc(t.sym)}" title="Hide for this session">✕</button>
@@ -647,14 +754,14 @@ function backtest(){
           held to today</div></div>
       <div class="scroll"><div style="min-width:560px;">
         <div class="tbl">
-          <div style="flex:0 0 96px;">Digest</div>
-          <div style="flex:0 0 70px;text-align:right;">Names</div>
-          <div style="flex:0 0 60px;text-align:right;">Up</div>
-          <div style="flex:0 0 88px;text-align:right;">Change</div>
-          <div style="flex:0 0 110px;text-align:right;">Everything</div>
-          <div style="flex:1 1 120px;text-align:right;">Picks only</div>
+          ${sortHead("date",           "Digest",     "0 0 96px",  0, "daysort")}
+          ${sortHead("names",          "Names",      "0 0 70px",  1, "daysort")}
+          ${sortHead("up",             "Up",         "0 0 60px",  1, "daysort")}
+          ${sortHead("return_pct",     "Change",     "0 0 88px",  1, "daysort")}
+          ${sortHead("pnl",            "Everything", "0 0 110px", 1, "daysort")}
+          ${sortHead("pick_return_pct","Picks only", "1 1 120px", 1, "daysort")}
         </div>
-        ${B.daily.map(d => `<div class="row"><div style="display:flex;gap:12px;
+        ${applySort(B.daily, S.daySort).map(d => `<div class="row"><div style="display:flex;gap:12px;
             padding:11px 18px;align-items:center;">
           <div class="mono" style="flex:0 0 96px;font-size:12px;color:var(--ink-5);">
             ${esc(d.date)}</div>
@@ -674,9 +781,23 @@ function backtest(){
     </div>` : ""}
 
     <div class="panel" style="margin-bottom:16px;">
-      <div class="phead"><div class="cap">Every ticker it ever flagged</div>
-        <div class="note">one row each · biggest gain first · ${
-          esc(best.sym)} was the best, ${esc(worst.sym)} the worst</div></div>
+      <div class="phead">
+        <div class="cap">Every ticker it ever flagged</div>
+        <div class="note">one row each · ${esc(best.sym)} was the best,
+          ${esc(worst.sym)} the worst</div>
+        <div style="flex:1 1 20px;"></div>
+        <label class="note" for="secfilter" style="letter-spacing:.06em;">Section</label>
+        <select id="secfilter" class="sel" data-section>
+          <option value="all"${S.section==="all"?" selected":""}>All sections (${B.rows.length})</option>
+          ${["pick","buzz","mover"].map(k => {
+            const n = B.rows.filter(r => r.tier === k).length;
+            return n ? `<option value="${k}"${S.section===k?" selected":""}>${
+              esc(TIER[k][0])} (${n})</option>` : "";
+          }).join("")}
+          <option value="up"${S.section==="up"?" selected":""}>Winners only</option>
+          <option value="down"${S.section==="down"?" selected":""}>Losers only</option>
+        </select>
+      </div>
       <div class="scroll"><div style="min-width:640px;">
         <div class="tbl">
           ${sortHead("sym",  "Ticker",        "0 0 78px")}
@@ -687,7 +808,13 @@ function backtest(){
           ${sortHead("ret",  "Change",        "0 0 78px", 1)}
           ${sortHead("pnl",  "Profit / loss", "1 1 96px", 1)}
         </div>
-        ${applySort(B.rows).map(r => `<div class="row"><div style="display:flex;gap:12px;
+        ${(() => {
+          const rows = applySort(B.rows.filter(r =>
+            S.section === "all"  ? true :
+            S.section === "up"   ? r.ret > 0 :
+            S.section === "down" ? r.ret <= 0 : r.tier === S.section), S.sort);
+          if (!rows.length) return `<div class="empty">Nothing in this section.</div>`;
+          return rows.map(r => `<div class="row"><div style="display:flex;gap:12px;
             padding:11px 18px;align-items:center;">
           <div class="mono" style="flex:0 0 78px;font-size:13px;font-weight:600;
             color:var(--ink-d);">$${esc(r.sym)}</div>
@@ -704,7 +831,8 @@ function backtest(){
             color:${chgC(r.ret)};">${pctT(r.ret)}</div>
           <div class="mono" style="flex:1 1 96px;text-align:right;font-size:13px;
             font-weight:600;color:${chgC(r.pnl)};">${usd(r.pnl)}</div>
-        </div></div>`).join("")}
+        </div></div>`).join("");
+        })()}
       </div></div>
     </div>`;
 }
@@ -785,6 +913,14 @@ function detail(){
     </div>
     <div class="cols">
       <div class="col-main">
+        ${t.chart ? `<div class="panel" style="padding:18px 20px;">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+            margin-bottom:12px;">
+            <div class="eyebrow">Last 12 months</div>
+            <div class="note">weekly closes</div>
+          </div>
+          ${lineChart(t.chart, t.pct)}
+        </div>` : ""}
         <div class="panel" style="padding:18px 20px;">
           <div class="eyebrow" style="margin-bottom:8px;">Reason it surfaced</div>
           <div style="font-size:14px;color:var(--ink-3);text-wrap:pretty;">
@@ -810,6 +946,17 @@ function detail(){
         </div>` : ""}
       </div>
       <div class="col-side">
+        ${t.er && t.er.date ? `<div class="panel" style="padding:18px 20px;">
+          <div class="eyebrow" style="margin-bottom:12px;">Next earnings</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">${erHtml(t)}</div>
+        </div>` : ""}
+        ${t.read ? `<div class="panel" style="padding:18px 20px;">
+          <div class="eyebrow" style="margin-bottom:10px;">Crowd vs price</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px;">
+            ${readPill(t)}${tonePill(t)}</div>
+          <div style="font-size:13px;color:var(--ink-3);text-wrap:pretty;">
+            ${esc(t.read[2])}</div>
+        </div>` : ""}
         <div class="panel" style="padding:18px 20px;">
           <div class="eyebrow" style="margin-bottom:12px;">Short-term range band · 5 sessions</div>
           ${t.band ? bandHtml(t) : `<div class="note">No recent price frame available.</div>`}
@@ -851,18 +998,28 @@ function render(){
 }
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort]");
+  const el = e.target.closest("[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort]");
   if (!el) return;
   const d = el.dataset;
-  if (d.sort)     { S.sort = S.sort.key === d.sort
-                      ? { key: d.sort, dir: -S.sort.dir }
-                      : { key: d.sort, dir: (d.sort === "sym" || d.sort === "tier"
-                          || d.sort === "date") ? 1 : -1 }; }
+  // text columns open A→Z, numeric columns open biggest-first
+  const flip = (state, key) => state.key === key
+    ? { key, dir: -state.dir }
+    : { key, dir: TEXT_KEYS.has(key) ? 1 : -1 };
+  if (d.sort)          { S.sort = flip(S.sort, d.sort); }
+  else if (d.daysort)  { S.daySort = flip(S.daySort, d.daysort); }
   else if (d.go)  { S.screen = d.go; }
   else if (d.open){ S.sel = d.open; S.screen = "detail"; }
   else if (d.toggle)  { S.expanded[d.toggle] = !S.expanded[d.toggle]; }
   else if (d.dismiss) { S.dismissed[d.dismiss] = true; }
   else if (d.filter)  { S.filter = d.filter; }
+  render();
+});
+
+// a <select> fires change, not click
+document.addEventListener("change", e => {
+  const sel = e.target.closest("[data-section]");
+  if (!sel) return;
+  S.section = sel.value;
   render();
 });
 
