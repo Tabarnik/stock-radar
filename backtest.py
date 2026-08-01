@@ -128,6 +128,158 @@ def last_price(sym):
     return None
 
 
+# ---------------------------------------------------------------- exit rules
+# "When do I sell?" is the one question here that can be answered with evidence
+# rather than opinion: every flag has a real price path after it, so competing
+# sell rules can be replayed over the same 69 positions and compared.
+#
+# Each rule sees the daily closes from the day after the flag and returns
+# (exit_index, exit_price) or None to keep holding to the last close.
+
+def rule_hold(path, entry):
+    return None
+
+
+def _stop(pct):
+    def f(path, entry):
+        trigger = entry * (1 + pct / 100)
+        for i, c in enumerate(path):
+            if c <= trigger:
+                return i, c
+        return None
+    return f
+
+
+def _trail(pct):
+    def f(path, entry):
+        peak = entry
+        for i, c in enumerate(path):
+            peak = max(peak, c)
+            if c <= peak * (1 - pct / 100):
+                return i, c
+        return None
+    return f
+
+
+def _target(pct):
+    def f(path, entry):
+        trigger = entry * (1 + pct / 100)
+        for i, c in enumerate(path):
+            if c >= trigger:
+                return i, c
+        return None
+    return f
+
+
+def _bracket(stop_pct, target_pct):
+    def f(path, entry):
+        lo, hi = entry * (1 + stop_pct / 100), entry * (1 + target_pct / 100)
+        for i, c in enumerate(path):
+            if c <= lo or c >= hi:
+                return i, c
+        return None
+    return f
+
+
+def _time_stop(days):
+    def f(path, entry):
+        if len(path) > days:
+            return days - 1, path[days - 1]
+        return None
+    return f
+
+
+def _trail_after_target(target_pct, trail_pct):
+    """Let it run, but once it is up target_pct, protect with a trailing stop."""
+    def f(path, entry):
+        armed, peak = False, entry
+        for i, c in enumerate(path):
+            peak = max(peak, c)
+            if not armed and c >= entry * (1 + target_pct / 100):
+                armed = True
+            if armed and c <= peak * (1 - trail_pct / 100):
+                return i, c
+        return None
+    return f
+
+
+RULES = [
+    ("Hold, never sell",            rule_hold),
+    ("Stop loss -10%",              _stop(-10)),
+    ("Stop loss -15%",              _stop(-15)),
+    ("Stop loss -20%",              _stop(-20)),
+    ("Trailing stop -15%",          _trail(15)),
+    ("Trailing stop -20%",          _trail(20)),
+    ("Trailing stop -25%",          _trail(25)),
+    ("Take profit +20%",            _target(20)),
+    ("Take profit +30%",            _target(30)),
+    ("Stop -15% / target +25%",     _bracket(-15, 25)),
+    ("Stop -20% / target +40%",     _bracket(-20, 40)),
+    ("Run then trail -15% (+20%)",  _trail_after_target(20, 15)),
+    ("Sell after 5 days",           _time_stop(5)),
+    ("Sell after 10 days",          _time_stop(10)),
+    ("Sell after 20 days",          _time_stop(20)),
+]
+
+
+def daily_path(sym, start):
+    """Closes from the day after the flag onward."""
+    try:
+        h = yf.Ticker(sym).history(start=start, interval="1d")
+        if h.empty:
+            return []
+        return [float(c) for c in h["Close"].tolist() if c == c][1:]
+    except Exception as e:
+        print(f"[warn] path {sym}: {e}")
+        return []
+
+
+def test_exit_rules(pos_list):
+    """Replay every rule over every position; return per-rule aggregates."""
+    paths = {}
+    for p in pos_list:
+        path = daily_path(p["sym"], p["date"])
+        if path:
+            paths[p["sym"]] = path
+    print(f"price paths for {len(paths)}/{len(pos_list)} positions")
+
+    results = []
+    for name, fn in RULES:
+        rets, held, exited = [], [], 0
+        for p in pos_list:
+            path = paths.get(p["sym"])
+            if not path:
+                continue
+            entry = p["entry"]
+            hit = fn(path, entry)
+            if hit is None:
+                rets.append((path[-1] - entry) / entry * 100)
+                held.append(len(path))
+            else:
+                i, price = hit
+                rets.append((price - entry) / entry * 100)
+                held.append(i + 1)
+                exited += 1
+        if not rets:
+            continue
+        wins = [r for r in rets if r > 0]
+        avg = sum(rets) / len(rets)
+        results.append({
+            "rule": name,
+            "positions": len(rets),
+            "exited": exited,
+            "avg_return": round(avg, 1),
+            "win_rate": round(len(wins) / len(rets) * 100, 1),
+            "pnl": round(STAKE * avg / 100, 2),
+            "final": round(STAKE + STAKE * avg / 100, 2),
+            "avg_days_held": round(sum(held) / len(held), 1),
+            "worst": round(min(rets), 1),
+            "best": round(max(rets), 1),
+        })
+    results.sort(key=lambda r: -r["avg_return"])
+    return results
+
+
 def main():
     syms = sorted({f[2] for f in FLAGS})
     print(f"pricing {len(syms)} distinct tickers…")
@@ -192,6 +344,11 @@ def main():
     overall = basket(rows)
     overall["losers"] = overall["positions"] - overall["winners"]
 
+    print("\nreplaying exit rules over every position…")
+    exits = test_exit_rules(rows)
+    picks_only = [r for r in rows if r["tier"] == "pick"]
+    exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
+
     # Day-by-day: deploy the same STAKE into whatever that single digest listed,
     # split equally, still held to today. Answers "if I traded 10k a day on this"
     # without pretending the capital was ever recycled.
@@ -230,6 +387,8 @@ def main():
         "missing": missing,
         "overall": overall,
         "daily": daily,
+        "exit_rules": exits,
+        "exit_rules_picks": exits_picks,
     }
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
     with open(OUT, "w") as f:
@@ -269,6 +428,23 @@ def main():
               if "pick_pnl" in d else "—")
         print(f"{d['date']:<12}{d['names']:>6}{d['up']:>4}{d['return_pct']:>8.1f}%"
               f"{d['pnl']:>+12,.0f}   {po:>12}")
+
+    if exits:
+        base = next((e for e in exits if e["rule"] == "Hold, never sell"), None)
+        print(f"\n{'='*80}\nWHEN TO SELL — every rule replayed over the same "
+              f"{exits[0]['positions']} positions\n{'='*80}")
+        print(f"{'rule':<30}{'$10k ends':>12}{'avg ret':>9}{'win%':>7}"
+              f"{'held':>7}{'worst':>8}{'exited':>8}")
+        for e in exits:
+            mark = "  <- buy and hold" if e["rule"] == "Hold, never sell" else ""
+            print(f"{e['rule']:<30}{e['final']:>12,.0f}{e['avg_return']:>8.1f}%"
+                  f"{e['win_rate']:>7.0f}{e['avg_days_held']:>7.0f}"
+                  f"{e['worst']:>7.0f}%{e['exited']:>8}{mark}")
+        if base:
+            best = exits[0]
+            print(f"\nbest rule beats buy-and-hold by "
+                  f"{best['avg_return'] - base['avg_return']:+.1f} points "
+                  f"(${best['final'] - base['final']:+,.0f} on ${STAKE:,.0f})")
 
     print(f"\n{'-'*74}\nONE ROW PER TICKER, BEST FIRST\n{'-'*74}")
     print(f"{'sym':<7}{'tier':<7}{'first seen':<12}{'bought':>10}{'now':>10}"
