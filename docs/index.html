@@ -816,20 +816,20 @@ function exitRules(){
   const allHold = ALL.find(e => e.rule === "Hold, never sell");
   const allBeat = allHold ? ALL.filter(e => e.avg_return > allHold.avg_return).length : 0;
   let lead = beat === RS.length - 1
-    ? `Every rule tested beat holding these picks.`
-    : `${beat} of ${RS.length - 1} rules beat holding these picks.`;
+    ? `Every rule tested beat holding your picks.`
+    : `${beat} of ${RS.length - 1} rules beat holding your picks.`;
   if (hold.positions < 15) {
-    lead += ` Only ${hold.positions} picks so far, most days old — directional, not settled.`;
+    lead += ` ${hold.positions} picks so far and the record grows with every run, so this ranking will move — it is your average, not an industry rule of thumb.`;
   }
 
   return `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap">When to sell</div>
-      <div class="note">every rule replayed over the same ${hold.positions} picks ·
-        $${stake.toLocaleString()} per ticker</div></div>
+      <div class="note">your own picks — all ${hold.positions} of them, replayed ·
+        updates with every run</div></div>
 
     <div style="padding:18px;display:flex;gap:24px;flex-wrap:wrap;align-items:baseline;">
       <div>
-        <div class="eyebrow" style="margin-bottom:6px;">Best exit for picks</div>
+        <div class="eyebrow" style="margin-bottom:6px;">Your best exit so far</div>
         <div class="mono" style="font-size:26px;font-weight:600;color:${
           best.avg_return >= 0 ? G : R};line-height:1;">${esc(best.rule)}</div>
         <div class="mono" style="font-size:13px;margin-top:6px;color:${
@@ -900,8 +900,8 @@ function backtest(){
 
   const curve = eq.length ? `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap">Picks, compounded</div>
-      <div class="note">$${start.toLocaleString()} into each day's picks, rolled
-        into the next — profits included</div></div>
+      <div class="note">$${start.toLocaleString()} account · split across that day's
+        picks · profits roll into the next day</div></div>
 
     <div style="padding:20px 18px;display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;">
       <div>
@@ -917,7 +917,7 @@ function backtest(){
         text-wrap:pretty;">
         ${wins} of ${eq.length} pick days made money. Each day's picks are held until
         the next pick day, then the whole balance rotates into the new list — so
-        nothing overlaps and the balance is a real running total.
+        nothing overlaps and the balance is a real running total. <b>Each</b> is what to put into one ticker that day — the balance divided by how many picks there were.
       </div>
     </div>
 
@@ -925,6 +925,7 @@ function backtest(){
       <div class="tbl">
         <div style="flex:1 1 120px;">Pick day</div>
         <div style="flex:0 0 70px;text-align:right;">Picks</div>
+        <div style="flex:0 0 100px;text-align:right;">Each</div>
         <div style="flex:0 0 90px;text-align:right;">Return</div>
         <div style="flex:0 0 110px;text-align:right;">Balance</div>
       </div>
@@ -936,6 +937,8 @@ function backtest(){
         </div>
         <div class="mono" style="flex:0 0 70px;text-align:right;font-size:12px;
           color:var(--ink-4);">${e.picks}</div>
+        <div class="mono" style="flex:0 0 100px;text-align:right;font-size:12px;
+          color:var(--ink-2);">$${Math.round(e.per_ticker||0).toLocaleString()}</div>
         <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
           color:${chgC(e.return_pct)};">${pctT(e.return_pct)}</div>
         <div class="mono" style="flex:0 0 110px;text-align:right;font-size:13px;

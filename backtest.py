@@ -31,7 +31,7 @@ import yfinance as yf
 STAKE = float(os.getenv("STAKE", "1000"))
 # One account for the compounding curve: the whole balance rotates into each
 # day's picks, so profits fund the next day's trades.
-START_CASH = float(os.getenv("START_CASH", "1000"))
+START_CASH = float(os.getenv("START_CASH", "10000"))
 OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "backtest.json")
 
 # One position per ticker. A name flagged on five different days is still one
@@ -362,13 +362,21 @@ def main():
 
     summary = {tier: basket(rs) for tier, rs in by_tier.items()}
 
+    # Every pick ever made, first flag per ticker. This is the personal record
+    # and it grows with each run, rather than being fixed at what FLAGS lists.
+    seen_pick = {}
+    for d in sorted(pick_days):
+        for sym, entry in pick_days[d].items():
+            seen_pick.setdefault(sym, {"sym": sym, "date": d, "entry": entry})
+    picks_only = list(seen_pick.values())
+    print(f"\nreplaying exit rules — {len(picks_only)} distinct picks, "
+          f"{len(rows)} positions overall…")
+    exits = test_exit_rules(rows)
+    exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
+
     overall = basket(rows)
     overall["losers"] = overall["positions"] - overall["winners"]
 
-    print("\nreplaying exit rules over every position…")
-    exits = test_exit_rules(rows)
-    picks_only = [r for r in rows if r["tier"] == "pick"]
-    exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
 
     # One account, compounded. Start with START_CASH, put the whole balance into
     # that day's picks split equally, hold until the next pick day, then rotate
@@ -413,6 +421,7 @@ def main():
             "picks": len(rets),
             "return_pct": round(r * 100, 1),
             "opened": round(opened, 2),
+            "per_ticker": round(opened / len(rets), 2),
             "balance": round(bal, 2),
             "pnl": round(bal - opened, 2),
             "open": nxt is None,
@@ -421,10 +430,6 @@ def main():
     overall = basket(rows)
     overall["losers"] = overall["positions"] - overall["winners"]
 
-    print("\nreplaying exit rules over every position…")
-    exits = test_exit_rules(rows)
-    picks_only = [r for r in rows if r["tier"] == "pick"]
-    exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
 
     # Day-by-day: deploy the same STAKE into whatever that single digest listed,
     # split equally, still held to today. Answers "if I traded 10k a day on this"
@@ -461,10 +466,6 @@ def main():
     overall = basket(rows)
     overall["losers"] = overall["positions"] - overall["winners"]
 
-    print("\nreplaying exit rules over every position…")
-    exits = test_exit_rules(rows)
-    picks_only = [r for r in rows if r["tier"] == "pick"]
-    exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
 
     # Day-by-day: deploy the same STAKE into whatever that single digest listed,
     # split equally, still held to today. Answers "if I traded 10k a day on this"
