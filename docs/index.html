@@ -209,7 +209,7 @@ let D = null, B = null;
 const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{},
             sort:{ key:"ret", dir:-1 },        // "every ticker" table
             daySort:{ key:"date", dir:1 },      // day-by-day table
-            section:"all" };                    // section dropdown filter
+            section:"pick" };                    // section dropdown filter
 
 // Click a column to sort by it; click again to reverse. Text sorts A→Z first,
 // numbers sort biggest-first, since that's the useful default for each.
@@ -455,6 +455,76 @@ function upsideLine(t){
     <span style="color:${chgC(up)};font-weight:600;">${pctT(up)}</span></div>`;
 }
 
+/* The trade ticket: what $STAKE buys, and the exit levels decided up front.
+   Levels come from the rule that measured best over the real flag history —
+   set before you are in the position, which is the entire point of a stop. */
+const BUY_STAKE = 1000;
+const STOP_PCT = 15;     // trailing stop; best-performing stop rule in the backtest
+const TARGET_PCT = 25;
+
+function sellPlan(){
+  const q = D.watch || [];
+  if (!q.length) return "";
+  const RS = B && B.exit_rules || [];
+  const best = RS[0], hold = RS.find(e => e.rule === "Hold, never sell");
+  const evidence = best && hold
+    ? `Measured over every name the radar has flagged (${hold.positions} positions),
+       <b>${esc(best.rule)}</b> was the best exit and every rule tested beat holding.
+       Holding averaged ${hold.avg_return}%.`
+    : `Set the exit before you are in the position.`;
+
+  return `<div class="panel">
+    <div class="phead">
+      <div class="cap">Trade plan</div>
+      <div class="note">$${BUY_STAKE.toLocaleString()} per pick · exits set now, not later</div>
+    </div>
+    <div style="padding:14px 18px 4px;">
+      <div style="font-size:13px;color:var(--ink-3);text-wrap:pretty;">${evidence}</div>
+      <div class="note" style="margin-top:6px;">
+        Stop is a ${STOP_PCT}% trailing stop — it follows the price up, never down.
+        Target is +${TARGET_PCT}%. Both are rules, not forecasts.</div>
+    </div>
+    <div class="scroll"><div style="min-width:560px;">
+      <div class="tbl">
+        <div style="flex:0 0 78px;">Buy</div>
+        <div style="flex:0 0 92px;text-align:right;">Price now</div>
+        <div style="flex:0 0 86px;text-align:right;">Shares</div>
+        <div style="flex:0 0 96px;text-align:right;">Stop −${STOP_PCT}%</div>
+        <div style="flex:0 0 96px;text-align:right;">Target +${TARGET_PCT}%</div>
+        <div style="flex:1 1 90px;text-align:right;">Risk</div>
+      </div>
+      ${q.map(t => {
+        const p = t.price;
+        if (typeof p !== "number" || !p) return "";
+        const shares = Math.floor(BUY_STAKE / p);
+        const stop = p * (1 - STOP_PCT / 100);
+        const target = p * (1 + TARGET_PCT / 100);
+        const risk = shares * (p - stop);
+        return `<div class="row clickable" data-open="${esc(t.sym)}">
+          <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
+            <div class="mono" style="flex:0 0 78px;font-size:14px;font-weight:600;
+              color:var(--ink-d);">$${esc(t.sym)}</div>
+            <div class="mono" style="flex:0 0 92px;text-align:right;font-size:13px;
+              color:var(--ink-2);">${money(p)}</div>
+            <div class="mono" style="flex:0 0 86px;text-align:right;font-size:13px;
+              color:var(--ink-2);">${shares}</div>
+            <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+              color:${R};">${money(stop)}</div>
+            <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+              color:${G};">${money(target)}</div>
+            <div class="mono" style="flex:1 1 90px;text-align:right;font-size:12px;
+              color:var(--ink-4);">−$${Math.round(risk)}</div>
+          </div></div>`;
+      }).join("")}
+    </div></div>
+    <div style="padding:12px 18px 16px;">
+      <div class="note">Shares are whole units of $${BUY_STAKE.toLocaleString()} at the
+        latest price, so the cash actually deployed is slightly under that. "Risk" is
+        what the stop costs you if it triggers immediately — before slippage.</div>
+    </div>
+  </div>`;
+}
+
 function picksPanel(){
   const q = D.watch || [];
   return `<div class="panel">
@@ -490,100 +560,7 @@ function picksPanel(){
   </div>`;
 }
 
-function buzzList(){
-  const F = [["all","All"],["gainers","Gainers"],["decliners","Decliners"],
-             ["knife","Falling knives"],["risky","High risk"]];
-  let list = (D.buzz || []).filter(t => !S.dismissed[t.sym]);
-  if (S.filter === "gainers")   list = list.filter(t => (t.pct||0) > 0);
-  if (S.filter === "decliners") list = list.filter(t => (t.pct||0) < 0);
-  if (S.filter === "risky")     list = list.filter(t => (t.flags||[]).length);
-  // loud AND dropping — the case where a big mention count is the opposite of good
-  if (S.filter === "knife")     list = list.filter(t => (t.read||[])[0] === "falling knife");
 
-  const rows = list.map(t => {
-    const col = chgC(t.pct), open = S.expanded[t.sym];
-    return `<div class="row">
-      <div class="rowin">
-        <div class="accent" style="background:${col};"></div>
-        <div style="flex:1 1 118px;min-width:0;cursor:pointer;" data-open="${esc(t.sym)}">
-          <div style="display:flex;align-items:center;gap:7px;">
-            <span class="sym">$${esc(t.sym)}</span>
-            <span style="font-size:11px;color:var(--ink-6);">${trendIcon(t)}</span>
-          </div>
-          <div class="co">${esc(t.name || "")}</div>
-        </div>
-        <div class="mono" style="flex:0 1 auto;min-width:84px;text-align:right;">
-          <div style="font-size:14px;color:var(--ink);">${money(t.price)}</div>
-          <div style="font-size:12px;color:${col};">${pctT(t.pct)}</div>
-        </div>
-        ${spark(t)}
-        <div style="flex:0 1 auto;min-width:82px;">
-          <div class="mono" style="font-size:12px;color:var(--ink-2);">
-            ${(t.mentions ?? 0).toLocaleString()} mentions</div>
-          <div style="font-size:10px;color:var(--ink-6);letter-spacing:.06em;
-            text-transform:uppercase;">${attention(t)}</div>
-        </div>
-        <div style="flex:1 1 160px;min-width:0;display:flex;gap:6px;flex-wrap:wrap;">
-          ${readPill(t)}${tonePill(t)}${flagsHtml(t, 2)}</div>
-        <div style="flex:0 0 auto;display:flex;gap:6px;">
-          <button class="btn" data-toggle="${esc(t.sym)}">${open ? "LESS" : "WHY"}</button>
-          <button class="btn x" data-dismiss="${esc(t.sym)}" title="Hide for this session">✕</button>
-        </div>
-      </div>
-      ${open ? `<div class="expand">
-        <div style="flex:1 1 320px;min-width:0;">
-          <div class="eyebrow" style="margin-bottom:8px;">Why it's here</div>
-          <div style="font-size:13px;color:#4A4535;text-wrap:pretty;margin-bottom:16px;">
-            ${esc(t.reason || "—")}</div>
-          <div class="eyebrow" style="margin-bottom:8px;">Headlines</div>
-          ${newsHtml(t, 3)}
-        </div>
-        <div style="flex:1 1 260px;min-width:0;">
-          <div class="eyebrow" style="margin-bottom:12px;">5-day range band</div>
-          ${bandHtml(t)}
-          <button class="btn" style="margin-top:14px;" data-open="${esc(t.sym)}">OPEN DETAIL →</button>
-        </div>
-      </div>` : ""}
-    </div>`;
-  }).join("");
-
-  return `<div class="panel">
-    <div class="phead">
-      <div class="cap">Reddit buzz</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;">${tierHead("buzz")}</div>
-      <div style="flex:1 1 20px;"></div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;">
-        ${F.map(([k,l])=>`<button class="fbtn" data-filter="${k}"
-          aria-pressed="${S.filter===k}">${l}</button>`).join("")}
-      </div>
-    </div>
-    ${rows || `<div class="empty">Nothing matches this filter.</div>`}
-  </div>`;
-}
-
-function moversPanel(){
-  const m = D.gainers || [];
-  return `<div class="panel">
-    <div class="phead"><div class="cap">Biggest movers</div>
-      <div class="note">already up most — not a prediction</div></div>
-    ${m.length ? m.map(x => `
-      <div class="row clickable" data-open="${esc(x.sym)}">
-        <div class="rowin">
-          <div class="mono" style="font-size:14px;font-weight:600;color:var(--ink-d);
-            flex:0 0 auto;min-width:58px;">$${esc(x.sym)}</div>
-          <div style="font-size:12px;color:var(--ink-5);flex:1 1 110px;min-width:0;
-            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${esc(x.name||"")}</div>
-          <div class="mono" style="font-size:13px;color:${chgC(x.pct)};flex:0 0 auto;
-            min-width:52px;text-align:right;">${pctT(x.pct)}</div>
-          <div class="mono" style="font-size:13px;color:var(--ink-2);flex:0 0 auto;
-            min-width:64px;text-align:right;">${money(x.price)}</div>
-          <div style="flex:1 1 240px;min-width:0;font-size:12px;color:var(--ink-4);
-            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-            ${esc((x.headlines||[])[0] || "")}</div>
-        </div>
-      </div>`).join("") : `<div class="empty">Unavailable.</div>`}
-  </div>`;
-}
 
 
 function recordPanel(){
@@ -619,7 +596,7 @@ function digest(){
       ${verdict()}${sessionPanel()}</div>
     ${picksPanel()}
     <div class="cols" style="margin-top:16px;">
-      <div class="col-main">${buzzList()}${moversPanel()}</div>
+      <div class="col-main">${sellPlan()}</div>
       <div class="col-side">${recordPanel()}${disclaimer()}</div>
     </div>`;
 }

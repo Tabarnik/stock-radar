@@ -27,10 +27,8 @@ from collections import defaultdict
 
 import yfinance as yf
 
-# Total capital, NOT per position — this is the whole account, split equally
-# across whatever the radar flagged. Per-ticker staking would imply $690k of
-# capital for 69 tickers, which answers a question nobody asked.
-STAKE = float(os.getenv("STAKE", "10000"))
+# Per position: buy this much of every ticker the radar flags.
+STAKE = float(os.getenv("STAKE", "1000"))
 OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "backtest.json")
 
 # One position per ticker. A name flagged on five different days is still one
@@ -270,8 +268,9 @@ def test_exit_rules(pos_list):
             "exited": exited,
             "avg_return": round(avg, 1),
             "win_rate": round(len(wins) / len(rets) * 100, 1),
-            "pnl": round(STAKE * avg / 100, 2),
-            "final": round(STAKE + STAKE * avg / 100, 2),
+            "pnl": round(STAKE * len(rets) * avg / 100, 2),
+            "invested": round(STAKE * len(rets), 2),
+            "final": round(STAKE * len(rets) * (1 + avg / 100), 2),
             "avg_days_held": round(sum(held) / len(held), 1),
             "worst": round(min(rets), 1),
             "best": round(max(rets), 1),
@@ -316,13 +315,11 @@ def main():
         rows.append(row)
         by_tier[p["tier"]].append(row)
 
-    # every basket is the same STAKE, equally weighted — so a tier's return is
-    # the mean of its tickers, and the answer to "what if I'd only followed
-    # the picks?" is directly comparable to "what if I'd bought everything?"
-    alloc = STAKE / len(rows) if rows else 0
+    # STAKE goes into each ticker, so a basket's cost scales with how many
+    # names it held and its return is still the mean of those names.
     for r in rows:
-        r["alloc"] = round(alloc, 2)
-        r["pnl"] = round(alloc * r["ret"] / 100, 2)
+        r["alloc"] = round(STAKE, 2)
+        r["pnl"] = round(STAKE * r["ret"] / 100, 2)
 
     def basket(rs):
         wins = [r for r in rs if r["ret"] > 0]
@@ -331,9 +328,9 @@ def main():
             "positions": len(rs),
             "winners": len(wins),
             "win_rate": round(len(wins) / len(rs) * 100, 1) if rs else 0,
-            "invested": round(STAKE, 2),
-            "per_ticker": round(STAKE / len(rs), 2) if rs else 0,
-            "pnl": round(STAKE * avg / 100, 2),
+            "invested": round(STAKE * len(rs), 2),
+            "per_ticker": round(STAKE, 2),
+            "pnl": round(STAKE * len(rs) * avg / 100, 2),
             "return_pct": round(avg, 1),
             "best": max(rs, key=lambda r: r["ret"]),
             "worst": min(rs, key=lambda r: r["ret"]),
@@ -368,15 +365,15 @@ def main():
         names = list(per_day[date].values())
         avg = sum(n["ret"] for n in names) / len(names)
         picks = [n for n in names if n["tier"] == "pick"]
-        d = {"date": date, "names": len(names),
-             "pnl": round(STAKE * avg / 100, 2), "return_pct": round(avg, 1),
+        d = {"date": date, "names": len(names), "invested": round(STAKE * len(names), 2),
+             "pnl": round(STAKE * len(names) * avg / 100, 2), "return_pct": round(avg, 1),
              "up": sum(1 for n in names if n["ret"] > 0),
              "best": max(names, key=lambda n: n["ret"])["sym"],
              "worst": min(names, key=lambda n: n["ret"])["sym"]}
         if picks:      # what the shortlist alone would have done that day
             pavg = sum(n["ret"] for n in picks) / len(picks)
             d["pick_names"] = len(picks)
-            d["pick_pnl"] = round(STAKE * pavg / 100, 2)
+            d["pick_pnl"] = round(STAKE * len(picks) * pavg / 100, 2)
             d["pick_return_pct"] = round(pavg, 1)
         daily.append(d)
     payload = {

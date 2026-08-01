@@ -797,36 +797,9 @@ def format_message(results, mkt, yahoo_watches=None):
             L.append(f"**${sym}**{nm}: {', '.join(why)}")
         L += ["", "*→ Find out WHY it's moving before risking a cent.*", ""]
 
-    # ── 🔥 Reddit Buzz ────────────────────────────────────────────
-    L += ["---", "## 🔥 Reddit Buzz",
-          "*Watch — don't act. Loudest names, not recommendations*", ""]
-    if not results:
-        L += ["*No clear signal today.*", ""]
-    else:
-        gain = [r for r in results if (r.get("pct") or 0) >= 0]
-        decl = [r for r in results if (r.get("pct") or 0) < 0]
-        if gain:
-            L += ["🟢 **Gainers**", ""]
-            for r in gain:
-                L += _buzz_md(r)
-        if decl:
-            L += ["🔻 **Decliners**", ""]
-            for r in decl:
-                L += _buzz_md(r)
-
-    # ── 📈 Market Gainers ─────────────────────────────────────────
-    L += ["---", "## 📈 Biggest movers",
-          "*Don't chase — already up most, not a prediction*", ""]
-    if not mkt:
-        L.append("*Unavailable.*")
-    else:
-        for g in mkt:
-            nm = f" ({g['name'][:18]})" if g.get("name") else ""
-            L.append(f"**${g['sym']}**{nm} +{g['pct']:.0f}% · {_fmt_price(g.get('price'))}")
-            for h in (g.get("headlines") or [])[:1]:
-                L.append(f"📰 {h[:80]}")
-            L.append("")
-
+    # Reddit Buzz and Biggest movers are computed (picks are derived from the
+    # buzz ranking) but no longer sent: both lost money over the whole recorded
+    # history, and a digest that lists them invites acting on them.
     return "\n".join(L)
 
 
