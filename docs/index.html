@@ -136,6 +136,12 @@
     font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
     color:var(--ink-6);}
   .scroll{overflow-x:auto;}
+  .sortbtn{font:inherit;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-6);background:none;border:0;padding:0;
+    cursor:pointer;display:flex;align-items:center;min-width:0;}
+  .sortbtn:hover{color:var(--ink-d);}
+  .sortbtn.on{color:var(--ink-d);font-weight:600;}
+  .sortbtn:focus-visible{outline:2px solid var(--series,#345C90);outline-offset:2px;border-radius:3px;}
   @media(max-width:640px){
     .rowin{gap:10px;padding:12px 14px;}
     .expand{padding:4px 14px 18px 14px;}
@@ -195,7 +201,27 @@ const pctT  = p => typeof p === "number" ? (p > 0 ? "+" : "") + p.toFixed(1) + "
 const chgC  = p => typeof p !== "number" ? "var(--ink-4)" : p > 0 ? G : p < 0 ? R : "var(--ink-4)";
 
 let D = null, B = null;
-const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{} };
+const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{},
+            sort:{ key:"ret", dir:-1 } };
+
+// Click a column to sort by it; click again to reverse. Text sorts A→Z first,
+// numbers sort biggest-first, since that's the useful default for each.
+function applySort(rows){
+  const { key, dir } = S.sort;
+  const txt = key === "sym" || key === "tier" || key === "date";
+  return [...rows].sort((a,b) => {
+    const x = a[key], y = b[key];
+    const c = txt ? String(x).localeCompare(String(y)) : (x - y);
+    return c * dir;
+  });
+}
+function sortHead(key, label, flex, right){
+  const on = S.sort.key === key;
+  const arrow = on ? (S.sort.dir === 1 ? " ↑" : " ↓") : "";
+  return `<button data-sort="${key}" class="sortbtn${on ? " on" : ""}"
+    style="flex:${flex};${right ? "text-align:right;justify-content:flex-end;" : ""}"
+    aria-label="Sort by ${esc(label)}">${esc(label)}${arrow}</button>`;
+}
 
 /* ── small pieces ─────────────────────────────────────────── */
 function spark(t){
@@ -250,12 +276,19 @@ const attention = t => t.mom === "↑" ? "rising" : t.mom === "↓" ? "cooling" 
 /* ── digest ───────────────────────────────────────────────── */
 function verdict(){
   const s = D.session || {}, st = (D.standouts || []).length;
-  const title = st
-    ? `${st} name${st>1?"s":""} up today and still gaining attention`
-    : "Nothing is both up and gaining attention today";
-  const body = st
-    ? "These cleared both filters at once. That is a starting point for research, not a signal — find out why before risking anything."
-    : "The crowd is talking about names that are already falling. That pattern is the radar working as intended: it shows you where attention is, not where money should go.";
+  const n = (D.watch || []).length;
+  const title = n
+    ? `${n} pick${n>1?"s":""} today`
+    : "No picks today";
+  const body = n
+    ? `${n} name${n>1?"s":""} cleared the filter: rising Reddit chatter or an analyst buy, `
+      + `with room left to move. ` + (st
+        ? `${st} of them ${st>1?"are":"is"} also up on the day and still gaining attention — `
+          + `the strictest bar the radar applies.`
+        : `None is also up on the day, which is the strictest bar the radar applies — `
+          + `so these are reading material, not conviction.`)
+    : "Nothing cleared the filter. On this radar that is a normal outcome, not a fault — "
+      + "the crowd is loudest about names that have already moved.";
   return `<div class="panel hero" style="flex:3 1 460px;padding:22px 24px;display:flex;
       flex-direction:column;justify-content:center;">
     <div class="eyebrow" style="margin-bottom:10px;">Today's verdict</div>
@@ -264,8 +297,9 @@ function verdict(){
     <div style="margin-top:10px;font-size:14px;color:var(--ink-3);max-width:62ch;text-wrap:pretty;">
       ${esc(body)}</div>
     <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
-      <div class="chip">${st} up + gaining attention</div>
-      <div class="chip">${s.flagged ?? 0} flagged for review</div>
+      <div class="chip">${n} pick${n===1?"":"s"}</div>
+      <div class="chip">${st} also up + gaining</div>
+      <div class="chip">${s.tracked ?? 0} tickers scanned</div>
       <div class="chip" style="color:var(--a);background:rgba(169,120,27,0.12);
         border-color:rgba(169,120,27,0.32);">trends only · not advice</div>
     </div>
@@ -289,6 +323,59 @@ function sessionPanel(){
       <div style="font-size:12px;color:var(--m);">${esc(l)}</div>
       <div class="mono" style="font-size:13px;color:${c};">${esc(String(v))}</div>
     </div>`).join("")}
+  </div>`;
+}
+
+/* What to do with a section, and how that section has actually done.
+   Same three words on the Digest and on History, so they can't disagree. */
+const ACTION = {
+  pick:  "act on these first",
+  buzz:  "watch — don't act",
+  mover: "don't chase",
+};
+function tierHead(t){
+  const s = B && B.summary && B.summary[t];
+  const bits = [`<span class="pill" style="${pillCss(
+    t==="pick"?"good":t==="mover"?"warn":"muted")};font-size:10px;">${ACTION[t]}</span>`];
+  if (s) {
+    const k = s.return_pct >= 5 ? "good" : s.return_pct > -5 ? "muted" : "bad";
+    bits.push(`<span class="pill" style="${pillCss(k)};font-size:10px;" title="${
+      s.winners} of ${s.positions} tickers rose">record ${
+      s.return_pct>0?"+":""}${s.return_pct}%</span>`);
+  }
+  return bits.join("");
+}
+
+function picksPanel(){
+  const q = D.watch || [];
+  return `<div class="panel">
+    <div class="phead">
+      <div class="cap">Picks of the day</div>
+      <div class="note">rising chatter or an analyst buy, with room left to move</div>
+      <div style="flex:1 1 20px;"></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">${tierHead("pick")}</div>
+    </div>
+    ${q.length ? `<div style="padding:14px 18px;display:grid;gap:12px;
+      grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
+      ${q.map((t,i) => `<div style="border:1px solid var(--rule-2);border-radius:12px;
+          padding:12px 14px;background:rgba(255,255,255,0.30);cursor:pointer;"
+          data-open="${esc(t.sym)}">
+        <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+          <span class="mono" style="font-size:11px;color:#6E6754;">${i+1}</span>
+          <span class="sym">$${esc(t.sym)}</span>
+          <span class="mono" style="font-size:13px;color:var(--ink-2);">${money(t.price)}</span>
+          <span class="mono" style="font-size:13px;color:${chgC(t.pct)};margin-left:auto;">
+            ${pctT(t.pct)}</span>
+        </div>
+        <div class="co" style="max-width:100%;margin-top:2px;">${esc(t.name||"")}</div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:9px;">
+          <span class="pill" style="${pillCss("muted")};font-size:10px;">${esc(t.tag||"")}</span>
+          ${flagsHtml(t, 1)}
+        </div>
+        ${(t.headlines||[])[0] ? `<div style="font-size:12px;color:var(--ink-4);
+          margin-top:9px;text-wrap:pretty;">${esc(t.headlines[0])}</div>` : ""}
+      </div>`).join("")}
+    </div>` : `<div class="empty">Nothing cleared the filter today.</div>`}
   </div>`;
 }
 
@@ -349,7 +436,7 @@ function buzzList(){
   return `<div class="panel">
     <div class="phead">
       <div class="cap">Reddit buzz</div>
-      <div class="note">ranked by attention</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">${tierHead("buzz")}</div>
       <div style="flex:1 1 20px;"></div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">
         ${F.map(([k,l])=>`<button class="fbtn" data-filter="${k}"
@@ -384,33 +471,6 @@ function moversPanel(){
   </div>`;
 }
 
-function queuePanel(){
-  const q = D.watch || [];
-  return `<div class="panel">
-    <div style="padding:14px 18px;border-bottom:1px solid var(--rule);">
-      <div class="cap">Review queue</div>
-      <div class="note" style="margin-top:2px;">research order · read-only</div>
-    </div>
-    ${q.length ? q.map((t,i) => `
-      <div class="row clickable" data-open="${esc(t.sym)}">
-        <div style="display:flex;gap:12px;padding:12px 18px;align-items:flex-start;">
-          <div class="mono" style="font-size:11px;color:#6E6754;width:16px;flex:0 0 auto;
-            padding-top:2px;">${i+1}</div>
-          <div style="flex:1 1 auto;min-width:0;">
-            <div style="display:flex;align-items:baseline;gap:8px;">
-              <span class="mono" style="font-size:13px;font-weight:600;color:var(--ink);">
-                $${esc(t.sym)}</span>
-              <span class="mono" style="font-size:12px;color:${chgC(t.pct)};">${pctT(t.pct)}</span>
-            </div>
-            <div style="font-size:12px;color:var(--ink-4);text-wrap:pretty;margin-top:2px;">
-              ${esc(t.tag || "")}</div>
-          </div>
-          <div class="pill" style="${pillCss(t.source === "yahoo" ? "muted" : "good")};
-            flex:0 0 auto;">${t.source === "yahoo" ? "YF" : "RDT"}</div>
-        </div>
-      </div>`).join("") : `<div class="empty">Nothing stands out today.</div>`}
-  </div>`;
-}
 
 function recordPanel(){
   const h = D.history || [];
@@ -443,9 +503,10 @@ function disclaimer(){
 function digest(){
   return `<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:stretch;margin-bottom:18px;">
       ${verdict()}${sessionPanel()}</div>
-    <div class="cols">
+    ${picksPanel()}
+    <div class="cols" style="margin-top:16px;">
       <div class="col-main">${buzzList()}${moversPanel()}</div>
-      <div class="col-side">${queuePanel()}${recordPanel()}${disclaimer()}</div>
+      <div class="col-side">${recordPanel()}${disclaimer()}</div>
     </div>`;
 }
 
@@ -482,83 +543,123 @@ function watchlist(){
 
 /* ── backtest (replay of every digest ever sent) ──────────── */
 const TIER = {
-  pick:  ["Picks", "Worth Watching / Worth a Closer Look — the only sections ever framed as actionable"],
-  buzz:  ["Reddit Buzz", "every name the digest listed"],
-  mover: ["Market gainers", "explicitly labelled “not a prediction”"],
+  pick:  ["Worth Watching", "the shortlist — the only section framed as something to act on"],
+  buzz:  ["Reddit Buzz",    "whatever the crowd was loudest about that day"],
+  mover: ["Market gainers", "names that had already jumped, labelled “not a prediction”"],
 };
+const usd = n => (n < 0 ? "−" : "+") + "$" + Math.abs(Math.round(n)).toLocaleString();
+
+// Plain-language read of a section's record. Descriptive only — it reports what
+// happened, it does not forecast what happens next.
+function verdict(t, s){
+  if (s.positions < 5)
+    return ["muted", "too few to judge",
+            `Only ${s.positions} position${s.positions===1?"":"s"} — no read yet.`];
+  if (s.return_pct >= 5)
+    return ["good", "made money",
+            `${s.winners} of ${s.positions} rose. This is the section with a record behind it.`];
+  if (s.return_pct > -5)
+    return ["muted", "roughly flat",
+            `${s.winners} of ${s.positions} rose — close enough to a coin flip to ignore.`];
+  return ["bad", "lost money",
+          `Only ${s.winners} of ${s.positions} rose. Buying this list cost you money.`];
+}
+
 function backtest(){
   if (!B || !B.rows || !B.rows.length) return "";
-  const usd = n => (n < 0 ? "-" : "+") + "$" + Math.abs(n).toLocaleString(
-    undefined, { maximumFractionDigits: 0 });
+  const o = B.overall || {};
   const tiers = ["pick","buzz","mover"].filter(t => B.summary && B.summary[t]);
-  const totInv = tiers.reduce((a,t)=>a+B.summary[t].invested,0);
-  const totPnl = tiers.reduce((a,t)=>a+B.summary[t].pnl,0);
+  const best = B.rows[0], worst = B.rows[B.rows.length - 1];
+  const pickS = B.summary && B.summary.pick;
+  const buzzS = B.summary && B.summary.buzz;
+
+  // headline sentence, driven by the numbers rather than hand-written
+  let read;
+  if (o.pnl < 0 && pickS && pickS.return_pct > 0)
+    read = `Buying everything the radar mentioned would have lost you ${usd(o.pnl).slice(1)}. `
+         + `The one section that held up is Worth Watching — treat the rest as context, `
+         + `not a shopping list.`;
+  else if (o.pnl < 0)
+    read = `Buying everything the radar mentioned would have lost you ${usd(o.pnl).slice(1)}. `
+         + `No section has earned the right to be traded yet.`;
+  else
+    read = `Buying everything the radar mentioned would have made you ${usd(o.pnl).slice(1)}, `
+         + `but check the per-section split before reading anything into that.`;
 
   return `<div class="panel" style="margin-bottom:16px;">
-      <div class="phead"><div class="cap">If you had acted on every notification</div>
-        <div class="note">$${B.stake.toLocaleString()} per flagged name, held to the latest price</div></div>
-      <div style="padding:16px 18px;display:grid;gap:14px;
-        grid-template-columns:repeat(auto-fit,minmax(210px,1fr));">
+      <div class="phead"><div class="cap">If you had bought everything it flagged</div>
+        <div class="note">$${B.stake.toLocaleString()} per ticker · bought the first
+          time it appeared · held until now</div></div>
+
+      <div style="padding:20px 18px;display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;">
+        <div>
+          <div class="mono" style="font-size:40px;font-weight:600;letter-spacing:-.02em;
+            color:${o.pnl>=0?G:R};line-height:1;">${usd(o.pnl)}</div>
+          <div class="mono" style="font-size:13px;color:${o.pnl>=0?G:R};margin-top:6px;">
+            ${o.return_pct>0?"+":""}${o.return_pct}% on $${(o.invested||0).toLocaleString()}</div>
+        </div>
+        <div style="flex:1 1 260px;min-width:0;">
+          <div style="font-size:14px;color:var(--ink-3);text-wrap:pretty;">${esc(read)}</div>
+          <div class="mono" style="font-size:12px;color:var(--ink-5);margin-top:8px;">
+            ${o.positions} tickers · ${o.winners} up · ${o.losers} down
+            · ${o.win_rate}% went up</div>
+        </div>
+      </div>
+
+      <div style="padding:0 18px 18px;display:grid;gap:14px;
+        grid-template-columns:repeat(auto-fit,minmax(230px,1fr));">
         ${tiers.map(t => {
-          const s = B.summary[t], c = s.pnl >= 0 ? G : R;
-          return `<div>
-            <div class="eyebrow" style="margin-bottom:6px;">${esc(TIER[t][0])}</div>
-            <div class="mono" style="font-size:24px;font-weight:600;color:${c};">
+          const s = B.summary[t], [kind, tag, line] = verdict(t, s);
+          const c = s.pnl >= 0 ? G : R;
+          return `<div style="border-top:1px solid var(--rule-2);padding-top:12px;">
+            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+              <div class="cap" style="font-size:10px;">${esc(TIER[t][0])}</div>
+              <span class="pill" style="${pillCss(kind)};font-size:10px;">${esc(tag)}</span>
+            </div>
+            <div class="mono" style="font-size:22px;font-weight:600;color:${c};margin-top:6px;">
               ${usd(s.pnl)}</div>
             <div class="mono" style="font-size:12px;color:${c};">
-              ${s.return_pct > 0 ? "+" : ""}${s.return_pct}% on
-              $${s.invested.toLocaleString()}</div>
-            <div style="font-size:11px;color:var(--ink-5);margin-top:4px;">
-              ${s.winners}/${s.positions} winners · ${s.win_rate}% hit rate</div>
-            <div style="font-size:11px;color:var(--ink-6);margin-top:2px;">
-              best $${esc(s.best.sym)} ${s.best.ret > 0 ? "+" : ""}${s.best.ret}% ·
-              worst $${esc(s.worst.sym)} ${s.worst.ret}%</div>
-            <div class="note" style="margin-top:6px;">${esc(TIER[t][1])}</div>
+              ${s.return_pct>0?"+":""}${s.return_pct}% · ${s.positions} ticker${
+                s.positions===1?"":"s"}</div>
+            <div style="font-size:12px;color:var(--ink-4);margin-top:6px;text-wrap:pretty;">
+              ${esc(line)}</div>
+            <div class="note" style="margin-top:4px;">${TIER[t][1]}</div>
           </div>`;
         }).join("")}
-      </div>
-      <div style="padding:0 18px 16px;">
-        <div style="border-top:1px solid var(--rule-2);padding-top:12px;
-          display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;">
-          <span class="eyebrow">All flags combined</span>
-          <span class="mono" style="font-size:16px;font-weight:600;
-            color:${totPnl>=0?G:R};">${usd(totPnl)}</span>
-          <span class="mono" style="font-size:12px;color:var(--ink-5);">
-            on $${totInv.toLocaleString()} (${(totPnl/totInv*100).toFixed(1)}%)</span>
-        </div>
       </div>
     </div>
 
     <div class="panel" style="margin-bottom:16px;">
-      <div class="phead"><div class="cap">Every flag, oldest first</div>
-        <div class="note">price at send vs latest</div></div>
-      <div class="scroll"><div style="min-width:620px;">
+      <div class="phead"><div class="cap">Every ticker it ever flagged</div>
+        <div class="note">one row each · biggest gain first · ${
+          esc(best.sym)} was the best, ${esc(worst.sym)} the worst</div></div>
+      <div class="scroll"><div style="min-width:640px;">
         <div class="tbl">
-          <div style="flex:0 0 92px;">Sent</div>
-          <div style="flex:0 0 74px;">Tier</div>
-          <div style="flex:0 0 74px;">Ticker</div>
-          <div style="flex:0 0 92px;text-align:right;">At send</div>
-          <div style="flex:0 0 92px;text-align:right;">Now</div>
-          <div style="flex:0 0 78px;text-align:right;">Return</div>
-          <div style="flex:1 1 80px;text-align:right;">P/L</div>
+          ${sortHead("sym",  "Ticker",        "0 0 78px")}
+          ${sortHead("tier", "Section",       "0 0 116px")}
+          ${sortHead("date", "First seen",    "0 0 96px")}
+          ${sortHead("entry","Bought",        "0 0 86px", 1)}
+          ${sortHead("now",  "Now",           "0 0 86px", 1)}
+          ${sortHead("ret",  "Change",        "0 0 78px", 1)}
+          ${sortHead("pnl",  "Profit / loss", "1 1 96px", 1)}
         </div>
-        ${B.rows.map(r => `<div class="row"><div style="display:flex;gap:12px;
+        ${applySort(B.rows).map(r => `<div class="row"><div style="display:flex;gap:12px;
             padding:11px 18px;align-items:center;">
-          <div class="mono" style="flex:0 0 92px;font-size:12px;color:var(--ink-5);">
-            ${esc(r.date)}</div>
-          <div style="flex:0 0 74px;"><span class="pill" style="${pillCss(
-            r.tier==="pick"?"good":r.tier==="mover"?"warn":"muted")};font-size:10px;">
-            ${esc(r.tier)}</span></div>
-          <div class="mono" style="flex:0 0 74px;font-size:13px;font-weight:600;
+          <div class="mono" style="flex:0 0 78px;font-size:13px;font-weight:600;
             color:var(--ink-d);">$${esc(r.sym)}</div>
-          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:12px;
+          <div style="flex:0 0 116px;"><span class="pill" style="${pillCss(
+            r.tier==="pick"?"good":r.tier==="mover"?"warn":"muted")};font-size:10px;">
+            ${esc(TIER[r.tier][0])}</span></div>
+          <div class="mono" style="flex:0 0 96px;font-size:12px;color:var(--ink-5);">
+            ${esc(r.date.slice(5))}</div>
+          <div class="mono" style="flex:0 0 86px;text-align:right;font-size:12px;
             color:var(--ink-2);">${money(r.entry)}</div>
-          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:12px;
+          <div class="mono" style="flex:0 0 86px;text-align:right;font-size:12px;
             color:var(--ink-2);">${money(r.now)}</div>
           <div class="mono" style="flex:0 0 78px;text-align:right;font-size:12px;
             color:${chgC(r.ret)};">${pctT(r.ret)}</div>
-          <div class="mono" style="flex:1 1 80px;text-align:right;font-size:12px;
-            color:${chgC(r.pnl)};">${usd(r.pnl)}</div>
+          <div class="mono" style="flex:1 1 96px;text-align:right;font-size:13px;
+            font-weight:600;color:${chgC(r.pnl)};">${usd(r.pnl)}</div>
         </div></div>`).join("")}
       </div></div>
     </div>`;
@@ -706,10 +807,14 @@ function render(){
 }
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter]");
+  const el = e.target.closest("[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort]");
   if (!el) return;
   const d = el.dataset;
-  if (d.go)       { S.screen = d.go; }
+  if (d.sort)     { S.sort = S.sort.key === d.sort
+                      ? { key: d.sort, dir: -S.sort.dir }
+                      : { key: d.sort, dir: (d.sort === "sym" || d.sort === "tier"
+                          || d.sort === "date") ? 1 : -1 }; }
+  else if (d.go)  { S.screen = d.go; }
   else if (d.open){ S.sel = d.open; S.screen = "detail"; }
   else if (d.toggle)  { S.expanded[d.toggle] = !S.expanded[d.toggle]; }
   else if (d.dismiss) { S.dismissed[d.dismiss] = true; }

@@ -587,9 +587,11 @@ def format_message(results, mkt, yahoo_watches=None):
     today = datetime.now(timezone.utc).astimezone().strftime("%b %d")
     L = [f"*Trends only · not advice · high risk · {today}*", ""]
 
-    # ── 🔭 Worth Watching ──────────────────────────────────────────
-    L += ["## 🔭 Worth Watching",
-          "*Rising chatter or analyst buy, room to move — research only*", ""]
+    # ── 🎯 Picks of the day ────────────────────────────────────────
+    # Same three section names as the dashboard, in the same order, so the
+    # notification and the board can never disagree about what to act on.
+    L += ["## 🎯 Picks of the day",
+          "*Act on these first — rising chatter or an analyst buy, room to move*", ""]
 
     def _watch_md(r, source_tag):
         nm = f" ({r['name'][:18]})" if r.get("name") else ""
@@ -614,22 +616,22 @@ def format_message(results, mkt, yahoo_watches=None):
     for r in (yahoo_watches or [])[:4]:
         L += _watch_md(r, "Yahoo most-active")
     if not reddit_watches and not yahoo_watches:
-        L += ["*Nothing stands out today.*", ""]
+        L += ["*No picks today — nothing cleared the filter.*", ""]
 
-    # ── ⭐ Worth a Closer Look ─────────────────────────────────────
-    L += ["---", "## ⭐ Worth a Closer Look",
-          "*Research starting point — not a buy signal*", ""]
+    # The strictest test the radar applies (up today AND gaining attention) fires
+    # so rarely that it used to read as "don't buy anything" on its own line every
+    # day. It belongs as a highlight on the picks above, not as its own section.
     picks = _standouts(results, mkt)
     if picks:
+        L += ["**⭐ Strongest of these** — also up today and still gaining attention:", ""]
         for sym, name, why in picks:
             nm = f" ({name[:18]})" if name else ""
             L.append(f"**${sym}**{nm}: {', '.join(why)}")
         L += ["", "*→ Find out WHY it's moving before risking a cent.*", ""]
-    else:
-        L += ["*Nothing is both up AND gaining attention today.*", ""]
 
     # ── 🔥 Reddit Buzz ────────────────────────────────────────────
-    L += ["---", "## 🔥 Reddit Buzz", ""]
+    L += ["---", "## 🔥 Reddit Buzz",
+          "*Watch — don't act. Loudest names, not recommendations*", ""]
     if not results:
         L += ["*No clear signal today.*", ""]
     else:
@@ -645,8 +647,8 @@ def format_message(results, mkt, yahoo_watches=None):
                 L += _buzz_md(r)
 
     # ── 📈 Market Gainers ─────────────────────────────────────────
-    L += ["---", "## 📈 Market Gainers Today",
-          "*Already up most — not a prediction*", ""]
+    L += ["---", "## 📈 Biggest movers",
+          "*Don't chase — already up most, not a prediction*", ""]
     if not mkt:
         L.append("*Unavailable.*")
     else:

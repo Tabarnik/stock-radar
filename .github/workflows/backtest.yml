@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       stake:
-        description: 'Hypothetical $ per flagged name'
+        description: 'Hypothetical $ per position'
         required: false
-        default: '1000'
+        default: '10000'
 
 permissions:
   contents: write

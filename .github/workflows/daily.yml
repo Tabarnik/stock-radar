@@ -41,7 +41,9 @@ jobs:
         env:
           NOTIFY_METHOD: ntfy
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-          APEWISDOM_FILTER: Shortsqueeze,pennystocks,wallstreetbets,all-stocks
+          # A feed name ApeWisdom does not recognise is logged as a warning and
+          # skipped, so an unsupported one degrades the mix rather than the run.
+          APEWISDOM_FILTER: Shortsqueeze,pennystocks,wallstreetbets,all-stocks,stocks,tradingwithcongress
           EXCHANGE_FILTER: '1'
           INCLUDE_CANADIAN: '0'
           TOP_N: '10'

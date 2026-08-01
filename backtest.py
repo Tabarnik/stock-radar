@@ -27,8 +27,13 @@ from collections import defaultdict
 
 import yfinance as yf
 
-STAKE = float(os.getenv("STAKE", "1000"))   # hypothetical $ per flagged name
+STAKE = float(os.getenv("STAKE", "10000"))  # hypothetical $ per position
 OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "backtest.json")
+
+# One position per ticker. A name flagged on five different days is still one
+# thing you would have bought, on the first day you saw it — counting it five
+# times inflates both the position count and the P/L.
+TIER_RANK = {"pick": 0, "buzz": 1, "mover": 2}
 
 # date, tier, symbol, price at the moment the notification was sent
 FLAGS = [
@@ -128,17 +133,34 @@ def main():
     if missing:
         print(f"[warn] no current price for: {', '.join(missing)}")
 
-    rows, by_tier = [], defaultdict(list)
+    # collapse to one position per ticker: bought the first time it appeared,
+    # filed under the strongest tier it was ever flagged under
+    pos = {}
     for date, tier, sym, entry in FLAGS:
-        cur = now.get(sym)
-        if not cur or not entry:
+        p = pos.get(sym)
+        if p is None:
+            pos[sym] = {"date": date, "tier": tier, "sym": sym, "entry": entry,
+                        "flags": 1, "days": {date}}
             continue
-        ret = (cur - entry) / entry * 100
-        row = {"date": date, "tier": tier, "sym": sym, "entry": entry,
-               "now": round(cur, 2), "ret": round(ret, 1),
-               "pnl": round(STAKE * ret / 100, 2)}
+        p["flags"] += 1
+        p["days"].add(date)
+        if date < p["date"]:                    # an earlier sighting wins the entry
+            p["date"], p["entry"] = date, entry
+        if TIER_RANK[tier] < TIER_RANK[p["tier"]]:
+            p["tier"] = tier
+
+    rows, by_tier = [], defaultdict(list)
+    for sym, p in pos.items():
+        cur = now.get(sym)
+        if not cur or not p["entry"]:
+            continue
+        ret = (cur - p["entry"]) / p["entry"] * 100
+        row = {"date": p["date"], "tier": p["tier"], "sym": sym,
+               "entry": p["entry"], "now": round(cur, 2), "ret": round(ret, 1),
+               "pnl": round(STAKE * ret / 100, 2),
+               "flags": p["flags"], "days": len(p["days"])}
         rows.append(row)
-        by_tier[tier].append(row)
+        by_tier[p["tier"]].append(row)
 
     summary = {}
     for tier, rs in by_tier.items():
@@ -155,8 +177,24 @@ def main():
             "worst": min(rs, key=lambda r: r["ret"]),
         }
 
-    payload = {"stake": STAKE, "rows": sorted(rows, key=lambda r: (r["date"], r["sym"])),
-               "summary": summary, "missing": missing}
+    winners = [r for r in rows if r["ret"] > 0]
+    total_pnl = sum(r["pnl"] for r in rows)
+    payload = {
+        "stake": STAKE,
+        # best first — the shape of the outcome should be visible without sorting
+        "rows": sorted(rows, key=lambda r: -r["ret"]),
+        "summary": summary,
+        "missing": missing,
+        "overall": {
+            "positions": len(rows),
+            "winners": len(winners),
+            "losers": len(rows) - len(winners),
+            "win_rate": round(len(winners) / len(rows) * 100, 1) if rows else 0,
+            "invested": round(STAKE * len(rows), 2),
+            "pnl": round(total_pnl, 2),
+            "return_pct": round(total_pnl / (STAKE * len(rows)) * 100, 1) if rows else 0,
+        },
+    }
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
     with open(OUT, "w") as f:
         json.dump(payload, f, indent=1)
@@ -177,11 +215,20 @@ def main():
         print(f"  best  {s['best']['sym']:<6} {s['best']['ret']:+7.1f}%"
               f"   worst {s['worst']['sym']:<6} {s['worst']['ret']:+7.1f}%")
 
-    print(f"\n{'-'*74}\nEVERY FLAG, OLDEST FIRST\n{'-'*74}")
-    print(f"{'date':<11}{'tier':<7}{'sym':<7}{'entry':>10}{'now':>10}{'return':>9}{'P/L':>10}")
+    o = payload["overall"]
+    print(f"\n{'='*74}")
+    print(f"OVERALL  {o['positions']} positions (one per ticker)  "
+          f"{o['winners']} up / {o['losers']} down  ({o['win_rate']}% win rate)")
+    print(f"         invested ${o['invested']:,.0f}   P/L ${o['pnl']:+,.0f}"
+          f"   ({o['return_pct']:+.1f}%)")
+
+    print(f"\n{'-'*74}\nONE ROW PER TICKER, BEST FIRST\n{'-'*74}")
+    print(f"{'sym':<7}{'tier':<7}{'first seen':<12}{'bought':>10}{'now':>10}"
+          f"{'change':>9}{'P/L':>12}{'seen':>6}")
     for r in payload["rows"]:
-        print(f"{r['date']:<11}{r['tier']:<7}{r['sym']:<7}"
-              f"{r['entry']:>10.2f}{r['now']:>10.2f}{r['ret']:>8.1f}%{r['pnl']:>+10.0f}")
+        print(f"{r['sym']:<7}{r['tier']:<7}{r['date']:<12}"
+              f"{r['entry']:>10.2f}{r['now']:>10.2f}{r['ret']:>8.1f}%"
+              f"{r['pnl']:>+12,.0f}{r['days']:>6}")
     print(f"\nwrote {OUT}")
 
 
