@@ -948,6 +948,62 @@ function backtest(){
   return curve + exitRules();
 }
 
+/* ── history ──────────────────────────────────────────────── */
+function history(){
+  const h = (D.history || []).slice().sort((a,b) =>
+    b.date.localeCompare(a.date) || a.sym.localeCompare(b.sym));
+  const w = h.filter(e => e.outcome === "worked").length;
+  const f = h.filter(e => e.outcome === "faded").length;
+  const sim = h.filter(e => e.simulated).length;
+
+  const table = h.length ? `<div class="panel" style="margin-bottom:16px;">
+    <div class="phead"><div class="cap">Every pick, newest first</div>
+      <div class="note">${h.length} picks over ${new Set(h.map(e=>e.date)).size} days ·
+        ${w} up 10%+ · ${f} down 10%+${sim ? ` · ${sim} reconstructed` : ""}</div></div>
+    <div class="scroll"><div style="min-width:600px;">
+      <div class="tbl">
+        <div style="flex:0 0 96px;">Picked</div>
+        <div style="flex:0 0 78px;">Ticker</div>
+        <div style="flex:0 0 92px;text-align:right;">At pick</div>
+        <div style="flex:0 0 92px;text-align:right;">Now</div>
+        <div style="flex:0 0 80px;text-align:right;">Change</div>
+        <div style="flex:1 1 130px;">Outcome</div>
+      </div>
+      ${h.map(e => `<div class="row clickable" data-open="${esc(e.sym)}">
+        <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 96px;font-size:12px;color:var(--ink-5);">
+            ${esc(e.date)}</div>
+          <div class="mono" style="flex:0 0 78px;font-size:13px;font-weight:600;
+            color:var(--ink-d);">$${esc(e.sym)}</div>
+          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:12px;
+            color:var(--ink-2);">${money(e.flag_price)}</div>
+          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:12px;
+            color:var(--ink-2);">${money(e.last_price)}</div>
+          <div class="mono" style="flex:0 0 80px;text-align:right;font-size:13px;
+            color:${chgC(e.pct)};">${pctT(e.pct)}</div>
+          <div style="flex:1 1 130px;min-width:0;display:flex;align-items:center;gap:8px;">
+            <span class="pill" style="${pillCss(e.outcome==="worked"?"good":
+              e.outcome==="faded"?"bad":"muted")};font-size:10px;">${esc(e.outcome)}</span>
+            ${e.simulated ? `<span class="pill" style="${pillCss("warn")};font-size:10px;"
+              title="Never sent — reconstructed by replaying the pick rule over that
+day's list.">simulated</span>` : ""}
+          </div>
+        </div></div>`).join("")}
+    </div></div>
+  </div>` : "";
+
+  return backtest() + table + `<div class="panel dash" style="padding:18px 20px;">
+    <div class="eyebrow" style="margin-bottom:8px;">Read of the record</div>
+    <div style="font-size:13px;color:var(--ink-3);max-width:78ch;text-wrap:pretty;">
+      ${sim ? `${sim} of these were never sent — on those days the pick section did not
+      exist yet, so the rule was replayed over the list that was sent. They are marked
+      simulated and are a reconstruction, not a record. ` : ""}A pick is an attention
+      reading, not a recommendation, and the sample is still small enough that the exit
+      discipline is better evidenced than the picking.
+    </div>
+  </div>`;
+}
+
 /* ── detail ───────────────────────────────────────────────── */
 function detail(){
   const all = [...(D.buzz||[]), ...(D.watch||[]), ...(D.gainers||[])];
