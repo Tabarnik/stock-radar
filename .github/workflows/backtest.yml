@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       stake:
-        description: 'Hypothetical $ per position'
+        description: 'Dollars bought of each ticker'
         required: false
-        default: '10000'
+        default: '1000'
 
 permissions:
   contents: write
