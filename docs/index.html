@@ -386,7 +386,9 @@ function sessionInfo(){
   const nice = gen.toLocaleDateString(undefined, { weekday:"long", month:"short", day:"numeric" });
   return {
     sameDay, weekend, nice,
-    eyebrow: sameDay ? "Today's verdict" : "Last session",
+    // name the day — "today" is wrong every weekend and misleading when stale
+    eyebrow: gen.toLocaleDateString(undefined, { weekday:"long" }) + "'s picks",
+    dateLabel: gen.toLocaleDateString(undefined, { weekday:"long", month:"short", day:"numeric" }),
     word: sameDay ? "today" : "that session",
     note: sameDay ? "" : weekend
       ? `Markets are closed this weekend — showing the last session, ${nice}.`
@@ -399,8 +401,8 @@ function verdict(){
   const n = (D.watch || []).length;
   const SI = sessionInfo();
   const title = n
-    ? `${n} pick${n>1?"s":""} ${SI.sameDay ? "today" : "last session"}`
-    : `No picks ${SI.sameDay ? "today" : "last session"}`;
+    ? `${n} pick${n>1?"s":""} · ${SI.dateLabel}`
+    : `No picks · ${SI.dateLabel}`;
   const body = n
     ? `${n} name${n>1?"s":""} cleared the filter: rising Reddit chatter or an analyst buy, `
       + `with room left to move. ` + (st
@@ -689,8 +691,11 @@ function watchlist(){
   const options = [`<option value="today"${isToday ? " selected" : ""}>Today (${
     q.length})</option>`].concat(days
       .filter(d => d !== today)
-      .map(d => `<option value="${d}"${showing === d ? " selected" : ""}>${d} (${
-        byDay[d].length})</option>`)).join("");
+      .map(d => {
+        const sim = byDay[d].every(e => e.simulated);
+        return `<option value="${d}"${showing === d ? " selected" : ""}>${d} (${
+          byDay[d].length})${sim ? " · simulated" : ""}</option>`;
+      })).join("");
 
   const head = `<div class="panel" style="margin-bottom:16px;padding:22px 24px;">
       <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
@@ -737,6 +742,9 @@ function watchlist(){
           <div style="flex:1 1 160px;min-width:0;display:flex;align-items:center;gap:10px;">
             <span class="pill" style="${pillCss(e.outcome==="worked"?"good":
               e.outcome==="faded"?"bad":"muted")};font-size:10px;">${esc(e.outcome)}</span>
+            ${e.simulated ? `<span class="pill" style="${pillCss("warn")};font-size:10px;"
+              title="Never sent — the pick section did not exist yet. Today's rule
+replayed over that day's list.">simulated</span>` : ""}
             <span style="font-size:12px;color:var(--ink-4);white-space:nowrap;
               overflow:hidden;text-overflow:ellipsis;">${esc(e.note||"")}</span>
           </div>
@@ -810,15 +818,8 @@ function exitRules(){
   let lead = beat === RS.length - 1
     ? `Every rule tested beat holding these picks.`
     : `${beat} of ${RS.length - 1} rules beat holding these picks.`;
-  if (allHold) {
-    lead += ` Over the wider ${allHold.positions}-position history — including the
-      buzz and mover lists no longer shown — ${allBeat} of ${ALL.length - 1} rules beat
-      holding. Both samples point the same way: cutting losers early is worth more
-      than picking better.`;
-  }
   if (hold.positions < 15) {
-    lead += ` Note the size: ${hold.positions} picks, most of them only days old, so
-      treat the ranking below as directional rather than settled.`;
+    lead += ` Only ${hold.positions} picks so far, most days old — directional, not settled.`;
   }
 
   return `<div class="panel" style="margin-bottom:16px;">
@@ -857,7 +858,7 @@ function exitRules(){
         <div style="flex:0 0 86px;text-align:right;">Days held</div>
         <div style="flex:0 0 80px;text-align:right;">Worst</div>
       </div>
-      ${RS.map(e => {
+      ${RS.slice(0, 5).concat(RS.filter(e => e.rule === "Hold, never sell")).map(e => {
         const isHold = e.rule === "Hold, never sell";
         const better = e.avg_return > hold.avg_return;
         return `<div class="row" ${isHold ? 'style="background:rgba(120,112,90,0.07);"' : ""}>
@@ -887,221 +888,64 @@ function exitRules(){
 }
 
 function backtest(){
-  if (!B || !B.rows || !B.rows.length) return "";
-  const o = B.overall || {};
-  // picks only: buzz and movers are no longer acted on, so their record is
-  // corroboration in the sell panel rather than a section of this view
-  const tiers = ["pick"].filter(t => B.summary && B.summary[t]);
-  // this table shows picks only, so its extremes must come from picks
-  const pickRows = B.rows.filter(r => r.tier === "pick");
-  const best = pickRows[0], worst = pickRows[pickRows.length - 1];
-  if (!best) return "";
-  const pickS = B.summary && B.summary.pick;
-  const buzzS = B.summary && B.summary.buzz;
+  if (!B) return "";
+  const eq = B.equity || [];
+  const start = B.start_cash || 1000;
+  const pickRows = (B.rows || []).filter(r => r.tier === "pick");
+  if (!eq.length && !pickRows.length) return "";
 
-  // headline sentence, driven by the numbers rather than hand-written
-  let read;
-  if (o.pnl < 0 && pickS && pickS.return_pct > 0)
-    read = `Spreading it across everything the radar mentioned would have lost `
-         + `${usd(o.pnl).slice(1)}. Putting the same money only into Picks would have `
-         + `turned it into ${"$" + Math.round(stakeOf() + pickS.pnl).toLocaleString()}. `
-         + `Treat Buzz and Movers as context, not a shopping list.`;
-  else if (o.pnl < 0)
-    read = `Spreading it across everything the radar mentioned would have lost `
-         + `${usd(o.pnl).slice(1)}. No section has earned the right to be traded yet.`;
-  else
-    read = `Spreading it across everything the radar mentioned would have made `
-         + `${usd(o.pnl).slice(1)} — check the per-section split before reading much `
-         + `into that.`;
-  function stakeOf(){ return B.stake || 0; }
+  const finalBal = eq.length ? eq[eq.length - 1].balance : start;
+  const totalPct = ((finalBal - start) / start) * 100;
+  const wins = eq.filter(e => e.return_pct > 0).length;
 
-  const stake = B.stake || 0;
-  const end = n => "$" + Math.round(stake + n).toLocaleString();
+  const curve = eq.length ? `<div class="panel" style="margin-bottom:16px;">
+    <div class="phead"><div class="cap">Picks, compounded</div>
+      <div class="note">$${start.toLocaleString()} into each day's picks, rolled
+        into the next — profits included</div></div>
 
-  return `<div class="panel" style="margin-bottom:16px;">
-      <div class="phead"><div class="cap">If you had traded it with $${stake.toLocaleString()}</div>
-        <div class="note">your whole stake into each list, split equally ·
-          bought the first time a ticker appeared · still held today</div></div>
-
-      <div style="padding:20px 18px;display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;">
-        <div>
-          <div class="mono" style="font-size:15px;color:var(--ink-5);">
-            $${stake.toLocaleString()} →</div>
-          <div class="mono" style="font-size:40px;font-weight:600;letter-spacing:-.02em;
-            color:${o.pnl>=0?G:R};line-height:1;">${end(o.pnl)}</div>
-          <div class="mono" style="font-size:13px;color:${o.pnl>=0?G:R};margin-top:6px;">
-            ${usd(o.pnl)} · ${o.return_pct>0?"+":""}${o.return_pct}%</div>
-        </div>
-        <div style="flex:1 1 260px;min-width:0;">
-          <div style="font-size:14px;color:var(--ink-3);text-wrap:pretty;">${esc(read)}</div>
-          <div class="mono" style="font-size:12px;color:var(--ink-5);margin-top:8px;">
-            ${o.positions} tickers · about $${Math.round(o.per_ticker||0).toLocaleString()} each
-            · ${o.winners} up · ${o.losers} down</div>
-        </div>
+    <div style="padding:20px 18px;display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;">
+      <div>
+        <div class="mono" style="font-size:14px;color:var(--ink-5);">
+          $${start.toLocaleString()} →</div>
+        <div class="mono" style="font-size:38px;font-weight:600;letter-spacing:-.02em;
+          color:${totalPct>=0?G:R};line-height:1;">$${Math.round(finalBal).toLocaleString()}</div>
+        <div class="mono" style="font-size:13px;color:${totalPct>=0?G:R};margin-top:6px;">
+          ${totalPct>0?"+":""}${totalPct.toFixed(1)}% over ${eq.length} pick day${
+            eq.length===1?"":"s"}</div>
       </div>
-
-      <div style="padding:0 18px 18px;display:grid;gap:14px;
-        grid-template-columns:repeat(auto-fit,minmax(230px,1fr));">
-        ${tiers.map(t => {
-          const s = B.summary[t], [kind, tag, line] = tierVerdict(t, s);
-          const c = s.pnl >= 0 ? G : R;
-          return `<div style="border-top:1px solid var(--rule-2);padding-top:12px;">
-            <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
-              <div class="cap" style="font-size:10px;">${esc(TIER[t][0])}</div>
-              <span class="pill" style="${pillCss(kind)};font-size:10px;">${esc(tag)}</span>
-            </div>
-            <div class="mono" style="font-size:22px;font-weight:600;color:${c};margin-top:6px;">
-              ${end(s.pnl)}</div>
-            <div class="mono" style="font-size:12px;color:${c};">
-              ${usd(s.pnl)} · ${s.return_pct>0?"+":""}${s.return_pct}%</div>
-            <div class="mono" style="font-size:11px;color:var(--ink-5);margin-top:3px;">
-              ${s.positions} ticker${s.positions===1?"":"s"} @ ~$${
-                Math.round(s.per_ticker||0).toLocaleString()}</div>
-            <div style="font-size:12px;color:var(--ink-4);margin-top:6px;text-wrap:pretty;">
-              ${esc(line)}</div>
-            <div class="note" style="margin-top:4px;">${TIER[t][1]}</div>
-          </div>`;
-        }).join("")}
+      <div style="flex:1 1 240px;min-width:0;font-size:13px;color:var(--ink-3);
+        text-wrap:pretty;">
+        ${wins} of ${eq.length} pick days made money. Each day's picks are held until
+        the next pick day, then the whole balance rotates into the new list — so
+        nothing overlaps and the balance is a real running total.
       </div>
     </div>
 
-    ${exitRules()}
-
-    ${(B.daily||[]).length ? `<div class="panel" style="margin-bottom:16px;">
-      <div class="phead"><div class="cap">Day by day</div>
-        <div class="note">$${stake.toLocaleString()} into that day's digest, split equally,
-          held to today</div></div>
-      <div class="scroll"><div style="min-width:560px;">
-        <div class="tbl">
-          ${sortHead("date",           "Digest",     "0 0 96px",  0, "daysort")}
-          ${sortHead("names",          "Names",      "0 0 70px",  1, "daysort")}
-          ${sortHead("up",             "Up",         "0 0 60px",  1, "daysort")}
-          ${sortHead("return_pct",     "Change",     "0 0 88px",  1, "daysort")}
-          ${sortHead("pnl",            "Everything", "0 0 110px", 1, "daysort")}
-          ${sortHead("pick_return_pct","Picks only", "1 1 120px", 1, "daysort")}
-        </div>
-        ${applySort(B.daily, S.daySort).map(d => `<div class="row"><div style="display:flex;gap:12px;
-            padding:11px 18px;align-items:center;">
-          <div class="mono" style="flex:0 0 96px;font-size:12px;color:var(--ink-5);">
-            ${esc(d.date)}</div>
-          <div class="mono" style="flex:0 0 70px;text-align:right;font-size:12px;
-            color:var(--ink-2);">${d.names}</div>
-          <div class="mono" style="flex:0 0 60px;text-align:right;font-size:12px;
-            color:var(--ink-5);">${d.up}</div>
-          <div class="mono" style="flex:0 0 88px;text-align:right;font-size:12px;
-            color:${chgC(d.return_pct)};">${pctT(d.return_pct)}</div>
-          <div class="mono" style="flex:0 0 110px;text-align:right;font-size:13px;
-            font-weight:600;color:${chgC(d.pnl)};">${usd(d.pnl)}</div>
-          <div class="mono" style="flex:1 1 120px;text-align:right;font-size:13px;
-            color:${d.pick_pnl===undefined?"var(--ink-6)":chgC(d.pick_pnl)};">
-            ${d.pick_pnl===undefined ? "no picks" : usd(d.pick_pnl)}</div>
-        </div></div>`).join("")}
-      </div></div>
-    </div>` : ""}
-
-    <div class="panel" style="margin-bottom:16px;">
-      <div class="phead">
-        <div class="cap">Every ticker it ever flagged</div>
-        <div class="note">one row each · ${esc(best.sym)} was the best,
-          ${esc(worst.sym)} the worst</div>
-        <div style="flex:1 1 20px;"></div>
-        <label class="note" for="secfilter" style="letter-spacing:.06em;">Section</label>
-        <select id="secfilter" class="sel" data-section>
-          <option value="all"${S.section==="all"?" selected":""}>All picks (${pickRows.length})</option>
-          <option value="up"${S.section==="up"?" selected":""}>Winners only</option>
-          <option value="down"${S.section==="down"?" selected":""}>Losers only</option>
-        </select>
+    <div class="scroll"><div style="min-width:440px;">
+      <div class="tbl">
+        <div style="flex:1 1 120px;">Pick day</div>
+        <div style="flex:0 0 70px;text-align:right;">Picks</div>
+        <div style="flex:0 0 90px;text-align:right;">Return</div>
+        <div style="flex:0 0 110px;text-align:right;">Balance</div>
       </div>
-      <div class="scroll"><div style="min-width:640px;">
-        <div class="tbl">
-          ${sortHead("sym",  "Ticker",        "0 0 78px")}
-          ${sortHead("tier", "Section",       "0 0 116px")}
-          ${sortHead("date", "First seen",    "0 0 96px")}
-          ${sortHead("entry","Bought",        "0 0 86px", 1)}
-          ${sortHead("now",  "Now",           "0 0 86px", 1)}
-          ${sortHead("ret",  "Change",        "0 0 78px", 1)}
-          ${sortHead("pnl",  "Profit / loss", "1 1 96px", 1)}
+      ${eq.map(e => `<div class="row"><div style="display:flex;gap:12px;
+          padding:11px 18px;align-items:center;">
+        <div style="flex:1 1 120px;min-width:0;display:flex;align-items:center;gap:8px;">
+          <span class="mono" style="font-size:12px;color:var(--ink-2);">${esc(e.date)}</span>
+          ${e.open ? `<span class="pill" style="${pillCss("muted")};font-size:10px;">open</span>` : ""}
         </div>
-        ${(() => {
-          const rows = applySort(pickRows.filter(r =>
-            S.section === "up"   ? r.ret > 0 :
-            S.section === "down" ? r.ret <= 0 : true), S.sort);
-          if (!rows.length) return `<div class="empty">Nothing in this section.</div>`;
-          return rows.map(r => `<div class="row"><div style="display:flex;gap:12px;
-            padding:11px 18px;align-items:center;">
-          <div class="mono" style="flex:0 0 78px;font-size:13px;font-weight:600;
-            color:var(--ink-d);">$${esc(r.sym)}</div>
-          <div style="flex:0 0 116px;"><span class="pill" style="${pillCss(
-            r.tier==="pick"?"good":r.tier==="mover"?"warn":"muted")};font-size:10px;">
-            ${esc(TIER[r.tier][0])}</span></div>
-          <div class="mono" style="flex:0 0 96px;font-size:12px;color:var(--ink-5);">
-            ${esc(r.date.slice(5))}</div>
-          <div class="mono" style="flex:0 0 86px;text-align:right;font-size:12px;
-            color:var(--ink-2);">${money(r.entry)}</div>
-          <div class="mono" style="flex:0 0 86px;text-align:right;font-size:12px;
-            color:var(--ink-2);">${money(r.now)}</div>
-          <div class="mono" style="flex:0 0 78px;text-align:right;font-size:12px;
-            color:${chgC(r.ret)};">${pctT(r.ret)}</div>
-          <div class="mono" style="flex:1 1 96px;text-align:right;font-size:13px;
-            font-weight:600;color:${chgC(r.pnl)};">${usd(r.pnl)}</div>
-        </div></div>`).join("");
-        })()}
-      </div></div>
-    </div>`;
-}
+        <div class="mono" style="flex:0 0 70px;text-align:right;font-size:12px;
+          color:var(--ink-4);">${e.picks}</div>
+        <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
+          color:${chgC(e.return_pct)};">${pctT(e.return_pct)}</div>
+        <div class="mono" style="flex:0 0 110px;text-align:right;font-size:13px;
+          font-weight:600;color:${e.balance>=start?G:R};">
+          $${Math.round(e.balance).toLocaleString()}</div>
+      </div></div>`).join("")}
+    </div></div>
+  </div>` : "";
 
-/* ── history ──────────────────────────────────────────────── */
-function history(){
-  const h = D.history || [];
-  const w = h.filter(e=>e.outcome==="worked").length;
-  const f = h.filter(e=>e.outcome==="faded").length;
-  const read = !h.length
-    ? "Nothing logged yet."
-    : `Of ${h.length} flagged name${h.length===1?"":"s"} still inside the ${
-        Math.max(...h.map(e=>e.age_days||0))}-day window, ${w} ${w===1?"is":"are"} up more than 10% `
-      + `since the flag and ${f} ${f===1?"is":"are"} down more than 10%. `
-      + `A flag is an attention reading, not a recommendation — a high "faded" count is the `
-      + `expected outcome for crowd-driven names and is exactly why this table exists.`;
-  return backtest() + `<div class="panel">
-      <div class="phead"><div class="cap">Radar track record</div>
-        <div class="note">what happened after each flag · marked to the latest run</div></div>
-      ${h.length ? `<div class="scroll"><div style="min-width:660px;">
-        <div class="tbl">
-          <div style="flex:0 0 90px;">Flagged</div>
-          <div style="flex:0 0 90px;">Ticker</div>
-          <div style="flex:0 0 90px;text-align:right;">At flag</div>
-          <div style="flex:0 0 90px;text-align:right;">Now</div>
-          <div style="flex:0 0 80px;text-align:right;">Δ</div>
-          <div style="flex:1 1 160px;">Outcome</div>
-        </div>
-        ${h.map(e => {
-          const kind = e.outcome==="worked"?"good":e.outcome==="faded"?"bad":"muted";
-          return `<div class="row clickable" data-open="${esc(e.sym)}">
-            <div style="display:flex;gap:12px;padding:13px 18px;align-items:center;">
-              <div class="mono" style="flex:0 0 90px;font-size:12px;color:var(--ink-5);">
-                ${esc(e.date)}</div>
-              <div class="mono" style="flex:0 0 90px;font-size:13px;font-weight:600;
-                color:var(--ink-d);">$${esc(e.sym)}</div>
-              <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
-                color:var(--ink-2);">${money(e.flag_price)}</div>
-              <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
-                color:var(--ink-2);">${money(e.last_price)}</div>
-              <div class="mono" style="flex:0 0 80px;text-align:right;font-size:13px;
-                color:${chgC(e.pct)};">${pctT(e.pct)}</div>
-              <div style="flex:1 1 160px;display:flex;align-items:center;gap:10px;min-width:0;">
-                <span class="pill" style="${pillCss(kind)}">${esc(e.outcome)}</span>
-                <span style="font-size:12px;color:var(--ink-4);white-space:nowrap;
-                  overflow:hidden;text-overflow:ellipsis;">${esc(e.note||"")}</span>
-              </div>
-            </div></div>`;
-        }).join("")}
-      </div></div>` : `<div class="empty">No history yet — it builds from the next run onward.</div>`}
-    </div>
-    <div class="panel dash" style="margin-top:16px;padding:18px 20px;">
-      <div class="eyebrow" style="margin-bottom:8px;">Read of the record</div>
-      <div style="font-size:13px;color:var(--ink-3);max-width:78ch;text-wrap:pretty;">
-        ${esc(read)}</div>
-    </div>`;
+  return curve + exitRules();
 }
 
 /* ── detail ───────────────────────────────────────────────── */

@@ -807,7 +807,9 @@ def format_message(results, mkt, yahoo_watches=None):
 DASHBOARD_DIR = os.getenv("DASHBOARD_DIR", "docs")
 
 
-HISTORY_DAYS = int(os.getenv("HISTORY_DAYS", "30"))
+# long enough to keep the whole reconstructed record (mid-June onward), which a
+# 30-day window silently dropped
+HISTORY_DAYS = int(os.getenv("HISTORY_DAYS", "400"))
 
 
 def _outcome(pct):

@@ -21,6 +21,28 @@ import yfinance as yf
 
 OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "history.json")
 
+# Runs skipped by the old ET gate scanned nothing — the gate returned before
+# gather(), so those logs contain only "[skip] ET hour ...". There is no hidden
+# data to recover from them.
+#
+# SIMULATED covers the other gap: on the days a digest DID send before the pick
+# section existed, the buzz list was recorded with price, % move and momentum
+# arrow. The pick rule is deterministic (momentum rising, not already +20%, not
+# already -15%), so it can be replayed over those lists to get the picks the
+# radar would have made. These are marked simulated everywhere they appear —
+# they were never sent, and treating them as a track record would be a lie.
+#
+# Jun 16, Jun 18 and Jun 29 produced no qualifying name from the recoverable
+# part of their lists, so they have no entry rather than a guessed one.
+SIMULATED = {
+    "2026-06-15": [("CTM", 0.68), ("CXAI", 0.20), ("RS", 408.28)],
+    "2026-06-17": [("OTLK", 1.67), ("CXAI", 0.21), ("CRVO", 3.82), ("RS", 408.79)],
+    "2026-06-22": [("CXAI", 0.23)],
+    "2026-07-06": [("CXAI", 0.16)],
+    "2026-07-30": [("SPY", 736.05), ("QQQ", 679.17), ("NVDA", 194.89),
+                   ("TSLA", 304.11), ("META", 534.22), ("AAPL", 331.58)],
+}
+
 # date -> [(symbol, price at the first flag of that day)]
 BACKFILL = {
     # "Worth a Closer Look" — the only explicit pick of the June era
@@ -65,24 +87,29 @@ def main():
         hist = []
 
     have = {(e.get("date"), e.get("sym")) for e in hist}
-    syms = sorted({s for day in BACKFILL.values() for s, _ in day})
+    sources = [(BACKFILL, False), (SIMULATED, True)]
+    syms = sorted({s for src, _ in sources for day in src.values() for s, _ in day})
     print(f"pricing {len(syms)} tickers…")
     now = {s: last_price(s) for s in syms}
 
     added = 0
-    for date, picks in sorted(BACKFILL.items()):
-        for sym, entry in picks:
-            if (date, sym) in have:
-                continue
-            cur = now.get(sym) or entry
-            pct = (cur - entry) / entry * 100 if entry else 0.0
-            hist.append({
-                "date": date, "sym": sym, "name": "",
-                "flag_price": entry, "last_price": round(cur, 2),
-                "pct": round(pct, 2), "outcome": outcome(pct),
-                "note": "backfilled from the sent digest",
-            })
-            added += 1
+    for src, simulated in sources:
+        for date, picks in sorted(src.items()):
+            for sym, entry in picks:
+                if (date, sym) in have:
+                    continue
+                have.add((date, sym))
+                cur = now.get(sym) or entry
+                pct = (cur - entry) / entry * 100 if entry else 0.0
+                hist.append({
+                    "date": date, "sym": sym, "name": "",
+                    "flag_price": entry, "last_price": round(cur, 2),
+                    "pct": round(pct, 2), "outcome": outcome(pct),
+                    "simulated": simulated,
+                    "note": ("would have been picked — rule replayed on that day's list"
+                             if simulated else "from the sent digest"),
+                })
+                added += 1
 
     hist.sort(key=lambda e: (e["date"], e["sym"]), reverse=True)
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)

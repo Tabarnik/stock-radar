@@ -25,6 +25,11 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
+      - name: Backfill pick history
+        continue-on-error: true
+        env:
+          DASHBOARD_DIR: docs
+        run: python backfill_history.py
       - name: Run backtest
         env:
           STAKE: ${{ inputs.stake }}
@@ -35,7 +40,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/backtest.json
+          git add docs/backtest.json docs/history.json
           git diff --staged --quiet && echo "no change" && exit 0
           git commit -m "backtest results $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push origin HEAD:main
