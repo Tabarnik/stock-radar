@@ -210,7 +210,7 @@ const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{},
             sort:{ key:"ret", dir:-1 },        // "every ticker" table
             daySort:{ key:"date", dir:1 },      // day-by-day table
             section:"all",
-            day:"today" };                    // section dropdown filter
+            day:"today", outcome:null };                    // section dropdown filter
 
 // Click a column to sort by it; click again to reverse. Text sorts A→Z first,
 // numbers sort biggest-first, since that's the useful default for each.
@@ -383,15 +383,19 @@ function sessionInfo(){
     String(d.getDate()).padStart(2,"0")}`;
   const sameDay = ymd(gen) === ymd(now);
   const weekend = now.getDay() === 0 || now.getDay() === 6;
-  const nice = gen.toLocaleDateString(undefined, { weekday:"long", month:"short", day:"numeric" });
+  // a weekend run carries Friday's closing prices, so name the session Friday
+  const sess = new Date(gen);
+  if (sess.getDay() === 6) sess.setDate(sess.getDate() - 1);        // Sat -> Fri
+  else if (sess.getDay() === 0) sess.setDate(sess.getDate() - 2);   // Sun -> Fri
+  const nice = sess.toLocaleDateString(undefined, { weekday:"long", month:"short", day:"numeric" });
   return {
     sameDay, weekend, nice,
     // name the day — "today" is wrong every weekend and misleading when stale
-    eyebrow: gen.toLocaleDateString(undefined, { weekday:"long" }) + "'s picks",
-    dateLabel: gen.toLocaleDateString(undefined, { weekday:"long", month:"short", day:"numeric" }),
+    eyebrow: sess.toLocaleDateString(undefined, { weekday:"long" }) + "'s picks",
+    dateLabel: nice,
     word: sameDay ? "today" : "that session",
-    note: sameDay ? "" : weekend
-      ? `Markets are closed this weekend — showing the last session, ${nice}.`
+    note: (!weekend && sameDay) ? "" : weekend
+      ? `Markets are shut for the weekend — no new run until Monday. Prices are ${nice}'s close.`
       : `Showing the last completed run, ${nice}.`,
   };
 }
@@ -638,17 +642,20 @@ function picksPanel(){
 
 function recordPanel(){
   const h = D.history || [];
-  const w = h.filter(e => e.outcome === "worked").length;
-  const f = h.filter(e => e.outcome === "faded").length;
+  const w = all.filter(e => e.outcome === "worked").length;
+  const f = all.filter(e => e.outcome === "faded").length;
   const n = h.filter(e => e.outcome === "flat").length;
   const stats = [[w,"worked",G],[f,"faded",R],[n,"flat","var(--ink-4)"]];
   return `<div class="panel" style="padding:16px 18px;">
-    <div class="cap" style="margin-bottom:12px;">Radar track record</div>
+    <div class="cap" style="margin-bottom:2px;">Picks track record</div>
+    <div class="note" style="margin-bottom:12px;">picks of the day only · no buzz,
+      no movers · ±10% decides worked vs faded</div>
     ${h.length ? `<div style="display:flex;gap:16px;flex-wrap:wrap;">
-      ${stats.map(([v,l,c])=>`<div style="flex:1 1 80px;">
+      ${stats.map(([v,l,c])=>`<button data-go="history" data-outcome="${l}"
+        style="flex:1 1 80px;background:none;border:0;padding:0;text-align:left;cursor:pointer;">
         <div class="mono" style="font-size:22px;font-weight:600;color:${c};">${v}</div>
-        <div style="font-size:11px;color:var(--ink-5);margin-top:1px;">${l}</div>
-      </div>`).join("")}</div>
+        <div style="font-size:11px;color:var(--ink-5);margin-top:1px;">${l} →</div>
+      </button>`).join("")}</div>
       <button class="btn wide" data-go="history">VIEW FULL HISTORY →</button>`
     : `<div class="note">No history yet. Each run logs what it flagged and marks it to
        market on later runs — the record fills in from here.</div>`}
@@ -824,8 +831,8 @@ function exitRules(){
 
   return `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap">When to sell</div>
-      <div class="note">your own picks — all ${hold.positions} of them, replayed ·
-        updates with every run</div></div>
+      <div class="note">your own picks — all ${hold.positions} of them ·
+        $${(B.start_cash||10000).toLocaleString()} spread across them · updates every run</div></div>
 
     <div style="padding:18px;display:flex;gap:24px;flex-wrap:wrap;align-items:baseline;">
       <div>
@@ -957,16 +964,23 @@ function backtest(){
 
 /* ── history ──────────────────────────────────────────────── */
 function history(){
-  const h = (D.history || []).slice().sort((a,b) =>
+  const all = (D.history || []).slice();
+  const h = (S.outcome ? all.filter(e => e.outcome === S.outcome) : all).sort((a,b) =>
     b.date.localeCompare(a.date) || a.sym.localeCompare(b.sym));
-  const w = h.filter(e => e.outcome === "worked").length;
-  const f = h.filter(e => e.outcome === "faded").length;
+  const w = all.filter(e => e.outcome === "worked").length;
+  const f = all.filter(e => e.outcome === "faded").length;
   const sim = h.filter(e => e.simulated).length;
 
   const table = h.length ? `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap">Every pick, newest first</div>
-      <div class="note">${h.length} picks over ${new Set(h.map(e=>e.date)).size} days ·
-        ${w} up 10%+ · ${f} down 10%+${sim ? ` · ${sim} reconstructed` : ""}</div></div>
+      <div class="note">picks of the day only · ${w} worked · ${f} faded ·
+        ${all.length - w - f} flat${sim ? ` · ${sim} reconstructed` : ""}</div>
+      <div style="flex:1 1 20px;"></div>
+      <select class="sel" data-outcome-sel>
+        ${["", "worked", "faded", "flat"].map(o => `<option value="${o}"${
+          (S.outcome||"")===o?" selected":""}>${o ? o : "All outcomes"} (${
+          o ? all.filter(e=>e.outcome===o).length : all.length})</option>`).join("")}
+      </select></div>
     <div class="scroll"><div style="min-width:600px;">
       <div class="tbl">
         <div style="flex:0 0 96px;">Picked</div>
@@ -1135,6 +1149,7 @@ document.addEventListener("click", e => {
   else if (d.toggle)  { S.expanded[d.toggle] = !S.expanded[d.toggle]; }
   else if (d.dismiss) { S.dismissed[d.dismiss] = true; }
   else if (d.dayGo)   { S.day = d.dayGo; S.screen = "watchlist"; }
+  if (d.outcome)      { S.outcome = d.outcome === "flat" ? "flat" : d.outcome; }
   else if (d.filter)  { S.filter = d.filter; }
   render();
 });
@@ -1144,7 +1159,9 @@ document.addEventListener("change", e => {
   const sec = e.target.closest("[data-section]");
   if (sec) { S.section = sec.value; render(); return; }
   const day = e.target.closest("[data-day]");
-  if (day) { S.day = day.value; render(); }
+  if (day) { S.day = day.value; render(); return; }
+  const oc = e.target.closest("[data-outcome-sel]");
+  if (oc) { S.outcome = oc.value || null; render(); }
 });
 
 // backtest.json is optional — it only exists once the backtest workflow has run
