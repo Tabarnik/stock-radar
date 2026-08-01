@@ -551,7 +551,9 @@ const usd = n => (n < 0 ? "−" : "+") + "$" + Math.abs(Math.round(n)).toLocaleS
 
 // Plain-language read of a section's record. Descriptive only — it reports what
 // happened, it does not forecast what happens next.
-function verdict(t, s){
+// NB: named tierVerdict, not verdict — the digest hero already owns verdict(),
+// and a second declaration silently replaced it.
+function tierVerdict(t, s){
   if (s.positions < 5)
     return ["muted", "too few to judge",
             `Only ${s.positions} position${s.positions===1?"":"s"} — no read yet.`];
@@ -617,7 +619,7 @@ function backtest(){
       <div style="padding:0 18px 18px;display:grid;gap:14px;
         grid-template-columns:repeat(auto-fit,minmax(230px,1fr));">
         ${tiers.map(t => {
-          const s = B.summary[t], [kind, tag, line] = verdict(t, s);
+          const s = B.summary[t], [kind, tag, line] = tierVerdict(t, s);
           const c = s.pnl >= 0 ? G : R;
           return `<div style="border-top:1px solid var(--rule-2);padding-top:12px;">
             <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
