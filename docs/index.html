@@ -656,8 +656,10 @@ function watchlist(){
 }
 
 /* ── backtest (replay of every digest ever sent) ──────────── */
+// Same label the Digest uses. These were "Worth Watching" here and "Picks of
+// the day" there, which read as two different lists — it is one list.
 const TIER = {
-  pick:  ["Worth Watching", "the shortlist — the only section framed as something to act on"],
+  pick:  ["Picks of the day", "the shortlist — the only section framed as something to act on"],
   buzz:  ["Reddit Buzz",    "whatever the crowd was loudest about that day"],
   mover: ["Market gainers", "names that had already jumped, labelled “not a prediction”"],
 };
@@ -679,6 +681,85 @@ function tierVerdict(t, s){
             `${s.winners} of ${s.positions} rose — close enough to a coin flip to ignore.`];
   return ["bad", "lost money",
           `Only ${s.winners} of ${s.positions} rose. Buying this list cost you money.`];
+}
+
+/* Competing sell rules replayed over the same historical positions. The point
+   is the comparison against holding, not any single number. */
+function exitRules(){
+  const RS = B.exit_rules || [];
+  if (RS.length < 3) return "";
+  const hold = RS.find(e => e.rule === "Hold, never sell");
+  const best = RS[0];
+  if (!hold) return "";
+  const beat = RS.filter(e => e.avg_return > hold.avg_return).length;
+  const stake = B.stake || 0;
+  const lead = beat === RS.length - 1
+    ? `Every rule tested beat holding. These names decay — the edge on offer is
+       not picking better, it is cutting losers sooner.`
+    : `${beat} of ${RS.length - 1} rules beat holding.`;
+
+  return `<div class="panel" style="margin-bottom:16px;">
+    <div class="phead"><div class="cap">When to sell</div>
+      <div class="note">every rule replayed over the same
+        ${hold.positions} positions · $${stake.toLocaleString()} split equally</div></div>
+
+    <div style="padding:18px;display:flex;gap:24px;flex-wrap:wrap;align-items:baseline;">
+      <div>
+        <div class="eyebrow" style="margin-bottom:6px;">Best rule tested</div>
+        <div class="mono" style="font-size:26px;font-weight:600;color:${
+          best.avg_return >= 0 ? G : R};line-height:1;">${esc(best.rule)}</div>
+        <div class="mono" style="font-size:13px;margin-top:6px;color:${
+          best.avg_return >= 0 ? G : R};">
+          $${stake.toLocaleString()} → $${Math.round(best.final).toLocaleString()}
+          (${best.avg_return > 0 ? "+" : ""}${best.avg_return}%)</div>
+        <div class="mono" style="font-size:12px;color:var(--ink-5);margin-top:4px;">
+          vs holding: $${Math.round(hold.final).toLocaleString()}
+          (${hold.avg_return > 0 ? "+" : ""}${hold.avg_return}%)</div>
+      </div>
+      <div style="flex:1 1 280px;min-width:0;">
+        <div style="font-size:14px;color:var(--ink-3);text-wrap:pretty;">${esc(lead)}</div>
+        <div class="note" style="margin-top:8px;">Replayed on closing prices with no
+          costs, slippage or tax. A rule that wins here is a discipline worth having,
+          not a guarantee about the next trade.</div>
+      </div>
+    </div>
+
+    <div class="scroll"><div style="min-width:620px;">
+      <div class="tbl">
+        <div style="flex:1 1 200px;">Sell rule</div>
+        <div style="flex:0 0 104px;text-align:right;">$${stake.toLocaleString()} ends</div>
+        <div style="flex:0 0 84px;text-align:right;">Avg return</div>
+        <div style="flex:0 0 70px;text-align:right;">Win rate</div>
+        <div style="flex:0 0 86px;text-align:right;">Days held</div>
+        <div style="flex:0 0 80px;text-align:right;">Worst</div>
+      </div>
+      ${RS.map(e => {
+        const isHold = e.rule === "Hold, never sell";
+        const better = e.avg_return > hold.avg_return;
+        return `<div class="row" ${isHold ? 'style="background:rgba(120,112,90,0.07);"' : ""}>
+          <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
+            <div style="flex:1 1 200px;min-width:0;display:flex;align-items:center;gap:8px;">
+              <span style="font-size:13px;color:var(--ink-2);${
+                isHold ? "font-weight:600;" : ""}">${esc(e.rule)}</span>
+              ${isHold ? `<span class="pill" style="${pillCss("muted")};font-size:10px;">
+                baseline</span>` : better ? `<span class="pill" style="${pillCss("good")};
+                font-size:10px;">better</span>` : ""}
+            </div>
+            <div class="mono" style="flex:0 0 104px;text-align:right;font-size:13px;
+              font-weight:600;color:${e.avg_return>=0?G:R};">
+              $${Math.round(e.final).toLocaleString()}</div>
+            <div class="mono" style="flex:0 0 84px;text-align:right;font-size:12px;
+              color:${chgC(e.avg_return)};">${pctT(e.avg_return)}</div>
+            <div class="mono" style="flex:0 0 70px;text-align:right;font-size:12px;
+              color:var(--ink-4);">${e.win_rate}%</div>
+            <div class="mono" style="flex:0 0 86px;text-align:right;font-size:12px;
+              color:var(--ink-4);">${e.avg_days_held}</div>
+            <div class="mono" style="flex:0 0 80px;text-align:right;font-size:12px;
+              color:${chgC(e.worst)};">${pctT(e.worst)}</div>
+          </div></div>`;
+      }).join("")}
+    </div></div>
+  </div>`;
 }
 
 function backtest(){
@@ -754,6 +835,8 @@ function backtest(){
         }).join("")}
       </div>
     </div>
+
+    ${exitRules()}
 
     ${(B.daily||[]).length ? `<div class="panel" style="margin-bottom:16px;">
       <div class="phead"><div class="cap">Day by day</div>
