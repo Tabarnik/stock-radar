@@ -372,51 +372,95 @@ def crowd_read(pct, mom, tone):
     return ["quiet", "muted", "No strong pattern between price and attention today."]
 
 
-def earnings_detail(sym):
+def _num(v):
+    """float(v) or None — yfinance mixes NaN, None and strings across frames."""
+    try:
+        f = float(v)
+        return f if f == f else None
+    except (TypeError, ValueError):
+        return None
+
+
+def _pick(row, *names):
+    for n in names:
+        try:
+            v = row[n]
+        except Exception:
+            continue
+        got = _num(v)
+        if got is not None:
+            return got
+    return None
+
+
+def earnings_detail(sym, days=45):
     """
-    Next earnings date, what the market expects, and how this name has handled
-    recent reports. The beat record is history — it is labelled that way
-    everywhere it is shown, never as a prediction of the next print.
+    Next earnings date, the EPS the street expects, and how this name has
+    handled recent reports.
+
+    Built on .calendar and .earnings_history rather than .earnings_dates: the
+    latter scrapes a Yahoo page and returned nothing usable for every ticker,
+    while .calendar demonstrably works. The beat record is history and is
+    labelled that way wherever it is shown — never as a read on the next print.
     """
     out = {}
+    today = datetime.now().date()
+    t = yf.Ticker(sym)
+
     try:
-        try:
-            df = yf.Ticker(sym).earnings_dates
-        except Exception:
-            df = None
-        today = datetime.now().date()
-        if df is not None and not df.empty:
-            surprises = []
-            for idx, row in df.iterrows():
-                d = idx.date() if hasattr(idx, "date") else None
+        cal = t.calendar
+        if isinstance(cal, dict):
+            raw = cal.get("Earnings Date", [])
+            for d in (raw if isinstance(raw, list) else [raw]):
                 if d is None:
                     continue
-                sur, est = row.get("Surprise(%)"), row.get("EPS Estimate")
-                if d <= today and sur is not None and sur == sur:
-                    surprises.append(float(sur))
-                elif d > today and "date" not in out:
+                if hasattr(d, "date"):
+                    d = d.date()
+                delta = (d - today).days
+                if 0 <= delta <= days:
                     out["date"] = d.strftime("%b %d")
-                    out["days_away"] = (d - today).days
-                    if est is not None and est == est:
-                        out["eps_estimate"] = round(float(est), 2)
+                    out["days_away"] = delta
+                    break
+            est = (_num(cal.get("Earnings Average"))
+                   or _num(cal.get("EPS Estimate Avg")))
+            if est is not None:
+                out["eps_estimate"] = round(est, 2)
+    except Exception as e:
+        print(f"[warn] earnings calendar {sym}: {e}")
+
+    if "eps_estimate" not in out:
+        try:
+            ee = t.earnings_estimate
+            if ee is not None and not ee.empty and "0q" in ee.index:
+                est = _pick(ee.loc["0q"], "avg", "Avg")
+                if est is not None:
+                    out["eps_estimate"] = round(est, 2)
+        except Exception:
+            pass
+
+    try:
+        eh = t.earnings_history
+        if eh is not None and not eh.empty:
+            surprises = []
+            for _, row in eh.iterrows():
+                s = _pick(row, "surprisePercent", "Surprise(%)", "epsDifference")
+                if s is not None:
+                    surprises.append(s)
             if surprises:
-                recent = surprises[:4]
+                recent = surprises[-4:]          # frame runs oldest -> newest
                 beats = sum(1 for s in recent if s > 0)
                 out["beat_record"] = f"beat {beats} of last {len(recent)}"
-                out["avg_surprise"] = round(sum(recent) / len(recent), 1)
-                if beats >= 3 and out["avg_surprise"] > 0:
+                out["avg_surprise"] = round(sum(recent) / len(recent) * 100, 1) \
+                    if max(abs(s) for s in recent) < 1 else round(sum(recent) / len(recent), 1)
+                if beats >= 3:
                     out["expect"] = ["good", "Beaten estimates in most recent quarters"]
                 elif beats <= 1:
                     out["expect"] = ["bad", "Missed estimates in most recent quarters"]
                 else:
                     out["expect"] = ["mixed", "Mixed record against estimates"]
     except Exception as e:
-        print(f"[warn] earnings_detail {sym}: {e}")
+        print(f"[warn] earnings history {sym}: {e}")
 
-    if "date" not in out:
-        legacy = earnings_soon(sym)
-        if legacy:
-            out["date"] = legacy.split(" (")[0]
     return out or None
 
 
