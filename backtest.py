@@ -375,15 +375,27 @@ def main():
     # into the new picks. The last set is still open and marked to the latest
     # price. Positions never overlap, so the balance is a real running total
     # rather than a sum of parallel what-ifs.
+    # docs/history.json is the canonical pick record — it carries the days
+    # reconstructed from the logs as well as the ones FLAGS transcribes.
     pick_days = defaultdict(dict)
-    for date, tier, sym, entry in FLAGS:
-        if tier != "pick":
-            continue
-        pick_days[date].setdefault(sym, entry)
+    try:
+        with open(os.path.join(os.path.dirname(OUT) or ".", "history.json")) as f:
+            for e in json.load(f):
+                if e.get("flag_price"):
+                    pick_days[e["date"]].setdefault(e["sym"], e["flag_price"])
+    except Exception as e:
+        print(f"[warn] history.json: {e}")
+    for date, tier, sym, entry in FLAGS:        # fall back to the transcription
+        if tier == "pick":
+            pick_days[date].setdefault(sym, entry)
 
     equity, bal = [], START_CASH
     days = sorted(pick_days)
-    closes = {s: daily_closes(s) for s in {s for d in days for s in pick_days[d]}}
+    curve_syms = {s for d in days for s in pick_days[d]}
+    closes = {s: daily_closes(s) for s in curve_syms}
+    for s_ in curve_syms:                       # price anything rows never covered
+        if s_ not in now:
+            now[s_] = last_price(s_)
     for i, date in enumerate(days):
         nxt = days[i + 1] if i + 1 < len(days) else None
         rets = []
