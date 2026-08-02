@@ -38,9 +38,12 @@ START_CASH = float(os.getenv("START_CASH", "10000"))
 # day put an eighth into each, so identical rules got wildly different risk.
 # One slice per name keeps every position the same size.
 POSITION_FRAC = float(os.getenv("POSITION_FRAC", "0.05"))
-# The curve exits on the same bracket the sell panel measures, so the two halves
-# of the dashboard describe one strategy rather than contradicting each other.
-CURVE_STOP, CURVE_TARGET = -15.0, 15.0
+# The curve exits on the same rule the sell panel measures, so the two halves of
+# the dashboard describe one strategy rather than contradicting each other.
+# A time stop, not a bracket: it beat every price-based exit over the pick record
+# and it is the only rule that guarantees the capital comes back on a schedule,
+# which is what lets a near-daily pick cadence stay funded.
+CURVE_DAYS = int(os.getenv("CURVE_DAYS", "5"))
 OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "backtest.json")
 
 # One position per ticker. A name flagged on five different days is still one
@@ -458,12 +461,16 @@ def main():
         if s_ not in now:
             now[s_] = last_price(s_)
 
-    lo_m, hi_m = 1 + CURVE_STOP / 100, 1 + CURVE_TARGET / 100
     # every trading day the positions live on, plus the pick days themselves —
     # a pick day that fell on a holiday still has to be able to buy
     cal = sorted({d for s in curve_syms for d in closes.get(s, {})
                   if days and d >= days[0]} | set(days))
     cash, openpos, cohorts, starved = START_CASH, [], {}, []
+
+    def _exit_date(sym, buy_date):
+        """The CURVE_DAYS-th close after the buy — the same bar _time_stop takes."""
+        ks = sorted(k for k in closes.get(sym, {}) if k > buy_date)
+        return ks[CURVE_DAYS - 1] if len(ks) >= CURVE_DAYS else None
 
     def _mv(on_date):
         """Open positions marked to the last close at or before on_date."""
@@ -475,7 +482,7 @@ def main():
         still_open = []
         for p in openpos:
             px = closes.get(p["sym"], {}).get(date)
-            if px is not None and (px <= p["entry"] * lo_m or px >= p["entry"] * hi_m):
+            if px is not None and p["exit_on"] and date >= p["exit_on"]:
                 cash += p["shares"] * px
                 c = cohorts[p["day"]]
                 c["rets"].append((px - p["entry"]) / p["entry"] * 100)
@@ -501,7 +508,8 @@ def main():
                 starved.append(date)
                 break
             openpos.append({"sym": s, "day": date, "entry": e,
-                            "shares": size / e, "alloc": size})
+                            "shares": size / e, "alloc": size,
+                            "exit_on": _exit_date(s, date)})
             cash -= size
             allocs.append(size)
         if not allocs:
@@ -561,7 +569,8 @@ def main():
         "position_frac": POSITION_FRAC,
         # exactly as RULES labels it, so the dashboard can find the curve's own
         # rule in the exit table and show where it ranks
-        "curve_rule": f"Stop {CURVE_STOP:+.0f}% / target {CURVE_TARGET:+.0f}%",
+        "curve_rule": f"Sell after {CURVE_DAYS} days",
+        "curve_days": CURVE_DAYS,
         "starved_days": starved,
         "exit_rules": exits,
         "exit_rules_picks": exits_picks,
@@ -600,7 +609,7 @@ def main():
         tot = (final_balance - START_CASH) / START_CASH * 100
         print(f"\n{'='*74}")
         print(f"COMPOUNDED — ${START_CASH:,.0f}, {POSITION_FRAC:.0%} of the account "
-              f"per pick, exits at {CURVE_STOP:+.0f}% / {CURVE_TARGET:+.0f}%")
+              f"per pick, sold after {CURVE_DAYS} trading days")
         print(f"{'='*74}")
         print(f"{'pick day':<12}{'picks':>6}{'each':>10}{'held':>7}"
               f"{'return':>9}{'account':>12}")

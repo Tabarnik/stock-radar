@@ -491,8 +491,16 @@ targets; Yahoo publishes no target date, so no exact deadline is implied."
    Levels come from the rule that measured best over the real flag history —
    set before you are in the position, which is the entire point of a stop. */
 const BUY_STAKE = 1000;
-const STOP_PCT = 15;     // trailing stop; best-performing stop rule in the backtest
-const TARGET_PCT = 25;
+const HOLD_DAYS = (B && B.curve_days) || 5;   // the rule: a time stop, not a price one
+
+// Trading days out, weekends only — market holidays are not known client-side,
+// so the date is shown as approximate and the day count is the real instruction.
+function sellByDate(n){
+  const d = new Date();
+  for (let i = 0; i < n; ) { d.setDate(d.getDate() + 1);
+    if (d.getDay() !== 0 && d.getDay() !== 6) i++; }
+  return d.toLocaleDateString(undefined, {weekday:"short", month:"short", day:"numeric"});
+}
 
 function sellPlan(){
   const q = D.watch || [];
@@ -501,17 +509,21 @@ function sellPlan(){
   const RS = (B && B.exit_rules_picks) || [];
   const ALL = (B && B.exit_rules) || [];
   const best = RS[0], hold = RS.find(e => e.rule === "Hold, never sell");
-  const allBest = ALL[0], allHold = ALL.find(e => e.rule === "Hold, never sell");
+  const rule = RS.find(e => e.rule === `Sell after ${HOLD_DAYS} days`) || best;
+  const allHold = ALL.find(e => e.rule === "Hold, never sell");
   let evidence;
-  if (best && hold) {
+  if (rule && hold) {
+    const sent = rule.positions_real;
     evidence = `Across every pick the radar has made (${hold.positions} positions),
-      <b>${esc(best.rule)}</b> was the best exit — ${best.avg_return > 0 ? "+" : ""}${
-      best.avg_return}% against ${hold.avg_return > 0 ? "+" : ""}${hold.avg_return}%
-      for holding.`;
-    if (allBest && allHold) {
-      evidence += ` The same pattern holds over the wider ${allHold.positions}-position
-        history, where every rule tested beat holding — so cutting early is the part
-        with real evidence behind it.`;
+      <b>selling after ${HOLD_DAYS} days</b> came out ahead of every price-based exit
+      tested — ${rule.avg_return > 0 ? "+" : ""}${rule.avg_return}% against ${
+      hold.avg_return > 0 ? "+" : ""}${hold.avg_return}% for holding${
+      sent ? `, and +${rule.avg_return_real}% over just the ${sent} picks that were
+      really sent` : ""}.`;
+    if (allHold) {
+      evidence += ` Every rule tested beat holding over the wider
+        ${allHold.positions}-position history too — cutting early is the part with
+        real evidence behind it.`;
     }
   } else {
     evidence = `Set the exit before you are in the position.`;
@@ -520,37 +532,34 @@ function sellPlan(){
   return `<div class="panel">
     <div class="phead">
       <div class="cap">Trade plan</div>
-      <div class="note">$${BUY_STAKE.toLocaleString()} per pick · exits set now, not later</div>
+      <div class="note">$${BUY_STAKE.toLocaleString()} per pick · sell after ${HOLD_DAYS} days</div>
     </div>
     <div style="padding:14px 18px 4px;">
       <div style="font-size:13px;color:var(--ink-3);text-wrap:pretty;">${evidence}</div>
       <div class="note" style="margin-top:6px;">
-        Stop is a ${STOP_PCT}% trailing stop — it follows the price up, never down.
-        Target is +${TARGET_PCT}%. Both are rules, not forecasts.</div>
+        The exit is the calendar, not the price: sell on the ${HOLD_DAYS}th trading day
+        whatever it is doing. That means <b>no stop loss</b> — the worst single pick
+        under this rule still lost ${rule ? Math.abs(rule.worst).toFixed(1) : "12.3"}%,
+        and nothing caps a gap down. It is a rule, not a forecast.</div>
     </div>
     <div class="scroll"><div style="min-width:700px;">
       <div class="tbl">
         <div style="flex:0 0 76px;">Buy</div>
         <div style="flex:0 0 88px;text-align:right;">Price now</div>
         <div style="flex:0 0 68px;text-align:right;">Shares</div>
-        <div style="flex:0 0 92px;text-align:right;">Stop −${STOP_PCT}%</div>
-        <div style="flex:0 0 96px;text-align:right;">Target +${TARGET_PCT}%</div>
-        <div style="flex:0 0 84px;text-align:right;">Risk</div>
-        <div style="flex:0 0 84px;text-align:right;">Goal</div>
-        <div style="flex:1 1 70px;text-align:right;">R:R</div>
+        <div style="flex:0 0 96px;text-align:right;">Cost</div>
+        <div style="flex:1 1 150px;text-align:right;">Sell on (≈)</div>
       </div>
       ${(() => {
-        let totalRisk = 0, totalGoal = 0, totalCost = 0;
+        let totalCost = 0;
+        const when = sellByDate(HOLD_DAYS);
         const body = q.map(t => {
           const p = t.price;
           if (typeof p !== "number" || !p) return "";
           const shares = Math.floor(BUY_STAKE / p);
           if (!shares) return "";
-          const stop = p * (1 - STOP_PCT / 100);
-          const target = p * (1 + TARGET_PCT / 100);
-          const risk = shares * (p - stop);
-          const goal = shares * (target - p);
-          totalRisk += risk; totalGoal += goal; totalCost += shares * p;
+          const cost = shares * p;
+          totalCost += cost;
           return `<div class="row clickable" data-open="${esc(t.sym)}">
             <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
               <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
@@ -559,45 +568,32 @@ function sellPlan(){
                 color:var(--ink-2);">${money(p)}</div>
               <div class="mono" style="flex:0 0 68px;text-align:right;font-size:13px;
                 color:var(--ink-2);">${shares}</div>
-              <div class="mono" style="flex:0 0 92px;text-align:right;font-size:13px;
-                color:${R};">${money(stop)}</div>
               <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
-                color:${G};">${money(target)}</div>
-              <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
-                color:${R};">−$${Math.round(risk)}</div>
-              <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
-                font-weight:600;color:${G};">+$${Math.round(goal)}</div>
-              <div class="mono" style="flex:1 1 70px;text-align:right;font-size:12px;
-                color:var(--ink-4);">1:${(goal / risk).toFixed(2)}</div>
+                color:var(--ink-2);">$${Math.round(cost).toLocaleString()}</div>
+              <div class="mono" style="flex:1 1 150px;text-align:right;font-size:13px;
+                font-weight:600;color:var(--ink-d);">${esc(when)}</div>
             </div></div>`;
         }).join("");
         return body + `<div class="row" style="background:rgba(120,112,90,0.07);">
           <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
             <div class="mono" style="flex:0 0 76px;font-size:12px;font-weight:600;
               color:var(--ink-2);letter-spacing:.06em;">TOTAL</div>
-            <div class="mono" style="flex:0 0 88px;text-align:right;font-size:12px;
-              color:var(--ink-5);">$${Math.round(totalCost).toLocaleString()}</div>
+            <div style="flex:0 0 88px;"></div>
             <div style="flex:0 0 68px;"></div>
-            <div style="flex:0 0 92px;"></div>
-            <div style="flex:0 0 96px;"></div>
-            <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
-              font-weight:600;color:${R};">−$${Math.round(totalRisk)}</div>
-            <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
-              font-weight:600;color:${G};">+$${Math.round(totalGoal)}</div>
-            <div class="mono" style="flex:1 1 70px;text-align:right;font-size:12px;
-              color:var(--ink-4);">1:${(totalGoal / totalRisk).toFixed(2)}</div>
+            <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+              font-weight:600;color:var(--ink-2);">$${Math.round(totalCost).toLocaleString()}</div>
+            <div class="mono" style="flex:1 1 150px;text-align:right;font-size:12px;
+              color:var(--ink-4);">${esc(when)}</div>
           </div></div>`;
       })()}
     </div></div>
     <div style="padding:12px 18px 16px;">
       <div class="note">Shares are whole units of $${BUY_STAKE.toLocaleString()} at the
-        latest price, so the cash deployed is slightly under that. <b>Risk</b> is what
-        the stop costs if it triggers; <b>Goal</b> is what the target pays if it hits.
-        R:R is goal divided by risk — both before slippage, and neither is a
-        probability. The ${TARGET_PCT}/${STOP_PCT} pair pays
-        ${(TARGET_PCT / STOP_PCT).toFixed(2)}x what it risks, so it only comes out
-        ahead if it hits more than ${(100 / (1 + TARGET_PCT / STOP_PCT)).toFixed(0)}%
-        of the time.</div>
+        latest price, so the cash deployed is slightly under that. The sell date counts
+        ${HOLD_DAYS} trading days from today and skips weekends only — a market holiday
+        in between pushes it out by one, so treat the day count as the instruction and
+        the date as a reminder. Selling on schedule is what frees the cash for the next
+        pick; the account cannot stay funded if positions run indefinitely.</div>
     </div>
   </div>`;
 }
@@ -830,13 +826,25 @@ function exitRules(){
   // where the rule the compounded account actually trades landed — saying it
   // ranked first when it did not would be the easiest lie on this page
   const curve = RS.find(e => e.rule === (B.curve_rule || ""));
+  const hero = curve || best;          // lead with what you do, not what won
   if (curve) {
     const rank = RS.indexOf(curve) + 1;
     lead += rank === 1
-      ? ` The ${curve.rule.toLowerCase()} bracket the compounded account trades came out on top.`
-      : ` The bracket the compounded account trades, ${curve.rule.toLowerCase()},
-          ranked ${rank} of ${RS.length} at ${curve.avg_return > 0 ? "+" : ""}${
-          curve.avg_return}% against ${best.avg_return}% for the best.`;
+      ? ` The rule you trade, ${curve.rule.toLowerCase()}, came out on top.`
+      : ` The rule you trade, ${curve.rule.toLowerCase()}, ranked ${rank} of
+          ${RS.length} at ${curve.avg_return > 0 ? "+" : ""}${curve.avg_return}%
+          against ${best.avg_return}% for the best.`;
+  }
+  // 9 of these picks were reconstructed from digests that predate the pick
+  // section — they were never sent, and folding them in silently would inflate
+  // the record with names the radar never actually put in front of anyone
+  const sent = hold.positions_real;
+  if (sent && sent < hold.positions) {
+    const c = RS.find(e => e.rule === (B.curve_rule || "")) || best;
+    lead += ` Only ${sent} of these ${hold.positions} picks were really sent —
+      the other ${hold.positions - sent} are reconstructed from digests that predate
+      the pick section. Over the ${sent} real ones ${c.rule.toLowerCase()} returns
+      ${c.avg_return_real > 0 ? "+" : ""}${c.avg_return_real}%.`;
   }
   if (hold.positions < 30) {
     lead += ` ${hold.positions} picks so far and the record grows with every run, so this ranking will move — it is your average, not an industry rule of thumb.`;
@@ -844,19 +852,22 @@ function exitRules(){
 
   return `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap">When to sell</div>
-      <div class="note">your own picks — all ${hold.positions} of them ·
+      <div class="note">your own picks — ${hold.positions} of them${
+        sent ? `, ${sent} really sent` : ""} ·
         $${(B.start_cash||10000).toLocaleString()} spread across them · updates every run</div></div>
 
     <div style="padding:18px;display:flex;gap:24px;flex-wrap:wrap;align-items:baseline;">
       <div>
-        <div class="eyebrow" style="margin-bottom:6px;">Your best exit so far</div>
+        <div class="eyebrow" style="margin-bottom:6px;">${
+          curve === best ? "The rule you trade — and your best exit so far"
+                         : "The rule you trade"}</div>
         <div class="mono" style="font-size:26px;font-weight:600;color:${
-          best.avg_return >= 0 ? G : R};line-height:1;">${esc(best.rule)}</div>
+          hero.avg_return >= 0 ? G : R};line-height:1;">${esc(hero.rule)}</div>
         <div class="mono" style="font-size:13px;margin-top:6px;color:${
-          best.avg_return >= 0 ? G : R};">
-          $${Math.round(best.invested||0).toLocaleString()} → $${
-            Math.round(best.final).toLocaleString()}
-          (${best.avg_return > 0 ? "+" : ""}${best.avg_return}%)</div>
+          hero.avg_return >= 0 ? G : R};">
+          $${Math.round(hero.invested||0).toLocaleString()} → $${
+            Math.round(hero.final).toLocaleString()}
+          (${hero.avg_return > 0 ? "+" : ""}${hero.avg_return}%)</div>
         <div class="mono" style="font-size:12px;color:var(--ink-5);margin-top:4px;">
           vs holding: $${Math.round(hold.final).toLocaleString()}
           (${hold.avg_return > 0 ? "+" : ""}${hold.avg_return}%)</div>
