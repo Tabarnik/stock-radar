@@ -38,9 +38,12 @@ START_CASH = float(os.getenv("START_CASH", "10000"))
 # day put an eighth into each, so identical rules got wildly different risk.
 # One slice per name keeps every position the same size.
 POSITION_FRAC = float(os.getenv("POSITION_FRAC", "0.05"))
-# The curve exits on the same bracket the sell panel measures, so the two halves
-# of the dashboard describe one strategy rather than contradicting each other.
-CURVE_STOP, CURVE_TARGET = -15.0, 15.0
+# The curve exits on the same rule the sell panel measures, so the two halves of
+# the dashboard describe one strategy rather than contradicting each other.
+# A time stop, not a bracket: it beat every price-based exit over the pick record
+# and it is the only rule that guarantees the capital comes back on a schedule,
+# which is what lets a near-daily pick cadence stay funded.
+CURVE_DAYS = int(os.getenv("CURVE_DAYS", "5"))
 OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "backtest.json")
 
 # One position per ticker. A name flagged on five different days is still one
@@ -269,8 +272,13 @@ def daily_path(sym, start):
         return []
 
 
-def test_exit_rules(pos_list):
-    """Replay every rule over every position; return per-rule aggregates."""
+def test_exit_rules(pos_list, detail=False):
+    """Replay every rule over every position; return per-rule aggregates.
+
+    With detail=True each rule also carries the individual positions behind its
+    average, so "which pick drove this number" is answerable from the JSON
+    instead of being taken on trust.
+    """
     paths = {}
     for p in pos_list:
         path = daily_path(p["sym"], p["date"])
@@ -280,7 +288,7 @@ def test_exit_rules(pos_list):
 
     results = []
     for name, fn in RULES:
-        rets, held, exited = [], [], 0
+        rets, held, exited, rows_ = [], [], 0, []
         for p in pos_list:
             path = paths.get(p["sym"])
             if not path:
@@ -288,17 +296,27 @@ def test_exit_rules(pos_list):
             entry = p["entry"]
             hit = fn(path, entry)
             if hit is None:
-                rets.append((path[-1] - entry) / entry * 100)
-                held.append(len(path))
+                ret, days, out = (path[-1] - entry) / entry * 100, len(path), path[-1]
             else:
-                i, price = hit
-                rets.append((price - entry) / entry * 100)
-                held.append(i + 1)
+                i, out = hit
+                ret, days = (out - entry) / entry * 100, i + 1
                 exited += 1
+            rets.append(ret)
+            held.append(days)
+            if detail:
+                rows_.append({"sym": p["sym"], "date": p["date"],
+                              "entry": round(entry, 4), "exit": round(out, 4),
+                              "ret": round(ret, 1), "days": days,
+                              "held_to_end": hit is None,
+                              "simulated": bool(p.get("simulated"))})
         if not rets:
             continue
         wins = [r for r in rets if r > 0]
         avg = sum(rets) / len(rets)
+        # the same average over only the picks that were really sent — the
+        # reconstructed ones never reached the user, so they cannot be credited
+        # to the record without saying so
+        real = [r["ret"] for r in rows_ if not r["simulated"]] if detail else []
         results.append({
             "rule": name,
             "positions": len(rets),
@@ -312,6 +330,11 @@ def test_exit_rules(pos_list):
             "avg_days_held": round(sum(held) / len(held), 1),
             "worst": round(min(rets), 1),
             "best": round(max(rets), 1),
+            **({"positions_real": len(real),
+                "avg_return_real": round(sum(real) / len(real), 1),
+                "win_rate_real": round(
+                    len([r for r in real if r > 0]) / len(real) * 100, 1),
+                "detail": sorted(rows_, key=lambda r: r["ret"])} if real else {}),
         })
     results.sort(key=lambda r: -r["avg_return"])
     return results
@@ -388,28 +411,39 @@ def main():
     # transcribes; the exit-rule replay and the compounded curve below both run
     # off this one structure, so it has to exist before either of them.
     pick_days = defaultdict(dict)
+    # 15 of the history entries are reconstructed by replaying the pick rule over
+    # digests that predate the pick section — they were never actually sent, so
+    # the flag rides along and the record can be quoted with or without them
+    pick_sim = {}
     try:
         with open(os.path.join(os.path.dirname(OUT) or ".", "history.json")) as f:
             for e in json.load(f):
                 if e.get("flag_price"):
                     pick_days[e["date"]].setdefault(e["sym"], e["flag_price"])
+                    pick_sim.setdefault((e["date"], e["sym"]),
+                                        bool(e.get("simulated")))
     except Exception as e:
         print(f"[warn] history.json: {e}")
     for date, tier, sym, entry in FLAGS:        # fall back to the transcription
         if tier == "pick":
             pick_days[date].setdefault(sym, entry)
+            pick_sim.setdefault((date, sym), False)
 
     # Every pick ever made, first flag per ticker. This is the personal record
     # and it grows with each run, rather than being fixed at what FLAGS lists.
     seen_pick = {}
     for d in sorted(pick_days):
         for sym, entry in pick_days[d].items():
-            seen_pick.setdefault(sym, {"sym": sym, "date": d, "entry": entry})
+            seen_pick.setdefault(sym, {"sym": sym, "date": d, "entry": entry,
+                                       "simulated": pick_sim.get((d, sym), False)})
     picks_only = list(seen_pick.values())
-    print(f"\nreplaying exit rules — {len(picks_only)} distinct picks, "
+    n_sim = sum(1 for p in picks_only if p["simulated"])
+    print(f"\nreplaying exit rules — {len(picks_only)} distinct picks "
+          f"({len(picks_only) - n_sim} really sent, {n_sim} reconstructed), "
           f"{len(rows)} positions overall…")
     exits = test_exit_rules(rows)
-    exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
+    exits_picks = (test_exit_rules(picks_only, detail=True)
+                   if len(picks_only) >= 5 else [])
 
     overall = basket(rows)
     overall["losers"] = overall["positions"] - overall["winners"]
@@ -427,12 +461,16 @@ def main():
         if s_ not in now:
             now[s_] = last_price(s_)
 
-    lo_m, hi_m = 1 + CURVE_STOP / 100, 1 + CURVE_TARGET / 100
     # every trading day the positions live on, plus the pick days themselves —
     # a pick day that fell on a holiday still has to be able to buy
     cal = sorted({d for s in curve_syms for d in closes.get(s, {})
                   if days and d >= days[0]} | set(days))
     cash, openpos, cohorts, starved = START_CASH, [], {}, []
+
+    def _exit_date(sym, buy_date):
+        """The CURVE_DAYS-th close after the buy — the same bar _time_stop takes."""
+        ks = sorted(k for k in closes.get(sym, {}) if k > buy_date)
+        return ks[CURVE_DAYS - 1] if len(ks) >= CURVE_DAYS else None
 
     def _mv(on_date):
         """Open positions marked to the last close at or before on_date."""
@@ -444,7 +482,7 @@ def main():
         still_open = []
         for p in openpos:
             px = closes.get(p["sym"], {}).get(date)
-            if px is not None and (px <= p["entry"] * lo_m or px >= p["entry"] * hi_m):
+            if px is not None and p["exit_on"] and date >= p["exit_on"]:
                 cash += p["shares"] * px
                 c = cohorts[p["day"]]
                 c["rets"].append((px - p["entry"]) / p["entry"] * 100)
@@ -470,7 +508,8 @@ def main():
                 starved.append(date)
                 break
             openpos.append({"sym": s, "day": date, "entry": e,
-                            "shares": size / e, "alloc": size})
+                            "shares": size / e, "alloc": size,
+                            "exit_on": _exit_date(s, date)})
             cash -= size
             allocs.append(size)
         if not allocs:
@@ -530,7 +569,8 @@ def main():
         "position_frac": POSITION_FRAC,
         # exactly as RULES labels it, so the dashboard can find the curve's own
         # rule in the exit table and show where it ranks
-        "curve_rule": f"Stop {CURVE_STOP:+.0f}% / target {CURVE_TARGET:+.0f}%",
+        "curve_rule": f"Sell after {CURVE_DAYS} days",
+        "curve_days": CURVE_DAYS,
         "starved_days": starved,
         "exit_rules": exits,
         "exit_rules_picks": exits_picks,
@@ -569,7 +609,7 @@ def main():
         tot = (final_balance - START_CASH) / START_CASH * 100
         print(f"\n{'='*74}")
         print(f"COMPOUNDED — ${START_CASH:,.0f}, {POSITION_FRAC:.0%} of the account "
-              f"per pick, exits at {CURVE_STOP:+.0f}% / {CURVE_TARGET:+.0f}%")
+              f"per pick, sold after {CURVE_DAYS} trading days")
         print(f"{'='*74}")
         print(f"{'pick day':<12}{'picks':>6}{'each':>10}{'held':>7}"
               f"{'return':>9}{'account':>12}")

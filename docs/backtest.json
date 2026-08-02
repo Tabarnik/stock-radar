@@ -971,95 +971,96 @@
    "date": "2026-06-15",
    "picks": 3,
    "per_ticker": 500.0,
-   "held_days": 18,
-   "return_pct": 14.1,
+   "held_days": 8,
+   "return_pct": 5.0,
    "invested": 1500.0,
    "balance": 10000.0,
-   "pnl": 211.3,
-   "open": true
+   "pnl": 74.51,
+   "open": false
   },
   {
    "date": "2026-06-17",
    "picks": 2,
    "per_ticker": 505.32,
-   "held_days": 21,
-   "return_pct": -17.2,
+   "held_days": 8,
+   "return_pct": -7.9,
    "invested": 1010.64,
    "balance": 10106.36,
-   "pnl": -173.35,
+   "pnl": -80.33,
    "open": false
   },
   {
    "date": "2026-06-22",
-   "picks": 2,
-   "per_ticker": 514.88,
-   "held_days": 2,
-   "return_pct": 1.6,
-   "invested": 1029.75,
-   "balance": 10297.53,
-   "pnl": 16.26,
+   "picks": 1,
+   "per_ticker": 511.2,
+   "held_days": 7,
+   "return_pct": 80.7,
+   "invested": 511.2,
+   "balance": 10224.0,
+   "pnl": 412.55,
    "open": false
   },
   {
    "date": "2026-07-06",
    "picks": 1,
-   "per_ticker": 501.42,
-   "held_days": 11,
-   "return_pct": -16.2,
-   "invested": 501.42,
-   "balance": 10028.33,
-   "pnl": -81.48,
+   "per_ticker": 520.34,
+   "held_days": 7,
+   "return_pct": -6.9,
+   "invested": 520.34,
+   "balance": 10406.73,
+   "pnl": -35.77,
    "open": false
   },
   {
    "date": "2026-07-29",
    "picks": 8,
-   "per_ticker": 498.48,
-   "held_days": 2,
-   "return_pct": 11.4,
-   "invested": 3987.88,
-   "balance": 9969.69,
-   "pnl": 454.79,
+   "per_ticker": 518.55,
+   "held_days": 4,
+   "return_pct": 9.6,
+   "invested": 4148.38,
+   "balance": 10370.95,
+   "pnl": 400.15,
    "open": true
   },
   {
    "date": "2026-07-30",
    "picks": 4,
-   "per_ticker": 519.94,
+   "per_ticker": 541.04,
    "held_days": 3,
    "return_pct": 0.3,
-   "invested": 2079.77,
-   "balance": 10398.87,
-   "pnl": 5.23,
+   "invested": 2164.14,
+   "balance": 10820.72,
+   "pnl": 5.44,
    "open": true
   },
   {
    "date": "2026-07-31",
    "picks": 2,
-   "per_ticker": 521.64,
+   "per_ticker": 538.83,
    "held_days": 2,
    "return_pct": 1.6,
-   "invested": 1043.27,
-   "balance": 10432.75,
-   "pnl": 16.73,
+   "invested": 1077.65,
+   "balance": 10776.55,
+   "pnl": 17.28,
    "open": true
   },
   {
    "date": "2026-08-01",
    "picks": 1,
-   "per_ticker": 522.47,
+   "per_ticker": 539.69,
    "held_days": 1,
    "return_pct": -0.0,
-   "invested": 522.47,
-   "balance": 10449.48,
+   "invested": 539.69,
+   "balance": 10793.83,
    "pnl": -0.0,
    "open": true
   }
  ],
  "start_cash": 10000.0,
- "final_balance": 10449.48,
+ "final_balance": 10793.83,
  "position_frac": 0.05,
- "curve_rule": "Stop -15% / target +15%",
+ "curve_rule": "Sell after 5 days",
+ "curve_days": 5,
  "starved_days": [],
  "exit_rules": [
   {
@@ -1300,7 +1301,192 @@
    "final": 10877.11,
    "avg_days_held": 2.8,
    "worst": -12.3,
-   "best": 80.7
+   "best": 80.7,
+   "positions_real": 9,
+   "avg_return_real": 17.6,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.35,
+     "ret": -12.3,
+     "days": 5,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.61,
+     "ret": -3.6,
+     "days": 5,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 398.63,
+     "ret": -2.4,
+     "days": 5,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.726,
+     "ret": 6.8,
+     "days": 5,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.221,
+     "ret": 10.5,
+     "days": 5,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 15.45,
+     "ret": 80.7,
+     "days": 5,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Stop -15% / target +25%",
@@ -1314,7 +1500,192 @@
    "final": 10709.7,
    "avg_days_held": 6.5,
    "worst": -17.5,
-   "best": 44.9
+   "best": 44.9,
+   "positions_real": 9,
+   "avg_return_real": 14.3,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.15,
+     "ret": -17.5,
+     "days": 7,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.39,
+     "ret": -16.8,
+     "days": 20,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.718,
+     "ret": 5.6,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1279.96,
+     "ret": 26.0,
+     "days": 1,
+     "held_to_end": false,
+     "simulated": false
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.255,
+     "ret": 27.5,
+     "days": 3,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 12.39,
+     "ret": 44.9,
+     "days": 4,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Stop -15% / target +15%",
@@ -1328,7 +1699,192 @@
    "final": 10685.29,
    "avg_days_held": 4.6,
    "worst": -17.5,
-   "best": 27.5
+   "best": 27.5,
+   "positions_real": 9,
+   "avg_return_real": 12.7,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.15,
+     "ret": -17.5,
+     "days": 7,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.39,
+     "ret": -16.8,
+     "days": 20,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.784,
+     "ret": 15.3,
+     "days": 2,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 451.1,
+     "ret": 15.5,
+     "days": 1,
+     "held_to_end": false,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 149.0,
+     "ret": 17.5,
+     "days": 1,
+     "held_to_end": false,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 874.66,
+     "ret": 18.4,
+     "days": 1,
+     "held_to_end": false,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 10.53,
+     "ret": 23.2,
+     "days": 3,
+     "held_to_end": false,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1279.96,
+     "ret": 26.0,
+     "days": 1,
+     "held_to_end": false,
+     "simulated": false
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.255,
+     "ret": 27.5,
+     "days": 3,
+     "held_to_end": false,
+     "simulated": true
+    }
+   ]
   },
   {
    "rule": "Sell after 10 days",
@@ -1342,7 +1898,192 @@
    "final": 10590.08,
    "avg_days_held": 4.4,
    "worst": -13.2,
-   "best": 57.9
+   "best": 57.9,
+   "positions_real": 9,
+   "avg_return_real": 15.0,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.45,
+     "ret": -13.2,
+     "days": 10,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 373.6,
+     "ret": -8.5,
+     "days": 10,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.55,
+     "ret": -7.1,
+     "days": 10,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.186,
+     "ret": -7.0,
+     "days": 10,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.72,
+     "ret": 5.9,
+     "days": 10,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 13.5,
+     "ret": 57.9,
+     "days": 10,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Trailing stop -15%",
@@ -1356,7 +2097,192 @@
    "final": 10524.72,
    "avg_days_held": 5.3,
    "worst": -14.7,
-   "best": 49.2
+   "best": 49.2,
+   "positions_real": 9,
+   "avg_return_real": 14.1,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.26,
+     "ret": -14.7,
+     "days": 4,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.47,
+     "ret": -12.0,
+     "days": 9,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.184,
+     "ret": -8.0,
+     "days": 6,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.695,
+     "ret": 2.2,
+     "days": 12,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 12.76,
+     "ret": 49.2,
+     "days": 13,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Take profit +20%",
@@ -1370,7 +2296,192 @@
    "final": 10458.42,
    "avg_days_held": 6.7,
    "worst": -41.5,
-   "best": 27.5
+   "best": 27.5,
+   "positions_real": 9,
+   "avg_return_real": 11.9,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 0.977,
+     "ret": -41.5,
+     "days": 30,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 2.58,
+     "ret": -32.5,
+     "days": 30,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.828,
+     "ret": 21.8,
+     "days": 3,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 10.53,
+     "ret": 23.2,
+     "days": 3,
+     "held_to_end": false,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1279.96,
+     "ret": 26.0,
+     "days": 1,
+     "held_to_end": false,
+     "simulated": false
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.255,
+     "ret": 27.5,
+     "days": 3,
+     "held_to_end": false,
+     "simulated": true
+    }
+   ]
   },
   {
    "rule": "Trailing stop -20%",
@@ -1384,7 +2495,192 @@
    "final": 10424.66,
    "avg_days_held": 5.8,
    "worst": -14.7,
-   "best": 37.4
+   "best": 37.4,
+   "positions_real": 9,
+   "avg_return_real": 12.7,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.26,
+     "ret": -14.7,
+     "days": 4,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.45,
+     "ret": -13.2,
+     "days": 10,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.184,
+     "ret": -8.0,
+     "days": 6,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.661,
+     "ret": -2.8,
+     "days": 15,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 11.75,
+     "ret": 37.4,
+     "days": 17,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Stop loss -10%",
@@ -1398,7 +2694,192 @@
    "final": 10342.6,
    "avg_days_held": 7.3,
    "worst": -14.7,
-   "best": 19.6
+   "best": 19.6,
+   "positions_real": 9,
+   "avg_return_real": 10.5,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.26,
+     "ret": -14.7,
+     "days": 4,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.176,
+     "ret": -12.0,
+     "days": 7,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.47,
+     "ret": -12.0,
+     "days": 9,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.718,
+     "ret": 5.6,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 10.01,
+     "ret": 17.1,
+     "days": 28,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Stop -20% / target +40%",
@@ -1412,7 +2893,192 @@
    "final": 10334.55,
    "avg_days_held": 8.1,
    "worst": -27.0,
-   "best": 44.9
+   "best": 44.9,
+   "positions_real": 9,
+   "avg_return_real": 13.6,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 2.79,
+     "ret": -27.0,
+     "days": 21,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.32,
+     "ret": -21.0,
+     "days": 24,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.16,
+     "ret": -20.0,
+     "days": 13,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.718,
+     "ret": 5.6,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 12.39,
+     "ret": 44.9,
+     "days": 4,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Trailing stop -25%",
@@ -1426,7 +3092,192 @@
    "final": 10306.55,
    "avg_days_held": 7.3,
    "worst": -19.8,
-   "best": 32.4
+   "best": 32.4,
+   "positions_real": 9,
+   "avg_return_real": 12.2,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.34,
+     "ret": -19.8,
+     "days": 23,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.15,
+     "ret": -17.5,
+     "days": 7,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.615,
+     "ret": -9.6,
+     "days": 21,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.184,
+     "ret": -8.0,
+     "days": 6,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 11.32,
+     "ret": 32.4,
+     "days": 23,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Sell after 20 days",
@@ -1440,7 +3291,192 @@
    "final": 10307.14,
    "avg_days_held": 7.8,
    "worst": -27.0,
-   "best": 50.9
+   "best": 50.9,
+   "positions_real": 9,
+   "avg_return_real": 14.2,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.146,
+     "ret": -27.0,
+     "days": 20,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.08,
+     "ret": -19.4,
+     "days": 20,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.39,
+     "ret": -16.8,
+     "days": 20,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.635,
+     "ret": -6.6,
+     "days": 20,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 391.91,
+     "ret": -4.0,
+     "days": 20,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 12.9,
+     "ret": 50.9,
+     "days": 20,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Stop loss -15%",
@@ -1454,7 +3490,192 @@
    "final": 10274.99,
    "avg_days_held": 8.4,
    "worst": -17.5,
-   "best": 19.6
+   "best": 19.6,
+   "positions_real": 9,
+   "avg_return_real": 10.5,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 3.15,
+     "ret": -17.5,
+     "days": 7,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.39,
+     "ret": -16.8,
+     "days": 20,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.167,
+     "ret": -16.5,
+     "days": 12,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.718,
+     "ret": 5.6,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 10.01,
+     "ret": 17.1,
+     "days": 28,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Run then trail -15% (+20%)",
@@ -1468,7 +3689,192 @@
    "final": 10261.82,
    "avg_days_held": 7.9,
    "worst": -41.5,
-   "best": 49.2
+   "best": 49.2,
+   "positions_real": 9,
+   "avg_return_real": 14.1,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 0.977,
+     "ret": -41.5,
+     "days": 30,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 2.58,
+     "ret": -32.5,
+     "days": 30,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.184,
+     "ret": -8.0,
+     "days": 6,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.695,
+     "ret": 2.2,
+     "days": 12,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 12.76,
+     "ret": 49.2,
+     "days": 13,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Stop loss -20%",
@@ -1482,7 +3888,192 @@
    "final": 10179.9,
    "avg_days_held": 9.4,
    "worst": -27.0,
-   "best": 19.6
+   "best": 19.6,
+   "positions_real": 9,
+   "avg_return_real": 10.5,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 2.79,
+     "ret": -27.0,
+     "days": 21,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 1.32,
+     "ret": -21.0,
+     "days": 24,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.16,
+     "ret": -20.0,
+     "days": 13,
+     "held_to_end": false,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.718,
+     "ret": 5.6,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 10.01,
+     "ret": 17.1,
+     "days": 28,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Take profit +30%",
@@ -1496,7 +4087,192 @@
    "final": 10087.12,
    "avg_days_held": 10.0,
    "worst": -41.5,
-   "best": 44.9
+   "best": 44.9,
+   "positions_real": 9,
+   "avg_return_real": 13.6,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 0.977,
+     "ret": -41.5,
+     "days": 30,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.123,
+     "ret": -38.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 2.58,
+     "ret": -32.5,
+     "days": 30,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.718,
+     "ret": 5.6,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 12.39,
+     "ret": 44.9,
+     "days": 4,
+     "held_to_end": false,
+     "simulated": false
+    }
+   ]
   },
   {
    "rule": "Hold, never sell",
@@ -1510,7 +4286,192 @@
    "final": 9932.48,
    "avg_days_held": 11.3,
    "worst": -41.5,
-   "best": 19.6
+   "best": 19.6,
+   "positions_real": 9,
+   "avg_return_real": 10.5,
+   "win_rate_real": 88.9,
+   "detail": [
+    {
+     "sym": "OTLK",
+     "date": "2026-06-17",
+     "entry": 1.67,
+     "exit": 0.977,
+     "ret": -41.5,
+     "days": 30,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CXAI",
+     "date": "2026-06-15",
+     "entry": 0.2,
+     "exit": 0.123,
+     "ret": -38.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CRVO",
+     "date": "2026-06-17",
+     "entry": 3.82,
+     "exit": 2.58,
+     "ret": -32.5,
+     "days": 30,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "AAPL",
+     "date": "2026-07-30",
+     "entry": 331.58,
+     "exit": 308.91,
+     "ret": -6.8,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "T",
+     "date": "2026-07-29",
+     "entry": 23.94,
+     "exit": 23.25,
+     "ret": -2.9,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "RS",
+     "date": "2026-06-15",
+     "entry": 408.28,
+     "exit": 406.1,
+     "ret": -0.5,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "QQQ",
+     "date": "2026-07-30",
+     "entry": 679.17,
+     "exit": 687.99,
+     "ret": 1.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "TSLA",
+     "date": "2026-07-30",
+     "entry": 304.11,
+     "exit": 311.21,
+     "ret": 2.3,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "SPY",
+     "date": "2026-07-29",
+     "entry": 729.46,
+     "exit": 747.03,
+     "ret": 2.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "META",
+     "date": "2026-07-30",
+     "entry": 534.22,
+     "exit": 556.71,
+     "ret": 4.2,
+     "days": 1,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "CTM",
+     "date": "2026-06-15",
+     "entry": 0.68,
+     "exit": 0.718,
+     "ret": 5.6,
+     "days": 32,
+     "held_to_end": true,
+     "simulated": true
+    },
+    {
+     "sym": "NVDA",
+     "date": "2026-07-29",
+     "entry": 190.01,
+     "exit": 200.75,
+     "ret": 5.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "NOK",
+     "date": "2026-07-29",
+     "entry": 8.41,
+     "exit": 9.14,
+     "ret": 8.7,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MU",
+     "date": "2026-07-29",
+     "entry": 739.0,
+     "exit": 823.03,
+     "ret": 11.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SKHY",
+     "date": "2026-07-29",
+     "entry": 126.79,
+     "exit": 143.73,
+     "ret": 13.4,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SLS",
+     "date": "2026-06-22",
+     "entry": 8.55,
+     "exit": 10.01,
+     "ret": 17.1,
+     "days": 28,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "MSFT",
+     "date": "2026-07-29",
+     "entry": 390.54,
+     "exit": 464.72,
+     "ret": 19.0,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
+     "sym": "SNDK",
+     "date": "2026-07-29",
+     "entry": 1015.89,
+     "exit": 1214.83,
+     "ret": 19.6,
+     "days": 2,
+     "held_to_end": true,
+     "simulated": false
+    }
+   ]
   }
  ]
 }

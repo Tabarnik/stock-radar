@@ -68,20 +68,49 @@ put in the payload, the survivor of which mixed buzz and mover tiers back into a
 picks-only view. `basket([])` now returns a zeroed shape instead of dying on
 `max()`.
 
-### 2 & 3. Capital model and the ±15% bracket
+### 2 & 3. Capital model, and the rule the user settled on
 Implemented option (c) with (a)'s staggering. Each pick day deploys
-`POSITION_FRAC` (5%) of the account into each individual pick; each runs
-until the ±15% bracket closes it; freed cash funds later days. Baskets overlap,
-the account is marked to market, and `final_balance` is today's value rather
-than the last pick day's. The curve now trades the same rule the sell panel
-measures.
+`POSITION_FRAC` (5%) of the account into each individual pick; freed cash funds
+later days. Baskets overlap, the account is marked to market, and
+`final_balance` is today's value rather than the last pick day's. The curve
+trades the same rule the sell panel measures.
 
-**The ±15% bracket did not come out on top**, so it is not the headline. On the
-18 picks measured: best is "Sell after 5 days" (+8.8%), then −15%/+25% (+7.1%),
-then ±15% (+6.9%, 72% win, 4.6 days). *Every* rule beat holding — "Hold, never
-sell" is last at −0.7%. The sell table pins the ±15% row with a "your curve"
-badge and states its rank, so the two panels cannot imply the same rule won.
-The small-sample caveat now runs to 30 picks; at 15 it disappeared at 18.
+**The rule is now "sell after 5 trading days"** (`CURVE_DAYS = 5`), chosen by
+the user after it ranked first: +8.8% against −0.7% for holding, ahead of
+−15%/+25% (+7.1%) and ±15% (+6.9%). *Every* rule beat holding. The ±15% bracket
+the earlier pass recommended is no longer the headline anywhere.
+
+It is a **time** stop: no stop loss, no target. The trade plan says so plainly —
+worst single pick under it still lost 12.3% and nothing caps a gap down. A time
+stop is also what keeps a near-daily cadence funded, since capital returns on a
+schedule; `starved_days` is empty.
+
+Both halves read `CURVE_DAYS`. The dashboard leads with `hero = curve || best`,
+so it shows **the rule you trade** and states its rank rather than silently
+swapping the headline if something else wins later. The small-sample caveat runs
+to 30 picks.
+
+Two things caught only by rendering, both in the trade plan: the sell date was
+counted from *today*, which on a weekend named a date four trading days after a
+Monday buy — it now counts from the next session you can actually buy in. And
+`held_days` in the curve is **calendar** days, so it reads ~7 against a 5-day
+rule; the note explains it rather than the column lying.
+
+### 4. Real picks vs reconstructed are now separable
+21 distinct picks reach the backtest; **only 12 were really sent**. The other 9
+(AAPL, CRVO, CTM, CXAI, META, OTLK, QQQ, RS, TSLA) are `simulated: true` —
+replayed over digests predating the pick section, never sent to ntfy. Folding
+them in silently inflated a record the page called "your own picks".
+
+Every rule now carries `positions_real`, `avg_return_real`, `win_rate_real` and
+a per-position `detail` list, so "which pick drove this number" is answerable
+from the JSON. Over the 9 real picks with price paths the 5-day rule returns
++17.6% — but **SLS alone (+80.7%) supplies about 8 of those points**; the other
+eight average +9.7%. Never quote the real-only number without that caveat.
+
+CXAI is the case worth remembering: −38.5% held to today, but **+10.5% under the
+5-day rule** and +27.5% under ±15%. It is the argument *for* an early exit, not
+against one — and it was never actually picked.
 
 **Sizing is per position, not per pick day.** The first cut used a 20%-per-*day*
 budget split across that day's names, which put the whole 20% into a lone pick
