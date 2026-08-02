@@ -970,6 +970,13 @@
   {
    "date": "2026-06-15",
    "picks": 3,
+   "flagged": 3,
+   "held_already": [],
+   "bought": [
+    "RS",
+    "CXAI",
+    "CTM"
+   ],
    "per_ticker": 500.0,
    "held_days": 8,
    "return_pct": 5.0,
@@ -981,6 +988,15 @@
   {
    "date": "2026-06-17",
    "picks": 2,
+   "flagged": 4,
+   "held_already": [
+    "CXAI",
+    "RS"
+   ],
+   "bought": [
+    "OTLK",
+    "CRVO"
+   ],
    "per_ticker": 505.32,
    "held_days": 8,
    "return_pct": -7.9,
@@ -992,6 +1008,13 @@
   {
    "date": "2026-06-22",
    "picks": 1,
+   "flagged": 2,
+   "held_already": [
+    "CXAI"
+   ],
+   "bought": [
+    "SLS"
+   ],
    "per_ticker": 511.2,
    "held_days": 7,
    "return_pct": 80.7,
@@ -1003,6 +1026,11 @@
   {
    "date": "2026-07-06",
    "picks": 1,
+   "flagged": 1,
+   "held_already": [],
+   "bought": [
+    "CXAI"
+   ],
    "per_ticker": 520.34,
    "held_days": 7,
    "return_pct": -6.9,
@@ -1014,6 +1042,18 @@
   {
    "date": "2026-07-29",
    "picks": 8,
+   "flagged": 8,
+   "held_already": [],
+   "bought": [
+    "T",
+    "SPY",
+    "SNDK",
+    "SKHY",
+    "NVDA",
+    "NOK",
+    "MU",
+    "MSFT"
+   ],
    "per_ticker": 518.55,
    "held_days": 4,
    "return_pct": 9.6,
@@ -1025,6 +1065,17 @@
   {
    "date": "2026-07-30",
    "picks": 4,
+   "flagged": 6,
+   "held_already": [
+    "NVDA",
+    "SPY"
+   ],
+   "bought": [
+    "TSLA",
+    "QQQ",
+    "META",
+    "AAPL"
+   ],
    "per_ticker": 541.04,
    "held_days": 3,
    "return_pct": 0.3,
@@ -1036,6 +1087,16 @@
   {
    "date": "2026-07-31",
    "picks": 2,
+   "flagged": 5,
+   "held_already": [
+    "AAPL",
+    "NOK",
+    "NVDA"
+   ],
+   "bought": [
+    "RDDT",
+    "AMZN"
+   ],
    "per_ticker": 538.83,
    "held_days": 2,
    "return_pct": 1.6,
@@ -1047,6 +1108,16 @@
   {
    "date": "2026-08-01",
    "picks": 1,
+   "flagged": 5,
+   "held_already": [
+    "AAPL",
+    "NOK",
+    "NVDA",
+    "RDDT"
+   ],
+   "bought": [
+    "IREN"
+   ],
    "per_ticker": 539.69,
    "held_days": 1,
    "return_pct": -0.0,
