@@ -827,7 +827,18 @@ function exitRules(){
   let lead = beat === RS.length - 1
     ? `Every rule tested beat holding your picks.`
     : `${beat} of ${RS.length - 1} rules beat holding your picks.`;
-  if (hold.positions < 15) {
+  // where the rule the compounded account actually trades landed — saying it
+  // ranked first when it did not would be the easiest lie on this page
+  const curve = RS.find(e => e.rule === (B.curve_rule || ""));
+  if (curve) {
+    const rank = RS.indexOf(curve) + 1;
+    lead += rank === 1
+      ? ` The ${curve.rule.toLowerCase()} bracket the compounded account trades came out on top.`
+      : ` The bracket the compounded account trades, ${curve.rule.toLowerCase()},
+          ranked ${rank} of ${RS.length} at ${curve.avg_return > 0 ? "+" : ""}${
+          curve.avg_return}% against ${best.avg_return}% for the best.`;
+  }
+  if (hold.positions < 30) {
     lead += ` ${hold.positions} picks so far and the record grows with every run, so this ranking will move — it is your average, not an industry rule of thumb.`;
   }
 
@@ -867,16 +878,26 @@ function exitRules(){
         <div style="flex:0 0 86px;text-align:right;">Days held</div>
         <div style="flex:0 0 80px;text-align:right;">Worst</div>
       </div>
-      ${(rs => rs.includes(hold) ? rs : rs.concat([hold]))(RS.slice(0, 5)).map(e => {
+      ${(() => {          // top five, plus the curve's rule and the baseline if missed
+        let rs = RS.slice(0, 5);
+        if (curve && !rs.includes(curve)) rs = rs.concat([curve]);
+        if (!rs.includes(hold)) rs = rs.concat([hold]);
+        return rs;
+      })().map(e => {
         const isHold = e.rule === "Hold, never sell";
+        const isCurve = !!curve && e.rule === curve.rule;
         const better = e.avg_return > hold.avg_return;
         return `<div class="row" ${isHold ? 'style="background:rgba(120,112,90,0.07);"' : ""}>
           <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
-            <div style="flex:1 1 200px;min-width:0;display:flex;align-items:center;gap:8px;">
+            <div style="flex:1 1 200px;min-width:0;display:flex;align-items:center;
+              gap:8px;flex-wrap:wrap;">
               <span style="font-size:13px;color:var(--ink-2);${
-                isHold ? "font-weight:600;" : ""}">${esc(e.rule)}</span>
+                isHold || isCurve ? "font-weight:600;" : ""}">${esc(e.rule)}</span>
               ${isHold ? `<span class="pill" style="${pillCss("muted")};font-size:10px;">
-                baseline</span>` : better ? `<span class="pill" style="${pillCss("good")};
+                baseline</span>` : ""}
+              ${isCurve ? `<span class="pill" style="${pillCss("good")};font-size:10px;">
+                your curve</span>` : ""}
+              ${!isHold && better ? `<span class="pill" style="${pillCss("good")};
                 font-size:10px;">better</span>` : ""}
             </div>
             <div class="mono" style="flex:0 0 104px;text-align:right;font-size:13px;

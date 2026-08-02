@@ -523,7 +523,9 @@ def main():
         # instead of hard-coding a description that drifts out of date
         "final_balance": round(final_balance, 2),
         "deploy_frac": DEPLOY_FRAC,
-        "curve_rule": f"stop {CURVE_STOP:+.0f}% / target {CURVE_TARGET:+.0f}%",
+        # exactly as RULES labels it, so the dashboard can find the curve's own
+        # rule in the exit table and show where it ranks
+        "curve_rule": f"Stop {CURVE_STOP:+.0f}% / target {CURVE_TARGET:+.0f}%",
         "starved_days": starved,
         "exit_rules": exits,
         "exit_rules_picks": exits_picks,
