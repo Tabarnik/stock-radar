@@ -496,6 +496,14 @@ const BUY_STAKE = 1000;
 // const would freeze the fallback in and ignore whatever the backtest traded.
 function holdDays(){ return (B && B.curve_days) || 5; }
 
+// What the account is still in, as of the last backtest run: symbol -> days left.
+// A name on today's list that is already open is not a second buy.
+function openPos(){
+  const m = {};
+  ((B && B.open_positions) || []).forEach(p => { m[p.sym] = p; });
+  return m;
+}
+
 // Trading days out, weekends only — market holidays are not known client-side,
 // so the date is shown as approximate and the day count is the real instruction.
 // Counted from the next day the market is actually open, not from today: on a
@@ -543,8 +551,13 @@ function sellByDate(n){
 }
 
 function sellPlan(){
-  const q = D.watch || [];
-  if (!q.length) return "";
+  const all = D.watch || [];
+  if (!all.length) return "";
+  // names already in the account are shown separately — buying them again would
+  // double a position the rule is already counting down
+  const OP = openPos();
+  const q = all.filter(t => !OP[t.sym]);
+  const dupes = all.filter(t => OP[t.sym]);
   // measured on picks alone — the only list still acted on
   const RS = (B && B.exit_rules_picks) || [];
   const ALL = (B && B.exit_rules) || [];
@@ -639,7 +652,45 @@ function sellPlan(){
         a reminder. Selling on schedule is what frees the cash for the next pick; the
         account cannot stay funded if positions run indefinitely.</div>
     </div>
-  </div>`;
+  </div>` + (dupes.length ? `<div class="panel" style="margin-top:16px;">
+    <div class="phead"><div class="cap">Already holding — don't buy again</div>
+      <div class="note">on today's list but already in the account · sell on schedule,
+        then it can be bought again</div></div>
+    <div class="scroll"><div style="min-width:420px;">
+      <div class="tbl">
+        <div style="flex:0 0 76px;">Ticker</div>
+        <div style="flex:0 0 92px;text-align:right;">Price now</div>
+        <div style="flex:0 0 96px;text-align:right;">Since buy</div>
+        <div style="flex:1 1 130px;text-align:right;">Sell in</div>
+      </div>
+      ${dupes.map(t => {
+        const o = OP[t.sym] || {};
+        const ent = ((B && B.pick_detail) || [])
+          .filter(p => p.sym === t.sym && p.date === o.bought)[0];
+        const since = ent && typeof t.price === "number" && ent.entry
+          ? (t.price - ent.entry) / ent.entry * 100 : null;
+        return `<div class="row clickable" data-open="${esc(t.sym)}">
+        <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
+            color:var(--ink-d);">$${esc(t.sym)}</div>
+          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(t.price)}</div>
+          <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+            color:${since===null?"var(--ink-5)":chgC(since)};">${
+              since===null ? "—" : pctT(+since.toFixed(1))}</div>
+          <div class="mono" style="flex:1 1 130px;text-align:right;font-size:13px;
+            font-weight:600;color:var(--ink-d);">${
+              typeof o.days_left === "number"
+                ? (o.days_left === 0 ? "today" : `${o.days_left} trading day${
+                    o.days_left===1?"":"s"}`)
+                : "—"}</div>
+        </div></div>`; }).join("")}
+    </div></div>
+    <div style="padding:12px 18px 16px;"><div class="note">Bought on an earlier pick
+      day and still running, so today's flag is not a second buy — doubling up would
+      put two lots of ${Math.round((B && B.position_frac || 0.05)*100)}% into one name.
+      <b>Since buy</b> is from the price it was actually bought at, not today's flag.</div></div>
+  </div>` : "");
 }
 
 function picksPanel(){
@@ -777,18 +828,15 @@ function watchlist(){
     ((B && B.pick_detail) || []).forEach(p => { PD[p.date + "|" + p.sym] = p; });
     const nD = holdDays();
 
-    return head + `<div class="panel"><div class="scroll"><div style="min-width:760px;">
-      <div class="tbl">
-        <div style="flex:0 0 84px;">Ticker</div>
-        <div style="flex:0 0 90px;text-align:right;">At pick</div>
-        <div style="flex:0 0 90px;text-align:right;">Now</div>
-        <div style="flex:0 0 92px;text-align:right;">Still held</div>
-        <div style="flex:0 0 104px;text-align:right;"
-          title="What the ${nD}-day rule actually paid: sold at the close ${nD} trading days after the pick."
-          >Sold at ${nD}d</div>
-        <div style="flex:1 1 150px;">Since</div>
-      </div>
-      ${past.map(e => {
+    // A name already in the account is not a second buy, so it is listed apart
+    // from the ones you would have acted on and left out of the day's average.
+    const bought = past.filter(e => !(PD[e.date + "|" + e.sym] || {}).already_held);
+    const holding = past.filter(e => (PD[e.date + "|" + e.sym] || {}).already_held);
+    const sold = bought.map(e => (PD[e.date + "|" + e.sym] || {}).ret_hold)
+                       .filter(v => typeof v === "number");
+    const dayAvg = sold.length ? sold.reduce((a, b) => a + b, 0) / sold.length : null;
+
+    const rowsFor = list => list.map(e => {
         const d = PD[e.date + "|" + e.sym];
         const soldCell = !d ? `<span style="color:var(--ink-5);">—</span>`
           : d.still_open ? `<span class="note" style="margin:0;">not due</span>`
@@ -815,8 +863,61 @@ against that day's data, which no longer exists.">reconstructed</span>` : ""}
             <span style="font-size:12px;color:var(--ink-4);white-space:nowrap;
               overflow:hidden;text-overflow:ellipsis;">${esc(e.note||"")}</span>
           </div>
-        </div></div>`; }).join("")}
-    </div></div></div>
+        </div></div>`; }).join("");
+
+    const tblHead = `<div class="tbl">
+        <div style="flex:0 0 84px;">Ticker</div>
+        <div style="flex:0 0 90px;text-align:right;">At pick</div>
+        <div style="flex:0 0 90px;text-align:right;">Now</div>
+        <div style="flex:0 0 92px;text-align:right;">Still held</div>
+        <div style="flex:0 0 104px;text-align:right;"
+          title="What the ${nD}-day rule actually paid: sold at the close ${nD} trading days after the pick."
+          >Sold at ${nD}d</div>
+        <div style="flex:1 1 150px;">Since</div>
+      </div>`;
+
+    return head + `<div class="panel">
+      <div class="phead"><div class="cap">Would have bought</div>
+        <div class="note">${bought.length} name${bought.length===1?"":"s"} not already
+          in the account${dayAvg !== null ? ` · the day averaged
+          <b style="color:${chgC(dayAvg)};">${pctT(+dayAvg.toFixed(1))}</b> on the
+          ${nD}-day rule` : ""}</div></div>
+      ${bought.length ? `<div class="scroll"><div style="min-width:760px;">
+        ${tblHead}${rowsFor(bought)}</div></div>`
+        : `<div class="empty">Every name on this day's list was already held.</div>`}
+    </div>
+    ${holding.length ? `<div class="panel" style="margin-top:16px;">
+      <div class="phead"><div class="cap">Already holding — don't buy again</div>
+        <div class="note">flagged again while the position was still open, so no
+          second buy and no effect on the day's return</div></div>
+      <div class="scroll"><div style="min-width:760px;">
+        <div class="tbl">
+          <div style="flex:0 0 84px;">Ticker</div>
+          <div style="flex:0 0 90px;text-align:right;">Bought at</div>
+          <div style="flex:0 0 90px;text-align:right;">Now</div>
+          <div style="flex:1 1 220px;">Status that day</div>
+        </div>
+        ${holding.map(e => {
+          const d = PD[e.date + "|" + e.sym] || {};
+          const dl = d.days_left;
+          return `<div class="row clickable" data-open="${esc(e.sym)}">
+          <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
+            <div class="mono" style="flex:0 0 84px;font-size:14px;font-weight:600;
+              color:var(--ink-d);">$${esc(e.sym)}</div>
+            <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
+              color:var(--ink-2);">${money(e.flag_price)}</div>
+            <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
+              color:var(--ink-2);">${money(e.last_price)}</div>
+            <div style="flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:10px;">
+              <span class="pill" style="${pillCss("muted")};font-size:10px;">held</span>
+              <span style="font-size:12px;color:var(--ink-4);">${
+                typeof dl === "number"
+                  ? `${dl} more trading day${dl===1?"":"s"} to run`
+                  : "position still open"}</span>
+            </div>
+          </div></div>`; }).join("")}
+      </div></div>
+    </div>` : ""}
     <div class="panel" style="margin-top:16px;padding:14px 18px;">
       <div class="note"><b>Still held</b> is the change from the pick price to the
       latest run — what the name did afterwards, whether or not you were in it.

@@ -472,6 +472,20 @@ def main():
         ks = sorted(k for k in closes.get(sym, {}) if k > buy_date)
         return ks[CURVE_DAYS - 1] if len(ks) >= CURVE_DAYS else None
 
+    def _sessions(sym, after, upto):
+        """Trading sessions in (after, upto]."""
+        return sum(1 for k in closes.get(sym, {}) if after < k <= upto)
+
+    def _days_left(p, ref):
+        """Sessions still to run on an open position as of ref."""
+        if p["exit_on"]:
+            return max(0, _sessions(p["sym"], ref, p["exit_on"]))
+        # exit has not happened yet, so count down from the full holding period
+        return max(0, CURVE_DAYS - _sessions(p["sym"], p["day"], ref))
+
+    # (pick day, symbol) -> sessions left on the position already open that day
+    held_at = {}
+
     def _mv(on_date):
         """Open positions marked to the last close at or before on_date."""
         return sum(p["shares"] * (close_on_or_before(closes.get(p["sym"]), on_date)
@@ -503,6 +517,9 @@ def main():
         # fewer names than the digest listed, so both counts are reported rather
         # than letting "picks" quietly mean two different things on two panels.
         held_already = sorted(s for s, _ in flagged if s in live)
+        for s in held_already:                  # how much longer it was tied up
+            p = next(x for x in openpos if x["sym"] == s)
+            held_at[(date, s)] = _days_left(p, date)
         if not names:
             continue
         acct = cash + _mv(date)
@@ -590,7 +607,18 @@ def main():
                 # come due yet, so there is no exit to report rather than a zero
                 "still_open": xpx is None,
                 "simulated": pick_sim.get((date, sym), False),
+                # flagged again while the account still held it: not a buy, and
+                # the day's return should not average it in
+                "already_held": (date, sym) in held_at,
+                "days_left": held_at.get((date, sym)),
             })
+
+    # What the account is still holding as of this run, so today's list can say
+    # "already in it, N days left" instead of telling you to buy it twice.
+    open_positions = sorted(
+        ({"sym": p["sym"], "bought": p["day"],
+          "days_left": _days_left(p, today)} for p in openpos),
+        key=lambda o: (o["days_left"], o["sym"]))
 
     payload = {
         "stake": STAKE,
@@ -610,6 +638,7 @@ def main():
         "curve_rule": f"Sell after {CURVE_DAYS} days",
         "curve_days": CURVE_DAYS,
         "pick_detail": pick_detail,
+        "open_positions": open_positions,
         "starved_days": starved,
         "exit_rules": exits,
         "exit_rules_picks": exits_picks,
