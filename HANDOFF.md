@@ -70,7 +70,7 @@ picks-only view. `basket([])` now returns a zeroed shape instead of dying on
 
 ### 2 & 3. Capital model and the ±15% bracket
 Implemented option (c) with (a)'s staggering. Each pick day deploys
-`DEPLOY_FRAC` (20%) of the account across that day's picks; each position runs
+`POSITION_FRAC` (5%) of the account into each individual pick; each runs
 until the ±15% bracket closes it; freed cash funds later days. Baskets overlap,
 the account is marked to market, and `final_balance` is today's value rather
 than the last pick day's. The curve now trades the same rule the sell panel
@@ -83,21 +83,25 @@ sell" is last at −0.7%. The sell table pins the ±15% row with a "your curve"
 badge and states its rank, so the two panels cannot imply the same rule won.
 The small-sample caveat now runs to 30 picks; at 15 it disappeared at 18.
 
-**Open question — sizing concentration.** A fixed 20%-per-*day* budget means a
-day with one pick puts the whole 20% into that name ($1,988 into a single
-ticker on 2026-07-06, which then lost 16.2%), while an 8-pick day puts $241
-into each. That is why the account reads −1.0% while the average pick under the
-same rule reads +6.9%: the table equal-weights positions, the account
-equal-weights days. Sizing per *position* instead of per day would fix the
-concentration. Not changed — it is a real decision about the model, not a bug.
+**Sizing is per position, not per pick day.** The first cut used a 20%-per-*day*
+budget split across that day's names, which put the whole 20% into a lone pick
+($1,988 into one ticker on 2026-07-06, which then lost 16.2%) but only $241 into
+each name on an 8-pick day. Same rule, wildly different risk — and it read −1.0%
+on the account while the same exit rule averaged +6.9% per pick, because the
+table equal-weights positions and that model equal-weighted days. Every pick now
+gets 5% of the account, capped by cash: **+4.5%** ($10,000 → $10,449). The
+account still trails the per-position average, which is correct — it holds cash,
+the rule table is always fully invested.
 
 ## Open threads
 
 ### 1. GitHub Pages still needs one manual click
 Unchanged — see above. Settings → Pages → Source: GitHub Actions.
 
-### 2. Decide per-day vs per-position sizing
-See the open question under "Capital model" above.
+### 2. `POSITION_FRAC` is a judgement call, not a measured optimum
+5% per pick was chosen for even risk, not fitted to the record. With ~2.9 picks
+per pick day and ~4.6-day holds it leaves the account partly in cash. Worth
+revisiting once the pick count is well past 18 — do not tune it on 18 picks.
 
 ## Things that bit me — don't repeat
 
