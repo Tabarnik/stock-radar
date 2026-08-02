@@ -526,16 +526,14 @@ function fmtPickDay(iso){
          d.toLocaleDateString(undefined, {month:"long"});
 }
 
-// Charts on Yahoo/Google are links, never embeds — the board makes zero external
-// requests and an iframe or remote image would break that (and the artifact CSP).
+// The chart is a link, never an embed — the board makes zero external requests
+// and an iframe or remote image would break that (and the artifact CSP).
+// Yahoo only: Google Finance needs the exchange in the URL and guessing NASDAQ
+// sent every NYSE name to a dead page.
 function chartLinks(sym){
-  const s = encodeURIComponent(sym);
-  return `<div style="display:flex;gap:8px;flex-wrap:wrap;">
-    <a class="btn" target="_blank" rel="noopener noreferrer"
-      href="https://finance.yahoo.com/quote/${s}/chart">YAHOO CHART ↗</a>
-    <a class="btn" target="_blank" rel="noopener noreferrer"
-      href="https://www.google.com/finance/quote/${s}:NASDAQ">GOOGLE FINANCE ↗</a>
-  </div>`;
+  return `<a class="btn" target="_blank" rel="noopener noreferrer"
+    href="https://finance.yahoo.com/quote/${encodeURIComponent(sym)}/chart"
+    >YAHOO CHART ↗</a>`;
 }
 function sellByDate(n){
   const d = nextOpen();
