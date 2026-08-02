@@ -962,7 +962,10 @@ function backtest(){
       </div>
     </div>
 
-    <div class="scroll"><div style="min-width:440px;">
+    <!-- 440px predates the Each/Held columns: the fixed cells alone now need
+         ~570px, so the only flexible cell was crushed and the "open" pill
+         overlapped the Picks column. Let it scroll instead. -->
+    <div class="scroll"><div style="min-width:640px;">
       <div class="tbl">
         <div style="flex:1 1 120px;">Pick day</div>
         <div style="flex:0 0 70px;text-align:right;">Picks</div>
