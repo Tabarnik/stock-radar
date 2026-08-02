@@ -928,7 +928,7 @@ function backtest(){
   // not whatever it happened to be on the last pick day.
   const finalBal = B.final_balance != null ? B.final_balance
                  : (eq.length ? eq[eq.length - 1].balance : start);
-  const frac = B.deploy_frac || 0.2;
+  const frac = B.position_frac || 0.05;
   const rule = B.curve_rule || "stop -15% / target +15%";
   const starved = (B.starved_days || []).length;
   const totalPct = ((finalBal - start) / start) * 100;
@@ -937,7 +937,7 @@ function backtest(){
   const curve = eq.length ? `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap">Picks, compounded</div>
       <div class="note">$${start.toLocaleString()} account · ${Math.round(frac*100)}% of it
-        into each pick day · positions close at ${esc(rule)}</div></div>
+        into every pick · positions close at ${esc(rule)}</div></div>
 
     <div style="padding:20px 18px;display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;">
       <div>
@@ -951,14 +951,15 @@ function backtest(){
       </div>
       <div style="flex:1 1 240px;min-width:0;font-size:13px;color:var(--ink-3);
         text-wrap:pretty;">
-        ${wins} of ${eq.length} pick days made money. Each pick day puts
-        ${Math.round(frac*100)}% of the account to work and every position runs until
-        ${esc(rule)} closes it, so several days' baskets are live at once and the cash
-        that comes back funds the next buy. <b>Each</b> is what went into one ticker
-        that day. <b>Held</b> is how long that basket actually ran before its exit
-        fired. <b>Account</b> is what the whole account was worth on the day that
+        ${wins} of ${eq.length} pick days made money. Every pick gets the same
+        ${Math.round(frac*100)}% of the account — so a day with one name risks
+        ${Math.round(frac*100)}%, not the whole day's budget — and each position runs
+        until ${esc(rule)} closes it, so several days' picks are live at once and the
+        cash that comes back funds the next buy. <b>Each</b> is what went into one
+        ticker that day. <b>Held</b> is how long that basket actually ran before its
+        exit fired. <b>Account</b> is what the whole account was worth on the day that
         basket was bought.${starved ? ` ${starved} pick day${starved===1?" was":"s were"}
-        skipped with no cash free.` : ""} Click any row for that day's picks.
+        cut short with no cash free.` : ""} Click any row for that day's picks.
       </div>
     </div>
 

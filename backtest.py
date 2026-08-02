@@ -32,12 +32,12 @@ import yfinance as yf
 STAKE = float(os.getenv("STAKE", "1000"))
 # One account for the compounding curve.
 START_CASH = float(os.getenv("START_CASH", "10000"))
-# How much of the account each pick day is allowed to deploy. The old model put
-# the whole balance into every pick day and liquidated it on the next one, which
-# could not coexist with any "hold until the rule fires" exit: pick days are
-# near-daily, so there was never cash left to hold with. Deploying a fifth at a
-# time lets ~5 baskets overlap, which is what buying daily actually looks like.
-DEPLOY_FRAC = float(os.getenv("DEPLOY_FRAC", "0.2"))
+# How much of the account goes into each individual pick. Sized per position,
+# not per day: a fixed daily budget split across that day's names meant a
+# one-pick day put the entire budget into a single ticker while an eight-pick
+# day put an eighth into each, so identical rules got wildly different risk.
+# One slice per name keeps every position the same size.
+POSITION_FRAC = float(os.getenv("POSITION_FRAC", "0.05"))
 # The curve exits on the same bracket the sell panel measures, so the two halves
 # of the dashboard describe one strategy rather than contradicting each other.
 CURVE_STOP, CURVE_TARGET = -15.0, 15.0
@@ -462,16 +462,21 @@ def main():
         if not names:
             continue
         acct = cash + _mv(date)
-        budget = min(acct * DEPLOY_FRAC, cash)
-        if budget < 1:                          # fully invested — the day is missed
-            starved.append(date)
-            continue
-        each = budget / len(names)
+        target = acct * POSITION_FRAC           # same dollar risk on every name
+        allocs = []
         for s, e in names:
+            size = min(target, cash)
+            if size < 1:                        # fully invested — the rest is missed
+                starved.append(date)
+                break
             openpos.append({"sym": s, "day": date, "entry": e,
-                            "shares": each / e, "alloc": each})
-            cash -= each
-        cohorts[date] = {"picks": len(names), "per_ticker": each,
+                            "shares": size / e, "alloc": size})
+            cash -= size
+            allocs.append(size)
+        if not allocs:
+            continue
+        cohorts[date] = {"picks": len(allocs),
+                         "per_ticker": sum(allocs) / len(allocs),
                          "balance": acct, "rets": [], "held": []}
 
     # whatever is still open is marked to the latest price
@@ -522,7 +527,7 @@ def main():
         # the capital model behind the curve, so the dashboard can describe it
         # instead of hard-coding a description that drifts out of date
         "final_balance": round(final_balance, 2),
-        "deploy_frac": DEPLOY_FRAC,
+        "position_frac": POSITION_FRAC,
         # exactly as RULES labels it, so the dashboard can find the curve's own
         # rule in the exit table and show where it ranks
         "curve_rule": f"Stop {CURVE_STOP:+.0f}% / target {CURVE_TARGET:+.0f}%",
@@ -563,8 +568,8 @@ def main():
     if equity:
         tot = (final_balance - START_CASH) / START_CASH * 100
         print(f"\n{'='*74}")
-        print(f"COMPOUNDED — ${START_CASH:,.0f}, {DEPLOY_FRAC:.0%} deployed per pick "
-              f"day, exits at {CURVE_STOP:+.0f}% / {CURVE_TARGET:+.0f}%")
+        print(f"COMPOUNDED — ${START_CASH:,.0f}, {POSITION_FRAC:.0%} of the account "
+              f"per pick, exits at {CURVE_STOP:+.0f}% / {CURVE_TARGET:+.0f}%")
         print(f"{'='*74}")
         print(f"{'pick day':<12}{'picks':>6}{'each':>10}{'held':>7}"
               f"{'return':>9}{'account':>12}")
