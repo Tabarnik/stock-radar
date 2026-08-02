@@ -269,8 +269,13 @@ def daily_path(sym, start):
         return []
 
 
-def test_exit_rules(pos_list):
-    """Replay every rule over every position; return per-rule aggregates."""
+def test_exit_rules(pos_list, detail=False):
+    """Replay every rule over every position; return per-rule aggregates.
+
+    With detail=True each rule also carries the individual positions behind its
+    average, so "which pick drove this number" is answerable from the JSON
+    instead of being taken on trust.
+    """
     paths = {}
     for p in pos_list:
         path = daily_path(p["sym"], p["date"])
@@ -280,7 +285,7 @@ def test_exit_rules(pos_list):
 
     results = []
     for name, fn in RULES:
-        rets, held, exited = [], [], 0
+        rets, held, exited, rows_ = [], [], 0, []
         for p in pos_list:
             path = paths.get(p["sym"])
             if not path:
@@ -288,17 +293,27 @@ def test_exit_rules(pos_list):
             entry = p["entry"]
             hit = fn(path, entry)
             if hit is None:
-                rets.append((path[-1] - entry) / entry * 100)
-                held.append(len(path))
+                ret, days, out = (path[-1] - entry) / entry * 100, len(path), path[-1]
             else:
-                i, price = hit
-                rets.append((price - entry) / entry * 100)
-                held.append(i + 1)
+                i, out = hit
+                ret, days = (out - entry) / entry * 100, i + 1
                 exited += 1
+            rets.append(ret)
+            held.append(days)
+            if detail:
+                rows_.append({"sym": p["sym"], "date": p["date"],
+                              "entry": round(entry, 4), "exit": round(out, 4),
+                              "ret": round(ret, 1), "days": days,
+                              "held_to_end": hit is None,
+                              "simulated": bool(p.get("simulated"))})
         if not rets:
             continue
         wins = [r for r in rets if r > 0]
         avg = sum(rets) / len(rets)
+        # the same average over only the picks that were really sent — the
+        # reconstructed ones never reached the user, so they cannot be credited
+        # to the record without saying so
+        real = [r["ret"] for r in rows_ if not r["simulated"]] if detail else []
         results.append({
             "rule": name,
             "positions": len(rets),
@@ -312,6 +327,11 @@ def test_exit_rules(pos_list):
             "avg_days_held": round(sum(held) / len(held), 1),
             "worst": round(min(rets), 1),
             "best": round(max(rets), 1),
+            **({"positions_real": len(real),
+                "avg_return_real": round(sum(real) / len(real), 1),
+                "win_rate_real": round(
+                    len([r for r in real if r > 0]) / len(real) * 100, 1),
+                "detail": sorted(rows_, key=lambda r: r["ret"])} if real else {}),
         })
     results.sort(key=lambda r: -r["avg_return"])
     return results
@@ -388,28 +408,39 @@ def main():
     # transcribes; the exit-rule replay and the compounded curve below both run
     # off this one structure, so it has to exist before either of them.
     pick_days = defaultdict(dict)
+    # 15 of the history entries are reconstructed by replaying the pick rule over
+    # digests that predate the pick section — they were never actually sent, so
+    # the flag rides along and the record can be quoted with or without them
+    pick_sim = {}
     try:
         with open(os.path.join(os.path.dirname(OUT) or ".", "history.json")) as f:
             for e in json.load(f):
                 if e.get("flag_price"):
                     pick_days[e["date"]].setdefault(e["sym"], e["flag_price"])
+                    pick_sim.setdefault((e["date"], e["sym"]),
+                                        bool(e.get("simulated")))
     except Exception as e:
         print(f"[warn] history.json: {e}")
     for date, tier, sym, entry in FLAGS:        # fall back to the transcription
         if tier == "pick":
             pick_days[date].setdefault(sym, entry)
+            pick_sim.setdefault((date, sym), False)
 
     # Every pick ever made, first flag per ticker. This is the personal record
     # and it grows with each run, rather than being fixed at what FLAGS lists.
     seen_pick = {}
     for d in sorted(pick_days):
         for sym, entry in pick_days[d].items():
-            seen_pick.setdefault(sym, {"sym": sym, "date": d, "entry": entry})
+            seen_pick.setdefault(sym, {"sym": sym, "date": d, "entry": entry,
+                                       "simulated": pick_sim.get((d, sym), False)})
     picks_only = list(seen_pick.values())
-    print(f"\nreplaying exit rules — {len(picks_only)} distinct picks, "
+    n_sim = sum(1 for p in picks_only if p["simulated"])
+    print(f"\nreplaying exit rules — {len(picks_only)} distinct picks "
+          f"({len(picks_only) - n_sim} really sent, {n_sim} reconstructed), "
           f"{len(rows)} positions overall…")
     exits = test_exit_rules(rows)
-    exits_picks = test_exit_rules(picks_only) if len(picks_only) >= 5 else []
+    exits_picks = (test_exit_rules(picks_only, detail=True)
+                   if len(picks_only) >= 5 else [])
 
     overall = basket(rows)
     overall["losers"] = overall["positions"] - overall["winners"]
