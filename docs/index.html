@@ -642,8 +642,10 @@ function picksPanel(){
 
 function recordPanel(){
   const h = D.history || [];
-  const w = all.filter(e => e.outcome === "worked").length;
-  const f = all.filter(e => e.outcome === "faded").length;
+  // `all` is history()'s local — referencing it here threw a ReferenceError and
+  // blanked every screen, since render() builds the digest through this panel.
+  const w = h.filter(e => e.outcome === "worked").length;
+  const f = h.filter(e => e.outcome === "faded").length;
   const n = h.filter(e => e.outcome === "flat").length;
   const stats = [[w,"worked",G],[f,"faded",R],[n,"flat","var(--ink-4)"]];
   return `<div class="panel" style="padding:16px 18px;">
@@ -865,7 +867,7 @@ function exitRules(){
         <div style="flex:0 0 86px;text-align:right;">Days held</div>
         <div style="flex:0 0 80px;text-align:right;">Worst</div>
       </div>
-      ${RS.slice(0, 5).concat(RS.filter(e => e.rule === "Hold, never sell")).map(e => {
+      ${(rs => rs.includes(hold) ? rs : rs.concat([hold]))(RS.slice(0, 5)).map(e => {
         const isHold = e.rule === "Hold, never sell";
         const better = e.avg_return > hold.avg_return;
         return `<div class="row" ${isHold ? 'style="background:rgba(120,112,90,0.07);"' : ""}>
@@ -897,18 +899,24 @@ function exitRules(){
 function backtest(){
   if (!B) return "";
   const eq = B.equity || [];
-  const start = B.start_cash || 1000;
+  const start = B.start_cash || 10000;
   const pickRows = (B.rows || []).filter(r => r.tier === "pick");
   if (!eq.length && !pickRows.length) return "";
 
-  const finalBal = eq.length ? eq[eq.length - 1].balance : start;
+  // Positions now overlap, so the account is worth what it is worth today —
+  // not whatever it happened to be on the last pick day.
+  const finalBal = B.final_balance != null ? B.final_balance
+                 : (eq.length ? eq[eq.length - 1].balance : start);
+  const frac = B.deploy_frac || 0.2;
+  const rule = B.curve_rule || "stop -15% / target +15%";
+  const starved = (B.starved_days || []).length;
   const totalPct = ((finalBal - start) / start) * 100;
   const wins = eq.filter(e => e.return_pct > 0).length;
 
   const curve = eq.length ? `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap">Picks, compounded</div>
-      <div class="note">$${start.toLocaleString()} account · split across that day's
-        picks · profits roll into the next day</div></div>
+      <div class="note">$${start.toLocaleString()} account · ${Math.round(frac*100)}% of it
+        into each pick day · positions close at ${esc(rule)}</div></div>
 
     <div style="padding:20px 18px;display:flex;gap:28px;flex-wrap:wrap;align-items:baseline;">
       <div>
@@ -922,9 +930,14 @@ function backtest(){
       </div>
       <div style="flex:1 1 240px;min-width:0;font-size:13px;color:var(--ink-3);
         text-wrap:pretty;">
-        ${wins} of ${eq.length} pick days made money. Each day's picks are held until
-        the next pick day, then the whole balance rotates into the new list — so
-        nothing overlaps and the balance is a real running total. <b>Each</b> is what to put into one ticker that day. <b>Held</b> is how long that basket ran before the next pick day replaced it — the return covers exactly that window, not a fixed horizon. Click any row for that day's picks.
+        ${wins} of ${eq.length} pick days made money. Each pick day puts
+        ${Math.round(frac*100)}% of the account to work and every position runs until
+        ${esc(rule)} closes it, so several days' baskets are live at once and the cash
+        that comes back funds the next buy. <b>Each</b> is what went into one ticker
+        that day. <b>Held</b> is how long that basket actually ran before its exit
+        fired. <b>Account</b> is what the whole account was worth on the day that
+        basket was bought.${starved ? ` ${starved} pick day${starved===1?" was":"s were"}
+        skipped with no cash free.` : ""} Click any row for that day's picks.
       </div>
     </div>
 
@@ -935,7 +948,7 @@ function backtest(){
         <div style="flex:0 0 100px;text-align:right;">Each</div>
         <div style="flex:0 0 78px;text-align:right;">Held</div>
         <div style="flex:0 0 90px;text-align:right;">Return</div>
-        <div style="flex:0 0 110px;text-align:right;">Balance</div>
+        <div style="flex:0 0 110px;text-align:right;">Account</div>
       </div>
       ${eq.map(e => `<div class="row clickable" data-day-go="${esc(e.date)}"
         title="Open the picks sent on ${esc(e.date)}"><div style="display:flex;gap:12px;

@@ -43,4 +43,6 @@ jobs:
           git add docs/backtest.json docs/history.json
           git diff --staged --quiet && echo "no change" && exit 0
           git commit -m "backtest results $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push origin HEAD:main
+          # push back to whatever ref was dispatched, not always main — running
+          # this on a branch used to shove the branch's commits onto main
+          git push origin HEAD:"$GITHUB_REF_NAME"

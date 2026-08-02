@@ -24,14 +24,23 @@ Writes docs/backtest.json for the dashboard and prints a report.
 import json
 import os
 from collections import defaultdict
+from datetime import date as _date
 
 import yfinance as yf
 
 # Per position, for the per-ticker tables.
 STAKE = float(os.getenv("STAKE", "1000"))
-# One account for the compounding curve: the whole balance rotates into each
-# day's picks, so profits fund the next day's trades.
+# One account for the compounding curve.
 START_CASH = float(os.getenv("START_CASH", "10000"))
+# How much of the account each pick day is allowed to deploy. The old model put
+# the whole balance into every pick day and liquidated it on the next one, which
+# could not coexist with any "hold until the rule fires" exit: pick days are
+# near-daily, so there was never cash left to hold with. Deploying a fifth at a
+# time lets ~5 baskets overlap, which is what buying daily actually looks like.
+DEPLOY_FRAC = float(os.getenv("DEPLOY_FRAC", "0.2"))
+# The curve exits on the same bracket the sell panel measures, so the two halves
+# of the dashboard describe one strategy rather than contradicting each other.
+CURVE_STOP, CURVE_TARGET = -15.0, 15.0
 OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "backtest.json")
 
 # One position per ticker. A name flagged on five different days is still one
@@ -235,6 +244,10 @@ RULES = [
     ("Trailing stop -25%",          _trail(25)),
     ("Take profit +20%",            _target(20)),
     ("Take profit +30%",            _target(30)),
+    # Symmetric ±15%: cut and take profit at the same distance. This is the rule
+    # the compounded account below actually trades, so it is measured here on the
+    # same pick record rather than asserted.
+    ("Stop -15% / target +15%",     _bracket(-15, 15)),
     ("Stop -15% / target +25%",     _bracket(-15, 25)),
     ("Stop -20% / target +40%",     _bracket(-20, 40)),
     ("Run then trail -15% (+20%)",  _trail_after_target(20, 15)),
@@ -347,6 +360,13 @@ def main():
         r["pnl"] = round(STAKE * r["ret"] / 100, 2)
 
     def basket(rs):
+        # An empty basket means every price lookup failed. Return a zeroed shape
+        # rather than dying on max() — a run that crashes here leaves the last
+        # good backtest.json in place and the dashboard silently goes stale.
+        if not rs:
+            return {"positions": 0, "winners": 0, "win_rate": 0, "invested": 0,
+                    "per_ticker": round(STAKE, 2), "pnl": 0, "return_pct": 0,
+                    "best": None, "worst": None}
         wins = [r for r in rs if r["ret"] > 0]
         avg = sum(r["ret"] for r in rs) / len(rs) if rs else 0
         return {
@@ -362,6 +382,22 @@ def main():
         }
 
     summary = {tier: basket(rs) for tier, rs in by_tier.items()}
+
+    # The canonical pick record, built before anything reads it. docs/history.json
+    # carries the days reconstructed from the logs as well as the ones FLAGS
+    # transcribes; the exit-rule replay and the compounded curve below both run
+    # off this one structure, so it has to exist before either of them.
+    pick_days = defaultdict(dict)
+    try:
+        with open(os.path.join(os.path.dirname(OUT) or ".", "history.json")) as f:
+            for e in json.load(f):
+                if e.get("flag_price"):
+                    pick_days[e["date"]].setdefault(e["sym"], e["flag_price"])
+    except Exception as e:
+        print(f"[warn] history.json: {e}")
+    for date, tier, sym, entry in FLAGS:        # fall back to the transcription
+        if tier == "pick":
+            pick_days[date].setdefault(sym, entry)
 
     # Every pick ever made, first flag per ticker. This is the personal record
     # and it grows with each run, rather than being fixed at what FLAGS lists.
@@ -379,132 +415,101 @@ def main():
     overall["losers"] = overall["positions"] - overall["winners"]
 
 
-    # One account, compounded. Start with START_CASH, put the whole balance into
-    # that day's picks split equally, hold until the next pick day, then rotate
-    # into the new picks. The last set is still open and marked to the latest
-    # price. Positions never overlap, so the balance is a real running total
-    # rather than a sum of parallel what-ifs.
-    # docs/history.json is the canonical pick record — it carries the days
-    # reconstructed from the logs as well as the ones FLAGS transcribes.
-    pick_days = defaultdict(dict)
-    try:
-        with open(os.path.join(os.path.dirname(OUT) or ".", "history.json")) as f:
-            for e in json.load(f):
-                if e.get("flag_price"):
-                    pick_days[e["date"]].setdefault(e["sym"], e["flag_price"])
-    except Exception as e:
-        print(f"[warn] history.json: {e}")
-    for date, tier, sym, entry in FLAGS:        # fall back to the transcription
-        if tier == "pick":
-            pick_days[date].setdefault(sym, entry)
-
-    equity, bal = [], START_CASH
+    # One account, compounded, on a capital model that agrees with the exit rule.
+    # Each pick day deploys DEPLOY_FRAC of the account across that day's picks;
+    # each position then runs until the ±15% bracket closes it, and the freed cash
+    # funds later days. Baskets overlap, which is the honest picture of buying on
+    # most days and letting every position finish at its own pace.
     days = sorted(pick_days)
     curve_syms = {s for d in days for s in pick_days[d]}
     closes = {s: daily_closes(s) for s in curve_syms}
     for s_ in curve_syms:                       # price anything rows never covered
         if s_ not in now:
             now[s_] = last_price(s_)
-    for i, date in enumerate(days):
-        nxt = days[i + 1] if i + 1 < len(days) else None
-        rets = []
-        for sym, entry in pick_days[date].items():
-            exit_px = close_on_or_before(closes.get(sym), nxt) if nxt else now.get(sym)
-            if exit_px and entry:
-                rets.append((exit_px - entry) / entry)
-        if not rets:
+
+    lo_m, hi_m = 1 + CURVE_STOP / 100, 1 + CURVE_TARGET / 100
+    # every trading day the positions live on, plus the pick days themselves —
+    # a pick day that fell on a holiday still has to be able to buy
+    cal = sorted({d for s in curve_syms for d in closes.get(s, {})
+                  if days and d >= days[0]} | set(days))
+    cash, openpos, cohorts, starved = START_CASH, [], {}, []
+
+    def _mv(on_date):
+        """Open positions marked to the last close at or before on_date."""
+        return sum(p["shares"] * (close_on_or_before(closes.get(p["sym"]), on_date)
+                                  or p["entry"]) for p in openpos)
+
+    for date in cal:
+        # exits first — cash freed today can fund today's picks
+        still_open = []
+        for p in openpos:
+            px = closes.get(p["sym"], {}).get(date)
+            if px is not None and (px <= p["entry"] * lo_m or px >= p["entry"] * hi_m):
+                cash += p["shares"] * px
+                c = cohorts[p["day"]]
+                c["rets"].append((px - p["entry"]) / p["entry"] * 100)
+                c["held"].append((_date.fromisoformat(date)
+                                  - _date.fromisoformat(p["day"])).days)
+            else:
+                still_open.append(p)
+        openpos = still_open
+
+        if date not in pick_days:
             continue
-        r = sum(rets) / len(rets)
-        opened = bal
-        bal *= (1 + r)
-        # how long that day's basket was actually held — the return above covers
-        # exactly this window, not a fixed horizon
-        from datetime import date as _d
-        a = _d.fromisoformat(date)
-        b = _d.fromisoformat(nxt) if nxt else _d.today()
+        live = {p["sym"] for p in openpos}
+        names = [(s, e) for s, e in pick_days[date].items()
+                 if e and s not in live]        # never stack a second buy on a name
+        if not names:
+            continue
+        acct = cash + _mv(date)
+        budget = min(acct * DEPLOY_FRAC, cash)
+        if budget < 1:                          # fully invested — the day is missed
+            starved.append(date)
+            continue
+        each = budget / len(names)
+        for s, e in names:
+            openpos.append({"sym": s, "day": date, "entry": e,
+                            "shares": each / e, "alloc": each})
+            cash -= each
+        cohorts[date] = {"picks": len(names), "per_ticker": each,
+                         "balance": acct, "rets": [], "held": []}
+
+    # whatever is still open is marked to the latest price
+    today = _date.today().isoformat()
+
+    def _mark(sym):
+        return (now.get(sym) or close_on_or_before(closes.get(sym), today))
+
+    for p in openpos:
+        px = _mark(p["sym"]) or p["entry"]
+        c = cohorts[p["day"]]
+        c["rets"].append((px - p["entry"]) / p["entry"] * 100)
+        c["held"].append((_date.today() - _date.fromisoformat(p["day"])).days)
+        c["open"] = True
+
+    equity = []
+    for date in sorted(cohorts):
+        c = cohorts[date]
+        if not c["rets"]:
+            continue
+        r = sum(c["rets"]) / len(c["rets"])
+        invested = c["per_ticker"] * c["picks"]
         equity.append({
             "date": date,
-            "exit_date": nxt or "open",
-            "held_days": (b - a).days,
-            "picks": len(rets),
-            "return_pct": round(r * 100, 1),
-            "opened": round(opened, 2),
-            "per_ticker": round(opened / len(rets), 2),
-            "balance": round(bal, 2),
-            "pnl": round(bal - opened, 2),
-            "open": nxt is None,
+            "picks": c["picks"],
+            "per_ticker": round(c["per_ticker"], 2),
+            "held_days": round(sum(c["held"]) / len(c["held"])),
+            "return_pct": round(r, 1),
+            "invested": round(invested, 2),
+            # the account on the day that basket was bought
+            "balance": round(c["balance"], 2),
+            "pnl": round(invested * r / 100, 2),
+            "open": bool(c.get("open")),
         })
 
-    overall = basket(rows)
-    overall["losers"] = overall["positions"] - overall["winners"]
+    final_balance = cash + sum(p["shares"] * (_mark(p["sym"]) or p["entry"])
+                               for p in openpos)
 
-
-    # Day-by-day: deploy the same STAKE into whatever that single digest listed,
-    # split equally, still held to today. Answers "if I traded 10k a day on this"
-    # without pretending the capital was ever recycled.
-    per_day = defaultdict(dict)
-    for date, tier, sym, entry in FLAGS:
-        cur = now.get(sym)
-        if not cur or not entry:
-            continue
-        # a ticker listed twice in one digest (pick + buzz) is still one buy
-        per_day[date].setdefault(sym, {"sym": sym, "tier": tier, "entry": entry,
-                                       "ret": (cur - entry) / entry * 100})
-        if TIER_RANK[tier] < TIER_RANK[per_day[date][sym]["tier"]]:
-            per_day[date][sym]["tier"] = tier
-
-    daily = []
-    for date in sorted(per_day):
-        names = list(per_day[date].values())
-        picks = [n for n in names if n["tier"] == "pick"]
-        if not picks:
-            continue          # picks-only view: a day with no pick has no row
-        avg = sum(n["ret"] for n in picks) / len(picks)
-        daily.append({
-            "date": date,
-            "names": len(picks),
-            "up": sum(1 for n in picks if n["ret"] > 0),
-            "invested": round(STAKE * len(picks), 2),
-            "pnl": round(STAKE * len(picks) * avg / 100, 2),
-            "return_pct": round(avg, 1),
-            "best": max(picks, key=lambda n: n["ret"])["sym"],
-            "worst": min(picks, key=lambda n: n["ret"])["sym"],
-        })
-
-    overall = basket(rows)
-    overall["losers"] = overall["positions"] - overall["winners"]
-
-
-    # Day-by-day: deploy the same STAKE into whatever that single digest listed,
-    # split equally, still held to today. Answers "if I traded 10k a day on this"
-    # without pretending the capital was ever recycled.
-    per_day = defaultdict(dict)
-    for date, tier, sym, entry in FLAGS:
-        cur = now.get(sym)
-        if not cur or not entry:
-            continue
-        # a ticker listed twice in one digest (pick + buzz) is still one buy
-        per_day[date].setdefault(sym, {"sym": sym, "tier": tier, "entry": entry,
-                                       "ret": (cur - entry) / entry * 100})
-        if TIER_RANK[tier] < TIER_RANK[per_day[date][sym]["tier"]]:
-            per_day[date][sym]["tier"] = tier
-
-    daily = []
-    for date in sorted(per_day):
-        names = list(per_day[date].values())
-        avg = sum(n["ret"] for n in names) / len(names)
-        picks = [n for n in names if n["tier"] == "pick"]
-        d = {"date": date, "names": len(names), "invested": round(STAKE * len(names), 2),
-             "pnl": round(STAKE * len(names) * avg / 100, 2), "return_pct": round(avg, 1),
-             "up": sum(1 for n in names if n["ret"] > 0),
-             "best": max(names, key=lambda n: n["ret"])["sym"],
-             "worst": min(names, key=lambda n: n["ret"])["sym"]}
-        if picks:      # what the shortlist alone would have done that day
-            pavg = sum(n["ret"] for n in picks) / len(picks)
-            d["pick_names"] = len(picks)
-            d["pick_pnl"] = round(STAKE * len(picks) * pavg / 100, 2)
-            d["pick_return_pct"] = round(pavg, 1)
-        daily.append(d)
     payload = {
         "stake": STAKE,
         # best first — the shape of the outcome should be visible without sorting
@@ -514,6 +519,12 @@ def main():
         "overall": overall,
         "equity": equity,
         "start_cash": START_CASH,
+        # the capital model behind the curve, so the dashboard can describe it
+        # instead of hard-coding a description that drifts out of date
+        "final_balance": round(final_balance, 2),
+        "deploy_frac": DEPLOY_FRAC,
+        "curve_rule": f"stop {CURVE_STOP:+.0f}% / target {CURVE_TARGET:+.0f}%",
+        "starved_days": starved,
         "exit_rules": exits,
         "exit_rules_picks": exits_picks,
     }
@@ -548,18 +559,23 @@ def main():
           f"   P/L ${o['pnl']:+,.0f}   ({o['return_pct']:+.1f}%)")
 
     if equity:
-        final = equity[-1]["balance"]
-        tot = (final - START_CASH) / START_CASH * 100
-        print(f"\n{'='*70}")
-        print(f"COMPOUNDED — ${START_CASH:,.0f} rotated through each day's picks")
-        print(f"{'='*70}")
-        print(f"{'date':<12}{'picks':>6}{'return':>9}{'balance':>12}")
+        tot = (final_balance - START_CASH) / START_CASH * 100
+        print(f"\n{'='*74}")
+        print(f"COMPOUNDED — ${START_CASH:,.0f}, {DEPLOY_FRAC:.0%} deployed per pick "
+              f"day, exits at {CURVE_STOP:+.0f}% / {CURVE_TARGET:+.0f}%")
+        print(f"{'='*74}")
+        print(f"{'pick day':<12}{'picks':>6}{'each':>10}{'held':>7}"
+              f"{'return':>9}{'account':>12}")
         for e in equity:
             tag = "  (open)" if e["open"] else ""
-            print(f"{e['date']:<12}{e['picks']:>6}{e['return_pct']:>8.1f}%"
+            print(f"{e['date']:<12}{e['picks']:>6}{e['per_ticker']:>10,.0f}"
+                  f"{e['held_days']:>6}d{e['return_pct']:>8.1f}%"
                   f"{e['balance']:>12,.0f}{tag}")
-        print(f"\n${START_CASH:,.0f} -> ${final:,.0f}  ({tot:+.1f}%) "
+        print(f"\n${START_CASH:,.0f} -> ${final_balance:,.0f}  ({tot:+.1f}%) "
               f"over {len(equity)} pick days")
+        if starved:
+            print(f"{len(starved)} pick day(s) missed for lack of cash: "
+                  f"{', '.join(starved)}")
 
     print(f"\n{'-'*74}\nONE ROW PER TICKER, BEST FIRST\n{'-'*74}")
     print(f"{'sym':<7}{'tier':<7}{'first seen':<12}{'bought':>10}{'now':>10}"
