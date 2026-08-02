@@ -495,11 +495,22 @@ const HOLD_DAYS = (B && B.curve_days) || 5;   // the rule: a time stop, not a pr
 
 // Trading days out, weekends only — market holidays are not known client-side,
 // so the date is shown as approximate and the day count is the real instruction.
-function sellByDate(n){
+// Counted from the next day the market is actually open, not from today: on a
+// weekend the position cannot be opened until Monday, and counting from today
+// would name a sell date only four trading days after the buy.
+function nextOpen(){
   const d = new Date();
+  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
+  return d;
+}
+function fmtDay(d){
+  return d.toLocaleDateString(undefined, {weekday:"short", month:"short", day:"numeric"});
+}
+function sellByDate(n){
+  const d = nextOpen();
   for (let i = 0; i < n; ) { d.setDate(d.getDate() + 1);
     if (d.getDay() !== 0 && d.getDay() !== 6) i++; }
-  return d.toLocaleDateString(undefined, {weekday:"short", month:"short", day:"numeric"});
+  return fmtDay(d);
 }
 
 function sellPlan(){
@@ -541,18 +552,25 @@ function sellPlan(){
         whatever it is doing. That means <b>no stop loss</b> — the worst single pick
         under this rule still lost ${rule ? Math.abs(rule.worst).toFixed(1) : "12.3"}%,
         and nothing caps a gap down. It is a rule, not a forecast.</div>
+      <div style="margin-top:12px;padding:10px 14px;border-radius:8px;
+        background:rgba(120,112,90,0.09);display:flex;gap:10px;flex-wrap:wrap;
+        align-items:baseline;">
+        <div class="eyebrow">Sell every one of these on</div>
+        <div class="mono" style="font-size:16px;font-weight:600;color:var(--ink-d);"
+          >${esc(sellByDate(HOLD_DAYS))}</div>
+        <div class="note" style="margin:0;">${HOLD_DAYS} trading days after
+          ${esc(fmtDay(nextOpen()))}</div>
+      </div>
     </div>
-    <div class="scroll"><div style="min-width:700px;">
+    <div class="scroll"><div style="min-width:344px;">
       <div class="tbl">
-        <div style="flex:0 0 76px;">Buy</div>
-        <div style="flex:0 0 88px;text-align:right;">Price now</div>
-        <div style="flex:0 0 68px;text-align:right;">Shares</div>
-        <div style="flex:0 0 96px;text-align:right;">Cost</div>
-        <div style="flex:1 1 150px;text-align:right;">Sell on (≈)</div>
+        <div style="flex:0 0 64px;">Buy</div>
+        <div style="flex:0 0 78px;text-align:right;">Price now</div>
+        <div style="flex:0 0 52px;text-align:right;">Shares</div>
+        <div style="flex:1 1 78px;text-align:right;">Cost</div>
       </div>
       ${(() => {
         let totalCost = 0;
-        const when = sellByDate(HOLD_DAYS);
         const body = q.map(t => {
           const p = t.price;
           if (typeof p !== "number" || !p) return "";
@@ -562,38 +580,35 @@ function sellPlan(){
           totalCost += cost;
           return `<div class="row clickable" data-open="${esc(t.sym)}">
             <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
-              <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
+              <div class="mono" style="flex:0 0 64px;font-size:14px;font-weight:600;
                 color:var(--ink-d);">$${esc(t.sym)}</div>
-              <div class="mono" style="flex:0 0 88px;text-align:right;font-size:13px;
+              <div class="mono" style="flex:0 0 78px;text-align:right;font-size:13px;
                 color:var(--ink-2);">${money(p)}</div>
-              <div class="mono" style="flex:0 0 68px;text-align:right;font-size:13px;
+              <div class="mono" style="flex:0 0 52px;text-align:right;font-size:13px;
                 color:var(--ink-2);">${shares}</div>
-              <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+              <div class="mono" style="flex:1 1 78px;text-align:right;font-size:13px;
                 color:var(--ink-2);">$${Math.round(cost).toLocaleString()}</div>
-              <div class="mono" style="flex:1 1 150px;text-align:right;font-size:13px;
-                font-weight:600;color:var(--ink-d);">${esc(when)}</div>
             </div></div>`;
         }).join("");
         return body + `<div class="row" style="background:rgba(120,112,90,0.07);">
           <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
-            <div class="mono" style="flex:0 0 76px;font-size:12px;font-weight:600;
+            <div class="mono" style="flex:0 0 64px;font-size:12px;font-weight:600;
               color:var(--ink-2);letter-spacing:.06em;">TOTAL</div>
-            <div style="flex:0 0 88px;"></div>
-            <div style="flex:0 0 68px;"></div>
-            <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+            <div style="flex:0 0 78px;"></div>
+            <div style="flex:0 0 52px;"></div>
+            <div class="mono" style="flex:1 1 78px;text-align:right;font-size:13px;
               font-weight:600;color:var(--ink-2);">$${Math.round(totalCost).toLocaleString()}</div>
-            <div class="mono" style="flex:1 1 150px;text-align:right;font-size:12px;
-              color:var(--ink-4);">${esc(when)}</div>
           </div></div>`;
       })()}
     </div></div>
     <div style="padding:12px 18px 16px;">
       <div class="note">Shares are whole units of $${BUY_STAKE.toLocaleString()} at the
         latest price, so the cash deployed is slightly under that. The sell date counts
-        ${HOLD_DAYS} trading days from today and skips weekends only — a market holiday
-        in between pushes it out by one, so treat the day count as the instruction and
-        the date as a reminder. Selling on schedule is what frees the cash for the next
-        pick; the account cannot stay funded if positions run indefinitely.</div>
+        ${HOLD_DAYS} trading days from ${esc(fmtDay(nextOpen()))}, the next session you
+        can actually buy in, and skips weekends only — a market holiday in between
+        pushes it out by one, so treat the day count as the instruction and the date as
+        a reminder. Selling on schedule is what frees the cash for the next pick; the
+        account cannot stay funded if positions run indefinitely.</div>
     </div>
   </div>`;
 }
@@ -968,7 +983,9 @@ function backtest(){
         until ${esc(rule)} closes it, so several days' picks are live at once and the
         cash that comes back funds the next buy. <b>Each</b> is what went into one
         ticker that day. <b>Held</b> is how long that basket actually ran before its
-        exit fired. <b>Account</b> is what the whole account was worth on the day that
+        exit fired, in calendar days — ${HOLD_DAYS} trading days is about
+        ${HOLD_DAYS + 2} of them, more across a holiday, which is why the column reads
+        higher than the rule. <b>Account</b> is what the whole account was worth on the day that
         basket was bought.${starved ? ` ${starved} pick day${starved===1?" was":"s were"}
         cut short with no cash free.` : ""} Click any row for that day's picks.
       </div>
