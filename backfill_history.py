@@ -27,10 +27,12 @@ OUT = os.path.join(os.getenv("DASHBOARD_DIR", "docs"), "history.json")
 #
 # SIMULATED covers the other gap: on the days a digest DID send before the pick
 # section existed, the buzz list was recorded with price, % move and momentum
-# arrow. The pick rule is deterministic (momentum rising, not already +20%, not
-# already -15%), so it can be replayed over those lists to get the picks the
-# radar would have made. These are marked simulated everywhere they appear —
-# they were never sent, and treating them as a track record would be a lie.
+# arrow. The names below were judged BY HAND against the pick rule (momentum
+# rising, not already +20%, not already -15%) and hardcoded — the rule is not
+# re-run here, and the per-ticker momentum arrows it needs are no longer
+# recoverable, so this list cannot be regenerated or checked. Treat it as an
+# assertion, not a derivation. Marked simulated everywhere it appears: these
+# were never sent, and treating them as a track record would be a lie.
 #
 # Jun 16, Jun 18 and Jun 29 produced no qualifying name from the recoverable
 # part of their lists, so they have no entry rather than a guessed one.
@@ -106,7 +108,7 @@ def main():
                     "flag_price": entry, "last_price": round(cur, 2),
                     "pct": round(pct, 2), "outcome": outcome(pct),
                     "simulated": simulated,
-                    "note": ("would have been picked — rule replayed on that day's list"
+                    "note": ("judged by hand to fit the rule — never sent, not re-derived"
                              if simulated else "from the sent digest"),
                 })
                 added += 1

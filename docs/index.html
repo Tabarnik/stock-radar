@@ -491,7 +491,10 @@ targets; Yahoo publishes no target date, so no exact deadline is implied."
    Levels come from the rule that measured best over the real flag history —
    set before you are in the position, which is the entire point of a stop. */
 const BUY_STAKE = 1000;
-const HOLD_DAYS = (B && B.curve_days) || 5;   // the rule: a time stop, not a price one
+// The rule: a time stop, not a price one. Read at render time, not at parse
+// time — B is still null while this file is being evaluated, so a top-level
+// const would freeze the fallback in and ignore whatever the backtest traded.
+function holdDays(){ return (B && B.curve_days) || 5; }
 
 // Trading days out, weekends only — market holidays are not known client-side,
 // so the date is shown as approximate and the day count is the real instruction.
@@ -505,6 +508,34 @@ function nextOpen(){
 }
 function fmtDay(d){
   return d.toLocaleDateString(undefined, {weekday:"short", month:"short", day:"numeric"});
+}
+
+// "Friday 22nd June" — pick dates read as days you lived through, not as keys.
+// Parsed as local time (not new Date("2026-06-22"), which is parsed as UTC and
+// lands on the previous evening west of Greenwich, naming the wrong weekday).
+function ord(n){
+  if (n % 100 >= 11 && n % 100 <= 13) return n + "th";
+  return n + ({1:"st", 2:"nd", 3:"rd"}[n % 10] || "th");
+}
+function fmtPickDay(iso){
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
+  if (!m) return iso || "";
+  const d = new Date(+m[1], +m[2] - 1, +m[3]);
+  if (isNaN(d)) return iso;
+  return `${d.toLocaleDateString(undefined, {weekday:"long"})} ${ord(d.getDate())} ` +
+         d.toLocaleDateString(undefined, {month:"long"});
+}
+
+// Charts on Yahoo/Google are links, never embeds — the board makes zero external
+// requests and an iframe or remote image would break that (and the artifact CSP).
+function chartLinks(sym){
+  const s = encodeURIComponent(sym);
+  return `<div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <a class="btn" target="_blank" rel="noopener noreferrer"
+      href="https://finance.yahoo.com/quote/${s}/chart">YAHOO CHART ↗</a>
+    <a class="btn" target="_blank" rel="noopener noreferrer"
+      href="https://www.google.com/finance/quote/${s}:NASDAQ">GOOGLE FINANCE ↗</a>
+  </div>`;
 }
 function sellByDate(n){
   const d = nextOpen();
@@ -520,13 +551,13 @@ function sellPlan(){
   const RS = (B && B.exit_rules_picks) || [];
   const ALL = (B && B.exit_rules) || [];
   const best = RS[0], hold = RS.find(e => e.rule === "Hold, never sell");
-  const rule = RS.find(e => e.rule === `Sell after ${HOLD_DAYS} days`) || best;
+  const rule = RS.find(e => e.rule === `Sell after ${holdDays()} days`) || best;
   const allHold = ALL.find(e => e.rule === "Hold, never sell");
   let evidence;
   if (rule && hold) {
     const sent = rule.positions_real;
     evidence = `Across every pick the radar has made (${hold.positions} positions),
-      <b>selling after ${HOLD_DAYS} days</b> came out ahead of every price-based exit
+      <b>selling after ${holdDays()} days</b> came out ahead of every price-based exit
       tested — ${rule.avg_return > 0 ? "+" : ""}${rule.avg_return}% against ${
       hold.avg_return > 0 ? "+" : ""}${hold.avg_return}% for holding${
       sent ? `, and +${rule.avg_return_real}% over just the ${sent} picks that were
@@ -543,12 +574,12 @@ function sellPlan(){
   return `<div class="panel">
     <div class="phead">
       <div class="cap">Trade plan</div>
-      <div class="note">$${BUY_STAKE.toLocaleString()} per pick · sell after ${HOLD_DAYS} days</div>
+      <div class="note">$${BUY_STAKE.toLocaleString()} per pick · sell after ${holdDays()} days</div>
     </div>
     <div style="padding:14px 18px 4px;">
       <div style="font-size:13px;color:var(--ink-3);text-wrap:pretty;">${evidence}</div>
       <div class="note" style="margin-top:6px;">
-        The exit is the calendar, not the price: sell on the ${HOLD_DAYS}th trading day
+        The exit is the calendar, not the price: sell on the ${holdDays()}th trading day
         whatever it is doing. That means <b>no stop loss</b> — the worst single pick
         under this rule still lost ${rule ? Math.abs(rule.worst).toFixed(1) : "12.3"}%,
         and nothing caps a gap down. It is a rule, not a forecast.</div>
@@ -557,8 +588,8 @@ function sellPlan(){
         align-items:baseline;">
         <div class="eyebrow">Sell every one of these on</div>
         <div class="mono" style="font-size:16px;font-weight:600;color:var(--ink-d);"
-          >${esc(sellByDate(HOLD_DAYS))}</div>
-        <div class="note" style="margin:0;">${HOLD_DAYS} trading days after
+          >${esc(sellByDate(holdDays()))}</div>
+        <div class="note" style="margin:0;">${holdDays()} trading days after
           ${esc(fmtDay(nextOpen()))}</div>
       </div>
     </div>
@@ -604,7 +635,7 @@ function sellPlan(){
     <div style="padding:12px 18px 16px;">
       <div class="note">Shares are whole units of $${BUY_STAKE.toLocaleString()} at the
         latest price, so the cash deployed is slightly under that. The sell date counts
-        ${HOLD_DAYS} trading days from ${esc(fmtDay(nextOpen()))}, the next session you
+        ${holdDays()} trading days from ${esc(fmtDay(nextOpen()))}, the next session you
         can actually buy in, and skips weekends only — a market holiday in between
         pushes it out by one, so treat the day count as the instruction and the date as
         a reminder. Selling on schedule is what frees the cash for the next pick; the
@@ -713,8 +744,8 @@ function watchlist(){
       .filter(d => d !== today)
       .map(d => {
         const sim = byDay[d].every(e => e.simulated);
-        return `<option value="${d}"${showing === d ? " selected" : ""}>${d} (${
-          byDay[d].length})${sim ? " · simulated" : ""}</option>`;
+        return `<option value="${d}"${showing === d ? " selected" : ""}>${
+          fmtPickDay(d)} (${byDay[d].length})${sim ? " · reconstructed" : ""}</option>`;
       })).join("");
 
   const head = `<div class="panel" style="margin-bottom:16px;padding:22px 24px;">
@@ -723,7 +754,7 @@ function watchlist(){
           <div class="eyebrow" style="margin-bottom:10px;">Picks of the day</div>
           <div style="font-size:26px;font-weight:600;letter-spacing:-.02em;
             color:var(--ink-d);">${isToday ? `${q.length} pick${q.length===1?"":"s"} today`
-              : `${past.length} pick${past.length===1?"":"s"} on ${esc(showing)}`}</div>
+              : `${past.length} pick${past.length===1?"":"s"} on ${esc(fmtPickDay(showing))}`}</div>
         </div>
         <div style="flex:1 1 20px;"></div>
         <label class="note" for="dayfilter" style="letter-spacing:.06em;">Show</label>
@@ -733,43 +764,71 @@ function watchlist(){
         ${isToday
           ? `Refreshed three times every weekday — pre-market, midday and after the
              close. Each run appends its picks here, so this list is also the record.`
-          : `What was picked on ${esc(showing)}, priced at the flag and marked to the
+          : `What was picked on ${esc(fmtPickDay(showing))}, priced at the flag and marked to the
              latest run. This is the record as it was made, not a re-run with
              hindsight.`}</div>
     </div>`;
 
   if (!isToday) {
     if (!past.length) return head + `<div class="panel"><div class="empty">
-      Nothing was picked on ${esc(showing)}.</div></div>`;
-    return head + `<div class="panel"><div class="scroll"><div style="min-width:600px;">
+      Nothing was picked on ${esc(fmtPickDay(showing))}.</div></div>`;
+    // the 5-day outcome is per (day, ticker): the same name flagged on three
+    // days has three entry prices and three exits, so it cannot be looked up
+    // by symbol alone
+    const PD = {};
+    ((B && B.pick_detail) || []).forEach(p => { PD[p.date + "|" + p.sym] = p; });
+    const nD = holdDays();
+
+    return head + `<div class="panel"><div class="scroll"><div style="min-width:760px;">
       <div class="tbl">
         <div style="flex:0 0 84px;">Ticker</div>
-        <div style="flex:0 0 96px;text-align:right;">At pick</div>
-        <div style="flex:0 0 96px;text-align:right;">Now</div>
-        <div style="flex:0 0 84px;text-align:right;">Change</div>
-        <div style="flex:1 1 160px;">Since</div>
+        <div style="flex:0 0 90px;text-align:right;">At pick</div>
+        <div style="flex:0 0 90px;text-align:right;">Now</div>
+        <div style="flex:0 0 92px;text-align:right;">Still held</div>
+        <div style="flex:0 0 104px;text-align:right;"
+          title="What the ${nD}-day rule actually paid: sold at the close ${nD} trading days after the pick."
+          >Sold at ${nD}d</div>
+        <div style="flex:1 1 150px;">Since</div>
       </div>
-      ${past.map(e => `<div class="row clickable" data-open="${esc(e.sym)}">
+      ${past.map(e => {
+        const d = PD[e.date + "|" + e.sym];
+        const soldCell = !d ? `<span style="color:var(--ink-5);">—</span>`
+          : d.still_open ? `<span class="note" style="margin:0;">not due</span>`
+          : `<span style="color:${chgC(d.ret_hold)};">${pctT(d.ret_hold)}</span>`;
+        return `<div class="row clickable" data-open="${esc(e.sym)}">
         <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
           <div class="mono" style="flex:0 0 84px;font-size:14px;font-weight:600;
             color:var(--ink-d);">$${esc(e.sym)}</div>
-          <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+          <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
             color:var(--ink-2);">${money(e.flag_price)}</div>
-          <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+          <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
             color:var(--ink-2);">${money(e.last_price)}</div>
-          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:13px;
             color:${chgC(e.pct)};">${pctT(e.pct)}</div>
-          <div style="flex:1 1 160px;min-width:0;display:flex;align-items:center;gap:10px;">
+          <div class="mono" style="flex:0 0 104px;text-align:right;font-size:13px;
+            font-weight:600;">${soldCell}</div>
+          <div style="flex:1 1 150px;min-width:0;display:flex;align-items:center;gap:10px;">
             <span class="pill" style="${pillCss(e.outcome==="worked"?"good":
               e.outcome==="faded"?"bad":"muted")};font-size:10px;">${esc(e.outcome)}</span>
             ${e.simulated ? `<span class="pill" style="${pillCss("warn")};font-size:10px;"
-              title="Never sent — the pick section did not exist yet. Today's rule
-replayed over that day's list.">simulated</span>` : ""}
+              title="Never sent — the pick section did not exist yet. This name was
+judged by hand to be one the rule would have taken; the rule was not re-run
+against that day's data, which no longer exists.">reconstructed</span>` : ""}
             <span style="font-size:12px;color:var(--ink-4);white-space:nowrap;
               overflow:hidden;text-overflow:ellipsis;">${esc(e.note||"")}</span>
           </div>
-        </div></div>`).join("")}
-    </div></div></div>`;
+        </div></div>`; }).join("")}
+    </div></div></div>
+    <div class="panel" style="margin-top:16px;padding:14px 18px;">
+      <div class="note"><b>Still held</b> is the change from the pick price to the
+      latest run — what the name did afterwards, whether or not you were in it.
+      <b>Sold at ${nD}d</b> is what the rule you actually trade would have paid:
+      out at the close ${nD} trading days after the pick. They diverge sharply on
+      names that spiked and then bled out, which is the whole case for the
+      rule.${past.some(e => e.simulated) ? ` Rows marked <b>reconstructed</b> were
+      never sent — see the note at the foot of this screen before reading them as
+      a record.` : ""}</div>
+    </div>`;
   }
 
   return head + (q.length ? `<div class="grid">${q.map(t => `
@@ -983,8 +1042,8 @@ function backtest(){
         until ${esc(rule)} closes it, so several days' picks are live at once and the
         cash that comes back funds the next buy. <b>Each</b> is what went into one
         ticker that day. <b>Held</b> is how long that basket actually ran before its
-        exit fired, in calendar days — ${HOLD_DAYS} trading days is about
-        ${HOLD_DAYS + 2} of them, more across a holiday, which is why the column reads
+        exit fired, in calendar days — ${holdDays()} trading days is about
+        ${holdDays() + 2} of them, more across a holiday, which is why the column reads
         higher than the rule. <b>Account</b> is what the whole account was worth on the day that
         basket was bought.${starved ? ` ${starved} pick day${starved===1?" was":"s were"}
         cut short with no cash free.` : ""} Click any row for that day's picks.
@@ -1004,10 +1063,10 @@ function backtest(){
         <div style="flex:0 0 110px;text-align:right;">Account</div>
       </div>
       ${eq.map(e => `<div class="row clickable" data-day-go="${esc(e.date)}"
-        title="Open the picks sent on ${esc(e.date)}"><div style="display:flex;gap:12px;
+        title="Open the picks from ${esc(fmtPickDay(e.date))}"><div style="display:flex;gap:12px;
           padding:11px 18px;align-items:center;">
         <div style="flex:1 1 120px;min-width:0;display:flex;align-items:center;gap:8px;">
-          <span class="mono" style="font-size:12px;color:var(--ink-2);">${esc(e.date)}</span>
+          <span style="font-size:12px;color:var(--ink-2);">${esc(fmtPickDay(e.date))}</span>
           ${e.open ? `<span class="pill" style="${pillCss("muted")};font-size:10px;">open</span>` : ""}
         </div>
         <div class="mono" style="flex:0 0 70px;text-align:right;font-size:12px;
@@ -1059,7 +1118,7 @@ function history(){
       ${h.map(e => `<div class="row clickable" data-open="${esc(e.sym)}">
         <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
           <div class="mono" style="flex:0 0 96px;font-size:12px;color:var(--ink-5);">
-            ${esc(e.date)}</div>
+            ${esc(fmtPickDay(e.date))}</div>
           <div class="mono" style="flex:0 0 78px;font-size:13px;font-weight:600;
             color:var(--ink-d);">$${esc(e.sym)}</div>
           <div class="mono" style="flex:0 0 92px;text-align:right;font-size:12px;
@@ -1083,8 +1142,10 @@ day's list.">simulated</span>` : ""}
     <div class="eyebrow" style="margin-bottom:8px;">Read of the record</div>
     <div style="font-size:13px;color:var(--ink-3);max-width:78ch;text-wrap:pretty;">
       ${sim ? `${sim} of these were never sent — on those days the pick section did not
-      exist yet, so the rule was replayed over the list that was sent. They are marked
-      simulated and are a reconstruction, not a record. ` : ""}A pick is an attention
+      exist yet. Someone read that day's list and judged by hand which names the rule
+      would have taken — the rule was not re-run against the data, and the momentum
+      arrows it needs no longer exist, so these cannot be checked. They are marked
+      reconstructed and are an assertion, not a record. ` : ""}A pick is an attention
       reading, not a recommendation, and the sample is still small enough that the exit
       discipline is better evidenced than the picking.
     </div>
@@ -1095,8 +1156,58 @@ day's list.">simulated</span>` : ""}
 function detail(){
   const all = [...(D.buzz||[]), ...(D.watch||[]), ...(D.gainers||[])];
   const t = all.find(x => x.sym === S.sel);
-  if (!t) return `<div class="panel"><div class="empty">
-    $${esc(S.sel||"")} isn't in this run's data.</div></div>`;
+  // A name picked weeks ago is not in this run's data — it fell off the scan.
+  // That is not a dead end: the pick record still has every time it was flagged,
+  // and the live chart is one link away.
+  if (!t) {
+    const sym = S.sel || "";
+    const past = (D.history || []).filter(e => e.sym === sym)
+                   .sort((a, b) => (a.date < b.date ? 1 : -1));
+    const PD = {};
+    ((B && B.pick_detail) || []).forEach(p => { PD[p.date + "|" + p.sym] = p; });
+    const nD = holdDays();
+    return `<button class="btn" data-go="history" style="margin-bottom:16px;">← BACK</button>
+      <div class="panel" style="padding:22px 24px;margin-bottom:16px;">
+        <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+          <div class="mono" style="font-size:26px;font-weight:600;color:var(--ink-d);">
+            $${esc(sym)}</div>
+          <div style="flex:1 1 20px;"></div>
+        </div>
+        <div class="note" style="margin-top:10px;">Not in the latest run — this name
+          is no longer on the scan, so there is no live price or chart for it here.
+          ${past.length ? `It was picked ${past.length} time${past.length===1?"":"s"}.`
+                        : ""}</div>
+        <div style="margin-top:14px;">${chartLinks(sym)}</div>
+      </div>
+      ${past.length ? `<div class="panel"><div class="scroll"><div style="min-width:560px;">
+        <div class="tbl">
+          <div style="flex:0 0 210px;">Picked</div>
+          <div style="flex:0 0 90px;text-align:right;">At pick</div>
+          <div style="flex:0 0 92px;text-align:right;">Still held</div>
+          <div style="flex:0 0 104px;text-align:right;">Sold at ${nD}d</div>
+          <div style="flex:1 1 90px;"></div>
+        </div>
+        ${past.map(e => {
+          const d = PD[e.date + "|" + e.sym];
+          const sold = !d ? `<span style="color:var(--ink-5);">—</span>`
+            : d.still_open ? `<span class="note" style="margin:0;">not due</span>`
+            : `<span style="color:${chgC(d.ret_hold)};">${pctT(d.ret_hold)}</span>`;
+          return `<div class="row"><div style="display:flex;gap:12px;padding:12px 18px;
+            align-items:center;">
+            <div style="flex:0 0 210px;font-size:13px;color:var(--ink-2);">${
+              esc(fmtPickDay(e.date))}</div>
+            <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
+              color:var(--ink-2);">${money(e.flag_price)}</div>
+            <div class="mono" style="flex:0 0 92px;text-align:right;font-size:13px;
+              color:${chgC(e.pct)};">${pctT(e.pct)}</div>
+            <div class="mono" style="flex:0 0 104px;text-align:right;font-size:13px;
+              font-weight:600;">${sold}</div>
+            <div style="flex:1 1 90px;display:flex;justify-content:flex-end;">${
+              e.simulated ? `<span class="pill" style="${pillCss("warn")};font-size:10px;"
+                >reconstructed</span>` : ""}</div>
+          </div></div>`; }).join("")}
+      </div></div></div>` : ""}`;
+  }
   const col = chgC(t.pct);
   const past = (D.history||[]).filter(e => e.sym === t.sym);
   return `<button class="btn" data-go="digest" style="margin-bottom:16px;">← BACK</button>
@@ -1110,6 +1221,7 @@ function detail(){
         <div class="mono" style="font-size:16px;color:${col};">${pctT(t.pct)}</div>
       </div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">${flagsHtml(t)}</div>
+      <div style="margin-top:14px;">${chartLinks(t.sym)}</div>
     </div>
     <div class="cols">
       <div class="col-main">
@@ -1135,7 +1247,7 @@ function detail(){
           ${past.map(e=>`<div style="display:flex;gap:12px;align-items:baseline;
             border-bottom:1px solid var(--rule-2);padding:8px 0;">
             <span class="mono" style="font-size:12px;color:var(--ink-5);flex:0 0 90px;">
-              ${esc(e.date)}</span>
+              ${esc(fmtPickDay(e.date))}</span>
             <span class="mono" style="font-size:12px;color:var(--ink-2);">
               ${money(e.flag_price)} → ${money(e.last_price)}</span>
             <span class="mono" style="font-size:12px;color:${chgC(e.pct)};margin-left:auto;">

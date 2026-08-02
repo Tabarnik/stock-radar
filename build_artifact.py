@@ -12,7 +12,10 @@ import os
 import re
 
 SRC = "docs/index.html"
-OUT = "/tmp/claude-0/-home-user-reddit-stock-radar/23a844aa-8564-517a-bbb7-5903567581ed/scratchpad/radar-artifact.html"
+# Defaults into the repo rather than a scratchpad: the previous absolute path
+# pointed at a container that no longer exists, so the script silently wrote
+# the snapshot somewhere unreachable. Override with ARTIFACT_OUT.
+OUT = os.getenv("ARTIFACT_OUT", "dist/radar-artifact.html")
 F = "docs/fonts/"
 
 

@@ -554,6 +554,32 @@ def main():
     final_balance = cash + sum(p["shares"] * (_mark(p["sym"]) or p["entry"])
                                for p in openpos)
 
+    # Every pick occurrence, not collapsed to one position per ticker: the
+    # history screen lists a name once per day it was flagged, and each of those
+    # days has its own entry price and therefore its own 5-day outcome. Marking
+    # them all to today answers "where is it now" but not "what would the rule
+    # have paid", which is the number the rule is actually judged on.
+    pick_detail = []
+    for date in sorted(pick_days):
+        for sym, entry in sorted(pick_days[date].items()):
+            if not entry:
+                continue
+            cur = _mark(sym)
+            xd = _exit_date(sym, date)
+            xpx = closes.get(sym, {}).get(xd) if xd else None
+            pick_detail.append({
+                "date": date, "sym": sym, "entry": entry,
+                "now": round(cur, 4) if cur else None,
+                "ret_total": round((cur - entry) / entry * 100, 1) if cur else None,
+                "exit_date": xd,
+                "exit_price": round(xpx, 4) if xpx else None,
+                "ret_hold": round((xpx - entry) / entry * 100, 1) if xpx else None,
+                # fewer than CURVE_DAYS closes since the flag — the rule has not
+                # come due yet, so there is no exit to report rather than a zero
+                "still_open": xpx is None,
+                "simulated": pick_sim.get((date, sym), False),
+            })
+
     payload = {
         "stake": STAKE,
         # best first — the shape of the outcome should be visible without sorting
@@ -571,6 +597,7 @@ def main():
         # rule in the exit table and show where it ranks
         "curve_rule": f"Sell after {CURVE_DAYS} days",
         "curve_days": CURVE_DAYS,
+        "pick_detail": pick_detail,
         "starved_days": starved,
         "exit_rules": exits,
         "exit_rules_picks": exits_picks,
