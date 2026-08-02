@@ -495,8 +495,14 @@ def main():
         if date not in pick_days:
             continue
         live = {p["sym"] for p in openpos}
-        names = [(s, e) for s, e in pick_days[date].items()
-                 if e and s not in live]        # never stack a second buy on a name
+        flagged = [(s, e) for s, e in pick_days[date].items() if e]
+        names = [(s, e) for s, e in flagged
+                 if s not in live]              # never stack a second buy on a name
+        # A name the radar flagged again while the account still holds it is not
+        # bought twice. That is deliberate, but it makes the day's row cover
+        # fewer names than the digest listed, so both counts are reported rather
+        # than letting "picks" quietly mean two different things on two panels.
+        held_already = sorted(s for s, _ in flagged if s in live)
         if not names:
             continue
         acct = cash + _mv(date)
@@ -515,6 +521,9 @@ def main():
         if not allocs:
             continue
         cohorts[date] = {"picks": len(allocs),
+                         "flagged": len(flagged),
+                         "held_already": held_already,
+                         "bought": [s for s, _ in names[:len(allocs)]],
                          "per_ticker": sum(allocs) / len(allocs),
                          "balance": acct, "rets": [], "held": []}
 
@@ -541,6 +550,9 @@ def main():
         equity.append({
             "date": date,
             "picks": c["picks"],
+            "flagged": c.get("flagged", c["picks"]),
+            "held_already": c.get("held_already", []),
+            "bought": c.get("bought", []),
             "per_ticker": round(c["per_ticker"], 2),
             "held_days": round(sum(c["held"]) / len(c["held"])),
             "return_pct": round(r, 1),

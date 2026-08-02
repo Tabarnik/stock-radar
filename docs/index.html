@@ -1039,10 +1039,13 @@ function backtest(){
         ${Math.round(frac*100)}%, not the whole day's budget — and each position runs
         until ${esc(rule)} closes it, so several days' picks are live at once and the
         cash that comes back funds the next buy. <b>Each</b> is what went into one
-        ticker that day. <b>Held</b> is how long that basket actually ran before its
-        exit fired, in calendar days — ${holdDays()} trading days is about
-        ${holdDays() + 2} of them, more across a holiday, which is why the column reads
-        higher than the rule. <b>Account</b> is what the whole account was worth on the day that
+        ticker that day. <b>Picks</b> counts the positions actually opened — a name the
+        radar flagged again while the account still held it is not bought twice, so
+        where a row reads "1 of 2" the second name was already owned and its result
+        sits on the earlier row that bought it. <b>Held</b> is how long that basket
+        actually ran before its exit fired, in calendar days — ${holdDays()} trading
+        days is about ${holdDays() + 2} of them, more across a holiday, which is why the
+        column reads higher than the rule. <b>Account</b> is what the whole account was worth on the day that
         basket was bought.${starved ? ` ${starved} pick day${starved===1?" was":"s were"}
         cut short with no cash free.` : ""} Click any row for that day's picks.
       </div>
@@ -1068,7 +1071,13 @@ function backtest(){
           ${e.open ? `<span class="pill" style="${pillCss("muted")};font-size:10px;">open</span>` : ""}
         </div>
         <div class="mono" style="flex:0 0 70px;text-align:right;font-size:12px;
-          color:var(--ink-4);">${e.picks}</div>
+          color:var(--ink-4);"${(e.held_already||[]).length ? ` title="The radar
+flagged ${e.flagged} that day. ${(e.held_already||[]).join(', ')} ${
+(e.held_already||[]).length===1?'was':'were'} already held from an earlier pick and
+not bought again, so this row covers only the ${e.picks} position${
+e.picks===1?'':'s'} actually opened."` : ""}>${e.picks}${
+          (e.held_already||[]).length ? `<span style="color:var(--ink-5);"> of ${
+            e.flagged}</span>` : ""}</div>
         <div class="mono" style="flex:0 0 100px;text-align:right;font-size:12px;
           color:var(--ink-2);">$${Math.round(e.per_ticker||0).toLocaleString()}</div>
         <div class="mono" style="flex:0 0 78px;text-align:right;font-size:12px;
