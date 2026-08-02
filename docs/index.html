@@ -582,6 +582,63 @@ function sellPlan(){
     evidence = `Set the exit before you are in the position.`;
   }
 
+  const heldPanel = dupes.length ? `<div class="panel" style="margin-top:16px;">
+    <div class="phead"><div class="cap">Already holding — don't buy again</div>
+      <div class="note">on today's list but already in the account · sell on schedule,
+        then it can be bought again</div></div>
+    <div class="scroll"><div style="min-width:420px;">
+      <div class="tbl">
+        <div style="flex:0 0 76px;">Ticker</div>
+        <div style="flex:0 0 92px;text-align:right;">Price now</div>
+        <div style="flex:0 0 96px;text-align:right;">Since buy</div>
+        <div style="flex:1 1 130px;text-align:right;">Sell in</div>
+      </div>
+      ${dupes.map(t => {
+        const o = OP[t.sym] || {};
+        const ent = ((B && B.pick_detail) || [])
+          .filter(p => p.sym === t.sym && p.date === o.bought)[0];
+        const since = ent && typeof t.price === "number" && ent.entry
+          ? (t.price - ent.entry) / ent.entry * 100 : null;
+        return `<div class="row clickable" data-open="${esc(t.sym)}">
+        <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
+            color:var(--ink-d);">$${esc(t.sym)}</div>
+          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(t.price)}</div>
+          <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+            color:${since===null?"var(--ink-5)":chgC(since)};">${
+              since===null ? "—" : pctT(+since.toFixed(1))}</div>
+          <div class="mono" style="flex:1 1 130px;text-align:right;font-size:13px;
+            font-weight:600;color:var(--ink-d);">${
+              typeof o.days_left === "number"
+                ? (o.days_left === 0 ? "today" : `${o.days_left} trading day${
+                    o.days_left===1?"":"s"}`)
+                : "—"}</div>
+        </div></div>`; }).join("")}
+    </div></div>
+    <div style="padding:12px 18px 16px;"><div class="note">Bought on an earlier pick
+      day and still running, so today's flag is not a second buy — doubling up would
+      put two lots of ${Math.round((B && B.position_frac || 0.05)*100)}% into one name.
+      <b>Since buy</b> is from the price it was actually bought at, not today's flag.</div></div>
+  </div>` : "";
+
+  // every name on the list is already in the account: there is nothing to buy,
+  // and an empty table with a $0 total reads as a failure rather than an answer
+  if (!q.length) {
+    return `<div class="panel">
+      <div class="phead"><div class="cap">Trade plan</div>
+        <div class="note">nothing to buy today</div></div>
+      <div style="padding:16px 18px 18px;">
+        <div style="font-size:13px;color:var(--ink-3);text-wrap:pretty;">${evidence}</div>
+        <div style="margin-top:12px;padding:10px 14px;border-radius:8px;
+          background:rgba(120,112,90,0.09);font-size:13px;color:var(--ink-2);">
+          <b>No buys today.</b> All ${all.length} name${all.length===1?"":"s"} on
+          today's list ${all.length===1?"is":"are"} already in the account. Each one
+          frees up when its ${holdDays()}-day hold runs out, below.</div>
+      </div>
+    </div>` + heldPanel;
+  }
+
   return `<div class="panel">
     <div class="phead">
       <div class="cap">Trade plan</div>
@@ -652,45 +709,7 @@ function sellPlan(){
         a reminder. Selling on schedule is what frees the cash for the next pick; the
         account cannot stay funded if positions run indefinitely.</div>
     </div>
-  </div>` + (dupes.length ? `<div class="panel" style="margin-top:16px;">
-    <div class="phead"><div class="cap">Already holding — don't buy again</div>
-      <div class="note">on today's list but already in the account · sell on schedule,
-        then it can be bought again</div></div>
-    <div class="scroll"><div style="min-width:420px;">
-      <div class="tbl">
-        <div style="flex:0 0 76px;">Ticker</div>
-        <div style="flex:0 0 92px;text-align:right;">Price now</div>
-        <div style="flex:0 0 96px;text-align:right;">Since buy</div>
-        <div style="flex:1 1 130px;text-align:right;">Sell in</div>
-      </div>
-      ${dupes.map(t => {
-        const o = OP[t.sym] || {};
-        const ent = ((B && B.pick_detail) || [])
-          .filter(p => p.sym === t.sym && p.date === o.bought)[0];
-        const since = ent && typeof t.price === "number" && ent.entry
-          ? (t.price - ent.entry) / ent.entry * 100 : null;
-        return `<div class="row clickable" data-open="${esc(t.sym)}">
-        <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
-          <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
-            color:var(--ink-d);">$${esc(t.sym)}</div>
-          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:13px;
-            color:var(--ink-2);">${money(t.price)}</div>
-          <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
-            color:${since===null?"var(--ink-5)":chgC(since)};">${
-              since===null ? "—" : pctT(+since.toFixed(1))}</div>
-          <div class="mono" style="flex:1 1 130px;text-align:right;font-size:13px;
-            font-weight:600;color:var(--ink-d);">${
-              typeof o.days_left === "number"
-                ? (o.days_left === 0 ? "today" : `${o.days_left} trading day${
-                    o.days_left===1?"":"s"}`)
-                : "—"}</div>
-        </div></div>`; }).join("")}
-    </div></div>
-    <div style="padding:12px 18px 16px;"><div class="note">Bought on an earlier pick
-      day and still running, so today's flag is not a second buy — doubling up would
-      put two lots of ${Math.round((B && B.position_frac || 0.05)*100)}% into one name.
-      <b>Since buy</b> is from the price it was actually bought at, not today's flag.</div></div>
-  </div>` : "");
+  </div>`; + heldPanel;
 }
 
 function picksPanel(){
@@ -893,7 +912,9 @@ against that day's data, which no longer exists.">reconstructed</span>` : ""}
       <div class="scroll"><div style="min-width:760px;">
         <div class="tbl">
           <div style="flex:0 0 84px;">Ticker</div>
-          <div style="flex:0 0 90px;text-align:right;">Bought at</div>
+          <div style="flex:0 0 90px;text-align:right;"
+            title="The price on this day's list — not what the open position was bought at, which was an earlier day."
+            >Flagged at</div>
           <div style="flex:0 0 90px;text-align:right;">Now</div>
           <div style="flex:1 1 220px;">Status that day</div>
         </div>
