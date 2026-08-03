@@ -651,9 +651,19 @@ function sellPlan(){
   const val  = OPEN.reduce((a, o) => a + (o.value || 0), 0);
   const pnl  = val - cost;
   const heldPanel = OPEN.length ? `<div class="panel" style="margin-top:16px;">
-    <div class="phead"><div class="cap" style="color:${H};">Currently holding</div>
-      <div class="note">${OPEN.length} open position${OPEN.length===1?"":"s"} ·
-        each sells ${holdDays()} trading days after it was bought</div></div>
+    <div class="phead"><div class="cap" style="color:${H};">Model portfolio</div>
+      <div class="note">what the rule would hold if every signal had been acted on ·
+        ${OPEN.length} position${OPEN.length===1?"":"s"} · each sells ${holdDays()}
+        trading days after it was bought</div></div>
+    <div style="padding:12px 18px 0;">
+      <div style="padding:9px 12px;border-radius:8px;background:var(--h-bg);
+        border:1px solid var(--h-line);font-size:12px;color:var(--ink-2);
+        text-wrap:pretty;">
+        <b>This is the rule's account, not yours.</b> It assumes every pick was bought
+        the moment it appeared. If you missed a run, or chose to skip a name, your real
+        position differs — the radar has no way to know what you actually own.
+      </div>
+    </div>
     <div style="padding:16px 18px 4px;display:flex;gap:26px;flex-wrap:wrap;
       align-items:baseline;">
       <div><div class="eyebrow" style="margin-bottom:4px;">Cost</div>
@@ -715,7 +725,9 @@ function sellPlan(){
       price — unrealised, so they move until the position sells. <b>Sells in</b> counts
       the trading days left on its ${holdDays()}-day hold. Names tagged <b>on list</b>
       came up again on the current list; they are already held, so they are not a second
-      buy. <b>A holding that is not on the list is normal.</b> The list is only what
+      buy. Nothing here is a record of a trade you made — it is what the rule would be
+      holding, so treat a row as "the rule is still in this" rather than "I own this".
+      <b>A holding that is not on the list is normal.</b> The list is only what
       qualifies at the moment a run happens and the radar runs three times a day, so a
       name bought this morning can be gone from the afternoon list — the chatter faded,
       or it has already run too far to still qualify. The position still runs its full
@@ -869,8 +881,8 @@ function picksPanel(){
     <div class="phead">
       <div class="cap">Picks of the day</div>
       <div class="note">rising chatter or an analyst buy, with room left to move${
-        nHeld ? ` · <b style="color:${H};">${nHeld} already held</b>, shown in purple —
-        not to buy` : ""}</div>
+        nHeld ? ` · <b style="color:${H};">${nHeld} held by the rule</b>, shown in purple —
+        skip only if you bought them too` : ""}</div>
       <div style="flex:1 1 20px;"></div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">${tierHead("pick")}</div>
     </div>
@@ -912,7 +924,8 @@ function picksPanel(){
           margin-top:8px;padding:6px 9px;border-radius:7px;background:var(--h-bg);
           border:1px solid var(--h-line);">
           <span class="mono" style="font-size:10px;letter-spacing:.06em;color:${H};
-            font-weight:600;">HOLDING · DON'T BUY</span>
+            font-weight:600;" title="The rule's account bought this on an earlier run and still holds it. If you bought it then too, skip. If you missed that run, this is not a position you own.">RULE HOLDS${
+            o.bought ? " \u00b7 " + esc(fmtPickDay(o.bought).replace(/^\w+ /, "")) : ""}</span>
           ${sb === null ? "" : `<span class="mono" style="font-size:12px;font-weight:600;
             color:${chgC(sb)};">${pctT(+sb.toFixed(1))}</span>
             <span style="font-size:11px;color:var(--ink-5);">since buy</span>`}
