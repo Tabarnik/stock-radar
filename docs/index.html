@@ -773,6 +773,35 @@ function sellPlan(){
   </div>` + heldPanel;
 }
 
+// Day by day since the buy. Two numbers per session because they answer
+// different questions: a position can be up overall on a day it fell (MU was
+// +18.4% on day 1, fell 5.9% on day 2, still +11.4% overall). Columns run to the
+// full holding period; sessions not yet reached are dots, not zeros.
+function dayStrip(o){
+  const path = (o && o.path) || [];
+  const n = holdDays();
+  if (!path.length) return "";
+  const cell = (v, bold) => v === null
+    ? `<div style="color:var(--ink-6);">\u00b7</div>`
+    : `<div style="color:${chgC(v)};${bold ? "font-weight:600;" : ""}">${
+        v > 0 ? "+" : v < 0 ? "\u2212" : ""}${Math.abs(v).toFixed(1)}</div>`;
+  const cols = [];
+  for (let i = 0; i < n; i++) cols.push(path[i] || null);
+  const grid = `display:grid;grid-template-columns:repeat(${n},1fr);gap:2px;
+    text-align:center;font-size:9.5px;`;
+  return `<div style="margin-top:6px;padding:6px 8px 7px;border-radius:7px;
+    background:rgba(255,255,255,0.42);border:1px solid var(--rule-2);">
+    <div class="mono" style="${grid}color:var(--ink-6);letter-spacing:.02em;">
+      ${cols.map((_, i) => `<div>D${i + 1}</div>`).join("")}</div>
+    <div class="mono" style="${grid}margin-top:2px;">
+      ${cols.map(c => cell(c ? c.day_pct : null, false)).join("")}</div>
+    <div class="mono" style="${grid}margin-top:1px;">
+      ${cols.map(c => cell(c ? c.cum_pct : null, true)).join("")}</div>
+    <div style="font-size:9px;color:var(--ink-6);margin-top:4px;text-align:center;">
+      that day \u00b7 <b style="font-weight:600;">since buy</b></div>
+  </div>`;
+}
+
 function picksPanel(){
   const q = D.watch || [];
   const OP = openPos();
@@ -840,7 +869,8 @@ function picksPanel(){
             typeof o.days_left === "number"
               ? (o.days_left === 0 ? "sell today" : `sell in ${o.days_left}d`)
               : ""}</span>
-        </div>` : ""}
+        </div>
+        ${dayStrip(o)}` : ""}
         <div class="co" style="max-width:100%;margin-top:2px;">${esc(t.name||"")}</div>
         <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:9px;">
           <span class="pill" style="${pillCss("muted")};font-size:10px;">${esc(t.tag||"")}</span>
