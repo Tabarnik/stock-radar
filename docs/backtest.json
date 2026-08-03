@@ -1055,7 +1055,7 @@
     "MSFT"
    ],
    "per_ticker": 518.55,
-   "held_days": 4,
+   "held_days": 5,
    "return_pct": 9.6,
    "invested": 4148.38,
    "balance": 10370.95,
@@ -1077,7 +1077,7 @@
     "AAPL"
    ],
    "per_ticker": 541.04,
-   "held_days": 3,
+   "held_days": 4,
    "return_pct": 0.3,
    "invested": 2164.14,
    "balance": 10820.72,
@@ -1098,7 +1098,7 @@
     "AMZN"
    ],
    "per_ticker": 538.83,
-   "held_days": 2,
+   "held_days": 3,
    "return_pct": 1.6,
    "invested": 1077.65,
    "balance": 10776.55,
@@ -1119,7 +1119,7 @@
     "IREN"
    ],
    "per_ticker": 539.69,
-   "held_days": 1,
+   "held_days": 2,
    "return_pct": -0.0,
    "invested": 539.69,
    "balance": 10793.83,
@@ -1145,7 +1145,10 @@
    "still_open": false,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-06-15",
@@ -1159,7 +1162,10 @@
    "still_open": false,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-06-15",
@@ -1173,7 +1179,10 @@
    "still_open": false,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-06-17",
@@ -1187,7 +1196,10 @@
    "still_open": false,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-06-17",
@@ -1201,7 +1213,10 @@
    "still_open": false,
    "simulated": true,
    "already_held": true,
-   "days_left": 3
+   "days_left": 3,
+   "held_since": "2026-06-15",
+   "buy_price": 0.2,
+   "ret_since_buy": -38.5
   },
   {
    "date": "2026-06-17",
@@ -1215,7 +1230,10 @@
    "still_open": false,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-06-17",
@@ -1229,7 +1247,10 @@
    "still_open": false,
    "simulated": true,
    "already_held": true,
-   "days_left": 3
+   "days_left": 3,
+   "held_since": "2026-06-15",
+   "buy_price": 408.28,
+   "ret_since_buy": -0.5
   },
   {
    "date": "2026-06-22",
@@ -1243,7 +1264,10 @@
    "still_open": false,
    "simulated": true,
    "already_held": true,
-   "days_left": 1
+   "days_left": 1,
+   "held_since": "2026-06-15",
+   "buy_price": 0.2,
+   "ret_since_buy": -38.5
   },
   {
    "date": "2026-06-22",
@@ -1257,7 +1281,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-06",
@@ -1271,7 +1298,10 @@
    "still_open": false,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-29",
@@ -1285,7 +1315,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-29",
@@ -1299,7 +1332,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-29",
@@ -1313,7 +1349,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-29",
@@ -1327,7 +1366,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-29",
@@ -1341,7 +1383,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-29",
@@ -1355,7 +1400,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-29",
@@ -1369,7 +1417,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-29",
@@ -1383,7 +1434,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-30",
@@ -1397,7 +1451,10 @@
    "still_open": true,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-30",
@@ -1411,7 +1468,10 @@
    "still_open": true,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-30",
@@ -1425,7 +1485,10 @@
    "still_open": true,
    "simulated": true,
    "already_held": true,
-   "days_left": 4
+   "days_left": 4,
+   "held_since": "2026-07-29",
+   "buy_price": 190.01,
+   "ret_since_buy": 5.7
   },
   {
    "date": "2026-07-30",
@@ -1439,7 +1502,10 @@
    "still_open": true,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-30",
@@ -1453,7 +1519,10 @@
    "still_open": true,
    "simulated": true,
    "already_held": true,
-   "days_left": 4
+   "days_left": 4,
+   "held_since": "2026-07-29",
+   "buy_price": 729.46,
+   "ret_since_buy": 2.4
   },
   {
    "date": "2026-07-30",
@@ -1467,7 +1536,10 @@
    "still_open": true,
    "simulated": true,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-31",
@@ -1481,7 +1553,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 4
+   "days_left": 4,
+   "held_since": "2026-07-30",
+   "buy_price": 331.58,
+   "ret_since_buy": -6.8
   },
   {
    "date": "2026-07-31",
@@ -1495,7 +1570,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-07-31",
@@ -1509,7 +1587,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 3
+   "days_left": 3,
+   "held_since": "2026-07-29",
+   "buy_price": 8.41,
+   "ret_since_buy": 8.7
   },
   {
    "date": "2026-07-31",
@@ -1523,7 +1604,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 3
+   "days_left": 3,
+   "held_since": "2026-07-29",
+   "buy_price": 190.01,
+   "ret_since_buy": 5.7
   },
   {
    "date": "2026-07-31",
@@ -1537,7 +1621,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-08-01",
@@ -1551,7 +1638,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 4
+   "days_left": 4,
+   "held_since": "2026-07-30",
+   "buy_price": 331.58,
+   "ret_since_buy": -6.8
   },
   {
    "date": "2026-08-01",
@@ -1565,7 +1655,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": false,
-   "days_left": null
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-08-01",
@@ -1579,7 +1672,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 3
+   "days_left": 3,
+   "held_since": "2026-07-29",
+   "buy_price": 8.41,
+   "ret_since_buy": 8.7
   },
   {
    "date": "2026-08-01",
@@ -1593,7 +1689,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 3
+   "days_left": 3,
+   "held_since": "2026-07-29",
+   "buy_price": 190.01,
+   "ret_since_buy": 5.7
   },
   {
    "date": "2026-08-01",
@@ -1607,7 +1706,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 5
+   "days_left": 5,
+   "held_since": "2026-07-31",
+   "buy_price": 137.17,
+   "ret_since_buy": 2.6
   }
  ],
  "open_positions": [
