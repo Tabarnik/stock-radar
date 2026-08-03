@@ -624,10 +624,21 @@ def main():
 
     # What the account is still holding as of this run, so today's list can say
     # "already in it, N days left" instead of telling you to buy it twice.
-    open_positions = sorted(
-        ({"sym": p["sym"], "bought": p["day"],
-          "days_left": _days_left(p, today)} for p in openpos),
-        key=lambda o: (o["days_left"], o["sym"]))
+    open_positions = []
+    for p in openpos:
+        px = _mark(p["sym"]) or p["entry"]
+        val = p["shares"] * px
+        open_positions.append({
+            "sym": p["sym"], "bought": p["day"],
+            "days_left": _days_left(p, today),
+            "exit_on": p["exit_on"],
+            "entry": round(p["entry"], 4), "price": round(px, 4),
+            "shares": round(p["shares"], 4),
+            "alloc": round(p["alloc"], 2), "value": round(val, 2),
+            "pnl": round(val - p["alloc"], 2),
+            "ret": round((px - p["entry"]) / p["entry"] * 100, 1),
+        })
+    open_positions.sort(key=lambda o: (o["days_left"], o["sym"]))
 
     payload = {
         "stake": STAKE,
