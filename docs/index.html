@@ -444,7 +444,7 @@ function sessionPanel(){
     ["Tickers tracked", s.tracked ?? 0, "var(--ink)"],
     ["Up today", `${s.up ?? 0} / ${s.tracked ?? 0}`, (s.up||0) > (s.down||0) ? G : R],
     ["Flagged for review", s.flagged ?? 0, "var(--ink)"],
-    ["Track record", `${(D.history||[]).length} logged`, "var(--ink)"],
+    ["Track record", `${boughtOnly(D.history).length} bought`, "var(--ink)"],
   ];
   return `<div class="panel" style="flex:1 1 240px;padding:18px 20px;display:flex;
       flex-direction:column;gap:14px;">
@@ -502,6 +502,23 @@ function holdDays(){ return (B && B.curve_days) || 5; }
 
 // What the account is still in, as of the last backtest run: symbol -> days left.
 // A name on today's list that is already open is not a second buy.
+// A flag raised while the position from an earlier flag was still running is not
+// a trade — the rule does not buy a name it already holds. Every list of picks
+// filters through here so no screen can quietly count a flag as a purchase.
+// The map is rebuilt whenever B changes, since it loads after the first render.
+let _pdB = null, _pdM = null;
+function pdMap(){
+  if (_pdB !== B) {
+    _pdB = B; _pdM = {};
+    ((B && B.pick_detail) || []).forEach(p => { _pdM[p.date + "|" + p.sym] = p; });
+  }
+  return _pdM;
+}
+function heldNotBought(e){
+  return !!(pdMap()[e.date + "|" + e.sym] || {}).already_held;
+}
+function boughtOnly(list){ return (list || []).filter(e => !heldNotBought(e)); }
+
 function openPos(){
   const m = {};
   ((B && B.open_positions) || []).forEach(p => { m[p.sym] = p; });
@@ -782,7 +799,9 @@ function picksPanel(){
 
 
 function recordPanel(){
-  const h = D.history || [];
+  // counts trades, not flags: a name flagged while already held was never bought
+  const h = boughtOnly(D.history);
+  const skipped = (D.history || []).length - h.length;
   // `all` is history()'s local — referencing it here threw a ReferenceError and
   // blanked every screen, since render() builds the digest through this panel.
   const w = h.filter(e => e.outcome === "worked").length;
@@ -792,7 +811,9 @@ function recordPanel(){
   return `<div class="panel" style="padding:16px 18px;">
     <div class="cap" style="margin-bottom:2px;">Picks track record</div>
     <div class="note" style="margin-bottom:12px;">picks of the day only · no buzz,
-      no movers · ±10% decides worked vs faded</div>
+      no movers · ±10% decides worked vs faded${skipped ? ` · ${skipped} flag${
+        skipped===1?"":"s"} on names already held ${skipped===1?"is":"are"} left
+        out` : ""}</div>
     ${h.length ? `<div style="display:flex;gap:16px;flex-wrap:wrap;">
       ${stats.map(([v,l,c])=>`<button data-go="history" data-outcome="${l}"
         style="flex:1 1 80px;background:none;border:0;padding:0;text-align:left;cursor:pointer;">
@@ -1275,7 +1296,7 @@ e.picks===1?'':'s'} actually opened."` : ""}>${e.picks}${
 
 /* ── history ──────────────────────────────────────────────── */
 function history(){
-  const all = (D.history || []).slice();
+  const all = boughtOnly(D.history).slice();   // flags on held names are not trades
   const h = (S.outcome ? all.filter(e => e.outcome === S.outcome) : all).sort((a,b) =>
     b.date.localeCompare(a.date) || a.sym.localeCompare(b.sym));
   const w = all.filter(e => e.outcome === "worked").length;
@@ -1347,11 +1368,16 @@ function detail(){
   // and the live chart is one link away.
   if (!t) {
     const sym = S.sel || "";
-    const past = (D.history || []).filter(e => e.sym === sym)
+    const flags = (D.history || []).filter(e => e.sym === sym)
                    .sort((a, b) => (a.date < b.date ? 1 : -1));
     const PD = {};
     ((B && B.pick_detail) || []).forEach(p => { PD[p.date + "|" + p.sym] = p; });
     const nD = holdDays();
+    // A flag raised while the position from an earlier flag was still running is
+    // not a trade — listing it beside the real buys invents a history of trades
+    // the rule never made.
+    const past = flags.filter(e => !heldNotBought(e));
+    const skipped = flags.filter(heldNotBought);
     return `<button class="btn" data-go="history" style="margin-bottom:16px;">← BACK</button>
       <div class="panel" style="padding:22px 24px;margin-bottom:16px;">
         <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
@@ -1361,8 +1387,12 @@ function detail(){
         </div>
         <div class="note" style="margin-top:10px;">Not in the latest run — this name
           is no longer on the scan, so there is no live price or chart for it here.
-          ${past.length ? `It was picked ${past.length} time${past.length===1?"":"s"}.`
-                        : ""}</div>
+          ${past.length ? `It was bought ${past.length} time${past.length===1?"":"s"}.`
+                        : ""}${skipped.length ? ` It came up ${skipped.length} more
+          time${skipped.length===1?"":"s"} — ${skipped.map(e =>
+            fmtPickDay(e.date)).join(", ")} — while the position was still running, so
+          the rule did not buy again and ${skipped.length===1?"that flag is":"those flags are"}
+          not listed below.` : ""}</div>
         <div style="margin-top:14px;">${chartLinks(sym)}</div>
       </div>
       ${past.length ? `<div class="panel"><div class="scroll"><div style="min-width:560px;">
@@ -1395,7 +1425,7 @@ function detail(){
       </div></div></div>` : ""}`;
   }
   const col = chgC(t.pct);
-  const past = (D.history||[]).filter(e => e.sym === t.sym);
+  const past = boughtOnly(D.history).filter(e => e.sym === t.sym);
   return `<button class="btn" data-go="digest" style="margin-bottom:16px;">← BACK</button>
     <div class="panel" style="padding:22px 24px;margin-bottom:16px;">
       <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
