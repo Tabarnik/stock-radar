@@ -122,6 +122,50 @@ gets 5% of the account, capped by cash: **+4.5%** ($10,000 → $10,449). The
 account still trails the per-position average, which is correct — it holds cash,
 the rule table is always fully invested.
 
+## The board refreshes with the digest (don't split them again)
+
+`daily.yml` runs `main.py` then `backtest.py` on every scheduled run, 3× per
+weekday, and commits `data.json` + `history.json` + `backtest.json` in one
+commit. Order matters: `main.py` appends today's picks to `history.json` and the
+backtest reads that file. `backtest.py` is `continue-on-error` and runs *after*
+the ntfy send, so a Yahoo failure can never cost you the digest.
+
+Before this, `backtest.json` only moved when the manual Backtest workflow ran,
+so holdings and days-left went stale between runs — the digest could show a
+position the account model had already sold. `history.json` was worse: `main.py`
+rewrote it every run and `daily.yml` never committed it, so the pick record only
+advanced when the manual backtest happened to push it.
+
+`backtest.yml` still exists for ad-hoc runs. Its `stake` input now defaults to
+**blank** and is only exported when set — a non-empty default beat the code
+default once and reported $690,000 invested.
+
+**Weekend entries come from manual dispatches.** The cron is Mon–Fri, but
+`workflow_dispatch` runs whenever you press it and stamps the UTC date. That is
+where `2026-08-01` (a Saturday) in the pick record came from. Harmless but
+untidy; delete the day from `docs/history.json` if it bothers you.
+
+## Counting: trades, not flags
+
+The rule never buys a name it already holds, so a flag raised while the earlier
+position is still running is **not a trade**. Every list filters through
+`boughtOnly()` / `heldNotBought()` in `index.html` — ticker page, every-pick
+list, per-symbol history, track-record counts, session tile. The per-day
+Watchlist view is the deliberate exception: it shows both groups, split into
+"would have bought" and "already holding".
+
+This moves real numbers: 5 worked / 6 faded / 23 flat over 34 "picks" became
+5 / 4 / 13 over 22 actual buys. Twelve flags were never trades, and two of them
+were being counted as losses.
+
+## Position size is derived, not chosen twice
+
+`buyStake()` = `position_frac × current account` (~$540). It was hardcoded at
+$1,000 while the model traded 5% of $10,000, so the plan told you to buy twice
+the position its own evidence was measured on. If you want to trade $1,000 a
+pick, raise `POSITION_FRAC` to 0.10 and re-run — do not just buy more against
+evidence gathered at 5%.
+
 ## Open threads
 
 ### 1. GitHub Pages still needs one manual click
@@ -158,6 +202,13 @@ revisiting once the pick count is well past 18 — do not tune it on 18 picks.
 - **Always render and look.** Every real bug this session was found by
   screenshotting, not by reading code: invisible bars, a red chart on a +53%
   year, duplicated tickers, unsorted "biggest movers", blank screens.
+- **"It parses" proves nothing.** `return \`…\`; + heldPanel;` is valid
+  JavaScript — it returns, then leaves an unreachable expression — so the panel
+  silently never rendered and the syntax check passed. Twice now a template
+  literal edit has parsed cleanly while doing nothing. Render it.
+- **The dashboard reads `data.json`, not just `history.json`.** `main.py` embeds
+  a copy of the history in `data.json`, so a field fixed in one file keeps
+  rendering stale from the other. Fix both.
 - **Workflow inputs override code defaults.** `backtest.yml`'s `stake` input
   default silently beat the Python default and reported $690,000 invested.
 - **The container resets.** Local checkouts reverted to old commits twice
