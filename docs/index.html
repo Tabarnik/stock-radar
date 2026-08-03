@@ -587,7 +587,6 @@ function sellPlan(){
   // double a position the rule is already counting down
   const OP = openPos();
   const q = all.filter(t => !OP[t.sym]);
-  const dupes = all.filter(t => OP[t.sym]);
   // measured on picks alone — the only list still acted on
   const RS = (B && B.exit_rules_picks) || [];
   const ALL = (B && B.exit_rules) || [];
@@ -612,44 +611,72 @@ function sellPlan(){
     evidence = `Set the exit before you are in the position.`;
   }
 
-  const heldPanel = dupes.length ? `<div class="panel" style="margin-top:16px;">
-    <div class="phead"><div class="cap" style="color:${H};">Already holding — don't buy again</div>
-      <div class="note">on today's list but already in the account · sell on schedule,
-        then it can be bought again</div></div>
-    <div class="scroll"><div style="min-width:420px;">
+  // Everything the account is in right now, not only the names that happen to be
+  // on today's list — those were 4 of 15, which is not "what am I holding".
+  const OPEN = ((B && B.open_positions) || []).slice();
+  const onList = new Set(all.map(t => t.sym));
+  const cost = OPEN.reduce((a, o) => a + (o.alloc || 0), 0);
+  const val  = OPEN.reduce((a, o) => a + (o.value || 0), 0);
+  const pnl  = val - cost;
+  const heldPanel = OPEN.length ? `<div class="panel" style="margin-top:16px;">
+    <div class="phead"><div class="cap" style="color:${H};">Currently holding</div>
+      <div class="note">${OPEN.length} open position${OPEN.length===1?"":"s"} ·
+        each sells ${holdDays()} trading days after it was bought</div></div>
+    <div style="padding:16px 18px 4px;display:flex;gap:26px;flex-wrap:wrap;
+      align-items:baseline;">
+      <div><div class="eyebrow" style="margin-bottom:4px;">Cost</div>
+        <div class="mono" style="font-size:19px;color:var(--ink-2);"
+          >$${Math.round(cost).toLocaleString()}</div></div>
+      <div><div class="eyebrow" style="margin-bottom:4px;">Worth now</div>
+        <div class="mono" style="font-size:19px;font-weight:600;color:var(--ink-d);"
+          >$${Math.round(val).toLocaleString()}</div></div>
+      <div><div class="eyebrow" style="margin-bottom:4px;">Unrealised</div>
+        <div class="mono" style="font-size:19px;font-weight:600;color:${chgC(pnl)};"
+          >${pnl>=0?"+":"\u2212"}$${Math.abs(Math.round(pnl)).toLocaleString()}
+          <span style="font-size:13px;">(${pctT(+(pnl/cost*100).toFixed(1))})</span></div></div>
+    </div>
+    <div class="scroll"><div style="min-width:660px;">
       <div class="tbl">
         <div style="flex:0 0 76px;">Ticker</div>
-        <div style="flex:0 0 92px;text-align:right;">Price now</div>
-        <div style="flex:0 0 96px;text-align:right;">Since buy</div>
-        <div style="flex:1 1 130px;text-align:right;">Sell in</div>
+        <div style="flex:0 0 128px;">Bought</div>
+        <div style="flex:0 0 84px;text-align:right;">At</div>
+        <div style="flex:0 0 84px;text-align:right;">Now</div>
+        <div style="flex:0 0 78px;text-align:right;">Change</div>
+        <div style="flex:0 0 82px;text-align:right;">P/L</div>
+        <div style="flex:1 1 108px;text-align:right;">Sells in</div>
       </div>
-      ${dupes.map(t => {
-        const o = OP[t.sym] || {};
-        const ent = ((B && B.pick_detail) || [])
-          .filter(p => p.sym === t.sym && p.date === o.bought)[0];
-        const since = ent && typeof t.price === "number" && ent.entry
-          ? (t.price - ent.entry) / ent.entry * 100 : null;
-        return `<div class="row clickable" data-open="${esc(t.sym)}">
-        <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
+      ${OPEN.map(o => `<div class="row clickable" data-open="${esc(o.sym)}">
+        <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
           <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
-            color:${H};">$${esc(t.sym)}</div>
-          <div class="mono" style="flex:0 0 92px;text-align:right;font-size:13px;
-            color:var(--ink-2);">${money(t.price)}</div>
-          <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
-            color:${since===null?"var(--ink-5)":chgC(since)};">${
-              since===null ? "—" : pctT(+since.toFixed(1))}</div>
-          <div class="mono" style="flex:1 1 130px;text-align:right;font-size:13px;
-            font-weight:600;color:var(--ink-d);">${
-              typeof o.days_left === "number"
-                ? (o.days_left === 0 ? "today" : `${o.days_left} trading day${
-                    o.days_left===1?"":"s"}`)
-                : "—"}</div>
-        </div></div>`; }).join("")}
+            color:${H};">$${esc(o.sym)}</div>
+          <div style="flex:0 0 128px;min-width:0;font-size:12px;color:var(--ink-4);
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
+            esc(fmtPickDay(o.bought))}</div>
+          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(o.entry)}</div>
+          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(o.price)}</div>
+          <div class="mono" style="flex:0 0 78px;text-align:right;font-size:13px;
+            font-weight:600;color:${chgC(o.ret)};">${pctT(o.ret)}</div>
+          <div class="mono" style="flex:0 0 82px;text-align:right;font-size:13px;
+            color:${chgC(o.pnl)};">${o.pnl>=0?"+":"\u2212"}$${
+            Math.abs(Math.round(o.pnl)).toLocaleString()}</div>
+          <div style="flex:1 1 108px;text-align:right;display:flex;gap:6px;
+            justify-content:flex-end;align-items:center;">
+            ${onList.has(o.sym) ? `<span class="pill" style="${pillCss("held")};
+              font-size:9px;" title="On today's list — already held, so not a buy"
+              >on list</span>` : ""}
+            <span class="mono" style="font-size:13px;font-weight:600;color:${
+              o.days_left === 0 ? R : "var(--ink-d)"};white-space:nowrap;">${
+              o.days_left === 0 ? "today" : o.days_left + "d"}</span>
+          </div>
+        </div></div>`).join("")}
     </div></div>
-    <div style="padding:12px 18px 16px;"><div class="note">Bought on an earlier pick
-      day and still running, so today's flag is not a second buy — doubling up would
-      put two lots of ${Math.round((B && B.position_frac || 0.05)*100)}% into one name.
-      <b>Since buy</b> is from the price it was actually bought at, not today's flag.</div></div>
+    <div style="padding:12px 18px 16px;"><div class="note"><b>At</b> is what the
+      position was bought at, <b>Change</b> and <b>P/L</b> are from there to the latest
+      price — unrealised, so they move until the position sells. <b>Sells in</b> counts
+      the trading days left on its ${holdDays()}-day hold. Names tagged <b>on list</b>
+      came up again today; they are already held, so they are not a second buy.</div></div>
   </div>` : "";
 
   // every name on the list is already in the account: there is nothing to buy,
