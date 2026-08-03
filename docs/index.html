@@ -32,6 +32,19 @@
   }
   ::selection{background:#D9E4D8;}
 
+  /* own-it dot on a pick card: empty ring, filled when yours, dashed while the
+     issue is in flight. A real button so it is tabbable and announces state. */
+  .owndot{
+    flex:0 0 auto; width:15px; height:15px; border-radius:50%; padding:0;
+    cursor:pointer; background:transparent; transition:background .15s, border-color .15s;
+  }
+  .owndot-no{ border:1.5px solid rgba(120,112,90,0.45); }
+  .owndot-no:hover{ border-color:var(--h); background:var(--h-bg); }
+  .owndot-own{ border:1.5px solid var(--h); background:var(--h);
+    box-shadow:inset 0 0 0 2.5px #fff; cursor:default; }
+  .owndot-pending{ border:1.5px dashed var(--h); background:var(--h-bg); }
+  .owndot:focus-visible{ outline:2px solid var(--h); outline-offset:2px; }
+
   /* iOS-style switch for the day-strip mode. A real <button role="switch"> so it
      is keyboard reachable and announces its state, rather than a styled div. */
   .swt{
@@ -242,7 +255,7 @@ const chgC  = p => typeof p !== "number" ? "var(--ink-4)" : p > 0 ? G : p < 0 ? 
 let D = null, B = null;
 const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{},
             // per-ticker day-strip mode: absent means "since buy", the default
-            dayMode:{},
+            dayMode:{}, pending:{},
             // which account the digest describes: "rule" (every pick taken) or
             // "mine" (only what trades.json records)
             book:"rule",
@@ -698,6 +711,21 @@ function boughtForm(t){
   </div>`;
 }
 
+// One click on the card marks a buy. The board cannot commit, so the click opens
+// a prefilled issue and a workflow does the write — which takes a run to land, so
+// the dot shows a pending state immediately rather than looking like nothing
+// happened. Price and size are the ones on screen; correct them in the issue
+// title if your fill differed.
+function ownDot(t, mine){
+  const pending = !mine && S.pending[t.sym];
+  const state = mine ? "own" : pending ? "pending" : "no";
+  const label = mine ? `You own $${t.sym} \u2014 recorded in trades.json`
+    : pending ? `Submitted for $${t.sym}. It lands in your portfolio on the next run.`
+    : `Mark $${t.sym} as bought at ${money(t.price)}`;
+  return `<button class="owndot owndot-${state}" data-own="${esc(t.sym)}"
+    aria-pressed="${!!mine}" title="${esc(label)}" aria-label="${esc(label)}"></button>`;
+}
+
 function bookSwitch(){
   const mine = S.book === "mine";
   return `<button class="swt" data-book="1" role="switch" aria-checked="${mine}"
@@ -1051,14 +1079,16 @@ function picksPanel(){
       grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
       ${q.map((t,i) => { const held = MINE ? MP[t.sym] : (MP[t.sym] || OP[t.sym]);
         const o = held, mine = MINE ? MP[t.sym] : MP[t.sym], sb = sinceBuy(t);
-        return `<div style="border:1px solid ${mine ? "var(--h-line)" : "var(--rule-2)"};
+        const tint = MINE ? (mine || S.pending[t.sym]) : mine;
+        return `<div style="border:1px solid ${tint ? "var(--h-line)" : "var(--rule-2)"};
           border-radius:12px;padding:12px 14px;background:${
-            mine ? "var(--h-bg)" : "rgba(255,255,255,0.30)"};cursor:pointer;"
+            tint ? "var(--h-bg)" : "rgba(255,255,255,0.30)"};cursor:pointer;"
           data-open="${esc(t.sym)}">
-        <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
-          <span class="mono" style="font-size:11px;color:${mine ? H : "#6E6754"};">${i+1}</span>
-          <span class="sym"${mine ? ` style="color:${H};"` : ""}>$${esc(t.sym)}</span>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span class="mono" style="font-size:11px;color:${tint ? H : "#6E6754"};">${i+1}</span>
+          <span class="sym"${tint ? ` style="color:${H};"` : ""}>$${esc(t.sym)}</span>
           <span class="mono" style="font-size:13px;color:var(--ink-2);">${money(t.price)}</span>
+          ${MINE ? ownDot(t, mine) : ""}
           <span class="mono" style="font-size:13px;color:${chgC(t.pct)};margin-left:auto;">
             ${pctT(t.pct)}</span>
         </div>
@@ -1109,7 +1139,6 @@ function picksPanel(){
         ${(t.headlines||[])[0] ? `<div style="font-size:12px;color:var(--ink-4);
           margin-top:9px;text-wrap:pretty;">${esc(t.headlines[0])}</div>` : ""}
         <div class="note" style="margin-top:9px;">Open for the 1-year chart →</div>
-        ${MINE && !mine ? boughtForm(t) : ""}
       </div>`; }).join("")}
     </div>` : `<div class="empty">Nothing cleared the filter today.</div>`}
   </div>`;
@@ -1840,10 +1869,191 @@ function detail(){
 }
 
 /* ── shell ────────────────────────────────────────────────── */
-const SCREENS = { digest, watchlist, history, detail };
+/* ── Nik's stocks ─────────────────────────────────────────
+   Your book on its own screen: what you hold, what it is worth, what is due to
+   sell, and what the radar is flagging that you do not own yet. Deliberately not
+   a filter over the digest — the digest answers "what does the rule say", this
+   answers "where am I". */
+function mine(){
+  const open = (B && B.my_positions) || [];
+  const closed = (B && B.my_closed) || [];
+  const picks = D.watch || [];
+  const held = new Set(open.map(o => o.sym));
+  const cost = open.reduce((a, o) => a + (o.alloc || 0), 0);
+  const val  = open.reduce((a, o) => a + (o.value || 0), 0);
+  const unreal = val - cost;
+  const real = closed.reduce((a, o) => a + (o.pnl || 0), 0);
+  const dueToday = open.filter(o => o.days_left === 0);
+  const notOwned = picks.filter(t => !held.has(t.sym));
+
+  const hero = `<div class="panel" style="margin-bottom:16px;padding:22px 24px;">
+    <div class="eyebrow" style="margin-bottom:10px;">Nik's stocks</div>
+    ${open.length || closed.length ? `
+      <div style="display:flex;gap:30px;flex-wrap:wrap;align-items:baseline;">
+        <div>
+          <div class="mono" style="font-size:13px;color:var(--ink-5);">$${
+            Math.round(cost).toLocaleString()} in \u2192</div>
+          <div class="mono" style="font-size:38px;font-weight:600;letter-spacing:-.02em;
+            line-height:1;color:${chgC(unreal)};">$${Math.round(val).toLocaleString()}</div>
+          <div class="mono" style="font-size:13px;margin-top:6px;color:${chgC(unreal)};">
+            ${unreal>=0?"+":"\u2212"}$${Math.abs(Math.round(unreal)).toLocaleString()}
+            ${cost ? `(${pctT(+(unreal/cost*100).toFixed(1))})` : ""} unrealised</div>
+        </div>
+        <div style="flex:1 1 240px;min-width:0;font-size:13px;color:var(--ink-3);
+          text-wrap:pretty;">
+          ${open.length} position${open.length===1?"":"s"} open${
+            closed.length ? `, ${closed.length} closed for
+            ${real>=0?"+":"\u2212"}$${Math.abs(Math.round(real)).toLocaleString()} realised` : ""}.
+          ${dueToday.length
+            ? `<b style="color:${R};">${dueToday.length} sell${dueToday.length===1?"s":""}
+               today</b> — ${dueToday.map(o => "$" + esc(o.sym)).join(", ")}.`
+            : open.length ? `Nothing due to sell today.` : ""}
+          Each position runs ${holdDays()} trading days from the day you bought it.
+        </div>
+      </div>`
+    : `<div style="font-size:14px;color:var(--ink-3);max-width:60ch;text-wrap:pretty;">
+        Nothing recorded yet. On the Digest, switch the picks panel to <b>Mine</b> and
+        tap the circle beside a ticker to mark it bought — or run
+        <span class="mono">./trade.py buy MU --price 739 --amount ${buyStake()}</span>.
+      </div>`}
+  </div>`;
+
+  const positions = open.length ? `<div class="panel" style="margin-bottom:16px;">
+    <div class="phead"><div class="cap" style="color:${H};">Open positions</div>
+      <div class="note">soonest to sell first · click a row for the full ticker</div></div>
+    <div class="scroll"><div style="min-width:700px;">
+      <div class="tbl">
+        <div style="flex:0 0 76px;">Ticker</div>
+        <div style="flex:0 0 124px;">Bought</div>
+        <div style="flex:0 0 84px;text-align:right;">At</div>
+        <div style="flex:0 0 84px;text-align:right;">Now</div>
+        <div style="flex:0 0 76px;text-align:right;">Change</div>
+        <div style="flex:0 0 78px;text-align:right;">Worth</div>
+        <div style="flex:0 0 76px;text-align:right;">P/L</div>
+        <div style="flex:1 1 92px;text-align:right;">Sells in</div>
+      </div>
+      ${open.map(o => `<div class="row clickable" data-open="${esc(o.sym)}">
+        <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
+            color:${H};">$${esc(o.sym)}</div>
+          <div style="flex:0 0 124px;min-width:0;font-size:12px;color:var(--ink-4);
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
+            esc(fmtPickDay(o.bought))}</div>
+          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(o.entry)}</div>
+          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(o.price)}</div>
+          <div class="mono" style="flex:0 0 76px;text-align:right;font-size:13px;
+            font-weight:600;color:${chgC(o.ret)};">${pctT(o.ret)}</div>
+          <div class="mono" style="flex:0 0 78px;text-align:right;font-size:13px;
+            color:var(--ink-2);">$${Math.round(o.value).toLocaleString()}</div>
+          <div class="mono" style="flex:0 0 76px;text-align:right;font-size:13px;
+            color:${chgC(o.pnl)};">${o.pnl>=0?"+":"\u2212"}$${
+            Math.abs(Math.round(o.pnl)).toLocaleString()}</div>
+          <div class="mono" style="flex:1 1 92px;text-align:right;font-size:13px;
+            font-weight:600;color:${o.days_left===0?R:"var(--ink-d)"};">${
+            o.days_left===0 ? "today" : o.days_left + "d"}</div>
+        </div></div>`).join("")}
+    </div></div>
+    <div style="padding:12px 18px 16px;"><div class="note">Sell with
+      <span class="mono">./trade.py sell MU --price 823.03</span>, or open an issue
+      titled <span class="mono">sell MU 823.03</span>.</div></div>
+  </div>` : "";
+
+  const curves = open.length ? `<div class="panel" style="margin-bottom:16px;">
+    <div class="phead"><div class="cap">Day by day</div>
+      <div class="note">each session since you bought · switch any row between the
+        day's move and the running total</div></div>
+    <div style="padding:14px 18px;display:grid;gap:12px;
+      grid-template-columns:repeat(auto-fill,minmax(230px,1fr));">
+      ${open.map(o => `<div style="border:1px solid var(--h-line);border-radius:12px;
+        padding:10px 12px;background:var(--h-bg);">
+        <div style="display:flex;align-items:baseline;gap:8px;">
+          <span class="sym" style="color:${H};">$${esc(o.sym)}</span>
+          <span class="mono" style="font-size:12px;color:var(--ink-5);">${money(o.entry)}
+            \u2192 ${money(o.price)}</span>
+          <span class="mono" style="font-size:13px;font-weight:600;margin-left:auto;
+            color:${chgC(o.ret)};">${pctT(o.ret)}</span>
+        </div>
+        ${dayStrip(o)}
+      </div>`).join("")}
+    </div>
+  </div>` : "";
+
+  const closedPanel = closed.length ? `<div class="panel" style="margin-bottom:16px;">
+    <div class="phead"><div class="cap">Closed</div>
+      <div class="note">${closed.length} sold · ${real>=0?"+":"\u2212"}$${
+        Math.abs(Math.round(real)).toLocaleString()} realised</div></div>
+    <div class="scroll"><div style="min-width:560px;">
+      <div class="tbl">
+        <div style="flex:0 0 76px;">Ticker</div>
+        <div style="flex:1 1 200px;">Held</div>
+        <div style="flex:0 0 84px;text-align:right;">In</div>
+        <div style="flex:0 0 84px;text-align:right;">Out</div>
+        <div style="flex:0 0 76px;text-align:right;">Change</div>
+        <div style="flex:0 0 80px;text-align:right;">P/L</div>
+      </div>
+      ${closed.map(o => `<div class="row">
+        <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
+            color:var(--ink-2);">$${esc(o.sym)}</div>
+          <div style="flex:1 1 200px;min-width:0;font-size:12px;color:var(--ink-5);
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
+            esc(fmtPickDay(o.bought))} \u2192 ${esc(fmtPickDay(o.sold))}</div>
+          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(o.entry)}</div>
+          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(o.exit)}</div>
+          <div class="mono" style="flex:0 0 76px;text-align:right;font-size:13px;
+            font-weight:600;color:${chgC(o.ret)};">${pctT(o.ret)}</div>
+          <div class="mono" style="flex:0 0 80px;text-align:right;font-size:13px;
+            color:${chgC(o.pnl)};">${o.pnl>=0?"+":"\u2212"}$${
+            Math.abs(Math.round(o.pnl)).toLocaleString()}</div>
+        </div></div>`).join("")}
+    </div></div>
+  </div>` : "";
+
+  const notMine = notOwned.length ? `<div class="panel">
+    <div class="phead"><div class="cap">Flagged today, not yours</div>
+      <div class="note">${notOwned.length} name${notOwned.length===1?"":"s"} on the
+        current list you have no position in</div></div>
+    <div class="scroll"><div style="min-width:460px;">
+      <div class="tbl">
+        <div style="flex:0 0 76px;">Ticker</div>
+        <div style="flex:1 1 160px;">Name</div>
+        <div style="flex:0 0 88px;text-align:right;">Price</div>
+        <div style="flex:0 0 76px;text-align:right;">Today</div>
+        <div style="flex:0 0 96px;text-align:right;">Buy \u2248</div>
+      </div>
+      ${notOwned.map(t => { const sh = Math.floor(buyStake() / (t.price || 0));
+        return `<div class="row clickable" data-open="${esc(t.sym)}">
+        <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
+            color:var(--ink-d);">$${esc(t.sym)}</div>
+          <div style="flex:1 1 160px;min-width:0;font-size:12px;color:var(--ink-5);
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
+            esc(t.name || "")}</div>
+          <div class="mono" style="flex:0 0 88px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(t.price)}</div>
+          <div class="mono" style="flex:0 0 76px;text-align:right;font-size:13px;
+            color:${chgC(t.pct)};">${pctT(t.pct)}</div>
+          <div class="mono" style="flex:0 0 96px;text-align:right;font-size:12px;
+            color:var(--ink-4);">${sh ? sh + " sh" : "\u2014"}</div>
+        </div></div>`; }).join("")}
+    </div></div>
+    <div style="padding:12px 18px 16px;"><div class="note">Mark one bought from the
+      Digest: switch the picks panel to <b>Mine</b> and tap the circle by the
+      ticker.</div></div>
+  </div>` : "";
+
+  return hero + positions + curves + closedPanel + notMine;
+}
+
+const SCREENS = { digest, watchlist, history, mine, detail };
 function render(keepScroll){
   const y = window.scrollY;
-  const nav = [["digest","Digest"],["watchlist","Watchlist"],["history","History"]];
+  const nav = [["digest","Digest"],["watchlist","Watchlist"],["history","History"],
+               ["mine","Nik's stocks"]];
   $("#nav").innerHTML = nav.map(([k,l]) =>
     `<button data-go="${k}" aria-current="${S.screen===k}">${l}</button>`).join("");
   $("#app").innerHTML = (SCREENS[S.screen] || digest)();
@@ -1852,10 +2062,28 @@ function render(keepScroll){
 }
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-recordbuy],[data-buying],[data-book],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
+  const el = e.target.closest("[data-own],[data-recordbuy],[data-buying],[data-book],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
   if (!el) return;
   const d = el.dataset;
   // sits inside a card that is itself data-open, so it must swallow the click
+  if (d.own) {
+    e.stopPropagation();
+    const sym = d.own;
+    if (myPos()[sym]) return;                 // already yours; nothing to record
+    const t = (D.watch || []).find(x => x.sym === sym) || {};
+    const price = typeof t.price === "number" ? +t.price.toFixed(2) : 0;
+    if (!price) return;
+    const title = `buy ${sym} ${price} ${buyStake()}`;
+    window.open(`https://github.com/${REPO}/issues/new?labels=trade`
+      + `&title=${encodeURIComponent(title)}`
+      + `&body=${encodeURIComponent(
+          `Recording a buy of $${sym} at ${price} for $${buyStake()}.\n\n`
+          + `Edit the title if your fill differed: buy SYM PRICE AMOUNT [DATE].`)}`,
+      "_blank", "noopener");
+    S.pending[sym] = true;                    // optimistic until the run lands
+    render(true);
+    return;
+  }
   if (d.buying !== undefined && !d.recordbuy) {
     e.stopPropagation();
     S.buying = d.buying || null;
