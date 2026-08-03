@@ -808,6 +808,26 @@ function picksPanel(){
           <span class="mono" style="font-size:13px;color:${chgC(t.pct)};margin-left:auto;">
             ${pctT(t.pct)}</span>
         </div>
+        ${!o ? (() => {
+          // what to actually put in — the card said which name to buy but never
+          // how much, so the size lived only in the trade-plan table below
+          const st = buyStake(), sh = Math.floor(st / (t.price || 0));
+          if (!sh) return `<div style="margin-top:8px;padding:6px 9px;border-radius:7px;
+            background:rgba(120,112,90,0.09);border:1px solid var(--rule-2);
+            font-size:12px;color:var(--ink-4);">One share costs more than the
+            $${st.toLocaleString()} slice — skip, or size it by hand.</div>`;
+          return `<div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+            margin-top:8px;padding:6px 9px;border-radius:7px;
+            background:rgba(31,138,84,0.07);border:1px solid rgba(31,138,84,0.22);">
+            <span class="mono" style="font-size:10px;letter-spacing:.06em;color:${G};
+              font-weight:600;">BUY</span>
+            <span class="mono" style="font-size:13px;font-weight:600;color:var(--ink-d);"
+              >${sh} share${sh===1?"":"s"}</span>
+            <span style="font-size:11px;color:var(--ink-5);">\u2248 $${
+              Math.round(sh * t.price).toLocaleString()}</span>
+            <span style="font-size:11px;color:var(--ink-5);margin-left:auto;
+              white-space:nowrap;">sell ${esc(sellByDate(holdDays()))}</span>
+          </div>`; })() : ""}
         ${o ? `<div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
           margin-top:8px;padding:6px 9px;border-radius:7px;background:var(--h-bg);
           border:1px solid var(--h-line);">
@@ -1598,24 +1618,74 @@ document.addEventListener("change", e => {
   if (oc) { S.outcome = oc.value || null; render(); }
 });
 
-// backtest.json is optional — it only exists once the backtest workflow has run
-fetch("backtest.json?" + Date.now())
-  .then(r => r.ok ? r.json() : null).catch(() => null)
-  .then(b => { B = b; if (D) render(); });
+// Both files are cache-busted per fetch: GitHub Pages serves them with
+// max-age=600, so without the timestamp a reload could show ten-minute-old
+// numbers. backtest.json is optional — the board still works without it.
+function loadBacktest(){
+  return fetch("backtest.json?" + Date.now())
+    .then(r => r.ok ? r.json() : null).catch(() => null)
+    .then(b => { if (b) B = b; });
+}
 
-fetch("data.json?" + Date.now())
-  .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-  .then(d => {
-    D = d;
-    const when = new Date(d.generated_at);
-    const s = when.toLocaleString(undefined,
-      { month:"short", day:"numeric", hour:"2-digit", minute:"2-digit" });
-    $("#stamp").textContent = s;
-    $("#hStamp").textContent = when.toLocaleTimeString(undefined,
-      { hour:"2-digit", minute:"2-digit" });
-    $("#hTracked").textContent = (d.session && d.session.tracked) ?? (d.buzz||[]).length;
-    render();
-  })
+function loadData(){
+  return fetch("data.json?" + Date.now())
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(d => {
+      D = d;
+      const when = new Date(d.generated_at);
+      $("#stamp").textContent = when.toLocaleString(undefined,
+        { month:"short", day:"numeric", hour:"2-digit", minute:"2-digit" });
+      $("#hStamp").textContent = when.toLocaleTimeString(undefined,
+        { hour:"2-digit", minute:"2-digit" });
+      $("#hTracked").textContent = (d.session && d.session.tracked) ?? (d.buzz||[]).length;
+    });
+}
+
+// Refresh in place. The run writes data.json and backtest.json seconds apart, so
+// both are refetched together — showing fresh picks beside stale holdings is
+// exactly the mismatch this board exists to avoid. S is untouched, so a reload
+// does not throw you back to the digest or lose the day you were looking at.
+let refreshing = false;
+function refresh(){
+  if (refreshing) return Promise.resolve();
+  refreshing = true;
+  const was = D && D.generated_at;
+  return Promise.all([loadData(), loadBacktest()])
+    .then(() => {
+      render();
+      if (was && D.generated_at !== was) flashUpdated();
+    })
+    .catch(() => {})            // a failed poll keeps the last good board
+    .finally(() => { refreshing = false; });
+}
+
+function flashUpdated(){
+  const el = $("#stamp");
+  if (!el) return;
+  el.style.transition = "none";
+  el.style.color = "var(--g)";
+  el.style.fontWeight = "600";
+  setTimeout(() => {
+    el.style.transition = "color .8s, font-weight .8s";
+    el.style.color = ""; el.style.fontWeight = "";
+  }, 1400);
+}
+
+// Every 3 minutes while the tab is visible, and immediately on coming back to it
+// — a tab left open all day used to sit on whatever it fetched at open time.
+// Polling is paused when hidden so a forgotten tab is not hammering the CDN.
+const POLL_MS = 180000;
+let poll = null;
+function startPolling(){
+  if (poll === null) poll = setInterval(() => { if (!document.hidden) refresh(); }, POLL_MS);
+}
+document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
+
+// Both in parallel, one render when they land: rendering on data.json alone
+// would draw the board with B still null, so holdings and position size would
+// briefly show their fallbacks and then jump.
+Promise.all([loadData(), loadBacktest()])
+  .then(() => { render(); startPolling(); })
   .catch(err => {
     $("#boot").innerHTML = `<div class="eyebrow" style="margin-bottom:8px;">No data</div>
       Waiting for the first radar run to write <b>data.json</b>.
