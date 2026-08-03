@@ -211,6 +211,8 @@ const chgC  = p => typeof p !== "number" ? "var(--ink-4)" : p > 0 ? G : p < 0 ? 
 
 let D = null, B = null;
 const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{},
+            // per-ticker day-strip mode: absent means "since buy", the default
+            dayMode:{},
             sort:{ key:"ret", dir:-1 },        // "every ticker" table
             daySort:{ key:"date", dir:1 },      // day-by-day table
             section:"all",
@@ -773,18 +775,17 @@ function sellPlan(){
   </div>` + heldPanel;
 }
 
-// Day by day since the buy. Two numbers per session because they answer
-// different questions: a position can be up overall on a day it fell (MU was
-// +18.4% on day 1, fell 5.9% on day 2, still +11.4% overall). Columns run to the
-// full holding period; sessions not yet reached are dots, not zeros.
+// Day by day since the buy, one line at a time. Both numbers matter but they
+// answer different questions, so the strip shows one and toggles: MU was +18.4%
+// on day 1, fell 5.9% on day 2, and was still +11.4% overall. Defaults to
+// "since buy" — the running total is what you judge the position on; the daily
+// move is what you look up when it surprises you.
 function dayStrip(o){
   const path = (o && o.path) || [];
-  const n = holdDays();
   if (!path.length) return "";
-  const cell = (v, bold) => v === null
-    ? `<div style="color:var(--ink-6);">\u00b7</div>`
-    : `<div style="color:${chgC(v)};${bold ? "font-weight:600;" : ""}">${
-        v > 0 ? "+" : v < 0 ? "\u2212" : ""}${Math.abs(v).toFixed(1)}</div>`;
+  const n = holdDays();
+  const mode = S.dayMode[o.sym] === "day" ? "day" : "cum";
+  const key = mode === "day" ? "day_pct" : "cum_pct";
   const cols = [];
   for (let i = 0; i < n; i++) cols.push(path[i] || null);
   const grid = `display:grid;grid-template-columns:repeat(${n},1fr);gap:2px;
@@ -794,11 +795,20 @@ function dayStrip(o){
     <div class="mono" style="${grid}color:var(--ink-6);letter-spacing:.02em;">
       ${cols.map((_, i) => `<div>D${i + 1}</div>`).join("")}</div>
     <div class="mono" style="${grid}margin-top:2px;">
-      ${cols.map(c => cell(c ? c.day_pct : null, false)).join("")}</div>
-    <div class="mono" style="${grid}margin-top:1px;">
-      ${cols.map(c => cell(c ? c.cum_pct : null, true)).join("")}</div>
-    <div style="font-size:9px;color:var(--ink-6);margin-top:4px;text-align:center;">
-      that day \u00b7 <b style="font-weight:600;">since buy</b></div>
+      ${cols.map(c => c === null
+        ? `<div style="color:var(--ink-6);">\u00b7</div>`
+        : `<div style="color:${chgC(c[key])};font-weight:600;">${
+            c[key] > 0 ? "+" : c[key] < 0 ? "\u2212" : ""}${
+            Math.abs(c[key]).toFixed(1)}</div>`).join("")}</div>
+    <button data-daymode="${esc(o.sym)}" title="Switch to ${
+      mode === "cum" ? "each day's own move" : "the running total since the buy"}"
+      style="margin-top:5px;width:100%;background:none;border:0;padding:2px 0;
+      cursor:pointer;font:inherit;font-size:9px;color:var(--ink-5);
+      display:flex;align-items:center;justify-content:center;gap:5px;">
+      <span>${mode === "cum" ? "since buy" : "that day"}</span>
+      <span style="font-size:8.5px;color:var(--ink-6);border:1px solid var(--rule);
+        border-radius:4px;padding:0 4px;">switch</span>
+    </button>
   </div>`;
 }
 
@@ -1610,18 +1620,27 @@ function detail(){
 
 /* ── shell ────────────────────────────────────────────────── */
 const SCREENS = { digest, watchlist, history, detail };
-function render(){
+function render(keepScroll){
+  const y = window.scrollY;
   const nav = [["digest","Digest"],["watchlist","Watchlist"],["history","History"]];
   $("#nav").innerHTML = nav.map(([k,l]) =>
     `<button data-go="${k}" aria-current="${S.screen===k}">${l}</button>`).join("");
   $("#app").innerHTML = (SCREENS[S.screen] || digest)();
-  window.scrollTo({ top: 0 });
+  // an in-place toggle keeps your position; a screen change goes back to the top
+  window.scrollTo({ top: keepScroll ? y : 0 });
 }
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
+  const el = e.target.closest("[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
   if (!el) return;
   const d = el.dataset;
+  // sits inside a card that is itself data-open, so it must swallow the click
+  if (d.daymode) {
+    e.stopPropagation();
+    S.dayMode[d.daymode] = S.dayMode[d.daymode] === "day" ? "cum" : "day";
+    render(true);
+    return;
+  }
   // text columns open A→Z, numeric columns open biggest-first
   const flip = (state, key) => state.key === key
     ? { key, dir: -state.dir }
