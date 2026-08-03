@@ -517,9 +517,10 @@ def main():
         # fewer names than the digest listed, so both counts are reported rather
         # than letting "picks" quietly mean two different things on two panels.
         held_already = sorted(s for s, _ in flagged if s in live)
-        for s in held_already:                  # how much longer it was tied up
-            p = next(x for x in openpos if x["sym"] == s)
-            held_at[(date, s)] = _days_left(p, date)
+        for s in held_already:                  # how much longer it was tied up,
+            p = next(x for x in openpos if x["sym"] == s)   # and what it cost
+            held_at[(date, s)] = {"days_left": _days_left(p, date),
+                                  "bought": p["day"], "buy_price": p["entry"]}
         if not names:
             continue
         acct = cash + _mv(date)
@@ -607,11 +608,19 @@ def main():
                 # come due yet, so there is no exit to report rather than a zero
                 "still_open": xpx is None,
                 "simulated": pick_sim.get((date, sym), False),
-                # flagged again while the account still held it: not a buy, and
-                # the day's return should not average it in
-                "already_held": (date, sym) in held_at,
-                "days_left": held_at.get((date, sym)),
             })
+    for p in pick_detail:
+        # flagged again while the account still held it: not a buy, and the day's
+        # return should not average it in. The position's own gain is measured
+        # from what it was actually bought at on the earlier day, which is a
+        # different number from this day's flag price.
+        h = held_at.get((p["date"], p["sym"]))
+        p["already_held"] = h is not None
+        p["days_left"] = h["days_left"] if h else None
+        p["held_since"] = h["bought"] if h else None
+        p["buy_price"] = round(h["buy_price"], 4) if h else None
+        p["ret_since_buy"] = (round((p["now"] - h["buy_price"]) / h["buy_price"] * 100, 1)
+                              if h and p["now"] and h["buy_price"] else None)
 
     # What the account is still holding as of this run, so today's list can say
     # "already in it, N days left" instead of telling you to buy it twice.

@@ -940,15 +940,19 @@ against that day's data, which no longer exists.">reconstructed</span>` : ""}
       <div class="phead"><div class="cap" style="color:${H};">Already holding — don't buy again</div>
         <div class="note">flagged again while the position was still open, so no
           second buy and no effect on the day's return</div></div>
-      <div class="scroll"><div style="min-width:760px;">
+      <div class="scroll"><div style="min-width:830px;">
         <div class="tbl">
           <div style="flex:0 0 84px;">Ticker</div>
           <div style="flex:0 0 90px;text-align:right;"
             title="The price on this day's list — not what the open position was bought at, which was an earlier day."
             >Flagged at</div>
           <div style="flex:0 0 90px;text-align:right;">Now</div>
-          <div style="flex:0 0 86px;text-align:right;">Change</div>
-          <div style="flex:1 1 200px;">Status that day</div>
+          <div style="flex:0 0 86px;text-align:right;"
+            title="Change from this day's flag price to the latest run.">Since flag</div>
+          <div style="flex:0 0 96px;text-align:right;"
+            title="Change on the open position, from the price it was actually bought at on the earlier pick day."
+            >Since buy</div>
+          <div style="flex:1 1 190px;">Status that day</div>
         </div>
         ${holding.map(e => {
           const d = PD[e.date + "|" + e.sym] || {};
@@ -962,8 +966,15 @@ against that day's data, which no longer exists.">reconstructed</span>` : ""}
             <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
               color:var(--ink-2);">${money(e.last_price)}</div>
             <div class="mono" style="flex:0 0 86px;text-align:right;font-size:13px;
-              font-weight:600;color:${chgC(e.pct)};">${pctT(e.pct)}</div>
-            <div style="flex:1 1 200px;min-width:0;display:flex;align-items:center;gap:10px;">
+              color:${chgC(e.pct)};">${pctT(e.pct)}</div>
+            <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
+              font-weight:600;color:${typeof d.ret_since_buy === "number"
+                ? chgC(d.ret_since_buy) : "var(--ink-5)"};"${
+              d.buy_price ? ` title="Bought ${esc(fmtPickDay(d.held_since))} at ${
+                money(d.buy_price)}"` : ""}>${
+              typeof d.ret_since_buy === "number"
+                ? pctT(d.ret_since_buy) : "—"}</div>
+            <div style="flex:1 1 190px;min-width:0;display:flex;align-items:center;gap:10px;">
               <span class="pill" style="${pillCss("held")};font-size:10px;">held</span>
               <span style="font-size:12px;color:var(--ink-4);">${
                 typeof dl === "number"
