@@ -494,7 +494,16 @@ targets; Yahoo publishes no target date, so no exact deadline is implied."
 /* The trade ticket: what $STAKE buys, and the exit levels decided up front.
    Levels come from the rule that measured best over the real flag history —
    set before you are in the position, which is the entire point of a stop. */
-const BUY_STAKE = 1000;
+// What goes into one pick, taken from the model that produced every number on
+// this page: POSITION_FRAC of the account as it now stands. It was hardcoded at
+// $1,000 while the backtest was trading 5% of a $10,000 account — so the plan
+// told you to buy roughly twice the position the evidence was measured on.
+// Read at render time: B is still null while this file is being evaluated.
+function buyStake(){
+  const acct = (B && (B.final_balance || B.start_cash)) || 10000;
+  const frac = (B && B.position_frac) || 0.05;
+  return Math.max(1, Math.round(acct * frac));
+}
 // The rule: a time stop, not a price one. Read at render time, not at parse
 // time — B is still null while this file is being evaluated, so a top-level
 // const would freeze the fallback in and ignore whatever the backtest traded.
@@ -663,7 +672,7 @@ function sellPlan(){
   return `<div class="panel">
     <div class="phead">
       <div class="cap">Trade plan</div>
-      <div class="note">$${BUY_STAKE.toLocaleString()} per pick · sell after ${holdDays()} days</div>
+      <div class="note">$${buyStake().toLocaleString()} per pick · sell after ${holdDays()} days</div>
     </div>
     <div style="padding:14px 18px 4px;">
       <div style="font-size:13px;color:var(--ink-3);text-wrap:pretty;">${evidence}</div>
@@ -694,7 +703,7 @@ function sellPlan(){
         const body = q.map(t => {
           const p = t.price;
           if (typeof p !== "number" || !p) return "";
-          const shares = Math.floor(BUY_STAKE / p);
+          const shares = Math.floor(buyStake() / p);
           if (!shares) return "";
           const cost = shares * p;
           totalCost += cost;
@@ -722,8 +731,12 @@ function sellPlan(){
       })()}
     </div></div>
     <div style="padding:12px 18px 16px;">
-      <div class="note">Shares are whole units of $${BUY_STAKE.toLocaleString()} at the
-        latest price, so the cash deployed is slightly under that. The sell date counts
+      <div class="note">Each pick gets
+        $${buyStake().toLocaleString()} — ${Math.round((B&&B.position_frac||0.05)*100)}% of
+        the $${Math.round((B&&(B.final_balance||B.start_cash))||10000).toLocaleString()}
+        account, the same slice the backtest above trades, so the plan and the evidence
+        describe one strategy. Shares are whole units of that at the latest price, so the
+        cash deployed is slightly under it. The sell date counts
         ${holdDays()} trading days from ${esc(fmtDay(nextOpen()))}, the next session you
         can actually buy in, and skips weekends only — a market holiday in between
         pushes it out by one, so treat the day count as the instruction and the date as
