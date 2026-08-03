@@ -4,7 +4,9 @@ name: Reddit Stock Radar
 # Single cron per slot — no ET gate needed, no missed sends.
 # Times shift 1 hour between EDT and EST (acceptable for a radar).
 #
-# Each run also publishes the HTML dashboard in docs/ to GitHub Pages.
+# Each run also refreshes the account view (backtest.json: holdings, days left,
+# the compounded curve) from the same prices and commits it alongside the digest
+# data, then publishes the HTML dashboard in docs/ to GitHub Pages.
 
 on:
   schedule:
@@ -51,17 +53,38 @@ jobs:
           DASHBOARD_DIR: docs
         run: python main.py
 
+      # ---- refresh the board's account view on the same run ----
+      # Holdings, days-left and the compounded curve all come out of
+      # backtest.json. Run manually it went stale between runs and the digest
+      # could show a position the account model had already sold. It has to run
+      # AFTER main.py: main.py appends today's picks to history.json, and the
+      # backtest reads that file to build the pick record.
+      #
+      # continue-on-error, and deliberately after the send: the ntfy digest is
+      # the primary job and has already gone out by this point, so a Yahoo
+      # failure here must never fail the run. STAKE is left unset so backtest.py
+      # uses its own default rather than a workflow input silently overriding it.
+      - name: Refresh backtest and holdings
+        continue-on-error: true
+        env:
+          DASHBOARD_DIR: docs
+        run: python backtest.py
+
       # ---- commit the fresh data back to the repo ----
       # Gives a working board (and a run history) even before Pages is enabled,
       # and lets a Raspberry Pi pull data without running Python itself.
+      # history.json is committed too: main.py rewrites it every run (new picks,
+      # marked to market) and it was previously left behind, so the pick record
+      # only ever moved when the manual backtest happened to commit it.
       - name: Commit dashboard data
         continue-on-error: true
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data.json
+          git add docs/data.json docs/history.json docs/backtest.json
           git diff --staged --quiet && echo "no change" && exit 0
           git commit -m "radar data $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase origin main || true
           git push origin HEAD:main
 
       # ---- publish the dashboard to GitHub Pages ----

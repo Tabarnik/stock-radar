@@ -1,15 +1,19 @@
 name: Backtest
 
 # Replays every digest the radar ever sent against today's prices.
-# Manual only — this is an analysis run, not part of the daily schedule.
+#
+# The daily workflow now runs backtest.py on every scheduled run, so the board's
+# holdings and curve refresh 3x a weekday alongside the ntfy digest. This one is
+# for ad-hoc analysis: re-running after a code change, or trying a different
+# stake without waiting for the next scheduled send.
 
 on:
   workflow_dispatch:
     inputs:
       stake:
-        description: 'Dollars bought of each ticker'
+        description: 'Dollars per ticker for the per-ticker tables (blank = code default)'
         required: false
-        default: '1000'
+        default: ''
 
 permissions:
   contents: write
@@ -30,11 +34,18 @@ jobs:
         env:
           DASHBOARD_DIR: docs
         run: python backfill_history.py
+      # An empty input must not reach STAKE as "": float("") raises, and a
+      # non-empty default here silently beat the code default once already
+      # (it reported $690,000 invested).
       - name: Run backtest
         env:
-          STAKE: ${{ inputs.stake }}
           DASHBOARD_DIR: docs
-        run: python backtest.py
+        run: |
+          if [ -n "${{ inputs.stake }}" ]; then
+            export STAKE="${{ inputs.stake }}"
+            echo "STAKE overridden to $STAKE"
+          fi
+          python backtest.py
       - name: Commit results
         continue-on-error: true
         run: |
