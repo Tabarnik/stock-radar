@@ -11,10 +11,10 @@ price, and flagged for penny/pump risk. Pushed to your phone every weekday morni
 
 ## Sample output
 ```
-Reddit Radar — Jun 15
+Stock Radar — Jun 15
 Trends only · not advice · high risk
 
-Reddit Radar — Jun 15
+Stock Radar — Jun 15
 Trends only · not advice · high risk
 
 🔥 REDDIT SQUEEZE/PENNY BUZZ

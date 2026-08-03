@@ -1,4 +1,4 @@
-name: Reddit Stock Radar
+name: Stock Radar
 
 # Three sends per weekday: 8 AM pre-market, 1 PM midday, 4 PM market close (ET).
 # Single cron per slot — no ET gate. The old dual-cron + gate setup returned
