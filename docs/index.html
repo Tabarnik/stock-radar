@@ -8,6 +8,9 @@
 <style>
   :root{
     --g:#186B41; --r:#B0301F; --a:#8A5F12; --m:#4E4938;
+    /* held: a name already in the account, neither a buy nor an outcome —
+       it needs its own colour, not a reuse of good/bad */
+    --h:#5B3E8E; --h-bg:rgba(91,62,142,0.09); --h-line:rgba(91,62,142,0.30);
     --ink:#252219; --ink-d:#1B1913; --ink-2:#3B3729; --ink-3:#464130;
     --ink-4:#55503F; --ink-5:#5F5947; --ink-6:#6B6553;
     --rule:rgba(120,112,90,0.18); --rule-2:rgba(120,112,90,0.15);
@@ -183,7 +186,7 @@
 
 <script>
 "use strict";
-const G="#186B41", R="#B0301F", A="#8A5F12";
+const G="#186B41", R="#B0301F", A="#8A5F12", H="#5B3E8E";
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
   ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -193,6 +196,7 @@ const PILL = {
   warn: ["rgba(169,120,27,0.12)","rgba(169,120,27,0.32)","#8A5F12"],
   muted:["rgba(120,112,90,0.10)","rgba(120,112,90,0.26)","#55503F"],
   good: ["rgba(31,138,84,0.10)","rgba(31,138,84,0.30)","#1B7548"],
+  held: ["rgba(91,62,142,0.10)","rgba(91,62,142,0.32)","#5B3E8E"],
 };
 const pillCss = k => {
   const c = PILL[k] || PILL.muted;
@@ -583,7 +587,7 @@ function sellPlan(){
   }
 
   const heldPanel = dupes.length ? `<div class="panel" style="margin-top:16px;">
-    <div class="phead"><div class="cap">Already holding — don't buy again</div>
+    <div class="phead"><div class="cap" style="color:${H};">Already holding — don't buy again</div>
       <div class="note">on today's list but already in the account · sell on schedule,
         then it can be bought again</div></div>
     <div class="scroll"><div style="min-width:420px;">
@@ -602,7 +606,7 @@ function sellPlan(){
         return `<div class="row clickable" data-open="${esc(t.sym)}">
         <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
           <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
-            color:var(--ink-d);">$${esc(t.sym)}</div>
+            color:${H};">$${esc(t.sym)}</div>
           <div class="mono" style="flex:0 0 92px;text-align:right;font-size:13px;
             color:var(--ink-2);">${money(t.price)}</div>
           <div class="mono" style="flex:0 0 96px;text-align:right;font-size:13px;
@@ -709,30 +713,57 @@ function sellPlan(){
         a reminder. Selling on schedule is what frees the cash for the next pick; the
         account cannot stay funded if positions run indefinitely.</div>
     </div>
-  </div>`; + heldPanel;
+  </div>` + heldPanel;
 }
 
 function picksPanel(){
   const q = D.watch || [];
+  const OP = openPos();
+  const nHeld = q.filter(t => OP[t.sym]).length;
+  // gain on the open position, measured from the price it was actually bought at
+  const sinceBuy = t => {
+    const o = OP[t.sym]; if (!o) return null;
+    const ent = ((B && B.pick_detail) || [])
+      .filter(p => p.sym === t.sym && p.date === o.bought)[0];
+    return ent && ent.entry && typeof t.price === "number"
+      ? (t.price - ent.entry) / ent.entry * 100 : null;
+  };
   return `<div class="panel">
     <div class="phead">
       <div class="cap">Picks of the day</div>
-      <div class="note">rising chatter or an analyst buy, with room left to move</div>
+      <div class="note">rising chatter or an analyst buy, with room left to move${
+        nHeld ? ` · <b style="color:${H};">${nHeld} already held</b>, shown in purple —
+        not to buy` : ""}</div>
       <div style="flex:1 1 20px;"></div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">${tierHead("pick")}</div>
     </div>
     ${q.length ? `<div style="padding:14px 18px;display:grid;gap:12px;
       grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
-      ${q.map((t,i) => `<div style="border:1px solid var(--rule-2);border-radius:12px;
-          padding:12px 14px;background:rgba(255,255,255,0.30);cursor:pointer;"
+      ${q.map((t,i) => { const o = OP[t.sym], sb = sinceBuy(t);
+        return `<div style="border:1px solid ${o ? "var(--h-line)" : "var(--rule-2)"};
+          border-radius:12px;padding:12px 14px;background:${
+            o ? "var(--h-bg)" : "rgba(255,255,255,0.30)"};cursor:pointer;"
           data-open="${esc(t.sym)}">
         <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
-          <span class="mono" style="font-size:11px;color:#6E6754;">${i+1}</span>
-          <span class="sym">$${esc(t.sym)}</span>
+          <span class="mono" style="font-size:11px;color:${o ? H : "#6E6754"};">${i+1}</span>
+          <span class="sym"${o ? ` style="color:${H};"` : ""}>$${esc(t.sym)}</span>
           <span class="mono" style="font-size:13px;color:var(--ink-2);">${money(t.price)}</span>
           <span class="mono" style="font-size:13px;color:${chgC(t.pct)};margin-left:auto;">
             ${pctT(t.pct)}</span>
         </div>
+        ${o ? `<div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+          margin-top:8px;padding:6px 9px;border-radius:7px;background:var(--h-bg);
+          border:1px solid var(--h-line);">
+          <span class="mono" style="font-size:10px;letter-spacing:.06em;color:${H};
+            font-weight:600;">HOLDING · DON'T BUY</span>
+          ${sb === null ? "" : `<span class="mono" style="font-size:12px;font-weight:600;
+            color:${chgC(sb)};">${pctT(+sb.toFixed(1))}</span>
+            <span style="font-size:11px;color:var(--ink-5);">since buy</span>`}
+          <span style="font-size:11px;color:${H};margin-left:auto;white-space:nowrap;">${
+            typeof o.days_left === "number"
+              ? (o.days_left === 0 ? "sell today" : `sell in ${o.days_left}d`)
+              : ""}</span>
+        </div>` : ""}
         <div class="co" style="max-width:100%;margin-top:2px;">${esc(t.name||"")}</div>
         <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:9px;">
           <span class="pill" style="${pillCss("muted")};font-size:10px;">${esc(t.tag||"")}</span>
@@ -742,7 +773,7 @@ function picksPanel(){
         ${(t.headlines||[])[0] ? `<div style="font-size:12px;color:var(--ink-4);
           margin-top:9px;text-wrap:pretty;">${esc(t.headlines[0])}</div>` : ""}
         <div class="note" style="margin-top:9px;">Open for the 1-year chart →</div>
-      </div>`).join("")}
+      </div>`; }).join("")}
     </div>` : `<div class="empty">Nothing cleared the filter today.</div>`}
   </div>`;
 }
@@ -906,7 +937,7 @@ against that day's data, which no longer exists.">reconstructed</span>` : ""}
         : `<div class="empty">Every name on this day's list was already held.</div>`}
     </div>
     ${holding.length ? `<div class="panel" style="margin-top:16px;">
-      <div class="phead"><div class="cap">Already holding — don't buy again</div>
+      <div class="phead"><div class="cap" style="color:${H};">Already holding — don't buy again</div>
         <div class="note">flagged again while the position was still open, so no
           second buy and no effect on the day's return</div></div>
       <div class="scroll"><div style="min-width:760px;">
@@ -916,7 +947,8 @@ against that day's data, which no longer exists.">reconstructed</span>` : ""}
             title="The price on this day's list — not what the open position was bought at, which was an earlier day."
             >Flagged at</div>
           <div style="flex:0 0 90px;text-align:right;">Now</div>
-          <div style="flex:1 1 220px;">Status that day</div>
+          <div style="flex:0 0 86px;text-align:right;">Change</div>
+          <div style="flex:1 1 200px;">Status that day</div>
         </div>
         ${holding.map(e => {
           const d = PD[e.date + "|" + e.sym] || {};
@@ -924,13 +956,15 @@ against that day's data, which no longer exists.">reconstructed</span>` : ""}
           return `<div class="row clickable" data-open="${esc(e.sym)}">
           <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
             <div class="mono" style="flex:0 0 84px;font-size:14px;font-weight:600;
-              color:var(--ink-d);">$${esc(e.sym)}</div>
+              color:${H};">$${esc(e.sym)}</div>
             <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
               color:var(--ink-2);">${money(e.flag_price)}</div>
             <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
               color:var(--ink-2);">${money(e.last_price)}</div>
-            <div style="flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:10px;">
-              <span class="pill" style="${pillCss("muted")};font-size:10px;">held</span>
+            <div class="mono" style="flex:0 0 86px;text-align:right;font-size:13px;
+              font-weight:600;color:${chgC(e.pct)};">${pctT(e.pct)}</div>
+            <div style="flex:1 1 200px;min-width:0;display:flex;align-items:center;gap:10px;">
+              <span class="pill" style="${pillCss("held")};font-size:10px;">held</span>
               <span style="font-size:12px;color:var(--ink-4);">${
                 typeof dl === "number"
                   ? `${dl} more trading day${dl===1?"":"s"} to run`
