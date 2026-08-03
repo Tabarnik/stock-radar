@@ -31,6 +31,36 @@
     -webkit-font-smoothing:antialiased; min-height:100vh;
   }
   ::selection{background:#D9E4D8;}
+
+  /* iOS-style switch for the day-strip mode. A real <button role="switch"> so it
+     is keyboard reachable and announces its state, rather than a styled div. */
+  .swt{
+    display:flex; align-items:center; justify-content:center; gap:7px;
+    width:100%; margin-top:5px; padding:3px 0;
+    background:none; border:0; cursor:pointer; font:inherit;
+    border-radius:6px;
+  }
+  .swt-lbl{
+    font-size:9px; letter-spacing:.02em; color:var(--ink-6);
+    transition:color .18s, font-weight .18s; white-space:nowrap;
+  }
+  .swt[aria-checked="false"] .swt-lbl.is-cum,
+  .swt[aria-checked="true"]  .swt-lbl.is-day{ color:var(--ink-2); font-weight:600; }
+  .swt-track{
+    position:relative; flex:0 0 auto; width:26px; height:15px; border-radius:999px;
+    background:rgba(120,112,90,0.30); transition:background .18s;
+  }
+  .swt[aria-checked="true"] .swt-track{ background:var(--h); }
+  .swt-knob{
+    position:absolute; top:2px; left:2px; width:11px; height:11px; border-radius:50%;
+    background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.28);
+    transition:transform .18s ease;
+  }
+  .swt[aria-checked="true"] .swt-knob{ transform:translateX(11px); }
+  .swt:focus-visible{ outline:2px solid var(--h); outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce){
+    .swt-knob, .swt-track, .swt-lbl{ transition:none; }
+  }
   ::-webkit-scrollbar{width:10px;height:10px;}
   ::-webkit-scrollbar-thumb{background:rgba(120,112,90,0.32);border-radius:6px;}
   ::-webkit-scrollbar-track{background:transparent;}
@@ -811,14 +841,14 @@ function dayStrip(o){
         : `<div style="color:${chgC(c[key])};font-weight:600;">${
             c[key] > 0 ? "+" : c[key] < 0 ? "\u2212" : ""}${
             Math.abs(c[key]).toFixed(1)}</div>`).join("")}</div>
-    <button data-daymode="${esc(o.sym)}" title="Switch to ${
-      mode === "cum" ? "each day's own move" : "the running total since the buy"}"
-      style="margin-top:5px;width:100%;background:none;border:0;padding:2px 0;
-      cursor:pointer;font:inherit;font-size:9px;color:var(--ink-5);
-      display:flex;align-items:center;justify-content:center;gap:5px;">
-      <span>${mode === "cum" ? "since buy" : "that day"}</span>
-      <span style="font-size:8.5px;color:var(--ink-6);border:1px solid var(--rule);
-        border-radius:4px;padding:0 4px;">switch</span>
+    <button class="swt" data-daymode="${esc(o.sym)}" role="switch"
+      aria-checked="${mode === "day"}"
+      aria-label="$${esc(o.sym)}: show each day's own move instead of the total since buy"
+      title="${mode === "cum" ? "Switch to each day's own move"
+                             : "Switch to the running total since the buy"}">
+      <span class="swt-lbl is-cum">since buy</span>
+      <span class="swt-track"><span class="swt-knob"></span></span>
+      <span class="swt-lbl is-day">that day</span>
     </button>
   </div>`;
 }
