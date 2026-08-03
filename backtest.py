@@ -702,6 +702,8 @@ def main():
         })
     my_open.sort(key=lambda o: (o["days_left"], o["sym"]))
     my_closed.sort(key=lambda o: o["sold"] or "", reverse=True)
+    print(f"real book: {len(trades)} trade(s) in trades.json -> "
+          f"{len(my_open)} open, {len(my_closed)} closed")
 
     payload = {
         "stake": STAKE,
