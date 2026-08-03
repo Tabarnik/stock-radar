@@ -886,10 +886,16 @@ function watchlist(){
                        .filter(v => typeof v === "number");
     const dayAvg = sold.length ? sold.reduce((a, b) => a + b, 0) / sold.length : null;
 
+    const OPd = openPos();
     const rowsFor = list => list.map(e => {
         const d = PD[e.date + "|" + e.sym];
+        // "not due" alone leaves you wondering when you will know — say it
+        const dl = (OPd[e.sym] || {}).days_left;
         const soldCell = !d ? `<span style="color:var(--ink-5);">—</span>`
-          : d.still_open ? `<span class="note" style="margin:0;">not due</span>`
+          : d.still_open ? `<span class="note" style="margin:0;white-space:nowrap;">${
+              typeof dl === "number"
+                ? (dl === 0 ? "sells today" : `in ${dl} day${dl===1?"":"s"}`)
+                : "not due"}</span>`
           : `<span style="color:${chgC(d.ret_hold)};">${pctT(d.ret_hold)}</span>`;
         return `<div class="row clickable" data-open="${esc(e.sym)}">
         <div style="display:flex;gap:12px;padding:12px 18px;align-items:center;">
@@ -1212,7 +1218,9 @@ function backtest(){
         sits on the earlier row that bought it. <b>Held</b> is how long that basket
         actually ran before its exit fired, in calendar days — ${holdDays()} trading
         days is about ${holdDays() + 2} of them, more across a holiday, which is why the
-        column reads higher than the rule. <b>Account</b> is what the whole account was worth on the day that
+        column reads higher than the rule. <b>Return</b> is what the basket paid when it sold; on rows tagged <b>open</b> the
+        position has not reached its ${holdDays()}-day exit yet, so the figure is marked
+        to the latest price and can still move. <b>Account</b> is what the whole account was worth on the day that
         basket was bought.${starved ? ` ${starved} pick day${starved===1?" was":"s were"}
         cut short with no cash free.` : ""} Click any row for that day's picks.
       </div>
@@ -1227,7 +1235,9 @@ function backtest(){
         <div style="flex:0 0 70px;text-align:right;">Picks</div>
         <div style="flex:0 0 100px;text-align:right;">Each</div>
         <div style="flex:0 0 78px;text-align:right;">Held</div>
-        <div style="flex:0 0 90px;text-align:right;">Return</div>
+        <div style="flex:0 0 90px;text-align:right;"
+          title="Rows without an 'open' tag are realised — the position was sold at the 5-day exit and this is what it paid. Rows tagged 'open' are still running, marked to the latest price."
+          >Return</div>
         <div style="flex:0 0 110px;text-align:right;">Account</div>
       </div>
       ${eq.map(e => `<div class="row clickable" data-day-go="${esc(e.date)}"
@@ -1250,7 +1260,9 @@ e.picks===1?'':'s'} actually opened."` : ""}>${e.picks}${
         <div class="mono" style="flex:0 0 78px;text-align:right;font-size:12px;
           color:var(--ink-5);">${e.held_days}d</div>
         <div class="mono" style="flex:0 0 90px;text-align:right;font-size:13px;
-          color:${chgC(e.return_pct)};">${pctT(e.return_pct)}</div>
+          color:${chgC(e.return_pct)};">${pctT(e.return_pct)}${
+          e.open ? `<span style="display:block;font-size:10px;color:var(--ink-5);
+            font-weight:400;letter-spacing:.04em;">so far</span>` : ""}</div>
         <div class="mono" style="flex:0 0 110px;text-align:right;font-size:13px;
           font-weight:600;color:${e.balance>=start?G:R};">
           $${Math.round(e.balance).toLocaleString()}</div>
