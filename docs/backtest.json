@@ -1128,8 +1128,8 @@
   },
   {
    "date": "2026-08-03",
-   "picks": 3,
-   "flagged": 13,
+   "picks": 4,
+   "flagged": 14,
    "held_already": [
     "AAPL",
     "AMZN",
@@ -1143,14 +1143,15 @@
     "SPY"
    ],
    "bought": [
+    "PLTR",
     "ORCL",
     "ONDS",
     "GRAB"
    ],
    "per_ticker": 554.19,
    "held_days": 0,
-   "return_pct": 1.6,
-   "invested": 1662.58,
+   "return_pct": 1.2,
+   "invested": 2216.77,
    "balance": 11083.83,
    "pnl": 27.24,
    "open": true
@@ -1912,6 +1913,23 @@
   },
   {
    "date": "2026-08-03",
+   "sym": "PLTR",
+   "entry": 125.6500015258789,
+   "now": 125.65,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-08-03",
    "sym": "RDDT",
    "entry": 140.6699981689453,
    "now": 154.71,
@@ -2473,6 +2491,20 @@
    "value": 577.1,
    "pnl": 22.91,
    "ret": 4.1,
+   "path": []
+  },
+  {
+   "sym": "PLTR",
+   "bought": "2026-08-03",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 125.65,
+   "price": 125.65,
+   "shares": 4.4106,
+   "alloc": 554.19,
+   "value": 554.19,
+   "pnl": 0.0,
+   "ret": 0.0,
    "path": []
   }
  ],
