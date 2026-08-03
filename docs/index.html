@@ -243,6 +243,9 @@ let D = null, B = null;
 const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{},
             // per-ticker day-strip mode: absent means "since buy", the default
             dayMode:{},
+            // which account the digest describes: "rule" (every pick taken) or
+            // "mine" (only what trades.json records)
+            book:"rule",
             sort:{ key:"ret", dir:-1 },        // "every ticker" table
             daySort:{ key:"date", dir:1 },      // day-by-day table
             section:"all",
@@ -657,6 +660,57 @@ function myTradesPanel(){
   </div>`;
 }
 
+// Which account the digest describes. Two genuinely different questions — what
+// the rule would be holding, and what you actually bought — so it is a switch
+// rather than a filter, and everything below it follows the setting.
+// Recording a buy from a static page. The board cannot commit to the repo, and
+// putting a token in a public page is not an option — so the button opens a
+// prefilled GitHub issue and a workflow writes trades.json. Works from a phone
+// with a couple of taps, and the workflow ignores issues from anyone but the
+// repo owner.
+const REPO = "Tabarnik/stock-radar";
+function boughtForm(t){
+  if (S.buying !== t.sym) {
+    return `<button class="btn wide" data-buying="${esc(t.sym)}"
+      style="margin-top:10px;font-size:11px;">I BOUGHT THIS</button>`;
+  }
+  const px = (typeof t.price === "number" ? t.price : 0).toFixed(2);
+  return `<div style="margin-top:10px;padding:9px 10px;border-radius:8px;
+    background:rgba(31,138,84,0.07);border:1px solid rgba(31,138,84,0.22);">
+    <div class="eyebrow" style="margin-bottom:7px;">Record a buy \u2014 $${esc(t.sym)}</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+      <label style="font-size:10px;color:var(--ink-5);">price
+        <input id="bp-${esc(t.sym)}" type="number" step="0.01" value="${px}"
+          style="width:82px;margin-left:4px;padding:3px 5px;font:inherit;font-size:12px;
+          border:1px solid var(--rule);border-radius:5px;background:#fff;"></label>
+      <label style="font-size:10px;color:var(--ink-5);">spend $
+        <input id="ba-${esc(t.sym)}" type="number" step="1" value="${buyStake()}"
+          style="width:76px;margin-left:4px;padding:3px 5px;font:inherit;font-size:12px;
+          border:1px solid var(--rule);border-radius:5px;background:#fff;"></label>
+    </div>
+    <div style="display:flex;gap:6px;margin-top:8px;">
+      <button class="btn" data-recordbuy="${esc(t.sym)}"
+        style="flex:1 1 auto;font-size:11px;">RECORD \u2192</button>
+      <button class="btn" data-buying="" style="font-size:11px;">CANCEL</button>
+    </div>
+    <div class="note" style="margin-top:7px;">Opens a prefilled GitHub issue \u2014
+      submit it and the next run adds it to your portfolio.</div>
+  </div>`;
+}
+
+function bookSwitch(){
+  const mine = S.book === "mine";
+  return `<button class="swt" data-book="1" role="switch" aria-checked="${mine}"
+    style="width:auto;margin:0;gap:8px;"
+    aria-label="Switch between the rule's account and your own portfolio"
+    title="${mine ? "Show the rule's account — every pick taken when it appeared"
+                  : "Show your portfolio — only the trades you recorded"}">
+    <span class="swt-lbl is-cum">Rule</span>
+    <span class="swt-track"><span class="swt-knob"></span></span>
+    <span class="swt-lbl is-day">Mine</span>
+  </button>`;
+}
+
 function myPos(){
   const m = {};
   ((B && B.my_positions) || []).forEach(p => { m[p.sym] = p; });
@@ -720,7 +774,7 @@ function sellPlan(){
   if (!all.length) return "";
   // names already in the account are shown separately — buying them again would
   // double a position the rule is already counting down
-  const OP = openPos();
+  const OP = S.book === "mine" ? myPos() : openPos();
   const q = all.filter(t => !OP[t.sym]);
   // measured on picks alone — the only list still acted on
   const RS = (B && B.exit_rules_picks) || [];
@@ -753,7 +807,7 @@ function sellPlan(){
   const cost = OPEN.reduce((a, o) => a + (o.alloc || 0), 0);
   const val  = OPEN.reduce((a, o) => a + (o.value || 0), 0);
   const pnl  = val - cost;
-  const heldPanel = OPEN.length ? `<div class="panel" style="margin-top:16px;">
+  const heldPanel = (S.book !== "mine" && OPEN.length) ? `<div class="panel" style="margin-top:16px;">
     <div class="phead"><div class="cap" style="color:${H};">Model portfolio</div>
       <div class="note">what the rule would hold if every signal had been acted on ·
         ${OPEN.length} position${OPEN.length===1?"":"s"} · each sells ${holdDays()}
@@ -971,6 +1025,7 @@ function dayStrip(o){
 function picksPanel(){
   const q = D.watch || [];
   const OP = openPos(), MP = myPos();
+  const MINE = S.book === "mine";
   const nHeld = q.filter(t => OP[t.sym]).length;
   const nMine = q.filter(t => MP[t.sym]).length;
   // gain on the open position, measured from the price it was actually bought at
@@ -985,14 +1040,17 @@ function picksPanel(){
     <div class="phead">
       <div class="cap">Picks of the day</div>
       <div class="note">rising chatter or an analyst buy, with room left to move${
-        nMine ? ` · <b style="color:${H};">${nMine} you already own</b>, in purple`
-        : nHeld ? ` · ${nHeld} held by the rule but not by you` : ""}</div>
+        MINE
+          ? (nMine ? ` · <b style="color:${H};">${nMine} you already own</b>, in purple`
+                   : ` · none of today's names are in your portfolio yet`)
+          : (nHeld ? ` · <b style="color:${H};">${nHeld} held by the rule</b>` : "")}</div>
       <div style="flex:1 1 20px;"></div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;">${tierHead("pick")}</div>
+      ${bookSwitch()}
     </div>
     ${q.length ? `<div style="padding:14px 18px;display:grid;gap:12px;
       grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
-      ${q.map((t,i) => { const o = OP[t.sym], mine = MP[t.sym], sb = sinceBuy(t);
+      ${q.map((t,i) => { const held = MINE ? MP[t.sym] : (MP[t.sym] || OP[t.sym]);
+        const o = held, mine = MINE ? MP[t.sym] : MP[t.sym], sb = sinceBuy(t);
         return `<div style="border:1px solid ${mine ? "var(--h-line)" : "var(--rule-2)"};
           border-radius:12px;padding:12px 14px;background:${
             mine ? "var(--h-bg)" : "rgba(255,255,255,0.30)"};cursor:pointer;"
@@ -1051,6 +1109,7 @@ function picksPanel(){
         ${(t.headlines||[])[0] ? `<div style="font-size:12px;color:var(--ink-4);
           margin-top:9px;text-wrap:pretty;">${esc(t.headlines[0])}</div>` : ""}
         <div class="note" style="margin-top:9px;">Open for the 1-year chart →</div>
+        ${MINE && !mine ? boughtForm(t) : ""}
       </div>`; }).join("")}
     </div>` : `<div class="empty">Nothing cleared the filter today.</div>`}
   </div>`;
@@ -1101,7 +1160,8 @@ function digest(){
       ${verdict()}${sessionPanel()}</div>
     ${picksPanel()}
     <div class="cols" style="margin-top:16px;">
-      <div class="col-main">${sellPlan()}${myTradesPanel()}</div>
+      <div class="col-main">${sellPlan()}${
+        S.book === "mine" ? myTradesPanel() : ""}</div>
       <div class="col-side">${recordPanel()}${disclaimer()}</div>
     </div>`;
 }
@@ -1792,10 +1852,40 @@ function render(keepScroll){
 }
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
+  const el = e.target.closest("[data-recordbuy],[data-buying],[data-book],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
   if (!el) return;
   const d = el.dataset;
   // sits inside a card that is itself data-open, so it must swallow the click
+  if (d.buying !== undefined && !d.recordbuy) {
+    e.stopPropagation();
+    S.buying = d.buying || null;
+    render(true);
+    return;
+  }
+  if (d.recordbuy) {
+    e.stopPropagation();
+    const sym = d.recordbuy;
+    const price = parseFloat(($("#bp-" + sym) || {}).value);
+    const amount = parseFloat(($("#ba-" + sym) || {}).value);
+    if (!price || !amount) return;
+    // the workflow parses the title, so the body is only for your own reference
+    const title = `buy ${sym} ${price} ${amount}`;
+    const url = `https://github.com/${REPO}/issues/new?labels=trade`
+      + `&title=${encodeURIComponent(title)}`
+      + `&body=${encodeURIComponent(
+          `Recording a buy of $${sym} at ${price} for $${amount}.\n\n`
+          + `Submit this issue and the next run writes it to docs/trades.json.`)}`;
+    window.open(url, "_blank", "noopener");
+    S.buying = null;
+    render(true);
+    return;
+  }
+  if (d.book) {
+    e.stopPropagation();
+    S.book = S.book === "mine" ? "rule" : "mine";
+    render(true);
+    return;
+  }
   if (d.daymode) {
     e.stopPropagation();
     S.dayMode[d.daymode] = S.dayMode[d.daymode] === "day" ? "cum" : "day";

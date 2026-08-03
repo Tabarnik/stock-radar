@@ -1,0 +1,110 @@
+name: Record trade from issue
+
+# The dashboard is a static page on GitHub Pages: it cannot commit, and putting a
+# write token in a public page is not an option. So the "I bought this" button
+# opens a prefilled issue and this workflow does the write.
+#
+#   buy  MU 739.00 540      -> spend $540 at $739.00
+#   buy  MU 739.00 540 2026-07-29
+#   sell MU 823.03
+#
+# The repo is public, so anyone can open an issue. The owner check below is the
+# only thing standing between that and a stranger writing to the trade record —
+# do not remove it.
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    if: >
+      github.event.issue.user.login == github.repository_owner &&
+      (startsWith(github.event.issue.title, 'buy ') ||
+       startsWith(github.event.issue.title, 'sell '))
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply the trade
+        id: apply
+        env:
+          TITLE: ${{ github.event.issue.title }}
+        run: |
+          set -euo pipefail
+          read -r -a p <<< "$TITLE"
+          case "${p[0]}" in
+            buy)
+              # buy SYM PRICE AMOUNT [DATE]
+              if [ "${#p[@]}" -lt 4 ]; then
+                echo "msg=Could not read that. Expected: buy SYM PRICE AMOUNT [DATE]" >> "$GITHUB_OUTPUT"
+                exit 1
+              fi
+              args=(buy "${p[1]}" --price "${p[2]}" --amount "${p[3]}")
+              [ "${#p[@]}" -ge 5 ] && args+=(--date "${p[4]}")
+              out=$(python3 trade.py "${args[@]}" 2>&1)
+              ;;
+            sell)
+              if [ "${#p[@]}" -lt 3 ]; then
+                echo "msg=Could not read that. Expected: sell SYM PRICE [DATE]" >> "$GITHUB_OUTPUT"
+                exit 1
+              fi
+              args=(sell "${p[1]}" --price "${p[2]}")
+              [ "${#p[@]}" -ge 4 ] && args+=(--date "${p[3]}")
+              out=$(python3 trade.py "${args[@]}" 2>&1)
+              ;;
+          esac
+          echo "$out"
+          { echo "msg<<EOF"; echo "$out"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+
+      - name: Commit the trade record
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/trades.json
+          git diff --staged --quiet && echo "no change" && exit 0
+          git commit -m "trade: ${{ github.event.issue.title }} (#${{ github.event.issue.number }})"
+          git pull --rebase origin main || true
+          git push origin HEAD:main
+
+      # The board only refreshes on the 3x-daily run, so kick one off rather than
+      # leaving a just-recorded trade invisible until the next scheduled send.
+      - name: Refresh the board
+        continue-on-error: true
+        run: gh workflow run daily.yml --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Close the issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} \
+            --body "Recorded: \`${{ steps.apply.outputs.msg }}\`
+
+  Written to \`docs/trades.json\`. The board refreshes on the next run."
+          gh issue close ${{ github.event.issue.number }}
+
+  # A malformed title or someone else's issue should say so rather than sit there
+  # looking like it worked.
+  reject:
+    runs-on: ubuntu-latest
+    if: >
+      github.event.issue.user.login == github.repository_owner &&
+      (startsWith(github.event.issue.title, 'buy ') ||
+       startsWith(github.event.issue.title, 'sell ')) == false &&
+      contains(github.event.issue.labels.*.name, 'trade')
+    steps:
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} \
+            --repo "$GITHUB_REPOSITORY" \
+            --body "Not a trade I can read. Titles must be \`buy SYM PRICE AMOUNT [DATE]\` or \`sell SYM PRICE [DATE]\`."
