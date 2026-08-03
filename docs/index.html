@@ -665,9 +665,15 @@ function sellPlan(){
             Math.abs(Math.round(o.pnl)).toLocaleString()}</div>
           <div style="flex:1 1 108px;text-align:right;display:flex;gap:6px;
             justify-content:flex-end;align-items:center;">
-            ${onList.has(o.sym) ? `<span class="pill" style="${pillCss("held")};
-              font-size:9px;" title="On today's list — already held, so not a buy"
-              >on list</span>` : ""}
+            ${onList.has(o.sym)
+              ? `<span class="pill" style="${pillCss("held")};font-size:9px;"
+                  title="On the current list — already held, so not a buy"
+                  >on list</span>`
+              : (o.bought === (D.generated_at || "").slice(0, 10)
+                ? `<span class="pill" style="${pillCss("muted")};font-size:9px;"
+                    title="Bought from an earlier run today. The radar runs three times a day and the list is only what qualifies at that moment, so a name can be bought this morning and be gone from the list by the afternoon."
+                    >picked earlier</span>`
+                : "")}
             <span class="mono" style="font-size:13px;font-weight:600;color:${
               o.days_left === 0 ? R : "var(--ink-d)"};white-space:nowrap;">${
               o.days_left === 0 ? "today" : o.days_left + "d"}</span>
@@ -678,7 +684,12 @@ function sellPlan(){
       position was bought at, <b>Change</b> and <b>P/L</b> are from there to the latest
       price — unrealised, so they move until the position sells. <b>Sells in</b> counts
       the trading days left on its ${holdDays()}-day hold. Names tagged <b>on list</b>
-      came up again today; they are already held, so they are not a second buy.</div></div>
+      came up again on the current list; they are already held, so they are not a second
+      buy. <b>A holding that is not on the list is normal.</b> The list is only what
+      qualifies at the moment a run happens and the radar runs three times a day, so a
+      name bought this morning can be gone from the afternoon list — the chatter faded,
+      or it has already run too far to still qualify. The position still runs its full
+      ${holdDays()} days. This panel and the pick list answer different questions.</div></div>
   </div>` : "";
 
   // every name on the list is already in the account: there is nothing to buy,
