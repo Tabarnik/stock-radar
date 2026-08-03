@@ -658,6 +658,51 @@ def main():
         })
     open_positions.sort(key=lambda o: (o["days_left"], o["sym"]))
 
+    # ---- the real book -------------------------------------------------
+    # docs/trades.json is what was actually bought, written by trade.py. The
+    # model account above assumes every pick was taken the moment it appeared;
+    # this is the one with missed runs and skipped names in it. Same shape as
+    # open_positions so the board renders both through the same code.
+    my_open, my_closed = [], []
+    try:
+        with open(os.path.join(os.path.dirname(OUT) or ".", "trades.json")) as f:
+            trades = json.load(f)
+    except Exception:
+        trades = []
+    for t in trades:
+        sym, bp, sh = t.get("sym"), t.get("buy_price"), t.get("shares")
+        if not sym or not bp or not sh:
+            continue
+        cost = bp * sh
+        if t.get("sell_price"):                 # closed: marked at what it sold for
+            val = t["sell_price"] * sh
+            my_closed.append({
+                "sym": sym, "bought": t.get("buy_date"), "sold": t.get("sell_date"),
+                "entry": round(bp, 4), "exit": round(t["sell_price"], 4),
+                "shares": round(sh, 6), "cost": round(cost, 2), "value": round(val, 2),
+                "pnl": round(val - cost, 2), "ret": round((val - cost) / cost * 100, 1),
+                "note": t.get("note") or "",
+            })
+            continue
+        if sym not in closes:                   # a name the picks never covered
+            closes[sym] = daily_closes(sym)
+        if sym not in now:
+            now[sym] = last_price(sym)
+        px = _mark(sym) or bp
+        val = px * sh
+        held = sum(1 for k in closes.get(sym, {}) if t["buy_date"] < k <= today)
+        my_open.append({
+            "sym": sym, "bought": t.get("buy_date"),
+            "days_left": max(0, CURVE_DAYS - held),
+            "entry": round(bp, 4), "price": round(px, 4), "shares": round(sh, 6),
+            "alloc": round(cost, 2), "value": round(val, 2),
+            "pnl": round(val - cost, 2), "ret": round((px - bp) / bp * 100, 1),
+            "path": _day_by_day(sym, t["buy_date"], bp),
+            "note": t.get("note") or "",
+        })
+    my_open.sort(key=lambda o: (o["days_left"], o["sym"]))
+    my_closed.sort(key=lambda o: o["sold"] or "", reverse=True)
+
     payload = {
         "stake": STAKE,
         # best first — the shape of the outcome should be visible without sorting
@@ -676,6 +721,8 @@ def main():
         "curve_rule": f"Sell after {CURVE_DAYS} days",
         "curve_days": CURVE_DAYS,
         "pick_detail": pick_detail,
+        "my_positions": my_open,
+        "my_closed": my_closed,
         "open_positions": open_positions,
         "starved_days": starved,
         "exit_rules": exits,

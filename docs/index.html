@@ -560,6 +560,109 @@ function heldNotBought(e){
 }
 function boughtOnly(list){ return (list || []).filter(e => !heldNotBought(e)); }
 
+// What you actually bought, from docs/trades.json via trade.py. Distinct from
+// openPos(): that is the rule's account assuming every pick was taken.
+// Your real book: what trades.json says was bought, priced live. Kept apart from
+// the model account on purpose — conflating them is what made the board claim
+// you owned names you had skipped.
+function myTradesPanel(){
+  const open = (B && B.my_positions) || [];
+  const closed = (B && B.my_closed) || [];
+  if (!open.length && !closed.length) {
+    return `<div class="panel" style="margin-top:16px;">
+      <div class="phead"><div class="cap">Nik's trades</div>
+        <div class="note">nothing recorded yet</div></div>
+      <div style="padding:16px 18px 18px;font-size:13px;color:var(--ink-3);
+        text-wrap:pretty;">Everything above is the rule's account. Record a real buy
+        and it appears here, priced live and kept separate:
+        <div class="mono" style="margin-top:9px;padding:9px 12px;border-radius:8px;
+          background:rgba(120,112,90,0.09);font-size:12px;color:var(--ink-2);
+          overflow-x:auto;white-space:nowrap;">./trade.py buy MU --price 739.00 --amount 540</div>
+        <div class="note" style="margin-top:8px;">Then commit
+          <b>docs/trades.json</b>. The next run picks it up.</div></div>
+    </div>`;
+  }
+  const cost = open.reduce((a, o) => a + (o.alloc || 0), 0);
+  const val  = open.reduce((a, o) => a + (o.value || 0), 0);
+  const unreal = val - cost;
+  const real = closed.reduce((a, o) => a + (o.pnl || 0), 0);
+  const stat = (label, v, money_, colour) => `<div>
+    <div class="eyebrow" style="margin-bottom:4px;">${label}</div>
+    <div class="mono" style="font-size:19px;font-weight:600;color:${colour};">${
+      money_ ? (v < 0 ? "\u2212" : "+") + "$" + Math.abs(Math.round(v)).toLocaleString()
+             : "$" + Math.round(v).toLocaleString()}</div></div>`;
+  return `<div class="panel" style="margin-top:16px;">
+    <div class="phead"><div class="cap" style="color:${H};">Nik's trades</div>
+      <div class="note">what was actually bought · ${open.length} open${
+        closed.length ? ` · ${closed.length} closed` : ""}</div></div>
+    <div style="padding:16px 18px 4px;display:flex;gap:26px;flex-wrap:wrap;
+      align-items:baseline;">
+      ${stat("Cost", cost, false, "var(--ink-2)")}
+      ${stat("Worth now", val, false, "var(--ink-d)")}
+      ${stat("Unrealised", unreal, true, chgC(unreal))}
+      ${closed.length ? stat("Realised", real, true, chgC(real)) : ""}
+    </div>
+    ${open.length ? `<div class="scroll"><div style="min-width:640px;">
+      <div class="tbl">
+        <div style="flex:0 0 76px;">Ticker</div>
+        <div style="flex:0 0 124px;">Bought</div>
+        <div style="flex:0 0 84px;text-align:right;">At</div>
+        <div style="flex:0 0 84px;text-align:right;">Now</div>
+        <div style="flex:0 0 76px;text-align:right;">Change</div>
+        <div style="flex:0 0 80px;text-align:right;">P/L</div>
+        <div style="flex:1 1 96px;text-align:right;">Sells in</div>
+      </div>
+      ${open.map(o => `<div class="row clickable" data-open="${esc(o.sym)}">
+        <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
+            color:${H};">$${esc(o.sym)}</div>
+          <div style="flex:0 0 124px;min-width:0;font-size:12px;color:var(--ink-4);
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
+            esc(fmtPickDay(o.bought))}</div>
+          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(o.entry)}</div>
+          <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
+            color:var(--ink-2);">${money(o.price)}</div>
+          <div class="mono" style="flex:0 0 76px;text-align:right;font-size:13px;
+            font-weight:600;color:${chgC(o.ret)};">${pctT(o.ret)}</div>
+          <div class="mono" style="flex:0 0 80px;text-align:right;font-size:13px;
+            color:${chgC(o.pnl)};">${o.pnl>=0?"+":"\u2212"}$${
+            Math.abs(Math.round(o.pnl)).toLocaleString()}</div>
+          <div class="mono" style="flex:1 1 96px;text-align:right;font-size:13px;
+            font-weight:600;color:${o.days_left===0?R:"var(--ink-d)"};">${
+            o.days_left===0 ? "today" : o.days_left + "d"}</div>
+        </div></div>`).join("")}
+    </div></div>` : ""}
+    ${closed.length ? `<div style="padding:14px 18px 0;">
+      <div class="eyebrow" style="margin-bottom:8px;">Closed</div></div>
+      <div class="scroll"><div style="min-width:560px;">
+      ${closed.map(o => `<div class="row">
+        <div style="display:flex;gap:12px;padding:10px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 76px;font-size:13px;font-weight:600;
+            color:var(--ink-2);">$${esc(o.sym)}</div>
+          <div style="flex:1 1 180px;min-width:0;font-size:12px;color:var(--ink-5);">${
+            esc(fmtPickDay(o.bought))} \u2192 ${esc(fmtPickDay(o.sold))}</div>
+          <div class="mono" style="flex:0 0 76px;text-align:right;font-size:13px;
+            font-weight:600;color:${chgC(o.ret)};">${pctT(o.ret)}</div>
+          <div class="mono" style="flex:0 0 80px;text-align:right;font-size:13px;
+            color:${chgC(o.pnl)};">${o.pnl>=0?"+":"\u2212"}$${
+            Math.abs(Math.round(o.pnl)).toLocaleString()}</div>
+        </div></div>`).join("")}
+      </div></div>` : ""}
+    <div style="padding:12px 18px 16px;"><div class="note">From
+      <b>docs/trades.json</b>, written by <b>trade.py</b> — the record of what was
+      actually bought, at the price actually paid. <b>Sells in</b> applies the same
+      ${holdDays()}-day rule to your own buy date. Record a sale with
+      <span class="mono">./trade.py sell MU --price 823.03</span>.</div></div>
+  </div>`;
+}
+
+function myPos(){
+  const m = {};
+  ((B && B.my_positions) || []).forEach(p => { m[p.sym] = p; });
+  return m;
+}
+
 function openPos(){
   const m = {};
   ((B && B.open_positions) || []).forEach(p => { m[p.sym] = p; });
@@ -867,8 +970,9 @@ function dayStrip(o){
 
 function picksPanel(){
   const q = D.watch || [];
-  const OP = openPos();
+  const OP = openPos(), MP = myPos();
   const nHeld = q.filter(t => OP[t.sym]).length;
+  const nMine = q.filter(t => MP[t.sym]).length;
   // gain on the open position, measured from the price it was actually bought at
   const sinceBuy = t => {
     const o = OP[t.sym]; if (!o) return null;
@@ -881,26 +985,26 @@ function picksPanel(){
     <div class="phead">
       <div class="cap">Picks of the day</div>
       <div class="note">rising chatter or an analyst buy, with room left to move${
-        nHeld ? ` · <b style="color:${H};">${nHeld} held by the rule</b>, shown in purple —
-        skip only if you bought them too` : ""}</div>
+        nMine ? ` · <b style="color:${H};">${nMine} you already own</b>, in purple`
+        : nHeld ? ` · ${nHeld} held by the rule but not by you` : ""}</div>
       <div style="flex:1 1 20px;"></div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">${tierHead("pick")}</div>
     </div>
     ${q.length ? `<div style="padding:14px 18px;display:grid;gap:12px;
       grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
-      ${q.map((t,i) => { const o = OP[t.sym], sb = sinceBuy(t);
-        return `<div style="border:1px solid ${o ? "var(--h-line)" : "var(--rule-2)"};
+      ${q.map((t,i) => { const o = OP[t.sym], mine = MP[t.sym], sb = sinceBuy(t);
+        return `<div style="border:1px solid ${mine ? "var(--h-line)" : "var(--rule-2)"};
           border-radius:12px;padding:12px 14px;background:${
-            o ? "var(--h-bg)" : "rgba(255,255,255,0.30)"};cursor:pointer;"
+            mine ? "var(--h-bg)" : "rgba(255,255,255,0.30)"};cursor:pointer;"
           data-open="${esc(t.sym)}">
         <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
-          <span class="mono" style="font-size:11px;color:${o ? H : "#6E6754"};">${i+1}</span>
-          <span class="sym"${o ? ` style="color:${H};"` : ""}>$${esc(t.sym)}</span>
+          <span class="mono" style="font-size:11px;color:${mine ? H : "#6E6754"};">${i+1}</span>
+          <span class="sym"${mine ? ` style="color:${H};"` : ""}>$${esc(t.sym)}</span>
           <span class="mono" style="font-size:13px;color:var(--ink-2);">${money(t.price)}</span>
           <span class="mono" style="font-size:13px;color:${chgC(t.pct)};margin-left:auto;">
             ${pctT(t.pct)}</span>
         </div>
-        ${!o ? (() => {
+        ${!mine ? (() => {
           // what to actually put in — the card said which name to buy but never
           // how much, so the size lived only in the trade-plan table below
           const st = buyStake(), sh = Math.floor(st / (t.price || 0));
@@ -920,12 +1024,15 @@ function picksPanel(){
             <span style="font-size:11px;color:var(--ink-5);margin-left:auto;
               white-space:nowrap;">sell ${esc(sellByDate(holdDays()))}</span>
           </div>`; })() : ""}
-        ${o ? `<div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
-          margin-top:8px;padding:6px 9px;border-radius:7px;background:var(--h-bg);
+        ${(mine || o) ? `<div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+          margin-top:8px;padding:6px 9px;border-radius:7px;background:${mine ? "var(--h-bg)" : "rgba(120,112,90,0.07)"};
           border:1px solid var(--h-line);">
-          <span class="mono" style="font-size:10px;letter-spacing:.06em;color:${H};
-            font-weight:600;" title="The rule's account bought this on an earlier run and still holds it. If you bought it then too, skip. If you missed that run, this is not a position you own.">RULE HOLDS${
-            o.bought ? " \u00b7 " + esc(fmtPickDay(o.bought).replace(/^\w+ /, "")) : ""}</span>
+          <span class="mono" style="font-size:10px;letter-spacing:.06em;color:${
+            mine ? H : "var(--ink-5)"};font-weight:600;" title="${mine
+              ? "You own this — recorded in trades.json. Do not buy it again."
+              : "The rule's account holds this, but you have no trade recorded for it. If you want the position, it is still a buy."
+            }">${mine ? "YOU HOLD" : "RULE HOLDS \u00b7 NOT YOURS"}${
+            (mine || o).bought ? " \u00b7 " + esc(fmtPickDay((mine || o).bought).replace(/^\w+ /, "")) : ""}</span>
           ${sb === null ? "" : `<span class="mono" style="font-size:12px;font-weight:600;
             color:${chgC(sb)};">${pctT(+sb.toFixed(1))}</span>
             <span style="font-size:11px;color:var(--ink-5);">since buy</span>`}
@@ -934,7 +1041,7 @@ function picksPanel(){
               ? (o.days_left === 0 ? "sell today" : `sell in ${o.days_left}d`)
               : ""}</span>
         </div>
-        ${dayStrip(o)}` : ""}
+        ${dayStrip(mine || o)}` : ""}
         <div class="co" style="max-width:100%;margin-top:2px;">${esc(t.name||"")}</div>
         <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:9px;">
           <span class="pill" style="${pillCss("muted")};font-size:10px;">${esc(t.tag||"")}</span>
@@ -994,7 +1101,7 @@ function digest(){
       ${verdict()}${sessionPanel()}</div>
     ${picksPanel()}
     <div class="cols" style="margin-top:16px;">
-      <div class="col-main">${sellPlan()}</div>
+      <div class="col-main">${sellPlan()}${myTradesPanel()}</div>
       <div class="col-side">${recordPanel()}${disclaimer()}</div>
     </div>`;
 }
