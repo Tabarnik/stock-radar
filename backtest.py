@@ -624,6 +624,23 @@ def main():
 
     # What the account is still holding as of this run, so today's list can say
     # "already in it, N days left" instead of telling you to buy it twice.
+    def _day_by_day(sym, buy_date, entry):
+        """Each session since the buy: that day's move and the running total.
+
+        Both are needed and they are different questions — a position can be up
+        overall on a day it fell. Capped at CURVE_DAYS because the rule sells
+        there; a sixth close would describe a position that no longer exists.
+        """
+        ks = sorted(k for k in closes.get(sym, {}) if k > buy_date)[:CURVE_DAYS]
+        out, prev = [], entry
+        for i, k in enumerate(ks, 1):
+            c = closes[sym][k]
+            out.append({"day": i, "date": k, "close": round(c, 4),
+                        "day_pct": round((c - prev) / prev * 100, 1),
+                        "cum_pct": round((c - entry) / entry * 100, 1)})
+            prev = c
+        return out
+
     open_positions = []
     for p in openpos:
         px = _mark(p["sym"]) or p["entry"]
@@ -637,6 +654,7 @@ def main():
             "alloc": round(p["alloc"], 2), "value": round(val, 2),
             "pnl": round(val - p["alloc"], 2),
             "ret": round((px - p["entry"]) / p["entry"] * 100, 1),
+            "path": _day_by_day(p["sym"], p["day"], p["entry"]),
         })
     open_positions.sort(key=lambda o: (o["days_left"], o["sym"]))
 
