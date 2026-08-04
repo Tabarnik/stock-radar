@@ -162,6 +162,24 @@ def last_price(sym):
     return None
 
 
+# The benchmark. Every return in this file was measured against zero, which
+# cannot distinguish a good pick from a rising market: SPY moved +2.5% over a
+# recent five-session window while the picks averaged far more, and none of the
+# tables said so. Fetched once and reused.
+SPY_CLOSES = {}
+
+
+def spy_over(start_date, sessions):
+    """SPY's move over the same window: `sessions` closes after start_date."""
+    if not SPY_CLOSES or not start_date or not sessions:
+        return None
+    base = close_on_or_before(SPY_CLOSES, start_date)
+    ks = sorted(k for k in SPY_CLOSES if k > start_date)[:sessions]
+    if not base or not ks:
+        return None
+    return round((SPY_CLOSES[ks[-1]] - base) / base * 100, 1)
+
+
 # ---------------------------------------------------------------- exit rules
 # "When do I sell?" is the one question here that can be answered with evidence
 # rather than opinion: every flag has a real price path after it, so competing
@@ -304,9 +322,12 @@ def test_exit_rules(pos_list, detail=False):
             rets.append(ret)
             held.append(days)
             if detail:
+                sp = spy_over(p["date"], days)
                 rows_.append({"sym": p["sym"], "date": p["date"],
                               "entry": round(entry, 4), "exit": round(out, 4),
                               "ret": round(ret, 1), "days": days,
+                              "spy_ret": sp,
+                              "excess": None if sp is None else round(ret - sp, 1),
                               "held_to_end": hit is None,
                               "simulated": bool(p.get("simulated"))})
         if not rets:
@@ -317,6 +338,7 @@ def test_exit_rules(pos_list, detail=False):
         # reconstructed ones never reached the user, so they cannot be credited
         # to the record without saying so
         real = [r["ret"] for r in rows_ if not r["simulated"]] if detail else []
+        exc = [r["excess"] for r in rows_ if r.get("excess") is not None] if detail else []
         results.append({
             "rule": name,
             "positions": len(rets),
@@ -330,6 +352,9 @@ def test_exit_rules(pos_list, detail=False):
             "avg_days_held": round(sum(held) / len(held), 1),
             "worst": round(min(rets), 1),
             "best": round(max(rets), 1),
+            **({"avg_spy": round(sum(r["spy_ret"] for r in rows_
+                                     if r.get("spy_ret") is not None) / len(exc), 1),
+                "avg_excess": round(sum(exc) / len(exc), 1)} if exc else {}),
             **({"positions_real": len(real),
                 "avg_return_real": round(sum(real) / len(real), 1),
                 "win_rate_real": round(
@@ -341,6 +366,9 @@ def test_exit_rules(pos_list, detail=False):
 
 
 def main():
+    global SPY_CLOSES
+    SPY_CLOSES = daily_closes("SPY")
+    print(f"benchmark: {len(SPY_CLOSES)} SPY closes")
     syms = sorted({f[2] for f in FLAGS})
     print(f"pricing {len(syms)} distinct tickers…")
     now = {s: last_price(s) for s in syms}
@@ -654,6 +682,7 @@ def main():
             "alloc": round(p["alloc"], 2), "value": round(val, 2),
             "pnl": round(val - p["alloc"], 2),
             "ret": round((px - p["entry"]) / p["entry"] * 100, 1),
+            "spy_ret": spy_over(p["day"], CURVE_DAYS - _days_left(p, today) or 1),
             "path": _day_by_day(p["sym"], p["day"], p["entry"]),
         })
     open_positions.sort(key=lambda o: (o["days_left"], o["sym"]))
