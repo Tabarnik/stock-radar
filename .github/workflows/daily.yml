@@ -9,11 +9,19 @@ name: Stock Radar
 # an hour earlier — 7 AM / 12 PM / 3 PM ET. To correct that in November, add 1
 # to each hour below: 13, 18, 21.
 #
-# GitHub's scheduler is best-effort and runs LATE under load, never early —
-# observed 1 to 2 hours behind. So these are the earliest a send can arrive, not
-# the time it will. That is deliberate for the close slot: firing at or after
-# 20:00 UTC means the digest carries settled closing prices rather than
-# mid-auction ones.
+# GitHub's scheduler is best-effort and runs LATE, never early. Measured over ten
+# scheduled runs: median 74 minutes behind, worst 156, and the morning slot was
+# consistently the worst of the three. These are the earliest a send can arrive,
+# not the time it will.
+#
+# The minutes are deliberate. Cron on the hour is the most contended slot on the
+# platform — everyone schedules :00 — so these sit at :50 and :05 instead. It
+# reduces the queue, it does not fix it: only an external trigger calling
+# workflow_dispatch starts on time (those fire within seconds).
+#
+# The close slot stays AFTER 20:00 UTC on purpose. Moving it earlier to absorb
+# lag would mean a punctual run carried pre-close prices, which is worse than
+# arriving late with settled ones.
 #
 # Each run also refreshes the account view (backtest.json: holdings, days left,
 # the compounded curve) from the same prices and commits it alongside the digest
@@ -21,9 +29,9 @@ name: Stock Radar
 
 on:
   schedule:
-    - cron: '0 12 * * 1-5'   # 8 AM EDT — pre-market (7 AM under EST)
-    - cron: '0 17 * * 1-5'   # 1 PM EDT — midday   (12 PM under EST)
-    - cron: '0 20 * * 1-5'   # 4 PM EDT — close    (3 PM under EST)
+    - cron: '50 11 * * 1-5'  # ~8 AM EDT — pre-market (7 AM under EST)
+    - cron: '50 16 * * 1-5'  # ~1 PM EDT — midday   (12 PM under EST)
+    - cron: '5 20 * * 1-5'   # ~4 PM EDT — close    (3 PM under EST)
   workflow_dispatch: {}        # manual trigger always runs
 
 permissions:

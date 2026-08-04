@@ -969,6 +969,19 @@ function shs(n){
   return (+n.toFixed(4)).toString();
 }
 
+// How much of a name to buy for one slice. Whole shares when the slice covers at
+// least one, otherwise the fraction that spends it — the board used to say "one
+// share costs more than the slice, skip or size it by hand" on any name dearer
+// than the slice, which was two of eight picks and is not true: the buy dialog
+// takes fractional shares and Webull trades them.
+function suggestShares(price){
+  if (!price || price <= 0) return 0;
+  // The exact fraction that spends the slice, not the whole shares that fit.
+  // Flooring put $284 into AMZN and $556 into NOK — the model's whole premise is
+  // that every position is the same size, and rounding down quietly broke it.
+  return +(buyStake() / price).toFixed(4);
+}
+
 function todayISO(){
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${
@@ -1076,7 +1089,7 @@ function buyDialog(){
         </div>
       </form></dialog>`;
   }
-  const suggested = px ? Math.max(1, Math.floor(buyStake() / px)) : 0;
+  const suggested = suggestShares(px);
   return `<dialog id="dlg" open class="dlg">
     <form method="dialog" style="margin:0;">
       <div class="eyebrow" style="margin-bottom:8px;">Bought $${esc(sym)}</div>
@@ -1089,7 +1102,7 @@ function buyDialog(){
         px ? px.toFixed(2) : ""}" class="dlg-in" autofocus>
       <label style="font-size:11px;color:var(--ink-5);display:block;margin:10px 0 4px;">
         Shares</label>
-      <input id="dlg-shares" type="number" step="any" value="${suggested}" class="dlg-in">
+      <input id="dlg-shares" type="number" step="any" value="${shs(suggested)}" class="dlg-in">
       <div class="note" style="margin-top:8px;" id="dlg-sum">Fractional shares are
         fine \u2014 ${shs(suggested)} share${suggested===1?"":"s"} \u00d7 ${money(px)}
         \u2248 $${Math.round((px||0)*suggested).toLocaleString()}</div>
@@ -1146,18 +1159,15 @@ function picksPanel(){
         ${!mine ? (() => {
           // what to actually put in — the card said which name to buy but never
           // how much, so the size lived only in the trade-plan table below
-          const st = buyStake(), sh = Math.floor(st / (t.price || 0));
-          if (!sh) return `<div style="margin-top:8px;padding:6px 9px;border-radius:7px;
-            background:rgba(120,112,90,0.09);border:1px solid var(--rule-2);
-            font-size:12px;color:var(--ink-4);">One share costs more than the
-            $${st.toLocaleString()} slice — skip, or size it by hand.</div>`;
+          const sh = suggestShares(t.price);
+          if (!sh) return "";
           return `<div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
             margin-top:8px;padding:6px 9px;border-radius:7px;
             background:rgba(31,138,84,0.07);border:1px solid rgba(31,138,84,0.22);">
             <span class="mono" style="font-size:10px;letter-spacing:.06em;color:${G};
               font-weight:600;">BUY</span>
             <span class="mono" style="font-size:13px;font-weight:600;color:var(--ink-d);"
-              >${sh} share${sh===1?"":"s"}</span>
+              >${shs(sh)} share${sh===1?"":"s"}</span>
             <span style="font-size:11px;color:var(--ink-5);">\u2248 $${
               Math.round(sh * t.price).toLocaleString()}</span>
             <span style="font-size:11px;color:var(--ink-5);margin-left:auto;
