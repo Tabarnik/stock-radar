@@ -736,10 +736,11 @@ function sellPlan(){
           >${pnl>=0?"+":"\u2212"}$${Math.abs(Math.round(pnl)).toLocaleString()}
           <span style="font-size:13px;">(${pctT(+(pnl/cost*100).toFixed(1))})</span></div></div>
     </div>
-    <div class="scroll"><div style="min-width:660px;">
+    <div class="scroll"><div style="min-width:730px;">
       <div class="tbl">
         <div style="flex:0 0 76px;">Ticker</div>
-        <div style="flex:0 0 128px;">Bought</div>
+        <div style="flex:0 0 118px;">Bought</div>
+        <div style="flex:0 0 68px;text-align:right;">Shares</div>
         <div style="flex:0 0 84px;text-align:right;">At</div>
         <div style="flex:0 0 84px;text-align:right;">Now</div>
         <div style="flex:0 0 78px;text-align:right;">Change</div>
@@ -750,9 +751,11 @@ function sellPlan(){
         <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
           <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
             color:${H};">$${esc(o.sym)}</div>
-          <div style="flex:0 0 128px;min-width:0;font-size:12px;color:var(--ink-4);
+          <div style="flex:0 0 118px;min-width:0;font-size:12px;color:var(--ink-4);
             white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
             esc(fmtPickDay(o.bought))}</div>
+          <div class="mono" style="flex:0 0 68px;text-align:right;font-size:13px;
+            color:var(--ink-4);">${shs(o.shares)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
             color:var(--ink-2);">${money(o.entry)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
@@ -939,6 +942,14 @@ function saveLocalTrades(rows){
   try { localStorage.setItem(TRADE_KEY, JSON.stringify(rows)); } catch {}
 }
 
+// Share counts: whole numbers stay whole, fractions keep enough places to be
+// recognisable without turning into 0.700000.
+function shs(n){
+  if (!isFinite(n)) return "\u2014";
+  if (Math.abs(n - Math.round(n)) < 1e-9) return String(Math.round(n));
+  return (+n.toFixed(4)).toString();
+}
+
 function todayISO(){
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${
@@ -1023,13 +1034,20 @@ function buyDialog(){
       <form method="dialog" style="margin:0;">
         <div class="eyebrow" style="margin-bottom:8px;">Sell $${esc(sym)}</div>
         <div style="font-size:13px;color:var(--ink-3);margin-bottom:12px;">
-          Bought ${esc(fmtPickDay(held.bought))} at ${money(held.entry)}.
-          Now ${money(held.price)} (<span style="color:${chgC(held.ret)};">${
+          Holding ${shs(held.shares)} share${held.shares===1?"":"s"} bought
+          ${esc(fmtPickDay(held.bought))} at ${money(held.entry)}. Now
+          ${money(held.price)} (<span style="color:${chgC(held.ret)};">${
             pctT(held.ret)}</span>).</div>
         <label style="font-size:11px;color:var(--ink-5);display:block;margin-bottom:4px;">
-          Sold at</label>
+          Price you sold at</label>
         <input id="dlg-price" type="number" step="0.01" value="${
-          (held.price || 0).toFixed(2)}" class="dlg-in">
+          (held.price || 0).toFixed(2)}" class="dlg-in" autofocus>
+        <label style="font-size:11px;color:var(--ink-5);display:block;margin:10px 0 4px;">
+          Shares sold</label>
+        <input id="dlg-shares" type="number" step="any" max="${held.shares}"
+          value="${shs(held.shares)}" class="dlg-in">
+        <div class="note" style="margin-top:8px;">Sell fewer than ${shs(held.shares)}
+          and the rest stays open on its original buy date.</div>
         <div style="display:flex;gap:8px;margin-top:14px;">
           <button class="btn" data-sell="${esc(sym)}" style="flex:1 1 auto;">SELL</button>
           <button class="btn" data-closedlg="1">CANCEL</button>
@@ -1050,9 +1068,9 @@ function buyDialog(){
       <label style="font-size:11px;color:var(--ink-5);display:block;margin:10px 0 4px;">
         Shares</label>
       <input id="dlg-shares" type="number" step="any" value="${suggested}" class="dlg-in">
-      <div class="note" style="margin-top:8px;">Fractional shares are fine \u2014
-        ${money(px)} \u00d7 ${suggested} \u2248 $${
-        Math.round((px||0)*suggested).toLocaleString()}</div>
+      <div class="note" style="margin-top:8px;" id="dlg-sum">Fractional shares are
+        fine \u2014 ${shs(suggested)} share${suggested===1?"":"s"} \u00d7 ${money(px)}
+        \u2248 $${Math.round((px||0)*suggested).toLocaleString()}</div>
       <div style="display:flex;gap:8px;margin-top:14px;">
         <button class="btn" data-savebuy="${esc(sym)}" style="flex:1 1 auto;">SAVE</button>
         <button class="btn" data-closedlg="1">CANCEL</button>
@@ -1094,6 +1112,10 @@ function picksPanel(){
         <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
           <span class="mono" style="font-size:11px;color:${tint ? H : "#6E6754"};">${i+1}</span>
           <span class="sym"${tint ? ` style="color:${H};"` : ""}>$${esc(t.sym)}</span>
+          ${mine ? `<span class="mono" style="font-size:11px;color:${H};
+            background:var(--h-bg);border:1px solid var(--h-line);border-radius:5px;
+            padding:1px 5px;" title="You hold ${shs(mine.shares)} share${
+            mine.shares===1?"":"s"}">${shs(mine.shares)} sh</span>` : ""}
           <span class="mono" style="font-size:13px;color:var(--ink-2);">${money(t.price)}</span>
           ${ownControls(t, mine)}
           <span class="mono" style="font-size:13px;color:${chgC(t.pct)};margin-left:auto;">
@@ -1940,24 +1962,28 @@ function mine(){
   const positions = open.length ? `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap" style="color:${H};">Open positions</div>
       <div class="note">soonest to sell first · click a row for the full ticker</div></div>
-    <div class="scroll"><div style="min-width:700px;">
+    <div class="scroll"><div style="min-width:840px;">
       <div class="tbl">
         <div style="flex:0 0 76px;">Ticker</div>
-        <div style="flex:0 0 124px;">Bought</div>
+        <div style="flex:0 0 114px;">Bought</div>
+        <div style="flex:0 0 68px;text-align:right;">Shares</div>
         <div style="flex:0 0 84px;text-align:right;">At</div>
         <div style="flex:0 0 84px;text-align:right;">Now</div>
         <div style="flex:0 0 76px;text-align:right;">Change</div>
         <div style="flex:0 0 78px;text-align:right;">Worth</div>
         <div style="flex:0 0 76px;text-align:right;">P/L</div>
-        <div style="flex:1 1 92px;text-align:right;">Sells in</div>
+        <div style="flex:0 0 74px;text-align:right;">Sells in</div>
+        <div style="flex:1 1 62px;text-align:right;"></div>
       </div>
       ${open.map(o => `<div class="row clickable" data-open="${esc(o.sym)}">
         <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
           <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
             color:${H};">$${esc(o.sym)}</div>
-          <div style="flex:0 0 124px;min-width:0;font-size:12px;color:var(--ink-4);
+          <div style="flex:0 0 114px;min-width:0;font-size:12px;color:var(--ink-4);
             white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
             esc(fmtPickDay(o.bought))}</div>
+          <div class="mono" style="flex:0 0 68px;text-align:right;font-size:13px;
+            color:var(--ink-4);">${shs(o.shares)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
             color:var(--ink-2);">${money(o.entry)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
@@ -1969,14 +1995,22 @@ function mine(){
           <div class="mono" style="flex:0 0 76px;text-align:right;font-size:13px;
             color:${chgC(o.pnl)};">${o.pnl>=0?"+":"\u2212"}$${
             Math.abs(Math.round(o.pnl)).toLocaleString()}</div>
-          <div class="mono" style="flex:1 1 92px;text-align:right;font-size:13px;
+          <div class="mono" style="flex:0 0 74px;text-align:right;font-size:13px;
             font-weight:600;color:${o.days_left===0?R:"var(--ink-d)"};">${
             o.days_left===0 ? "today" : o.days_left + "d"}</div>
+          <div style="flex:1 1 62px;display:flex;justify-content:flex-end;">
+            ${o.local ? `<button class="tbtn tbtn-sell" data-own="${esc(o.sym)}"
+              title="Sell $${esc(o.sym)} \u2014 opens with the current price and your
+full holding, both editable" aria-label="Sell $${esc(o.sym)}">SELL</button>`
+              : `<span class="note" style="margin:0;font-size:10px;">trades.json</span>`}
+          </div>
         </div></div>`).join("")}
     </div></div>
-    <div style="padding:12px 18px 16px;"><div class="note">Hit SELL on the ticker
-      from the Digest to close it, or the small check to undo a buy you logged by
-      mistake. Positions are stored in this
+    <div style="padding:12px 18px 16px;"><div class="note">SELL opens with the
+      current price and your whole holding, both editable \u2014 sell fewer shares and
+      the rest stays open on its original buy date. To undo a buy you logged by
+      mistake, use the small check on the Digest card instead: that removes it rather
+      than recording a sale. Positions are stored in this
       browser, so they will not appear on another device \u2014 use
       <span class="mono">./trade.py</span> for anything you want shared.</div></div>
   </div>` : "";
@@ -2008,7 +2042,8 @@ function mine(){
     <div class="scroll"><div style="min-width:560px;">
       <div class="tbl">
         <div style="flex:0 0 76px;">Ticker</div>
-        <div style="flex:1 1 200px;">Held</div>
+        <div style="flex:1 1 180px;">Held</div>
+        <div style="flex:0 0 68px;text-align:right;">Shares</div>
         <div style="flex:0 0 84px;text-align:right;">In</div>
         <div style="flex:0 0 84px;text-align:right;">Out</div>
         <div style="flex:0 0 76px;text-align:right;">Change</div>
@@ -2018,9 +2053,11 @@ function mine(){
         <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
           <div class="mono" style="flex:0 0 76px;font-size:14px;font-weight:600;
             color:var(--ink-2);">$${esc(o.sym)}</div>
-          <div style="flex:1 1 200px;min-width:0;font-size:12px;color:var(--ink-5);
+          <div style="flex:1 1 180px;min-width:0;font-size:12px;color:var(--ink-5);
             white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
             esc(fmtPickDay(o.bought))} \u2192 ${esc(fmtPickDay(o.sold))}</div>
+          <div class="mono" style="flex:0 0 68px;text-align:right;font-size:13px;
+            color:var(--ink-4);">${shs(o.shares)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
             color:var(--ink-2);">${money(o.entry)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
@@ -2122,11 +2159,19 @@ document.addEventListener("click", e => {
   if (d.sell) {
     e.stopPropagation();
     const price = parseFloat(($("#dlg-price") || {}).value);
+    let qty = parseFloat(($("#dlg-shares") || {}).value);
     const rows = localTrades();
     const i = rows.findIndex(t => t.sym === d.sell && !t.sold);
     if (i >= 0 && price) {
-      rows[i].sold = todayISO();
-      rows[i].sell_price = price;
+      const holding = rows[i].shares || (rows[i].amount / rows[i].price);
+      if (!isFinite(qty) || qty <= 0 || qty > holding) qty = holding;
+      if (qty >= holding - 1e-9) {           // the whole lot
+        rows[i].sold = todayISO();
+        rows[i].sell_price = price;
+      } else {                               // part of it: close some, keep the rest
+        rows[i].shares = holding - qty;
+        rows.push({ ...rows[i], shares: qty, sold: todayISO(), sell_price: price });
+      }
       saveLocalTrades(rows);
     }
     S.buying = null;
