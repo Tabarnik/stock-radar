@@ -32,6 +32,22 @@
   }
   ::selection{background:#D9E4D8;}
 
+  /* buy / sell dialog */
+  .dlg{
+    position:fixed; inset:0; margin:auto; z-index:50;
+    width:min(320px, calc(100vw - 32px)); height:fit-content;
+    border:1px solid var(--rule); border-radius:14px; padding:18px 20px;
+    background:#F6F4EA; color:var(--ink);
+    box-shadow:0 18px 50px rgba(60,55,40,0.28);
+  }
+  .dlg::backdrop{ background:rgba(40,37,28,0.35); }
+  .dlg-in{
+    width:100%; padding:7px 9px; font:inherit; font-size:15px;
+    font-family:var(--mono); border:1px solid var(--rule); border-radius:7px;
+    background:#fff; color:var(--ink);
+  }
+  .dlg-in:focus-visible{ outline:2px solid var(--h); outline-offset:1px; }
+
   /* own-it dot on a pick card: empty ring, filled when yours, dashed while the
      issue is in flight. A real button so it is tabbable and announces state. */
   .owndot{
@@ -255,7 +271,7 @@ const chgC  = p => typeof p !== "number" ? "var(--ink-4)" : p > 0 ? G : p < 0 ? 
 let D = null, B = null;
 const S = { screen:"digest", sel:null, filter:"all", expanded:{}, dismissed:{},
             // per-ticker day-strip mode: absent means "since buy", the default
-            dayMode:{}, pending:{},
+            dayMode:{},
             sort:{ key:"ret", dir:-1 },        // "every ticker" table
             daySort:{ key:"date", dir:1 },      // day-by-day table
             section:"all",
@@ -891,28 +907,135 @@ function dayStrip(o){
   </div>`;
 }
 
-// Marking a buy from a static page. The board cannot commit, and a write token
-// in a public page is not an option — so the circle opens a prefilled issue and
-// .github/workflows/trade-issue.yml does the write. It takes a run to land, so
-// the dot shows a pending state immediately rather than looking inert.
-const REPO = "Tabarnik/stock-radar";
+// Your positions live in this browser. A static page cannot commit to the repo,
+// and a write token in a public page is not an option — so the circle records
+// locally and instantly. Per-browser: a buy marked on the laptop will not show
+// on the phone. trade.py still writes docs/trades.json for anything you want
+// shared across devices, and both sources are merged below.
+const TRADE_KEY = "nik.trades.v1";
+
+function localTrades(){
+  try { return JSON.parse(localStorage.getItem(TRADE_KEY) || "[]"); }
+  catch { return []; }
+}
+function saveLocalTrades(rows){
+  try { localStorage.setItem(TRADE_KEY, JSON.stringify(rows)); } catch {}
+}
+
+function todayISO(){
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${
+    String(d.getDate()).padStart(2,"0")}`;
+}
+
+function priceNow(sym){
+  const all = [...(D.watch||[]), ...(D.buzz||[]), ...(D.gainers||[])];
+  const t = all.find(x => x.sym === sym);
+  if (t && typeof t.price === "number") return t.price;
+  const c = (B && B.recent_closes && B.recent_closes[sym]) || null;
+  if (c) { const ks = Object.keys(c).sort(); if (ks.length) return c[ks[ks.length-1]]; }
+  return null;
+}
+
+// Same shape backtest.py emits for the rule's positions, so every panel renders
+// a local trade and a repo trade through identical code.
+function positionFrom(t){
+  const n = holdDays();
+  const c = (B && B.recent_closes && B.recent_closes[t.sym]) || {};
+  const after = Object.keys(c).filter(k => k > t.date).sort();
+  const px = priceNow(t.sym) || t.price;
+  const shares = t.shares || (t.amount / t.price);
+  const path = [];
+  let prev = t.price;
+  after.slice(0, n).forEach((k, i) => {
+    const v = c[k];
+    path.push({ day: i+1, date: k, close: v,
+                day_pct: +(((v - prev) / prev) * 100).toFixed(1),
+                cum_pct: +(((v - t.price) / t.price) * 100).toFixed(1) });
+    prev = v;
+  });
+  return { sym: t.sym, bought: t.date, entry: t.price, price: px, shares,
+           alloc: t.price * shares, value: px * shares,
+           pnl: (px - t.price) * shares,
+           ret: +(((px - t.price) / t.price) * 100).toFixed(1),
+           days_left: Math.max(0, n - after.length), path, local: true };
+}
+
+function myPositions(){
+  const local = localTrades().filter(t => !t.sold).map(positionFrom);
+  const seen = new Set(local.map(o => o.sym + "|" + o.bought));
+  const repo = ((B && B.my_positions) || [])
+    .filter(o => !seen.has(o.sym + "|" + o.bought));
+  return [...local, ...repo].sort((a, b) =>
+    (a.days_left - b.days_left) || (a.sym < b.sym ? -1 : 1));
+}
+function myPos(){
+  const m = {};
+  myPositions().forEach(o => { m[o.sym] = o; });
+  return m;
+}
 
 function ownDot(t, mine){
-  const pending = !mine && S.pending[t.sym];
-  const state = mine ? "own" : pending ? "pending" : "no";
   const label = mine
-    ? `You own $${t.sym}, bought ${fmtPickDay(mine.bought)} at ${money(mine.entry)}`
-    : pending ? `Submitted for $${t.sym}. It lands in Nik's stocks on the next run.`
-    : `Mark $${t.sym} as bought now, at ${money(t.price)}`;
-  return `<button class="owndot owndot-${state}" data-own="${esc(t.sym)}"
+    ? `You own $${t.sym}, bought ${fmtPickDay(mine.bought)} at ${money(mine.entry)} \u2014 tap to sell`
+    : `Mark $${t.sym} as bought`;
+  return `<button class="owndot owndot-${mine ? "own" : "no"}" data-own="${esc(t.sym)}"
     aria-pressed="${!!mine}" title="${esc(label)}" aria-label="${esc(label)}"></button>`;
+}
+
+// The buy dialog. Native <dialog> so Esc closes it and focus is trapped for free.
+function buyDialog(){
+  const sym = S.buying;
+  if (!sym) return "";
+  const held = myPos()[sym];
+  const px = priceNow(sym);
+  if (held) {
+    return `<dialog id="dlg" open class="dlg">
+      <form method="dialog" style="margin:0;">
+        <div class="eyebrow" style="margin-bottom:8px;">Sell $${esc(sym)}</div>
+        <div style="font-size:13px;color:var(--ink-3);margin-bottom:12px;">
+          Bought ${esc(fmtPickDay(held.bought))} at ${money(held.entry)}.
+          Now ${money(held.price)} (<span style="color:${chgC(held.ret)};">${
+            pctT(held.ret)}</span>).</div>
+        <label style="font-size:11px;color:var(--ink-5);display:block;margin-bottom:4px;">
+          Sold at</label>
+        <input id="dlg-price" type="number" step="0.01" value="${
+          (held.price || 0).toFixed(2)}" class="dlg-in">
+        <div style="display:flex;gap:8px;margin-top:14px;">
+          <button class="btn" data-sell="${esc(sym)}" style="flex:1 1 auto;">SELL</button>
+          <button class="btn" data-closedlg="1">CANCEL</button>
+        </div>
+      </form></dialog>`;
+  }
+  const suggested = px ? Math.max(1, Math.floor(buyStake() / px)) : 0;
+  return `<dialog id="dlg" open class="dlg">
+    <form method="dialog" style="margin:0;">
+      <div class="eyebrow" style="margin-bottom:8px;">Bought $${esc(sym)}</div>
+      <div style="font-size:13px;color:var(--ink-3);margin-bottom:12px;">
+        Recorded as of today. The ${holdDays()}-day countdown starts from now, on
+        your price — not the rule's.</div>
+      <label style="font-size:11px;color:var(--ink-5);display:block;margin-bottom:4px;">
+        Price you paid</label>
+      <input id="dlg-price" type="number" step="0.01" value="${
+        px ? px.toFixed(2) : ""}" class="dlg-in" autofocus>
+      <label style="font-size:11px;color:var(--ink-5);display:block;margin:10px 0 4px;">
+        Shares</label>
+      <input id="dlg-shares" type="number" step="any" value="${suggested}" class="dlg-in">
+      <div class="note" style="margin-top:8px;">Fractional shares are fine \u2014
+        ${money(px)} \u00d7 ${suggested} \u2248 $${
+        Math.round((px||0)*suggested).toLocaleString()}</div>
+      <div style="display:flex;gap:8px;margin-top:14px;">
+        <button class="btn" data-savebuy="${esc(sym)}" style="flex:1 1 auto;">SAVE</button>
+        <button class="btn" data-closedlg="1">CANCEL</button>
+      </div>
+    </form></dialog>`;
 }
 
 function picksPanel(){
   const q = D.watch || [];
   const OP = openPos(), MP = myPos();
   const nHeld = q.filter(t => OP[t.sym]).length;
-  const nMine = q.filter(t => MP[t.sym] || S.pending[t.sym]).length;
+  const nMine = q.filter(t => MP[t.sym]).length;
   // gain on the open position, measured from the price it was actually bought at
   const sinceBuy = t => {
     const o = OP[t.sym]; if (!o) return null;
@@ -937,7 +1060,7 @@ function picksPanel(){
         // your own position wins: its entry price and buy date drive the strip,
         // so D1 counts from the day you bought, not the day the rule did
         const o = mine || rule, sb = sinceBuy(t);
-        const tint = mine || S.pending[t.sym];
+        const tint = mine;
         return `<div style="border:1px solid ${tint ? "var(--h-line)" : "var(--rule-2)"};
           border-radius:12px;padding:12px 14px;background:${
             tint ? "var(--h-bg)" : "rgba(255,255,255,0.30)"};cursor:pointer;"
@@ -1732,8 +1855,15 @@ function detail(){
    a filter over the digest — the digest answers "what does the rule say", this
    answers "where am I". */
 function mine(){
-  const open = (B && B.my_positions) || [];
-  const closed = (B && B.my_closed) || [];
+  const open = myPositions();
+  const closed = [...localTrades().filter(t => t.sold).map(t => {
+      const shares = t.shares || (t.amount / t.price);
+      const cost = t.price * shares, val = t.sell_price * shares;
+      return { sym: t.sym, bought: t.date, sold: t.sold, entry: t.price,
+               exit: t.sell_price, shares, cost, value: val, pnl: val - cost,
+               ret: +(((t.sell_price - t.price) / t.price) * 100).toFixed(1) };
+    }), ...((B && B.my_closed) || [])]
+    .sort((a, b) => (a.sold < b.sold ? 1 : -1));
   const picks = D.watch || [];
   const held = new Set(open.map(o => o.sym));
   const cost = open.reduce((a, o) => a + (o.alloc || 0), 0);
@@ -1812,9 +1942,10 @@ function mine(){
             o.days_left===0 ? "today" : o.days_left + "d"}</div>
         </div></div>`).join("")}
     </div></div>
-    <div style="padding:12px 18px 16px;"><div class="note">Sell with
-      <span class="mono">./trade.py sell MU --price 823.03</span>, or open an issue
-      titled <span class="mono">sell MU 823.03</span>.</div></div>
+    <div style="padding:12px 18px 16px;"><div class="note">Tap the purple circle
+      beside a ticker on the Digest to sell it. Positions are stored in this
+      browser, so they will not appear on another device \u2014 use
+      <span class="mono">./trade.py</span> for anything you want shared.</div></div>
   </div>` : "";
 
   const curves = open.length ? `<div class="panel" style="margin-bottom:16px;">
@@ -1912,68 +2043,55 @@ function render(keepScroll){
                ["mine","Nik's stocks"]];
   $("#nav").innerHTML = nav.map(([k,l]) =>
     `<button data-go="${k}" aria-current="${S.screen===k}">${l}</button>`).join("");
-  $("#app").innerHTML = (SCREENS[S.screen] || digest)();
+  $("#app").innerHTML = (SCREENS[S.screen] || digest)() + buyDialog();
   // an in-place toggle keeps your position; a screen change goes back to the top
   window.scrollTo({ top: keepScroll ? y : 0 });
 }
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-own],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
+  const el = e.target.closest("[data-own],[data-savebuy],[data-sell],[data-closedlg],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
   if (!el) return;
   const d = el.dataset;
   // sits inside a card that is itself data-open, so it must swallow the click
   if (d.own) {
     e.stopPropagation();
-    const sym = d.own;
-    if (myPos()[sym]) return;                 // already yours; nothing to record
-    const t = (D.watch || []).find(x => x.sym === sym) || {};
-    const price = typeof t.price === "number" ? +t.price.toFixed(2) : 0;
-    if (!price) return;
-    const title = `buy ${sym} ${price} ${buyStake()}`;
-    window.open(`https://github.com/${REPO}/issues/new?labels=trade`
-      + `&title=${encodeURIComponent(title)}`
-      + `&body=${encodeURIComponent(
-          `Recording a buy of $${sym} at ${price} for $${buyStake()}.\n\n`
-          + `Edit the title if your fill differed: buy SYM PRICE AMOUNT [DATE].`)}`,
-      "_blank", "noopener");
-    S.pending[sym] = true;                    // optimistic until the run lands
+    S.buying = d.own;
     render(true);
     return;
   }
-  if (d.buying !== undefined && !d.recordbuy) {
+  if (d.closedlg !== undefined) {
     e.stopPropagation();
-    S.buying = d.buying || null;
-    render(true);
-    return;
-  }
-  if (d.recordbuy) {
-    e.stopPropagation();
-    const sym = d.recordbuy;
-    const price = parseFloat(($("#bp-" + sym) || {}).value);
-    const amount = parseFloat(($("#ba-" + sym) || {}).value);
-    if (!price || !amount) return;
-    // the workflow parses the title, so the body is only for your own reference
-    const title = `buy ${sym} ${price} ${amount}`;
-    const url = `https://github.com/${REPO}/issues/new?labels=trade`
-      + `&title=${encodeURIComponent(title)}`
-      + `&body=${encodeURIComponent(
-          `Recording a buy of $${sym} at ${price} for $${amount}.\n\n`
-          + `Submit this issue and the next run writes it to docs/trades.json.`)}`;
-    window.open(url, "_blank", "noopener");
     S.buying = null;
     render(true);
     return;
   }
-  if (d.daymode) {
+  if (d.savebuy) {
     e.stopPropagation();
-    S.dayMode[d.daymode] = S.dayMode[d.daymode] === "day" ? "cum" : "day";
+    const price = parseFloat(($("#dlg-price") || {}).value);
+    const shares = parseFloat(($("#dlg-shares") || {}).value);
+    if (!price || !shares) return;
+    const rows = localTrades();
+    rows.push({ sym: d.savebuy, date: todayISO(), price, shares,
+                at: new Date().toISOString() });
+    saveLocalTrades(rows);
+    S.buying = null;
     render(true);
     return;
   }
-  // text columns open A→Z, numeric columns open biggest-first
-  const flip = (state, key) => state.key === key
-    ? { key, dir: -state.dir }
-    : { key, dir: TEXT_KEYS.has(key) ? 1 : -1 };
+  if (d.sell) {
+    e.stopPropagation();
+    const price = parseFloat(($("#dlg-price") || {}).value);
+    const rows = localTrades();
+    const i = rows.findIndex(t => t.sym === d.sell && !t.sold);
+    if (i >= 0 && price) {
+      rows[i].sold = todayISO();
+      rows[i].sell_price = price;
+      saveLocalTrades(rows);
+    }
+    S.buying = null;
+    render(true);
+    return;
+  }
   if (d.sort)          { S.sort = flip(S.sort, d.sort); }
   else if (d.daysort)  { S.daySort = flip(S.daySort, d.daysort); }
   else if (d.go)  { S.screen = d.go; }

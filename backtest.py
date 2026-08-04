@@ -700,6 +700,21 @@ def main():
             "path": _day_by_day(sym, t["buy_date"], bp),
             "note": t.get("note") or "",
         })
+    # Every symbol the board might need to price a browser-recorded trade: this
+    # run's picks, plus anything already open. Trimmed to the sessions a position
+    # can still be in, which keeps the payload small.
+    recent_closes = {}
+    live_syms = set(pick_days.get(max(pick_days), {}) if pick_days else set())
+    for d in list(pick_days)[-4:]:
+        live_syms |= set(pick_days[d])
+    live_syms |= {o["sym"] for o in my_open} | {o["sym"] for o in open_positions}
+    for sym in sorted(live_syms):
+        c = closes.get(sym) or daily_closes(sym)
+        if not c:
+            continue
+        ks = sorted(c)[-(CURVE_DAYS + 8):]
+        recent_closes[sym] = {k: round(c[k], 4) for k in ks}
+
     my_open.sort(key=lambda o: (o["days_left"], o["sym"]))
     my_closed.sort(key=lambda o: o["sold"] or "", reverse=True)
     print(f"real book: {len(trades)} trade(s) in trades.json -> "
@@ -725,6 +740,10 @@ def main():
         "pick_detail": pick_detail,
         "my_positions": my_open,
         "my_closed": my_closed,
+        # Recent sessions for anything currently on the board, so the page can
+        # work out a position you record in the browser — its day-by-day path,
+        # how many sessions it has run — without a price feed of its own.
+        "recent_closes": recent_closes,
         "open_positions": open_positions,
         "starved_days": starved,
         "exit_rules": exits,
