@@ -48,6 +48,23 @@
   }
   .dlg-in:focus-visible{ outline:2px solid var(--h); outline-offset:1px; }
 
+  /* buy / sell / undo on a pick card. Sized to be tappable — the 15px circle
+     these replaced was hard to hit, especially on a phone. */
+  .tbtn{
+    flex:0 0 auto; height:21px; padding:0 9px; border-radius:6px; cursor:pointer;
+    font-family:var(--mono); font-size:10px; font-weight:600; letter-spacing:.07em;
+    line-height:19px; transition:background .15s, border-color .15s;
+  }
+  .tbtn-buy{ border:1px solid rgba(31,138,84,0.38); color:var(--g);
+    background:rgba(31,138,84,0.08); }
+  .tbtn-buy:hover{ background:rgba(31,138,84,0.16); }
+  .tbtn-sell{ border:1px solid var(--h-line); color:var(--h); background:var(--h-bg); }
+  .tbtn-sell:hover{ background:rgba(91,62,142,0.16); }
+  .tbtn-undo{ width:21px; padding:0; border:1px solid var(--rule);
+    color:var(--ink-5); background:rgba(255,255,255,0.5); font-size:11px; }
+  .tbtn-undo:hover{ color:var(--ink-2); border-color:var(--ink-6); }
+  .tbtn:focus-visible{ outline:2px solid var(--h); outline-offset:2px; }
+
   /* own-it dot on a pick card: empty ring, filled when yours, dashed while the
      issue is in flight. A real button so it is tabbable and announces state. */
   .owndot{
@@ -975,12 +992,24 @@ function myPos(){
   return m;
 }
 
-function ownDot(t, mine){
-  const label = mine
-    ? `You own $${t.sym}, bought ${fmtPickDay(mine.bought)} at ${money(mine.entry)} \u2014 tap to sell`
-    : `Mark $${t.sym} as bought`;
-  return `<button class="owndot owndot-${mine ? "own" : "no"}" data-own="${esc(t.sym)}"
-    aria-pressed="${!!mine}" title="${esc(label)}" aria-label="${esc(label)}"></button>`;
+// Controls on a pick card. A 15px circle was a fiddly tap target, so an unowned
+// name gets a proper BUY button; an owned one gets SELL plus a small check that
+// undoes the buy outright — the difference matters, because selling records a
+// closed trade with a price and undoing says it never happened.
+function ownControls(t, mine){
+  if (!mine) {
+    return `<button class="tbtn tbtn-buy" data-own="${esc(t.sym)}"
+      title="Record a buy of $${esc(t.sym)}"
+      aria-label="Record a buy of $${esc(t.sym)}">BUY</button>`;
+  }
+  return `<span style="display:inline-flex;gap:4px;align-items:center;">
+    <button class="tbtn tbtn-sell" data-own="${esc(t.sym)}"
+      title="Sell $${esc(t.sym)} — records a closed trade at the price you got"
+      aria-label="Sell $${esc(t.sym)}">SELL</button>
+    ${mine.local ? `<button class="tbtn tbtn-undo" data-undo="${esc(t.sym)}"
+      title="Undo — remove this buy as if it never happened. Not a sale."
+      aria-label="Undo the buy of $${esc(t.sym)}">\u2713</button>` : ""}
+  </span>`;
 }
 
 // The buy dialog. Native <dialog> so Esc closes it and focus is trapped for free.
@@ -1046,8 +1075,8 @@ function picksPanel(){
       <div class="cap">Picks of the day</div>
       <div class="note">rising chatter or an analyst buy, with room left to move${
         nMine ? ` · <b style="color:${H};">${nMine} yours</b>, in purple` : ""}${
-        nHeld ? ` · ${nHeld} held by the rule` : ""} · tap the circle by a ticker to
-        mark it bought</div>
+        nHeld ? ` · ${nHeld} held by the rule` : ""} · hit BUY on a ticker to put it
+        in your portfolio</div>
       <div style="flex:1 1 20px;"></div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">${tierHead("pick")}</div>
     </div>
@@ -1066,7 +1095,7 @@ function picksPanel(){
           <span class="mono" style="font-size:11px;color:${tint ? H : "#6E6754"};">${i+1}</span>
           <span class="sym"${tint ? ` style="color:${H};"` : ""}>$${esc(t.sym)}</span>
           <span class="mono" style="font-size:13px;color:var(--ink-2);">${money(t.price)}</span>
-          ${ownDot(t, mine)}
+          ${ownControls(t, mine)}
           <span class="mono" style="font-size:13px;color:${chgC(t.pct)};margin-left:auto;">
             ${pctT(t.pct)}</span>
         </div>
@@ -1902,8 +1931,8 @@ function mine(){
       </div>
       </div>`
     : `<div style="font-size:14px;color:var(--ink-3);max-width:60ch;text-wrap:pretty;">
-        Nothing recorded yet. On the <b>Digest</b>, tap the circle beside any ticker to
-        mark it bought — at that moment's price, dated that day. It lands here, and the
+        Nothing recorded yet. On the <b>Digest</b>, hit <b>BUY</b> beside any ticker to
+        record it — at that moment's price, dated that day. It lands here, and the
         day-by-day figures run from your buy rather than the rule's.
       </div>`}
   </div>`;
@@ -1945,8 +1974,9 @@ function mine(){
             o.days_left===0 ? "today" : o.days_left + "d"}</div>
         </div></div>`).join("")}
     </div></div>
-    <div style="padding:12px 18px 16px;"><div class="note">Tap the purple circle
-      beside a ticker on the Digest to sell it. Positions are stored in this
+    <div style="padding:12px 18px 16px;"><div class="note">Hit SELL on the ticker
+      from the Digest to close it, or the small check to undo a buy you logged by
+      mistake. Positions are stored in this
       browser, so they will not appear on another device \u2014 use
       <span class="mono">./trade.py</span> for anything you want shared.</div></div>
   </div>` : "";
@@ -2032,8 +2062,8 @@ function mine(){
             color:var(--ink-4);">${sh ? sh + " sh" : "\u2014"}</div>
         </div></div>`; }).join("")}
     </div></div>
-    <div style="padding:12px 18px 16px;"><div class="note">Tap the circle beside any
-      of these on the Digest to add it here.</div></div>
+    <div style="padding:12px 18px 16px;"><div class="note">Hit BUY on any of these
+      from the Digest to add it here.</div></div>
   </div>` : "";
 
   return hero + positions + curves + closedPanel + notMine;
@@ -2052,7 +2082,7 @@ function render(keepScroll){
 }
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-own],[data-savebuy],[data-sell],[data-closedlg],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
+  const el = e.target.closest("[data-own],[data-undo],[data-savebuy],[data-sell],[data-closedlg],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
   if (!el) return;
   const d = el.dataset;
   // sits inside a card that is itself data-open, so it must swallow the click
@@ -2078,6 +2108,14 @@ document.addEventListener("click", e => {
                 at: new Date().toISOString() });
     saveLocalTrades(rows);
     S.buying = null;
+    render(true);
+    return;
+  }
+  if (d.undo) {
+    e.stopPropagation();
+    const rows = localTrades();
+    const i = rows.findIndex(t => t.sym === d.undo && !t.sold);
+    if (i >= 0) { rows.splice(i, 1); saveLocalTrades(rows); }
     render(true);
     return;
   }
