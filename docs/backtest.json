@@ -2417,6 +2417,7 @@
    "value": 647.49,
    "pnl": 128.94,
    "ret": 24.9,
+   "spy_ret": 3.9,
    "path": [
     {
      "day": 1,
@@ -2453,6 +2454,7 @@
    "value": 582.05,
    "pnl": 63.5,
    "ret": 12.2,
+   "spy_ret": 3.9,
    "path": [
     {
      "day": 1,
@@ -2489,6 +2491,7 @@
    "value": 577.12,
    "pnl": 58.58,
    "ret": 11.3,
+   "spy_ret": 3.9,
    "path": [
     {
      "day": 1,
@@ -2525,6 +2528,7 @@
    "value": 563.93,
    "pnl": 45.38,
    "ret": 8.8,
+   "spy_ret": 3.9,
    "path": [
     {
      "day": 1,
@@ -2561,6 +2565,7 @@
    "value": 583.7,
    "pnl": 65.15,
    "ret": 12.6,
+   "spy_ret": 3.9,
    "path": [
     {
      "day": 1,
@@ -2597,6 +2602,7 @@
    "value": 657.46,
    "pnl": 138.91,
    "ret": 26.8,
+   "spy_ret": 3.9,
    "path": [
     {
      "day": 1,
@@ -2633,6 +2639,7 @@
    "value": 538.6,
    "pnl": 20.05,
    "ret": 3.9,
+   "spy_ret": 3.9,
    "path": [
     {
      "day": 1,
@@ -2669,6 +2676,7 @@
    "value": 510.97,
    "pnl": -7.58,
    "ret": -1.5,
+   "spy_ret": 3.9,
    "path": [
     {
      "day": 1,
@@ -2705,6 +2713,7 @@
    "value": 495.09,
    "pnl": -45.95,
    "ret": -8.5,
+   "spy_ret": 2.2,
    "path": [
     {
      "day": 1,
@@ -2734,6 +2743,7 @@
    "value": 597.77,
    "pnl": 56.73,
    "ret": 10.5,
+   "spy_ret": 2.2,
    "path": [
     {
      "day": 1,
@@ -2763,6 +2773,7 @@
    "value": 557.68,
    "pnl": 16.65,
    "ret": 3.1,
+   "spy_ret": 2.2,
    "path": [
     {
      "day": 1,
@@ -2792,6 +2803,7 @@
    "value": 573.01,
    "pnl": 31.97,
    "ret": 5.9,
+   "spy_ret": 2.2,
    "path": [
     {
      "day": 1,
@@ -2821,6 +2833,7 @@
    "value": 567.21,
    "pnl": 28.38,
    "ret": 5.3,
+   "spy_ret": 1.4,
    "path": [
     {
      "day": 1,
@@ -2843,6 +2856,7 @@
    "value": 607.73,
    "pnl": 68.9,
    "ret": 12.8,
+   "spy_ret": 1.4,
    "path": [
     {
      "day": 1,
@@ -2865,6 +2879,7 @@
    "value": 552.03,
    "pnl": 0.0,
    "ret": 0.0,
+   "spy_ret": null,
    "path": []
   },
   {
@@ -2879,6 +2894,7 @@
    "value": 596.28,
    "pnl": 44.25,
    "ret": 8.0,
+   "spy_ret": null,
    "path": []
   },
   {
@@ -2893,6 +2909,7 @@
    "value": 556.35,
    "pnl": 4.32,
    "ret": 0.8,
+   "spy_ret": null,
    "path": []
   },
   {
@@ -2907,6 +2924,7 @@
    "value": 574.85,
    "pnl": 22.82,
    "ret": 4.1,
+   "spy_ret": null,
    "path": []
   },
   {
@@ -2921,6 +2939,7 @@
    "value": 552.03,
    "pnl": 0.0,
    "ret": 0.0,
+   "spy_ret": null,
    "path": []
   }
  ],
@@ -3165,6 +3184,8 @@
    "avg_days_held": 3.2,
    "worst": -12.3,
    "best": 80.7,
+   "avg_spy": 1.7,
+   "avg_excess": 8.7,
    "positions_real": 11,
    "avg_return_real": 18.0,
    "win_rate_real": 90.9,
@@ -3176,6 +3197,8 @@
      "exit": 3.35,
      "ret": -12.3,
      "days": 5,
+     "spy_ret": -0.6,
+     "excess": -11.7,
      "held_to_end": false,
      "simulated": true
     },
@@ -3186,6 +3209,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -3196,6 +3221,8 @@
      "exit": 1.61,
      "ret": -3.6,
      "days": 5,
+     "spy_ret": -0.6,
+     "excess": -3.0,
      "held_to_end": false,
      "simulated": true
     },
@@ -3206,6 +3233,8 @@
      "exit": 398.63,
      "ret": -2.4,
      "days": 5,
+     "spy_ret": -2.6,
+     "excess": 0.2,
      "held_to_end": false,
      "simulated": true
     },
@@ -3216,6 +3245,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3226,6 +3257,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -3236,6 +3269,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -3246,6 +3281,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -3256,6 +3293,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -3266,6 +3305,8 @@
      "exit": 0.726,
      "ret": 6.8,
      "days": 5,
+     "spy_ret": -2.6,
+     "excess": 9.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -3276,6 +3317,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -3286,6 +3329,8 @@
      "exit": 0.221,
      "ret": 10.5,
      "days": 5,
+     "spy_ret": -2.6,
+     "excess": 13.1,
      "held_to_end": false,
      "simulated": true
     },
@@ -3296,6 +3341,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -3306,6 +3353,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3316,6 +3365,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -3326,6 +3377,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -3336,6 +3389,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3346,6 +3401,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -3356,6 +3413,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -3366,6 +3425,8 @@
      "exit": 15.45,
      "ret": 80.7,
      "days": 5,
+     "spy_ret": -0.5,
+     "excess": 81.2,
      "held_to_end": false,
      "simulated": false
     }
@@ -3384,6 +3445,8 @@
    "avg_days_held": 6.6,
    "worst": -17.5,
    "best": 44.9,
+   "avg_spy": 2.0,
+   "avg_excess": 6.7,
    "positions_real": 11,
    "avg_return_real": 14.7,
    "win_rate_real": 90.9,
@@ -3395,6 +3458,8 @@
      "exit": 3.15,
      "ret": -17.5,
      "days": 7,
+     "spy_ret": 0.3,
+     "excess": -17.8,
      "held_to_end": false,
      "simulated": true
     },
@@ -3405,6 +3470,8 @@
      "exit": 1.39,
      "ret": -16.8,
      "days": 20,
+     "spy_ret": 0.6,
+     "excess": -17.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -3415,6 +3482,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -3425,6 +3494,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3435,6 +3506,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -3445,6 +3518,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -3455,6 +3530,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -3465,6 +3542,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -3475,6 +3554,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -3485,6 +3566,8 @@
      "exit": 0.7349,
      "ret": 8.1,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": 7.5,
      "held_to_end": true,
      "simulated": true
     },
@@ -3495,6 +3578,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -3505,6 +3590,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -3515,6 +3602,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3525,6 +3614,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -3535,6 +3626,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -3545,6 +3638,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3555,6 +3650,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -3565,6 +3662,8 @@
      "exit": 1279.96,
      "ret": 26.0,
      "days": 1,
+     "spy_ret": 1.7,
+     "excess": 24.3,
      "held_to_end": false,
      "simulated": false
     },
@@ -3575,6 +3674,8 @@
      "exit": 0.255,
      "ret": 27.5,
      "days": 3,
+     "spy_ret": -0.8,
+     "excess": 28.3,
      "held_to_end": false,
      "simulated": true
     },
@@ -3585,6 +3686,8 @@
      "exit": 12.39,
      "ret": 44.9,
      "days": 4,
+     "spy_ret": -2.1,
+     "excess": 47.0,
      "held_to_end": false,
      "simulated": false
     }
@@ -3603,6 +3706,8 @@
    "avg_days_held": 4.7,
    "worst": -17.5,
    "best": 27.5,
+   "avg_spy": 1.6,
+   "avg_excess": 6.5,
    "positions_real": 11,
    "avg_return_real": 12.8,
    "win_rate_real": 90.9,
@@ -3614,6 +3719,8 @@
      "exit": 3.15,
      "ret": -17.5,
      "days": 7,
+     "spy_ret": 0.3,
+     "excess": -17.8,
      "held_to_end": false,
      "simulated": true
     },
@@ -3624,6 +3731,8 @@
      "exit": 1.39,
      "ret": -16.8,
      "days": 20,
+     "spy_ret": 0.6,
+     "excess": -17.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -3634,6 +3743,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -3644,6 +3755,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3654,6 +3767,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -3664,6 +3779,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -3674,6 +3791,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -3684,6 +3803,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -3694,6 +3815,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -3704,6 +3827,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -3714,6 +3839,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -3724,6 +3851,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3734,6 +3863,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3744,6 +3875,8 @@
      "exit": 0.784,
      "ret": 15.3,
      "days": 2,
+     "spy_ret": -1.8,
+     "excess": 17.1,
      "held_to_end": false,
      "simulated": true
     },
@@ -3754,6 +3887,8 @@
      "exit": 451.1,
      "ret": 15.5,
      "days": 1,
+     "spy_ret": 1.7,
+     "excess": 13.8,
      "held_to_end": false,
      "simulated": false
     },
@@ -3764,6 +3899,8 @@
      "exit": 149.0,
      "ret": 17.5,
      "days": 1,
+     "spy_ret": 1.7,
+     "excess": 15.8,
      "held_to_end": false,
      "simulated": false
     },
@@ -3774,6 +3911,8 @@
      "exit": 874.66,
      "ret": 18.4,
      "days": 1,
+     "spy_ret": 1.7,
+     "excess": 16.7,
      "held_to_end": false,
      "simulated": false
     },
@@ -3784,6 +3923,8 @@
      "exit": 10.53,
      "ret": 23.2,
      "days": 3,
+     "spy_ret": -1.4,
+     "excess": 24.6,
      "held_to_end": false,
      "simulated": false
     },
@@ -3794,6 +3935,8 @@
      "exit": 1279.96,
      "ret": 26.0,
      "days": 1,
+     "spy_ret": 1.7,
+     "excess": 24.3,
      "held_to_end": false,
      "simulated": false
     },
@@ -3804,6 +3947,8 @@
      "exit": 0.255,
      "ret": 27.5,
      "days": 3,
+     "spy_ret": -0.8,
+     "excess": 28.3,
      "held_to_end": false,
      "simulated": true
     }
@@ -3822,6 +3967,8 @@
    "avg_days_held": 4.7,
    "worst": -13.2,
    "best": 57.9,
+   "avg_spy": 2.1,
+   "avg_excess": 5.7,
    "positions_real": 11,
    "avg_return_real": 15.9,
    "win_rate_real": 90.9,
@@ -3833,6 +3980,8 @@
      "exit": 1.45,
      "ret": -13.2,
      "days": 10,
+     "spy_ret": 0.8,
+     "excess": -14.0,
      "held_to_end": false,
      "simulated": true
     },
@@ -3843,6 +3992,8 @@
      "exit": 373.6,
      "ret": -8.5,
      "days": 10,
+     "spy_ret": -0.8,
+     "excess": -7.7,
      "held_to_end": false,
      "simulated": true
     },
@@ -3853,6 +4004,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -3863,6 +4016,8 @@
      "exit": 3.55,
      "ret": -7.1,
      "days": 10,
+     "spy_ret": 0.8,
+     "excess": -7.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -3873,6 +4028,8 @@
      "exit": 0.186,
      "ret": -7.0,
      "days": 10,
+     "spy_ret": -0.8,
+     "excess": -6.2,
      "held_to_end": false,
      "simulated": true
     },
@@ -3883,6 +4040,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3893,6 +4052,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -3903,6 +4064,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -3913,6 +4076,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -3923,6 +4088,8 @@
      "exit": 0.72,
      "ret": 5.9,
      "days": 10,
+     "spy_ret": -0.8,
+     "excess": 6.7,
      "held_to_end": false,
      "simulated": true
     },
@@ -3933,6 +4100,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -3943,6 +4112,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -3953,6 +4124,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -3963,6 +4136,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -3973,6 +4148,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -3983,6 +4160,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -3993,6 +4172,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4003,6 +4184,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -4013,6 +4196,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4023,6 +4208,8 @@
      "exit": 13.5,
      "ret": 57.9,
      "days": 10,
+     "spy_ret": 0.4,
+     "excess": 57.5,
      "held_to_end": false,
      "simulated": false
     }
@@ -4041,6 +4228,8 @@
    "avg_days_held": 5.5,
    "worst": -14.7,
    "best": 49.2,
+   "avg_spy": 2.1,
+   "avg_excess": 5.2,
    "positions_real": 11,
    "avg_return_real": 15.1,
    "win_rate_real": 90.9,
@@ -4052,6 +4241,8 @@
      "exit": 3.26,
      "ret": -14.7,
      "days": 4,
+     "spy_ret": -0.8,
+     "excess": -13.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -4062,6 +4253,8 @@
      "exit": 1.47,
      "ret": -12.0,
      "days": 9,
+     "spy_ret": 0.9,
+     "excess": -12.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -4072,6 +4265,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -4082,6 +4277,8 @@
      "exit": 0.184,
      "ret": -8.0,
      "days": 6,
+     "spy_ret": -2.6,
+     "excess": -5.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -4092,6 +4289,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4102,6 +4301,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -4112,6 +4313,8 @@
      "exit": 0.695,
      "ret": 2.2,
      "days": 12,
+     "spy_ret": -1.1,
+     "excess": 3.3,
      "held_to_end": false,
      "simulated": true
     },
@@ -4122,6 +4325,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -4132,6 +4337,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -4142,6 +4349,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4152,6 +4361,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -4162,6 +4373,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4172,6 +4385,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -4182,6 +4397,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4192,6 +4409,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -4202,6 +4421,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -4212,6 +4433,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4222,6 +4445,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -4232,6 +4457,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4242,6 +4469,8 @@
      "exit": 12.76,
      "ret": 49.2,
      "days": 13,
+     "spy_ret": 1.4,
+     "excess": 47.8,
      "held_to_end": false,
      "simulated": false
     }
@@ -4260,6 +4489,8 @@
    "avg_days_held": 7.5,
    "worst": -14.7,
    "best": 31.2,
+   "avg_spy": 2.2,
+   "avg_excess": 4.3,
    "positions_real": 11,
    "avg_return_real": 13.5,
    "win_rate_real": 90.9,
@@ -4271,6 +4502,8 @@
      "exit": 3.26,
      "ret": -14.7,
      "days": 4,
+     "spy_ret": -0.8,
+     "excess": -13.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -4281,6 +4514,8 @@
      "exit": 0.176,
      "ret": -12.0,
      "days": 7,
+     "spy_ret": -2.5,
+     "excess": -9.5,
      "held_to_end": false,
      "simulated": true
     },
@@ -4291,6 +4526,8 @@
      "exit": 1.47,
      "ret": -12.0,
      "days": 9,
+     "spy_ret": 0.9,
+     "excess": -12.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -4301,6 +4538,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -4311,6 +4550,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4321,6 +4562,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -4331,6 +4574,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -4341,6 +4586,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -4351,6 +4598,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4361,6 +4610,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -4371,6 +4622,8 @@
      "exit": 0.7349,
      "ret": 8.1,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": 7.5,
      "held_to_end": true,
      "simulated": true
     },
@@ -4381,6 +4634,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4391,6 +4646,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -4401,6 +4658,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4411,6 +4670,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -4421,6 +4682,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -4431,6 +4694,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4441,6 +4706,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -4451,6 +4718,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4461,6 +4730,8 @@
      "exit": 11.22,
      "ret": 31.2,
      "days": 29,
+     "spy_ret": 1.8,
+     "excess": 29.4,
      "held_to_end": true,
      "simulated": false
     }
@@ -4479,6 +4750,8 @@
    "avg_days_held": 6.0,
    "worst": -14.7,
    "best": 37.4,
+   "avg_spy": 2.0,
+   "avg_excess": 4.3,
    "positions_real": 11,
    "avg_return_real": 14.0,
    "win_rate_real": 90.9,
@@ -4490,6 +4763,8 @@
      "exit": 3.26,
      "ret": -14.7,
      "days": 4,
+     "spy_ret": -0.8,
+     "excess": -13.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -4500,6 +4775,8 @@
      "exit": 1.45,
      "ret": -13.2,
      "days": 10,
+     "spy_ret": 0.8,
+     "excess": -14.0,
      "held_to_end": false,
      "simulated": true
     },
@@ -4510,6 +4787,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -4520,6 +4799,8 @@
      "exit": 0.184,
      "ret": -8.0,
      "days": 6,
+     "spy_ret": -2.6,
+     "excess": -5.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -4530,6 +4811,8 @@
      "exit": 0.661,
      "ret": -2.8,
      "days": 15,
+     "spy_ret": -1.0,
+     "excess": -1.8,
      "held_to_end": false,
      "simulated": true
     },
@@ -4540,6 +4823,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4550,6 +4835,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -4560,6 +4847,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -4570,6 +4859,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -4580,6 +4871,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4590,6 +4883,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -4600,6 +4895,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4610,6 +4907,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -4620,6 +4919,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4630,6 +4931,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -4640,6 +4943,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -4650,6 +4955,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4660,6 +4967,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -4670,6 +4979,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4680,6 +4991,8 @@
      "exit": 11.75,
      "ret": 37.4,
      "days": 17,
+     "spy_ret": 0.9,
+     "excess": 36.5,
      "held_to_end": false,
      "simulated": false
     }
@@ -4698,6 +5011,8 @@
    "avg_days_held": 6.8,
    "worst": -45.3,
    "best": 27.5,
+   "avg_spy": 2.2,
+   "avg_excess": 4.0,
    "positions_real": 11,
    "avg_return_real": 12.7,
    "win_rate_real": 90.9,
@@ -4709,6 +5024,8 @@
      "exit": 0.913,
      "ret": -45.3,
      "days": 31,
+     "spy_ret": 2.5,
+     "excess": -47.8,
      "held_to_end": true,
      "simulated": true
     },
@@ -4719,6 +5036,8 @@
      "exit": 2.6,
      "ret": -31.9,
      "days": 31,
+     "spy_ret": 2.5,
+     "excess": -34.4,
      "held_to_end": true,
      "simulated": true
     },
@@ -4729,6 +5048,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -4739,6 +5060,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4749,6 +5072,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -4759,6 +5084,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -4769,6 +5096,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -4779,6 +5108,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4789,6 +5120,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -4799,6 +5132,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -4809,6 +5144,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -4819,6 +5156,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4829,6 +5168,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -4839,6 +5180,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -4849,6 +5192,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4859,6 +5204,8 @@
      "exit": 0.828,
      "ret": 21.8,
      "days": 3,
+     "spy_ret": -0.8,
+     "excess": 22.6,
      "held_to_end": false,
      "simulated": true
     },
@@ -4869,6 +5216,8 @@
      "exit": 10.53,
      "ret": 23.2,
      "days": 3,
+     "spy_ret": -1.4,
+     "excess": 24.6,
      "held_to_end": false,
      "simulated": false
     },
@@ -4879,6 +5228,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": false,
      "simulated": false
     },
@@ -4889,6 +5240,8 @@
      "exit": 1279.96,
      "ret": 26.0,
      "days": 1,
+     "spy_ret": 1.7,
+     "excess": 24.3,
      "held_to_end": false,
      "simulated": false
     },
@@ -4899,6 +5252,8 @@
      "exit": 0.255,
      "ret": 27.5,
      "days": 3,
+     "spy_ret": -0.8,
+     "excess": 28.3,
      "held_to_end": false,
      "simulated": true
     }
@@ -4917,6 +5272,8 @@
    "avg_days_held": 8.4,
    "worst": -17.5,
    "best": 31.2,
+   "avg_spy": 2.3,
+   "avg_excess": 3.6,
    "positions_real": 11,
    "avg_return_real": 13.5,
    "win_rate_real": 90.9,
@@ -4928,6 +5285,8 @@
      "exit": 3.15,
      "ret": -17.5,
      "days": 7,
+     "spy_ret": 0.3,
+     "excess": -17.8,
      "held_to_end": false,
      "simulated": true
     },
@@ -4938,6 +5297,8 @@
      "exit": 1.39,
      "ret": -16.8,
      "days": 20,
+     "spy_ret": 0.6,
+     "excess": -17.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -4948,6 +5309,8 @@
      "exit": 0.167,
      "ret": -16.5,
      "days": 12,
+     "spy_ret": -1.1,
+     "excess": -15.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -4958,6 +5321,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -4968,6 +5333,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -4978,6 +5345,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -4988,6 +5357,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -4998,6 +5369,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5008,6 +5381,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5018,6 +5393,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -5028,6 +5405,8 @@
      "exit": 0.7349,
      "ret": 8.1,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": 7.5,
      "held_to_end": true,
      "simulated": true
     },
@@ -5038,6 +5417,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5048,6 +5429,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -5058,6 +5441,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5068,6 +5453,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -5078,6 +5465,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -5088,6 +5477,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5098,6 +5489,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5108,6 +5501,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5118,6 +5513,8 @@
      "exit": 11.22,
      "ret": 31.2,
      "days": 29,
+     "spy_ret": 1.8,
+     "excess": 29.4,
      "held_to_end": true,
      "simulated": false
     }
@@ -5136,6 +5533,8 @@
    "avg_days_held": 8.1,
    "worst": -27.0,
    "best": 44.9,
+   "avg_spy": 2.1,
+   "avg_excess": 3.6,
    "positions_real": 11,
    "avg_return_real": 14.7,
    "win_rate_real": 90.9,
@@ -5147,6 +5546,8 @@
      "exit": 2.79,
      "ret": -27.0,
      "days": 21,
+     "spy_ret": 0.4,
+     "excess": -27.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -5157,6 +5558,8 @@
      "exit": 1.32,
      "ret": -21.0,
      "days": 24,
+     "spy_ret": -0.1,
+     "excess": -20.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -5167,6 +5570,8 @@
      "exit": 0.16,
      "ret": -20.0,
      "days": 13,
+     "spy_ret": -0.2,
+     "excess": -19.8,
      "held_to_end": false,
      "simulated": true
     },
@@ -5177,6 +5582,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -5187,6 +5594,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5197,6 +5606,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -5207,6 +5618,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -5217,6 +5630,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5227,6 +5642,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5237,6 +5654,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -5247,6 +5666,8 @@
      "exit": 0.7349,
      "ret": 8.1,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": 7.5,
      "held_to_end": true,
      "simulated": true
     },
@@ -5257,6 +5678,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5267,6 +5690,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -5277,6 +5702,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5287,6 +5714,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -5297,6 +5726,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -5307,6 +5738,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5317,6 +5750,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5327,6 +5762,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5337,6 +5774,8 @@
      "exit": 12.39,
      "ret": 44.9,
      "days": 4,
+     "spy_ret": -2.1,
+     "excess": 47.0,
      "held_to_end": false,
      "simulated": false
     }
@@ -5355,6 +5794,8 @@
    "avg_days_held": 7.3,
    "worst": -19.8,
    "best": 32.4,
+   "avg_spy": 2.1,
+   "avg_excess": 3.2,
    "positions_real": 11,
    "avg_return_real": 13.6,
    "win_rate_real": 90.9,
@@ -5366,6 +5807,8 @@
      "exit": 1.34,
      "ret": -19.8,
      "days": 23,
+     "spy_ret": 1.1,
+     "excess": -20.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -5376,6 +5819,8 @@
      "exit": 3.15,
      "ret": -17.5,
      "days": 7,
+     "spy_ret": 0.3,
+     "excess": -17.8,
      "held_to_end": false,
      "simulated": true
     },
@@ -5386,6 +5831,8 @@
      "exit": 0.615,
      "ret": -9.6,
      "days": 21,
+     "spy_ret": -0.3,
+     "excess": -9.3,
      "held_to_end": false,
      "simulated": true
     },
@@ -5396,6 +5843,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -5406,6 +5855,8 @@
      "exit": 0.184,
      "ret": -8.0,
      "days": 6,
+     "spy_ret": -2.6,
+     "excess": -5.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -5416,6 +5867,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5426,6 +5879,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -5436,6 +5891,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -5446,6 +5903,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5456,6 +5915,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5466,6 +5927,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -5476,6 +5939,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5486,6 +5951,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -5496,6 +5963,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5506,6 +5975,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -5516,6 +5987,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -5526,6 +5999,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5536,6 +6011,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5546,6 +6023,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5556,6 +6035,8 @@
      "exit": 11.32,
      "ret": 32.4,
      "days": 23,
+     "spy_ret": -0.7,
+     "excess": 33.1,
      "held_to_end": false,
      "simulated": false
     }
@@ -5574,6 +6055,8 @@
    "avg_days_held": 7.7,
    "worst": -27.0,
    "best": 50.9,
+   "avg_spy": 2.3,
+   "avg_excess": 3.0,
    "positions_real": 11,
    "avg_return_real": 15.3,
    "win_rate_real": 90.9,
@@ -5585,6 +6068,8 @@
      "exit": 0.146,
      "ret": -27.0,
      "days": 20,
+     "spy_ret": 0.3,
+     "excess": -27.3,
      "held_to_end": false,
      "simulated": true
     },
@@ -5595,6 +6080,8 @@
      "exit": 3.08,
      "ret": -19.4,
      "days": 20,
+     "spy_ret": 0.6,
+     "excess": -20.0,
      "held_to_end": false,
      "simulated": true
     },
@@ -5605,6 +6092,8 @@
      "exit": 1.39,
      "ret": -16.8,
      "days": 20,
+     "spy_ret": 0.6,
+     "excess": -17.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -5615,6 +6104,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -5625,6 +6116,8 @@
      "exit": 0.635,
      "ret": -6.6,
      "days": 20,
+     "spy_ret": 0.3,
+     "excess": -6.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -5635,6 +6128,8 @@
      "exit": 391.91,
      "ret": -4.0,
      "days": 20,
+     "spy_ret": 0.3,
+     "excess": -4.3,
      "held_to_end": false,
      "simulated": true
     },
@@ -5645,6 +6140,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5655,6 +6152,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -5665,6 +6164,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5675,6 +6176,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5685,6 +6188,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -5695,6 +6200,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5705,6 +6212,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -5715,6 +6224,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5725,6 +6236,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -5735,6 +6248,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -5745,6 +6260,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5755,6 +6272,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5765,6 +6284,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5775,6 +6296,8 @@
      "exit": 12.9,
      "ret": 50.9,
      "days": 20,
+     "spy_ret": 0.5,
+     "excess": 50.4,
      "held_to_end": false,
      "simulated": false
     }
@@ -5793,6 +6316,8 @@
    "avg_days_held": 9.3,
    "worst": -27.0,
    "best": 31.2,
+   "avg_spy": 2.3,
+   "avg_excess": 2.7,
    "positions_real": 11,
    "avg_return_real": 13.5,
    "win_rate_real": 90.9,
@@ -5804,6 +6329,8 @@
      "exit": 2.79,
      "ret": -27.0,
      "days": 21,
+     "spy_ret": 0.4,
+     "excess": -27.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -5814,6 +6341,8 @@
      "exit": 1.32,
      "ret": -21.0,
      "days": 24,
+     "spy_ret": -0.1,
+     "excess": -20.9,
      "held_to_end": false,
      "simulated": true
     },
@@ -5824,6 +6353,8 @@
      "exit": 0.16,
      "ret": -20.0,
      "days": 13,
+     "spy_ret": -0.2,
+     "excess": -19.8,
      "held_to_end": false,
      "simulated": true
     },
@@ -5834,6 +6365,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -5844,6 +6377,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5854,6 +6389,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -5864,6 +6401,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -5874,6 +6413,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5884,6 +6425,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5894,6 +6437,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -5904,6 +6449,8 @@
      "exit": 0.7349,
      "ret": 8.1,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": 7.5,
      "held_to_end": true,
      "simulated": true
     },
@@ -5914,6 +6461,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5924,6 +6473,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -5934,6 +6485,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5944,6 +6497,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -5954,6 +6509,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -5964,6 +6521,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -5974,6 +6533,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -5984,6 +6545,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -5994,6 +6557,8 @@
      "exit": 11.22,
      "ret": 31.2,
      "days": 29,
+     "spy_ret": 1.8,
+     "excess": 29.4,
      "held_to_end": true,
      "simulated": false
     }
@@ -6012,6 +6577,8 @@
    "avg_days_held": 8.0,
    "worst": -45.3,
    "best": 49.2,
+   "avg_spy": 2.3,
+   "avg_excess": 2.4,
    "positions_real": 11,
    "avg_return_real": 15.1,
    "win_rate_real": 90.9,
@@ -6023,6 +6590,8 @@
      "exit": 0.913,
      "ret": -45.3,
      "days": 31,
+     "spy_ret": 2.5,
+     "excess": -47.8,
      "held_to_end": true,
      "simulated": true
     },
@@ -6033,6 +6602,8 @@
      "exit": 2.6,
      "ret": -31.9,
      "days": 31,
+     "spy_ret": 2.5,
+     "excess": -34.4,
      "held_to_end": true,
      "simulated": true
     },
@@ -6043,6 +6614,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -6053,6 +6626,8 @@
      "exit": 0.184,
      "ret": -8.0,
      "days": 6,
+     "spy_ret": -2.6,
+     "excess": -5.4,
      "held_to_end": false,
      "simulated": true
     },
@@ -6063,6 +6638,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -6073,6 +6650,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -6083,6 +6662,8 @@
      "exit": 0.695,
      "ret": 2.2,
      "days": 12,
+     "spy_ret": -1.1,
+     "excess": 3.3,
      "held_to_end": false,
      "simulated": true
     },
@@ -6093,6 +6674,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -6103,6 +6686,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -6113,6 +6698,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -6123,6 +6710,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -6133,6 +6722,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -6143,6 +6734,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -6153,6 +6746,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -6163,6 +6758,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -6173,6 +6770,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -6183,6 +6782,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -6193,6 +6794,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -6203,6 +6806,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -6213,6 +6818,8 @@
      "exit": 12.76,
      "ret": 49.2,
      "days": 13,
+     "spy_ret": 1.4,
+     "excess": 47.8,
      "held_to_end": false,
      "simulated": false
     }
@@ -6231,6 +6838,8 @@
    "avg_days_held": 9.9,
    "worst": -45.3,
    "best": 44.9,
+   "avg_spy": 2.4,
+   "avg_excess": 1.3,
    "positions_real": 11,
    "avg_return_real": 14.7,
    "win_rate_real": 90.9,
@@ -6242,6 +6851,8 @@
      "exit": 0.913,
      "ret": -45.3,
      "days": 31,
+     "spy_ret": 2.5,
+     "excess": -47.8,
      "held_to_end": true,
      "simulated": true
     },
@@ -6252,6 +6863,8 @@
      "exit": 2.6,
      "ret": -31.9,
      "days": 31,
+     "spy_ret": 2.5,
+     "excess": -34.4,
      "held_to_end": true,
      "simulated": true
     },
@@ -6262,6 +6875,8 @@
      "exit": 0.1404,
      "ret": -29.8,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -30.4,
      "held_to_end": true,
      "simulated": true
     },
@@ -6272,6 +6887,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -6282,6 +6899,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -6292,6 +6911,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -6302,6 +6923,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -6312,6 +6935,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -6322,6 +6947,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -6332,6 +6959,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -6342,6 +6971,8 @@
      "exit": 0.7349,
      "ret": 8.1,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": 7.5,
      "held_to_end": true,
      "simulated": true
     },
@@ -6352,6 +6983,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -6362,6 +6995,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -6372,6 +7007,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -6382,6 +7019,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -6392,6 +7031,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -6402,6 +7043,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -6412,6 +7055,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -6422,6 +7067,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -6432,6 +7079,8 @@
      "exit": 12.39,
      "ret": 44.9,
      "days": 4,
+     "spy_ret": -2.1,
+     "excess": 47.0,
      "held_to_end": false,
      "simulated": false
     }
@@ -6450,6 +7099,8 @@
    "avg_days_held": 11.2,
    "worst": -45.3,
    "best": 31.2,
+   "avg_spy": 2.6,
+   "avg_excess": 0.5,
    "positions_real": 11,
    "avg_return_real": 13.5,
    "win_rate_real": 90.9,
@@ -6461,6 +7112,8 @@
      "exit": 0.913,
      "ret": -45.3,
      "days": 31,
+     "spy_ret": 2.5,
+     "excess": -47.8,
      "held_to_end": true,
      "simulated": true
     },
@@ -6471,6 +7124,8 @@
      "exit": 2.6,
      "ret": -31.9,
      "days": 31,
+     "spy_ret": 2.5,
+     "excess": -34.4,
      "held_to_end": true,
      "simulated": true
     },
@@ -6481,6 +7136,8 @@
      "exit": 0.1404,
      "ret": -29.8,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -30.4,
      "held_to_end": true,
      "simulated": true
     },
@@ -6491,6 +7148,8 @@
      "exit": 303.42,
      "ret": -8.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": -10.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -6501,6 +7160,8 @@
      "exit": 23.59,
      "ret": -1.5,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -5.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -6511,6 +7172,8 @@
      "exit": 409.39,
      "ret": 0.3,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": -0.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -6521,6 +7184,8 @@
      "exit": 700.07,
      "ret": 3.1,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 0.9,
      "held_to_end": true,
      "simulated": true
     },
@@ -6531,6 +7196,8 @@
      "exit": 757.67,
      "ret": 3.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": -0.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -6541,6 +7208,8 @@
      "exit": 284.02,
      "ret": 5.3,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 3.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -6551,6 +7220,8 @@
      "exit": 322.08,
      "ret": 5.9,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 3.7,
      "held_to_end": true,
      "simulated": true
     },
@@ -6561,6 +7232,8 @@
      "exit": 0.7349,
      "ret": 8.1,
      "days": 33,
+     "spy_ret": 0.6,
+     "excess": 7.5,
      "held_to_end": true,
      "simulated": true
     },
@@ -6571,6 +7244,8 @@
      "exit": 206.64,
      "ret": 8.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 4.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -6581,6 +7256,8 @@
      "exit": 590.24,
      "ret": 10.5,
      "days": 2,
+     "spy_ret": 2.2,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": true
     },
@@ -6591,6 +7268,8 @@
      "exit": 9.36,
      "ret": 11.3,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 7.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -6601,6 +7280,8 @@
      "exit": 829.5,
      "ret": 12.2,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.3,
      "held_to_end": true,
      "simulated": false
     },
@@ -6611,6 +7292,8 @@
      "exit": 142.72,
      "ret": 12.6,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 8.7,
      "held_to_end": true,
      "simulated": false
     },
@@ -6621,6 +7304,8 @@
      "exit": 154.71,
      "ret": 12.8,
      "days": 1,
+     "spy_ret": 1.4,
+     "excess": 11.4,
      "held_to_end": true,
      "simulated": false
     },
@@ -6631,6 +7316,8 @@
      "exit": 487.65,
      "ret": 24.9,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 21.0,
      "held_to_end": true,
      "simulated": false
     },
@@ -6641,6 +7328,8 @@
      "exit": 1288.03,
      "ret": 26.8,
      "days": 3,
+     "spy_ret": 3.9,
+     "excess": 22.9,
      "held_to_end": true,
      "simulated": false
     },
@@ -6651,6 +7340,8 @@
      "exit": 11.22,
      "ret": 31.2,
      "days": 29,
+     "spy_ret": 1.8,
+     "excess": 29.4,
      "held_to_end": true,
      "simulated": false
     }
