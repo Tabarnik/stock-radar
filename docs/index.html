@@ -48,6 +48,15 @@
   }
   .dlg-in:focus-visible{ outline:2px solid var(--h); outline-offset:1px; }
 
+  #uibar{
+    position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:60;
+    display:flex; align-items:center; gap:12px;
+    padding:9px 14px; border-radius:999px;
+    background:#F6F4EA; border:1px solid var(--h-line);
+    box-shadow:0 8px 26px rgba(60,55,40,0.26);
+    font-size:12px; color:var(--ink-2); max-width:calc(100vw - 32px);
+  }
+
   /* buy / sell / undo on a pick card. Sized to be tappable — the 15px circle
      these replaced was hard to hit, especially on a phone. */
   .tbtn{
@@ -1000,7 +1009,10 @@ function positionFrom(t){
 }
 
 function myPositions(){
-  const local = localTrades().filter(t => !t.sold).map(positionFrom);
+  // carry the storage index so an open row can be corrected or removed; repo
+  // positions have none and stay read-only
+  const local = localTrades().map((t, i) => [t, i]).filter(([t]) => !t.sold)
+    .map(([t, i]) => ({ ...positionFrom(t), idx: i }));
   const seen = new Set(local.map(o => o.sym + "|" + o.bought));
   const repo = ((B && B.my_positions) || [])
     .filter(o => !seen.has(o.sym + "|" + o.bought));
@@ -1926,7 +1938,14 @@ function mine(){
                  idx: i };
       }), ...((B && B.my_closed) || [])]
     .sort((a, b) => (a.sold < b.sold ? 1 : -1));
+  // Edit mode cannot outlive the rows it edits: deleting the last closed trade
+  // used to leave the flag set, so the panel came back reading DONE the next time
+  // something was sold. Cleared here rather than in each handler, so selling,
+  // undoing and deleting are all covered.
+  if (!closed.length) S.editClosed = false;
+  if (!open.length) S.editOpen = false;
   const editing = !!S.editClosed;
+  const editOpen = !!S.editOpen;
   const picks = D.watch || [];
   const held = new Set(open.map(o => o.sym));
   const cost = open.reduce((a, o) => a + (o.alloc || 0), 0);
@@ -1976,7 +1995,14 @@ function mine(){
 
   const positions = open.length ? `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap" style="color:${H};">Open positions</div>
-      <div class="note">soonest to sell first · click a row for the full ticker</div></div>
+      <div class="note">soonest to sell first · click a row for the full ticker${
+        editOpen ? " · editing" : ""}</div>
+      <div style="flex:1 1 20px;"></div>
+      <button class="tbtn ${editOpen ? "tbtn-sell" : "tbtn-undo"}"
+        data-editopentoggle="1" style="width:auto;padding:0 10px;"
+        title="${editOpen ? "Finish editing"
+                          : "Correct a buy price or share count, or remove a position"}"
+        >${editOpen ? "DONE" : "EDIT"}</button></div>
     <div class="scroll"><div style="min-width:840px;">
       <div class="tbl">
         <div style="flex:0 0 76px;">Ticker</div>
@@ -1998,9 +2024,16 @@ function mine(){
             white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
             esc(fmtPickDay(o.bought))}</div>
           <div class="mono" style="flex:0 0 68px;text-align:right;font-size:13px;
-            color:var(--ink-4);">${shs(o.shares)}</div>
+            color:var(--ink-4);">${editOpen && o.idx !== undefined
+              ? `<input class="cell-in" type="number" step="any" value="${shs(o.shares)}"
+                   data-editopen="${o.idx}|shares" aria-label="Shares held">`
+              : shs(o.shares)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
-            color:var(--ink-2);">${money(o.entry)}</div>
+            color:var(--ink-2);">${editOpen && o.idx !== undefined
+              ? `<input class="cell-in" type="number" step="0.01" value="${
+                   (o.entry||0).toFixed(2)}" data-editopen="${o.idx}|price"
+                   aria-label="Price you paid">`
+              : money(o.entry)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
             color:var(--ink-2);">${money(o.price)}</div>
           <div class="mono" style="flex:0 0 76px;text-align:right;font-size:13px;
@@ -2013,8 +2046,12 @@ function mine(){
           <div class="mono" style="flex:0 0 74px;text-align:right;font-size:13px;
             font-weight:600;color:${o.days_left===0?R:"var(--ink-d)"};">${
             o.days_left===0 ? "today" : o.days_left + "d"}</div>
-          <div style="flex:1 1 62px;display:flex;justify-content:flex-end;">
-            ${o.local ? `<button class="tbtn tbtn-sell" data-own="${esc(o.sym)}"
+          <div style="flex:1 1 62px;display:flex;justify-content:flex-end;gap:4px;">
+            ${editOpen && o.idx !== undefined
+              ? `<button class="tbtn tbtn-del" data-delopen="${o.idx}"
+                   title="Remove this position \u2014 as if the buy never happened"
+                   aria-label="Remove ${esc(o.sym)}">\u00d7</button>`
+              : o.local ? `<button class="tbtn tbtn-sell" data-own="${esc(o.sym)}"
               title="Sell $${esc(o.sym)} \u2014 opens with the current price and your
 full holding, both editable" aria-label="Sell $${esc(o.sym)}">SELL</button>`
               : `<span class="note" style="margin:0;font-size:10px;">trades.json</span>`}
@@ -2157,22 +2194,23 @@ function render(keepScroll){
 // Corrections to a closed trade. Fires on blur rather than per keystroke, so the
 // re-render does not fight you mid-number.
 document.addEventListener("change", e => {
-  const el = e.target.closest("[data-editclosed]");
+  const el = e.target.closest("[data-editclosed],[data-editopen]");
   if (!el) return;
-  const [idx, field] = el.dataset.editclosed.split("|");
+  const open = el.dataset.editopen !== undefined;
+  const [idx, field] = (open ? el.dataset.editopen : el.dataset.editclosed).split("|");
   const v = parseFloat(el.value);
   if (!isFinite(v) || v <= 0) { render(true); return; }   // reject, restore display
   const rows = localTrades();
   const row = rows[+idx];
-  if (!row || !row.sold) return;
-  if (field === "price") row.sell_price = v;
+  if (!row || (open ? !!row.sold : !row.sold)) return;
+  if (field === "price") { if (open) row.price = v; else row.sell_price = v; }
   if (field === "shares") row.shares = v;
   saveLocalTrades(rows);
   render(true);
 });
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-editclosedtoggle],[data-delclosed],[data-own],[data-undo],[data-savebuy],[data-sell],[data-closedlg],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
+  const el = e.target.closest("[data-editopentoggle],[data-delopen],[data-editclosedtoggle],[data-delclosed],[data-own],[data-undo],[data-savebuy],[data-sell],[data-closedlg],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
   if (!el) return;
   const d = el.dataset;
   // sits inside a card that is itself data-open, so it must swallow the click
@@ -2204,6 +2242,20 @@ document.addEventListener("click", e => {
   if (d.editclosedtoggle) {
     e.stopPropagation();
     S.editClosed = !S.editClosed;
+    render(true);
+    return;
+  }
+  if (d.editopentoggle) {
+    e.stopPropagation();
+    S.editOpen = !S.editOpen;
+    render(true);
+    return;
+  }
+  if (d.delopen !== undefined) {
+    e.stopPropagation();
+    const rows = localTrades();
+    const i = +d.delopen;
+    if (rows[i] && !rows[i].sold) { rows.splice(i, 1); saveLocalTrades(rows); }
     render(true);
     return;
   }
@@ -2270,6 +2322,32 @@ document.addEventListener("change", e => {
 // Both files are cache-busted per fetch: GitHub Pages serves them with
 // max-age=600, so without the timestamp a reload could show ten-minute-old
 // numbers. backtest.json is optional — the board still works without it.
+// The page refreshes its data but never its own markup, and GitHub Pages serves
+// index.html with max-age=600 — so a tab left open keeps running whatever UI it
+// loaded, and a shipped feature simply never appears. Watch the file's ETag and
+// say so rather than leaving you to guess whether you are on the current build.
+let uiTag = null;
+function checkForNewUI(){
+  return fetch(location.pathname + "?ui=" + Date.now(), { method: "HEAD" })
+    .then(r => {
+      const tag = r.headers.get("etag") || r.headers.get("last-modified");
+      if (!tag) return;
+      if (uiTag === null) { uiTag = tag; return; }
+      if (tag !== uiTag) showUpdateBar();
+    })
+    .catch(() => {});
+}
+
+function showUpdateBar(){
+  if ($("#uibar")) return;
+  const bar = document.createElement("div");
+  bar.id = "uibar";
+  bar.innerHTML = `<span>A newer version of this page is available.</span>
+    <button class="tbtn tbtn-sell" style="width:auto;padding:0 10px;"
+      onclick="location.reload(true)">RELOAD</button>`;
+  document.body.appendChild(bar);
+}
+
 function loadBacktest(){
   return fetch("backtest.json?" + Date.now())
     .then(r => r.ok ? r.json() : null).catch(() => null)
@@ -2299,6 +2377,7 @@ function refresh(){
   if (refreshing) return Promise.resolve();
   refreshing = true;
   const was = D && D.generated_at;
+  checkForNewUI();
   return Promise.all([loadData(), loadBacktest()])
     .then(() => {
       render();
@@ -2334,7 +2413,7 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) refr
 // would draw the board with B still null, so holdings and position size would
 // briefly show their fallbacks and then jump.
 Promise.all([loadData(), loadBacktest()])
-  .then(() => { render(); startPolling(); })
+  .then(() => { render(); startPolling(); checkForNewUI(); })
   .catch(err => {
     $("#boot").innerHTML = `<div class="eyebrow" style="margin-bottom:8px;">No data</div>
       Waiting for the first radar run to write <b>data.json</b>.
