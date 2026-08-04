@@ -836,16 +836,32 @@ def update_history(watch, results):
         hist = []
 
     today = datetime.now(timezone.utc).date()
+    # Dated in ET, not UTC: the schedule is built around market hours, and a late
+    # close run (20:00 UTC plus GitHub's lag) would otherwise file a Friday pick
+    # under Saturday.
+    try:
+        from zoneinfo import ZoneInfo
+        market_day = datetime.now(ZoneInfo("America/New_York")).date()
+    except Exception:
+        market_day = today
     # today's live prices, for marking every open entry to market
     live = {r["sym"]: r.get("price") for r in results if r.get("price")}
     live.update({w["sym"]: w.get("price") for w in watch if w.get("price")})
 
-    flagged_today = {e["sym"] for e in hist if e.get("date") == today.isoformat()}
-    for w in watch:
+    # The cron is Mon-Fri, so only a hand-run lands here at a weekend. Prices are
+    # Friday's stale close, and filing it would invent a pick day the market
+    # never had — mark the record to market, but do not add to it.
+    weekend = market_day.weekday() >= 5
+    if weekend:
+        print(f"[history] {market_day} is a {market_day.strftime('%A')} — "
+              f"marking to market, not recording a pick day")
+
+    flagged_today = {e["sym"] for e in hist if e.get("date") == market_day.isoformat()}
+    for w in (() if weekend else watch):
         if w["sym"] in flagged_today or not w.get("price"):
             continue
         hist.append({
-            "date": today.isoformat(), "sym": w["sym"],
+            "date": market_day.isoformat(), "sym": w["sym"],
             "name": (w.get("name") or "")[:40],
             "flag_price": w["price"], "last_price": w["price"],
             "pct": 0.0, "outcome": "flat",

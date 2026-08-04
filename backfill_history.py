@@ -57,8 +57,8 @@ BACKFILL = {
     # deliberately omitted rather than inferred.
     "2026-07-31": [("AAPL", 303.33), ("RDDT", 137.17), ("AMZN", 269.81),
                    ("NOK", 9.095), ("NVDA", 196.22)],
-    "2026-08-01": [("RDDT", 140.67), ("AAPL", 308.91), ("NVDA", 200.75),
-                   ("NOK", 9.14), ("IREN", 36.80)],
+    # 2026-08-01 was a Saturday — a hand-run against Friday's stale close, not a
+    # pick day the market ever had. Removed deliberately; do not re-add it.
 }
 
 
