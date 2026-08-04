@@ -1,25 +1,25 @@
 {
- "generated_at": "2026-08-04T02:58:17.979670+00:00",
+ "generated_at": "2026-08-04T13:25:21.730728+00:00",
  "watch": [
   {
    "sym": "MU",
    "name": "Micron Technology",
    "price": 829.5,
-   "pct": 2.094820795588812,
-   "mentions": 1177,
-   "mentions_prev": 202,
+   "pct": -1.3439698687000683,
+   "mentions": 1183,
+   "mentions_prev": 437,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "STRONG_BUY",
-   "analyst_target": 1522.2618,
+   "analyst_target": 1507.7906,
    "earnings": null,
    "headlines": [
     "Semiconductor stocks pare losses amid fears of increased competition from China",
-    "MU Stock Falls Premarket After Worst Month In 11 Years: Analysts Say Memory Demand Intact, See 85% Upside",
-    "For Micron Stock, The Growth That Justifies The Price Has To Arrive"
+    "Update: Palantir Earnings Beat, Tech Stock Rally Lift US Equity Futures Pre-Bell",
+    "Micron\u2019s Sharp Pullback Hits These 3 Major Tech ETFs in Very Different Ways"
    ],
    "band": [
     739.0,
@@ -34,6 +34,10 @@
    ],
    "stats": [
     [
+     "Market cap",
+     "$936.8B"
+    ],
+    [
      "Float",
      "1.1B"
     ],
@@ -43,7 +47,7 @@
     ],
     [
      "Avg vol",
-     "53.7M"
+     "53.8M"
     ],
     [
      "Vol today",
@@ -51,18 +55,18 @@
     ],
     [
      "52w range",
-     "$105.46 \u2013 $1255.00"
+     "$106.75 \u2013 $1255.00"
     ]
    ],
-   "reason": "1,177 mentions today, 6x yesterday's 202. Price is +2.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,522.26 mean target (+84%); the scan flagged squeeze/penny sub.",
+   "reason": "1,183 mentions today, 3x yesterday's 437. Price is -1.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,507.79 mean target (+82%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
-    "score": -0.24
+    "score": -0.18
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "negative buzz",
+    "bad",
+    "Attention is rising but the coverage around it is negative."
    ],
    "er": {
     "eps_estimate": 31.33,
@@ -186,16 +190,16 @@
      "2026-08-03"
     ]
    },
-   "tag": "6x Reddit mentions",
+   "tag": "3x Reddit mentions",
    "source": "reddit"
   },
   {
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "price": 757.6699829101562,
-   "pct": 1.808626988371053,
-   "mentions": 953,
-   "mentions_prev": 224,
+   "pct": -0.0911856798958977,
+   "mentions": 1023,
+   "mentions_prev": 270,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -205,9 +209,9 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "S&P500, Nasdaq End Higher, Dow Hits Record High On Strong Mag 7 Performance And Falling Oil Prices \u2014 BA, XOM, CVX, HOOD, AMD In Focus",
-    "Apple\u2019s Predictable August News Vacuum Tells You Exactly What to Expect This Month",
-    "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday Amid US-Iran Truce Hopes"
+    "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday Amid Strait of Hormuz Re-Opening Hopes",
+    "What IJR's Own History Says About Its Price Today",
+    "Ordinary Income Trap: Why JEPI\u2019s Monthly Distributions Are Quietly Gutting Your After-Tax Returns"
    ],
    "band": [
     729.4600219726562,
@@ -231,13 +235,13 @@
     ],
     [
      "52w range",
-     "$625.58 \u2013 $760.40"
+     "$627.04 \u2013 $760.40"
     ]
    ],
-   "reason": "953 mentions today, 4x yesterday's 224. Price is +1.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "1,023 mentions today, 4x yesterday's 270. Price is -0.1% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.27
+    "label": "mixed",
+    "score": 0.03
    },
    "read": [
     "quiet",
@@ -365,21 +369,21 @@
    "sym": "PLTR",
    "name": "Palantir",
    "price": 125.6500015258789,
-   "pct": 2.350853284251825,
-   "mentions": 563,
-   "mentions_prev": 24,
+   "pct": -12.99681378903274,
+   "mentions": 637,
+   "mentions_prev": 62,
    "mom": "\u2191",
-   "label": "chatter rising",
+   "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "BUY",
-   "analyst_target": 182.19852,
+   "analyst_target": 185.68,
    "earnings": null,
    "headlines": [
-    "Palantir stock jumps as US commercial business booms",
-    "Palantir delivers Q2 beat, lifts full-year guidance",
-    "Nasdaq, S&P 500, Dow Futures Extend Gains After Hot Rally As Big Tech Earnings Deliver:  PLTR, GME, SNAP, SLS In Focus"
+    "Earnings live updates: Caterpillar stock surges 9% as AI build-out boosts power unit",
+    "Why Palantir is the 'best' publicly traded tech company",
+    "Palantir delivers Q2 beat, lifts full-year guidance"
    ],
    "band": [
     122.26000213623047,
@@ -407,7 +411,7 @@
     ],
     [
      "Avg vol",
-     "41.3M"
+     "40.9M"
     ],
     [
      "Vol today",
@@ -418,20 +422,20 @@
      "$106.37 \u2013 $207.52"
     ]
    ],
-   "reason": "563 mentions today, 23x yesterday's 24. Price is +2.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $182.20 mean target (+45%); the scan flagged squeeze/penny sub.",
+   "reason": "637 mentions today, 10x yesterday's 62. Down 13% today while chatter keeps climbing; analyst consensus is buy with a $185.68 mean target (+48%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.16
+    "score": 0.32
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "falling knife",
+    "bad",
+    "Price is dropping while chatter climbs \u2014 the crowd is arriving into a decline."
    ],
    "er": {
-    "eps_estimate": 0.35,
+    "eps_estimate": 0.41,
     "beat_record": "beat 4 of last 4",
-    "avg_surprise": 16.9,
+    "avg_surprise": 17.7,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -550,28 +554,28 @@
      "2026-08-03"
     ]
    },
-   "tag": "23x Reddit mentions",
+   "tag": "10x Reddit mentions",
    "source": "reddit"
   },
   {
    "sym": "MSFT",
    "name": "Microsoft",
    "price": 487.6499938964844,
-   "pct": 5.586227973689369,
-   "mentions": 485,
-   "mentions_prev": 63,
+   "pct": 0.7582945362379347,
+   "mentions": 504,
+   "mentions_prev": 100,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "STRONG_BUY",
-   "analyst_target": 563.0463,
+   "analyst_target": 562.72644,
    "earnings": null,
    "headlines": [
-    "Why Palantir is the 'best' publicly traded tech company",
-    "Big Tech's cloud backlog just hit $2.3 trillion \u2014 and it's feeding AI capex plans",
-    "This valuation signal shows how investors are rethinking tech stocks"
+    "Tech stocks today: SpaceX, AMD to report earnings after the bell",
+    "Why Microsoft, Amazon, & other Big Tech stocks are soaring post-earnings",
+    "Amazon, Meta, and Microsoft stocks surge as AI hyperscalers post strong earnings results"
    ],
    "band": [
     390.5400085449219,
@@ -599,7 +603,7 @@
     ],
     [
      "Avg vol",
-     "40.3M"
+     "40.5M"
     ],
     [
      "Vol today",
@@ -610,18 +614,18 @@
      "$349.20 \u2013 $553.72"
     ]
    ],
-   "reason": "485 mentions today, 8x yesterday's 63. Price is +5.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $563.05 mean target (+15%); the scan flagged squeeze/penny sub.",
+   "reason": "504 mentions today, 5x yesterday's 100. Price is +0.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $562.73 mean target (+15%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.21
+    "score": 0.26
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": {
-    "eps_estimate": 4.7,
+    "eps_estimate": 4.71,
     "beat_record": "beat 4 of last 4",
     "avg_surprise": 8.8,
     "expect": [
@@ -742,7 +746,7 @@
      "2026-08-03"
     ]
    },
-   "tag": "8x Reddit mentions",
+   "tag": "5x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -759,7 +763,7 @@
    "analyst_target": 321.94983,
    "earnings": null,
    "headlines": [
-    "Tech stocks today: Microsoft, Amazon jump after last week's strong earnings",
+    "Tech stocks today: SpaceX, AMD to report earnings after the bell",
     "The AI spending boom is hitting a key Wall Street metric: Chart of the Day",
     "Here's the single biggest reason the bull market is broadening"
    ],
@@ -797,13 +801,13 @@
     ],
     [
      "52w range",
-     "$196.00 \u2013 $287.13"
+     "$196.00 \u2013 $287.16"
     ]
    ],
    "reason": "Price is +4.6% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $321.95 mean target (+13%).",
    "tone": {
-    "label": "positive",
-    "score": 0.2
+    "label": "mixed",
+    "score": 0.0
    },
    "read": [
     "quiet",
@@ -950,8 +954,8 @@
    "earnings": null,
    "headlines": [
     "This valuation signal shows how investors are rethinking tech stocks",
-    "NYU Professor Says Watch Smaller AI Stocks When The Shakeout Hits",
-    "Apple Just Reported Earnings. With Tim Cook's Era Ending, Is the Stock a Buy for the Next Decade?"
+    "Greg Abel Hasn't Touched Berkshire's Energy Holdings. Is That a Signal?",
+    "Why the \"Magnificent Seven\" Trade Is Starting to Fracture, and Where You Should Invest Instead"
    ],
    "band": [
     303.42,
@@ -967,7 +971,7 @@
    "stats": [
     [
      "Market cap",
-     "$4.5T"
+     "$4.4T"
     ],
     [
      "Float",
@@ -979,7 +983,7 @@
     ],
     [
      "Avg vol",
-     "56.5M"
+     "56.6M"
     ],
     [
      "Vol today",
@@ -987,13 +991,13 @@
     ],
     [
      "52w range",
-     "$201.68 \u2013 $344.57"
+     "$202.16 \u2013 $344.57"
     ]
    ],
    "reason": "Price is -1.8% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $323.28 mean target (+7%).",
    "tone": {
     "label": "mixed",
-    "score": -0.11
+    "score": 0.13
    },
    "read": [
     "quiet",
@@ -1156,6 +1160,10 @@
    ],
    "stats": [
     [
+     "Market cap",
+     "$52.3B"
+    ],
+    [
      "Float",
      "4.4B"
     ],
@@ -1165,7 +1173,7 @@
     ],
     [
      "Avg vol",
-     "110.1M"
+     "109.9M"
     ],
     [
      "Vol today",
@@ -1325,9 +1333,9 @@
    "analyst_target": 5.8756,
    "earnings": null,
    "headlines": [
-    "Grab Q2 Earnings Call Highlights",
-    "Grab  (GRAB) Q2 Earnings: How Key Metrics Compare to Wall Street Estimates",
-    "Grab Holdings Limited (GRAB) Q2 Earnings Beat Estimates"
+    "Grab Holdings Ltd (GRAB) (Q2 2026) Earnings Call Highlights: Record EBITDA and Strategic ...",
+    "GRAB Stock Rises Overnight: CFO Hails Superbank And Stash Consolidation For Strong Outlook",
+    "Grab Q2 Earnings Call Highlights"
    ],
    "band": [
     3.3499999046325684,
@@ -1355,7 +1363,7 @@
     ],
     [
      "Avg vol",
-     "49.8M"
+     "49.5M"
     ],
     [
      "Vol today",
@@ -1368,8 +1376,8 @@
    ],
    "reason": "Price is +4.9% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $5.88 mean target (+60%).",
    "tone": {
-    "label": "mixed",
-    "score": -0.08
+    "label": "positive",
+    "score": 0.17
    },
    "read": [
     "quiet",
@@ -1378,11 +1386,11 @@
    ],
    "er": {
     "eps_estimate": 0.01,
-    "beat_record": "beat 2 of last 4",
-    "avg_surprise": 1.2,
+    "beat_record": "beat 3 of last 4",
+    "avg_surprise": 2.2,
     "expect": [
-     "mixed",
-     "Mixed record against estimates"
+     "good",
+     "Beaten estimates in most recent quarters"
     ]
    },
    "chart": {
@@ -1507,21 +1515,21 @@
    "sym": "MU",
    "name": "Micron Technology",
    "price": 829.5,
-   "pct": 2.094820795588812,
-   "mentions": 1177,
-   "mentions_prev": 202,
+   "pct": -1.3439698687000683,
+   "mentions": 1183,
+   "mentions_prev": 437,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "STRONG_BUY",
-   "analyst_target": 1522.2618,
+   "analyst_target": 1507.7906,
    "earnings": null,
    "headlines": [
     "Semiconductor stocks pare losses amid fears of increased competition from China",
-    "MU Stock Falls Premarket After Worst Month In 11 Years: Analysts Say Memory Demand Intact, See 85% Upside",
-    "For Micron Stock, The Growth That Justifies The Price Has To Arrive"
+    "Update: Palantir Earnings Beat, Tech Stock Rally Lift US Equity Futures Pre-Bell",
+    "Micron\u2019s Sharp Pullback Hits These 3 Major Tech ETFs in Very Different Ways"
    ],
    "band": [
     739.0,
@@ -1536,6 +1544,10 @@
    ],
    "stats": [
     [
+     "Market cap",
+     "$936.8B"
+    ],
+    [
      "Float",
      "1.1B"
     ],
@@ -1545,7 +1557,7 @@
     ],
     [
      "Avg vol",
-     "53.7M"
+     "53.8M"
     ],
     [
      "Vol today",
@@ -1553,18 +1565,18 @@
     ],
     [
      "52w range",
-     "$105.46 \u2013 $1255.00"
+     "$106.75 \u2013 $1255.00"
     ]
    ],
-   "reason": "1,177 mentions today, 6x yesterday's 202. Price is +2.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,522.26 mean target (+84%); the scan flagged squeeze/penny sub.",
+   "reason": "1,183 mentions today, 3x yesterday's 437. Price is -1.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,507.79 mean target (+82%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
-    "score": -0.24
+    "score": -0.18
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "negative buzz",
+    "bad",
+    "Attention is rising but the coverage around it is negative."
    ],
    "er": {
     "eps_estimate": 31.33,
@@ -1693,9 +1705,9 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "price": 757.6699829101562,
-   "pct": 1.808626988371053,
-   "mentions": 953,
-   "mentions_prev": 224,
+   "pct": -0.0911856798958977,
+   "mentions": 1023,
+   "mentions_prev": 270,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1705,9 +1717,9 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "S&P500, Nasdaq End Higher, Dow Hits Record High On Strong Mag 7 Performance And Falling Oil Prices \u2014 BA, XOM, CVX, HOOD, AMD In Focus",
-    "Apple\u2019s Predictable August News Vacuum Tells You Exactly What to Expect This Month",
-    "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday Amid US-Iran Truce Hopes"
+    "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday Amid Strait of Hormuz Re-Opening Hopes",
+    "What IJR's Own History Says About Its Price Today",
+    "Ordinary Income Trap: Why JEPI\u2019s Monthly Distributions Are Quietly Gutting Your After-Tax Returns"
    ],
    "band": [
     729.4600219726562,
@@ -1731,13 +1743,13 @@
     ],
     [
      "52w range",
-     "$625.58 \u2013 $760.40"
+     "$627.04 \u2013 $760.40"
     ]
    ],
-   "reason": "953 mentions today, 4x yesterday's 224. Price is +1.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "1,023 mentions today, 4x yesterday's 270. Price is -0.1% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.27
+    "label": "mixed",
+    "score": 0.03
    },
    "read": [
     "quiet",
@@ -1863,21 +1875,21 @@
    "sym": "PLTR",
    "name": "Palantir",
    "price": 125.6500015258789,
-   "pct": 2.350853284251825,
-   "mentions": 563,
-   "mentions_prev": 24,
+   "pct": -12.99681378903274,
+   "mentions": 637,
+   "mentions_prev": 62,
    "mom": "\u2191",
-   "label": "chatter rising",
+   "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "BUY",
-   "analyst_target": 182.19852,
+   "analyst_target": 185.68,
    "earnings": null,
    "headlines": [
-    "Palantir stock jumps as US commercial business booms",
-    "Palantir delivers Q2 beat, lifts full-year guidance",
-    "Nasdaq, S&P 500, Dow Futures Extend Gains After Hot Rally As Big Tech Earnings Deliver:  PLTR, GME, SNAP, SLS In Focus"
+    "Earnings live updates: Caterpillar stock surges 9% as AI build-out boosts power unit",
+    "Why Palantir is the 'best' publicly traded tech company",
+    "Palantir delivers Q2 beat, lifts full-year guidance"
    ],
    "band": [
     122.26000213623047,
@@ -1905,7 +1917,7 @@
     ],
     [
      "Avg vol",
-     "41.3M"
+     "40.9M"
     ],
     [
      "Vol today",
@@ -1916,20 +1928,20 @@
      "$106.37 \u2013 $207.52"
     ]
    ],
-   "reason": "563 mentions today, 23x yesterday's 24. Price is +2.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $182.20 mean target (+45%); the scan flagged squeeze/penny sub.",
+   "reason": "637 mentions today, 10x yesterday's 62. Down 13% today while chatter keeps climbing; analyst consensus is buy with a $185.68 mean target (+48%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.16
+    "score": 0.32
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "falling knife",
+    "bad",
+    "Price is dropping while chatter climbs \u2014 the crowd is arriving into a decline."
    ],
    "er": {
-    "eps_estimate": 0.35,
+    "eps_estimate": 0.41,
     "beat_record": "beat 4 of last 4",
-    "avg_surprise": 16.9,
+    "avg_surprise": 17.7,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -2053,21 +2065,21 @@
    "sym": "MSFT",
    "name": "Microsoft",
    "price": 487.6499938964844,
-   "pct": 5.586227973689369,
-   "mentions": 485,
-   "mentions_prev": 63,
+   "pct": 0.7582945362379347,
+   "mentions": 504,
+   "mentions_prev": 100,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "STRONG_BUY",
-   "analyst_target": 563.0463,
+   "analyst_target": 562.72644,
    "earnings": null,
    "headlines": [
-    "Why Palantir is the 'best' publicly traded tech company",
-    "Big Tech's cloud backlog just hit $2.3 trillion \u2014 and it's feeding AI capex plans",
-    "This valuation signal shows how investors are rethinking tech stocks"
+    "Tech stocks today: SpaceX, AMD to report earnings after the bell",
+    "Why Microsoft, Amazon, & other Big Tech stocks are soaring post-earnings",
+    "Amazon, Meta, and Microsoft stocks surge as AI hyperscalers post strong earnings results"
    ],
    "band": [
     390.5400085449219,
@@ -2095,7 +2107,7 @@
     ],
     [
      "Avg vol",
-     "40.3M"
+     "40.5M"
     ],
     [
      "Vol today",
@@ -2106,18 +2118,18 @@
      "$349.20 \u2013 $553.72"
     ]
    ],
-   "reason": "485 mentions today, 8x yesterday's 63. Price is +5.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $563.05 mean target (+15%); the scan flagged squeeze/penny sub.",
+   "reason": "504 mentions today, 5x yesterday's 100. Price is +0.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $562.73 mean target (+15%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.21
+    "score": 0.26
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": {
-    "eps_estimate": 4.7,
+    "eps_estimate": 4.71,
     "beat_record": "beat 4 of last 4",
     "avg_surprise": 8.8,
     "expect": [
@@ -2243,9 +2255,9 @@
    "sym": "SNDK",
    "name": "Sandisk",
    "price": 1288.030029296875,
-   "pct": 6.890449992234443,
-   "mentions": 441,
-   "mentions_prev": 112,
+   "pct": -3.1053682514330703,
+   "mentions": 454,
+   "mentions_prev": 181,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2257,7 +2269,7 @@
    "headlines": [
     "Semiconductor stocks pare losses amid fears of increased competition from China",
     "AMD vs. Sandisk: Which company will get some post-earnings market love?",
-    "Dow Jones Futures: Trump Sparks Stock Market Rally; Palantir Soars On Earnings With SpaceX On Deck"
+    "SK Hynix Stock Gets a Flurry of Buy Ratings. Why Analysts Love the Memory-Chip Maker."
    ],
    "band": [
     1015.8900146484375,
@@ -2285,7 +2297,7 @@
     ],
     [
      "Avg vol",
-     "13.9M"
+     "13.8M"
     ],
     [
      "Vol today",
@@ -2296,15 +2308,15 @@
      "$40.53 \u2013 $2354.39"
     ]
    ],
-   "reason": "441 mentions today, 4x yesterday's 112. Price is +6.9% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,217.77 mean target (+72%); earnings land Aug 05 (1d); the scan flagged squeeze/penny sub.",
+   "reason": "454 mentions today, 3x yesterday's 181. Price is -3.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,217.77 mean target (+72%); earnings land Aug 05 (1d); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": 0.04
+    "label": "positive",
+    "score": 0.25
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": {
     "date": "Aug 05",
@@ -2435,9 +2447,9 @@
    "sym": "SPCX",
    "name": "SpaceX",
    "price": 114.52999877929688,
-   "pct": 6.272616478887333,
-   "mentions": 361,
-   "mentions_prev": 95,
+   "pct": -0.4865767839978524,
+   "mentions": 394,
+   "mentions_prev": 139,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2447,9 +2459,9 @@
    "analyst_target": 236.7143,
    "earnings": "Aug 04 (0d)",
    "headlines": [
-    "Earnings live updates: Snap stock surges as World Cup ads boost revenue, Whirlpool falls",
-    "Dow Jones Futures: Trump Sparks Stock Market Rally; Palantir Soars On Earnings With SpaceX On Deck",
-    "Review & Preview: Starting Strong"
+    "Earnings live updates: Caterpillar stock surges 9% as AI build-out boosts power unit",
+    "SpaceX's first earnings, AMD Q2 results, JOLTS data: What to Watch",
+    "How Elon Musk can convince investors SpaceX will be profitable next year"
    ],
    "band": [
     108.37000274658203,
@@ -2488,15 +2500,15 @@
      "$104.83 \u2013 $225.64"
     ]
    ],
-   "reason": "361 mentions today, 4x yesterday's 95. Price is +6.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $236.71 mean target (+107%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "394 mentions today, 3x yesterday's 139. Price is -0.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $236.71 mean target (+107%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.3
+    "score": 0.31
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": {
     "date": "Aug 04",
@@ -2533,9 +2545,9 @@
    "sym": "AMD",
    "name": "AMD",
    "price": 484.6400146484375,
-   "pct": 2.652132185466344,
-   "mentions": 261,
-   "mentions_prev": 68,
+   "pct": -2.0137455219495597,
+   "mentions": 344,
+   "mentions_prev": 95,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2545,9 +2557,9 @@
    "analyst_target": 579.1064,
    "earnings": "Aug 04 (0d)",
    "headlines": [
-    "Tech stocks rally to kick off August. Can chipmakers keep up with demand?",
-    "Semiconductor stocks pare losses amid fears of increased competition from China",
-    "For Micron Stock, The Growth That Justifies The Price Has To Arrive"
+    "Earnings live updates: Caterpillar stock surges 9% as AI build-out boosts power unit",
+    "AMD to report Q2 earnings as chip stocks continue to waver",
+    "Semiconductor stocks pare losses amid fears of increased competition from China"
    ],
    "band": [
     429.55999755859375,
@@ -2562,6 +2574,10 @@
    ],
    "stats": [
     [
+     "Market cap",
+     "$790.3B"
+    ],
+    [
      "Float",
      "1.6B"
     ],
@@ -2571,7 +2587,7 @@
     ],
     [
      "Avg vol",
-     "33.0M"
+     "32.9M"
     ],
     [
      "Vol today",
@@ -2582,15 +2598,15 @@
      "$149.22 \u2013 $584.73"
     ]
    ],
-   "reason": "261 mentions today, 4x yesterday's 68. Price is +2.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $579.11 mean target (+19%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "344 mentions today, 4x yesterday's 95. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $579.11 mean target (+19%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": -0.09
+    "score": -0.07
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": {
     "date": "Aug 04",
@@ -2721,9 +2737,9 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "price": 700.0700073242188,
-   "pct": 2.2791367516792147,
-   "mentions": 237,
-   "mentions_prev": 72,
+   "pct": -0.24650793328315823,
+   "mentions": 253,
+   "mentions_prev": 62,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2733,9 +2749,9 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "A Major Bitcoin Signal Is Flashing Green",
-    "S&P500, Nasdaq End Higher, Dow Hits Record High On Strong Mag 7 Performance And Falling Oil Prices \u2014 BA, XOM, CVX, HOOD, AMD In Focus",
-    "ETF League Tables: Invesco Loses $5.6B"
+    "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Tuesday Amid Strait of Hormuz Re-Opening Hopes",
+    "Stock Market Today: Dow Rallies As Caterpillar, Palantir Soar On Earnings; SpaceX Earnings Next (Live Coverage)",
+    "Micron\u2019s Sharp Pullback Hits These 3 Major Tech ETFs in Very Different Ways"
    ],
    "band": [
     661.72998046875,
@@ -2751,7 +2767,7 @@
    "stats": [
     [
      "Avg vol",
-     "44.2M"
+     "44.4M"
     ],
     [
      "Vol today",
@@ -2762,15 +2778,15 @@
      "$555.60 \u2013 $748.65"
     ]
    ],
-   "reason": "237 mentions today, 3x yesterday's 72. Price is +2.3% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "253 mentions today, 4x yesterday's 62. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.03
+    "score": 0.14
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": null,
    "chart": {
@@ -2891,9 +2907,9 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "price": 206.63999938964844,
-   "pct": 3.8655535146599704,
-   "mentions": 222,
-   "mentions_prev": 86,
+   "pct": -0.07886758484353625,
+   "mentions": 211,
+   "mentions_prev": 110,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2903,9 +2919,9 @@
    "analyst_target": 302.82758,
    "earnings": null,
    "headlines": [
-    "Tech stocks rally to kick off August. Can chipmakers keep up with demand?",
-    "AMD vs. Sandisk: Which company will get some post-earnings market love?",
-    "This valuation signal shows how investors are rethinking tech stocks"
+    "Why AMD is a Yahoo Finance AlphaSpace rockstar",
+    "Semiconductor stocks pare losses amid fears of increased competition from China",
+    "All Eyes Are on SpaceX's Aug. 4 Earnings Report. But These 3 Unstoppable Growth Stocks Are Better Buys Hiding in Plain Sight."
    ],
    "band": [
     190.00999450683594,
@@ -2933,7 +2949,7 @@
     ],
     [
      "Avg vol",
-     "152.8M"
+     "153.2M"
     ],
     [
      "Vol today",
@@ -2944,15 +2960,15 @@
      "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "222 mentions today, 3x yesterday's 86. Price is +3.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+47%); the scan flagged squeeze/penny sub.",
+   "reason": "211 mentions, up from 110 yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+47%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.17
+    "label": "mixed",
+    "score": -0.01
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": {
     "date": "Aug 26",
@@ -3080,76 +3096,76 @@
    }
   },
   {
-   "sym": "RDDT",
-   "name": "Reddit",
-   "price": 154.7100067138672,
-   "pct": 10.507147652762276,
-   "mentions": 217,
-   "mentions_prev": 87,
+   "sym": "DTE",
+   "name": "DTE Energy",
+   "price": 141.72000122070312,
+   "pct": 8.61348522535188e-07,
+   "mentions": 185,
+   "mentions_prev": 42,
    "mom": "\u2191",
-   "label": "\ud83d\udcc8 running today + chatter rising",
+   "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "BUY",
-   "analyst_target": 218.16667,
+   "analyst_target": 161.76666,
    "earnings": null,
    "headlines": [
-    "Reddit (RDDT) Q2 2026 Earnings Call Transcript",
-    "3 Overrated  Stocks We\u2019re Skeptical Of",
-    "2 of Wall Street\u2019s Favorite Stocks to Target This Week and 1 Facing Headwinds"
+    "TELUS Q2 Earnings Fall Y/Y on Digital Weakness, Outlook Cut",
+    "DTE ties rate stability to data center projects as large-load pipeline remains steady",
+    "DTE Energy Co (DTE) Q2 2026 Earnings Call Highlights: Navigating Challenges and Capitalizing on ..."
    ],
    "band": [
-    140.6699981689453,
-    178.44000244140625
+    141.6999969482422,
+    146.0800018310547
    ],
    "spark": [
-    178.44000244140625,
-    177.99000549316406,
-    178.0399932861328,
-    140.6699981689453,
-    154.7100067138672
+    146.0800018310547,
+    143.52000427246094,
+    141.6999969482422,
+    141.8699951171875,
+    141.72000122070312
    ],
    "stats": [
     [
      "Market cap",
-     "$29.8B"
+     "$29.5B"
     ],
     [
      "Float",
-     "143.7M"
+     "207.0M"
     ],
     [
      "Short interest",
-     "11.7%"
+     "3.3%"
     ],
     [
      "Avg vol",
-     "5.3M"
+     "1.5M"
     ],
     [
      "Vol today",
-     "9.9M"
+     "907.7K"
     ],
     [
      "52w range",
-     "$119.27 \u2013 $282.95"
+     "$126.23 \u2013 $155.75"
     ]
    ],
-   "reason": "217 mentions today, 2x yesterday's 87. Already up 11% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $218.17 mean target (+41%); the scan flagged squeeze/penny sub.",
+   "reason": "185 mentions today, 4x yesterday's 42. Price is +0.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $161.77 mean target (+14%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.05
+    "score": -0.09
    },
    "read": [
-    "chasing",
-    "warn",
-    "Already run hard today and the crowd is still piling in \u2014 late-arrival risk."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": {
-    "eps_estimate": 1.91,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 48.9,
+    "eps_estimate": 2.45,
+    "beat_record": "beat 3 of last 4",
+    "avg_surprise": 6.7,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -3158,59 +3174,59 @@
    "chart": {
     "period": "1y",
     "closes": [
-     215.44,
-     246.5,
-     217.31,
-     225.08,
-     240.0,
-     254.29,
-     264.48,
-     240.11,
-     207.2,
-     198.55,
-     194.95,
-     214.2,
-     208.95,
-     194.58,
-     193.31,
-     183.48,
-     216.47,
-     234.11,
-     224.78,
-     233.19,
-     225.77,
-     241.89,
-     244.56,
-     231.01,
-     218.88,
-     180.27,
-     139.83,
-     139.65,
-     150.17,
-     145.81,
-     139.39,
-     132.36,
-     139.85,
-     121.84,
-     136.0,
-     139.73,
-     163.8,
-     154.89,
-     166.48,
-     155.8,
-     158.17,
-     141.67,
-     176.0,
-     173.45,
-     162.1,
-     174.96,
-     166.94,
-     194.67,
-     195.34,
-     181.18,
-     168.73,
-     140.67,
-     154.71
+     135.74,
+     134.44,
+     135.43,
+     132.25,
+     132.2,
+     132.43,
+     132.35,
+     135.9,
+     136.59,
+     137.01,
+     138.48,
+     138.37,
+     132.22,
+     133.41,
+     133.75,
+     132.45,
+     133.68,
+     128.02,
+     126.63,
+     125.65,
+     127.03,
+     128.32,
+     127.86,
+     133.39,
+     132.23,
+     132.28,
+     132.71,
+     142.68,
+     142.73,
+     145.92,
+     147.78,
+     147.23,
+     140.45,
+     143.33,
+     146.87,
+     148.5,
+     145.82,
+     145.72,
+     147.62,
+     139.49,
+     138.68,
+     144.15,
+     141.74,
+     144.62,
+     146.26,
+     146.39,
+     154.43,
+     154.06,
+     150.27,
+     148.19,
+     149.46,
+     141.87,
+     141.72
     ],
     "dates": [
      "2025-08-04",
@@ -3285,8 +3301,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Why Atkore Stock Soared Today",
-    "Update: Dow Hits Record High as Oil Prices Slide on Iran Deal Hopes"
+    "Company News for Aug 4, 2026",
+    "Prysmian announces $3.8bn acquisition of Atkore"
    ],
    "band": null,
    "spark": [],
@@ -3311,8 +3327,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Oracle Is Still Down 28% This Year. What Will It Take to Get ORCL Stock Back to $200?",
-    "Nebius (NBIS): The Neocloud Leader"
+    "CoreWeave expands into Indonesia, announces first data center in Asia-Pacific",
+    "Piper Sandler names CoreWeave top pick in \u2019megawatt\u2019 AI infrastructure race"
    ],
    "band": null,
    "spark": [],
@@ -3362,8 +3378,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Applied Optoelectronics (AAOI) Rockets 18% as Investors Eye Another Strong Quarter",
-    "AAOI Stock Just Popped 15%: 3 Reasons Applied Optoelectronics Could Keep Climbing"
+    "Optical component stocks rally on proposed U.S. ban on Chinese tech",
+    "Applied Optoelectronics (AAOI) Rockets 18% as Investors Eye Another Strong Quarter"
    ],
    "band": null,
    "spark": [],
@@ -3401,86 +3417,13 @@
    "chart": null
   }
  ],
- "standouts": [
-  {
-   "sym": "MU",
-   "name": "Micron Technology",
-   "why": [
-    "up +2% today",
-    "mentions 6x vs yesterday"
-   ]
-  },
-  {
-   "sym": "PLTR",
-   "name": "Palantir",
-   "why": [
-    "up +2% today",
-    "mentions 23x vs yesterday"
-   ]
-  },
-  {
-   "sym": "MSFT",
-   "name": "Microsoft",
-   "why": [
-    "up +6% today",
-    "mentions 8x vs yesterday"
-   ]
-  },
-  {
-   "sym": "SNDK",
-   "name": "Sandisk",
-   "why": [
-    "up +7% today",
-    "mentions 4x vs yesterday"
-   ]
-  },
-  {
-   "sym": "SPCX",
-   "name": "SpaceX",
-   "why": [
-    "up +6% today",
-    "mentions 4x vs yesterday"
-   ]
-  },
-  {
-   "sym": "AMD",
-   "name": "AMD",
-   "why": [
-    "up +3% today",
-    "mentions 4x vs yesterday"
-   ]
-  },
-  {
-   "sym": "QQQ",
-   "name": "Invesco QQQ ETF",
-   "why": [
-    "up +2% today",
-    "mentions 3x vs yesterday"
-   ]
-  },
-  {
-   "sym": "NVDA",
-   "name": "NVIDIA",
-   "why": [
-    "up +4% today",
-    "mentions 3x vs yesterday"
-   ]
-  },
-  {
-   "sym": "RDDT",
-   "name": "Reddit",
-   "why": [
-    "up +11% today",
-    "mentions 2x vs yesterday"
-   ]
-  }
- ],
+ "standouts": [],
  "session": {
   "tracked": 10,
-  "up": 10,
-  "down": 0,
+  "up": 2,
+  "down": 8,
   "flagged": 8,
-  "standouts": 9
+  "standouts": 0
  },
  "history": [
   {
@@ -4075,10 +4018,11 @@
   }
  ],
  "feeds": {
-  "Shortsqueeze": 86,
+  "Shortsqueeze": 82,
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100
+  "stocks": 100,
+  "tradingwithcongress": 0
  }
 }
