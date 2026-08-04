@@ -64,6 +64,16 @@
     color:var(--ink-5); background:rgba(255,255,255,0.5); font-size:11px; }
   .tbtn-undo:hover{ color:var(--ink-2); border-color:var(--ink-6); }
   .tbtn:focus-visible{ outline:2px solid var(--h); outline-offset:2px; }
+  .tbtn-del{ width:21px; padding:0; border:1px solid rgba(176,48,31,0.35);
+    color:var(--r); background:rgba(176,48,31,0.07); font-size:13px; }
+  .tbtn-del:hover{ background:rgba(176,48,31,0.16); }
+  .cell-in{
+    width:100%; max-width:74px; padding:2px 5px; font:inherit; font-size:12px;
+    font-family:var(--mono); text-align:right; border:1px solid var(--rule);
+    border-radius:5px; background:#fff; color:var(--ink);
+  }
+  .cell-in:focus-visible{ outline:2px solid var(--h); outline-offset:1px; }
+
 
   /* own-it dot on a pick card: empty ring, filled when yours, dashed while the
      issue is in flight. A real button so it is tabbable and announces state. */
@@ -1904,14 +1914,19 @@ function detail(){
    answers "where am I". */
 function mine(){
   const open = myPositions();
-  const closed = [...localTrades().filter(t => t.sold).map(t => {
-      const shares = t.shares || (t.amount / t.price);
-      const cost = t.price * shares, val = t.sell_price * shares;
-      return { sym: t.sym, bought: t.date, sold: t.sold, entry: t.price,
-               exit: t.sell_price, shares, cost, value: val, pnl: val - cost,
-               ret: +(((t.sell_price - t.price) / t.price) * 100).toFixed(1) };
-    }), ...((B && B.my_closed) || [])]
+  // carry the storage index so a closed row can be edited or deleted; repo
+  // trades have none and stay read-only
+  const closed = [...localTrades().map((t, i) => [t, i]).filter(([t]) => t.sold)
+      .map(([t, i]) => {
+        const shares = t.shares || (t.amount / t.price);
+        const cost = t.price * shares, val = t.sell_price * shares;
+        return { sym: t.sym, bought: t.date, sold: t.sold, entry: t.price,
+                 exit: t.sell_price, shares, cost, value: val, pnl: val - cost,
+                 ret: +(((t.sell_price - t.price) / t.price) * 100).toFixed(1),
+                 idx: i };
+      }), ...((B && B.my_closed) || [])]
     .sort((a, b) => (a.sold < b.sold ? 1 : -1));
+  const editing = !!S.editClosed;
   const picks = D.watch || [];
   const held = new Set(open.map(o => o.sym));
   const cost = open.reduce((a, o) => a + (o.alloc || 0), 0);
@@ -2038,8 +2053,14 @@ full holding, both editable" aria-label="Sell $${esc(o.sym)}">SELL</button>`
   const closedPanel = closed.length ? `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap">Closed</div>
       <div class="note">${closed.length} sold · ${real>=0?"+":"\u2212"}$${
-        Math.abs(Math.round(real)).toLocaleString()} realised</div></div>
-    <div class="scroll"><div style="min-width:560px;">
+        Math.abs(Math.round(real)).toLocaleString()} realised${
+        editing ? " · editing" : ""}</div>
+      <div style="flex:1 1 20px;"></div>
+      <button class="tbtn ${editing ? "tbtn-sell" : "tbtn-undo"}"
+        data-editclosedtoggle="1" style="width:auto;padding:0 10px;"
+        title="${editing ? "Finish editing" : "Correct or remove a closed trade"}"
+        >${editing ? "DONE" : "EDIT"}</button></div>
+    <div class="scroll"><div style="min-width:${editing ? 660 : 620}px;">
       <div class="tbl">
         <div style="flex:0 0 76px;">Ticker</div>
         <div style="flex:1 1 180px;">Held</div>
@@ -2048,6 +2069,7 @@ full holding, both editable" aria-label="Sell $${esc(o.sym)}">SELL</button>`
         <div style="flex:0 0 84px;text-align:right;">Out</div>
         <div style="flex:0 0 76px;text-align:right;">Change</div>
         <div style="flex:0 0 80px;text-align:right;">P/L</div>
+        ${editing ? `<div style="flex:0 0 34px;"></div>` : ""}
       </div>
       ${closed.map(o => `<div class="row">
         <div style="display:flex;gap:12px;padding:11px 18px;align-items:center;">
@@ -2057,16 +2079,30 @@ full holding, both editable" aria-label="Sell $${esc(o.sym)}">SELL</button>`
             white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${
             esc(fmtPickDay(o.bought))} \u2192 ${esc(fmtPickDay(o.sold))}</div>
           <div class="mono" style="flex:0 0 68px;text-align:right;font-size:13px;
-            color:var(--ink-4);">${shs(o.shares)}</div>
+            color:var(--ink-4);">${editing && o.idx !== undefined
+              ? `<input class="cell-in" type="number" step="any" value="${shs(o.shares)}"
+                   data-editclosed="${o.idx}|shares" aria-label="Shares sold">`
+              : shs(o.shares)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
             color:var(--ink-2);">${money(o.entry)}</div>
           <div class="mono" style="flex:0 0 84px;text-align:right;font-size:13px;
-            color:var(--ink-2);">${money(o.exit)}</div>
+            color:var(--ink-2);">${editing && o.idx !== undefined
+              ? `<input class="cell-in" type="number" step="0.01" value="${
+                   (o.exit||0).toFixed(2)}" data-editclosed="${o.idx}|price"
+                   aria-label="Price sold at">`
+              : money(o.exit)}</div>
           <div class="mono" style="flex:0 0 76px;text-align:right;font-size:13px;
             font-weight:600;color:${chgC(o.ret)};">${pctT(o.ret)}</div>
           <div class="mono" style="flex:0 0 80px;text-align:right;font-size:13px;
             color:${chgC(o.pnl)};">${o.pnl>=0?"+":"\u2212"}$${
             Math.abs(Math.round(o.pnl)).toLocaleString()}</div>
+          ${editing ? `<div style="flex:0 0 34px;display:flex;justify-content:flex-end;">
+            ${o.idx !== undefined
+              ? `<button class="tbtn tbtn-del" data-delclosed="${o.idx}"
+                   title="Delete this closed trade" aria-label="Delete ${esc(o.sym)}"
+                   >\u00d7</button>`
+              : `<span class="note" style="margin:0;font-size:9px;">repo</span>`}
+          </div>` : ""}
         </div></div>`).join("")}
     </div></div>
   </div>` : "";
@@ -2118,8 +2154,25 @@ function render(keepScroll){
   window.scrollTo({ top: keepScroll ? y : 0 });
 }
 
+// Corrections to a closed trade. Fires on blur rather than per keystroke, so the
+// re-render does not fight you mid-number.
+document.addEventListener("change", e => {
+  const el = e.target.closest("[data-editclosed]");
+  if (!el) return;
+  const [idx, field] = el.dataset.editclosed.split("|");
+  const v = parseFloat(el.value);
+  if (!isFinite(v) || v <= 0) { render(true); return; }   // reject, restore display
+  const rows = localTrades();
+  const row = rows[+idx];
+  if (!row || !row.sold) return;
+  if (field === "price") row.sell_price = v;
+  if (field === "shares") row.shares = v;
+  saveLocalTrades(rows);
+  render(true);
+});
+
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-own],[data-undo],[data-savebuy],[data-sell],[data-closedlg],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
+  const el = e.target.closest("[data-editclosedtoggle],[data-delclosed],[data-own],[data-undo],[data-savebuy],[data-sell],[data-closedlg],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
   if (!el) return;
   const d = el.dataset;
   // sits inside a card that is itself data-open, so it must swallow the click
@@ -2145,6 +2198,20 @@ document.addEventListener("click", e => {
                 at: new Date().toISOString() });
     saveLocalTrades(rows);
     S.buying = null;
+    render(true);
+    return;
+  }
+  if (d.editclosedtoggle) {
+    e.stopPropagation();
+    S.editClosed = !S.editClosed;
+    render(true);
+    return;
+  }
+  if (d.delclosed !== undefined) {
+    e.stopPropagation();
+    const rows = localTrades();
+    const i = +d.delclosed;
+    if (rows[i] && rows[i].sold) { rows.splice(i, 1); saveLocalTrades(rows); }
     render(true);
     return;
   }
