@@ -982,6 +982,66 @@ function suggestShares(price){
   return +(buyStake() / price).toFixed(4);
 }
 
+// Every action, timestamped. Separate from the trades themselves so a correction
+// or a deletion still leaves a trace — the trade list tells you what you hold,
+// this tells you what you did and when.
+const LOG_KEY = "nik.log.v1";
+function readLog(){
+  try { return JSON.parse(localStorage.getItem(LOG_KEY) || "[]"); } catch { return []; }
+}
+function logEvent(action, sym, detail){
+  try {
+    const rows = readLog();
+    rows.push({ at: new Date().toISOString(), action, sym, detail: detail || "" });
+    // keep it bounded; the export carries the whole thing before trimming
+    localStorage.setItem(LOG_KEY, JSON.stringify(rows.slice(-500)));
+  } catch {}
+}
+
+// Everything this browser holds, in one file. The only defence against losing
+// the record — it lives in localStorage, which a cleared cache wipes.
+function exportAll(){
+  const blob = new Blob([JSON.stringify({
+    exported: new Date().toISOString(),
+    trades: localTrades(),
+    log: readLog(),
+  }, null, 1)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `stock-radar-${todayISO()}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  logEvent("export", "", `${localTrades().length} trades`);
+}
+
+function importAll(file){
+  const r = new FileReader();
+  r.onload = () => {
+    let d;
+    try { d = JSON.parse(r.result); } catch { alert("That is not a valid export file."); return; }
+    if (!d || !Array.isArray(d.trades)) { alert("No trades found in that file."); return; }
+    const mine = localTrades();
+    // merge rather than overwrite: importing on a second device should add to
+    // what is there, not silently destroy it
+    const key = t => [t.sym, t.date, t.price, t.shares, t.sold || ""].join("|");
+    const have = new Set(mine.map(key));
+    const added = d.trades.filter(t => !have.has(key(t)));
+    saveLocalTrades([...mine, ...added]);
+    if (Array.isArray(d.log)) {
+      const seen = new Set(readLog().map(e => e.at + e.action + e.sym));
+      const merged = [...readLog(), ...d.log.filter(e => !seen.has(e.at + e.action + e.sym))]
+        .sort((a, b) => (a.at < b.at ? -1 : 1));
+      try { localStorage.setItem(LOG_KEY, JSON.stringify(merged.slice(-500))); } catch {}
+    }
+    logEvent("import", "", `${added.length} new of ${d.trades.length}`);
+    alert(`Imported ${added.length} new trade${added.length === 1 ? "" : "s"}` +
+          (added.length < d.trades.length
+            ? ` (${d.trades.length - added.length} already here).` : "."));
+    render(true);
+  };
+  r.readAsText(file);
+}
+
 function todayISO(){
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${
@@ -1929,6 +1989,69 @@ function detail(){
 }
 
 /* ── shell ────────────────────────────────────────────────── */
+// Everything you have done, newest first, with the backup controls beside it —
+// this is the only copy, so the export sits where you are reminded of that.
+function activityPanel(){
+  const log = readLog().slice().reverse();
+  const when = iso => {
+    const d = new Date(iso);
+    return isNaN(d) ? iso : d.toLocaleString(undefined,
+      { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+  };
+  const tone = a => a.startsWith("buy") ? G
+    : a.startsWith("sell") ? H
+    : a.startsWith("edit") ? A
+    : (a.startsWith("undo") || a.startsWith("delete") || a.startsWith("remove")) ? R
+    : "var(--ink-5)";
+  return `<div class="panel" style="margin-bottom:16px;">
+    <div class="phead"><div class="cap">Activity</div>
+      <div class="note">${log.length ? `${log.length} action${log.length===1?"":"s"}
+        recorded in this browser` : "nothing recorded yet"}</div>
+      <div style="flex:1 1 20px;"></div>
+      <div style="display:flex;gap:6px;">
+        <button class="tbtn tbtn-undo" data-exportall="1" style="width:auto;padding:0 10px;"
+          title="Download every trade and action as a JSON file">EXPORT</button>
+        <button class="tbtn tbtn-undo" data-importall="1" style="width:auto;padding:0 10px;"
+          title="Merge an export back in — adds what is missing, never overwrites">IMPORT</button>
+      </div></div>
+    <div style="padding:12px 18px 0;">
+      <div style="padding:9px 12px;border-radius:8px;background:rgba(176,48,31,0.06);
+        border:1px solid rgba(176,48,31,0.20);font-size:12px;color:var(--ink-2);
+        text-wrap:pretty;">
+        <b>This browser holds the only copy.</b> Clearing site data, switching browser
+        or changing device loses it. Export now and again — the file restores into any
+        browser, and importing merges rather than replaces.
+      </div>
+    </div>
+    ${log.length ? `<div class="scroll"><div style="min-width:460px;">
+      <div class="tbl" style="margin-top:12px;">
+        <div style="flex:0 0 132px;">When</div>
+        <div style="flex:0 0 128px;">Action</div>
+        <div style="flex:0 0 70px;">Ticker</div>
+        <div style="flex:1 1 180px;">Detail</div>
+      </div>
+      ${log.slice(0, 60).map(e => `<div class="row">
+        <div style="display:flex;gap:12px;padding:9px 18px;align-items:center;">
+          <div class="mono" style="flex:0 0 132px;font-size:12px;color:var(--ink-5);"
+            >${esc(when(e.at))}</div>
+          <div class="mono" style="flex:0 0 128px;font-size:11px;font-weight:600;
+            letter-spacing:.04em;color:${tone(e.action)};">${esc(e.action.toUpperCase())}</div>
+          <div class="mono" style="flex:0 0 70px;font-size:13px;font-weight:600;
+            color:var(--ink-d);">${e.sym ? "$" + esc(e.sym) : ""}</div>
+          <div class="mono" style="flex:1 1 180px;min-width:0;font-size:12px;
+            color:var(--ink-4);white-space:nowrap;overflow:hidden;
+            text-overflow:ellipsis;">${esc(e.detail || "")}</div>
+        </div></div>`).join("")}
+    </div></div>
+    ${log.length > 60 ? `<div style="padding:10px 18px 0;"><div class="note">Showing the
+      most recent 60 of ${log.length}. The export carries all of them.</div></div>` : ""}`
+    : ""}
+    <div style="padding:12px 18px 16px;"><div class="note">Buys, sells, corrections and
+      deletions are all recorded, so a trade you later edited or removed still leaves a
+      trace. Kept to the last 500 actions.</div></div>
+  </div>`;
+}
+
 /* ── Nik's stocks ─────────────────────────────────────────
    Your book on its own screen: what you hold, what it is worth, what is due to
    sell, and what the radar is flagging that you do not own yet. Deliberately not
@@ -2186,7 +2309,7 @@ full holding, both editable" aria-label="Sell $${esc(o.sym)}">SELL</button>`
       from the Digest to add it here.</div></div>
   </div>` : "";
 
-  return hero + positions + curves + closedPanel + notMine;
+  return hero + positions + curves + closedPanel + activityPanel() + notMine;
 }
 
 const SCREENS = { digest, watchlist, history, mine, detail };
@@ -2213,14 +2336,17 @@ document.addEventListener("change", e => {
   const rows = localTrades();
   const row = rows[+idx];
   if (!row || (open ? !!row.sold : !row.sold)) return;
+  const was = field === "shares" ? row.shares : (open ? row.price : row.sell_price);
   if (field === "price") { if (open) row.price = v; else row.sell_price = v; }
   if (field === "shares") row.shares = v;
   saveLocalTrades(rows);
+  logEvent("edit " + (open ? "position" : "closed"), row.sym,
+           `${field} ${was} \u2192 ${v}`);
   render(true);
 });
 
 document.addEventListener("click", e => {
-  const el = e.target.closest("[data-editopentoggle],[data-delopen],[data-editclosedtoggle],[data-delclosed],[data-own],[data-undo],[data-savebuy],[data-sell],[data-closedlg],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
+  const el = e.target.closest("[data-exportall],[data-importall],[data-editopentoggle],[data-delopen],[data-editclosedtoggle],[data-delclosed],[data-own],[data-undo],[data-savebuy],[data-sell],[data-closedlg],[data-daymode],[data-go],[data-open],[data-toggle],[data-dismiss],[data-filter],[data-sort],[data-daysort],[data-day-go]");
   if (!el) return;
   const d = el.dataset;
   // sits inside a card that is itself data-open, so it must swallow the click
@@ -2245,6 +2371,7 @@ document.addEventListener("click", e => {
     rows.push({ sym: d.savebuy, date: todayISO(), price, shares,
                 at: new Date().toISOString() });
     saveLocalTrades(rows);
+    logEvent("buy", d.savebuy, `${shs(shares)} @ ${money(price)}`);
     S.buying = null;
     render(true);
     return;
@@ -2253,6 +2380,15 @@ document.addEventListener("click", e => {
     e.stopPropagation();
     S.editClosed = !S.editClosed;
     render(true);
+    return;
+  }
+  if (d.exportall) { e.stopPropagation(); exportAll(); return; }
+  if (d.importall) {
+    e.stopPropagation();
+    const inp = document.createElement("input");
+    inp.type = "file"; inp.accept = "application/json,.json";
+    inp.onchange = () => { if (inp.files[0]) importAll(inp.files[0]); };
+    inp.click();
     return;
   }
   if (d.editopentoggle) {
@@ -2265,7 +2401,10 @@ document.addEventListener("click", e => {
     e.stopPropagation();
     const rows = localTrades();
     const i = +d.delopen;
-    if (rows[i] && !rows[i].sold) { rows.splice(i, 1); saveLocalTrades(rows); }
+    if (rows[i] && !rows[i].sold) {
+      logEvent("remove position", rows[i].sym, `${shs(rows[i].shares)} @ ${money(rows[i].price)}`);
+      rows.splice(i, 1); saveLocalTrades(rows);
+    }
     render(true);
     return;
   }
@@ -2273,7 +2412,10 @@ document.addEventListener("click", e => {
     e.stopPropagation();
     const rows = localTrades();
     const i = +d.delclosed;
-    if (rows[i] && rows[i].sold) { rows.splice(i, 1); saveLocalTrades(rows); }
+    if (rows[i] && rows[i].sold) {
+      logEvent("delete closed", rows[i].sym, `sold @ ${money(rows[i].sell_price)}`);
+      rows.splice(i, 1); saveLocalTrades(rows);
+    }
     render(true);
     return;
   }
@@ -2281,7 +2423,10 @@ document.addEventListener("click", e => {
     e.stopPropagation();
     const rows = localTrades();
     const i = rows.findIndex(t => t.sym === d.undo && !t.sold);
-    if (i >= 0) { rows.splice(i, 1); saveLocalTrades(rows); }
+    if (i >= 0) {
+      logEvent("undo buy", d.undo, `${shs(rows[i].shares)} @ ${money(rows[i].price)}`);
+      rows.splice(i, 1); saveLocalTrades(rows);
+    }
     render(true);
     return;
   }
@@ -2302,6 +2447,8 @@ document.addEventListener("click", e => {
         rows.push({ ...rows[i], shares: qty, sold: todayISO(), sell_price: price });
       }
       saveLocalTrades(rows);
+      logEvent("sell", d.sell, `${shs(qty)} @ ${money(price)}` +
+        (qty < holding - 1e-9 ? ` (${shs(holding - qty)} left open)` : ""));
     }
     S.buying = null;
     render(true);
