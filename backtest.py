@@ -704,10 +704,20 @@ def main():
     # run's picks, plus anything already open. Trimmed to the sessions a position
     # can still be in, which keeps the payload small.
     recent_closes = {}
-    live_syms = set(pick_days.get(max(pick_days), {}) if pick_days else set())
-    for d in list(pick_days)[-4:]:
+    live_syms = set()
+    for d in sorted(pick_days)[-4:]:
         live_syms |= set(pick_days[d])
     live_syms |= {o["sym"] for o in my_open} | {o["sym"] for o in open_positions}
+    # Anything currently on the board, because a trade recorded in the browser can
+    # be any name you saw there — and once it drops off the picks the page would
+    # otherwise lose the closes it needs to chart and price your position.
+    try:
+        with open(os.path.join(os.path.dirname(OUT) or ".", "data.json")) as f:
+            dash = json.load(f)
+        for key in ("watch", "buzz", "gainers"):
+            live_syms |= {r.get("sym") for r in (dash.get(key) or []) if r.get("sym")}
+    except Exception as e:
+        print(f"[warn] data.json for closes: {e}")
     for sym in sorted(live_syms):
         c = closes.get(sym) or daily_closes(sym)
         if not c:

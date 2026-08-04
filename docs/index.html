@@ -1037,13 +1037,10 @@ function picksPanel(){
   const nHeld = q.filter(t => OP[t.sym]).length;
   const nMine = q.filter(t => MP[t.sym]).length;
   // gain on the open position, measured from the price it was actually bought at
-  const sinceBuy = t => {
-    const o = OP[t.sym]; if (!o) return null;
-    const ent = ((B && B.pick_detail) || [])
-      .filter(p => p.sym === t.sym && p.date === o.bought)[0];
-    return ent && ent.entry && typeof t.price === "number"
-      ? (t.price - ent.entry) / ent.entry * 100 : null;
-  };
+  // Gain on whichever position the card is showing. It used to read the rule's
+  // position unconditionally, so a card marked YOURS reported the rule's entry —
+  // MU showed +12.2% from $739 on the day it was bought at $829.
+  const sinceBuy = o => (o && typeof o.ret === "number") ? o.ret : null;
   return `<div class="panel">
     <div class="phead">
       <div class="cap">Picks of the day</div>
@@ -1059,7 +1056,7 @@ function picksPanel(){
       ${q.map((t,i) => { const mine = MP[t.sym], rule = OP[t.sym];
         // your own position wins: its entry price and buy date drive the strip,
         // so D1 counts from the day you bought, not the day the rule did
-        const o = mine || rule, sb = sinceBuy(t);
+        const o = mine || rule, sb = sinceBuy(o);
         const tint = mine;
         return `<div style="border:1px solid ${tint ? "var(--h-line)" : "var(--rule-2)"};
           border-radius:12px;padding:12px 14px;background:${
@@ -1876,27 +1873,33 @@ function mine(){
   const hero = `<div class="panel" style="margin-bottom:16px;padding:22px 24px;">
     <div class="eyebrow" style="margin-bottom:10px;">Nik's stocks</div>
     ${open.length || closed.length ? `
-      <div style="display:flex;gap:30px;flex-wrap:wrap;align-items:baseline;">
-        <div>
-          <div class="mono" style="font-size:13px;color:var(--ink-5);">$${
-            Math.round(cost).toLocaleString()} in \u2192</div>
-          <div class="mono" style="font-size:38px;font-weight:600;letter-spacing:-.02em;
-            line-height:1;color:${chgC(unreal)};">$${Math.round(val).toLocaleString()}</div>
-          <div class="mono" style="font-size:13px;margin-top:6px;color:${chgC(unreal)};">
-            ${unreal>=0?"+":"\u2212"}$${Math.abs(Math.round(unreal)).toLocaleString()}
-            ${cost ? `(${pctT(+(unreal/cost*100).toFixed(1))})` : ""} unrealised</div>
-        </div>
-        <div style="flex:1 1 240px;min-width:0;font-size:13px;color:var(--ink-3);
-          text-wrap:pretty;">
-          ${open.length} position${open.length===1?"":"s"} open${
-            closed.length ? `, ${closed.length} closed for
-            ${real>=0?"+":"\u2212"}$${Math.abs(Math.round(real)).toLocaleString()} realised` : ""}.
-          ${dueToday.length
-            ? `<b style="color:${R};">${dueToday.length} sell${dueToday.length===1?"s":""}
-               today</b> — ${dueToday.map(o => "$" + esc(o.sym)).join(", ")}.`
-            : open.length ? `Nothing due to sell today.` : ""}
-          Each position runs ${holdDays()} trading days from the day you bought it.
-        </div>
+      <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:baseline;
+        margin-bottom:14px;">
+        <div><div class="eyebrow" style="margin-bottom:4px;">Cost</div>
+          <div class="mono" style="font-size:22px;color:var(--ink-2);"
+            >$${Math.round(cost).toLocaleString()}</div></div>
+        <div><div class="eyebrow" style="margin-bottom:4px;">Worth now</div>
+          <div class="mono" style="font-size:22px;font-weight:600;color:var(--ink-d);"
+            >$${Math.round(val).toLocaleString()}</div></div>
+        <div><div class="eyebrow" style="margin-bottom:4px;">Unrealised</div>
+          <div class="mono" style="font-size:22px;font-weight:600;color:${chgC(unreal)};"
+            >${unreal>=0?"+":"\u2212"}$${Math.abs(Math.round(unreal)).toLocaleString()}
+            <span style="font-size:14px;">${
+              cost ? `(${pctT(+(unreal/cost*100).toFixed(1))})` : ""}</span></div></div>
+        ${closed.length ? `<div><div class="eyebrow" style="margin-bottom:4px;">Realised</div>
+          <div class="mono" style="font-size:22px;font-weight:600;color:${chgC(real)};"
+            >${real>=0?"+":"\u2212"}$${Math.abs(Math.round(real)).toLocaleString()}</div></div>`
+          : ""}
+      </div>
+      <div style="font-size:13px;color:var(--ink-3);max-width:78ch;text-wrap:pretty;">
+        ${open.length} position${open.length===1?"":"s"} open${
+          closed.length ? `, ${closed.length} closed` : ""}.
+        ${dueToday.length
+          ? `<b style="color:${R};">${dueToday.length} sell${dueToday.length===1?"s":""}
+             today</b> \u2014 ${dueToday.map(o => "$" + esc(o.sym)).join(", ")}.`
+          : open.length ? `Nothing due to sell today.` : ""}
+        Each position runs ${holdDays()} trading days from the day you bought it.
+      </div>
       </div>`
     : `<div style="font-size:14px;color:var(--ink-3);max-width:60ch;text-wrap:pretty;">
         Nothing recorded yet. On the <b>Digest</b>, tap the circle beside any ticker to
