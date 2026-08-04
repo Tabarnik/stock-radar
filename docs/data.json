@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-08-04T18:19:57.024905+00:00",
+ "generated_at": "2026-08-04T19:54:35.457265+00:00",
  "watch": [
   {
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
-   "price": 772.1300048828125,
-   "pct": 1.8155595824435342,
-   "mentions": 1394,
-   "mentions_prev": 596,
+   "price": 771.969970703125,
+   "pct": 1.7944569579448617,
+   "mentions": 1548,
+   "mentions_prev": 770,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -23,14 +23,14 @@
    ],
    "band": [
     729.4600219726562,
-    772.1300048828125
+    771.969970703125
    ],
    "spark": [
     729.4600219726562,
     741.6900024414062,
     747.030029296875,
     757.6699829101562,
-    772.1300048828125
+    771.969970703125
    ],
    "stats": [
     [
@@ -39,14 +39,14 @@
     ],
     [
      "Vol today",
-     "39.1M"
+     "53.6M"
     ],
     [
      "52w range",
-     "$627.04 \u2013 $773.09"
+     "$627.04 \u2013 $773.41"
     ]
    ],
-   "reason": "1,394 mentions today, 2x yesterday's 596. Price is +1.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "1,548 mentions today, 2x yesterday's 770. Price is +1.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.11
@@ -112,7 +112,7 @@
      743.29,
      738.93,
      747.03,
-     772.13
+     771.9
     ],
     "dates": [
      "2025-08-04",
@@ -174,205 +174,12 @@
    "source": "reddit"
   },
   {
-   "sym": "PLTR",
-   "name": "Palantir",
-   "price": 162.8199005126953,
-   "pct": 12.74054875550154,
-   "mentions": 798,
-   "mentions_prev": 109,
-   "mom": "\u2191",
-   "label": "\ud83d\udcc8 running today + chatter rising",
-   "flags": [
-    "vol 3x normal",
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "BUY",
-   "analyst_target": 185.68,
-   "earnings": null,
-   "headlines": [
-    "Stock market today: Nasdaq surges, Dow and S&P 500 trade at record highs amid US-Iran optimism, tech rally",
-    "Palantir looks 'a bit unstoppable' after overwhelming Q2 commercial growth",
-    "Why Palantir stock is ripping higher after earnings: AlphaSpace stat of the morning"
-   ],
-   "band": [
-    122.26000213623047,
-    162.8199005126953
-   ],
-   "spark": [
-    123.0,
-    122.26000213623047,
-    123.05999755859375,
-    125.6500015258789,
-    162.8199005126953
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$390.3B"
-    ],
-    [
-     "Float",
-     "2.1B"
-    ],
-    [
-     "Short interest",
-     "3.6%"
-    ],
-    [
-     "Avg vol",
-     "40.9M"
-    ],
-    [
-     "Vol today",
-     "133.1M"
-    ],
-    [
-     "52w range",
-     "$106.37 \u2013 $207.52"
-    ]
-   ],
-   "reason": "798 mentions today, 7x yesterday's 109. Already up 13% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $185.68 mean target (+14%); the scan flagged vol 3x normal, squeeze/penny sub.",
-   "tone": {
-    "label": "positive",
-    "score": 0.25
-   },
-   "read": [
-    "chasing",
-    "warn",
-    "Already run hard today and the crowd is still piling in \u2014 late-arrival risk."
-   ],
-   "er": {
-    "eps_estimate": 0.41,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 17.7,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     186.96,
-     177.17,
-     158.74,
-     156.71,
-     153.11,
-     171.43,
-     182.39,
-     177.57,
-     173.07,
-     175.44,
-     178.15,
-     184.63,
-     200.47,
-     177.93,
-     174.01,
-     154.85,
-     168.45,
-     181.76,
-     183.57,
-     193.38,
-     188.71,
-     167.86,
-     177.49,
-     170.96,
-     169.6,
-     146.59,
-     135.9,
-     131.41,
-     135.24,
-     137.19,
-     157.16,
-     150.95,
-     150.68,
-     143.06,
-     148.46,
-     128.06,
-     146.39,
-     143.09,
-     144.07,
-     137.8,
-     133.99,
-     136.88,
-     156.54,
-     135.53,
-     127.99,
-     128.47,
-     112.93,
-     129.3,
-     126.79,
-     132.38,
-     122.92,
-     123.06,
-     162.79
-    ],
-    "dates": [
-     "2025-08-04",
-     "2025-08-11",
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03"
-    ]
-   },
-   "tag": "7x Reddit mentions",
-   "source": "reddit"
-  },
-  {
    "sym": "AMD",
    "name": "AMD",
-   "price": 527.6799926757812,
-   "pct": 6.688231434650469,
-   "mentions": 652,
-   "mentions_prev": 155,
+   "price": 526.3599853515625,
+   "pct": 6.42134762465881,
+   "mentions": 891,
+   "mentions_prev": 169,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -382,22 +189,26 @@
    "analyst_target": 579.1064,
    "earnings": "Aug 04 (0d)",
    "headlines": [
-    "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record highs",
+    "Tech stocks today: SpaceX, AMD to report earnings after the bell",
     "Why AMD is a Yahoo Finance AlphaSpace rockstar",
     "Tech stocks rally to kick off August. Can chipmakers keep up with demand?"
    ],
    "band": [
     429.55999755859375,
-    527.6799926757812
+    526.3599853515625
    ],
    "spark": [
     429.55999755859375,
     485.3900146484375,
     476.1499938964844,
     484.6400146484375,
-    527.6799926757812
+    526.3599853515625
    ],
    "stats": [
+    [
+     "Market cap",
+     "$858.3B"
+    ],
     [
      "Float",
      "1.6B"
@@ -412,14 +223,14 @@
     ],
     [
      "Vol today",
-     "23.9M"
+     "30.3M"
     ],
     [
      "52w range",
      "$149.22 \u2013 $584.73"
     ]
    ],
-   "reason": "652 mentions today, 4x yesterday's 155. Price is +6.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $579.11 mean target (+10%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "891 mentions today, 5x yesterday's 169. Price is +6.4% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $579.11 mean target (+10%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.04
@@ -495,7 +306,7 @@
      495.76,
      521.95,
      476.15,
-     527.7
+     526.29
     ],
     "dates": [
      "2025-08-04",
@@ -553,16 +364,209 @@
      "2026-08-03"
     ]
    },
-   "tag": "4x Reddit mentions",
+   "tag": "5x Reddit mentions",
+   "source": "reddit"
+  },
+  {
+   "sym": "PLTR",
+   "name": "Palantir",
+   "price": 162.69000244140625,
+   "pct": 12.650604100128973,
+   "mentions": 797,
+   "mentions_prev": 147,
+   "mom": "\u2191",
+   "label": "\ud83d\udcc8 running today + chatter rising",
+   "flags": [
+    "vol 4x normal",
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "BUY",
+   "analyst_target": 185.68,
+   "earnings": null,
+   "headlines": [
+    "Stock market today: Dow and S&P 500 trade at record highs, Nasdaq surges amid US-Iran optimism, tech rally",
+    "Palantir looks 'a bit unstoppable' after overwhelming Q2 commercial growth",
+    "Why Palantir stock is ripping higher after earnings: AlphaSpace stat of the morning"
+   ],
+   "band": [
+    122.26000213623047,
+    162.69000244140625
+   ],
+   "spark": [
+    123.0,
+    122.26000213623047,
+    123.05999755859375,
+    125.6500015258789,
+    162.69000244140625
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$390.5B"
+    ],
+    [
+     "Float",
+     "2.1B"
+    ],
+    [
+     "Short interest",
+     "3.6%"
+    ],
+    [
+     "Avg vol",
+     "40.9M"
+    ],
+    [
+     "Vol today",
+     "155.2M"
+    ],
+    [
+     "52w range",
+     "$106.37 \u2013 $207.52"
+    ]
+   ],
+   "reason": "797 mentions today, 5x yesterday's 147. Already up 13% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $185.68 mean target (+14%); the scan flagged vol 4x normal, squeeze/penny sub.",
+   "tone": {
+    "label": "positive",
+    "score": 0.25
+   },
+   "read": [
+    "chasing",
+    "warn",
+    "Already run hard today and the crowd is still piling in \u2014 late-arrival risk."
+   ],
+   "er": {
+    "eps_estimate": 0.41,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 17.7,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     186.96,
+     177.17,
+     158.74,
+     156.71,
+     153.11,
+     171.43,
+     182.39,
+     177.57,
+     173.07,
+     175.44,
+     178.15,
+     184.63,
+     200.47,
+     177.93,
+     174.01,
+     154.85,
+     168.45,
+     181.76,
+     183.57,
+     193.38,
+     188.71,
+     167.86,
+     177.49,
+     170.96,
+     169.6,
+     146.59,
+     135.9,
+     131.41,
+     135.24,
+     137.19,
+     157.16,
+     150.95,
+     150.68,
+     143.06,
+     148.46,
+     128.06,
+     146.39,
+     143.09,
+     144.07,
+     137.8,
+     133.99,
+     136.88,
+     156.54,
+     135.53,
+     127.99,
+     128.47,
+     112.93,
+     129.3,
+     126.79,
+     132.38,
+     122.92,
+     123.06,
+     162.88
+    ],
+    "dates": [
+     "2025-08-04",
+     "2025-08-11",
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03"
+    ]
+   },
+   "tag": "5x Reddit mentions",
    "source": "reddit"
   },
   {
    "sym": "SPCX",
    "name": "SpaceX",
-   "price": 123.99819946289062,
-   "pct": 7.74020285245514,
-   "mentions": 523,
-   "mentions_prev": 250,
+   "price": 123.08999633789062,
+   "pct": 6.951078580146512,
+   "mentions": 702,
+   "mentions_prev": 264,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -572,20 +576,20 @@
    "analyst_target": 223.0,
    "earnings": "Aug 04 (0d)",
    "headlines": [
-    "Stock market today: Nasdaq surges, Dow and S&P 500 trade at record highs amid US-Iran optimism, tech rally",
+    "Stock market today: Dow and S&P 500 trade at record highs, Nasdaq surges amid US-Iran optimism, tech rally",
     "Earnings live updates: Caterpillar stock surges 9% as AI build-out boosts power unit",
-    "SpaceX's first earnings, AMD Q2 results, JOLTS data: What to Watch"
+    "What to Watch for in SpaceX\u2019s Earnings Report"
    ],
    "band": [
     108.37000274658203,
-    123.99819946289062
+    123.11000061035156
    ],
    "spark": [
     112.55000305175781,
     112.19999694824219,
     108.37000274658203,
     114.52999877929688,
-    123.99819946289062
+    123.11000061035156
    ],
    "stats": [
     [
@@ -606,14 +610,14 @@
     ],
     [
      "Vol today",
-     "72.6M"
+     "100.3M"
     ],
     [
      "52w range",
      "$107.01 \u2013 $225.64"
     ]
    ],
-   "reason": "523 mentions today, 2x yesterday's 250. Price is +7.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $223.00 mean target (+80%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "702 mentions today, 3x yesterday's 264. Price is +7.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $223.00 mean target (+81%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.29
@@ -639,7 +643,7 @@
      123.99,
      115.07,
      108.37,
-     123.94
+     123.18
     ],
     "dates": [
      "2026-06-08",
@@ -653,200 +657,14 @@
      "2026-08-03"
     ]
    },
-   "tag": "2x Reddit mentions",
+   "tag": "3x Reddit mentions",
    "source": "reddit"
-  },
-  {
-   "sym": "NOK",
-   "name": "Nokia Corporation Sponsored",
-   "price": 10.04,
-   "pct": 7.264961,
-   "mentions": null,
-   "mentions_prev": null,
-   "mom": null,
-   "label": "",
-   "flags": [],
-   "analyst_rec": "BUY",
-   "analyst_target": 15.02222,
-   "earnings": null,
-   "headlines": [
-    "Is Nokia Oyj (HLSE:NOKIA) Undervalued As Strong Q2 Results And Q3 Growth Guidance Land?",
-    "European Equities Traded in US as ADRs Advance in Tuesday Trading",
-    "NOK Stock In Focus: \u2018Multiple Catalysts' Have Retail Traders Eyeing A Return To $15"
-   ],
-   "band": [
-    8.40999984741211,
-    10.04
-   ],
-   "spark": [
-    8.40999984741211,
-    9.09000015258789,
-    9.140000343322754,
-    9.359999656677246,
-    10.039999961853027
-   ],
-   "stats": [
-    [
-     "Float",
-     "4.4B"
-    ],
-    [
-     "Short interest",
-     "0.9%"
-    ],
-    [
-     "Avg vol",
-     "109.9M"
-    ],
-    [
-     "Vol today",
-     "81.1M"
-    ],
-    [
-     "52w range",
-     "$4.06 \u2013 $17.45"
-    ]
-   ],
-   "reason": "Price is +7.3% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $15.02 mean target (+50%).",
-   "tone": {
-    "label": "positive",
-    "score": 0.24
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": 0.07,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 16.4,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     4.1,
-     4.2,
-     4.31,
-     4.3,
-     4.55,
-     4.51,
-     4.74,
-     4.66,
-     4.9,
-     5.32,
-     5.74,
-     6.3,
-     6.91,
-     6.84,
-     6.73,
-     5.94,
-     6.08,
-     6.07,
-     6.27,
-     6.5,
-     6.62,
-     6.51,
-     6.48,
-     6.55,
-     6.77,
-     6.43,
-     7.07,
-     7.03,
-     7.77,
-     7.72,
-     7.74,
-     8.24,
-     7.98,
-     7.98,
-     8.82,
-     9.46,
-     10.31,
-     10.46,
-     13.3,
-     12.82,
-     13.95,
-     15.47,
-     14.84,
-     14.38,
-     14.8,
-     13.49,
-     13.01,
-     12.07,
-     12.44,
-     10.12,
-     9.1,
-     9.14,
-     10.04
-    ],
-    "dates": [
-     "2025-08-04",
-     "2025-08-11",
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03"
-    ]
-   },
-   "tag": "Yahoo most-active",
-   "source": "yahoo"
   },
   {
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
-   "price": 211.89,
-   "pct": 2.5406504,
+   "price": 212.145,
+   "pct": 2.6640558,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -856,20 +674,20 @@
    "analyst_target": 302.82758,
    "earnings": null,
    "headlines": [
-    "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record highs",
+    "Tech stocks today: SpaceX, AMD to report earnings after the bell",
     "Tech stocks rally to kick off August. Can chipmakers keep up with demand?",
-    "Why AMD Stock Popped Today"
+    "Prediction: These 2 Stocks Will Keep Winning No Matter What the Market Does"
    ],
    "band": [
     190.00999450683594,
-    211.9040069580078
+    212.14500427246094
    ],
    "spark": [
     190.00999450683594,
     195.0399932861328,
     200.75,
     206.63999938964844,
-    211.9040069580078
+    212.14500427246094
    ],
    "stats": [
     [
@@ -890,17 +708,17 @@
     ],
     [
      "Vol today",
-     "72.5M"
+     "97.2M"
     ],
     [
      "52w range",
      "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "Price is +2.5% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $302.83 mean target (+43%).",
+   "reason": "Price is +2.7% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $302.83 mean target (+43%).",
    "tone": {
     "label": "mixed",
-    "score": -0.04
+    "score": 0.13
    },
    "read": [
     "quiet",
@@ -973,7 +791,197 @@
      202.81,
      206.84,
      200.75,
-     211.88
+     212.12
+    ],
+    "dates": [
+     "2025-08-04",
+     "2025-08-11",
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03"
+    ]
+   },
+   "tag": "Yahoo most-active",
+   "source": "yahoo"
+  },
+  {
+   "sym": "NOK",
+   "name": "Nokia Corporation Sponsored",
+   "price": 9.9242,
+   "pct": 6.0277824,
+   "mentions": null,
+   "mentions_prev": null,
+   "mom": null,
+   "label": "",
+   "flags": [],
+   "analyst_rec": "BUY",
+   "analyst_target": 15.02222,
+   "earnings": null,
+   "headlines": [
+    "Ericsson Earnings Show Strong Margins Despite Slower Revenue Growth",
+    "Should You Buy Ericsson or Wait as Value Meets Slower Growth?",
+    "Ericsson Down 13.8% in 3 Months: Is This a Buying Opportunity?"
+   ],
+   "band": [
+    8.40999984741211,
+    9.929900169372559
+   ],
+   "spark": [
+    8.40999984741211,
+    9.09000015258789,
+    9.140000343322754,
+    9.359999656677246,
+    9.929900169372559
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$55.4B"
+    ],
+    [
+     "Float",
+     "4.4B"
+    ],
+    [
+     "Short interest",
+     "0.9%"
+    ],
+    [
+     "Avg vol",
+     "109.9M"
+    ],
+    [
+     "Vol today",
+     "90.8M"
+    ],
+    [
+     "52w range",
+     "$4.06 \u2013 $17.45"
+    ]
+   ],
+   "reason": "Price is +6.0% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $15.02 mean target (+51%).",
+   "tone": {
+    "label": "positive",
+    "score": 0.44
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 0.07,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 16.4,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     4.1,
+     4.2,
+     4.31,
+     4.3,
+     4.55,
+     4.51,
+     4.74,
+     4.66,
+     4.9,
+     5.32,
+     5.74,
+     6.3,
+     6.91,
+     6.84,
+     6.73,
+     5.94,
+     6.08,
+     6.07,
+     6.27,
+     6.5,
+     6.62,
+     6.51,
+     6.48,
+     6.55,
+     6.77,
+     6.43,
+     7.07,
+     7.03,
+     7.77,
+     7.72,
+     7.74,
+     8.24,
+     7.98,
+     7.98,
+     8.82,
+     9.46,
+     10.31,
+     10.46,
+     13.3,
+     12.82,
+     13.95,
+     15.47,
+     14.84,
+     14.38,
+     14.8,
+     13.49,
+     13.01,
+     12.07,
+     12.44,
+     10.12,
+     9.1,
+     9.14,
+     9.93
     ],
     "dates": [
      "2025-08-04",
@@ -1037,8 +1045,8 @@
   {
    "sym": "GRAB",
    "name": "Grab Holdings Limited",
-   "price": 3.73,
-   "pct": 1.6326516,
+   "price": 3.695,
+   "pct": 0.681195,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -1048,25 +1056,25 @@
    "analyst_target": 5.8636,
    "earnings": null,
    "headlines": [
+    "Grab Stock Rises 5% on Record Quarter and Buyback",
     "GRAB Q2 Earnings Surpass Estimates, Increase Year Over Year",
-    "GRAB Q2 Earnings Call Focuses on Fintech Profitability and Growth",
-    "Grab Holdings Ltd (GRAB) (Q2 2026) Earnings Call Highlights: Record EBITDA and Strategic ..."
+    "GRAB Q2 Earnings Call Focuses on Fintech Profitability and Growth"
    ],
    "band": [
     3.3499999046325684,
-    3.73009991645813
+    3.695
    ],
    "spark": [
     3.3499999046325684,
     3.4000000953674316,
     3.5,
     3.6700000762939453,
-    3.73009991645813
+    3.694999933242798
    ],
    "stats": [
     [
      "Market cap",
-     "$15.3B"
+     "$15.1B"
     ],
     [
      "Float",
@@ -1082,14 +1090,14 @@
     ],
     [
      "Vol today",
-     "66.3M"
+     "88.1M"
     ],
     [
      "52w range",
      "$3.18 \u2013 $6.62"
     ]
    ],
-   "reason": "Price is +1.6% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $5.86 mean target (+57%).",
+   "reason": "Price is +0.7% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $5.86 mean target (+59%).",
    "tone": {
     "label": "positive",
     "score": 0.3
@@ -1163,7 +1171,7 @@
      3.57,
      3.31,
      3.5,
-     3.73
+     3.69
     ],
     "dates": [
      "2025-08-04",
@@ -1227,8 +1235,8 @@
   {
    "sym": "ONDS",
    "name": "Ondas Inc",
-   "price": 8.845,
-   "pct": 5.6750345,
+   "price": 8.825,
+   "pct": 5.4360805,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -1244,14 +1252,14 @@
    ],
    "band": [
     6.800000190734863,
-    8.845000267028809
+    8.825
    ],
    "spark": [
     6.800000190734863,
     7.579999923706055,
     7.489999771118164,
     8.369999885559082,
-    8.845000267028809
+    8.819999694824219
    ],
    "stats": [
     [
@@ -1272,14 +1280,14 @@
     ],
     [
      "Vol today",
-     "52.2M"
+     "64.7M"
     ],
     [
      "52w range",
      "$2.66 \u2013 $15.28"
     ]
    ],
-   "reason": "Price is +5.7% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $19.81 mean target (+124%).",
+   "reason": "Price is +5.4% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $19.81 mean target (+125%).",
    "tone": {
     "label": "positive",
     "score": 0.3
@@ -1355,7 +1363,7 @@
      6.53,
      7.8,
      7.49,
-     8.85
+     8.82
     ],
     "dates": [
      "2025-08-04",
@@ -1421,10 +1429,10 @@
   {
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
-   "price": 772.1300048828125,
-   "pct": 1.8155595824435342,
-   "mentions": 1394,
-   "mentions_prev": 596,
+   "price": 771.969970703125,
+   "pct": 1.7944569579448617,
+   "mentions": 1548,
+   "mentions_prev": 770,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1440,14 +1448,14 @@
    ],
    "band": [
     729.4600219726562,
-    772.1300048828125
+    771.969970703125
    ],
    "spark": [
     729.4600219726562,
     741.6900024414062,
     747.030029296875,
     757.6699829101562,
-    772.1300048828125
+    771.969970703125
    ],
    "stats": [
     [
@@ -1456,14 +1464,14 @@
     ],
     [
      "Vol today",
-     "39.1M"
+     "53.6M"
     ],
     [
      "52w range",
-     "$627.04 \u2013 $773.09"
+     "$627.04 \u2013 $773.41"
     ]
    ],
-   "reason": "1,394 mentions today, 2x yesterday's 596. Price is +1.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "1,548 mentions today, 2x yesterday's 770. Price is +1.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.11
@@ -1529,384 +1537,7 @@
      743.29,
      738.93,
      747.03,
-     772.13
-    ],
-    "dates": [
-     "2025-08-04",
-     "2025-08-11",
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03"
-    ]
-   }
-  },
-  {
-   "sym": "MU",
-   "name": "Micron Technology",
-   "price": 893.7449951171875,
-   "pct": 6.29696584446023,
-   "mentions": 921,
-   "mentions_prev": 932,
-   "mom": "\u2192",
-   "label": "",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 1507.7906,
-   "earnings": null,
-   "headlines": [
-    "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record highs",
-    "Dell and Super Micro Rally 10%, Hewlett Packard Enterprise Climbs 6% as AI Server Stocks Surge",
-    "Semiconductor ETFs Surge up to 19% in Huge Rally as the AI Trade Ramps Back Up"
-   ],
-   "band": [
-    739.0,
-    893.7449951171875
-   ],
-   "spark": [
-    739.0,
-    874.6599731445312,
-    823.030029296875,
-    829.5,
-    893.7249755859375
-   ],
-   "stats": [
-    [
-     "Float",
-     "1.1B"
-    ],
-    [
-     "Short interest",
-     "3.2%"
-    ],
-    [
-     "Avg vol",
-     "53.8M"
-    ],
-    [
-     "Vol today",
-     "25.9M"
-    ],
-    [
-     "52w range",
-     "$106.75 \u2013 $1255.00"
-    ]
-   ],
-   "reason": "921 mentions, flat against yesterday. Price is +6.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,507.79 mean target (+69%); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "positive",
-    "score": 0.31
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": 31.33,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 20.2,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     118.7,
-     120.68,
-     117.49,
-     118.82,
-     131.16,
-     156.98,
-     162.47,
-     157.02,
-     187.65,
-     181.42,
-     202.18,
-     218.81,
-     223.55,
-     237.69,
-     246.59,
-     207.17,
-     236.25,
-     236.99,
-     240.9,
-     265.66,
-     284.51,
-     315.24,
-     344.89,
-     362.54,
-     399.42,
-     414.64,
-     394.46,
-     411.42,
-     427.92,
-     412.13,
-     370.09,
-     425.89,
-     422.66,
-     357.02,
-     366.18,
-     420.53,
-     455.0,
-     496.64,
-     542.13,
-     746.7,
-     724.55,
-     750.88,
-     970.85,
-     863.88,
-     981.46,
-     1133.82,
-     1132.16,
-     975.41,
-     979.3,
-     848.95,
-     920.95,
-     823.03,
-     893.7
-    ],
-    "dates": [
-     "2025-08-04",
-     "2025-08-11",
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03"
-    ]
-   }
-  },
-  {
-   "sym": "PLTR",
-   "name": "Palantir",
-   "price": 162.8199005126953,
-   "pct": 12.74054875550154,
-   "mentions": 798,
-   "mentions_prev": 109,
-   "mom": "\u2191",
-   "label": "\ud83d\udcc8 running today + chatter rising",
-   "flags": [
-    "vol 3x normal",
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "BUY",
-   "analyst_target": 185.68,
-   "earnings": null,
-   "headlines": [
-    "Stock market today: Nasdaq surges, Dow and S&P 500 trade at record highs amid US-Iran optimism, tech rally",
-    "Palantir looks 'a bit unstoppable' after overwhelming Q2 commercial growth",
-    "Why Palantir stock is ripping higher after earnings: AlphaSpace stat of the morning"
-   ],
-   "band": [
-    122.26000213623047,
-    162.8199005126953
-   ],
-   "spark": [
-    123.0,
-    122.26000213623047,
-    123.05999755859375,
-    125.6500015258789,
-    162.8199005126953
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$390.3B"
-    ],
-    [
-     "Float",
-     "2.1B"
-    ],
-    [
-     "Short interest",
-     "3.6%"
-    ],
-    [
-     "Avg vol",
-     "40.9M"
-    ],
-    [
-     "Vol today",
-     "133.1M"
-    ],
-    [
-     "52w range",
-     "$106.37 \u2013 $207.52"
-    ]
-   ],
-   "reason": "798 mentions today, 7x yesterday's 109. Already up 13% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $185.68 mean target (+14%); the scan flagged vol 3x normal, squeeze/penny sub.",
-   "tone": {
-    "label": "positive",
-    "score": 0.25
-   },
-   "read": [
-    "chasing",
-    "warn",
-    "Already run hard today and the crowd is still piling in \u2014 late-arrival risk."
-   ],
-   "er": {
-    "eps_estimate": 0.41,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 17.7,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     186.96,
-     177.17,
-     158.74,
-     156.71,
-     153.11,
-     171.43,
-     182.39,
-     177.57,
-     173.07,
-     175.44,
-     178.15,
-     184.63,
-     200.47,
-     177.93,
-     174.01,
-     154.85,
-     168.45,
-     181.76,
-     183.57,
-     193.38,
-     188.71,
-     167.86,
-     177.49,
-     170.96,
-     169.6,
-     146.59,
-     135.9,
-     131.41,
-     135.24,
-     137.19,
-     157.16,
-     150.95,
-     150.68,
-     143.06,
-     148.46,
-     128.06,
-     146.39,
-     143.09,
-     144.07,
-     137.8,
-     133.99,
-     136.88,
-     156.54,
-     135.53,
-     127.99,
-     128.47,
-     112.93,
-     129.3,
-     126.79,
-     132.38,
-     122.92,
-     123.06,
-     162.79
+     771.9
     ],
     "dates": [
      "2025-08-04",
@@ -1968,10 +1599,10 @@
   {
    "sym": "AMD",
    "name": "AMD",
-   "price": 527.6799926757812,
-   "pct": 6.688231434650469,
-   "mentions": 652,
-   "mentions_prev": 155,
+   "price": 526.3599853515625,
+   "pct": 6.42134762465881,
+   "mentions": 891,
+   "mentions_prev": 169,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1981,22 +1612,26 @@
    "analyst_target": 579.1064,
    "earnings": "Aug 04 (0d)",
    "headlines": [
-    "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record highs",
+    "Tech stocks today: SpaceX, AMD to report earnings after the bell",
     "Why AMD is a Yahoo Finance AlphaSpace rockstar",
     "Tech stocks rally to kick off August. Can chipmakers keep up with demand?"
    ],
    "band": [
     429.55999755859375,
-    527.6799926757812
+    526.3599853515625
    ],
    "spark": [
     429.55999755859375,
     485.3900146484375,
     476.1499938964844,
     484.6400146484375,
-    527.6799926757812
+    526.3599853515625
    ],
    "stats": [
+    [
+     "Market cap",
+     "$858.3B"
+    ],
     [
      "Float",
      "1.6B"
@@ -2011,14 +1646,14 @@
     ],
     [
      "Vol today",
-     "23.9M"
+     "30.3M"
     ],
     [
      "52w range",
      "$149.22 \u2013 $584.73"
     ]
    ],
-   "reason": "652 mentions today, 4x yesterday's 155. Price is +6.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $579.11 mean target (+10%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "891 mentions today, 5x yesterday's 169. Price is +6.4% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $579.11 mean target (+10%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.04
@@ -2094,7 +1729,388 @@
      495.76,
      521.95,
      476.15,
-     527.7
+     526.29
+    ],
+    "dates": [
+     "2025-08-04",
+     "2025-08-11",
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03"
+    ]
+   }
+  },
+  {
+   "sym": "MU",
+   "name": "Micron Technology",
+   "price": 888.7050170898438,
+   "pct": 5.697539413927723,
+   "mentions": 889,
+   "mentions_prev": 1034,
+   "mom": "\u2192",
+   "label": "",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 1507.7906,
+   "earnings": null,
+   "headlines": [
+    "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record highs",
+    "SpaceX, Palantir, AMD, Marvell,  Caterpillar, Pfizer, and More Stocks That Explain Today\u2019s Market",
+    "Can Strong Data Center & Edge Boost SNDK's Top Line in Q4 Earnings?"
+   ],
+   "band": [
+    739.0,
+    888.7999877929688
+   ],
+   "spark": [
+    739.0,
+    874.6599731445312,
+    823.030029296875,
+    829.5,
+    888.7999877929688
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$1.0T"
+    ],
+    [
+     "Float",
+     "1.1B"
+    ],
+    [
+     "Short interest",
+     "3.2%"
+    ],
+    [
+     "Avg vol",
+     "53.8M"
+    ],
+    [
+     "Vol today",
+     "30.3M"
+    ],
+    [
+     "52w range",
+     "$106.75 \u2013 $1255.00"
+    ]
+   ],
+   "reason": "889 mentions, flat against yesterday. Price is +5.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,507.79 mean target (+70%); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "positive",
+    "score": 0.26
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 31.33,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 20.2,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     118.7,
+     120.68,
+     117.49,
+     118.82,
+     131.16,
+     156.98,
+     162.47,
+     157.02,
+     187.65,
+     181.42,
+     202.18,
+     218.81,
+     223.55,
+     237.69,
+     246.59,
+     207.17,
+     236.25,
+     236.99,
+     240.9,
+     265.66,
+     284.51,
+     315.24,
+     344.89,
+     362.54,
+     399.42,
+     414.64,
+     394.46,
+     411.42,
+     427.92,
+     412.13,
+     370.09,
+     425.89,
+     422.66,
+     357.02,
+     366.18,
+     420.53,
+     455.0,
+     496.64,
+     542.13,
+     746.7,
+     724.55,
+     750.88,
+     970.85,
+     863.88,
+     981.46,
+     1133.82,
+     1132.16,
+     975.41,
+     979.3,
+     848.95,
+     920.95,
+     823.03,
+     888.86
+    ],
+    "dates": [
+     "2025-08-04",
+     "2025-08-11",
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03"
+    ]
+   }
+  },
+  {
+   "sym": "PLTR",
+   "name": "Palantir",
+   "price": 162.69000244140625,
+   "pct": 12.650604100128973,
+   "mentions": 797,
+   "mentions_prev": 147,
+   "mom": "\u2191",
+   "label": "\ud83d\udcc8 running today + chatter rising",
+   "flags": [
+    "vol 4x normal",
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "BUY",
+   "analyst_target": 185.68,
+   "earnings": null,
+   "headlines": [
+    "Stock market today: Dow and S&P 500 trade at record highs, Nasdaq surges amid US-Iran optimism, tech rally",
+    "Palantir looks 'a bit unstoppable' after overwhelming Q2 commercial growth",
+    "Why Palantir stock is ripping higher after earnings: AlphaSpace stat of the morning"
+   ],
+   "band": [
+    122.26000213623047,
+    162.69000244140625
+   ],
+   "spark": [
+    123.0,
+    122.26000213623047,
+    123.05999755859375,
+    125.6500015258789,
+    162.69000244140625
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$390.5B"
+    ],
+    [
+     "Float",
+     "2.1B"
+    ],
+    [
+     "Short interest",
+     "3.6%"
+    ],
+    [
+     "Avg vol",
+     "40.9M"
+    ],
+    [
+     "Vol today",
+     "155.2M"
+    ],
+    [
+     "52w range",
+     "$106.37 \u2013 $207.52"
+    ]
+   ],
+   "reason": "797 mentions today, 5x yesterday's 147. Already up 13% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $185.68 mean target (+14%); the scan flagged vol 4x normal, squeeze/penny sub.",
+   "tone": {
+    "label": "positive",
+    "score": 0.25
+   },
+   "read": [
+    "chasing",
+    "warn",
+    "Already run hard today and the crowd is still piling in \u2014 late-arrival risk."
+   ],
+   "er": {
+    "eps_estimate": 0.41,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 17.7,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     186.96,
+     177.17,
+     158.74,
+     156.71,
+     153.11,
+     171.43,
+     182.39,
+     177.57,
+     173.07,
+     175.44,
+     178.15,
+     184.63,
+     200.47,
+     177.93,
+     174.01,
+     154.85,
+     168.45,
+     181.76,
+     183.57,
+     193.38,
+     188.71,
+     167.86,
+     177.49,
+     170.96,
+     169.6,
+     146.59,
+     135.9,
+     131.41,
+     135.24,
+     137.19,
+     157.16,
+     150.95,
+     150.68,
+     143.06,
+     148.46,
+     128.06,
+     146.39,
+     143.09,
+     144.07,
+     137.8,
+     133.99,
+     136.88,
+     156.54,
+     135.53,
+     127.99,
+     128.47,
+     112.93,
+     129.3,
+     126.79,
+     132.38,
+     122.92,
+     123.06,
+     162.88
     ],
     "dates": [
      "2025-08-04",
@@ -2156,10 +2172,10 @@
   {
    "sym": "SPCX",
    "name": "SpaceX",
-   "price": 123.99819946289062,
-   "pct": 7.74020285245514,
-   "mentions": 523,
-   "mentions_prev": 250,
+   "price": 123.08999633789062,
+   "pct": 6.951078580146512,
+   "mentions": 702,
+   "mentions_prev": 264,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2169,20 +2185,20 @@
    "analyst_target": 223.0,
    "earnings": "Aug 04 (0d)",
    "headlines": [
-    "Stock market today: Nasdaq surges, Dow and S&P 500 trade at record highs amid US-Iran optimism, tech rally",
+    "Stock market today: Dow and S&P 500 trade at record highs, Nasdaq surges amid US-Iran optimism, tech rally",
     "Earnings live updates: Caterpillar stock surges 9% as AI build-out boosts power unit",
-    "SpaceX's first earnings, AMD Q2 results, JOLTS data: What to Watch"
+    "What to Watch for in SpaceX\u2019s Earnings Report"
    ],
    "band": [
     108.37000274658203,
-    123.99819946289062
+    123.11000061035156
    ],
    "spark": [
     112.55000305175781,
     112.19999694824219,
     108.37000274658203,
     114.52999877929688,
-    123.99819946289062
+    123.11000061035156
    ],
    "stats": [
     [
@@ -2203,14 +2219,14 @@
     ],
     [
      "Vol today",
-     "72.6M"
+     "100.3M"
     ],
     [
      "52w range",
      "$107.01 \u2013 $225.64"
     ]
    ],
-   "reason": "523 mentions today, 2x yesterday's 250. Price is +7.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $223.00 mean target (+80%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "702 mentions today, 3x yesterday's 264. Price is +7.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $223.00 mean target (+81%); earnings land Aug 04 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.29
@@ -2236,7 +2252,7 @@
      123.99,
      115.07,
      108.37,
-     123.94
+     123.18
     ],
     "dates": [
      "2026-06-08",
@@ -2254,10 +2270,10 @@
   {
    "sym": "SNDK",
    "name": "Sandisk",
-   "price": 1434.699951171875,
-   "pct": 7.9281695896273305,
-   "mentions": 420,
-   "mentions_prev": 294,
+   "price": 1425.0699462890625,
+   "pct": 7.203733236721499,
+   "mentions": 434,
+   "mentions_prev": 324,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2267,25 +2283,25 @@
    "analyst_target": 2217.7727,
    "earnings": "Aug 05 (1d)",
    "headlines": [
+    "The great AI trade is back, with these tech names leading markets: Chart of the Day",
     "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record highs",
-    "Sandisk (SNDK) Faces An AI Storage Test On A 27% Undervalued View",
-    "Why Sandisk Stock Soared Today"
+    "SK hynix, Sandisk race to fix AI\u2019s next chip bottleneck"
    ],
    "band": [
     1015.8900146484375,
-    1434.699951171875
+    1425.0699462890625
    ],
    "spark": [
     1015.8900146484375,
     1279.9599609375,
     1214.8299560546875,
     1288.030029296875,
-    1434.699951171875
+    1425.0699462890625
    ],
    "stats": [
     [
      "Market cap",
-     "$212.5B"
+     "$211.1B"
     ],
     [
      "Float",
@@ -2301,17 +2317,17 @@
     ],
     [
      "Vol today",
-     "10.7M"
+     "12.5M"
     ],
     [
      "52w range",
      "$40.53 \u2013 $2354.39"
     ]
    ],
-   "reason": "420 mentions, up from 294 yesterday. Price is +7.9% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,217.77 mean target (+55%); earnings land Aug 05 (1d); the scan flagged squeeze/penny sub.",
+   "reason": "434 mentions, up from 324 yesterday. Price is +7.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,217.77 mean target (+56%); earnings land Aug 05 (1d); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": 0.0
+    "label": "positive",
+    "score": 0.21
    },
    "read": [
     "moving with attention",
@@ -2384,7 +2400,7 @@
      1354.82,
      1436.56,
      1214.83,
-     1434.93
+     1425.23
     ],
     "dates": [
      "2025-08-04",
@@ -2446,11 +2462,11 @@
   {
    "sym": "MSFT",
    "name": "Microsoft",
-   "price": 497.17999267578125,
-   "pct": 2.72738391581909,
+   "price": 495.2699890136719,
+   "pct": 2.3327387523599854,
    "mentions": 346,
-   "mentions_prev": 360,
-   "mom": "\u2192",
+   "mentions_prev": 411,
+   "mom": "\u2193",
    "label": "",
    "flags": [
     "squeeze/penny sub"
@@ -2460,19 +2476,19 @@
    "earnings": null,
    "headlines": [
     "Tech stocks today: SpaceX, AMD to report earnings after the bell",
-    "Why Microsoft, Amazon, & other Big Tech stocks are soaring post-earnings",
-    "NetApp's Buyback Is Better Funded Than It Is Big"
+    "Dow Jones AI Giant Microsoft Breaks Out After Earnings-Fueled Surge",
+    "Wall Street Short Sellers Piled Into Amazon and Microsoft at Historic Rates Before Earnings. Now They\u2019re Rallying."
    ],
    "band": [
     390.5400085449219,
-    497.17999267578125
+    495.3349914550781
    ],
    "spark": [
     390.5400085449219,
     451.1000061035156,
     464.7200012207031,
     487.6499938964844,
-    497.1099853515625
+    495.3349914550781
    ],
    "stats": [
     [
@@ -2493,17 +2509,17 @@
     ],
     [
      "Vol today",
-     "29.6M"
+     "36.2M"
     ],
     [
      "52w range",
      "$349.20 \u2013 $553.72"
     ]
    ],
-   "reason": "346 mentions, flat against yesterday. Price is +2.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $562.73 mean target (+13%); the scan flagged squeeze/penny sub.",
+   "reason": "346 mentions, cooling from 411. Price is +2.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $562.73 mean target (+14%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.21
+    "label": "mixed",
+    "score": 0.06
    },
    "read": [
     "quiet",
@@ -2574,7 +2590,7 @@
      393.82,
      381.7,
      464.72,
-     497.12
+     495.17
     ],
     "dates": [
      "2025-08-04",
@@ -2636,10 +2652,10 @@
   {
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
-   "price": 723.5399780273438,
-   "pct": 3.0977455154379876,
-   "mentions": 290,
-   "mentions_prev": 160,
+   "price": 723.72998046875,
+   "pct": 3.1248191035551502,
+   "mentions": 322,
+   "mentions_prev": 191,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2649,20 +2665,20 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
+    "Wall Street Short Sellers Piled Into Amazon and Microsoft at Historic Rates Before Earnings. Now They\u2019re Rallying.",
     "Exchange-Traded Funds Rise as US Equities Advance After Midday",
-    "Chart Storm: 10 Reasons AI Stocks Have Bottomed",
-    "What SCHD's Own History Suggests About Its Price Today"
+    "Chart Storm: 10 Reasons AI Stocks Have Bottomed"
    ],
    "band": [
     661.72998046875,
-    723.5399780273438
+    723.8300170898438
    ],
    "spark": [
     661.72998046875,
     683.5499877929688,
     687.989990234375,
     700.0700073242188,
-    723.5399780273438
+    723.8300170898438
    ],
    "stats": [
     [
@@ -2671,17 +2687,17 @@
     ],
     [
      "Vol today",
-     "41.4M"
+     "50.1M"
     ],
     [
      "52w range",
      "$555.60 \u2013 $748.65"
     ]
    ],
-   "reason": "290 mentions, up from 160 yesterday. Price is +3.1% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "322 mentions, up from 191 yesterday. Price is +3.1% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.0
+    "score": 0.06
    },
    "read": [
     "moving with attention",
@@ -2744,7 +2760,7 @@
      695.33,
      684.23,
      687.99,
-     723.61
+     723.87
     ],
     "dates": [
      "2025-08-04",
@@ -2806,10 +2822,10 @@
   {
    "sym": "DTE",
    "name": "DTE Energy",
-   "price": 141.10499572753906,
-   "pct": -0.4339572907570819,
-   "mentions": 231,
-   "mentions_prev": 56,
+   "price": 141.75,
+   "pct": 0.021168501270110877,
+   "mentions": 251,
+   "mentions_prev": 81,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2824,7 +2840,7 @@
     "DTE ties rate stability to data center projects as large-load pipeline remains steady"
    ],
    "band": [
-    141.10499572753906,
+    141.6999969482422,
     143.52000427246094
    ],
    "spark": [
@@ -2832,12 +2848,12 @@
     141.6999969482422,
     141.8699951171875,
     141.72000122070312,
-    141.10499572753906
+    141.75
    ],
    "stats": [
     [
      "Market cap",
-     "$29.4B"
+     "$29.5B"
     ],
     [
      "Float",
@@ -2853,14 +2869,14 @@
     ],
     [
      "Vol today",
-     "603.9K"
+     "956.1K"
     ],
     [
      "52w range",
      "$126.23 \u2013 $155.75"
     ]
    ],
-   "reason": "231 mentions today, 4x yesterday's 56. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $161.77 mean target (+15%); the scan flagged squeeze/penny sub.",
+   "reason": "251 mentions today, 3x yesterday's 81. Price is +0.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $161.77 mean target (+14%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.04
@@ -2934,7 +2950,7 @@
      148.19,
      149.46,
      141.87,
-     141.1
+     141.75
     ],
     "dates": [
      "2025-08-04",
@@ -2996,10 +3012,10 @@
   {
    "sym": "NVDA",
    "name": "NVIDIA",
-   "price": 211.9040069580078,
-   "pct": 2.4665524636757437,
-   "mentions": 224,
-   "mentions_prev": 221,
+   "price": 212.14500427246094,
+   "pct": 2.5830871357638916,
+   "mentions": 250,
+   "mentions_prev": 232,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -3009,20 +3025,20 @@
    "analyst_target": 302.82758,
    "earnings": null,
    "headlines": [
-    "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record highs",
+    "Tech stocks today: SpaceX, AMD to report earnings after the bell",
     "Tech stocks rally to kick off August. Can chipmakers keep up with demand?",
-    "Why AMD Stock Popped Today"
+    "Prediction: These 2 Stocks Will Keep Winning No Matter What the Market Does"
    ],
    "band": [
     190.00999450683594,
-    211.9040069580078
+    212.14500427246094
    ],
    "spark": [
     190.00999450683594,
     195.0399932861328,
     200.75,
     206.63999938964844,
-    211.9040069580078
+    212.14500427246094
    ],
    "stats": [
     [
@@ -3043,17 +3059,17 @@
     ],
     [
      "Vol today",
-     "72.5M"
+     "97.2M"
     ],
     [
      "52w range",
      "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "224 mentions, flat against yesterday. Price is +2.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+43%); the scan flagged squeeze/penny sub.",
+   "reason": "250 mentions, flat against yesterday. Price is +2.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+43%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": -0.04
+    "score": 0.13
    },
    "read": [
     "quiet",
@@ -3126,7 +3142,7 @@
      202.81,
      206.84,
      200.75,
-     211.88
+     212.12
     ],
     "dates": [
      "2025-08-04",
@@ -3188,10 +3204,10 @@
  ],
  "gainers": [
   {
-   "sym": "W",
-   "name": "Wayfair Inc.",
-   "price": 117.12,
-   "pct": 31.138737,
+   "sym": "PLTR",
+   "name": "Palantir Technologies Inc.",
+   "price": 162.86,
+   "pct": 29.614006,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -3201,8 +3217,34 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Wayfair Second-Quarter Results Top Views Amid Top-Line Momentum; Shares Soar",
-    "W Stock On Track For Biggest One-Day Gain In Over 6 Years Following Strong Q2 \u2013 CEO Highlights Best Post-COVID US Revenue Growth"
+    "Stock market today: Dow and S&P 500 trade at record highs, Nasdaq surges amid US-Iran optimism, tech rally",
+    "Palantir looks 'a bit unstoppable' after overwhelming Q2 commercial growth"
+   ],
+   "band": null,
+   "spark": [],
+   "stats": [],
+   "reason": "",
+   "tone": null,
+   "read": null,
+   "er": null,
+   "chart": null
+  },
+  {
+   "sym": "W",
+   "name": "Wayfair Inc.",
+   "price": 115.31,
+   "pct": 29.112082,
+   "mentions": null,
+   "mentions_prev": null,
+   "mom": null,
+   "label": "",
+   "flags": [],
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
+   "headlines": [
+    "Wayfair Inc (W) (Q2 2026) Earnings Call Highlights: Record EBITDA Margin and Accelerating ...",
+    "SpaceX, Palantir, AMD, Marvell,  Caterpillar, Pfizer, and More Stocks That Explain Today\u2019s Market"
    ],
    "band": null,
    "spark": [],
@@ -3216,8 +3258,8 @@
   {
    "sym": "PAY",
    "name": "Paymentus Holdings, Inc.",
-   "price": 45.0,
-   "pct": 30.359211,
+   "price": 44.31,
+   "pct": 28.360374,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -3240,10 +3282,10 @@
    "chart": null
   },
   {
-   "sym": "PLTR",
-   "name": "Palantir Technologies Inc.",
-   "price": 162.8193,
-   "pct": 29.58162,
+   "sym": "ZBRA",
+   "name": "Zebra Technologies Corporation",
+   "price": 366.0,
+   "pct": 25.497183,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -3253,8 +3295,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Stock market today: Nasdaq surges, Dow and S&P 500 trade at record highs amid US-Iran optimism, tech rally",
-    "Palantir looks 'a bit unstoppable' after overwhelming Q2 commercial growth"
+    "Zebra Technologies Q2 Earnings Call Highlights",
+    "ZBRA Q2 Earnings Beat Estimates on Sales Growth, Outlook Raised"
    ],
    "band": null,
    "spark": [],
@@ -3268,8 +3310,8 @@
   {
    "sym": "UFPT",
    "name": "UFP Technologies, Inc.",
-   "price": 334.74,
-   "pct": 25.122412,
+   "price": 334.17,
+   "pct": 24.90936,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -3279,34 +3321,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "UFP Technologies Q2 Earnings Call Highlights",
-    "3 of Wall Street\u2019s Favorite Stocks with Warning Signs"
-   ],
-   "band": null,
-   "spark": [],
-   "stats": [],
-   "reason": "",
-   "tone": null,
-   "read": null,
-   "er": null,
-   "chart": null
-  },
-  {
-   "sym": "ZBRA",
-   "name": "Zebra Technologies Corporation",
-   "price": 361.69,
-   "pct": 24.019335,
-   "mentions": null,
-   "mentions_prev": null,
-   "mom": null,
-   "label": "",
-   "flags": [],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "ZBRA Q2 Earnings Beat Estimates on Sales Growth, Outlook Raised",
-    "Zebra Technologies Stock Jumped 20% Today on the Best Problem in Tech"
+    "Why UFP Technologies Stock Is Skyrocketing Today",
+    "UFP Technologies Q2 Earnings Call Highlights"
    ],
    "band": null,
    "spark": [],
@@ -3320,35 +3336,35 @@
  ],
  "standouts": [
   {
+   "sym": "AMD",
+   "name": "AMD",
+   "why": [
+    "up +6% today",
+    "mentions 5x vs yesterday"
+   ]
+  },
+  {
    "sym": "PLTR",
    "name": "Palantir",
    "why": [
     "up +13% today",
-    "mentions 7x vs yesterday",
+    "mentions 5x vs yesterday",
     "also a top market gainer"
-   ]
-  },
-  {
-   "sym": "AMD",
-   "name": "AMD",
-   "why": [
-    "up +7% today",
-    "mentions 4x vs yesterday"
    ]
   },
   {
    "sym": "SPCX",
    "name": "SpaceX",
    "why": [
-    "up +8% today",
-    "mentions 2x vs yesterday"
+    "up +7% today",
+    "mentions 3x vs yesterday"
    ]
   },
   {
    "sym": "SNDK",
    "name": "Sandisk",
    "why": [
-    "up +8% today",
+    "up +7% today",
     "mentions rising"
    ]
   },
@@ -3363,8 +3379,8 @@
  ],
  "session": {
   "tracked": 10,
-  "up": 9,
-  "down": 1,
+  "up": 10,
+  "down": 0,
   "flagged": 8,
   "standouts": 5
  },
@@ -3374,8 +3390,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 757.6699829101562,
-   "last_price": 772.1300048828125,
-   "pct": 1.9084855278437107,
+   "last_price": 771.969970703125,
+   "pct": 1.887363643210929,
    "outcome": "flat",
    "note": "S&P500, Nasdaq End Higher, Dow Hits Record High On Strong Mag 7 Performance And Falling Oi",
    "age_days": 0
@@ -3385,8 +3401,8 @@
    "sym": "SPCX",
    "name": "SpaceX",
    "flag_price": 123.99819946289062,
-   "last_price": 123.99819946289062,
-   "pct": 0.0,
+   "last_price": 123.08999633789062,
+   "pct": -0.7324325102573777,
    "outcome": "flat",
    "note": "Stock market today: Nasdaq surges, Dow and S&P 500 trade at record highs amid US-Iran opti",
    "age_days": 0
@@ -3396,8 +3412,8 @@
    "sym": "PLTR",
    "name": "Palantir",
    "flag_price": 125.6500015258789,
-   "last_price": 162.8199005126953,
-   "pct": 29.58209195020255,
+   "last_price": 162.69000244140625,
+   "pct": 29.47871107498441,
    "outcome": "worked",
    "note": "Why Palantir is the 'best' publicly traded tech company",
    "age_days": 0
@@ -3407,8 +3423,8 @@
    "sym": "ONDS",
    "name": "Ondas Inc",
    "flag_price": 8.845,
-   "last_price": 8.845,
-   "pct": 0.0,
+   "last_price": 8.825,
+   "pct": -0.2261164499717507,
    "outcome": "flat",
    "note": "Why BlackRock Is Betting Big on Ondas Stock Now",
    "age_days": 0
@@ -3418,8 +3434,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 211.89,
-   "last_price": 211.89,
-   "pct": 0.0,
+   "last_price": 212.145,
+   "pct": 0.12034546226816928,
    "outcome": "flat",
    "note": "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record high",
    "age_days": 0
@@ -3429,8 +3445,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 9.36,
-   "last_price": 10.04,
-   "pct": 7.264957264957263,
+   "last_price": 9.9242,
+   "pct": 6.027777777777793,
    "outcome": "flat",
    "note": "NOK Stock In Focus: \u2018Multiple Catalysts' Have Retail Traders Eyeing A Return To $15",
    "age_days": 0
@@ -3440,8 +3456,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 829.5,
-   "last_price": 893.7449951171875,
-   "pct": 7.745026536128692,
+   "last_price": 888.7050170898438,
+   "pct": 7.137434248323539,
    "outcome": "flat",
    "note": "Semiconductor stocks pare losses amid fears of increased competition from China",
    "age_days": 0
@@ -3451,8 +3467,8 @@
    "sym": "MSFT",
    "name": "Microsoft",
    "flag_price": 487.6499938964844,
-   "last_price": 497.17999267578125,
-   "pct": 1.9542702550140605,
+   "last_price": 495.2699890136719,
+   "pct": 1.5625951425327058,
    "outcome": "flat",
    "note": "Why Palantir is the 'best' publicly traded tech company",
    "age_days": 0
@@ -3462,8 +3478,8 @@
    "sym": "GRAB",
    "name": "Grab Holdings Limited",
    "flag_price": 3.67,
-   "last_price": 3.73,
-   "pct": 1.6348773841961868,
+   "last_price": 3.695,
+   "pct": 0.6811989100817415,
    "outcome": "flat",
    "note": "Grab Holdings Limited (GRAB) Exceeds Market Returns: Some Facts to Consider",
    "age_days": 0
@@ -3484,8 +3500,8 @@
    "sym": "AMD",
    "name": "AMD",
    "flag_price": 527.6799926757812,
-   "last_price": 527.6799926757812,
-   "pct": 0.0,
+   "last_price": 526.3599853515625,
+   "pct": -0.25015299851055617,
    "outcome": "flat",
    "note": "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record high",
    "age_days": 0
@@ -3506,8 +3522,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 747.030029296875,
-   "last_price": 772.1300048828125,
-   "pct": 3.3599687564852356,
+   "last_price": 771.969970703125,
+   "pct": 3.3385460327109144,
    "outcome": "flat",
    "note": "What's Inside URA Decides This Dip's Fate",
    "age_days": 1
@@ -3517,8 +3533,8 @@
    "sym": "SNDK",
    "name": "Sandisk",
    "flag_price": 1214.8299560546875,
-   "last_price": 1434.699951171875,
-   "pct": 18.09882889546475,
+   "last_price": 1425.0699462890625,
+   "pct": 17.30612495901531,
    "outcome": "worked",
    "note": "Dow Jones Futures Rise, Oil Prices Dive As Trump Shifts On Iran; SpaceX, AMD, Sandisk, Eli",
    "age_days": 1
@@ -3539,8 +3555,8 @@
    "sym": "PLTR",
    "name": "Palantir",
    "flag_price": 125.6500015258789,
-   "last_price": 162.8199005126953,
-   "pct": 29.58209195020255,
+   "last_price": 162.69000244140625,
+   "pct": 29.47871107498441,
    "outcome": "worked",
    "note": "Why Palantir is the 'best' publicly traded tech company",
    "age_days": 1
@@ -3561,8 +3577,8 @@
    "sym": "ONDS",
    "name": "Ondas Inc",
    "flag_price": 8.305,
-   "last_price": 8.845,
-   "pct": 6.502107164358831,
+   "last_price": 8.825,
+   "pct": 6.261288380493673,
    "outcome": "flat",
    "note": "Why BlackRock Is Betting Big on Ondas Stock Now",
    "age_days": 1
@@ -3572,8 +3588,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 200.75,
-   "last_price": 211.89,
-   "pct": 5.549190535491898,
+   "last_price": 212.145,
+   "pct": 5.676214196762147,
    "outcome": "flat",
    "note": "Why Microsoft Stock Is Surging",
    "age_days": 1
@@ -3583,8 +3599,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 9.14,
-   "last_price": 10.04,
-   "pct": 9.846827133479195,
+   "last_price": 9.9242,
+   "pct": 8.579868708971555,
    "outcome": "flat",
    "note": "Is IDCC Stock a Buy After Strong Earnings and Higher Revenue Guidance?",
    "age_days": 1
@@ -3594,8 +3610,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 823.030029296875,
-   "last_price": 893.7449951171875,
-   "pct": 8.592027423437417,
+   "last_price": 888.7050170898438,
+   "pct": 7.979658755474054,
    "outcome": "flat",
    "note": "Micron Stock Falls. Here\u2019s What\u2019s Overshadowing Big Tech Spending.",
    "age_days": 1
@@ -3605,8 +3621,8 @@
    "sym": "MSFT",
    "name": "Microsoft Corporation",
    "flag_price": 464.72,
-   "last_price": 497.17999267578125,
-   "pct": 6.984849517081517,
+   "last_price": 495.2699890136719,
+   "pct": 6.573848556909933,
    "outcome": "flat",
    "note": "Why Microsoft Stock Is Surging",
    "age_days": 1
@@ -3627,8 +3643,8 @@
    "sym": "GRAB",
    "name": "Grab Holdings Limited",
    "flag_price": 3.67,
-   "last_price": 3.73,
-   "pct": 1.6348773841961868,
+   "last_price": 3.695,
+   "pct": 0.6811989100817415,
    "outcome": "flat",
    "note": "Grab Holdings Limited (GRAB) Exceeds Market Returns: Some Facts to Consider",
    "age_days": 1
@@ -3672,8 +3688,8 @@
    "sym": "NVDA",
    "name": "",
    "flag_price": 196.22,
-   "last_price": 211.89,
-   "pct": 7.985934155539693,
+   "last_price": 212.145,
+   "pct": 8.115890327183779,
    "outcome": "flat",
    "simulated": false,
    "note": "from the sent digest",
@@ -3684,9 +3700,9 @@
    "sym": "NOK",
    "name": "",
    "flag_price": 9.095,
-   "last_price": 10.04,
-   "pct": 10.390324354040665,
-   "outcome": "worked",
+   "last_price": 9.9242,
+   "pct": 9.117097306212205,
+   "outcome": "flat",
    "simulated": false,
    "note": "from the sent digest",
    "age_days": 4
@@ -3732,8 +3748,8 @@
    "sym": "SPY",
    "name": "",
    "flag_price": 736.05,
-   "last_price": 772.1300048828125,
-   "pct": 4.901841570927593,
+   "last_price": 771.969970703125,
+   "pct": 4.8800992735717745,
    "outcome": "flat",
    "simulated": true,
    "note": "judged by hand to fit the rule \u2014 never sent, not re-derived",
@@ -3744,8 +3760,8 @@
    "sym": "QQQ",
    "name": "",
    "flag_price": 679.17,
-   "last_price": 723.5399780273438,
-   "pct": 6.532970836071056,
+   "last_price": 723.72998046875,
+   "pct": 6.560946518360653,
    "outcome": "flat",
    "simulated": true,
    "note": "judged by hand to fit the rule \u2014 never sent, not re-derived",
@@ -3756,8 +3772,8 @@
    "sym": "NVDA",
    "name": "",
    "flag_price": 194.89,
-   "last_price": 211.89,
-   "pct": 8.722869310893325,
+   "last_price": 212.145,
+   "pct": 8.853712350556737,
    "outcome": "flat",
    "simulated": true,
    "note": "judged by hand to fit the rule \u2014 never sent, not re-derived",
@@ -3804,8 +3820,8 @@
    "sym": "SPY",
    "name": "",
    "flag_price": 729.46,
-   "last_price": 772.1300048828125,
-   "pct": 5.849533200286851,
+   "last_price": 771.969970703125,
+   "pct": 5.827594481277241,
    "outcome": "flat",
    "simulated": false,
    "note": "from the sent digest",
@@ -3816,8 +3832,8 @@
    "sym": "SNDK",
    "name": "",
    "flag_price": 1015.89,
-   "last_price": 1434.699951171875,
-   "pct": 41.225915322709646,
+   "last_price": 1425.0699462890625,
+   "pct": 40.27797756539217,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -3840,8 +3856,8 @@
    "sym": "NVDA",
    "name": "",
    "flag_price": 190.01,
-   "last_price": 211.89,
-   "pct": 11.515183411399397,
+   "last_price": 212.145,
+   "pct": 11.649386874375043,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -3852,8 +3868,8 @@
    "sym": "NOK",
    "name": "",
    "flag_price": 8.41,
-   "last_price": 10.04,
-   "pct": 19.38168846611176,
+   "last_price": 9.9242,
+   "pct": 18.00475624256838,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -3864,8 +3880,8 @@
    "sym": "MU",
    "name": "",
    "flag_price": 739.0,
-   "last_price": 893.7449951171875,
-   "pct": 20.93978283047192,
+   "last_price": 888.7050170898438,
+   "pct": 20.257783097407813,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -3876,8 +3892,8 @@
    "sym": "MSFT",
    "name": "",
    "flag_price": 390.54,
-   "last_price": 497.17999267578125,
-   "pct": 27.305779862698117,
+   "last_price": 495.2699890136719,
+   "pct": 26.816712504140895,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -4009,7 +4025,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
