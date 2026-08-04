@@ -1,0 +1,90 @@
+name: Refresh board
+
+# Keeps the dashboard's prices, holdings and P/L current WITHOUT sending a
+# notification. The digest is three considered snapshots a day; this is just the
+# board catching up with the market.
+#
+# Two env vars do the separating:
+#   NOTIFY_METHOD: print  -> the digest is logged, never pushed to ntfy
+#   RECORD_PICKS: '0'     -> prices are marked to market, but no new names are
+#                            filed in the pick record
+#
+# Without the second one, refreshing every 15 minutes would file every name that
+# passed the filter at any point in the day — a looser record than the three
+# snapshots the strategy is actually measured on.
+#
+# USE THIS WORKFLOW TO DEPLOY DASHBOARD CHANGES. Dispatching daily.yml sends a
+# real ntfy notification; doing that repeatedly to publish an HTML edit is what
+# turned three notifications a day into one every few minutes.
+
+on:
+  schedule:
+    # every 15 minutes through the US session, weekdays only. GitHub runs cron
+    # late and unevenly, so treat this as "a few times an hour", not a metronome.
+    - cron: '*/15 12-21 * * 1-5'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Shares the digest's group so a refresh and a digest never deploy Pages at once.
+concurrency:
+  group: radar-pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+
+      - name: Re-price the board (no notification)
+        continue-on-error: true
+        env:
+          NOTIFY_METHOD: print        # logged, not sent
+          RECORD_PICKS: '0'           # mark to market, do not file new picks
+          APEWISDOM_FILTER: Shortsqueeze,pennystocks,wallstreetbets,all-stocks,stocks
+          EXCHANGE_FILTER: '1'
+          INCLUDE_CANADIAN: '0'
+          TOP_N: '10'
+          MAX_VALIDATE: '50'
+          DASHBOARD_DIR: docs
+        run: python main.py
+
+      - name: Refresh holdings and the curve
+        continue-on-error: true
+        env:
+          DASHBOARD_DIR: docs
+        run: python backtest.py
+
+      - name: Commit refreshed data
+        continue-on-error: true
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data.json docs/history.json docs/backtest.json
+          git diff --staged --quiet && echo "no change" && exit 0
+          git commit -m "board refresh $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase origin main || true
+          git push origin HEAD:main
+
+      - uses: actions/configure-pages@v5
+        continue-on-error: true
+      - uses: actions/upload-pages-artifact@v3
+        continue-on-error: true
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true

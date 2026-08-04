@@ -32,7 +32,9 @@ on:
     - cron: '50 11 * * 1-5'  # ~8 AM EDT — pre-market (7 AM under EST)
     - cron: '50 16 * * 1-5'  # ~1 PM EDT — midday   (12 PM under EST)
     - cron: '5 20 * * 1-5'   # ~4 PM EDT — close    (3 PM under EST)
-  workflow_dispatch: {}        # manual trigger always runs
+  # Dispatching this sends a REAL notification. To publish a dashboard change,
+  # use refresh.yml instead — it re-prices and deploys without notifying.
+  workflow_dispatch: {}
 
 permissions:
   contents: write     # commit the refreshed docs/data.json back to main

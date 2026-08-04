@@ -851,13 +851,20 @@ def update_history(watch, results):
     # The cron is Mon-Fri, so only a hand-run lands here at a weekend. Prices are
     # Friday's stale close, and filing it would invent a pick day the market
     # never had — mark the record to market, but do not add to it.
+    # A price-refresh run re-prices what is already recorded but must not add to
+    # the pick record: refreshing every 15 minutes would otherwise file every
+    # name that passed the filter at any point in the day, which is a different
+    # and much looser record than three considered snapshots.
+    record = os.getenv("RECORD_PICKS", "1") == "1"
+    if not record:
+        print("[history] RECORD_PICKS=0 — marking to market, not recording picks")
     weekend = market_day.weekday() >= 5
     if weekend:
         print(f"[history] {market_day} is a {market_day.strftime('%A')} — "
               f"marking to market, not recording a pick day")
 
     flagged_today = {e["sym"] for e in hist if e.get("date") == market_day.isoformat()}
-    for w in (() if weekend else watch):
+    for w in (() if (weekend or not record) else watch):
         if w["sym"] in flagged_today or not w.get("price"):
             continue
         hist.append({
