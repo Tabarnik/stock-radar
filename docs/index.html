@@ -1585,6 +1585,14 @@ function exitRules(){
   if (hold.positions < 30) {
     lead += ` ${hold.positions} picks so far and the record grows with every run, so this ranking will move — it is your average, not an industry rule of thumb.`;
   }
+  const c0 = RS.find(e => e.rule === (B.curve_rule || "")) || best;
+  if (typeof c0.avg_excess === "number") {
+    lead += ` Against SPY over the same windows the edge is ${
+      c0.avg_excess > 0 ? "+" : ""}${c0.avg_excess}%, not ${
+      c0.avg_return > 0 ? "+" : ""}${c0.avg_return}% — the market supplied ${
+      c0.avg_spy > 0 ? "+" : ""}${c0.avg_spy}% of it. Positions overlap and repeat the
+      same few names, so treat even that as one bet placed many times.`;
+  }
 
   return `<div class="panel" style="margin-bottom:16px;">
     <div class="phead"><div class="cap">When to sell</div>
@@ -1616,11 +1624,15 @@ function exitRules(){
       </div>
     </div>
 
-    <div class="scroll"><div style="min-width:620px;">
+    <div class="scroll"><div style="min-width:760px;">
       <div class="tbl">
         <div style="flex:1 1 200px;">Sell rule</div>
         <div style="flex:0 0 104px;text-align:right;">Ends at</div>
         <div style="flex:0 0 84px;text-align:right;">Avg return</div>
+        <div style="flex:0 0 66px;text-align:right;"
+          title="What SPY did over the same windows. Anything the market gave you is not stock-picking.">SPY</div>
+        <div style="flex:0 0 76px;text-align:right;"
+          title="Return minus the market over the same window — the part that is actually the picking.">vs SPY</div>
         <div style="flex:0 0 70px;text-align:right;">Win rate</div>
         <div style="flex:0 0 86px;text-align:right;">Days held</div>
         <div style="flex:0 0 80px;text-align:right;">Worst</div>
@@ -1652,6 +1664,13 @@ function exitRules(){
               $${Math.round(e.final).toLocaleString()}</div>
             <div class="mono" style="flex:0 0 84px;text-align:right;font-size:12px;
               color:${chgC(e.avg_return)};">${pctT(e.avg_return)}</div>
+            <div class="mono" style="flex:0 0 66px;text-align:right;font-size:12px;
+              color:var(--ink-5);">${typeof e.avg_spy === "number"
+                ? pctT(e.avg_spy) : "\u2014"}</div>
+            <div class="mono" style="flex:0 0 76px;text-align:right;font-size:12px;
+              font-weight:600;color:${typeof e.avg_excess === "number"
+                ? chgC(e.avg_excess) : "var(--ink-5)"};">${
+              typeof e.avg_excess === "number" ? pctT(e.avg_excess) : "\u2014"}</div>
             <div class="mono" style="flex:0 0 70px;text-align:right;font-size:12px;
               color:var(--ink-4);">${e.win_rate}%</div>
             <div class="mono" style="flex:0 0 86px;text-align:right;font-size:12px;
