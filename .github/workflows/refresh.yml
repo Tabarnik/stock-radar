@@ -21,7 +21,7 @@ on:
   schedule:
     # every 15 minutes through the US session, weekdays only. GitHub runs cron
     # late and unevenly, so treat this as "a few times an hour", not a metronome.
-    - cron: '*/15 12-21 * * 1-5'
+    - cron: '*/20 12-21 * * 1-5'
   workflow_dispatch: {}
 
 permissions:
@@ -29,10 +29,13 @@ permissions:
   pages: write
   id-token: write
 
-# Shares the digest's group so a refresh and a digest never deploy Pages at once.
+# The only workflow that deploys Pages. cancel-in-progress is TRUE on purpose: a
+# refresh is disposable, so a newer one should supersede an older one rather than
+# queue behind it. With `false`, a run stuck in the Pages deployment queue held
+# the group and silently cancelled everything for two days.
 concurrency:
   group: radar-pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   refresh:
