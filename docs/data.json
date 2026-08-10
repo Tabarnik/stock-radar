@@ -1,12 +1,184 @@
 {
- "generated_at": "2026-08-10T12:33:01.139651+00:00",
+ "generated_at": "2026-08-10T13:17:45.681624+00:00",
  "watch": [
+  {
+   "sym": "SPY",
+   "name": "SPDR S&P 500 ETF Trust",
+   "price": 773.260009765625,
+   "pct": -0.017777434550155173,
+   "mentions": 357,
+   "mentions_prev": 134,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
+   "headlines": [
+    "3 Beaten-Down Healthcare Stocks to Buy in August",
+    "Super Micro Computer Continues Its 3-Month Fall: One Wall Street Bull\u2019s Thesis Predicts 55% Upside From Here",
+    "S&P 500 Companies' Second-Quarter Profit Boomed \u2014 What's Next?"
+   ],
+   "band": [
+    757.6699829101562,
+    773.260009765625
+   ],
+   "spark": [
+    757.6699829101562,
+    771.3300170898438,
+    769.7899780273438,
+    768.5599975585938,
+    773.260009765625
+   ],
+   "stats": [
+    [
+     "Avg vol",
+     "53.2M"
+    ],
+    [
+     "Vol today",
+     "42.7M"
+    ],
+    [
+     "52w range",
+     "$629.28 \u2013 $776.85"
+    ]
+   ],
+   "reason": "357 mentions today, 3x yesterday's 134. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "positive",
+    "score": 0.35
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": null,
+   "chart": {
+    "period": "1y",
+    "closes": [
+     630.2,
+     636.39,
+     638.24,
+     637.98,
+     640.15,
+     650.21,
+     658.25,
+     656.38,
+     663.71,
+     647.65,
+     658.93,
+     671.69,
+     676.46,
+     665.46,
+     666.41,
+     653.61,
+     677.77,
+     680.06,
+     676.16,
+     676.99,
+     686.66,
+     679.56,
+     690.4,
+     688.0,
+     685.59,
+     688.31,
+     686.97,
+     678.15,
+     685.79,
+     682.36,
+     668.83,
+     658.79,
+     646.9,
+     632.46,
+     654.14,
+     677.71,
+     708.32,
+     712.11,
+     718.8,
+     735.72,
+     737.27,
+     743.72,
+     754.54,
+     735.65,
+     739.84,
+     746.74,
+     728.99,
+     744.78,
+     754.95,
+     743.29,
+     738.93,
+     747.03,
+     773.26
+    ],
+    "dates": [
+     "2025-08-04",
+     "2025-08-11",
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03"
+    ]
+   },
+   "tag": "3x Reddit mentions",
+   "source": "reddit"
+  },
   {
    "sym": "HTZ",
    "name": "Hertz",
    "price": 2.2699999809265137,
    "pct": -0.4385973277844795,
-   "mentions": 323,
+   "mentions": 351,
    "mentions_prev": 81,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -60,7 +232,7 @@
      "$1.45 \u2013 $8.18"
     ]
    ],
-   "reason": "323 mentions today, 4x yesterday's 81. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is hold with a $2.77 mean target (+22%); the scan flagged penny <$5, vol 10x normal, squeeze/penny sub.",
+   "reason": "351 mentions today, 4x yesterday's 81. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is hold with a $2.77 mean target (+22%); the scan flagged penny <$5, vol 10x normal, squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.2
@@ -196,184 +368,12 @@
    "source": "reddit"
   },
   {
-   "sym": "SPY",
-   "name": "SPDR S&P 500 ETF Trust",
-   "price": 773.260009765625,
-   "pct": -0.017777434550155173,
-   "mentions": 318,
-   "mentions_prev": 140,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "3 Beaten-Down Healthcare Stocks to Buy in August",
-    "Super Micro Computer Continues Its 3-Month Fall: One Wall Street Bull\u2019s Thesis Predicts 55% Upside From Here",
-    "S&P 500 Companies' Second-Quarter Profit Boomed \u2014 What's Next?"
-   ],
-   "band": [
-    757.6699829101562,
-    773.260009765625
-   ],
-   "spark": [
-    757.6699829101562,
-    771.3300170898438,
-    769.7899780273438,
-    768.5599975585938,
-    773.260009765625
-   ],
-   "stats": [
-    [
-     "Avg vol",
-     "53.2M"
-    ],
-    [
-     "Vol today",
-     "42.7M"
-    ],
-    [
-     "52w range",
-     "$629.28 \u2013 $776.85"
-    ]
-   ],
-   "reason": "318 mentions today, 2x yesterday's 140. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "positive",
-    "score": 0.35
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": null,
-   "chart": {
-    "period": "1y",
-    "closes": [
-     630.2,
-     636.39,
-     638.24,
-     637.98,
-     640.15,
-     650.21,
-     658.25,
-     656.38,
-     663.71,
-     647.65,
-     658.93,
-     671.69,
-     676.46,
-     665.46,
-     666.41,
-     653.61,
-     677.77,
-     680.06,
-     676.16,
-     676.99,
-     686.66,
-     679.56,
-     690.4,
-     688.0,
-     685.59,
-     688.31,
-     686.97,
-     678.15,
-     685.79,
-     682.36,
-     668.83,
-     658.79,
-     646.9,
-     632.46,
-     654.14,
-     677.71,
-     708.32,
-     712.11,
-     718.8,
-     735.72,
-     737.27,
-     743.72,
-     754.54,
-     735.65,
-     739.84,
-     746.74,
-     728.99,
-     744.78,
-     754.95,
-     743.29,
-     738.93,
-     747.03,
-     773.26
-    ],
-    "dates": [
-     "2025-08-04",
-     "2025-08-11",
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03"
-    ]
-   },
-   "tag": "2x Reddit mentions",
-   "source": "reddit"
-  },
-  {
    "sym": "SPCX",
    "name": "SpaceX",
    "price": 133.11000061035156,
    "pct": -0.7456560954801663,
-   "mentions": 186,
-   "mentions_prev": 128,
+   "mentions": 211,
+   "mentions_prev": 122,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -384,8 +384,8 @@
    "earnings": null,
    "headlines": [
     "Airbnb CEO: Why AI is the best thing to happen to us",
-    "Stock Market Today: Dow Falls As Oil Prices Climb; SpaceX Stock Extends Gains (Live Coverage)",
-    "SpaceX retail investors turn sellers for first time since IPO"
+    "Update: US Equity Futures Mostly Flat Pre-Bell Amid Lack of Progress in Middle East Peace Negotiations",
+    "SpaceX Stock Jumps Again After Lock-Up Rally. When\u2019s the Next Release, What to Expect."
    ],
    "band": [
     108.2699966430664,
@@ -424,10 +424,10 @@
      "$104.83 \u2013 $225.64"
     ]
    ],
-   "reason": "186 mentions, up from 128 yesterday. Price is -0.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $231.40 mean target (+74%); the scan flagged squeeze/penny sub.",
+   "reason": "211 mentions, up from 122 yesterday. Price is -0.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $231.40 mean target (+74%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.36
+    "score": 0.42
    },
    "read": [
     "quiet",
@@ -468,7 +468,7 @@
      "2026-08-03"
     ]
    },
-   "tag": "1x Reddit mentions",
+   "tag": "2x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -476,8 +476,8 @@
    "name": "Micron Technology",
    "price": 877.5700073242188,
    "pct": -0.2761355313387784,
-   "mentions": 177,
-   "mentions_prev": 104,
+   "mentions": 199,
+   "mentions_prev": 102,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -487,9 +487,9 @@
    "analyst_target": 1501.9767,
    "earnings": null,
    "headlines": [
+    "Micron Stock Rises Despite Apple China Chip Threat",
     "Schwab: Retail investors want AI stocks on the cheap",
-    "Why Micron Stock Plummeted 28.7% in July But Is Rebounding in August",
-    "Chip Stocks Face a Long Climb Back to Their Peak Despite Recent Rally"
+    "Why Micron Stock Plummeted 28.7% in July But Is Rebounding in August"
    ],
    "band": [
     829.5,
@@ -524,10 +524,10 @@
      "$113.46 \u2013 $1255.00"
     ]
    ],
-   "reason": "177 mentions, up from 104 yesterday. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+71%); the scan flagged squeeze/penny sub.",
+   "reason": "199 mentions, up from 102 yesterday. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+71%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.03
+    "score": -0.15
    },
    "read": [
     "quiet",
@@ -675,9 +675,9 @@
    "analyst_target": 302.82758,
    "earnings": null,
    "headlines": [
-    "3 Energy Stocks With Dividends That Have Never Been Cut",
-    "How Much of the S&P 500's Return Actually Came From Dividends vs. Price Appreciation, by Decade",
-    "TSMC Sales Jumps 45% as Nvidia-Driven AI Boom Powers Chip Demand"
+    "Billionaire Mark Cuban Just Warned Nvidia's AI Financing Could \"Crumble\" the Market. Should Investors Be Worried?",
+    "Elon Musk Says This Is One of the Biggest Challenges for Public Companies",
+    "Should Rocketlab or SpaceX Provide Better August Returns?"
    ],
    "band": [
     206.63999938964844,
@@ -718,8 +718,8 @@
    ],
    "reason": "Price is +2.3% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $302.83 mean target (+35%).",
    "tone": {
-    "label": "positive",
-    "score": 0.28
+    "label": "mixed",
+    "score": 0.0
    },
    "read": [
     "quiet",
@@ -1426,11 +1426,181 @@
  ],
  "buzz": [
   {
+   "sym": "SPY",
+   "name": "SPDR S&P 500 ETF Trust",
+   "price": 773.260009765625,
+   "pct": -0.017777434550155173,
+   "mentions": 357,
+   "mentions_prev": 134,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
+   "headlines": [
+    "3 Beaten-Down Healthcare Stocks to Buy in August",
+    "Super Micro Computer Continues Its 3-Month Fall: One Wall Street Bull\u2019s Thesis Predicts 55% Upside From Here",
+    "S&P 500 Companies' Second-Quarter Profit Boomed \u2014 What's Next?"
+   ],
+   "band": [
+    757.6699829101562,
+    773.260009765625
+   ],
+   "spark": [
+    757.6699829101562,
+    771.3300170898438,
+    769.7899780273438,
+    768.5599975585938,
+    773.260009765625
+   ],
+   "stats": [
+    [
+     "Avg vol",
+     "53.2M"
+    ],
+    [
+     "Vol today",
+     "42.7M"
+    ],
+    [
+     "52w range",
+     "$629.28 \u2013 $776.85"
+    ]
+   ],
+   "reason": "357 mentions today, 3x yesterday's 134. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "positive",
+    "score": 0.35
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": null,
+   "chart": {
+    "period": "1y",
+    "closes": [
+     630.2,
+     636.39,
+     638.24,
+     637.98,
+     640.15,
+     650.21,
+     658.25,
+     656.38,
+     663.71,
+     647.65,
+     658.93,
+     671.69,
+     676.46,
+     665.46,
+     666.41,
+     653.61,
+     677.77,
+     680.06,
+     676.16,
+     676.99,
+     686.66,
+     679.56,
+     690.4,
+     688.0,
+     685.59,
+     688.31,
+     686.97,
+     678.15,
+     685.79,
+     682.36,
+     668.83,
+     658.79,
+     646.9,
+     632.46,
+     654.14,
+     677.71,
+     708.32,
+     712.11,
+     718.8,
+     735.72,
+     737.27,
+     743.72,
+     754.54,
+     735.65,
+     739.84,
+     746.74,
+     728.99,
+     744.78,
+     754.95,
+     743.29,
+     738.93,
+     747.03,
+     773.26
+    ],
+    "dates": [
+     "2025-08-04",
+     "2025-08-11",
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03"
+    ]
+   }
+  },
+  {
    "sym": "HTZ",
    "name": "Hertz",
    "price": 2.2699999809265137,
    "pct": -0.4385973277844795,
-   "mentions": 323,
+   "mentions": 351,
    "mentions_prev": 81,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -1484,7 +1654,7 @@
      "$1.45 \u2013 $8.18"
     ]
    ],
-   "reason": "323 mentions today, 4x yesterday's 81. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is hold with a $2.77 mean target (+22%); the scan flagged penny <$5, vol 10x normal, squeeze/penny sub.",
+   "reason": "351 mentions today, 4x yesterday's 81. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is hold with a $2.77 mean target (+22%); the scan flagged penny <$5, vol 10x normal, squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.2
@@ -1618,182 +1788,12 @@
    }
   },
   {
-   "sym": "SPY",
-   "name": "SPDR S&P 500 ETF Trust",
-   "price": 773.260009765625,
-   "pct": -0.017777434550155173,
-   "mentions": 318,
-   "mentions_prev": 140,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "3 Beaten-Down Healthcare Stocks to Buy in August",
-    "Super Micro Computer Continues Its 3-Month Fall: One Wall Street Bull\u2019s Thesis Predicts 55% Upside From Here",
-    "S&P 500 Companies' Second-Quarter Profit Boomed \u2014 What's Next?"
-   ],
-   "band": [
-    757.6699829101562,
-    773.260009765625
-   ],
-   "spark": [
-    757.6699829101562,
-    771.3300170898438,
-    769.7899780273438,
-    768.5599975585938,
-    773.260009765625
-   ],
-   "stats": [
-    [
-     "Avg vol",
-     "53.2M"
-    ],
-    [
-     "Vol today",
-     "42.7M"
-    ],
-    [
-     "52w range",
-     "$629.28 \u2013 $776.85"
-    ]
-   ],
-   "reason": "318 mentions today, 2x yesterday's 140. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "positive",
-    "score": 0.35
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": null,
-   "chart": {
-    "period": "1y",
-    "closes": [
-     630.2,
-     636.39,
-     638.24,
-     637.98,
-     640.15,
-     650.21,
-     658.25,
-     656.38,
-     663.71,
-     647.65,
-     658.93,
-     671.69,
-     676.46,
-     665.46,
-     666.41,
-     653.61,
-     677.77,
-     680.06,
-     676.16,
-     676.99,
-     686.66,
-     679.56,
-     690.4,
-     688.0,
-     685.59,
-     688.31,
-     686.97,
-     678.15,
-     685.79,
-     682.36,
-     668.83,
-     658.79,
-     646.9,
-     632.46,
-     654.14,
-     677.71,
-     708.32,
-     712.11,
-     718.8,
-     735.72,
-     737.27,
-     743.72,
-     754.54,
-     735.65,
-     739.84,
-     746.74,
-     728.99,
-     744.78,
-     754.95,
-     743.29,
-     738.93,
-     747.03,
-     773.26
-    ],
-    "dates": [
-     "2025-08-04",
-     "2025-08-11",
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03"
-    ]
-   }
-  },
-  {
    "sym": "SPCX",
    "name": "SpaceX",
    "price": 133.11000061035156,
    "pct": -0.7456560954801663,
-   "mentions": 186,
-   "mentions_prev": 128,
+   "mentions": 211,
+   "mentions_prev": 122,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1804,8 +1804,8 @@
    "earnings": null,
    "headlines": [
     "Airbnb CEO: Why AI is the best thing to happen to us",
-    "Stock Market Today: Dow Falls As Oil Prices Climb; SpaceX Stock Extends Gains (Live Coverage)",
-    "SpaceX retail investors turn sellers for first time since IPO"
+    "Update: US Equity Futures Mostly Flat Pre-Bell Amid Lack of Progress in Middle East Peace Negotiations",
+    "SpaceX Stock Jumps Again After Lock-Up Rally. When\u2019s the Next Release, What to Expect."
    ],
    "band": [
     108.2699966430664,
@@ -1844,10 +1844,10 @@
      "$104.83 \u2013 $225.64"
     ]
    ],
-   "reason": "186 mentions, up from 128 yesterday. Price is -0.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $231.40 mean target (+74%); the scan flagged squeeze/penny sub.",
+   "reason": "211 mentions, up from 122 yesterday. Price is -0.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $231.40 mean target (+74%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.36
+    "score": 0.42
    },
    "read": [
     "quiet",
@@ -1894,8 +1894,8 @@
    "name": "Micron Technology",
    "price": 877.5700073242188,
    "pct": -0.2761355313387784,
-   "mentions": 177,
-   "mentions_prev": 104,
+   "mentions": 199,
+   "mentions_prev": 102,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1905,9 +1905,9 @@
    "analyst_target": 1501.9767,
    "earnings": null,
    "headlines": [
+    "Micron Stock Rises Despite Apple China Chip Threat",
     "Schwab: Retail investors want AI stocks on the cheap",
-    "Why Micron Stock Plummeted 28.7% in July But Is Rebounding in August",
-    "Chip Stocks Face a Long Climb Back to Their Peak Despite Recent Rally"
+    "Why Micron Stock Plummeted 28.7% in July But Is Rebounding in August"
    ],
    "band": [
     829.5,
@@ -1942,10 +1942,10 @@
      "$113.46 \u2013 $1255.00"
     ]
    ],
-   "reason": "177 mentions, up from 104 yesterday. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+71%); the scan flagged squeeze/penny sub.",
+   "reason": "199 mentions, up from 102 yesterday. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+71%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.03
+    "score": -0.15
    },
    "read": [
     "quiet",
@@ -2082,7 +2082,7 @@
    "name": "Rocket Lab USA",
    "price": 82.83000183105469,
    "pct": -1.251786086010143,
-   "mentions": 163,
+   "mentions": 168,
    "mentions_prev": 69,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2093,9 +2093,9 @@
    "analyst_target": 111.3125,
    "earnings": "Aug 10 (0d)",
    "headlines": [
+    "Should Rocketlab or SpaceX Provide Better August Returns?",
     "Stocks Mostly Up Pre-Bell as Traders Assess Middle East Developments, Await Key Inflation Data",
-    "Peter Beck's Rocket Lab Fell 30% in a Month While Revenue Grew 63%",
-    "US Equity Investors to Focus on Inflation, Iran Geopolitics, Quarterly Earnings This Week"
+    "Peter Beck's Rocket Lab Fell 30% in a Month While Revenue Grew 63%"
    ],
    "band": [
     70.43000030517578,
@@ -2134,10 +2134,10 @@
      "$37.57 \u2013 $151.00"
     ]
    ],
-   "reason": "163 mentions today, 2x yesterday's 69. Price is -1.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $111.31 mean target (+34%); earnings land Aug 10 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "168 mentions today, 2x yesterday's 69. Price is -1.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $111.31 mean target (+34%); earnings land Aug 10 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": 0.03
+    "label": "positive",
+    "score": 0.18
    },
    "read": [
     "quiet",
@@ -2274,8 +2274,8 @@
    "name": "AST SpaceMobile",
    "price": 71.94000244140625,
    "pct": -0.8309543587974958,
-   "mentions": 109,
-   "mentions_prev": 34,
+   "mentions": 113,
+   "mentions_prev": 32,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2326,7 +2326,7 @@
      "$36.08 \u2013 $133.86"
     ]
    ],
-   "reason": "109 mentions today, 3x yesterday's 34. Price is -0.8% \u2014 the attention has moved further than the price; analyst consensus is hold with a $80.48 mean target (+12%); earnings land Aug 10 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "113 mentions today, 4x yesterday's 32. Price is -0.8% \u2014 the attention has moved further than the price; analyst consensus is hold with a $80.48 mean target (+12%); earnings land Aug 10 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.1
@@ -2466,7 +2466,7 @@
    "name": "Nebius Group",
    "price": 187.97000122070312,
    "pct": -1.0214837558741636,
-   "mentions": 99,
+   "mentions": 109,
    "mentions_prev": 57,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2477,9 +2477,9 @@
    "analyst_target": 250.75,
    "earnings": "Aug 12 (2d)",
    "headlines": [
+    "2 Ex-Situational Awareness Stocks That are Melting Up and Worth Buying Up",
     "Earnings Season, Persian Gulf Lull, Lift Wall Street Pre-Bell; Asia, Europe Up",
-    "25-Year-Old Lost $35 Billion of His Investors\u2019 Money. 2 Weeks Later, Silicon Valley Insiders Are Lining Up to Give Him More Cash.",
-    "Dow Jones Futures Fall After Market Ramps Up; Cisco, Lumentum Earnings Ahead"
+    "25-Year-Old Lost $35 Billion of His Investors\u2019 Money. 2 Weeks Later, Silicon Valley Insiders Are Lining Up to Give Him More Cash."
    ],
    "band": [
     187.97000122070312,
@@ -2518,10 +2518,10 @@
      "$62.01 \u2013 $299.86"
     ]
    ],
-   "reason": "99 mentions, up from 57 yesterday. Price is -1.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $250.75 mean target (+33%); earnings land Aug 12 (2d); the scan flagged squeeze/penny sub.",
+   "reason": "109 mentions, up from 57 yesterday. Price is -1.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $250.75 mean target (+33%); earnings land Aug 12 (2d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": -0.11
+    "score": -0.03
    },
    "read": [
     "quiet",
@@ -2658,8 +2658,8 @@
    "name": "Vanguard S&P 500 ETF",
    "price": 710.7100219726562,
    "pct": -0.012658698275704072,
-   "mentions": 82,
-   "mentions_prev": 46,
+   "mentions": 81,
+   "mentions_prev": 40,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2698,7 +2698,7 @@
      "$578.46 \u2013 $714.16"
     ]
    ],
-   "reason": "82 mentions, up from 46 yesterday. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "81 mentions today, 2x yesterday's 40. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.16
@@ -2828,8 +2828,8 @@
    "name": "Invesco QQQ ETF",
    "price": 723.030029296875,
    "pct": -0.031796408362828155,
-   "mentions": 74,
-   "mentions_prev": 45,
+   "mentions": 77,
+   "mentions_prev": 42,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2868,7 +2868,7 @@
      "$555.60 \u2013 $748.65"
     ]
    ],
-   "reason": "74 mentions, up from 45 yesterday. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "77 mentions, up from 42 yesterday. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.08
@@ -2998,8 +2998,8 @@
    "name": "Sandisk",
    "price": 1212.2099609375,
    "pct": -0.6376156127416975,
-   "mentions": 66,
-   "mentions_prev": 49,
+   "mentions": 72,
+   "mentions_prev": 43,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -3050,7 +3050,7 @@
      "$42.82 \u2013 $2354.39"
     ]
    ],
-   "reason": "66 mentions, up from 49 yesterday. Price is -0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,106.64 mean target (+74%); the scan flagged squeeze/penny sub.",
+   "reason": "72 mentions, up from 43 yesterday. Price is -0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,106.64 mean target (+74%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.08
@@ -3199,8 +3199,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "US Stock Market Today: S&P 500 Futures Climb On Softer Jobs Data And Yields",
-    "Atlassian just flipped Wall Street\u2019s AI fear on its head"
+    "Monday.com Falls As Software Maker's Guidance Trumps Earnings Beat",
+    "US Stock Market Today: S&P 500 Futures Climb On Softer Jobs Data And Yields"
    ],
    "band": null,
    "spark": [],
@@ -4284,7 +4284,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
