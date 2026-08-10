@@ -1217,8 +1217,8 @@
   },
   {
    "date": "2026-08-10",
-   "picks": 9,
-   "flagged": 12,
+   "picks": 10,
+   "flagged": 13,
    "held_already": [
     "NVDA",
     "SPCX",
@@ -1233,12 +1233,13 @@
     "MU",
     "MARA",
     "HTZ",
+    "HL",
     "ACHR"
    ],
    "per_ticker": 562.21,
    "held_days": 0,
-   "return_pct": -1.7,
-   "invested": 5059.9,
+   "return_pct": -1.6,
+   "invested": 5622.11,
    "balance": 11244.21,
    "pnl": -87.5,
    "open": true
@@ -2561,6 +2562,23 @@
   },
   {
    "date": "2026-08-10",
+   "sym": "HL",
+   "entry": 17.55,
+   "now": 17.55,
+   "ret_total": -0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-08-10",
    "sym": "HTZ",
    "entry": 2.2699999809265137,
    "now": 2.12,
@@ -3612,6 +3630,21 @@
    "value": 586.08,
    "pnl": 23.87,
    "ret": 4.2,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "HL",
+   "bought": "2026-08-10",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 17.55,
+   "price": 17.55,
+   "shares": 32.0348,
+   "alloc": 562.21,
+   "value": 562.21,
+   "pnl": -0.0,
+   "ret": -0.0,
    "spy_ret": null,
    "path": []
   },
