@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-11T20:51:23.098061+00:00",
+ "generated_at": "2026-08-11T20:56:52.042003+00:00",
  "watch": [
   {
    "sym": "HTZ",
@@ -212,8 +212,8 @@
    "earnings": "Aug 11 (0d)",
    "headlines": [
     "Tech stocks today: CoreWeave and Supermicro results win over investors",
-    "Super Micro Stock Climbs as Earnings Soar Past Expectations",
-    "Super Micro (NASDAQ:SMCI) Beats Q2 CY2026 Non-GAAP EPS Estimates, Stock Soars 9.7%"
+    "Supermicro Q4 FY2026 earnings: margins surge, fiscal 2027 guidance tops estimates",
+    "Super Micro Stock Climbs as Earnings Soar Past Expectations"
    ],
    "band": [
     29.3799991607666,
@@ -255,7 +255,7 @@
    "reason": "319 mentions today, 7x yesterday's 46. Price is -0.6% \u2014 the attention has moved further than the price; analyst consensus is hold with a $37.81 mean target (+20%); earnings land Aug 11 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.59
+    "score": 0.57
    },
    "read": [
     "quiet",
@@ -1258,64 +1258,64 @@
    "source": "yahoo"
   },
   {
-   "sym": "NU",
-   "name": "Nu Holdings Ltd.",
-   "price": 13.65,
-   "pct": -1.51515,
+   "sym": "RIOT",
+   "name": "Riot Platforms, Inc.",
+   "price": 20.24,
+   "pct": 4.329898,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
    "label": "",
    "flags": [],
-   "analyst_rec": "BUY",
-   "analyst_target": 17.98182,
-   "earnings": "Aug 13 (2d)",
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 30.87905,
+   "earnings": null,
    "headlines": [
-    "Nu Holdings (NU) Stock May Be 17% Undervalued After Stablecoin Push",
-    "Nu Holdings' Next Earnings Report on Aug. 13 Could Send the Stock Soaring. Here's Why.",
-    "Is Sea Stock a Buy Now as Growth Accelerates but Margins Tighten?"
+    "Why bitcoin miners are abandoning bitcoin for AI",
+    "Riot Platforms stock surges on $9.1 billion data center deal with Anthropic",
+    "Stock Market Today: Dow Skids, Oil Pops As Iran Says This On Hormuz; SpaceX Shares Take A Dive (Live Coverage)"
    ],
    "band": [
-    13.649999618530273,
-    14.479999542236328
+    19.399999618530273,
+    21.5
    ],
    "spark": [
-    14.479999542236328,
-    14.119999885559082,
-    13.84000015258789,
-    13.859999656677246,
-    13.649999618530273
+    21.5,
+    21.209999084472656,
+    20.520000457763672,
+    19.399999618530273,
+    20.239999771118164
    ],
    "stats": [
     [
      "Market cap",
-     "$65.9B"
+     "$7.7B"
     ],
     [
      "Float",
-     "3.6B"
+     "342.6M"
     ],
     [
      "Short interest",
-     "4.1%"
+     "15.3%"
     ],
     [
      "Avg vol",
-     "75.0M"
+     "16.8M"
     ],
     [
      "Vol today",
-     "74.0M"
+     "74.6M"
     ],
     [
      "52w range",
-     "$11.20 \u2013 $18.98"
+     "$11.15 \u2013 $30.32"
     ]
    ],
-   "reason": "Price is -1.5% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $17.98 mean target (+32%); earnings land Aug 13 (2d).",
+   "reason": "Price is +4.3% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $30.88 mean target (+53%).",
    "tone": {
-    "label": "mixed",
-    "score": 0.07
+    "label": "negative",
+    "score": -0.21
    },
    "read": [
     "quiet",
@@ -1323,72 +1323,70 @@
     "No strong pattern between price and attention today."
    ],
    "er": {
-    "date": "Aug 13",
-    "days_away": 2,
-    "eps_estimate": 0.2,
-    "beat_record": "beat 2 of last 4",
-    "avg_surprise": -0.1,
+    "eps_estimate": -0.25,
+    "beat_record": "beat 1 of last 4",
+    "avg_surprise": -0.5,
     "expect": [
-     "mixed",
-     "Mixed record against estimates"
+     "bad",
+     "Missed estimates in most recent quarters"
     ]
    },
    "chart": {
     "period": "1y",
     "closes": [
-     13.1,
-     13.94,
-     14.8,
-     14.74,
-     15.69,
-     16.17,
-     15.78,
-     15.31,
-     14.92,
-     15.0,
-     15.84,
-     16.11,
-     15.87,
-     15.82,
-     15.89,
-     17.39,
-     16.7,
-     16.9,
-     16.34,
-     16.76,
-     17.02,
-     17.46,
-     16.6,
-     18.04,
-     17.75,
-     17.4,
-     16.82,
-     17.53,
-     14.98,
-     14.58,
-     13.89,
-     13.94,
-     13.6,
-     14.15,
-     14.96,
-     15.34,
-     14.51,
-     14.44,
-     13.8,
-     12.19,
-     12.73,
-     13.13,
-     11.97,
-     12.19,
-     12.71,
-     13.17,
-     13.61,
+     11.33,
+     13.22,
      13.76,
-     13.59,
-     14.09,
-     14.33,
-     13.84,
-     13.65
+     13.29,
+     15.89,
+     17.46,
+     17.69,
+     19.44,
+     21.01,
+     20.03,
+     21.42,
+     19.78,
+     17.01,
+     13.95,
+     12.71,
+     16.13,
+     14.94,
+     15.3,
+     14.5,
+     13.44,
+     14.16,
+     15.32,
+     19.24,
+     17.28,
+     15.47,
+     14.45,
+     15.22,
+     15.68,
+     16.29,
+     14.16,
+     14.04,
+     13.38,
+     12.8,
+     12.86,
+     16.6,
+     18.11,
+     18.61,
+     18.5,
+     24.08,
+     23.49,
+     24.49,
+     27.11,
+     24.66,
+     26.61,
+     28.1,
+     28.57,
+     22.11,
+     20.97,
+     18.26,
+     22.53,
+     20.17,
+     20.52,
+     20.24
     ],
     "dates": [
      "2025-08-11",
@@ -1648,7 +1646,7 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 770.5599975585938,
    "pct": -0.24467634687116258,
-   "mentions": 728,
+   "mentions": 724,
    "mentions_prev": 798,
    "mom": "\u2192",
    "label": "",
@@ -1688,7 +1686,7 @@
      "$629.28 \u2013 $776.85"
     ]
    ],
-   "reason": "728 mentions, flat against yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "724 mentions, flat against yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.13
@@ -1818,7 +1816,7 @@
    "name": "Rocket Lab USA",
    "price": 80.01000213623047,
    "pct": 7.772093394706997,
-   "mentions": 424,
+   "mentions": 418,
    "mentions_prev": 486,
    "mom": "\u2192",
    "label": "",
@@ -1870,7 +1868,7 @@
      "$37.57 \u2013 $151.00"
     ]
    ],
-   "reason": "424 mentions, flat against yesterday. Price is +7.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $112.76 mean target (+41%); the scan flagged squeeze/penny sub.",
+   "reason": "418 mentions, flat against yesterday. Price is +7.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $112.76 mean target (+41%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.22
@@ -2020,8 +2018,8 @@
    "earnings": "Aug 11 (0d)",
    "headlines": [
     "Tech stocks today: CoreWeave and Supermicro results win over investors",
-    "Super Micro Stock Climbs as Earnings Soar Past Expectations",
-    "Super Micro (NASDAQ:SMCI) Beats Q2 CY2026 Non-GAAP EPS Estimates, Stock Soars 9.7%"
+    "Supermicro Q4 FY2026 earnings: margins surge, fiscal 2027 guidance tops estimates",
+    "Super Micro Stock Climbs as Earnings Soar Past Expectations"
    ],
    "band": [
     29.3799991607666,
@@ -2063,7 +2061,7 @@
    "reason": "319 mentions today, 7x yesterday's 46. Price is -0.6% \u2014 the attention has moved further than the price; analyst consensus is hold with a $37.81 mean target (+20%); earnings land Aug 11 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.59
+    "score": 0.57
    },
    "read": [
     "quiet",
@@ -2200,9 +2198,9 @@
    "name": "Micron Technology",
    "price": 868.52001953125,
    "pct": 0.7914610109376761,
-   "mentions": 309,
+   "mentions": 305,
    "mentions_prev": 360,
-   "mom": "\u2192",
+   "mom": "\u2193",
    "label": "",
    "flags": [
     "squeeze/penny sub"
@@ -2228,6 +2226,10 @@
    ],
    "stats": [
     [
+     "Market cap",
+     "$980.9B"
+    ],
+    [
      "Float",
      "1.1B"
     ],
@@ -2248,7 +2250,7 @@
      "$113.46 \u2013 $1255.00"
     ]
    ],
-   "reason": "309 mentions, flat against yesterday. Price is +0.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+73%); the scan flagged squeeze/penny sub.",
+   "reason": "305 mentions, cooling from 360. Price is +0.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+73%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.0
@@ -2388,7 +2390,7 @@
    "name": "AST SpaceMobile",
    "price": 71.62999725341797,
    "pct": 5.277851310892235,
-   "mentions": 265,
+   "mentions": 259,
    "mentions_prev": 291,
    "mom": "\u2192",
    "label": "",
@@ -2440,7 +2442,7 @@
      "$36.08 \u2013 $133.86"
     ]
    ],
-   "reason": "265 mentions, flat against yesterday. Price is +5.3% \u2014 the attention has moved further than the price; analyst consensus is hold with a $79.66 mean target (+11%); the scan flagged squeeze/penny sub.",
+   "reason": "259 mentions, flat against yesterday. Price is +5.3% \u2014 the attention has moved further than the price; analyst consensus is hold with a $79.66 mean target (+11%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.1
@@ -3428,6 +3430,17 @@
   },
   {
    "date": "2026-08-11",
+   "sym": "SMCI",
+   "name": "Supermicro",
+   "flag_price": 31.600000381469727,
+   "last_price": 31.600000381469727,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "Tech stocks today: CoreWeave and Supermicro results win over investors",
+   "age_days": 0
+  },
+  {
+   "date": "2026-08-11",
    "sym": "RKLB",
    "name": "Rocket Lab USA",
    "flag_price": 80.04000091552734,
@@ -3442,8 +3455,8 @@
    "sym": "RIOT",
    "name": "Riot Platforms, Inc.",
    "flag_price": 19.59,
-   "last_price": 20.34,
-   "pct": 3.828483920367534,
+   "last_price": 20.24,
+   "pct": 3.318019397651856,
    "outcome": "flat",
    "note": "Why bitcoin miners are abandoning bitcoin for AI",
    "age_days": 0
@@ -3516,6 +3529,17 @@
   },
   {
    "date": "2026-08-11",
+   "sym": "CRWV",
+   "name": "CoreWeave",
+   "flag_price": 90.31999969482422,
+   "last_price": 90.31999969482422,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "Tech stocks today: CoreWeave and Supermicro results win over investors",
+   "age_days": 0
+  },
+  {
+   "date": "2026-08-11",
    "sym": "ASTS",
    "name": "AST SpaceMobile",
    "flag_price": 68.76000213623047,
@@ -3523,6 +3547,17 @@
    "pct": 4.1739311053268064,
    "outcome": "flat",
    "note": "SpaceX Rivals Report Mixed Earnings; Rocket Lab Sinks On Possible Neutron Delays",
+   "age_days": 0
+  },
+  {
+   "date": "2026-08-11",
+   "sym": "AMD",
+   "name": "AMD",
+   "flag_price": 474.32000732421875,
+   "last_price": 474.32000732421875,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "Financial Giants Jump Amid Nvidia AI Funding Deal; 1 Eyes Breakout",
    "age_days": 0
   },
   {
@@ -4550,6 +4585,7 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100
+  "stocks": 100,
+  "tradingwithcongress": 0
  }
 }
