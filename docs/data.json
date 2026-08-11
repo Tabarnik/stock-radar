@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-08-11T20:56:52.042003+00:00",
+ "generated_at": "2026-08-11T21:53:33.533195+00:00",
  "watch": [
   {
    "sym": "HTZ",
    "name": "Hertz",
    "price": 2.450000047683716,
    "pct": 17.140810312393782,
-   "mentions": 1353,
-   "mentions_prev": 729,
+   "mentions": 1367,
+   "mentions_prev": 757,
    "mom": "\u2191",
    "label": "\ud83d\udcc8 running today + chatter rising",
    "flags": [
@@ -60,7 +60,7 @@
      "$1.45 \u2013 $8.18"
     ]
    ],
-   "reason": "1,353 mentions, up from 729 yesterday. Already up 17% today \u2014 the crowd is arriving after the move; analyst consensus is hold with a $2.27 mean target (-7%); the scan flagged penny <$5, vol 5x normal, squeeze/penny sub.",
+   "reason": "1,367 mentions, up from 757 yesterday. Already up 17% today \u2014 the crowd is arriving after the move; analyst consensus is hold with a $2.27 mean target (-7%); the scan flagged penny <$5, vol 5x normal, squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.21
@@ -200,8 +200,8 @@
    "name": "Supermicro",
    "price": 31.600000381469727,
    "pct": -0.6408027296432263,
-   "mentions": 319,
-   "mentions_prev": 46,
+   "mentions": 357,
+   "mentions_prev": 52,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -211,9 +211,9 @@
    "analyst_target": 37.8125,
    "earnings": "Aug 11 (0d)",
    "headlines": [
-    "Tech stocks today: CoreWeave and Supermicro results win over investors",
-    "Supermicro Q4 FY2026 earnings: margins surge, fiscal 2027 guidance tops estimates",
-    "Super Micro Stock Climbs as Earnings Soar Past Expectations"
+    "Super Micro stock jumps on upbeat outlook",
+    "Why this week's CoreWeave earnings are so important for markets",
+    "Dow Jones Futures: Stocks Pause Before CPI Inflation; 3 Nvidia Partners Lead Earnings Movers Late"
    ],
    "band": [
     29.3799991607666,
@@ -252,10 +252,10 @@
      "$19.48 \u2013 $58.78"
     ]
    ],
-   "reason": "319 mentions today, 7x yesterday's 46. Price is -0.6% \u2014 the attention has moved further than the price; analyst consensus is hold with a $37.81 mean target (+20%); earnings land Aug 11 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "357 mentions today, 7x yesterday's 52. Price is -0.6% \u2014 the attention has moved further than the price; analyst consensus is hold with a $37.81 mean target (+20%); earnings land Aug 11 (0d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.57
+    "score": 0.31
    },
    "read": [
     "quiet",
@@ -390,202 +390,12 @@
    "source": "reddit"
   },
   {
-   "sym": "AMD",
-   "name": "AMD",
-   "price": 474.32000732421875,
-   "pct": 1.0872779949585833,
-   "mentions": 259,
-   "mentions_prev": 54,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 613.3348,
-   "earnings": null,
-   "headlines": [
-    "Financial Giants Jump Amid Nvidia AI Funding Deal; 1 Eyes Breakout",
-    "Elon Musk\u2019s Newest Data Center \u2018Moonshot\u2019 Could Send NVIDIA Shares to $500. It Could Also Crash the Stock.",
-    "Why Anthropic\u2019s $9 Billion Deal With Riot Is a Watershed Moment for Bitcoin Miners"
-   ],
-   "band": [
-    469.55999755859375,
-    489.2799987792969
-   ],
-   "spark": [
-    482.04998779296875,
-    489.2799987792969,
-    483.3599853515625,
-    469.55999755859375,
-    474.32000732421875
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$774.3B"
-    ],
-    [
-     "Float",
-     "1.6B"
-    ],
-    [
-     "Short interest",
-     "2.5%"
-    ],
-    [
-     "Avg vol",
-     "30.6M"
-    ],
-    [
-     "Vol today",
-     "17.3M"
-    ],
-    [
-     "52w range",
-     "$149.22 \u2013 $584.73"
-    ]
-   ],
-   "reason": "259 mentions today, 5x yesterday's 54. Price is +1.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $613.33 mean target (+29%).",
-   "tone": {
-    "label": "negative",
-    "score": -0.23
-   },
-   "read": [
-    "negative buzz",
-    "bad",
-    "Attention is rising but the coverage around it is negative."
-   ],
-   "er": {
-    "eps_estimate": 1.93,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 6.9,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     177.51,
-     167.76,
-     162.63,
-     151.14,
-     158.57,
-     157.39,
-     159.46,
-     164.67,
-     214.9,
-     233.08,
-     252.92,
-     256.12,
-     233.54,
-     246.81,
-     203.78,
-     217.53,
-     217.97,
-     210.78,
-     213.43,
-     214.99,
-     223.47,
-     203.17,
-     231.83,
-     259.68,
-     236.73,
-     208.44,
-     207.32,
-     200.15,
-     200.21,
-     192.43,
-     193.39,
-     201.33,
-     201.99,
-     217.5,
-     245.04,
-     278.39,
-     347.81,
-     360.54,
-     455.19,
-     424.1,
-     467.51,
-     516.1,
-     466.38,
-     511.57,
-     537.37,
-     521.58,
-     517.82,
-     557.89,
-     495.76,
-     521.95,
-     476.15,
-     483.36,
-     474.32
-    ],
-    "dates": [
-     "2025-08-11",
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10"
-    ]
-   },
-   "tag": "5x Reddit mentions",
-   "source": "reddit"
-  },
-  {
    "sym": "CRWV",
    "name": "CoreWeave",
    "price": 90.31999969482422,
    "pct": 3.057964051602257,
-   "mentions": 249,
-   "mentions_prev": 38,
+   "mentions": 305,
+   "mentions_prev": 36,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [],
@@ -593,9 +403,9 @@
    "analyst_target": 138.5143,
    "earnings": "Aug 11 (0d)",
    "headlines": [
-    "Tech stocks today: CoreWeave and Supermicro results win over investors",
-    "CoreWeave Earnings Beat Amid Operating Margin Upside",
-    "CoreWeave Q2 2026 earnings: revenue beats, losses widen"
+    "Super Micro stock jumps on upbeat outlook",
+    "CoreWeave, eToro earnings and key economic data: What to watch Tuesday",
+    "Dow Jones Futures: Stocks Pause Before CPI Inflation; 3 Nvidia Partners Lead Earnings Movers Late"
    ],
    "band": [
     85.33000183105469,
@@ -634,10 +444,10 @@
      "$60.55 \u2013 $153.20"
     ]
    ],
-   "reason": "249 mentions today, 7x yesterday's 38. Price is +3.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $138.51 mean target (+53%); earnings land Aug 11 (0d).",
+   "reason": "305 mentions today, 8x yesterday's 36. Price is +3.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $138.51 mean target (+53%); earnings land Aug 11 (0d).",
    "tone": {
-    "label": "mixed",
-    "score": 0.06
+    "label": "positive",
+    "score": 0.2
    },
    "read": [
     "moving with attention",
@@ -768,7 +578,197 @@
      "2026-08-10"
     ]
    },
-   "tag": "7x Reddit mentions",
+   "tag": "8x Reddit mentions",
+   "source": "reddit"
+  },
+  {
+   "sym": "AMD",
+   "name": "AMD",
+   "price": 474.32000732421875,
+   "pct": 1.0872779949585833,
+   "mentions": 255,
+   "mentions_prev": 59,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [],
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 613.3348,
+   "earnings": null,
+   "headlines": [
+    "What Is The Market Really Expecting From AVGO Stock?",
+    "Financial Giants Jump Amid Nvidia AI Funding Deal; 1 Eyes Breakout",
+    "Elon Musk\u2019s Newest Data Center \u2018Moonshot\u2019 Could Send NVIDIA Shares to $500. It Could Also Crash the Stock."
+   ],
+   "band": [
+    469.55999755859375,
+    489.2799987792969
+   ],
+   "spark": [
+    482.04998779296875,
+    489.2799987792969,
+    483.3599853515625,
+    469.55999755859375,
+    474.32000732421875
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$774.3B"
+    ],
+    [
+     "Float",
+     "1.6B"
+    ],
+    [
+     "Short interest",
+     "2.5%"
+    ],
+    [
+     "Avg vol",
+     "30.6M"
+    ],
+    [
+     "Vol today",
+     "17.3M"
+    ],
+    [
+     "52w range",
+     "$149.22 \u2013 $584.73"
+    ]
+   ],
+   "reason": "255 mentions today, 4x yesterday's 59. Price is +1.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $613.33 mean target (+29%).",
+   "tone": {
+    "label": "mixed",
+    "score": -0.04
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 1.93,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 6.9,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     177.51,
+     167.76,
+     162.63,
+     151.14,
+     158.57,
+     157.39,
+     159.46,
+     164.67,
+     214.9,
+     233.08,
+     252.92,
+     256.12,
+     233.54,
+     246.81,
+     203.78,
+     217.53,
+     217.97,
+     210.78,
+     213.43,
+     214.99,
+     223.47,
+     203.17,
+     231.83,
+     259.68,
+     236.73,
+     208.44,
+     207.32,
+     200.15,
+     200.21,
+     192.43,
+     193.39,
+     201.33,
+     201.99,
+     217.5,
+     245.04,
+     278.39,
+     347.81,
+     360.54,
+     455.19,
+     424.1,
+     467.51,
+     516.1,
+     466.38,
+     511.57,
+     537.37,
+     521.58,
+     517.82,
+     557.89,
+     495.76,
+     521.95,
+     476.15,
+     483.36,
+     474.32
+    ],
+    "dates": [
+     "2025-08-11",
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10"
+    ]
+   },
+   "tag": "4x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -785,9 +785,9 @@
    "analyst_target": 235.6875,
    "earnings": null,
    "headlines": [
-    "OpenAI vs Anthropic IPOs: Why timing matters for AI investors",
-    "SpaceX vs. Rocket Lab: Which Space Stock Looks Like the Better Buy Right Now?",
-    "Stock Market Today: Dow Skids, Oil Pops As Iran Says This On Hormuz; SpaceX Shares Take A Dive (Live Coverage)"
+    "CoreWeave jumps 10% following Q2 earnings",
+    "Dow Jones Futures: Stocks Pause Before CPI Inflation; 3 Nvidia Partners Lead Earnings Movers Late",
+    "Update: US Equity Indexes Decline as Growth Sectors Hit Amid Gains in Crude Oil Ahead of July's Consumer Price Inflation Data"
    ],
    "band": [
     108.2699966430664,
@@ -819,7 +819,7 @@
     ],
     [
      "Vol today",
-     "106.9M"
+     "108.3M"
     ],
     [
      "52w range",
@@ -828,8 +828,8 @@
    ],
    "reason": "Price is -3.9% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $235.69 mean target (+77%).",
    "tone": {
-    "label": "positive",
-    "score": 0.33
+    "label": "mixed",
+    "score": 0.03
    },
    "read": [
     "quiet",
@@ -889,9 +889,9 @@
    "analyst_target": 10.61111,
    "earnings": null,
    "headlines": [
+    "Stock Market Today, Aug. 11: Joby Aviation Falls 4% After $500M Defense Acquisition and Stock Sale Plan",
     "Boeing\u2019s Archer deal allows focus on core business, Bank of America says",
-    "Archer Jumps 14% on Boeing Deal",
-    "Joby Aviation Stock Is Priced For An Aircraft That Has Yet To Fly A Passenger"
+    "Archer Jumps 14% on Boeing Deal"
    ],
    "band": [
     5.199999809265137,
@@ -933,7 +933,7 @@
    "reason": "Price is +8.5% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $10.61 mean target (+56%).",
    "tone": {
     "label": "mixed",
-    "score": 0.0
+    "score": 0.04
    },
    "read": [
     "quiet",
@@ -1081,7 +1081,7 @@
    "headlines": [
     "Intel's huge rally is helping pay for its AI comeback",
     "Put options explained: How trading puts pays off and when it doesn't",
-    "CoreWeave Earnings Beat Amid Operating Margin Upside"
+    "Hedge Funds Favor Microsoft Corporation (MSFT) Over Meta Platforms Inc. (META)"
    ],
    "band": [
     217.5,
@@ -1123,7 +1123,7 @@
    "reason": "Price is -0.0% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $302.83 mean target (+39%).",
    "tone": {
     "label": "positive",
-    "score": 0.16
+    "score": 0.29
    },
    "read": [
     "quiet",
@@ -1258,64 +1258,64 @@
    "source": "yahoo"
   },
   {
-   "sym": "RIOT",
-   "name": "Riot Platforms, Inc.",
-   "price": 20.24,
-   "pct": 4.329898,
+   "sym": "NU",
+   "name": "Nu Holdings Ltd.",
+   "price": 13.65,
+   "pct": -1.51515,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
    "label": "",
    "flags": [],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 30.87905,
-   "earnings": null,
+   "analyst_rec": "BUY",
+   "analyst_target": 17.98182,
+   "earnings": "Aug 13 (2d)",
    "headlines": [
-    "Why bitcoin miners are abandoning bitcoin for AI",
-    "Riot Platforms stock surges on $9.1 billion data center deal with Anthropic",
-    "Stock Market Today: Dow Skids, Oil Pops As Iran Says This On Hormuz; SpaceX Shares Take A Dive (Live Coverage)"
+    "Nu Holdings (NU) Stock May Be 17% Undervalued After Stablecoin Push",
+    "Nu Holdings' Next Earnings Report on Aug. 13 Could Send the Stock Soaring. Here's Why.",
+    "Is Sea Stock a Buy Now as Growth Accelerates but Margins Tighten?"
    ],
    "band": [
-    19.399999618530273,
-    21.5
+    13.649999618530273,
+    14.479999542236328
    ],
    "spark": [
-    21.5,
-    21.209999084472656,
-    20.520000457763672,
-    19.399999618530273,
-    20.239999771118164
+    14.479999542236328,
+    14.119999885559082,
+    13.84000015258789,
+    13.859999656677246,
+    13.649999618530273
    ],
    "stats": [
     [
      "Market cap",
-     "$7.7B"
+     "$65.9B"
     ],
     [
      "Float",
-     "342.6M"
+     "3.6B"
     ],
     [
      "Short interest",
-     "15.3%"
+     "4.1%"
     ],
     [
      "Avg vol",
-     "16.8M"
+     "75.0M"
     ],
     [
      "Vol today",
-     "74.6M"
+     "74.0M"
     ],
     [
      "52w range",
-     "$11.15 \u2013 $30.32"
+     "$11.20 \u2013 $18.98"
     ]
    ],
-   "reason": "Price is +4.3% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $30.88 mean target (+53%).",
+   "reason": "Price is -1.5% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $17.98 mean target (+32%); earnings land Aug 13 (2d).",
    "tone": {
-    "label": "negative",
-    "score": -0.21
+    "label": "mixed",
+    "score": 0.07
    },
    "read": [
     "quiet",
@@ -1323,70 +1323,72 @@
     "No strong pattern between price and attention today."
    ],
    "er": {
-    "eps_estimate": -0.25,
-    "beat_record": "beat 1 of last 4",
-    "avg_surprise": -0.5,
+    "date": "Aug 13",
+    "days_away": 2,
+    "eps_estimate": 0.2,
+    "beat_record": "beat 2 of last 4",
+    "avg_surprise": -0.1,
     "expect": [
-     "bad",
-     "Missed estimates in most recent quarters"
+     "mixed",
+     "Mixed record against estimates"
     ]
    },
    "chart": {
     "period": "1y",
     "closes": [
-     11.33,
-     13.22,
-     13.76,
-     13.29,
+     13.1,
+     13.94,
+     14.8,
+     14.74,
+     15.69,
+     16.17,
+     15.78,
+     15.31,
+     14.92,
+     15.0,
+     15.84,
+     16.11,
+     15.87,
+     15.82,
      15.89,
+     17.39,
+     16.7,
+     16.9,
+     16.34,
+     16.76,
+     17.02,
      17.46,
-     17.69,
-     19.44,
-     21.01,
-     20.03,
-     21.42,
-     19.78,
-     17.01,
-     13.95,
-     12.71,
-     16.13,
-     14.94,
-     15.3,
-     14.5,
-     13.44,
-     14.16,
-     15.32,
-     19.24,
-     17.28,
-     15.47,
-     14.45,
-     15.22,
-     15.68,
-     16.29,
-     14.16,
-     14.04,
-     13.38,
-     12.8,
-     12.86,
      16.6,
-     18.11,
-     18.61,
-     18.5,
-     24.08,
-     23.49,
-     24.49,
-     27.11,
-     24.66,
-     26.61,
-     28.1,
-     28.57,
-     22.11,
-     20.97,
-     18.26,
-     22.53,
-     20.17,
-     20.52,
-     20.24
+     18.04,
+     17.75,
+     17.4,
+     16.82,
+     17.53,
+     14.98,
+     14.58,
+     13.89,
+     13.94,
+     13.6,
+     14.15,
+     14.96,
+     15.34,
+     14.51,
+     14.44,
+     13.8,
+     12.19,
+     12.73,
+     13.13,
+     11.97,
+     12.19,
+     12.71,
+     13.17,
+     13.61,
+     13.76,
+     13.59,
+     14.09,
+     14.33,
+     13.84,
+     13.65
     ],
     "dates": [
      "2025-08-11",
@@ -1454,8 +1456,8 @@
    "name": "Hertz",
    "price": 2.450000047683716,
    "pct": 17.140810312393782,
-   "mentions": 1353,
-   "mentions_prev": 729,
+   "mentions": 1367,
+   "mentions_prev": 757,
    "mom": "\u2191",
    "label": "\ud83d\udcc8 running today + chatter rising",
    "flags": [
@@ -1508,7 +1510,7 @@
      "$1.45 \u2013 $8.18"
     ]
    ],
-   "reason": "1,353 mentions, up from 729 yesterday. Already up 17% today \u2014 the crowd is arriving after the move; analyst consensus is hold with a $2.27 mean target (-7%); the scan flagged penny <$5, vol 5x normal, squeeze/penny sub.",
+   "reason": "1,367 mentions, up from 757 yesterday. Already up 17% today \u2014 the crowd is arriving after the move; analyst consensus is hold with a $2.27 mean target (-7%); the scan flagged penny <$5, vol 5x normal, squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.21
@@ -1646,8 +1648,8 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 770.5599975585938,
    "pct": -0.24467634687116258,
-   "mentions": 724,
-   "mentions_prev": 798,
+   "mentions": 714,
+   "mentions_prev": 814,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -1657,9 +1659,9 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
+    "This 5.3% Monthly Payer Only Buys Stocks That Raised Dividends 10 Straight Years, It\u2019s Up 18.5% in 2026",
     "Coupang Keeps Falling: Why One Analyst Expects the Amazon of South Korea to Jump Nearly 100%",
-    "Bank ETFs: An Overlooked Winner of AI Boom",
-    "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Tuesday Amid Stalled US-Iran Talks"
+    "Bank ETFs: An Overlooked Winner of AI Boom"
    ],
    "band": [
     768.5599975585938,
@@ -1679,17 +1681,17 @@
     ],
     [
      "Vol today",
-     "35.5M"
+     "36.2M"
     ],
     [
      "52w range",
      "$629.28 \u2013 $776.85"
     ]
    ],
-   "reason": "724 mentions, flat against yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "714 mentions, flat against yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": 0.13
+    "label": "positive",
+    "score": 0.27
    },
    "read": [
     "quiet",
@@ -1812,13 +1814,205 @@
    }
   },
   {
+   "sym": "SMCI",
+   "name": "Supermicro",
+   "price": 31.600000381469727,
+   "pct": -0.6408027296432263,
+   "mentions": 357,
+   "mentions_prev": 52,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "HOLD",
+   "analyst_target": 37.8125,
+   "earnings": "Aug 11 (0d)",
+   "headlines": [
+    "Super Micro stock jumps on upbeat outlook",
+    "Why this week's CoreWeave earnings are so important for markets",
+    "Dow Jones Futures: Stocks Pause Before CPI Inflation; 3 Nvidia Partners Lead Earnings Movers Late"
+   ],
+   "band": [
+    29.3799991607666,
+    31.600000381469727
+   ],
+   "spark": [
+    30.31999969482422,
+    29.3799991607666,
+    31.1299991607666,
+    31.459999084472656,
+    31.600000381469727
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$20.4B"
+    ],
+    [
+     "Float",
+     "488.4M"
+    ],
+    [
+     "Short interest",
+     "19.6%"
+    ],
+    [
+     "Avg vol",
+     "53.0M"
+    ],
+    [
+     "Vol today",
+     "62.2M"
+    ],
+    [
+     "52w range",
+     "$19.48 \u2013 $58.78"
+    ]
+   ],
+   "reason": "357 mentions today, 7x yesterday's 52. Price is -0.6% \u2014 the attention has moved further than the price; analyst consensus is hold with a $37.81 mean target (+20%); earnings land Aug 11 (0d); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "positive",
+    "score": 0.31
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "date": "Aug 11",
+    "days_away": 0,
+    "eps_estimate": 0.96,
+    "beat_record": "beat 2 of last 4",
+    "avg_surprise": 14.8,
+    "expect": [
+     "mixed",
+     "Mixed record against estimates"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     45.37,
+     43.88,
+     41.54,
+     40.41,
+     45.0,
+     45.81,
+     45.82,
+     51.96,
+     52.86,
+     52.18,
+     48.29,
+     51.96,
+     39.76,
+     36.42,
+     32.19,
+     33.85,
+     34.69,
+     32.33,
+     31.11,
+     30.64,
+     30.96,
+     30.16,
+     32.64,
+     31.7,
+     29.11,
+     34.38,
+     30.54,
+     32.42,
+     32.39,
+     31.31,
+     30.75,
+     20.53,
+     21.97,
+     23.22,
+     25.26,
+     28.56,
+     29.08,
+     27.09,
+     35.37,
+     31.04,
+     35.58,
+     46.09,
+     41.64,
+     30.46,
+     30.66,
+     30.63,
+     27.22,
+     28.31,
+     24.18,
+     30.1,
+     28.4,
+     31.13,
+     31.6
+    ],
+    "dates": [
+     "2025-08-11",
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10"
+    ]
+   }
+  },
+  {
    "sym": "RKLB",
    "name": "Rocket Lab USA",
    "price": 80.01000213623047,
    "pct": 7.772093394706997,
-   "mentions": 418,
-   "mentions_prev": 486,
-   "mom": "\u2192",
+   "mentions": 305,
+   "mentions_prev": 576,
+   "mom": "\u2193",
    "label": "",
    "flags": [
     "squeeze/penny sub"
@@ -1827,9 +2021,9 @@
    "analyst_target": 112.76471,
    "earnings": null,
    "headlines": [
+    "3 Space Stocks That Could Turn $10,000 Into $50,000 By 2035",
     "SpaceX vs. Rocket Lab: Which Space Stock Looks Like the Better Buy Right Now?",
-    "Micron, SpaceX, Rocket Lab, Fermi, AppLovin, and More Stocks That Explain Today\u2019s Market",
-    "SpaceX Stock Falls Back Below IPO Price, Snaps Three-Day Streak"
+    "Micron, SpaceX, Rocket Lab, Fermi, AppLovin, and More Stocks That Explain Today\u2019s Market"
    ],
    "band": [
     74.81999969482422,
@@ -1868,7 +2062,7 @@
      "$37.57 \u2013 $151.00"
     ]
    ],
-   "reason": "418 mentions, flat against yesterday. Price is +7.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $112.76 mean target (+41%); the scan flagged squeeze/penny sub.",
+   "reason": "305 mentions, cooling from 576. Price is +7.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $112.76 mean target (+41%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.22
@@ -2002,139 +2196,137 @@
    }
   },
   {
-   "sym": "SMCI",
-   "name": "Supermicro",
-   "price": 31.600000381469727,
-   "pct": -0.6408027296432263,
-   "mentions": 319,
-   "mentions_prev": 46,
+   "sym": "CRWV",
+   "name": "CoreWeave",
+   "price": 90.31999969482422,
+   "pct": 3.057964051602257,
+   "mentions": 305,
+   "mentions_prev": 36,
    "mom": "\u2191",
    "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "HOLD",
-   "analyst_target": 37.8125,
+   "flags": [],
+   "analyst_rec": "BUY",
+   "analyst_target": 138.5143,
    "earnings": "Aug 11 (0d)",
    "headlines": [
-    "Tech stocks today: CoreWeave and Supermicro results win over investors",
-    "Supermicro Q4 FY2026 earnings: margins surge, fiscal 2027 guidance tops estimates",
-    "Super Micro Stock Climbs as Earnings Soar Past Expectations"
+    "Super Micro stock jumps on upbeat outlook",
+    "CoreWeave, eToro earnings and key economic data: What to watch Tuesday",
+    "Dow Jones Futures: Stocks Pause Before CPI Inflation; 3 Nvidia Partners Lead Earnings Movers Late"
    ],
    "band": [
-    29.3799991607666,
-    31.600000381469727
+    85.33000183105469,
+    90.66999816894531
    ],
    "spark": [
-    30.31999969482422,
-    29.3799991607666,
-    31.1299991607666,
-    31.459999084472656,
-    31.600000381469727
+    89.88999938964844,
+    85.33000183105469,
+    90.66999816894531,
+    88.19000244140625,
+    90.31999969482422
    ],
    "stats": [
     [
      "Market cap",
-     "$20.4B"
+     "$49.3B"
     ],
     [
      "Float",
-     "488.4M"
+     "310.8M"
     ],
     [
      "Short interest",
-     "19.6%"
+     "21.4%"
     ],
     [
      "Avg vol",
-     "53.0M"
+     "28.2M"
     ],
     [
      "Vol today",
-     "62.2M"
+     "29.6M"
     ],
     [
      "52w range",
-     "$19.48 \u2013 $58.78"
+     "$60.55 \u2013 $153.20"
     ]
    ],
-   "reason": "319 mentions today, 7x yesterday's 46. Price is -0.6% \u2014 the attention has moved further than the price; analyst consensus is hold with a $37.81 mean target (+20%); earnings land Aug 11 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "305 mentions today, 8x yesterday's 36. Price is +3.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $138.51 mean target (+53%); earnings land Aug 11 (0d).",
    "tone": {
     "label": "positive",
-    "score": 0.57
+    "score": 0.2
    },
    "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
+    "moving with attention",
+    "good",
+    "Up on the day with attention still building."
    ],
    "er": {
     "date": "Aug 11",
     "days_away": 0,
-    "eps_estimate": 0.96,
-    "beat_record": "beat 2 of last 4",
-    "avg_surprise": 14.8,
+    "eps_estimate": -1.2,
+    "beat_record": "beat 1 of last 4",
+    "avg_surprise": -3.4,
     "expect": [
-     "mixed",
-     "Mixed record against estimates"
+     "bad",
+     "Missed estimates in most recent quarters"
     ]
    },
    "chart": {
     "period": "1y",
     "closes": [
-     45.37,
-     43.88,
-     41.54,
-     40.41,
-     45.0,
-     45.81,
-     45.82,
-     51.96,
-     52.86,
-     52.18,
-     48.29,
-     51.96,
-     39.76,
-     36.42,
-     32.19,
-     33.85,
-     34.69,
-     32.33,
-     31.11,
-     30.64,
-     30.96,
-     30.16,
-     32.64,
-     31.7,
-     29.11,
-     34.38,
-     30.54,
-     32.42,
-     32.39,
-     31.31,
-     30.75,
-     20.53,
-     21.97,
-     23.22,
-     25.26,
-     28.56,
-     29.08,
-     27.09,
-     35.37,
-     31.04,
-     35.58,
-     46.09,
-     41.64,
-     30.46,
-     30.66,
-     30.63,
-     27.22,
-     28.31,
-     24.18,
-     30.1,
-     28.4,
-     31.13,
-     31.6
+     99.97,
+     93.99,
+     103.04,
+     89.09,
+     111.96,
+     124.86,
+     120.34,
+     134.79,
+     138.43,
+     136.87,
+     132.55,
+     133.71,
+     104.01,
+     77.36,
+     71.65,
+     73.12,
+     88.3,
+     78.59,
+     83.0,
+     76.42,
+     79.32,
+     80.14,
+     101.23,
+     92.98,
+     93.19,
+     89.95,
+     96.04,
+     89.25,
+     79.56,
+     72.99,
+     81.11,
+     81.47,
+     74.81,
+     82.24,
+     102.0,
+     116.85,
+     110.14,
+     119.01,
+     114.15,
+     107.3,
+     105.49,
+     109.53,
+     100.39,
+     100.55,
+     117.95,
+     96.58,
+     81.75,
+     88.88,
+     73.21,
+     71.88,
+     71.77,
+     90.67,
+     90.32
     ],
     "dates": [
      "2025-08-11",
@@ -2198,8 +2390,8 @@
    "name": "Micron Technology",
    "price": 868.52001953125,
    "pct": 0.7914610109376761,
-   "mentions": 305,
-   "mentions_prev": 360,
+   "mentions": 299,
+   "mentions_prev": 382,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2209,9 +2401,9 @@
    "analyst_target": 1501.9767,
    "earnings": null,
    "headlines": [
+    "SanDisk Traded Margin Upside For Years Of Contracted Revenue",
     "Micron, SpaceX, Rocket Lab, Fermi, AppLovin, and More Stocks That Explain Today\u2019s Market",
-    "Micron Shakes Off Its Slump",
-    "Could $25,000 Invested in Micron Stock Make You a Millionaire?"
+    "Micron Shakes Off Its Slump"
    ],
    "band": [
     861.0,
@@ -2250,7 +2442,7 @@
      "$113.46 \u2013 $1255.00"
     ]
    ],
-   "reason": "305 mentions, cooling from 360. Price is +0.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+73%); the scan flagged squeeze/penny sub.",
+   "reason": "299 mentions, cooling from 382. Price is +0.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+73%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.0
@@ -2386,202 +2578,12 @@
    }
   },
   {
-   "sym": "ASTS",
-   "name": "AST SpaceMobile",
-   "price": 71.62999725341797,
-   "pct": 5.277851310892235,
-   "mentions": 259,
-   "mentions_prev": 291,
-   "mom": "\u2192",
-   "label": "",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "HOLD",
-   "analyst_target": 79.66364,
-   "earnings": null,
-   "headlines": [
-    "SpaceX Stock Falls Back Below IPO Price, Snaps Three-Day Streak",
-    "SpaceX Stock Drops Below Offer Price Again. AST Earnings Is Just One Reason.",
-    "SpaceX Is Helping AST SpaceMobile Chase Its $1 Billion Revenue Goal"
-   ],
-   "band": [
-    67.36000061035156,
-    71.94000244140625
-   ],
-   "spark": [
-    68.37999725341797,
-    67.36000061035156,
-    71.94000244140625,
-    68.76000213623047,
-    71.62999725341797
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$27.8B"
-    ],
-    [
-     "Float",
-     "259.0M"
-    ],
-    [
-     "Short interest",
-     "19.9%"
-    ],
-    [
-     "Avg vol",
-     "21.4M"
-    ],
-    [
-     "Vol today",
-     "13.1M"
-    ],
-    [
-     "52w range",
-     "$36.08 \u2013 $133.86"
-    ]
-   ],
-   "reason": "259 mentions, flat against yesterday. Price is +5.3% \u2014 the attention has moved further than the price; analyst consensus is hold with a $79.66 mean target (+11%); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "mixed",
-    "score": 0.1
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": -0.5,
-    "beat_record": "beat 0 of last 4",
-    "avg_surprise": -1.2,
-    "expect": [
-     "bad",
-     "Missed estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     48.08,
-     47.07,
-     48.94,
-     42.41,
-     38.72,
-     45.1,
-     49.09,
-     67.76,
-     82.03,
-     83.49,
-     73.7,
-     80.25,
-     69.19,
-     61.4,
-     51.37,
-     56.2,
-     73.92,
-     76.7,
-     75.84,
-     71.95,
-     83.47,
-     97.67,
-     115.77,
-     113.57,
-     111.21,
-     101.79,
-     82.51,
-     80.2,
-     79.19,
-     89.47,
-     86.34,
-     89.93,
-     78.67,
-     92.62,
-     94.9,
-     85.53,
-     76.4,
-     70.89,
-     75.05,
-     83.67,
-     105.86,
-     113.41,
-     93.6,
-     82.41,
-     80.66,
-     71.45,
-     85.13,
-     73.32,
-     57.8,
-     56.2,
-     58.98,
-     71.94,
-     71.63
-    ],
-    "dates": [
-     "2025-08-11",
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10"
-    ]
-   }
-  },
-  {
    "sym": "AMD",
    "name": "AMD",
    "price": 474.32000732421875,
    "pct": 1.0872779949585833,
-   "mentions": 259,
-   "mentions_prev": 54,
+   "mentions": 255,
+   "mentions_prev": 59,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [],
@@ -2589,9 +2591,9 @@
    "analyst_target": 613.3348,
    "earnings": null,
    "headlines": [
+    "What Is The Market Really Expecting From AVGO Stock?",
     "Financial Giants Jump Amid Nvidia AI Funding Deal; 1 Eyes Breakout",
-    "Elon Musk\u2019s Newest Data Center \u2018Moonshot\u2019 Could Send NVIDIA Shares to $500. It Could Also Crash the Stock.",
-    "Why Anthropic\u2019s $9 Billion Deal With Riot Is a Watershed Moment for Bitcoin Miners"
+    "Elon Musk\u2019s Newest Data Center \u2018Moonshot\u2019 Could Send NVIDIA Shares to $500. It Could Also Crash the Stock."
    ],
    "band": [
     469.55999755859375,
@@ -2630,15 +2632,15 @@
      "$149.22 \u2013 $584.73"
     ]
    ],
-   "reason": "259 mentions today, 5x yesterday's 54. Price is +1.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $613.33 mean target (+29%).",
+   "reason": "255 mentions today, 4x yesterday's 59. Price is +1.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $613.33 mean target (+29%).",
    "tone": {
-    "label": "negative",
-    "score": -0.23
+    "label": "mixed",
+    "score": -0.04
    },
    "read": [
-    "negative buzz",
-    "bad",
-    "Attention is rising but the coverage around it is negative."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": {
     "eps_estimate": 1.93,
@@ -2764,64 +2766,66 @@
    }
   },
   {
-   "sym": "CRWV",
-   "name": "CoreWeave",
-   "price": 90.31999969482422,
-   "pct": 3.057964051602257,
-   "mentions": 249,
-   "mentions_prev": 38,
+   "sym": "NBIS",
+   "name": "Nebius Group",
+   "price": 193.22999572753906,
+   "pct": 4.669300540349411,
+   "mentions": 214,
+   "mentions_prev": 119,
    "mom": "\u2191",
    "label": "chatter rising",
-   "flags": [],
+   "flags": [
+    "squeeze/penny sub"
+   ],
    "analyst_rec": "BUY",
-   "analyst_target": 138.5143,
-   "earnings": "Aug 11 (0d)",
+   "analyst_target": 250.75,
+   "earnings": "Aug 12 (1d)",
    "headlines": [
-    "Tech stocks today: CoreWeave and Supermicro results win over investors",
     "CoreWeave Earnings Beat Amid Operating Margin Upside",
-    "CoreWeave Q2 2026 earnings: revenue beats, losses widen"
+    "Nebius Earnings Preview: Michael Burry Is Short but Prediction Markets See Nvidia, Meta Taking Center Stage",
+    "Nebius Is Rising While Oracle Falls: NVIDIA\u2019s Massive $500 Billion Funding Plan Pushes the Stocks in Opposite Directions"
    ],
    "band": [
-    85.33000183105469,
-    90.66999816894531
+    184.11000061035156,
+    218.99000549316406
    ],
    "spark": [
-    89.88999938964844,
-    85.33000183105469,
-    90.66999816894531,
-    88.19000244140625,
-    90.31999969482422
+    218.99000549316406,
+    189.8800048828125,
+    187.97000122070312,
+    184.11000061035156,
+    193.22999572753906
    ],
    "stats": [
     [
      "Market cap",
-     "$49.3B"
+     "$49.1B"
     ],
     [
      "Float",
-     "310.8M"
+     "207.3M"
     ],
     [
      "Short interest",
-     "21.4%"
+     "28.0%"
     ],
     [
      "Avg vol",
-     "28.2M"
+     "20.0M"
     ],
     [
      "Vol today",
-     "29.6M"
+     "19.7M"
     ],
     [
      "52w range",
-     "$60.55 \u2013 $153.20"
+     "$62.01 \u2013 $299.86"
     ]
    ],
-   "reason": "249 mentions today, 7x yesterday's 38. Price is +3.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $138.51 mean target (+53%); earnings land Aug 11 (0d).",
+   "reason": "214 mentions, up from 119 yesterday. Price is +4.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $250.75 mean target (+30%); earnings land Aug 12 (1d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.06
+    "score": 0.0
    },
    "read": [
     "moving with attention",
@@ -2829,72 +2833,72 @@
     "Up on the day with attention still building."
    ],
    "er": {
-    "date": "Aug 11",
-    "days_away": 0,
-    "eps_estimate": -1.2,
-    "beat_record": "beat 1 of last 4",
-    "avg_surprise": -3.4,
+    "date": "Aug 12",
+    "days_away": 1,
+    "eps_estimate": -0.7,
+    "beat_record": "beat 2 of last 4",
+    "avg_surprise": 2.5,
     "expect": [
-     "bad",
-     "Missed estimates in most recent quarters"
+     "mixed",
+     "Mixed record against estimates"
     ]
    },
    "chart": {
     "period": "1y",
     "closes": [
-     99.97,
-     93.99,
-     103.04,
-     89.09,
-     111.96,
-     124.86,
-     120.34,
-     134.79,
-     138.43,
-     136.87,
-     132.55,
-     133.71,
-     104.01,
-     77.36,
-     71.65,
-     73.12,
-     88.3,
-     78.59,
-     83.0,
-     76.42,
-     79.32,
-     80.14,
-     101.23,
-     92.98,
-     93.19,
+     71.62,
+     68.98,
+     68.32,
+     65.47,
+     90.41,
+     99.31,
+     107.7,
+     127.98,
+     129.58,
+     113.44,
+     117.26,
+     130.82,
+     111.28,
+     83.54,
+     83.26,
+     94.87,
+     98.04,
+     87.69,
+     89.46,
+     87.59,
      89.95,
-     96.04,
-     89.25,
-     79.56,
-     72.99,
-     81.11,
-     81.47,
-     74.81,
-     82.24,
-     102.0,
-     116.85,
-     110.14,
-     119.01,
-     114.15,
-     107.3,
-     105.49,
-     109.53,
-     100.39,
-     100.55,
-     117.95,
-     96.58,
-     81.75,
-     88.88,
-     73.21,
-     71.88,
-     71.77,
-     90.67,
-     90.32
+     97.93,
+     108.73,
+     94.5,
+     85.19,
+     86.1,
+     98.01,
+     97.92,
+     91.19,
+     89.33,
+     112.95,
+     117.62,
+     100.82,
+     108.82,
+     144.97,
+     157.14,
+     147.16,
+     154.49,
+     177.05,
+     219.94,
+     214.77,
+     231.09,
+     227.81,
+     232.36,
+     286.69,
+     240.3,
+     215.62,
+     219.65,
+     177.71,
+     187.77,
+     190.41,
+     187.97,
+     193.23
     ],
     "dates": [
      "2025-08-11",
@@ -2958,8 +2962,8 @@
    "name": "SpaceX",
    "price": 133.2899932861328,
    "pct": -2.484602833695012,
-   "mentions": 199,
-   "mentions_prev": 327,
+   "mentions": 201,
+   "mentions_prev": 331,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2969,9 +2973,9 @@
    "analyst_target": 235.6875,
    "earnings": null,
    "headlines": [
-    "OpenAI vs Anthropic IPOs: Why timing matters for AI investors",
-    "SpaceX vs. Rocket Lab: Which Space Stock Looks Like the Better Buy Right Now?",
-    "Stock Market Today: Dow Skids, Oil Pops As Iran Says This On Hormuz; SpaceX Shares Take A Dive (Live Coverage)"
+    "CoreWeave jumps 10% following Q2 earnings",
+    "Dow Jones Futures: Stocks Pause Before CPI Inflation; 3 Nvidia Partners Lead Earnings Movers Late",
+    "Update: US Equity Indexes Decline as Growth Sectors Hit Amid Gains in Crude Oil Ahead of July's Consumer Price Inflation Data"
    ],
    "band": [
     108.2699966430664,
@@ -3003,17 +3007,17 @@
     ],
     [
      "Vol today",
-     "106.9M"
+     "108.3M"
     ],
     [
      "52w range",
      "$104.83 \u2013 $225.64"
     ]
    ],
-   "reason": "199 mentions, cooling from 327. Price is -2.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $235.69 mean target (+77%); the scan flagged squeeze/penny sub.",
+   "reason": "201 mentions, cooling from 331. Price is -2.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $235.69 mean target (+77%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.33
+    "label": "mixed",
+    "score": 0.03
    },
    "read": [
     "quiet",
@@ -3062,8 +3066,8 @@
    "name": "NVIDIA",
    "price": 217.5,
    "pct": -0.22478095325474062,
-   "mentions": 191,
-   "mentions_prev": 273,
+   "mentions": 199,
+   "mentions_prev": 281,
    "mom": "\u2193",
    "label": "",
    "flags": [],
@@ -3073,7 +3077,7 @@
    "headlines": [
     "Intel's huge rally is helping pay for its AI comeback",
     "Put options explained: How trading puts pays off and when it doesn't",
-    "CoreWeave Earnings Beat Amid Operating Margin Upside"
+    "Hedge Funds Favor Microsoft Corporation (MSFT) Over Meta Platforms Inc. (META)"
    ],
    "band": [
     217.5,
@@ -3112,10 +3116,10 @@
      "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "191 mentions, cooling from 273. Price is -0.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+39%).",
+   "reason": "199 mentions, cooling from 281. Price is -0.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+39%).",
    "tone": {
     "label": "positive",
-    "score": 0.16
+    "score": 0.29
    },
    "read": [
     "quiet",
@@ -3394,7 +3398,15 @@
    "name": "CoreWeave",
    "why": [
     "up +3% today",
-    "mentions 7x vs yesterday"
+    "mentions 8x vs yesterday"
+   ]
+  },
+  {
+   "sym": "NBIS",
+   "name": "Nebius Group",
+   "why": [
+    "up +5% today",
+    "mentions rising"
    ]
   }
  ],
@@ -3403,7 +3415,7 @@
   "up": 6,
   "down": 4,
   "flagged": 8,
-  "standouts": 2
+  "standouts": 3
  },
  "history": [
   {
@@ -4585,7 +4597,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
