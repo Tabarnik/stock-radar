@@ -1274,8 +1274,8 @@
   },
   {
    "date": "2026-08-12",
-   "picks": 6,
-   "flagged": 11,
+   "picks": 8,
+   "flagged": 13,
    "held_already": [
     "ACHR",
     "HTZ",
@@ -1284,6 +1284,8 @@
     "SPCX"
    ],
    "bought": [
+    "WEN",
+    "SNDK",
     "RIOT",
     "ONDS",
     "NVDA",
@@ -1291,17 +1293,17 @@
     "NBIS",
     "CRWV"
    ],
-   "per_ticker": 577.02,
+   "per_ticker": 552.69,
    "held_days": 0,
-   "return_pct": 9.3,
-   "invested": 3462.13,
+   "return_pct": 7.0,
+   "invested": 4421.49,
    "balance": 11540.42,
-   "pnl": 323.02,
+   "pnl": 309.39,
    "open": true
   }
  ],
  "start_cash": 10000.0,
- "final_balance": 11863.44,
+ "final_balance": 11825.92,
  "position_frac": 0.05,
  "curve_rule": "Sell after 5 days",
  "curve_days": 5,
@@ -3246,6 +3248,23 @@
   },
   {
    "date": "2026-08-12",
+   "sym": "SNDK",
+   "entry": 1344.2900390625,
+   "now": 1344.29,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-08-12",
    "sym": "SPCX",
    "entry": 133.29,
    "now": 146.15,
@@ -3260,6 +3279,23 @@
    "held_since": "2026-08-11",
    "buy_price": 132.3561,
    "ret_since_buy": 10.4
+  },
+  {
+   "date": "2026-08-12",
+   "sym": "WEN",
+   "entry": 8.65999984741211,
+   "now": 8.66,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   }
  ],
  "my_positions": [],
@@ -4114,10 +4150,10 @@
    "exit_on": null,
    "entry": 90.32,
    "price": 107.73,
-   "shares": 6.3886,
-   "alloc": 577.02,
-   "value": 688.25,
-   "pnl": 111.23,
+   "shares": 4.2332,
+   "alloc": 382.34,
+   "value": 456.04,
+   "pnl": 73.7,
    "ret": 19.3,
    "spy_ret": null,
    "path": []
@@ -4196,6 +4232,36 @@
    "ret": 0.4,
    "spy_ret": null,
    "path": []
+  },
+  {
+   "sym": "SNDK",
+   "bought": "2026-08-12",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 1344.29,
+   "price": 1344.29,
+   "shares": 0.4292,
+   "alloc": 577.02,
+   "value": 577.02,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "WEN",
+   "bought": "2026-08-12",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 8.66,
+   "price": 8.66,
+   "shares": 66.6306,
+   "alloc": 577.02,
+   "value": 577.02,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
   }
  ],
  "starved_days": [
@@ -4213,7 +4279,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9845.4,
-   "avg_days_held": 9.4,
+   "avg_days_held": 9.2,
    "worst": -25.6,
    "best": 27.5
   },
@@ -4227,7 +4293,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9796.01,
-   "avg_days_held": 11.7,
+   "avg_days_held": 11.5,
    "worst": -25.6,
    "best": 74.9
   },
@@ -4237,10 +4303,10 @@
    "exited": 69,
    "avg_return": -2.9,
    "win_rate": 30.4,
-   "pnl": -290.17,
+   "pnl": -292.09,
    "invested": 10000.0,
    "per_ticker": 144.93,
-   "final": 9709.83,
+   "final": 9707.91,
    "avg_days_held": 5.0,
    "worst": -43.5,
    "best": 80.7
@@ -4255,7 +4321,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9697.87,
-   "avg_days_held": 10.7,
+   "avg_days_held": 10.5,
    "worst": -25.6,
    "best": 49.2
   },
@@ -4269,7 +4335,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9685.1,
-   "avg_days_held": 21.9,
+   "avg_days_held": 21.5,
    "worst": -76.3,
    "best": 38.8
   },
@@ -4283,7 +4349,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9649.38,
-   "avg_days_held": 12.2,
+   "avg_days_held": 12.0,
    "worst": -25.6,
    "best": 44.9
   },
@@ -4297,7 +4363,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9570.1,
-   "avg_days_held": 13.8,
+   "avg_days_held": 13.6,
    "worst": -25.6,
    "best": 74.9
   },
@@ -4311,7 +4377,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9550.77,
-   "avg_days_held": 12.8,
+   "avg_days_held": 12.6,
    "worst": -30.4,
    "best": 74.9
   },
@@ -4339,7 +4405,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9455.2,
-   "avg_days_held": 25.5,
+   "avg_days_held": 25.2,
    "worst": -76.3,
    "best": 44.9
   },
@@ -4353,7 +4419,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9432.51,
-   "avg_days_held": 23.5,
+   "avg_days_held": 23.2,
    "worst": -76.3,
    "best": 49.2
   },
@@ -4367,7 +4433,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9399.19,
-   "avg_days_held": 15.2,
+   "avg_days_held": 15.0,
    "worst": -34.5,
    "best": 74.9
   },
@@ -4381,7 +4447,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9388.96,
-   "avg_days_held": 26.9,
+   "avg_days_held": 26.5,
    "worst": -76.3,
    "best": 74.9
   },
@@ -4395,7 +4461,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9367.91,
-   "avg_days_held": 15.4,
+   "avg_days_held": 15.1,
    "worst": -30.4,
    "best": 74.9
   },
@@ -4409,7 +4475,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9344.73,
-   "avg_days_held": 14.7,
+   "avg_days_held": 14.4,
    "worst": -30.4,
    "best": 44.9
   },
@@ -4419,10 +4485,10 @@
    "exited": 47,
    "avg_return": -9.8,
    "win_rate": 31.9,
-   "pnl": -982.92,
+   "pnl": -981.56,
    "invested": 10000.0,
    "per_ticker": 144.93,
-   "final": 9017.08,
+   "final": 9018.44,
    "avg_days_held": 16.7,
    "worst": -62.7,
    "best": 74.9
