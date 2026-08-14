@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-08-14T20:50:45.256560+00:00",
+ "generated_at": "2026-08-14T21:29:03.397024+00:00",
  "watch": [
   {
    "sym": "RDDT",
    "name": "Reddit",
    "price": 178.08999633789062,
    "pct": 0.06540090097105432,
-   "mentions": 731,
+   "mentions": 681,
    "mentions_prev": 22,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -19,7 +19,7 @@
    "headlines": [
     "Reddit is joining the S&P 500 next week. Here's what you need to know.",
     "Reddit stock surges after S&P 500 inclusion \u2014 here's the platform's next big opportunity",
-    "Stock Market Today: Nasdaq Sinks On Retail Sales Gloom; Nvidia Eyes Robotics Wave (Live Coverage)"
+    "Stock Market Today: Nasdaq Slips On Retail Sales Gloom; Nvidia Eyes Robotics Wave"
    ],
    "band": [
     153.4499969482422,
@@ -58,7 +58,7 @@
      "$119.27 \u2013 $282.95"
     ]
    ],
-   "reason": "731 mentions today, 33x yesterday's 22. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.62 mean target (+21%); the scan flagged vol 4x normal.",
+   "reason": "681 mentions today, 31x yesterday's 22. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.62 mean target (+21%); the scan flagged vol 4x normal.",
    "tone": {
     "label": "mixed",
     "score": -0.05
@@ -190,7 +190,7 @@
      "2026-08-10"
     ]
    },
-   "tag": "33x Reddit mentions",
+   "tag": "31x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -198,7 +198,7 @@
    "name": "Broadcom",
    "price": 392.989990234375,
    "pct": -6.1000692357892055,
-   "mentions": 248,
+   "mentions": 252,
    "mentions_prev": 18,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -210,8 +210,8 @@
    "earnings": null,
    "headlines": [
     "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "S&P 500 ends lower as investors weigh data, Middle East tensions",
-    "Broadcom Falls 6% as AI Trade Cools"
+    "QCOM: A Cash Gusher At A Marked-Down Price",
+    "S&P 500 ends lower as investors weigh data, Middle East tensions"
    ],
    "band": [
     392.989990234375,
@@ -250,7 +250,7 @@
      "$281.87 \u2013 $495.00"
     ]
    ],
-   "reason": "248 mentions today, 14x yesterday's 18. Price is -6.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $527.88 mean target (+34%); the scan flagged squeeze/penny sub.",
+   "reason": "252 mentions today, 14x yesterday's 18. Price is -6.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $527.88 mean target (+34%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.26
@@ -392,7 +392,7 @@
    "name": "Nokia",
    "price": 10.760000228881836,
    "pct": 0.3731364634499561,
-   "mentions": 228,
+   "mentions": 232,
    "mentions_prev": 6,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -442,7 +442,7 @@
      "$4.16 \u2013 $17.45"
     ]
    ],
-   "reason": "228 mentions today, 38x yesterday's 6. Price is +0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $15.02 mean target (+40%).",
+   "reason": "232 mentions today, 39x yesterday's 6. Price is +0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $15.02 mean target (+40%).",
    "tone": {
     "label": "positive",
     "score": 0.26
@@ -574,70 +574,70 @@
      "2026-08-10"
     ]
    },
-   "tag": "38x Reddit mentions",
+   "tag": "39x Reddit mentions",
    "source": "reddit"
   },
   {
-   "sym": "NVDA",
-   "name": "NVIDIA",
-   "price": 225.16000366210938,
-   "pct": -0.11781995385201496,
-   "mentions": 212,
-   "mentions_prev": 184,
+   "sym": "DTE",
+   "name": "DTE Energy",
+   "price": 140.83999633789062,
+   "pct": 0.5999973842075893,
+   "mentions": 181,
+   "mentions_prev": 140,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 302.82758,
+   "analyst_rec": "BUY",
+   "analyst_target": 160.03333,
    "earnings": null,
    "headlines": [
-    "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "The next AI winners may look nothing like Nvidia or Micron: One Big Investment Idea",
-    "Vertex Pharmaceuticals Just Hit an All-Time High. Here's Why the Biotech Stock Could Soar Even More"
+    "Prediction: DTE Energy Will End The Year At This Price",
+    "Social Buzz: Wallstreetbets Stocks Mixed Premarket Wednesday; SpaceX, Advanced Micro Devices to Decline",
+    "DTE Energy (DTE) Stock Looks Fully Priced As Its 45% Run Matures"
    ],
    "band": [
-    217.5,
-    225.3000030517578
+    136.77999877929688,
+    140.83999633789062
    ],
    "spark": [
-    217.5500030517578,
-    217.5,
-    224.08999633789062,
-    225.3000030517578,
-    225.16000366210938
+    136.77999877929688,
+    137.63999938964844,
+    138.67999267578125,
+    139.52999877929688,
+    140.83999633789062
    ],
    "stats": [
     [
      "Market cap",
-     "$5.5T"
+     "$29.3B"
     ],
     [
      "Float",
-     "22.6B"
+     "201.3M"
     ],
     [
      "Short interest",
-     "1.3%"
+     "2.9%"
     ],
     [
      "Avg vol",
-     "147.7M"
+     "1.4M"
     ],
     [
      "Vol today",
-     "75.2M"
+     "606.3K"
     ],
     [
      "52w range",
-     "$164.07 \u2013 $236.54"
+     "$126.23 \u2013 $155.75"
     ]
    ],
-   "reason": "212 mentions, up from 184 yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+34%); the scan flagged squeeze/penny sub.",
+   "reason": "181 mentions, up from 140 yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $160.03 mean target (+14%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": 0.02
+    "label": "positive",
+    "score": 0.27
    },
    "read": [
     "quiet",
@@ -645,11 +645,9 @@
     "No strong pattern between price and attention today."
    ],
    "er": {
-    "date": "Aug 26",
-    "days_away": 12,
-    "eps_estimate": 2.08,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 4.6,
+    "eps_estimate": 2.4,
+    "beat_record": "beat 3 of last 4",
+    "avg_surprise": 6.7,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -658,59 +656,59 @@
    "chart": {
     "period": "1y",
     "closes": [
-     180.21,
-     177.75,
-     173.95,
-     166.8,
-     177.59,
-     176.44,
-     177.96,
-     187.38,
-     182.93,
-     182.99,
-     186.02,
-     202.23,
-     187.91,
-     189.93,
-     178.65,
-     176.77,
-     182.19,
-     174.81,
-     180.77,
-     190.3,
-     188.62,
-     184.63,
-     186.0,
-     187.44,
-     190.9,
-     185.18,
-     182.59,
-     189.59,
-     176.97,
-     177.6,
-     180.04,
-     172.5,
-     167.32,
-     177.18,
-     188.41,
-     201.45,
-     208.03,
-     198.22,
-     214.95,
-     225.06,
-     215.08,
-     210.89,
-     205.1,
-     205.19,
-     210.69,
-     192.53,
-     194.83,
-     210.96,
-     202.81,
-     206.84,
-     200.75,
-     223.96,
-     225.16
+     134.44,
+     135.43,
+     132.25,
+     132.2,
+     132.43,
+     132.35,
+     135.9,
+     136.59,
+     137.01,
+     138.48,
+     138.37,
+     132.22,
+     133.41,
+     133.75,
+     132.45,
+     133.68,
+     128.02,
+     126.63,
+     125.65,
+     127.03,
+     128.32,
+     127.86,
+     133.39,
+     132.23,
+     132.28,
+     132.71,
+     142.68,
+     142.73,
+     145.92,
+     147.78,
+     147.23,
+     140.45,
+     143.33,
+     146.87,
+     148.5,
+     145.82,
+     145.72,
+     147.62,
+     139.49,
+     138.68,
+     144.15,
+     141.74,
+     144.62,
+     146.26,
+     146.39,
+     154.43,
+     154.06,
+     150.27,
+     148.19,
+     149.46,
+     141.87,
+     139.87,
+     140.84
     ],
     "dates": [
      "2025-08-11",
@@ -819,7 +817,7 @@
     ],
     [
      "Vol today",
-     "150.8M"
+     "156.3M"
     ],
     [
      "52w range",
@@ -977,7 +975,7 @@
    "headlines": [
     "Ondas (ONDS) Reports Strong Sales Growth, Is The Valuation Already Priced In?",
     "More Trump Tariffs Are Coming\u2014and They Could Look Different",
-    "Unusual Machines Soars 22%, Red Cat Climbs 8%, Ondas Gains 4% on Trump\u2019s 100% Drone Tariff"
+    "Unusual Machines, AeroVironment, and Ondas Rise as Trump Levies Tariffs on Drone Imports"
    ],
    "band": [
     8.90999984741211,
@@ -1019,7 +1017,7 @@
    "reason": "Price is +3.7% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $19.06 mean target (+106%).",
    "tone": {
     "label": "positive",
-    "score": 0.35
+    "score": 0.24
    },
    "read": [
     "quiet",
@@ -1166,8 +1164,8 @@
    "earnings": null,
    "headlines": [
     "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "Tesla Reportedly Will Demo Flying Roadster",
-    "Tesla Stock Rises as Musk Teases Potential 'Flying' Roadster Debut"
+    "Rocket Lab, Amazon Win Space Force Contracts. SpaceX Closes Cursor Deal.",
+    "Elon Musk Reveals $900 Billion SpaceX Stake, Massive Voting Power"
    ],
    "band": [
     133.2899932861328,
@@ -1208,8 +1206,8 @@
    ],
    "reason": "Price is -0.9% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $232.44 mean target (+66%).",
    "tone": {
-    "label": "negative",
-    "score": -0.16
+    "label": "positive",
+    "score": 0.16
    },
    "read": [
     "quiet",
@@ -1256,64 +1254,64 @@
    "source": "yahoo"
   },
   {
-   "sym": "RIG",
-   "name": "Transocean Ltd (Switzerland)",
-   "price": 5.76,
-   "pct": 0.699308,
+   "sym": "NVDA",
+   "name": "NVIDIA Corporation",
+   "price": 225.16,
+   "pct": -0.0621391,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
    "label": "",
    "flags": [],
-   "analyst_rec": "BUY",
-   "analyst_target": 6.51818,
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 302.82758,
    "earnings": null,
    "headlines": [
-    "Halliburton, TechnipFMC, Antero Resources, APA Corporation, and Transocean Stocks Trade Up, What You Need To Know",
-    "Transocean Q2 Earnings Beat Estimates, Revenues Decline Y/Y",
-    "Transocean Q2 Earnings Call Highlights"
+    "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
+    "The next AI winners may look nothing like Nvidia or Micron: One Big Investment Idea",
+    "Stock Market Today: Nasdaq Slips On Retail Sales Gloom; Nvidia Eyes Robotics Wave"
    ],
    "band": [
-    5.699999809265137,
-    5.809999942779541
+    217.5,
+    225.3000030517578
    ],
    "spark": [
-    5.71999979019165,
-    5.809999942779541,
-    5.699999809265137,
-    5.71999979019165,
-    5.760000228881836
+    217.5500030517578,
+    217.5,
+    224.08999633789062,
+    225.3000030517578,
+    225.16000366210938
    ],
    "stats": [
     [
      "Market cap",
-     "$6.4B"
+     "$5.5T"
     ],
     [
      "Float",
-     "885.7M"
+     "22.6B"
     ],
     [
      "Short interest",
-     "25.0%"
+     "1.3%"
     ],
     [
      "Avg vol",
-     "38.3M"
+     "147.7M"
     ],
     [
      "Vol today",
-     "46.2M"
+     "75.2M"
     ],
     [
      "52w range",
-     "$2.76 \u2013 $7.66"
+     "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "Price is +0.7% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $6.52 mean target (+13%).",
+   "reason": "Price is -0.1% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $302.83 mean target (+34%).",
    "tone": {
-    "label": "mixed",
-    "score": 0.0
+    "label": "negative",
+    "score": -0.16
    },
    "read": [
     "quiet",
@@ -1321,70 +1319,72 @@
     "No strong pattern between price and attention today."
    ],
    "er": {
-    "eps_estimate": 0.02,
-    "beat_record": "beat 2 of last 4",
-    "avg_surprise": 0.0,
+    "date": "Aug 26",
+    "days_away": 12,
+    "eps_estimate": 2.08,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 4.6,
     "expect": [
-     "mixed",
-     "Mixed record against estimates"
+     "good",
+     "Beaten estimates in most recent quarters"
     ]
    },
    "chart": {
     "period": "1y",
     "closes": [
-     2.95,
-     3.04,
-     3.03,
-     3.07,
-     3.3,
-     3.32,
-     3.19,
-     3.37,
-     3.08,
-     3.26,
-     3.9,
-     3.84,
-     3.98,
-     4.01,
-     3.89,
-     4.41,
-     4.44,
-     4.13,
-     3.97,
-     4.02,
-     4.24,
-     4.25,
-     4.23,
-     4.83,
-     4.97,
-     5.39,
-     6.54,
-     6.52,
-     6.48,
-     5.93,
-     6.36,
-     6.22,
-     6.93,
-     6.59,
-     6.52,
-     5.94,
-     6.11,
-     6.84,
-     6.4,
-     7.04,
-     6.81,
-     6.19,
-     5.95,
-     6.04,
-     5.31,
-     5.11,
-     5.06,
-     5.2,
-     5.14,
-     5.35,
-     5.32,
-     5.26,
-     5.76
+     180.21,
+     177.75,
+     173.95,
+     166.8,
+     177.59,
+     176.44,
+     177.96,
+     187.38,
+     182.93,
+     182.99,
+     186.02,
+     202.23,
+     187.91,
+     189.93,
+     178.65,
+     176.77,
+     182.19,
+     174.81,
+     180.77,
+     190.3,
+     188.62,
+     184.63,
+     186.0,
+     187.44,
+     190.9,
+     185.18,
+     182.59,
+     189.59,
+     176.97,
+     177.6,
+     180.04,
+     172.5,
+     167.32,
+     177.18,
+     188.41,
+     201.45,
+     208.03,
+     198.22,
+     214.95,
+     225.06,
+     215.08,
+     210.89,
+     205.1,
+     205.19,
+     210.69,
+     192.53,
+     194.83,
+     210.96,
+     202.81,
+     206.84,
+     200.75,
+     223.96,
+     225.16
     ],
     "dates": [
      "2025-08-11",
@@ -1453,7 +1453,7 @@
    "price": 776.3400268554688,
    "pct": -0.22875303867414468,
    "mentions": 806,
-   "mentions_prev": 821,
+   "mentions_prev": 827,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -1464,8 +1464,8 @@
    "earnings": null,
    "headlines": [
     "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "Stocks Are Finally Pulling Back and These Buffer ETFs Still Promise 100 Percent Downside Protection",
-    "Cash Pays 3.8% and the Fed May Hike. This T-Bill Fund Pays the Same but Sends No Tax Bill Until You Sell"
+    "Cash Pays 3.8% and the Fed May Hike. This T-Bill Fund Pays the Same but Sends No Tax Bill Until You Sell",
+    "Broadcom is Down Over 3 Months: One Wall Street Pro Sees 60%+ Gains Ahead"
    ],
    "band": [
     770.5599975585938,
@@ -1485,7 +1485,7 @@
     ],
     [
      "Vol today",
-     "25.4M"
+     "29.9M"
     ],
     [
      "52w range",
@@ -1494,8 +1494,8 @@
    ],
    "reason": "806 mentions, flat against yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "negative",
-    "score": -0.17
+    "label": "mixed",
+    "score": -0.09
    },
    "read": [
     "quiet",
@@ -1622,7 +1622,7 @@
    "name": "Reddit",
    "price": 178.08999633789062,
    "pct": 0.06540090097105432,
-   "mentions": 731,
+   "mentions": 681,
    "mentions_prev": 22,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -1635,7 +1635,7 @@
    "headlines": [
     "Reddit is joining the S&P 500 next week. Here's what you need to know.",
     "Reddit stock surges after S&P 500 inclusion \u2014 here's the platform's next big opportunity",
-    "Stock Market Today: Nasdaq Sinks On Retail Sales Gloom; Nvidia Eyes Robotics Wave (Live Coverage)"
+    "Stock Market Today: Nasdaq Slips On Retail Sales Gloom; Nvidia Eyes Robotics Wave"
    ],
    "band": [
     153.4499969482422,
@@ -1674,7 +1674,7 @@
      "$119.27 \u2013 $282.95"
     ]
    ],
-   "reason": "731 mentions today, 33x yesterday's 22. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.62 mean target (+21%); the scan flagged vol 4x normal.",
+   "reason": "681 mentions today, 31x yesterday's 22. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.62 mean target (+21%); the scan flagged vol 4x normal.",
    "tone": {
     "label": "mixed",
     "score": -0.05
@@ -1812,8 +1812,8 @@
    "name": "Sandisk",
    "price": 1641.1099853515625,
    "pct": 4.540185258245851,
-   "mentions": 523,
-   "mentions_prev": 511,
+   "mentions": 527,
+   "mentions_prev": 507,
    "mom": "\u2192",
    "label": "",
    "flags": [],
@@ -1823,7 +1823,7 @@
    "headlines": [
     "Sandisk stock surges as Wall Street cheers flash memory maker's bullish outlook",
     "Stocks subdued as earnings season begins to wind down: AlphaCheck",
-    "US Equity Indexes Mixed This Week After Soft Inflation Prints, Slumping Retail Sales Set to Restrain Fed Policy Hawks"
+    "Dow Jones Futures: Market Ready To Run? Sandisk Soars, Nvidia In Buy Area; Walmart, Target Due"
    ],
    "band": [
     1237.9200439453125,
@@ -1855,17 +1855,17 @@
     ],
     [
      "Vol today",
-     "20.0M"
+     "20.4M"
     ],
     [
      "52w range",
      "$42.82 \u2013 $2354.39"
     ]
    ],
-   "reason": "523 mentions, flat against yesterday. Price is +4.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $2,053.50 mean target (+25%).",
+   "reason": "527 mentions, flat against yesterday. Price is +4.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $2,053.50 mean target (+25%).",
    "tone": {
     "label": "positive",
-    "score": 0.16
+    "score": 0.28
    },
    "read": [
     "quiet",
@@ -2000,8 +2000,8 @@
    "name": "Micron Technology",
    "price": 971.6599731445312,
    "pct": 0.6406562269511016,
-   "mentions": 464,
-   "mentions_prev": 425,
+   "mentions": 460,
+   "mentions_prev": 423,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -2052,7 +2052,7 @@
      "$113.46 \u2013 $1255.00"
     ]
    ],
-   "reason": "464 mentions, flat against yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+55%); the scan flagged squeeze/penny sub.",
+   "reason": "460 mentions, flat against yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+55%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.12
@@ -2192,8 +2192,8 @@
    "name": "Hertz",
    "price": 2.240000009536743,
    "pct": -1.9693650093329091,
-   "mentions": 392,
-   "mentions_prev": 1400,
+   "mentions": 370,
+   "mentions_prev": 1398,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2204,9 +2204,9 @@
    "analyst_target": 2.275,
    "earnings": null,
    "headlines": [
+    "3 Small-Cap Stocks That Concern Us",
     "A Big Inflation Risk Still Looms for Stock Markets",
-    "Social Buzz: Wallstreetbets Stocks Mostly Higher Premarket Friday; Reddit, Sandisk to Advance",
-    "5 Insightful Analyst Questions From Verra Mobility\u2019s Q2 Earnings Call"
+    "Social Buzz: Wallstreetbets Stocks Mostly Higher Premarket Friday; Reddit, Sandisk to Advance"
    ],
    "band": [
     2.119999885559082,
@@ -2245,7 +2245,7 @@
      "$1.45 \u2013 $8.18"
     ]
    ],
-   "reason": "392 mentions, cooling from 1,400. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is hold with a $2.27 mean target (+2%); the scan flagged penny <$5, squeeze/penny sub.",
+   "reason": "370 mentions, cooling from 1,398. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is hold with a $2.27 mean target (+2%); the scan flagged penny <$5, squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.13
@@ -2383,8 +2383,8 @@
    "name": "Nebius Group",
    "price": 277.67999267578125,
    "pct": 6.390801791487069,
-   "mentions": 295,
-   "mentions_prev": 499,
+   "mentions": 319,
+   "mentions_prev": 480,
    "mom": "\u2193",
    "label": "",
    "flags": [],
@@ -2392,9 +2392,9 @@
    "analyst_target": 250.75,
    "earnings": null,
    "headlines": [
-    "Earnings live updates: Applied Materials stock falls after solid earnings fail to impress",
     "US Equity Markets End Lower Amid Weak Retail Sales Data, Rise in Crude Oil Prices",
-    "Investing.com\u2019s stocks of the week"
+    "Investing.com\u2019s stocks of the week",
+    "Nebius Group (NBIS) Is Up 34.3% After Multi\u2011Billion AI Cloud Wins And UK Capacity Surge"
    ],
    "band": [
     184.11000061035156,
@@ -2426,17 +2426,17 @@
     ],
     [
      "Vol today",
-     "28.5M"
+     "28.8M"
     ],
     [
      "52w range",
      "$62.01 \u2013 $299.86"
     ]
    ],
-   "reason": "295 mentions, cooling from 499. Price is +6.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $250.75 mean target (-10%).",
+   "reason": "319 mentions, cooling from 480. Price is +6.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $250.75 mean target (-10%).",
    "tone": {
-    "label": "negative",
-    "score": -0.28
+    "label": "mixed",
+    "score": -0.09
    },
    "read": [
     "quiet",
@@ -2571,7 +2571,7 @@
    "name": "Broadcom",
    "price": 392.989990234375,
    "pct": -6.1000692357892055,
-   "mentions": 248,
+   "mentions": 252,
    "mentions_prev": 18,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2583,8 +2583,8 @@
    "earnings": null,
    "headlines": [
     "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "S&P 500 ends lower as investors weigh data, Middle East tensions",
-    "Broadcom Falls 6% as AI Trade Cools"
+    "QCOM: A Cash Gusher At A Marked-Down Price",
+    "S&P 500 ends lower as investors weigh data, Middle East tensions"
    ],
    "band": [
     392.989990234375,
@@ -2623,7 +2623,7 @@
      "$281.87 \u2013 $495.00"
     ]
    ],
-   "reason": "248 mentions today, 14x yesterday's 18. Price is -6.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $527.88 mean target (+34%); the scan flagged squeeze/penny sub.",
+   "reason": "252 mentions today, 14x yesterday's 18. Price is -6.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $527.88 mean target (+34%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.26
@@ -2763,7 +2763,7 @@
    "name": "Nokia",
    "price": 10.760000228881836,
    "pct": 0.3731364634499561,
-   "mentions": 228,
+   "mentions": 232,
    "mentions_prev": 6,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2813,7 +2813,7 @@
      "$4.16 \u2013 $17.45"
     ]
    ],
-   "reason": "228 mentions today, 38x yesterday's 6. Price is +0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $15.02 mean target (+40%).",
+   "reason": "232 mentions today, 39x yesterday's 6. Price is +0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $15.02 mean target (+40%).",
    "tone": {
     "label": "positive",
     "score": 0.26
@@ -2951,10 +2951,10 @@
    "name": "NVIDIA",
    "price": 225.16000366210938,
    "pct": -0.11781995385201496,
-   "mentions": 212,
-   "mentions_prev": 184,
-   "mom": "\u2191",
-   "label": "chatter rising",
+   "mentions": 208,
+   "mentions_prev": 182,
+   "mom": "\u2192",
+   "label": "",
    "flags": [
     "squeeze/penny sub"
    ],
@@ -2964,7 +2964,7 @@
    "headlines": [
     "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
     "The next AI winners may look nothing like Nvidia or Micron: One Big Investment Idea",
-    "Vertex Pharmaceuticals Just Hit an All-Time High. Here's Why the Biotech Stock Could Soar Even More"
+    "Stock Market Today: Nasdaq Slips On Retail Sales Gloom; Nvidia Eyes Robotics Wave"
    ],
    "band": [
     217.5,
@@ -3003,10 +3003,10 @@
      "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "212 mentions, up from 184 yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+34%); the scan flagged squeeze/penny sub.",
+   "reason": "208 mentions, flat against yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+34%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": 0.02
+    "label": "negative",
+    "score": -0.16
    },
    "read": [
     "quiet",
@@ -3143,7 +3143,7 @@
    "name": "DTE Energy",
    "price": 140.83999633789062,
    "pct": 0.5999973842075893,
-   "mentions": 186,
+   "mentions": 181,
    "mentions_prev": 140,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -3195,7 +3195,7 @@
      "$126.23 \u2013 $155.75"
     ]
    ],
-   "reason": "186 mentions, up from 140 yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $160.03 mean target (+14%); the scan flagged squeeze/penny sub.",
+   "reason": "181 mentions, up from 140 yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $160.03 mean target (+14%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.27
@@ -3541,8 +3541,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 225.3,
-   "last_price": 225.16000366210938,
-   "pct": -0.06213774429233748,
+   "last_price": 225.16,
+   "pct": -0.06213936972925645,
    "outcome": "flat",
    "note": "Stock market today: Dow, S&P 500, Nasdaq futures waver after stocks hit record high",
    "age_days": 0
@@ -3673,8 +3673,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 224.09,
-   "last_price": 225.16000366210938,
-   "pct": 0.47748835829772485,
+   "last_price": 225.16,
+   "pct": 0.4774867240840703,
    "outcome": "flat",
    "note": "Nvidia partners with Goldman Sachs, BlackRock to fund AI build-out \u2014 but there's one big r",
    "age_days": 1
@@ -3816,8 +3816,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 217.5,
-   "last_price": 225.16000366210938,
-   "pct": 3.5218407641882186,
+   "last_price": 225.16,
+   "pct": 3.521839080459768,
    "outcome": "flat",
    "note": "Forget big tech: the real AI money is in plumbing",
    "age_days": 2
@@ -3970,8 +3970,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 217.48,
-   "last_price": 225.16000366210938,
-   "pct": 3.5313608893274715,
+   "last_price": 225.16,
+   "pct": 3.5313592054441822,
    "outcome": "flat",
    "note": "Intel's huge rally is helping pay for its AI comeback",
    "age_days": 3
@@ -4135,8 +4135,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 223.96,
-   "last_price": 225.16000366210938,
-   "pct": 0.5358116012276152,
+   "last_price": 225.16,
+   "pct": 0.5358099660653638,
    "outcome": "flat",
    "note": "3 Energy Stocks With Dividends That Have Never Been Cut",
    "age_days": 4
@@ -4234,8 +4234,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 219.22,
-   "last_price": 225.16000366210938,
-   "pct": 2.709608458219768,
+   "last_price": 225.16,
+   "pct": 2.7096067877018513,
    "outcome": "flat",
    "note": "Nvidia stock rises after Musk says SpaceX will exclusively use company's chips",
    "age_days": 8
@@ -4355,8 +4355,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 211.94000244140625,
-   "last_price": 225.16000366210938,
-   "pct": 6.23761492328848,
+   "last_price": 225.16,
+   "pct": 6.237613195389388,
    "outcome": "flat",
    "note": "Nvidia stock rises, as Musk says SpaceX will exclusively use company's chips",
    "age_days": 9
@@ -4476,8 +4476,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 211.89,
-   "last_price": 225.16000366210938,
-   "pct": 6.262685196143937,
+   "last_price": 225.16,
+   "pct": 6.262683467837091,
    "outcome": "flat",
    "note": "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record high",
    "age_days": 10
@@ -4630,8 +4630,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 200.75,
-   "last_price": 225.16000366210938,
-   "pct": 12.159404065807907,
+   "last_price": 225.16,
+   "pct": 12.159402241594021,
    "outcome": "worked",
    "note": "Why Microsoft Stock Is Surging",
    "age_days": 11
@@ -4730,8 +4730,8 @@
    "sym": "NVDA",
    "name": "",
    "flag_price": 196.22,
-   "last_price": 225.16000366210938,
-   "pct": 14.74875326781642,
+   "last_price": 225.16,
+   "pct": 14.748751401488125,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -4814,8 +4814,8 @@
    "sym": "NVDA",
    "name": "",
    "flag_price": 194.89,
-   "last_price": 225.16000366210938,
-   "pct": 15.531840352049562,
+   "last_price": 225.16,
+   "pct": 15.531838472984766,
    "outcome": "worked",
    "simulated": true,
    "note": "judged by hand to fit the rule \u2014 never sent, not re-derived",
@@ -4898,8 +4898,8 @@
    "sym": "NVDA",
    "name": "",
    "flag_price": 190.01,
-   "last_price": 225.16000366210938,
-   "pct": 18.49902829435787,
+   "last_price": 225.16,
+   "pct": 18.499026367033316,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
