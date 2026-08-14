@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-08-14T21:29:03.397024+00:00",
+ "generated_at": "2026-08-14T21:57:21.636876+00:00",
  "watch": [
   {
    "sym": "RDDT",
    "name": "Reddit",
    "price": 178.08999633789062,
    "pct": 0.06540090097105432,
-   "mentions": 681,
-   "mentions_prev": 22,
+   "mentions": 577,
+   "mentions_prev": 38,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -39,7 +39,7 @@
     ],
     [
      "Float",
-     "138.0M"
+     "143.7M"
     ],
     [
      "Short interest",
@@ -58,7 +58,7 @@
      "$119.27 \u2013 $282.95"
     ]
    ],
-   "reason": "681 mentions today, 31x yesterday's 22. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.62 mean target (+21%); the scan flagged vol 4x normal.",
+   "reason": "577 mentions today, 15x yesterday's 38. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.62 mean target (+21%); the scan flagged vol 4x normal.",
    "tone": {
     "label": "mixed",
     "score": -0.05
@@ -190,7 +190,7 @@
      "2026-08-10"
     ]
    },
-   "tag": "31x Reddit mentions",
+   "tag": "15x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -199,7 +199,7 @@
    "price": 392.989990234375,
    "pct": -6.1000692357892055,
    "mentions": 252,
-   "mentions_prev": 18,
+   "mentions_prev": 20,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -210,8 +210,8 @@
    "earnings": null,
    "headlines": [
     "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "QCOM: A Cash Gusher At A Marked-Down Price",
-    "S&P 500 ends lower as investors weigh data, Middle East tensions"
+    "Stock Market Today, Aug. 14: Rally Stalls on Disappointing Consumer Data, Broadcom Falls 6%",
+    "Broadcom (AVGO) Faces A $370 Billion AI Financing Risk Question"
    ],
    "band": [
     392.989990234375,
@@ -231,7 +231,7 @@
     ],
     [
      "Float",
-     "4.6B"
+     "4.7B"
     ],
     [
      "Short interest",
@@ -250,10 +250,10 @@
      "$281.87 \u2013 $495.00"
     ]
    ],
-   "reason": "252 mentions today, 14x yesterday's 18. Price is -6.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $527.88 mean target (+34%); the scan flagged squeeze/penny sub.",
+   "reason": "252 mentions today, 13x yesterday's 20. Price is -6.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $527.88 mean target (+34%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
-    "score": -0.26
+    "score": -0.32
    },
    "read": [
     "falling knife",
@@ -384,7 +384,7 @@
      "2026-08-10"
     ]
    },
-   "tag": "14x Reddit mentions",
+   "tag": "13x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -417,10 +417,6 @@
     10.760000228881836
    ],
    "stats": [
-    [
-     "Market cap",
-     "$60.1B"
-    ],
     [
      "Float",
      "4.4B"
@@ -582,8 +578,8 @@
    "name": "DTE Energy",
    "price": 140.83999633789062,
    "pct": 0.5999973842075893,
-   "mentions": 181,
-   "mentions_prev": 140,
+   "mentions": 178,
+   "mentions_prev": 139,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -615,7 +611,7 @@
     ],
     [
      "Float",
-     "201.3M"
+     "206.9M"
     ],
     [
      "Short interest",
@@ -634,7 +630,7 @@
      "$126.23 \u2013 $155.75"
     ]
    ],
-   "reason": "181 mentions, up from 140 yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $160.03 mean target (+14%); the scan flagged squeeze/penny sub.",
+   "reason": "178 mentions, up from 139 yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $160.03 mean target (+14%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.27
@@ -805,7 +801,7 @@
     ],
     [
      "Float",
-     "3.6B"
+     "3.7B"
     ],
     [
      "Short interest",
@@ -1027,7 +1023,7 @@
    "er": {
     "eps_estimate": -0.06,
     "beat_record": "beat 2 of last 4",
-    "avg_surprise": -0.3,
+    "avg_surprise": -0.1,
     "expect": [
      "mixed",
      "Mixed record against estimates"
@@ -1160,7 +1156,7 @@
    "label": "",
    "flags": [],
    "analyst_rec": "BUY",
-   "analyst_target": 232.4375,
+   "analyst_target": 235.6875,
    "earnings": null,
    "headlines": [
     "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
@@ -1185,7 +1181,7 @@
     ],
     [
      "Float",
-     "311.4M"
+     "413.1M"
     ],
     [
      "Short interest",
@@ -1204,7 +1200,7 @@
      "$104.83 \u2013 $225.64"
     ]
    ],
-   "reason": "Price is -0.9% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $232.44 mean target (+66%).",
+   "reason": "Price is -0.9% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $235.69 mean target (+68%).",
    "tone": {
     "label": "positive",
     "score": 0.16
@@ -1267,9 +1263,9 @@
    "analyst_target": 302.82758,
    "earnings": null,
    "headlines": [
-    "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "The next AI winners may look nothing like Nvidia or Micron: One Big Investment Idea",
-    "Stock Market Today: Nasdaq Slips On Retail Sales Gloom; Nvidia Eyes Robotics Wave"
+    "Berkshire ups Alphabet stake under Greg Abel, making it a top-3 holding",
+    "The AI build-out has a problem that $1 trillion in cash can't fix",
+    "The next AI winners may look nothing like Nvidia or Micron: One Big Investment Idea"
    ],
    "band": [
     217.5,
@@ -1289,7 +1285,7 @@
     ],
     [
      "Float",
-     "22.6B"
+     "23.2B"
     ],
     [
      "Short interest",
@@ -1310,8 +1306,8 @@
    ],
    "reason": "Price is -0.1% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $302.83 mean target (+34%).",
    "tone": {
-    "label": "negative",
-    "score": -0.16
+    "label": "mixed",
+    "score": -0.05
    },
    "read": [
     "quiet",
@@ -1452,8 +1448,8 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 776.3400268554688,
    "pct": -0.22875303867414468,
-   "mentions": 806,
-   "mentions_prev": 827,
+   "mentions": 780,
+   "mentions_prev": 836,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -1464,8 +1460,8 @@
    "earnings": null,
    "headlines": [
     "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "Cash Pays 3.8% and the Fed May Hike. This T-Bill Fund Pays the Same but Sends No Tax Bill Until You Sell",
-    "Broadcom is Down Over 3 Months: One Wall Street Pro Sees 60%+ Gains Ahead"
+    "Two Funds Promise 20% Income From the S&P 500. One Caps Your Upside, One Doesn\u2019t, and It Charges Less",
+    "Cash Pays 3.8% and the Fed May Hike. This T-Bill Fund Pays the Same but Sends No Tax Bill Until You Sell"
    ],
    "band": [
     770.5599975585938,
@@ -1492,10 +1488,10 @@
      "$629.28 \u2013 $779.37"
     ]
    ],
-   "reason": "806 mentions, flat against yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "780 mentions, flat against yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": -0.09
+    "label": "negative",
+    "score": -0.18
    },
    "read": [
     "quiet",
@@ -1622,8 +1618,8 @@
    "name": "Reddit",
    "price": 178.08999633789062,
    "pct": 0.06540090097105432,
-   "mentions": 681,
-   "mentions_prev": 22,
+   "mentions": 577,
+   "mentions_prev": 38,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1655,7 +1651,7 @@
     ],
     [
      "Float",
-     "138.0M"
+     "143.7M"
     ],
     [
      "Short interest",
@@ -1674,7 +1670,7 @@
      "$119.27 \u2013 $282.95"
     ]
    ],
-   "reason": "681 mentions today, 31x yesterday's 22. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.62 mean target (+21%); the scan flagged vol 4x normal.",
+   "reason": "577 mentions today, 15x yesterday's 38. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.62 mean target (+21%); the scan flagged vol 4x normal.",
    "tone": {
     "label": "mixed",
     "score": -0.05
@@ -1812,8 +1808,8 @@
    "name": "Sandisk",
    "price": 1641.1099853515625,
    "pct": 4.540185258245851,
-   "mentions": 527,
-   "mentions_prev": 507,
+   "mentions": 523,
+   "mentions_prev": 505,
    "mom": "\u2192",
    "label": "",
    "flags": [],
@@ -1843,7 +1839,7 @@
     ],
     [
      "Float",
-     "143.3M"
+     "146.8M"
     ],
     [
      "Short interest",
@@ -1862,7 +1858,7 @@
      "$42.82 \u2013 $2354.39"
     ]
    ],
-   "reason": "527 mentions, flat against yesterday. Price is +4.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $2,053.50 mean target (+25%).",
+   "reason": "523 mentions, flat against yesterday. Price is +4.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $2,053.50 mean target (+25%).",
    "tone": {
     "label": "positive",
     "score": 0.28
@@ -2000,8 +1996,8 @@
    "name": "Micron Technology",
    "price": 971.6599731445312,
    "pct": 0.6406562269511016,
-   "mentions": 460,
-   "mentions_prev": 423,
+   "mentions": 462,
+   "mentions_prev": 419,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -2028,10 +2024,6 @@
    ],
    "stats": [
     [
-     "Market cap",
-     "$1.1T"
-    ],
-    [
      "Float",
      "1.1B"
     ],
@@ -2052,7 +2044,7 @@
      "$113.46 \u2013 $1255.00"
     ]
    ],
-   "reason": "460 mentions, flat against yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+55%); the scan flagged squeeze/penny sub.",
+   "reason": "462 mentions, flat against yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,501.98 mean target (+55%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.12
@@ -2192,7 +2184,7 @@
    "name": "Hertz",
    "price": 2.240000009536743,
    "pct": -1.9693650093329091,
-   "mentions": 370,
+   "mentions": 362,
    "mentions_prev": 1398,
    "mom": "\u2193",
    "label": "",
@@ -2226,7 +2218,7 @@
     ],
     [
      "Float",
-     "161.9M"
+     "170.0M"
     ],
     [
      "Short interest",
@@ -2245,7 +2237,7 @@
      "$1.45 \u2013 $8.18"
     ]
    ],
-   "reason": "370 mentions, cooling from 1,398. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is hold with a $2.27 mean target (+2%); the scan flagged penny <$5, squeeze/penny sub.",
+   "reason": "362 mentions, cooling from 1,398. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is hold with a $2.27 mean target (+2%); the scan flagged penny <$5, squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.13
@@ -2383,8 +2375,8 @@
    "name": "Nebius Group",
    "price": 277.67999267578125,
    "pct": 6.390801791487069,
-   "mentions": 319,
-   "mentions_prev": 480,
+   "mentions": 329,
+   "mentions_prev": 470,
    "mom": "\u2193",
    "label": "",
    "flags": [],
@@ -2410,11 +2402,11 @@
    "stats": [
     [
      "Market cap",
-     "$70.5B"
+     "$75.5B"
     ],
     [
      "Float",
-     "226.9M"
+     "225.4M"
     ],
     [
      "Short interest",
@@ -2433,7 +2425,7 @@
      "$62.01 \u2013 $299.86"
     ]
    ],
-   "reason": "319 mentions, cooling from 480. Price is +6.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $250.75 mean target (-10%).",
+   "reason": "329 mentions, cooling from 470. Price is +6.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $250.75 mean target (-10%).",
    "tone": {
     "label": "mixed",
     "score": -0.09
@@ -2572,7 +2564,7 @@
    "price": 392.989990234375,
    "pct": -6.1000692357892055,
    "mentions": 252,
-   "mentions_prev": 18,
+   "mentions_prev": 20,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2583,8 +2575,8 @@
    "earnings": null,
    "headlines": [
     "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "QCOM: A Cash Gusher At A Marked-Down Price",
-    "S&P 500 ends lower as investors weigh data, Middle East tensions"
+    "Stock Market Today, Aug. 14: Rally Stalls on Disappointing Consumer Data, Broadcom Falls 6%",
+    "Broadcom (AVGO) Faces A $370 Billion AI Financing Risk Question"
    ],
    "band": [
     392.989990234375,
@@ -2604,7 +2596,7 @@
     ],
     [
      "Float",
-     "4.6B"
+     "4.7B"
     ],
     [
      "Short interest",
@@ -2623,10 +2615,10 @@
      "$281.87 \u2013 $495.00"
     ]
    ],
-   "reason": "252 mentions today, 14x yesterday's 18. Price is -6.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $527.88 mean target (+34%); the scan flagged squeeze/penny sub.",
+   "reason": "252 mentions today, 13x yesterday's 20. Price is -6.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $527.88 mean target (+34%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
-    "score": -0.26
+    "score": -0.32
    },
    "read": [
     "falling knife",
@@ -2789,10 +2781,6 @@
    ],
    "stats": [
     [
-     "Market cap",
-     "$60.1B"
-    ],
-    [
      "Float",
      "4.4B"
     ],
@@ -2951,8 +2939,8 @@
    "name": "NVIDIA",
    "price": 225.16000366210938,
    "pct": -0.11781995385201496,
-   "mentions": 208,
-   "mentions_prev": 182,
+   "mentions": 215,
+   "mentions_prev": 188,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -2962,9 +2950,9 @@
    "analyst_target": 302.82758,
    "earnings": null,
    "headlines": [
-    "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
-    "The next AI winners may look nothing like Nvidia or Micron: One Big Investment Idea",
-    "Stock Market Today: Nasdaq Slips On Retail Sales Gloom; Nvidia Eyes Robotics Wave"
+    "Berkshire ups Alphabet stake under Greg Abel, making it a top-3 holding",
+    "The AI build-out has a problem that $1 trillion in cash can't fix",
+    "The next AI winners may look nothing like Nvidia or Micron: One Big Investment Idea"
    ],
    "band": [
     217.5,
@@ -2984,7 +2972,7 @@
     ],
     [
      "Float",
-     "22.6B"
+     "23.2B"
     ],
     [
      "Short interest",
@@ -3003,10 +2991,10 @@
      "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "208 mentions, flat against yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+34%); the scan flagged squeeze/penny sub.",
+   "reason": "215 mentions, flat against yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $302.83 mean target (+34%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "negative",
-    "score": -0.16
+    "label": "mixed",
+    "score": -0.05
    },
    "read": [
     "quiet",
@@ -3143,8 +3131,8 @@
    "name": "DTE Energy",
    "price": 140.83999633789062,
    "pct": 0.5999973842075893,
-   "mentions": 181,
-   "mentions_prev": 140,
+   "mentions": 178,
+   "mentions_prev": 139,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -3176,7 +3164,7 @@
     ],
     [
      "Float",
-     "201.3M"
+     "206.9M"
     ],
     [
      "Short interest",
@@ -3195,7 +3183,7 @@
      "$126.23 \u2013 $155.75"
     ]
    ],
-   "reason": "181 mentions, up from 140 yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $160.03 mean target (+14%); the scan flagged squeeze/penny sub.",
+   "reason": "178 mentions, up from 139 yesterday. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $160.03 mean target (+14%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.27

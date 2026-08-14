@@ -3889,7 +3889,6 @@
    "2026-08-14": 18.37
   },
   "HTFL": {
-   "2026-07-28": 25.59,
    "2026-07-29": 25.04,
    "2026-07-30": 25.83,
    "2026-07-31": 25.23,
@@ -3899,6 +3898,7 @@
    "2026-08-06": 27.19,
    "2026-08-07": 28.82,
    "2026-08-10": 29.35,
+   "2026-08-11": 29.54,
    "2026-08-12": 29.85,
    "2026-08-13": 31.01,
    "2026-08-14": 42.08
@@ -5096,12 +5096,12 @@
    "rule": "Sell after 5 days",
    "positions": 69,
    "exited": 69,
-   "avg_return": -2.9,
+   "avg_return": -2.8,
    "win_rate": 30.4,
-   "pnl": -290.17,
+   "pnl": -282.86,
    "invested": 10000.0,
    "per_ticker": 144.93,
-   "final": 9709.83,
+   "final": 9717.14,
    "avg_days_held": 5.0,
    "worst": -43.5,
    "best": 80.7
@@ -5144,7 +5144,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9686.17,
-   "avg_days_held": 23.3,
+   "avg_days_held": 23.4,
    "worst": -75.4,
    "best": 38.8
   },
@@ -5163,6 +5163,20 @@
    "best": 87.3
   },
   {
+   "rule": "Sell after 10 days",
+   "positions": 69,
+   "exited": 68,
+   "avg_return": -4.8,
+   "win_rate": 31.9,
+   "pnl": -476.9,
+   "invested": 10000.0,
+   "per_ticker": 144.93,
+   "final": 9523.1,
+   "avg_days_held": 10.0,
+   "worst": -44.4,
+   "best": 74.9
+  },
+  {
    "rule": "Trailing stop -25%",
    "positions": 69,
    "exited": 34,
@@ -5175,20 +5189,6 @@
    "avg_days_held": 16.3,
    "worst": -34.5,
    "best": 87.3
-  },
-  {
-   "rule": "Sell after 10 days",
-   "positions": 69,
-   "exited": 69,
-   "avg_return": -4.9,
-   "win_rate": 31.9,
-   "pnl": -485.81,
-   "invested": 10000.0,
-   "per_ticker": 144.93,
-   "final": 9514.19,
-   "avg_days_held": 10.0,
-   "worst": -44.4,
-   "best": 74.9
   },
   {
    "rule": "Stop loss -20%",
@@ -5242,7 +5242,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9436.96,
-   "avg_days_held": 28.9,
+   "avg_days_held": 29.0,
    "worst": -75.4,
    "best": 87.3
   },
@@ -5270,7 +5270,7 @@
    "invested": 10000.0,
    "per_ticker": 144.93,
    "final": 9121.19,
-   "avg_days_held": 17.4,
+   "avg_days_held": 17.3,
    "worst": -62.7,
    "best": 87.3
   }
