@@ -180,6 +180,30 @@ def spy_over(start_date, sessions):
     return round((SPY_CLOSES[ks[-1]] - base) / base * 100, 1)
 
 
+def entry_on(sym, date, recorded, closes_map):
+    """The recorded flag price, put on the same scale as today's prices.
+
+    Prices are recorded raw at flag time, but yfinance's history is BACK-ADJUSTED
+    for splits — so after a split the two live on different scales. CXAI's 1:50
+    reverse split left a $0.20 entry being compared with a $4.26 close and the
+    board reported +2030% and a $20,300 profit on a stock that had fallen.
+
+    Detected rather than looked up: the adjusted close on the flag date is
+    compared with what was recorded, and a large clean ratio means a split has
+    happened since. Ordinary intraday drift between the flag and the close is a
+    few percent and is left alone. Comparing against the very series used for
+    returns is what guarantees the two stay consistent.
+    """
+    c = closes_map.get(sym) or {}
+    ref = close_on_or_before(c, date)
+    if not ref or not recorded:
+        return recorded
+    r = ref / recorded
+    if r > 1.5 or r < 0.67:
+        return round(ref, 6)
+    return recorded
+
+
 # ---------------------------------------------------------------- exit rules
 # "When do I sell?" is the one question here that can be answered with evidence
 # rather than opinion: every flag has a real price path after it, so competing
@@ -378,8 +402,13 @@ def main():
 
     # collapse to one position per ticker: bought the first time it appeared,
     # filed under the strongest tier it was ever flagged under
+    # closes for everything, up front: entry prices must be put on the same
+    # (split-adjusted) scale as the prices they are compared with
+    all_closes = {s_: daily_closes(s_) for s_ in syms}
+
     pos = {}
     for date, tier, sym, entry in FLAGS:
+        entry = entry_on(sym, date, entry, all_closes)
         p = pos.get(sym)
         if p is None:
             pos[sym] = {"date": date, "tier": tier, "sym": sym, "entry": entry,
@@ -456,6 +485,15 @@ def main():
         if tier == "pick":
             pick_days[date].setdefault(sym, entry)
             pick_sim.setdefault((date, sym), False)
+    # rescale any entry recorded before a split. history.json carries names that
+    # FLAGS never did, so fetch their closes first — entry_on falls back to the
+    # recorded price when it has nothing to compare against, which would leave
+    # exactly those names unadjusted and wrong.
+    for d_ in list(pick_days):
+        for s_ in list(pick_days[d_]):
+            if s_ not in all_closes:
+                all_closes[s_] = daily_closes(s_)
+            pick_days[d_][s_] = entry_on(s_, d_, pick_days[d_][s_], all_closes)
 
     # Every pick ever made, first flag per ticker. This is the personal record
     # and it grows with each run, rather than being fixed at what FLAGS lists.
@@ -484,7 +522,10 @@ def main():
     # most days and letting every position finish at its own pace.
     days = sorted(pick_days)
     curve_syms = {s for d in days for s in pick_days[d]}
-    closes = {s: daily_closes(s) for s in curve_syms}
+    closes = dict(all_closes)
+    for s_ in curve_syms:
+        if s_ not in closes:
+            closes[s_] = daily_closes(s_)
     for s_ in curve_syms:                       # price anything rows never covered
         if s_ not in now:
             now[s_] = last_price(s_)
@@ -702,6 +743,11 @@ def main():
         sym, bp, sh = t.get("sym"), t.get("buy_price"), t.get("shares")
         if not sym or not bp or not sh:
             continue
+        if sym not in closes:
+            closes[sym] = daily_closes(sym)
+        adj = entry_on(sym, t.get("buy_date"), bp, closes)
+        if adj != bp:      # a split since the buy: the share count moved too
+            sh, bp = sh * (bp / adj), adj
         cost = bp * sh
         if t.get("sell_price"):                 # closed: marked at what it sold for
             val = t["sell_price"] * sh
