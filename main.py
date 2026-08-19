@@ -822,6 +822,17 @@ def _outcome(pct):
     return "flat"
 
 
+def last_price_of(sym, _cache={}):
+    """Latest price for a name that is no longer on the scan."""
+    if sym not in _cache:
+        try:
+            _cache[sym] = _g(yf.Ticker(sym).fast_info, "last_price", "lastPrice")
+        except Exception as e:
+            print(f"[warn] price {sym}: {e}")
+            _cache[sym] = None
+    return _cache[sym]
+
+
 def split_factor(sym, since, _cache={}):
     """Cumulative split ratio applied to `sym` after `since` (YYYY-MM-DD).
 
@@ -909,6 +920,13 @@ def update_history(watch, results):
         if age > HISTORY_DAYS:
             continue
         now = live.get(e["sym"])
+        # A name that has fallen off the scan is not in `live`, so its entry used
+        # to freeze at whatever it was worth the last day it appeared — CXAI sat
+        # at a pre-split 0.12 for weeks. Price it directly instead, but only on
+        # the three recording runs: doing it every 20 minutes would add a fetch
+        # per retired name to every refresh.
+        if now is None and record and e.get("flag_price"):
+            now = last_price_of(e["sym"])
         if now and e.get("flag_price"):
             # Rescale the recorded price for any split since it was flagged, and
             # keep the correction: leaving it would mean recomputing a wrong
