@@ -822,6 +822,31 @@ def _outcome(pct):
     return "flat"
 
 
+def split_factor(sym, since, _cache={}):
+    """Cumulative split ratio applied to `sym` after `since` (YYYY-MM-DD).
+
+    Prices are recorded raw at flag time, but a split changes the scale of every
+    later price. CXAI's 1:50 reverse split made a $0.20 entry look like a 2030%
+    gain against a $4.26 quote, on a stock that had actually fallen 58%.
+
+    yfinance reports a 2:1 forward split as 2.0 and a 1:50 reverse as 0.02, so
+    the recorded price divided by the product of later ratios lands back on
+    today's scale. Cached per run: this is called once per symbol in the record.
+    """
+    if sym not in _cache:
+        try:
+            _cache[sym] = {ts.strftime("%Y-%m-%d"): float(r)
+                           for ts, r in yf.Ticker(sym).splits.items() if r}
+        except Exception as e:
+            print(f"[warn] splits {sym}: {e}")
+            _cache[sym] = {}
+    f = 1.0
+    for d, ratio in _cache[sym].items():
+        if d > since:
+            f *= ratio
+    return f
+
+
 def update_history(watch, results):
     """
     Maintain docs/history.json: what the radar flagged, at what price, and where
@@ -885,6 +910,15 @@ def update_history(watch, results):
             continue
         now = live.get(e["sym"])
         if now and e.get("flag_price"):
+            # Rescale the recorded price for any split since it was flagged, and
+            # keep the correction: leaving it would mean recomputing a wrong
+            # percentage on every run for the rest of the record's life.
+            f = split_factor(e["sym"], e["date"])
+            if f != 1.0:
+                e["flag_price"] = round(e["flag_price"] / f, 6)
+                e["split_adjusted"] = True
+                print(f"[history] {e['sym']} {e['date']}: split x{1/f:.4g} — "
+                      f"entry rescaled to {e['flag_price']}")
             e["last_price"] = now
             e["pct"] = (now - e["flag_price"]) / e["flag_price"] * 100
             e["outcome"] = _outcome(e["pct"])
