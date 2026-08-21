@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-21T21:33:32.964648+00:00",
+ "generated_at": "2026-08-21T21:58:19.450258+00:00",
  "watch": [
   {
    "sym": "NVDA",
@@ -200,7 +200,7 @@
    "name": "Tesla",
    "price": 362.8599853515625,
    "pct": 4.781976711395463,
-   "mentions": 168,
+   "mentions": 172,
    "mentions_prev": 49,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -211,9 +211,9 @@
    "analyst_target": 395.3405,
    "earnings": null,
    "headlines": [
-    "Stock Market Today, Aug. 21: Tesla Gains on Nevada Robotaxi Permit Approval",
-    "Elon Musk's SpaceX and Tesla Are Building a $16.8 Billion Chip Factory 5 Times Bigger Than Earth's Largest Building. What Does That Mean for Both Stocks?",
-    "Moderna, Robinhood, Marvell, Tesla, SpaceX, and More Stocks That Explain Today\u2019s Market"
+    "US Stock Indices End Week Lower On Pressure From Elevated Long-Duration Treasury Yields \u2014 PSKY, MSTR, WMT, TSLA, NVDA In Focus",
+    "Why Is Tesla Stock Up Today?",
+    "Stock Market Today, Aug. 21: Tesla Gains on Nevada Robotaxi Permit Approval"
    ],
    "band": [
     336.8699951171875,
@@ -252,10 +252,10 @@
      "$297.38 \u2013 $498.83"
     ]
    ],
-   "reason": "168 mentions today, 3x yesterday's 49. Price is +4.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $395.34 mean target (+9%); the scan flagged squeeze/penny sub.",
+   "reason": "172 mentions today, 4x yesterday's 49. Price is +4.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $395.34 mean target (+9%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.22
+    "label": "mixed",
+    "score": 0.1
    },
    "read": [
     "moving with attention",
@@ -384,7 +384,7 @@
      "2026-08-17"
     ]
    },
-   "tag": "3x Reddit mentions",
+   "tag": "4x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -392,8 +392,8 @@
    "name": "Robinhood",
    "price": 108.12999725341797,
    "pct": 13.536849080321026,
-   "mentions": 143,
-   "mentions_prev": 58,
+   "mentions": 142,
+   "mentions_prev": 56,
    "mom": "\u2191",
    "label": "\ud83d\udcc8 running today + chatter rising",
    "flags": [
@@ -444,7 +444,7 @@
      "$63.52 \u2013 $153.86"
     ]
    ],
-   "reason": "143 mentions today, 2x yesterday's 58. Already up 14% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $119.93 mean target (+11%); the scan flagged squeeze/penny sub.",
+   "reason": "142 mentions today, 3x yesterday's 56. Already up 14% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $119.93 mean target (+11%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.16
@@ -576,7 +576,7 @@
      "2026-08-17"
     ]
    },
-   "tag": "2x Reddit mentions",
+   "tag": "3x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -1450,176 +1450,6 @@
  ],
  "buzz": [
   {
-   "sym": "SPY",
-   "name": "SPDR S&P 500 ETF Trust",
-   "price": 765.719970703125,
-   "pct": 0.37226964963362585,
-   "mentions": 457,
-   "mentions_prev": 623,
-   "mom": "\u2193",
-   "label": "",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "You Do Not Need $1 Million to Retire: These 3 ETFs Pay About $49,000 a Year on $600,000",
-    "SPY Has a Nearly Identical Twin That Costs 80 Percent Less and Pays the Same Dividends",
-    "BofA Sees a Stock Market Setup Starting to Change"
-   ],
-   "band": [
-    762.5999755859375,
-    772.6699829101562
-   ],
-   "spark": [
-    772.6699829101562,
-    767.4500122070312,
-    769.0599975585938,
-    762.5999755859375,
-    765.719970703125
-   ],
-   "stats": [
-    [
-     "Avg vol",
-     "51.6M"
-    ],
-    [
-     "Vol today",
-     "38.6M"
-    ],
-    [
-     "52w range",
-     "$629.28 \u2013 $779.37"
-    ]
-   ],
-   "reason": "457 mentions, cooling from 623. Price is +0.4% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "mixed",
-    "score": -0.03
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": null,
-   "chart": {
-    "period": "1y",
-    "closes": [
-     638.24,
-     637.98,
-     640.15,
-     650.21,
-     658.25,
-     656.38,
-     663.71,
-     647.65,
-     658.93,
-     671.69,
-     676.46,
-     665.46,
-     666.41,
-     653.61,
-     677.77,
-     680.06,
-     676.16,
-     676.99,
-     686.66,
-     679.56,
-     690.4,
-     688.0,
-     685.59,
-     688.31,
-     686.97,
-     678.15,
-     685.79,
-     682.36,
-     668.83,
-     658.79,
-     646.9,
-     632.46,
-     654.14,
-     677.71,
-     708.32,
-     712.11,
-     718.8,
-     735.72,
-     737.27,
-     743.72,
-     754.54,
-     735.65,
-     739.84,
-     746.74,
-     728.99,
-     744.78,
-     754.95,
-     743.29,
-     738.93,
-     747.03,
-     773.26,
-     776.34,
-     765.72
-    ],
-    "dates": [
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17"
-    ]
-   }
-  },
-  {
    "sym": "NVDA",
    "name": "NVIDIA",
    "price": 214.72000122070312,
@@ -1816,8 +1646,8 @@
    "name": "Micron Technology",
    "price": 966.780029296875,
    "pct": -0.042646185027799065,
-   "mentions": 280,
-   "mentions_prev": 296,
+   "mentions": 262,
+   "mentions_prev": 294,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -1844,6 +1674,10 @@
    ],
    "stats": [
     [
+     "Market cap",
+     "$1.1T"
+    ],
+    [
      "Float",
      "1.1B"
     ],
@@ -1864,7 +1698,7 @@
      "$114.25 \u2013 $1255.00"
     ]
    ],
-   "reason": "280 mentions, flat against yesterday. Price is -0.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,521.62 mean target (+57%); the scan flagged squeeze/penny sub.",
+   "reason": "262 mentions, flat against yesterday. Price is -0.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,521.62 mean target (+57%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.15
@@ -2005,7 +1839,7 @@
    "price": 145.1300048828125,
    "pct": 11.942863774041333,
    "mentions": 257,
-   "mentions_prev": 956,
+   "mentions_prev": 932,
    "mom": "\u2193",
    "label": "\ud83d\udcc8 running today",
    "flags": [
@@ -2017,8 +1851,8 @@
    "earnings": null,
    "headlines": [
     "Amid the chip bear market, healthcare is breaking out: Chart of the Day",
-    "Stocks to Watch Recap: Strategy, Ross Stores, BJ\u2019s Wholesale Club",
-    "S&P 500 Posts First Weekly Loss Since July Amid US Warning to Iran"
+    "SLS Stock Clocks Three Straight Weeks Of Gains On Cancer Vaccine Spillover, REGAL Trial Data Anticipation",
+    "Stocks to Watch Recap: Strategy, Ross Stores, BJ\u2019s Wholesale Club"
    ],
    "band": [
     62.959999084472656,
@@ -2057,10 +1891,10 @@
      "$22.28 \u2013 $176.66"
     ]
    ],
-   "reason": "257 mentions, cooling from 956. Already up 12% today \u2014 the crowd is arriving after the move; analyst consensus is hold with a $89.33 mean target (-38%); the scan flagged vol 8x normal, squeeze/penny sub.",
+   "reason": "257 mentions, cooling from 932. Already up 12% today \u2014 the crowd is arriving after the move; analyst consensus is hold with a $89.33 mean target (-38%); the scan flagged vol 8x normal, squeeze/penny sub.",
    "tone": {
-    "label": "negative",
-    "score": -0.19
+    "label": "mixed",
+    "score": -0.06
    },
    "read": [
     "quiet",
@@ -2195,8 +2029,8 @@
    "name": "Invesco QQQ ETF",
    "price": 713.4400024414062,
    "pct": 0.3717376183696552,
-   "mentions": 186,
-   "mentions_prev": 228,
+   "mentions": 188,
+   "mentions_prev": 229,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2206,9 +2040,9 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "ETF League Tables: SPDR Leads Inflows",
-    "FuelCell Energy Jumps 5%, Plug Power Climbs 4%, Bloom Energy Slips as the Hydrogen Trade Splits",
-    "Exchange-Traded Funds Rise as US Equities Advance After Midday"
+    "How a 72-Year-Old\u2019s $400,000 in QYLD Now Pays $3,901 a Month, Down From a Steadily Shrinking Peak",
+    "Two Years of Friday Paydays: The 44% Fund Has Kept Its NAV and Beaten Half of Wall Street",
+    "ETF League Tables: SPDR Leads Inflows"
    ],
    "band": [
     710.9299926757812,
@@ -2235,10 +2069,10 @@
      "$555.60 \u2013 $748.65"
     ]
    ],
-   "reason": "186 mentions, cooling from 228. Price is +0.4% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "188 mentions, cooling from 229. Price is +0.4% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.16
+    "label": "mixed",
+    "score": -0.14
    },
    "read": [
     "quiet",
@@ -2365,7 +2199,7 @@
    "name": "Sandisk",
    "price": 1596.0799560546875,
    "pct": 1.1393419970019387,
-   "mentions": 182,
+   "mentions": 181,
    "mentions_prev": 197,
    "mom": "\u2192",
    "label": "",
@@ -2415,7 +2249,7 @@
      "$45.63 \u2013 $2354.39"
     ]
    ],
-   "reason": "182 mentions, flat against yesterday. Price is +1.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,126.17 mean target (+33%).",
+   "reason": "181 mentions, flat against yesterday. Price is +1.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,126.17 mean target (+33%).",
    "tone": {
     "label": "mixed",
     "score": 0.15
@@ -2553,7 +2387,7 @@
    "name": "Tesla",
    "price": 362.8599853515625,
    "pct": 4.781976711395463,
-   "mentions": 168,
+   "mentions": 172,
    "mentions_prev": 49,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2564,9 +2398,9 @@
    "analyst_target": 395.3405,
    "earnings": null,
    "headlines": [
-    "Stock Market Today, Aug. 21: Tesla Gains on Nevada Robotaxi Permit Approval",
-    "Elon Musk's SpaceX and Tesla Are Building a $16.8 Billion Chip Factory 5 Times Bigger Than Earth's Largest Building. What Does That Mean for Both Stocks?",
-    "Moderna, Robinhood, Marvell, Tesla, SpaceX, and More Stocks That Explain Today\u2019s Market"
+    "US Stock Indices End Week Lower On Pressure From Elevated Long-Duration Treasury Yields \u2014 PSKY, MSTR, WMT, TSLA, NVDA In Focus",
+    "Why Is Tesla Stock Up Today?",
+    "Stock Market Today, Aug. 21: Tesla Gains on Nevada Robotaxi Permit Approval"
    ],
    "band": [
     336.8699951171875,
@@ -2605,10 +2439,10 @@
      "$297.38 \u2013 $498.83"
     ]
    ],
-   "reason": "168 mentions today, 3x yesterday's 49. Price is +4.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $395.34 mean target (+9%); the scan flagged squeeze/penny sub.",
+   "reason": "172 mentions today, 4x yesterday's 49. Price is +4.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $395.34 mean target (+9%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.22
+    "label": "mixed",
+    "score": 0.1
    },
    "read": [
     "moving with attention",
@@ -2933,8 +2767,8 @@
    "name": "Robinhood",
    "price": 108.12999725341797,
    "pct": 13.536849080321026,
-   "mentions": 143,
-   "mentions_prev": 58,
+   "mentions": 142,
+   "mentions_prev": 56,
    "mom": "\u2191",
    "label": "\ud83d\udcc8 running today + chatter rising",
    "flags": [
@@ -2985,7 +2819,7 @@
      "$63.52 \u2013 $153.86"
     ]
    ],
-   "reason": "143 mentions today, 2x yesterday's 58. Already up 14% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $119.93 mean target (+11%); the scan flagged squeeze/penny sub.",
+   "reason": "142 mentions today, 3x yesterday's 56. Already up 14% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $119.93 mean target (+11%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.16
@@ -3307,6 +3141,196 @@
      "2026-08-17"
     ]
    }
+  },
+  {
+   "sym": "SLS",
+   "name": "Sellas Life Sciences",
+   "price": 15.460000038146973,
+   "pct": 15.878155829488014,
+   "mentions": 124,
+   "mentions_prev": 90,
+   "mom": "\u2191",
+   "label": "\ud83d\udcc8 running today + chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 32.5,
+   "earnings": null,
+   "headlines": [
+    "SLS Stock Clocks Three Straight Weeks Of Gains On Cancer Vaccine Spillover, REGAL Trial Data Anticipation",
+    "Is SELLAS (SLS) Turning Sector Hype Into a Durable Cancer Vaccine Story Despite Ongoing Losses?",
+    "SELLAS Life Sciences Group (SLS) Shares Just Moved, So What Is Drawing Attention?"
+   ],
+   "band": [
+    13.0,
+    15.460000038146973
+   ],
+   "spark": [
+    13.0,
+    13.100000381469727,
+    13.850000381469727,
+    13.399999618530273,
+    15.460000038146973
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$3.1B"
+    ],
+    [
+     "Float",
+     "201.1M"
+    ],
+    [
+     "Short interest",
+     "28.1%"
+    ],
+    [
+     "Avg vol",
+     "8.6M"
+    ],
+    [
+     "Vol today",
+     "15.1M"
+    ],
+    [
+     "52w range",
+     "$1.39 \u2013 $15.88"
+    ]
+   ],
+   "reason": "124 mentions, up from 90 yesterday. Already up 16% today \u2014 the crowd is arriving after the move; analyst consensus is strong buy with a $32.50 mean target (+110%); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "mixed",
+    "score": -0.12
+   },
+   "read": [
+    "chasing",
+    "warn",
+    "Already run hard today and the crowd is still piling in \u2014 late-arrival risk."
+   ],
+   "er": {
+    "eps_estimate": -0.04,
+    "beat_record": "beat 3 of last 4",
+    "avg_surprise": 10.1,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     1.91,
+     1.92,
+     1.91,
+     1.85,
+     1.63,
+     1.63,
+     1.87,
+     1.91,
+     2.14,
+     1.99,
+     1.82,
+     1.59,
+     1.43,
+     1.53,
+     1.62,
+     1.74,
+     2.03,
+     2.36,
+     2.87,
+     4.35,
+     3.46,
+     3.98,
+     4.26,
+     3.77,
+     3.73,
+     3.59,
+     4.15,
+     4.93,
+     5.53,
+     5.37,
+     4.76,
+     4.37,
+     4.13,
+     4.76,
+     5.22,
+     4.46,
+     4.93,
+     5.01,
+     7.08,
+     7.78,
+     9.31,
+     8.23,
+     7.83,
+     8.05,
+     12.39,
+     14.98,
+     12.76,
+     13.19,
+     11.32,
+     10.01,
+     12.01,
+     12.78,
+     15.46
+    ],
+    "dates": [
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17"
+    ]
+   }
   }
  ],
  "gainers": [
@@ -3324,8 +3348,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Is SELLAS (SLS) Turning Sector Hype Into a Durable Cancer Vaccine Story Despite Ongoing Losses?",
-    "SELLAS Life Sciences Group (SLS) Shares Just Moved, So What Is Drawing Attention?"
+    "SLS Stock Clocks Three Straight Weeks Of Gains On Cancer Vaccine Spillover, REGAL Trial Data Anticipation",
+    "Is SELLAS (SLS) Turning Sector Hype Into a Durable Cancer Vaccine Story Despite Ongoing Losses?"
    ],
    "band": null,
    "spark": [],
@@ -3352,6 +3376,32 @@
    "headlines": [
     "Can IQM Quantum Computers Oyj (HLSE:IQMX) Justify Its Valuation After Buyback, Guidance And Earnings?",
     "IQM Quantum Computers Q2 Earnings Call Highlights"
+   ],
+   "band": null,
+   "spark": [],
+   "stats": [],
+   "reason": "",
+   "tone": null,
+   "read": null,
+   "er": null,
+   "chart": null
+  },
+  {
+   "sym": "UEC",
+   "name": "Uranium Energy Corp.",
+   "price": 12.76,
+   "pct": 14.4395,
+   "mentions": null,
+   "mentions_prev": null,
+   "mom": null,
+   "label": "",
+   "flags": [],
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
+   "headlines": [
+    "2 Nuclear Stocks to Buy and What Each One Needs to Go Right",
+    "Insider Sheds Over 55,000 Shares of North American Uranium Stock"
    ],
    "band": null,
    "spark": [],
@@ -3413,32 +3463,6 @@
    "read": null,
    "er": null,
    "chart": null
-  },
-  {
-   "sym": "INFQ",
-   "name": "Infleqtion, Inc.",
-   "price": 14.12,
-   "pct": 12.51,
-   "mentions": null,
-   "mentions_prev": null,
-   "mom": null,
-   "label": "",
-   "flags": [],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "Infleqtion Stands to Gain $300,000 After Backer\u2019s Trades Trigger SEC Rule",
-    "Infleqtion Soars 10%, Rigetti Jumps 9%, IonQ Climbs 7%: What\u2019s Driving Quantum Computing Stocks Now?"
-   ],
-   "band": null,
-   "spark": [],
-   "stats": [],
-   "reason": "",
-   "tone": null,
-   "read": null,
-   "er": null,
-   "chart": null
   }
  ],
  "standouts": [
@@ -3447,7 +3471,7 @@
    "name": "Tesla",
    "why": [
     "up +5% today",
-    "mentions 3x vs yesterday"
+    "mentions 4x vs yesterday"
    ]
   },
   {
@@ -3455,7 +3479,16 @@
    "name": "Robinhood",
    "why": [
     "up +14% today",
-    "mentions 2x vs yesterday",
+    "mentions 3x vs yesterday",
+    "also a top market gainer"
+   ]
+  },
+  {
+   "sym": "SLS",
+   "name": "Sellas Life Sciences",
+   "why": [
+    "up +16% today",
+    "mentions rising",
     "also a top market gainer"
    ]
   }
@@ -3465,7 +3498,7 @@
   "up": 7,
   "down": 3,
   "flagged": 8,
-  "standouts": 2
+  "standouts": 3
  },
  "history": [
   {
