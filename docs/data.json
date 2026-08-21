@@ -1,185 +1,13 @@
 {
- "generated_at": "2026-08-21T12:03:20.831293+00:00",
+ "generated_at": "2026-08-21T12:55:27.583109+00:00",
  "watch": [
-  {
-   "sym": "SPY",
-   "name": "SPDR S&P 500 ETF Trust",
-   "price": 762.5999755859375,
-   "pct": -0.03408546968808348,
-   "mentions": 614,
-   "mentions_prev": 517,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "Dividend Tourists Find Way To Triple S&P 500's Puny Yield",
-    "$207 Billion Left the Banking System in a Month. Nobody Flinched",
-    "US Stock Indices End Lower As Trump\u2019s \u2018Economic Warfare\u2019 Threats Push Yields, Oil Higher \u2014 WMT, CRWV, SBUX, DE, RKLB In Focus"
-   ],
-   "band": [
-    762.5999755859375,
-    776.3400268554688
-   ],
-   "spark": [
-    776.3400268554688,
-    772.6699829101562,
-    767.4500122070312,
-    769.0599975585938,
-    762.5999755859375
-   ],
-   "stats": [
-    [
-     "Avg vol",
-     "51.6M"
-    ],
-    [
-     "Vol today",
-     "45.4M"
-    ],
-    [
-     "52w range",
-     "$629.28 \u2013 $779.37"
-    ]
-   ],
-   "reason": "614 mentions, up from 517 yesterday. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "negative",
-    "score": -0.2
-   },
-   "read": [
-    "negative buzz",
-    "bad",
-    "Attention is rising but the coverage around it is negative."
-   ],
-   "er": null,
-   "chart": {
-    "period": "1y",
-    "closes": [
-     638.24,
-     637.98,
-     640.15,
-     650.21,
-     658.25,
-     656.38,
-     663.71,
-     647.65,
-     658.93,
-     671.69,
-     676.46,
-     665.46,
-     666.41,
-     653.61,
-     677.77,
-     680.06,
-     676.16,
-     676.99,
-     686.66,
-     679.56,
-     690.4,
-     688.0,
-     685.59,
-     688.31,
-     686.97,
-     678.15,
-     685.79,
-     682.36,
-     668.83,
-     658.79,
-     646.9,
-     632.46,
-     654.14,
-     677.71,
-     708.32,
-     712.11,
-     718.8,
-     735.72,
-     737.27,
-     743.72,
-     754.54,
-     735.65,
-     739.84,
-     746.74,
-     728.99,
-     744.78,
-     754.95,
-     743.29,
-     738.93,
-     747.03,
-     773.26,
-     776.34,
-     762.6
-    ],
-    "dates": [
-     "2025-08-18",
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17"
-    ]
-   },
-   "tag": "1x Reddit mentions",
-   "source": "reddit"
-  },
   {
    "sym": "RDDT",
    "name": "Reddit",
    "price": 150.30999755859375,
    "pct": -0.1925647021289803,
-   "mentions": 383,
-   "mentions_prev": 183,
+   "mentions": 384,
+   "mentions_prev": 173,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -230,7 +58,7 @@
      "$119.27 \u2013 $282.95"
     ]
    ],
-   "reason": "383 mentions today, 2x yesterday's 183. Price is -0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.78 mean target (+44%); the scan flagged squeeze/penny sub.",
+   "reason": "384 mentions today, 2x yesterday's 173. Price is -0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.78 mean target (+44%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.07
@@ -370,8 +198,8 @@
    "name": "Walmart",
    "price": 103.83999633789062,
    "pct": -0.316793378236898,
-   "mentions": 304,
-   "mentions_prev": 56,
+   "mentions": 271,
+   "mentions_prev": 100,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -383,7 +211,7 @@
    "headlines": [
     "Walmart stock drops 9% as sales growth slows, customers make 'trade-offs' amid high fuel costs",
     "Walmart's CFO reveals what's winning over higher-income customers",
-    "Dow Jones Futures Rise After Bearish Market Signal; Bitcoin Keeps Surging"
+    "Stocks Rise Pre-Bell as Investors Eye Recovery Following Sharp Selloff"
    ],
    "band": [
     103.83999633789062,
@@ -422,7 +250,7 @@
      "$95.42 \u2013 $135.16"
     ]
    ],
-   "reason": "304 mentions today, 5x yesterday's 56. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $137.95 mean target (+33%); the scan flagged vol 3x normal.",
+   "reason": "271 mentions today, 3x yesterday's 100. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $137.95 mean target (+33%); the scan flagged vol 3x normal.",
    "tone": {
     "label": "positive",
     "score": 0.3
@@ -554,7 +382,7 @@
      "2026-08-17"
     ]
    },
-   "tag": "5x Reddit mentions",
+   "tag": "3x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -562,8 +390,8 @@
    "name": "Invesco QQQ ETF",
    "price": 710.9299926757812,
    "pct": 0.01861186041841252,
-   "mentions": 238,
-   "mentions_prev": 156,
+   "mentions": 223,
+   "mentions_prev": 187,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -602,7 +430,7 @@
      "$555.60 \u2013 $748.65"
     ]
    ],
-   "reason": "238 mentions, up from 156 yesterday. Price is +0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "223 mentions, up from 187 yesterday. Price is +0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.2
@@ -726,7 +554,199 @@
      "2026-08-17"
     ]
    },
-   "tag": "2x Reddit mentions",
+   "tag": "1x Reddit mentions",
+   "source": "reddit"
+  },
+  {
+   "sym": "META",
+   "name": "Meta Platforms (Facebook)",
+   "price": 545.8300170898438,
+   "pct": -0.06773762544055208,
+   "mentions": 192,
+   "mentions_prev": 155,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 754.14246,
+   "earnings": null,
+   "headlines": [
+    "Tech stocks today: Anthropic's IPO plans come into focus, Nvidia earnings provide next test for AI trade",
+    "Exclusive-Dutch regulator fines Uber $966 million for automating driver suspensions, document shows",
+    "Here\u2019s Why I\u2019m Buying More Broadcom as Spiking Treasury Yields Rock AI Stocks"
+   ],
+   "band": [
+    543.6699829101562,
+    589.8499755859375
+   ],
+   "spark": [
+    589.8499755859375,
+    568.969970703125,
+    543.6699829101562,
+    546.030029296875,
+    545.8300170898438
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$1.4T"
+    ],
+    [
+     "Float",
+     "2.2B"
+    ],
+    [
+     "Short interest",
+     "1.4%"
+    ],
+    [
+     "Avg vol",
+     "18.5M"
+    ],
+    [
+     "Vol today",
+     "13.8M"
+    ],
+    [
+     "52w range",
+     "$520.26 \u2013 $790.80"
+    ]
+   ],
+   "reason": "192 mentions, up from 155 yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $754.14 mean target (+38%); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "mixed",
+    "score": 0.07
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 6.97,
+    "beat_record": "beat 2 of last 4",
+    "avg_surprise": -8.5,
+    "expect": [
+     "mixed",
+     "Mixed record against estimates"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     752.32,
+     736.29,
+     749.99,
+     753.12,
+     775.84,
+     741.82,
+     708.72,
+     703.47,
+     715.06,
+     736.44,
+     646.67,
+     620.1,
+     607.88,
+     592.71,
+     646.27,
+     671.67,
+     642.56,
+     657.6,
+     662.11,
+     649.25,
+     651.9,
+     619.15,
+     657.59,
+     715.22,
+     660.28,
+     638.63,
+     654.49,
+     647.03,
+     643.71,
+     612.62,
+     593.11,
+     525.23,
+     573.93,
+     629.28,
+     687.91,
+     674.4,
+     608.19,
+     609.07,
+     613.66,
+     609.69,
+     631.92,
+     592.45,
+     566.45,
+     577.22,
+     550.25,
+     582.9,
+     669.21,
+     646.01,
+     595.19,
+     556.71,
+     592.1,
+     589.85,
+     545.83
+    ],
+    "dates": [
+     "2025-08-18",
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17"
+    ]
+   },
+   "tag": "1x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -1123,9 +1143,9 @@
    "analyst_target": 304.1207,
    "earnings": "Aug 26 (5d)",
    "headlines": [
-    "Tech stocks today: Anthropic's IPO plans come into focus, Nvidia earnings provide next test for AI trade",
+    "Stock market today: Dow, S&P 500, Nasdaq futures drift higher as bitcoin surges",
     "Waymo is making its own AI chip for its robotaxi service",
-    "1 Veteran Analyst Sees Nvidia Delivering Its Biggest Revenue Beat Ever on Aug. 26"
+    "Curaleaf's Hostile Takeover Bid for Aurora Is Just the Tip of the Iceberg for Cannabis Consolidation. These 2 Stocks Could Be the Biggest Winners."
    ],
    "band": [
     216.85,
@@ -1167,7 +1187,7 @@
    "reason": "Price is -0.3% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $304.12 mean target (+40%); earnings land Aug 26 (5d).",
    "tone": {
     "label": "mixed",
-    "score": 0.0
+    "score": 0.04
    },
    "read": [
     "quiet",
@@ -1498,10 +1518,10 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 762.5999755859375,
    "pct": -0.03408546968808348,
-   "mentions": 614,
-   "mentions_prev": 517,
-   "mom": "\u2191",
-   "label": "chatter rising",
+   "mentions": 589,
+   "mentions_prev": 541,
+   "mom": "\u2192",
+   "label": "",
    "flags": [
     "squeeze/penny sub"
    ],
@@ -1538,15 +1558,15 @@
      "$629.28 \u2013 $779.37"
     ]
    ],
-   "reason": "614 mentions, up from 517 yesterday. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "589 mentions, flat against yesterday. Price is -0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.2
    },
    "read": [
-    "negative buzz",
-    "bad",
-    "Attention is rising but the coverage around it is negative."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": null,
    "chart": {
@@ -1668,8 +1688,8 @@
    "name": "Moderna",
    "price": 133.32000732421875,
    "pct": 2.833479750104127,
-   "mentions": 509,
-   "mentions_prev": 1760,
+   "mentions": 499,
+   "mentions_prev": 1663,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -1682,7 +1702,7 @@
    "headlines": [
     "Amid the chip bear market, healthcare is breaking out: Chart of the Day",
     "After Moderna stock surge of 177% on cancer drug breakthrough, here's what Wall Street thinks happens next",
-    "Dow Jones Futures Rise After Bearish Market Signal; Bitcoin Keeps Surging"
+    "Bonds, Cryptos, Moderna Play Havoc With Markets. 2 Reasons for More Chaos."
    ],
    "band": [
     62.959999084472656,
@@ -1721,10 +1741,10 @@
      "$22.28 \u2013 $176.66"
     ]
    ],
-   "reason": "509 mentions, cooling from 1,760. Price is +2.8% \u2014 the attention has moved further than the price; analyst consensus is hold with a $89.33 mean target (-33%); the scan flagged vol 9x normal, squeeze/penny sub.",
+   "reason": "499 mentions, cooling from 1,663. Price is +2.8% \u2014 the attention has moved further than the price; analyst consensus is hold with a $89.33 mean target (-33%); the scan flagged vol 9x normal, squeeze/penny sub.",
    "tone": {
     "label": "negative",
-    "score": -0.22
+    "score": -0.47
    },
    "read": [
     "quiet",
@@ -1859,8 +1879,8 @@
    "name": "Reddit",
    "price": 150.30999755859375,
    "pct": -0.1925647021289803,
-   "mentions": 383,
-   "mentions_prev": 183,
+   "mentions": 384,
+   "mentions_prev": 173,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1911,7 +1931,7 @@
      "$119.27 \u2013 $282.95"
     ]
    ],
-   "reason": "383 mentions today, 2x yesterday's 183. Price is -0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.78 mean target (+44%); the scan flagged squeeze/penny sub.",
+   "reason": "384 mentions today, 2x yesterday's 173. Price is -0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $215.78 mean target (+44%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.07
@@ -2049,8 +2069,8 @@
    "name": "Micron Technology",
    "price": 974.3300170898438,
    "pct": 0.737962410775906,
-   "mentions": 321,
-   "mentions_prev": 314,
+   "mentions": 313,
+   "mentions_prev": 323,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -2061,8 +2081,8 @@
    "earnings": null,
    "headlines": [
     "Waymo is making its own AI chip for its robotaxi service",
-    "Dow Jones Futures Rise After Bearish Market Signal; Bitcoin Keeps Surging",
-    "Latest News In AI Chips - Cloudera NVIDIA Partnership Boosts Apache Spark Performance"
+    "Micron CEO Delivers Blunt Message For Stock Investors",
+    "Micron's AI Demand Problem Is a Good One"
    ],
    "band": [
     937.1099853515625,
@@ -2101,10 +2121,10 @@
      "$114.25 \u2013 $1255.00"
     ]
    ],
-   "reason": "321 mentions, flat against yesterday. Price is +0.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,521.62 mean target (+56%); the scan flagged squeeze/penny sub.",
+   "reason": "313 mentions, flat against yesterday. Price is +0.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,521.62 mean target (+56%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.16
+    "label": "mixed",
+    "score": -0.03
    },
    "read": [
     "quiet",
@@ -2241,8 +2261,8 @@
    "name": "Walmart",
    "price": 103.83999633789062,
    "pct": -0.316793378236898,
-   "mentions": 304,
-   "mentions_prev": 56,
+   "mentions": 271,
+   "mentions_prev": 100,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2254,7 +2274,7 @@
    "headlines": [
     "Walmart stock drops 9% as sales growth slows, customers make 'trade-offs' amid high fuel costs",
     "Walmart's CFO reveals what's winning over higher-income customers",
-    "Dow Jones Futures Rise After Bearish Market Signal; Bitcoin Keeps Surging"
+    "Stocks Rise Pre-Bell as Investors Eye Recovery Following Sharp Selloff"
    ],
    "band": [
     103.83999633789062,
@@ -2293,7 +2313,7 @@
      "$95.42 \u2013 $135.16"
     ]
    ],
-   "reason": "304 mentions today, 5x yesterday's 56. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $137.95 mean target (+33%); the scan flagged vol 3x normal.",
+   "reason": "271 mentions today, 3x yesterday's 100. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $137.95 mean target (+33%); the scan flagged vol 3x normal.",
    "tone": {
     "label": "positive",
     "score": 0.3
@@ -2431,8 +2451,8 @@
    "name": "Invesco QQQ ETF",
    "price": 710.9299926757812,
    "pct": 0.01861186041841252,
-   "mentions": 238,
-   "mentions_prev": 156,
+   "mentions": 223,
+   "mentions_prev": 187,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2471,7 +2491,7 @@
      "$555.60 \u2013 $748.65"
     ]
    ],
-   "reason": "238 mentions, up from 156 yesterday. Price is +0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "223 mentions, up from 187 yesterday. Price is +0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.2
@@ -2601,13 +2621,11 @@
    "name": "Sandisk",
    "price": 1600.6199951171875,
    "pct": 1.4270321980348262,
-   "mentions": 201,
-   "mentions_prev": 183,
+   "mentions": 195,
+   "mentions_prev": 185,
    "mom": "\u2192",
    "label": "",
-   "flags": [
-    "squeeze/penny sub"
-   ],
+   "flags": [],
    "analyst_rec": "BUY",
    "analyst_target": 2126.1738,
    "earnings": null,
@@ -2653,7 +2671,7 @@
      "$45.63 \u2013 $2354.39"
     ]
    ],
-   "reason": "201 mentions, flat against yesterday. Price is +1.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,126.17 mean target (+33%); the scan flagged squeeze/penny sub.",
+   "reason": "195 mentions, flat against yesterday. Price is +1.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,126.17 mean target (+33%).",
    "tone": {
     "label": "positive",
     "score": 0.35
@@ -2791,8 +2809,8 @@
    "name": "Meta Platforms (Facebook)",
    "price": 545.8300170898438,
    "pct": -0.06773762544055208,
-   "mentions": 197,
-   "mentions_prev": 160,
+   "mentions": 192,
+   "mentions_prev": 155,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2803,8 +2821,8 @@
    "earnings": null,
    "headlines": [
     "Tech stocks today: Anthropic's IPO plans come into focus, Nvidia earnings provide next test for AI trade",
-    "Here\u2019s Why I\u2019m Buying More Broadcom as Spiking Treasury Yields Rock AI Stocks",
-    "Nebius (NBIS) Raises $5B Convertible Bond As AI Compute Demand Surges"
+    "Exclusive-Dutch regulator fines Uber $966 million for automating driver suspensions, document shows",
+    "Here\u2019s Why I\u2019m Buying More Broadcom as Spiking Treasury Yields Rock AI Stocks"
    ],
    "band": [
     543.6699829101562,
@@ -2843,10 +2861,10 @@
      "$520.26 \u2013 $790.80"
     ]
    ],
-   "reason": "197 mentions, up from 160 yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $754.14 mean target (+38%); the scan flagged squeeze/penny sub.",
+   "reason": "192 mentions, up from 155 yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $754.14 mean target (+38%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.02
+    "score": 0.07
    },
    "read": [
     "quiet",
@@ -2981,18 +2999,20 @@
    "name": "NVIDIA",
    "price": 216.85000610351562,
    "pct": -0.09214185509531737,
-   "mentions": 165,
-   "mentions_prev": 179,
-   "mom": "\u2192",
+   "mentions": 156,
+   "mentions_prev": 193,
+   "mom": "\u2193",
    "label": "",
-   "flags": [],
+   "flags": [
+    "squeeze/penny sub"
+   ],
    "analyst_rec": "STRONG_BUY",
    "analyst_target": 304.1207,
    "earnings": "Aug 26 (5d)",
    "headlines": [
-    "Tech stocks today: Anthropic's IPO plans come into focus, Nvidia earnings provide next test for AI trade",
+    "Stock market today: Dow, S&P 500, Nasdaq futures drift higher as bitcoin surges",
     "Waymo is making its own AI chip for its robotaxi service",
-    "1 Veteran Analyst Sees Nvidia Delivering Its Biggest Revenue Beat Ever on Aug. 26"
+    "Curaleaf's Hostile Takeover Bid for Aurora Is Just the Tip of the Iceberg for Cannabis Consolidation. These 2 Stocks Could Be the Biggest Winners."
    ],
    "band": [
     216.85000610351562,
@@ -3031,10 +3051,10 @@
      "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "165 mentions, flat against yesterday. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $304.12 mean target (+40%); earnings land Aug 26 (5d).",
+   "reason": "156 mentions, cooling from 193. Price is -0.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $304.12 mean target (+40%); earnings land Aug 26 (5d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.0
+    "score": 0.04
    },
    "read": [
     "quiet",
@@ -3171,8 +3191,8 @@
    "name": "SpaceX",
    "price": 134.0,
    "pct": 0.5251312828206965,
-   "mentions": 144,
-   "mentions_prev": 91,
+   "mentions": 147,
+   "mentions_prev": 100,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -3182,9 +3202,9 @@
    "analyst_target": 213.5,
    "earnings": null,
    "headlines": [
-    "SpaceX shares unlock, and BJ's earnings take center stage",
-    "Anthropic could publicly file IPO paperwork as soon as this month",
-    "What's Going On With SpaceX Stock?"
+    "Stock market today: Dow, S&P 500, Nasdaq futures drift higher as bitcoin surges",
+    "SpaceX stock slides as another share unlock hits, but more big tests still await: AlphaSpace",
+    "Anthropic could publicly file IPO paperwork as soon as this month"
    ],
    "band": [
     134.0,
@@ -3223,7 +3243,7 @@
      "$104.83 \u2013 $225.64"
     ]
    ],
-   "reason": "144 mentions, up from 91 yesterday. Price is +0.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $213.50 mean target (+59%); the scan flagged squeeze/penny sub.",
+   "reason": "147 mentions, up from 100 yesterday. Price is +0.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $213.50 mean target (+59%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.1
@@ -5620,7 +5640,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
