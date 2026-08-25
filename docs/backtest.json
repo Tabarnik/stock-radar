@@ -1465,8 +1465,8 @@
   },
   {
    "date": "2026-08-25",
-   "picks": 5,
-   "flagged": 11,
+   "picks": 6,
+   "flagged": 12,
    "held_already": [
     "AAL",
     "MRNA",
@@ -1480,14 +1480,15 @@
     "QQQ",
     "NU",
     "MU",
-    "MARA"
+    "MARA",
+    "AVGO"
    ],
-   "per_ticker": 571.45,
+   "per_ticker": 480.41,
    "held_days": 0,
-   "return_pct": 2.6,
-   "invested": 2857.24,
+   "return_pct": 2.2,
+   "invested": 2882.44,
    "balance": 11428.98,
-   "pnl": 74.38,
+   "pnl": 62.53,
    "open": true
   }
  ],
@@ -5205,6 +5206,23 @@
   },
   {
    "date": "2026-08-25",
+   "sym": "AVGO",
+   "entry": 356.739990234375,
+   "now": 356.74,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-08-25",
    "sym": "MARA",
    "entry": 11.18,
    "now": 11.83,
@@ -6423,6 +6441,21 @@
      "cum_pct": 1.4
     }
    ]
+  },
+  {
+   "sym": "AVGO",
+   "bought": "2026-08-25",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 356.74,
+   "price": 356.74,
+   "shares": 0.0706,
+   "alloc": 25.19,
+   "value": 25.19,
+   "pnl": -0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
   },
   {
    "sym": "MARA",
