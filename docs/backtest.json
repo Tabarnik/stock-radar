@@ -1456,7 +1456,7 @@
     "ONDS"
    ],
    "per_ticker": 485.6,
-   "held_days": 3,
+   "held_days": 4,
    "return_pct": 0.6,
    "invested": 2913.6,
    "balance": 11230.83,
@@ -1484,7 +1484,7 @@
     "AVGO"
    ],
    "per_ticker": 480.38,
-   "held_days": 2,
+   "held_days": 3,
    "return_pct": 3.3,
    "invested": 2882.29,
    "balance": 11428.75,
@@ -1513,7 +1513,7 @@
     "AAL"
    ],
    "per_ticker": 568.41,
-   "held_days": 1,
+   "held_days": 2,
    "return_pct": 1.5,
    "invested": 2842.03,
    "balance": 11368.12,
@@ -1522,8 +1522,8 @@
   },
   {
    "date": "2026-08-27",
-   "picks": 3,
-   "flagged": 8,
+   "picks": 4,
+   "flagged": 9,
    "held_already": [
     "AAL",
     "MU",
@@ -1532,14 +1532,15 @@
     "SNDK"
    ],
    "bought": [
+    "PLTR",
     "NOK",
     "MRVL",
     "IREN"
    ],
    "per_ticker": 576.94,
-   "held_days": 0,
+   "held_days": 1,
    "return_pct": 0.0,
-   "invested": 1730.83,
+   "invested": 2307.78,
    "balance": 11538.89,
    "pnl": 0.0,
    "open": true
@@ -5786,6 +5787,23 @@
   },
   {
    "date": "2026-08-27",
+   "sym": "PLTR",
+   "entry": 185.92999267578125,
+   "now": 185.93,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-08-27",
    "sym": "SNDK",
    "entry": 1484.949951171875,
    "now": 1484.95,
@@ -6797,6 +6815,21 @@
    "entry": 10.59,
    "price": 10.59,
    "shares": 54.4801,
+   "alloc": 576.94,
+   "value": 576.94,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "PLTR",
+   "bought": "2026-08-27",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 185.93,
+   "price": 185.93,
+   "shares": 3.103,
    "alloc": 576.94,
    "value": 576.94,
    "pnl": 0.0,
