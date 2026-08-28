@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-08-28T21:32:07.046468+00:00",
+ "generated_at": "2026-08-28T21:58:00.534043+00:00",
  "watch": [
   {
    "sym": "DTE",
    "name": "DTE Energy",
    "price": 135.86000061035156,
    "pct": 0.7265722200115414,
-   "mentions": 147,
-   "mentions_prev": 98,
+   "mentions": 148,
+   "mentions_prev": 100,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -58,7 +58,7 @@
      "$126.23 \u2013 $155.75"
     ]
    ],
-   "reason": "147 mentions, up from 98 yesterday. Price is +0.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $159.11 mean target (+17%); the scan flagged squeeze/penny sub.",
+   "reason": "148 mentions, up from 100 yesterday. Price is +0.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $159.11 mean target (+17%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.18
@@ -190,7 +190,7 @@
      "2026-08-24"
     ]
    },
-   "tag": "2x Reddit mentions",
+   "tag": "1x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -209,7 +209,7 @@
    "headlines": [
     "6 things investors need to watch in the week ahead",
     "Nvidia could hit a $13 trillion market cap, analyst says",
-    "Stocks to Watch Recap: PayPal, Marvell, Gap, Amazon"
+    "Marvell Posts Record Earnings. Wall Street Sent Them Lower."
    ],
    "band": [
     208.47999572753906,
@@ -251,7 +251,7 @@
    "reason": "Price is -4.6% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $305.79 mean target (+41%).",
    "tone": {
     "label": "mixed",
-    "score": 0.06
+    "score": -0.1
    },
    "read": [
     "quiet",
@@ -397,9 +397,9 @@
    "analyst_target": 22.71875,
    "earnings": null,
    "headlines": [
+    "Stock Market Today, Aug. 28: PG&E Falls 8% on Wildfire-Liability Uncertainty Ahead of Aug. 31 Deadline",
     "Why Is OGE Energy (OGE) Down 2.6% Since Last Earnings Report?",
-    "Why Is FirstEnergy (FE) Down 4.9% Since Last Earnings Report?",
-    "PG&E (PCG) Stock Trades At A Discount On Earnings While Its 101% Return Clouds Fair Value"
+    "Why Is FirstEnergy (FE) Down 4.9% Since Last Earnings Report?"
    ],
    "band": [
     16.6,
@@ -440,8 +440,8 @@
    ],
    "reason": "Price is -7.5% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $22.72 mean target (+37%).",
    "tone": {
-    "label": "positive",
-    "score": 0.28
+    "label": "mixed",
+    "score": -0.02
    },
    "read": [
     "fading",
@@ -960,8 +960,8 @@
    "name": "NVIDIA",
    "price": 217.5500030517578,
    "pct": -3.8023590412702193,
-   "mentions": 796,
-   "mentions_prev": 2309,
+   "mentions": 786,
+   "mentions_prev": 2076,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -973,7 +973,7 @@
    "headlines": [
     "6 things investors need to watch in the week ahead",
     "Nvidia could hit a $13 trillion market cap, analyst says",
-    "Stocks to Watch Recap: PayPal, Marvell, Gap, Amazon"
+    "Marvell Posts Record Earnings. Wall Street Sent Them Lower."
    ],
    "band": [
     208.47999572753906,
@@ -1012,10 +1012,10 @@
      "$164.07 \u2013 $236.54"
     ]
    ],
-   "reason": "796 mentions, cooling from 2,309. Price is -3.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $305.79 mean target (+41%); the scan flagged squeeze/penny sub.",
+   "reason": "786 mentions, cooling from 2,076. Price is -3.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $305.79 mean target (+41%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.06
+    "score": -0.1
    },
    "read": [
     "quiet",
@@ -1146,12 +1146,182 @@
    }
   },
   {
+   "sym": "SPY",
+   "name": "SPDR S&P 500 ETF Trust",
+   "price": 769.3499755859375,
+   "pct": -0.05716161733231968,
+   "mentions": 485,
+   "mentions_prev": 444,
+   "mom": "\u2192",
+   "label": "",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
+   "headlines": [
+    "Social Security Won\u2019t Deposit a Dime Until You Turn 62. These 3 ETFs Pay You Every Month in Between",
+    "Optics Stocks Slide as AI Hardware Trade Cools: Applied Optoelectronics and Lumentum Fall 6%, Coherent Drops 5%",
+    "AppLovin Rises 4% After 54% YTD Slide: Does a Subdued P/E Make APP Stock a Good Value Here?"
+   ],
+   "band": [
+    763.469970703125,
+    771.0999755859375
+   ],
+   "spark": [
+    763.469970703125,
+    765.9099731445312,
+    766.0800170898438,
+    771.0999755859375,
+    769.3499755859375
+   ],
+   "stats": [
+    [
+     "Avg vol",
+     "50.7M"
+    ],
+    [
+     "Vol today",
+     "36.3M"
+    ],
+    [
+     "52w range",
+     "$629.28 \u2013 $779.37"
+    ]
+   ],
+   "reason": "485 mentions, flat against yesterday. Price is -0.1% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "positive",
+    "score": 0.3
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": null,
+   "chart": {
+    "period": "1y",
+    "closes": [
+     637.98,
+     640.15,
+     650.21,
+     658.25,
+     656.38,
+     663.71,
+     647.65,
+     658.93,
+     671.69,
+     676.46,
+     665.46,
+     666.41,
+     653.61,
+     677.77,
+     680.06,
+     676.16,
+     676.99,
+     686.66,
+     679.56,
+     690.4,
+     688.0,
+     685.59,
+     688.31,
+     686.97,
+     678.15,
+     685.79,
+     682.36,
+     668.83,
+     658.79,
+     646.9,
+     632.46,
+     654.14,
+     677.71,
+     708.32,
+     712.11,
+     718.8,
+     735.72,
+     737.27,
+     743.72,
+     754.54,
+     735.65,
+     739.84,
+     746.74,
+     728.99,
+     744.78,
+     754.95,
+     743.29,
+     738.93,
+     747.03,
+     773.26,
+     776.34,
+     765.72,
+     769.35
+    ],
+    "dates": [
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24"
+    ]
+   }
+  },
+  {
    "sym": "MRVL",
    "name": "Marvell Technology Group",
    "price": 216.6199951171875,
    "pct": -2.6959645833483097,
-   "mentions": 552,
-   "mentions_prev": 678,
+   "mentions": 466,
+   "mentions_prev": 870,
    "mom": "\u2193",
    "label": "",
    "flags": [],
@@ -1160,8 +1330,8 @@
    "earnings": null,
    "headlines": [
     "Trending: Take-Two Interactive price ascends as 'Grand Theft Auto VI' is teased",
-    "Stocks to Watch Recap: PayPal, Marvell, Gap, Amazon",
-    "Why Marvell Technology (MRVL) Shares Are Getting Obliterated Today"
+    "Marvell Posts Record Earnings. Wall Street Sent Them Lower.",
+    "Stock Market Today, Aug. 28: Marvell Slides 10% on Softer Fiscal 2028 Guidance and Google Deal Timing"
    ],
    "band": [
     216.6199951171875,
@@ -1200,10 +1370,10 @@
      "$61.44 \u2013 $329.88"
     ]
    ],
-   "reason": "552 mentions, cooling from 678. Price is -2.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $269.28 mean target (+24%).",
+   "reason": "466 mentions, cooling from 870. Price is -2.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $269.28 mean target (+24%).",
    "tone": {
     "label": "mixed",
-    "score": 0.05
+    "score": -0.03
    },
    "read": [
     "quiet",
@@ -1334,182 +1504,12 @@
    }
   },
   {
-   "sym": "SPY",
-   "name": "SPDR S&P 500 ETF Trust",
-   "price": 769.3499755859375,
-   "pct": -0.05716161733231968,
-   "mentions": 486,
-   "mentions_prev": 476,
-   "mom": "\u2192",
-   "label": "",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "Social Security Won\u2019t Deposit a Dime Until You Turn 62. These 3 ETFs Pay You Every Month in Between",
-    "Optics Stocks Slide as AI Hardware Trade Cools: Applied Optoelectronics and Lumentum Fall 6%, Coherent Drops 5%",
-    "AppLovin Rises 4% After 54% YTD Slide: Does a Subdued P/E Make APP Stock a Good Value Here?"
-   ],
-   "band": [
-    763.469970703125,
-    771.0999755859375
-   ],
-   "spark": [
-    763.469970703125,
-    765.9099731445312,
-    766.0800170898438,
-    771.0999755859375,
-    769.3499755859375
-   ],
-   "stats": [
-    [
-     "Avg vol",
-     "50.7M"
-    ],
-    [
-     "Vol today",
-     "36.3M"
-    ],
-    [
-     "52w range",
-     "$629.28 \u2013 $779.37"
-    ]
-   ],
-   "reason": "486 mentions, flat against yesterday. Price is -0.1% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "positive",
-    "score": 0.3
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": null,
-   "chart": {
-    "period": "1y",
-    "closes": [
-     637.98,
-     640.15,
-     650.21,
-     658.25,
-     656.38,
-     663.71,
-     647.65,
-     658.93,
-     671.69,
-     676.46,
-     665.46,
-     666.41,
-     653.61,
-     677.77,
-     680.06,
-     676.16,
-     676.99,
-     686.66,
-     679.56,
-     690.4,
-     688.0,
-     685.59,
-     688.31,
-     686.97,
-     678.15,
-     685.79,
-     682.36,
-     668.83,
-     658.79,
-     646.9,
-     632.46,
-     654.14,
-     677.71,
-     708.32,
-     712.11,
-     718.8,
-     735.72,
-     737.27,
-     743.72,
-     754.54,
-     735.65,
-     739.84,
-     746.74,
-     728.99,
-     744.78,
-     754.95,
-     743.29,
-     738.93,
-     747.03,
-     773.26,
-     776.34,
-     765.72,
-     769.35
-    ],
-    "dates": [
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24"
-    ]
-   }
-  },
-  {
    "sym": "MU",
    "name": "Micron Technology",
    "price": 932.8599853515625,
    "pct": 1.430899788144227,
-   "mentions": 346,
-   "mentions_prev": 834,
+   "mentions": 342,
+   "mentions_prev": 823,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -1560,7 +1560,7 @@
      "$114.25 \u2013 $1255.00"
     ]
    ],
-   "reason": "346 mentions, cooling from 834. Price is +1.4% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,513.41 mean target (+62%); the scan flagged squeeze/penny sub.",
+   "reason": "342 mentions, cooling from 823. Price is +1.4% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,513.41 mean target (+62%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.12
@@ -1700,9 +1700,9 @@
    "name": "Iris Energy",
    "price": 35.45000076293945,
    "pct": -4.461343192798218,
-   "mentions": 329,
-   "mentions_prev": 369,
-   "mom": "\u2192",
+   "mentions": 309,
+   "mentions_prev": 423,
+   "mom": "\u2193",
    "label": "",
    "flags": [
     "squeeze/penny sub"
@@ -1713,7 +1713,7 @@
    "headlines": [
     "IREN stock sinks after data center transformation weakens profitability",
     "Treasury eases as Warsh vows to fight inflation",
-    "Popular crypto stock tanks 13% despite bullish Wall Street calls"
+    "Marvell, Nvidia, PayPal, Workday, Iren, Elastic, Pasqal, Affirm, and More Stocks That Explain Today\u2019s Market"
    ],
    "band": [
     35.45000076293945,
@@ -1748,10 +1748,10 @@
      "$25.31 \u2013 $76.87"
     ]
    ],
-   "reason": "329 mentions, flat against yesterday. Price is -4.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $80.19 mean target (+126%); the scan flagged squeeze/penny sub.",
+   "reason": "309 mentions, cooling from 423. Price is -4.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $80.19 mean target (+126%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.17
+    "label": "mixed",
+    "score": 0.03
    },
    "read": [
     "quiet",
@@ -1886,8 +1886,8 @@
    "name": "DTE Energy",
    "price": 135.86000061035156,
    "pct": 0.7265722200115414,
-   "mentions": 147,
-   "mentions_prev": 98,
+   "mentions": 148,
+   "mentions_prev": 100,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1938,7 +1938,7 @@
      "$126.23 \u2013 $155.75"
     ]
    ],
-   "reason": "147 mentions, up from 98 yesterday. Price is +0.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $159.11 mean target (+17%); the scan flagged squeeze/penny sub.",
+   "reason": "148 mentions, up from 100 yesterday. Price is +0.7% \u2014 the attention has moved further than the price; analyst consensus is buy with a $159.11 mean target (+17%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.18
@@ -2076,8 +2076,8 @@
    "name": "Sandisk",
    "price": 1484.97998046875,
    "pct": 1.4039674730439304,
-   "mentions": 129,
-   "mentions_prev": 301,
+   "mentions": 127,
+   "mentions_prev": 293,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2128,7 +2128,7 @@
      "$50.07 \u2013 $2354.39"
     ]
    ],
-   "reason": "129 mentions, cooling from 301. Price is +1.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,125.09 mean target (+43%); the scan flagged squeeze/penny sub.",
+   "reason": "127 mentions, cooling from 293. Price is +1.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,125.09 mean target (+43%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.11
@@ -2262,12 +2262,182 @@
    }
   },
   {
+   "sym": "QQQ",
+   "name": "Invesco QQQ ETF",
+   "price": 716.4299926757812,
+   "pct": -0.3217157699245961,
+   "mentions": 126,
+   "mentions_prev": 159,
+   "mom": "\u2193",
+   "label": "",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
+   "headlines": [
+    "This AI Fund Is Crushing QQQ, and Nvidia Is Barely 2% of It",
+    "Amazon Jumps 4% on Expanded AWS Chip Deal: Why Is NVIDIA Falling 4%?",
+    "Exchange-Traded Funds Fall, US Equities Mixed After Midday"
+   ],
+   "band": [
+    706.3200073242188,
+    721.1099853515625
+   ],
+   "spark": [
+    706.3200073242188,
+    710.719970703125,
+    711.3699951171875,
+    721.1099853515625,
+    716.4299926757812
+   ],
+   "stats": [
+    [
+     "Avg vol",
+     "42.3M"
+    ],
+    [
+     "Vol today",
+     "33.9M"
+    ],
+    [
+     "52w range",
+     "$555.60 \u2013 $748.65"
+    ]
+   ],
+   "reason": "126 mentions, cooling from 159. Price is -0.3% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "mixed",
+    "score": -0.11
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": null,
+   "chart": {
+    "period": "1y",
+    "closes": [
+     567.67,
+     573.3,
+     583.85,
+     596.48,
+     593.8,
+     600.98,
+     587.35,
+     601.73,
+     614.85,
+     626.78,
+     607.52,
+     606.64,
+     587.92,
+     617.0,
+     623.2,
+     611.39,
+     614.8,
+     622.42,
+     611.68,
+     625.17,
+     619.8,
+     621.25,
+     620.41,
+     608.21,
+     600.5,
+     607.38,
+     605.86,
+     598.34,
+     592.32,
+     580.69,
+     561.96,
+     584.34,
+     610.4,
+     648.14,
+     663.15,
+     673.41,
+     710.45,
+     708.15,
+     716.75,
+     737.5,
+     704.29,
+     720.55,
+     739.81,
+     706.52,
+     712.6,
+     725.51,
+     695.33,
+     684.23,
+     687.99,
+     723.03,
+     731.07,
+     713.44,
+     716.43
+    ],
+    "dates": [
+     "2025-08-25",
+     "2025-09-01",
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24"
+    ]
+   }
+  },
+  {
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
    "price": 578.02001953125,
    "pct": 1.2095203572484772,
-   "mentions": 127,
-   "mentions_prev": 159,
+   "mentions": 123,
+   "mentions_prev": 155,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2277,9 +2447,9 @@
    "analyst_target": 754.7214,
    "earnings": null,
    "headlines": [
+    "The Historical Record For Buying AppLovin Stock Dips Carries A Warning",
     "Microsoft Just Gained 14% in a Month: Take Profits, or Buy More?",
-    "Meta Platforms (META) Just Called a Potential Loss \u201cAstronomical.\u201d Here\u2019s What\u2019s at Stake in California",
-    "Alibaba (BABA) Just Answered Meta Platforms (META)\u2019s Open-Weight AI Challenge. The Download Numbers Aren\u2019t Close"
+    "Meta Platforms (META) Just Called a Potential Loss \u201cAstronomical.\u201d Here\u2019s What\u2019s at Stake in California"
    ],
    "band": [
     559.02001953125,
@@ -2318,10 +2488,10 @@
      "$520.26 \u2013 $790.80"
     ]
    ],
-   "reason": "127 mentions, cooling from 159. Price is +1.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $754.72 mean target (+31%); the scan flagged squeeze/penny sub.",
+   "reason": "123 mentions, cooling from 155. Price is +1.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $754.72 mean target (+31%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.14
+    "score": 0.0
    },
    "read": [
     "quiet",
@@ -2452,182 +2622,12 @@
    }
   },
   {
-   "sym": "QQQ",
-   "name": "Invesco QQQ ETF",
-   "price": 716.4299926757812,
-   "pct": -0.3217157699245961,
-   "mentions": 127,
-   "mentions_prev": 174,
-   "mom": "\u2193",
-   "label": "",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "This AI Fund Is Crushing QQQ, and Nvidia Is Barely 2% of It",
-    "Amazon Jumps 4% on Expanded AWS Chip Deal: Why Is NVIDIA Falling 4%?",
-    "Exchange-Traded Funds Fall, US Equities Mixed After Midday"
-   ],
-   "band": [
-    706.3200073242188,
-    721.1099853515625
-   ],
-   "spark": [
-    706.3200073242188,
-    710.719970703125,
-    711.3699951171875,
-    721.1099853515625,
-    716.4299926757812
-   ],
-   "stats": [
-    [
-     "Avg vol",
-     "42.3M"
-    ],
-    [
-     "Vol today",
-     "33.9M"
-    ],
-    [
-     "52w range",
-     "$555.60 \u2013 $748.65"
-    ]
-   ],
-   "reason": "127 mentions, cooling from 174. Price is -0.3% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "mixed",
-    "score": -0.11
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": null,
-   "chart": {
-    "period": "1y",
-    "closes": [
-     567.67,
-     573.3,
-     583.85,
-     596.48,
-     593.8,
-     600.98,
-     587.35,
-     601.73,
-     614.85,
-     626.78,
-     607.52,
-     606.64,
-     587.92,
-     617.0,
-     623.2,
-     611.39,
-     614.8,
-     622.42,
-     611.68,
-     625.17,
-     619.8,
-     621.25,
-     620.41,
-     608.21,
-     600.5,
-     607.38,
-     605.86,
-     598.34,
-     592.32,
-     580.69,
-     561.96,
-     584.34,
-     610.4,
-     648.14,
-     663.15,
-     673.41,
-     710.45,
-     708.15,
-     716.75,
-     737.5,
-     704.29,
-     720.55,
-     739.81,
-     706.52,
-     712.6,
-     725.51,
-     695.33,
-     684.23,
-     687.99,
-     723.03,
-     731.07,
-     713.44,
-     716.43
-    ],
-    "dates": [
-     "2025-08-25",
-     "2025-09-01",
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24"
-    ]
-   }
-  },
-  {
    "sym": "AMZN",
    "name": "Amazon",
    "price": 266.42999267578125,
    "pct": 3.9483409448641287,
-   "mentions": 102,
-   "mentions_prev": 98,
+   "mentions": 104,
+   "mentions_prev": 95,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -2678,7 +2678,7 @@
      "$196.00 \u2013 $287.20"
     ]
    ],
-   "reason": "102 mentions, flat against yesterday. Price is +3.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $327.00 mean target (+23%); the scan flagged squeeze/penny sub.",
+   "reason": "104 mentions, flat against yesterday. Price is +3.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $327.00 mean target (+23%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.06
@@ -2827,8 +2827,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Stock Market Today: Nasdaq Sinks As Fed's Warsh Ignites Rate-Hike Odds; Software Name Rockets",
-    "ESTC Q2 CY2026 Deep Dive: AI Adoption, Enterprise Expansion, and New Product Investments Drive Growth"
+    "Marvell, Nvidia, PayPal, Workday, Iren, Elastic, Pasqal, Affirm, and More Stocks That Explain Today\u2019s Market",
+    "Stock Market Today: Nasdaq Sinks As Fed's Warsh Ignites Rate-Hike Odds; Software Name Rockets"
    ],
    "band": null,
    "spark": [],
@@ -5874,7 +5874,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
