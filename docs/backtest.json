@@ -1456,7 +1456,7 @@
     "ONDS"
    ],
    "per_ticker": 485.6,
-   "held_days": 4,
+   "held_days": 5,
    "return_pct": -3.9,
    "invested": 2913.6,
    "balance": 11230.83,
@@ -1484,7 +1484,7 @@
     "AVGO"
    ],
    "per_ticker": 480.38,
-   "held_days": 3,
+   "held_days": 4,
    "return_pct": 0.6,
    "invested": 2882.29,
    "balance": 11428.75,
@@ -1513,7 +1513,7 @@
     "AAL"
    ],
    "per_ticker": 568.41,
-   "held_days": 2,
+   "held_days": 3,
    "return_pct": 1.8,
    "invested": 2842.03,
    "balance": 11368.12,
@@ -1538,7 +1538,7 @@
     "IREN"
    ],
    "per_ticker": 576.94,
-   "held_days": 1,
+   "held_days": 2,
    "return_pct": -6.6,
    "invested": 2307.78,
    "balance": 11538.89,
@@ -1548,7 +1548,7 @@
   {
    "date": "2026-08-28",
    "picks": 1,
-   "flagged": 11,
+   "flagged": 12,
    "held_already": [
     "AAL",
     "IREN",
@@ -1558,13 +1558,14 @@
     "NU",
     "NVDA",
     "ONDS",
-    "PLTR"
+    "PLTR",
+    "SPY"
    ],
    "bought": [
     "PCG"
    ],
    "per_ticker": 466.15,
-   "held_days": 0,
+   "held_days": 1,
    "return_pct": 0.0,
    "invested": 466.15,
    "balance": 11203.35,
@@ -6031,6 +6032,23 @@
    "held_since": "2026-08-27",
    "buy_price": 185.93,
    "ret_since_buy": 0.2
+  },
+  {
+   "date": "2026-08-28",
+   "sym": "SPY",
+   "entry": 769.3499755859375,
+   "now": 769.35,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 1,
+   "held_since": "2026-08-24",
+   "buy_price": 765.72,
+   "ret_since_buy": 0.5
   }
  ],
  "my_positions": [],
