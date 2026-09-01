@@ -1600,9 +1600,10 @@
   },
   {
    "date": "2026-09-01",
-   "picks": 3,
-   "flagged": 10,
+   "picks": 5,
+   "flagged": 13,
    "held_already": [
+    "META",
     "NOK",
     "NU",
     "NVDA",
@@ -1613,13 +1614,15 @@
    ],
    "bought": [
     "QQQ",
+    "ONDS",
     "NIO",
+    "DELL",
     "AAPL"
    ],
    "per_ticker": 554.32,
    "held_days": 0,
-   "return_pct": -1.0,
-   "invested": 1662.97,
+   "return_pct": -0.6,
+   "invested": 2771.62,
    "balance": 11086.47,
    "pnl": -16.46,
    "open": true
@@ -6291,6 +6294,40 @@
   },
   {
    "date": "2026-09-01",
+   "sym": "DELL",
+   "entry": 425.0,
+   "now": 425.0,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-09-01",
+   "sym": "META",
+   "entry": 578.5399780273438,
+   "now": 578.54,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 1,
+   "held_since": "2026-08-26",
+   "buy_price": 577.515,
+   "ret_since_buy": 0.2
+  },
+  {
+   "date": "2026-09-01",
    "sym": "NIO",
    "entry": 4.165,
    "now": 4.06,
@@ -6356,6 +6393,23 @@
    "held_since": "2026-08-26",
    "buy_price": 213.05,
    "ret_since_buy": 2.1
+  },
+  {
+   "date": "2026-09-01",
+   "sym": "ONDS",
+   "entry": 7.04,
+   "now": 7.04,
+   "ret_total": -0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-01",
@@ -6475,6 +6529,21 @@
    "2026-08-28": 319.7,
    "2026-08-31": 316.85,
    "2026-09-01": 325.13
+  },
+  "ASTS": {
+   "2026-08-14": 70.98,
+   "2026-08-17": 71.14,
+   "2026-08-18": 67.07,
+   "2026-08-19": 66.43,
+   "2026-08-20": 65.06,
+   "2026-08-21": 68.65,
+   "2026-08-24": 62.35,
+   "2026-08-25": 62.01,
+   "2026-08-26": 59.88,
+   "2026-08-27": 61.44,
+   "2026-08-28": 58.05,
+   "2026-08-31": 59.1,
+   "2026-09-01": 55.8
   },
   "AVGO": {
    "2026-08-14": 392.99,
@@ -7419,6 +7488,21 @@
    "path": []
   },
   {
+   "sym": "DELL",
+   "bought": "2026-09-01",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 425.0,
+   "price": 425.0,
+   "shares": 1.3043,
+   "alloc": 554.32,
+   "value": 554.32,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
+  },
+  {
    "sym": "NIO",
    "bought": "2026-09-01",
    "days_left": 5,
@@ -7430,6 +7514,21 @@
    "value": 540.35,
    "pnl": -13.97,
    "ret": -2.5,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "ONDS",
+   "bought": "2026-09-01",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 7.04,
+   "price": 7.04,
+   "shares": 78.7391,
+   "alloc": 554.32,
+   "value": 554.32,
+   "pnl": -0.0,
+   "ret": -0.0,
    "spy_ret": null,
    "path": []
   },
