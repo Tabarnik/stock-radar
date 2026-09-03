@@ -1682,33 +1682,35 @@
   },
   {
    "date": "2026-09-03",
-   "picks": 5,
-   "flagged": 10,
+   "picks": 6,
+   "flagged": 13,
    "held_already": [
     "AVGO",
     "NIO",
     "NU",
     "NVDA",
+    "QQQ",
     "TSLA"
    ],
    "bought": [
+    "ZS",
     "SPCX",
     "SNOW",
     "MARA",
-    "HPE",
-    "HOOD"
+    "LULU",
+    "HPE"
    ],
-   "per_ticker": 572.94,
+   "per_ticker": 494.44,
    "held_days": 0,
-   "return_pct": 2.0,
-   "invested": 2864.71,
+   "return_pct": 1.4,
+   "invested": 2966.66,
    "balance": 11458.86,
-   "pnl": 56.04,
+   "pnl": 40.92,
    "open": true
   }
  ],
  "start_cash": 10000.0,
- "final_balance": 11514.9,
+ "final_balance": 11450.92,
  "position_frac": 0.05,
  "curve_rule": "Sell after 5 days",
  "curve_days": 5,
@@ -6781,6 +6783,23 @@
   },
   {
    "date": "2026-09-03",
+   "sym": "LULU",
+   "entry": 121.7699966430664,
+   "now": 121.77,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-09-03",
    "sym": "MARA",
    "entry": 11.63,
    "now": 11.6,
@@ -6849,6 +6868,23 @@
   },
   {
    "date": "2026-09-03",
+   "sym": "QQQ",
+   "entry": 717.6699829101562,
+   "now": 717.67,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 3,
+   "held_since": "2026-09-01",
+   "buy_price": 710.225,
+   "ret_since_buy": 1.0
+  },
+  {
+   "date": "2026-09-03",
    "sym": "SNOW",
    "entry": 371.0199890136719,
    "now": 356.47,
@@ -6897,6 +6933,23 @@
    "held_since": "2026-08-31",
    "buy_price": 367.155,
    "ret_since_buy": 2.5
+  },
+  {
+   "date": "2026-09-03",
+   "sym": "ZS",
+   "entry": 177.8000030517578,
+   "now": 177.8,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   }
  ],
  "my_positions": [],
@@ -7291,6 +7344,21 @@
    "2026-09-01": 356.09,
    "2026-09-02": 357.01,
    "2026-09-03": 376.365
+  },
+  "ZS": {
+   "2026-08-18": 185.7,
+   "2026-08-19": 184.6,
+   "2026-08-20": 174.95,
+   "2026-08-21": 181.745,
+   "2026-08-24": 176.06,
+   "2026-08-25": 168.42,
+   "2026-08-26": 170.31,
+   "2026-08-27": 187.3,
+   "2026-08-28": 184.23,
+   "2026-08-31": 188.385,
+   "2026-09-01": 178.37,
+   "2026-09-02": 172.73,
+   "2026-09-03": 177.8
   }
  },
  "open_positions": [
@@ -7766,32 +7834,32 @@
    ]
   },
   {
-   "sym": "HOOD",
-   "bought": "2026-09-03",
-   "days_left": 5,
-   "exit_on": null,
-   "entry": 122.87,
-   "price": 124.72,
-   "shares": 4.663,
-   "alloc": 572.94,
-   "value": 581.57,
-   "pnl": 8.63,
-   "ret": 1.5,
-   "spy_ret": null,
-   "path": []
-  },
-  {
    "sym": "HPE",
    "bought": "2026-09-03",
    "days_left": 5,
    "exit_on": null,
    "entry": 48.715,
    "price": 54.44,
-   "shares": 11.7611,
-   "alloc": 572.94,
-   "value": 640.28,
-   "pnl": 67.33,
+   "shares": 2.0926,
+   "alloc": 101.94,
+   "value": 113.92,
+   "pnl": 11.98,
    "ret": 11.8,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "LULU",
+   "bought": "2026-09-03",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 121.77,
+   "price": 121.77,
+   "shares": 4.7051,
+   "alloc": 572.94,
+   "value": 572.94,
+   "pnl": 0.0,
+   "ret": 0.0,
    "spy_ret": null,
    "path": []
   },
@@ -7839,6 +7907,21 @@
    "ret": 0.7,
    "spy_ret": null,
    "path": []
+  },
+  {
+   "sym": "ZS",
+   "bought": "2026-09-03",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 177.8,
+   "price": 177.8,
+   "shares": 3.2224,
+   "alloc": 572.94,
+   "value": 572.94,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
   }
  ],
  "starved_days": [
@@ -7848,7 +7931,8 @@
   "2026-08-14",
   "2026-08-21",
   "2026-08-24",
-  "2026-08-28"
+  "2026-08-28",
+  "2026-09-03"
  ],
  "exit_rules": [
   {
