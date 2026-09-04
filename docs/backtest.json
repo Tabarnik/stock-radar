@@ -1711,7 +1711,7 @@
   {
    "date": "2026-09-04",
    "picks": 1,
-   "flagged": 10,
+   "flagged": 12,
    "held_already": [
     "AAL",
     "LULU",
@@ -6996,6 +6996,40 @@
   },
   {
    "date": "2026-09-04",
+   "sym": "BE",
+   "entry": 252.8699951171875,
+   "now": 252.87,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-09-04",
+   "sym": "DTE",
+   "entry": 136.0800018310547,
+   "now": 136.08,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-09-04",
    "sym": "INTC",
    "entry": 94.4401,
    "now": 95.8,
@@ -8320,7 +8354,8 @@
   "2026-08-21",
   "2026-08-24",
   "2026-08-28",
-  "2026-09-03"
+  "2026-09-03",
+  "2026-09-04"
  ],
  "exit_rules": [
   {
