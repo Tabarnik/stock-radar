@@ -1,13 +1,203 @@
 {
- "generated_at": "2026-09-09T19:31:34.860711+00:00",
+ "generated_at": "2026-09-09T21:47:51.936947+00:00",
  "watch": [
+  {
+   "sym": "AAPL",
+   "name": "Apple",
+   "price": 315.3399963378906,
+   "pct": -0.31611672950286085,
+   "mentions": 248,
+   "mentions_prev": 80,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [],
+   "analyst_rec": "BUY",
+   "analyst_target": 323.85947,
+   "earnings": null,
+   "headlines": [
+    "How John Ternus understood the assignment in the Apple launch event opener",
+    "Foldable iPhone Duo's software helps it 'shine' against competitors",
+    "Apple reveals the foldable iPhone Duo"
+   ],
+   "band": [
+    315.3399963378906,
+    328.2099914550781
+   ],
+   "spark": [
+    324.9599914550781,
+    328.2099914550781,
+    319.9700012207031,
+    316.2200012207031,
+    315.3399963378906
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$4.6T"
+    ],
+    [
+     "Float",
+     "14.6B"
+    ],
+    [
+     "Short interest",
+     "0.8%"
+    ],
+    [
+     "Avg vol",
+     "53.2M"
+    ],
+    [
+     "Vol today",
+     "64.9M"
+    ],
+    [
+     "52w range",
+     "$225.95 \u2013 $344.57"
+    ]
+   ],
+   "reason": "248 mentions today, 3x yesterday's 80. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $323.86 mean target (+3%).",
+   "tone": {
+    "label": "mixed",
+    "score": 0.13
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 1.98,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 5.3,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     233.21,
+     244.6,
+     254.52,
+     257.07,
+     244.37,
+     251.36,
+     261.85,
+     269.37,
+     267.48,
+     271.67,
+     270.75,
+     278.09,
+     278.02,
+     277.52,
+     272.93,
+     272.66,
+     270.27,
+     258.67,
+     254.84,
+     247.37,
+     258.78,
+     277.37,
+     255.32,
+     264.11,
+     263.71,
+     257.0,
+     249.67,
+     247.55,
+     248.36,
+     255.46,
+     260.02,
+     269.75,
+     270.58,
+     279.64,
+     292.8,
+     299.97,
+     308.55,
+     311.79,
+     307.08,
+     290.88,
+     297.75,
+     283.54,
+     308.36,
+     315.05,
+     333.45,
+     332.73,
+     308.64,
+     313.06,
+     305.93,
+     309.35,
+     319.7,
+     319.97,
+     315.34
+    ],
+    "dates": [
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07"
+    ]
+   },
+   "tag": "3x Reddit mentions",
+   "source": "reddit"
+  },
   {
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
-   "price": 655.4249877929688,
-   "pct": 6.6217119652799195,
-   "mentions": 245,
-   "mentions_prev": 28,
+   "price": 653.6900024414062,
+   "pct": 6.33947202651715,
+   "mentions": 247,
+   "mentions_prev": 88,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -19,18 +209,18 @@
    "headlines": [
     "Meta stock surges with Wall Street bullish on new AI agent",
     "Bond yields tick higher as oil tops $100: AlphaCheck",
-    "Meta's Muse Arrives With Three Pricing Tiers and Payment Access"
+    "Stock Market Today, Sept. 9: Meta Surges Over 6.5% on Muse AI Agent Launch"
    ],
    "band": [
     592.8499755859375,
-    655.4600219726562
+    653.6900024414062
    ],
    "spark": [
     592.8499755859375,
     610.6799926757812,
     616.77001953125,
     613.47998046875,
-    655.4600219726562
+    653.6900024414062
    ],
    "stats": [
     [
@@ -51,14 +241,14 @@
     ],
     [
      "Vol today",
-     "28.6M"
+     "35.4M"
     ],
     [
      "52w range",
      "$520.26 \u2013 $790.80"
     ]
    ],
-   "reason": "245 mentions today, 9x yesterday's 28. Price is +6.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $754.15 mean target (+15%); the scan flagged squeeze/penny sub.",
+   "reason": "247 mentions today, 3x yesterday's 88. Price is +6.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $754.15 mean target (+15%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.17
@@ -132,7 +322,7 @@
      549.9,
      578.02,
      616.77,
-     655.48
+     653.69
     ],
     "dates": [
      "2025-09-08",
@@ -190,206 +380,16 @@
      "2026-09-07"
     ]
    },
-   "tag": "9x Reddit mentions",
-   "source": "reddit"
-  },
-  {
-   "sym": "AAPL",
-   "name": "Apple",
-   "price": 315.57000732421875,
-   "pct": -0.2434066750272571,
-   "mentions": 204,
-   "mentions_prev": 94,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [],
-   "analyst_rec": "BUY",
-   "analyst_target": 323.85947,
-   "earnings": null,
-   "headlines": [
-    "Apple named its new foldable iPhone the Duo. Duolingo noticed.",
-    "Apple debuts its first foldable, the iPhone Duo, priced at $1,999",
-    "Apple launches iPhone 18 Pro and iPhone 18 Pro Max"
-   ],
-   "band": [
-    315.57000732421875,
-    328.2099914550781
-   ],
-   "spark": [
-    324.9599914550781,
-    328.2099914550781,
-    319.9700012207031,
-    316.2200012207031,
-    315.57000732421875
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$4.6T"
-    ],
-    [
-     "Float",
-     "14.6B"
-    ],
-    [
-     "Short interest",
-     "0.8%"
-    ],
-    [
-     "Avg vol",
-     "53.2M"
-    ],
-    [
-     "Vol today",
-     "52.9M"
-    ],
-    [
-     "52w range",
-     "$225.95 \u2013 $344.57"
-    ]
-   ],
-   "reason": "204 mentions today, 2x yesterday's 94. Price is -0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $323.86 mean target (+3%).",
-   "tone": {
-    "label": "mixed",
-    "score": 0.0
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": 1.98,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 5.3,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     233.21,
-     244.6,
-     254.52,
-     257.07,
-     244.37,
-     251.36,
-     261.85,
-     269.37,
-     267.48,
-     271.67,
-     270.75,
-     278.09,
-     278.02,
-     277.52,
-     272.93,
-     272.66,
-     270.27,
-     258.67,
-     254.84,
-     247.37,
-     258.78,
-     277.36,
-     255.32,
-     264.11,
-     263.71,
-     257.0,
-     249.67,
-     247.55,
-     248.36,
-     255.46,
-     260.02,
-     269.75,
-     270.58,
-     279.64,
-     292.8,
-     299.97,
-     308.55,
-     311.79,
-     307.08,
-     290.88,
-     297.75,
-     283.54,
-     308.36,
-     315.05,
-     333.45,
-     332.73,
-     308.64,
-     313.06,
-     305.93,
-     309.35,
-     319.7,
-     319.97,
-     315.62
-    ],
-    "dates": [
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07"
-    ]
-   },
-   "tag": "2x Reddit mentions",
+   "tag": "3x Reddit mentions",
    "source": "reddit"
   },
   {
    "sym": "GOOGL",
    "name": "Alphabet (Google)",
-   "price": 331.04010009765625,
-   "pct": -2.189363244893999,
-   "mentions": 137,
-   "mentions_prev": 58,
+   "price": 330.6499938964844,
+   "pct": -2.3046258246463625,
+   "mentions": 147,
+   "mentions_prev": 64,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -399,12 +399,12 @@
    "analyst_target": 428.06668,
    "earnings": null,
    "headlines": [
+    "How it feels to handle Apple's foldable iPhone Duo",
     "A foldable iPhone is nice, but Apple still needs to improve its AI user experience",
-    "SpaceX Built AI Data Centers So Fast, Some Ran Without Backup Power for Months. Now It Faces a $920 Million Deadline.",
-    "Broadcom (AVGO) Faces Google Chip Risks, But Macquarie Sees a $40 Billion Anthropic Opportunity"
+    "Stock Market Today, Sept. 9: Meta Surges Over 6.5% on Muse AI Agent Launch"
    ],
    "band": [
-    331.04010009765625,
+    330.6499938964844,
     342.260009765625
    ],
    "spark": [
@@ -412,7 +412,7 @@
     342.260009765625,
     338.4599914550781,
     338.3599853515625,
-    331.04010009765625
+    330.6499938964844
    ],
    "stats": [
     [
@@ -433,17 +433,17 @@
     ],
     [
      "Vol today",
-     "22.7M"
+     "32.7M"
     ],
     [
      "52w range",
      "$235.84 \u2013 $408.61"
     ]
    ],
-   "reason": "137 mentions today, 2x yesterday's 58. Price is -2.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $428.07 mean target (+29%); the scan flagged squeeze/penny sub.",
+   "reason": "147 mentions today, 2x yesterday's 64. Price is -2.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $428.07 mean target (+29%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.39
+    "score": 0.23
    },
    "read": [
     "quiet",
@@ -514,7 +514,7 @@
      344.6,
      346.37,
      338.46,
-     331.03
+     330.65
     ],
     "dates": [
      "2025-09-08",
@@ -576,117 +576,133 @@
    "source": "reddit"
   },
   {
-   "sym": "QQQ",
-   "name": "Invesco QQQ ETF",
-   "price": 716.280029296875,
-   "pct": -0.1588986511562208,
-   "mentions": 129,
-   "mentions_prev": 90,
+   "sym": "GOOG",
+   "name": "Alphabet (Google)",
+   "price": 328.3800048828125,
+   "pct": -2.025836177816486,
+   "mentions": 128,
+   "mentions_prev": 28,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
-   "analyst_rec": null,
-   "analyst_target": null,
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 422.336,
    "earnings": null,
    "headlines": [
-    "Apple Unveils Its First Foldable iPhone Today: The ETFs That Will Feel It Most",
-    "AI Stocks Flash Powerful Signal as Model Costs Collapse",
-    "How to Research Any ETF in Five Minutes"
+    "How it feels to handle Apple's foldable iPhone Duo",
+    "A foldable iPhone is nice, but Apple still needs to improve its AI user experience",
+    "Stock Market Today, Sept. 9: Meta Surges Over 6.5% on Muse AI Agent Launch"
    ],
    "band": [
-    709.239990234375,
-    718.9600219726562
+    328.3800048828125,
+    338.8599853515625
    ],
    "spark": [
-    709.239990234375,
-    717.6699829101562,
-    718.9600219726562,
-    718.3599853515625,
-    716.280029296875
+    333.5634460449219,
+    338.8599853515625,
+    335.30999755859375,
+    335.3800048828125,
+    328.3800048828125
    ],
    "stats": [
     [
+     "Market cap",
+     "$4.0T"
+    ],
+    [
+     "Float",
+     "10.9B"
+    ],
+    [
      "Avg vol",
-     "39.6M"
+     "20.1M"
     ],
     [
      "Vol today",
-     "21.3M"
+     "18.9M"
     ],
     [
      "52w range",
-     "$555.60 \u2013 $748.65"
+     "$236.58 \u2013 $404.47"
     ]
    ],
-   "reason": "129 mentions, up from 90 yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "128 mentions today, 5x yesterday's 28. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $422.34 mean target (+29%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": -0.03
+    "label": "positive",
+    "score": 0.23
    },
    "read": [
     "quiet",
     "muted",
     "No strong pattern between price and attention today."
    ],
-   "er": null,
+   "er": {
+    "eps_estimate": 3.0,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 0.9,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
    "chart": {
     "period": "1y",
     "closes": [
-     583.85,
-     596.48,
-     593.8,
-     600.98,
-     587.35,
-     601.73,
-     614.85,
-     626.78,
-     607.52,
-     606.64,
-     587.92,
-     617.0,
-     623.2,
-     611.39,
-     614.8,
-     622.42,
-     611.68,
-     625.17,
-     619.8,
-     621.25,
-     620.41,
-     608.21,
-     600.5,
-     607.38,
-     605.86,
-     598.34,
-     592.32,
-     580.69,
-     561.96,
-     584.34,
-     610.4,
-     648.14,
-     663.15,
-     673.41,
-     710.45,
-     708.15,
-     716.75,
-     737.5,
-     704.29,
-     720.55,
-     739.81,
-     706.52,
-     712.6,
-     725.51,
-     695.33,
-     684.23,
-     687.99,
-     723.03,
-     731.07,
-     713.44,
-     716.43,
-     718.96,
-     716.27
+     240.75,
+     254.58,
+     246.54,
+     245.81,
+     236.87,
+     253.13,
+     259.83,
+     281.09,
+     278.97,
+     276.26,
+     298.87,
+     319.29,
+     321.25,
+     309.91,
+     308.01,
+     314.34,
+     314.7,
+     328.5,
+     329.69,
+     327.79,
+     337.87,
+     322.47,
+     305.42,
+     314.29,
+     310.82,
+     297.72,
+     301.08,
+     298.42,
+     273.42,
+     294.09,
+     315.33,
+     338.98,
+     341.89,
+     382.74,
+     396.55,
+     392.83,
+     378.91,
+     375.96,
+     365.3,
+     357.93,
+     367.22,
+     334.47,
+     355.95,
+     354.8,
+     345.9,
+     318.88,
+     356.42,
+     353.24,
+     343.32,
+     341.53,
+     342.66,
+     335.31,
+     328.38
     ],
     "dates": [
      "2025-09-08",
@@ -744,14 +760,14 @@
      "2026-09-07"
     ]
    },
-   "tag": "1x Reddit mentions",
+   "tag": "5x Reddit mentions",
    "source": "reddit"
   },
   {
    "sym": "GRAB",
    "name": "Grab Holdings Limited",
-   "price": 3.02,
-   "pct": -7.076924,
+   "price": 3.04,
+   "pct": -6.4615397,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -766,7 +782,7 @@
     "Is Grab  (GRAB) a Buy as Wall Street Analysts Look Optimistic?"
    ],
    "band": [
-    3.0199999809265137,
+    3.0399999618530273,
     3.5299999713897705
    ],
    "spark": [
@@ -774,7 +790,7 @@
     3.4200000762939453,
     3.4200000762939453,
     3.25,
-    3.0199999809265137
+    3.0399999618530273
    ],
    "stats": [
     [
@@ -795,14 +811,14 @@
     ],
     [
      "Vol today",
-     "129.4M"
+     "148.2M"
     ],
     [
      "52w range",
      "$3.00 \u2013 $6.62"
     ]
    ],
-   "reason": "Price is -7.1% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $5.86 mean target (+94%).",
+   "reason": "Price is -6.5% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $5.86 mean target (+93%).",
    "tone": {
     "label": "positive",
     "score": 0.36
@@ -876,7 +892,7 @@
      3.48,
      3.61,
      3.42,
-     3.02
+     3.04
     ],
     "dates": [
      "2025-09-08",
@@ -940,8 +956,8 @@
   {
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
-   "price": 146.77,
-   "pct": -4.365672,
+   "price": 147.55,
+   "pct": -3.85743,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -952,8 +968,8 @@
    "earnings": null,
    "headlines": [
     "An 'IPO stampede' is coming: Why one name will be an important test",
-    "SpaceX Built AI Data Centers So Fast, Some Ran Without Backup Power for Months. Now It Faces a $920 Million Deadline.",
-    "SpaceX Has Survived Two Big Unlocks. The Third Starts Today"
+    "Dow Jones Futures: Oil Prices, Yields Hit Stocks, With Meta, SpaceX Key Movers. Apple Unfolds iPhone, Inflation Data Due",
+    "GE Aerospace Buys Turbine Maker in Blow to SpaceX. These Stocks Could Benefit."
    ],
    "band": [
     140.7100067138672,
@@ -964,7 +980,7 @@
     149.74000549316406,
     147.9499969482422,
     153.47000122070312,
-    146.74989318847656
+    147.5500030517578
    ],
    "stats": [
     [
@@ -985,17 +1001,17 @@
     ],
     [
      "Vol today",
-     "104.1M"
+     "120.1M"
     ],
     [
      "52w range",
      "$104.83 \u2013 $225.64"
     ]
    ],
-   "reason": "Price is -4.4% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $214.57 mean target (+46%).",
+   "reason": "Price is -3.9% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $214.57 mean target (+45%).",
    "tone": {
     "label": "mixed",
-    "score": 0.09
+    "score": 0.07
    },
    "read": [
     "quiet",
@@ -1027,7 +1043,7 @@
      136.97,
      141.5,
      147.95,
-     146.74
+     147.55
     ],
     "dates": [
      "2026-06-08",
@@ -1052,8 +1068,8 @@
   {
    "sym": "INTC",
    "name": "Intel Corporation",
-   "price": 105.865,
-   "pct": 1.3353083,
+   "price": 106.24,
+   "pct": 1.6942631,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -1063,25 +1079,25 @@
    "analyst_target": 115.88095,
    "earnings": null,
    "headlines": [
-    "Jim Cramer on Intel (INTC) Corporation, Earnings Performance, and Government Stake",
-    "Intel Rises After a $120 Target Meets 59% AI Growth",
-    "What Qualcomm Has Stopped Leading With"
+    "Intel (INTC) and ASML Move High-NA EUV Into Production. Can the Economics Catch Up?",
+    "Could Apple (AAPL) Stock Win as Intel Corporation (INTC) Fades from the Mac Ecosystem?",
+    "Jim Cramer on Intel (INTC) Corporation, Earnings Performance, and Government Stake"
    ],
    "band": [
     90.05000305175781,
-    105.87000274658203
+    106.24
    ],
    "spark": [
     90.05000305175781,
     91.66999816894531,
     95.80000305175781,
     104.47000122070312,
-    105.87000274658203
+    106.23999786376953
    ],
    "stats": [
     [
      "Market cap",
-     "$559.6B"
+     "$561.6B"
     ],
     [
      "Float",
@@ -1097,17 +1113,17 @@
     ],
     [
      "Vol today",
-     "83.0M"
+     "96.1M"
     ],
     [
      "52w range",
      "$24.05 \u2013 $142.35"
     ]
    ],
-   "reason": "Price is +1.3% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $115.88 mean target (+9%).",
+   "reason": "Price is +1.7% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $115.88 mean target (+9%).",
    "tone": {
-    "label": "mixed",
-    "score": 0.05
+    "label": "positive",
+    "score": 0.2
    },
    "read": [
     "quiet",
@@ -1180,7 +1196,7 @@
      90.07,
      89.47,
      95.8,
-     105.87
+     106.24
     ],
     "dates": [
      "2025-09-08",
@@ -1244,8 +1260,8 @@
   {
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
-   "price": 10.81,
-   "pct": 1.502355,
+   "price": 10.76,
+   "pct": 1.03287,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -1261,19 +1277,19 @@
    ],
    "band": [
     9.770000457763672,
-    10.8149995803833
+    10.760000228881836
    ],
    "spark": [
     9.84000015258789,
     9.770000457763672,
     10.029999732971191,
     10.649999618530273,
-    10.8149995803833
+    10.760000228881836
    ],
    "stats": [
     [
      "Market cap",
-     "$60.5B"
+     "$60.2B"
     ],
     [
      "Float",
@@ -1289,14 +1305,14 @@
     ],
     [
      "Vol today",
-     "75.6M"
+     "85.2M"
     ],
     [
      "52w range",
      "$4.48 \u2013 $17.45"
     ]
    ],
-   "reason": "Price is +1.5% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $14.96 mean target (+38%).",
+   "reason": "Price is +1.0% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $14.96 mean target (+39%).",
    "tone": {
     "label": "positive",
     "score": 0.18
@@ -1372,7 +1388,7 @@
      10.21,
      10.21,
      10.03,
-     10.81
+     10.76
     ],
     "dates": [
      "2025-09-08",
@@ -1438,10 +1454,10 @@
   {
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
-   "price": 763.0900268554688,
-   "pct": -0.3031020165050389,
-   "mentions": 360,
-   "mentions_prev": 386,
+   "price": 762.4000244140625,
+   "pct": -0.3932500994156685,
+   "mentions": 363,
+   "mentions_prev": 418,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -1450,13 +1466,9 @@
    "analyst_rec": null,
    "analyst_target": null,
    "earnings": null,
-   "headlines": [
-    "Pinterest Tumbles 8%, Reddit and Snap Pull Back: Is the Premium Multiple Unwinding?",
-    "Barclays Sees S&P 500 at 7,950 in 2026: What Do Prediction Markets Say?",
-    "Norwegian Slides 3% as Rising Oil Undercuts Fuel-Cost Relief Hopes; Carnival and Royal Caribbean Trail"
-   ],
+   "headlines": [],
    "band": [
-    763.0900268554688,
+    762.4000244140625,
     773.1699829101562
    ],
    "spark": [
@@ -1464,7 +1476,7 @@
     773.1699829101562,
     770.1900024414062,
     765.9600219726562,
-    763.0999755859375
+    762.4000244140625
    ],
    "stats": [
     [
@@ -1473,18 +1485,15 @@
     ],
     [
      "Vol today",
-     "20.9M"
+     "32.3M"
     ],
     [
      "52w range",
      "$629.28 \u2013 $779.37"
     ]
    ],
-   "reason": "360 mentions, flat against yesterday. Price is -0.3% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "positive",
-    "score": 0.24
-   },
+   "reason": "363 mentions, flat against yesterday. Price is -0.4% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "tone": null,
    "read": [
     "quiet",
     "muted",
@@ -1546,7 +1555,7 @@
      765.72,
      769.35,
      770.19,
-     763.11
+     762.4
     ],
     "dates": [
      "2025-09-08",
@@ -1608,11 +1617,11 @@
   {
    "sym": "MU",
    "name": "Micron Technology",
-   "price": 1026.9150390625,
-   "pct": 2.557154034464857,
-   "mentions": 310,
-   "mentions_prev": 297,
-   "mom": "\u2192",
+   "price": 1027.77001953125,
+   "pct": 2.6425402254296926,
+   "mentions": 254,
+   "mentions_prev": 377,
+   "mom": "\u2193",
    "label": "",
    "flags": [
     "squeeze/penny sub"
@@ -1621,20 +1630,20 @@
    "analyst_target": 1513.1111,
    "earnings": null,
    "headlines": [
-    "Bank of America Spots a Major Semiconductor. Micron and AMD Are Big Winners",
-    "Micron Gains 2.4% as Memory's 86% Margin Era Refuses to Break",
-    "Prediction: Micron Stock Could Turn $10,000 Into a Much Larger Sum by 2030"
+    "Apple, ServiceTitan, Meta, Micron, Casey\u2019s, Jersey Mike\u2019s, and More Stocks That Explain Today\u2019s Market",
+    "Prediction: Micron's Sept. 30 Earnings Could Be the Most Important Catalyst for AI Memory Stocks This Year",
+    "Micron, Sandisk and the Next Leg Higher in Memory Stocks"
    ],
    "band": [
     956.0800170898438,
-    1026.9150390625
+    1027.77001953125
    ],
    "spark": [
     956.0800170898438,
     958.1599731445312,
     1016.5900268554688,
     1000.260009765625,
-    1026.9150390625
+    1027.77001953125
    ],
    "stats": [
     [
@@ -1655,17 +1664,17 @@
     ],
     [
      "Vol today",
-     "19.7M"
+     "23.6M"
     ],
     [
      "52w range",
      "$138.34 \u2013 $1255.00"
     ]
    ],
-   "reason": "310 mentions, flat against yesterday. Price is +2.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,513.11 mean target (+47%); the scan flagged squeeze/penny sub.",
+   "reason": "254 mentions, cooling from 377. Price is +2.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,513.11 mean target (+47%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.27
+    "label": "mixed",
+    "score": 0.09
    },
    "read": [
     "quiet",
@@ -1738,7 +1747,195 @@
      966.78,
      932.86,
      1016.59,
-     1026.82
+     1027.77
+    ],
+    "dates": [
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07"
+    ]
+   }
+  },
+  {
+   "sym": "AAPL",
+   "name": "Apple",
+   "price": 315.3399963378906,
+   "pct": -0.31611672950286085,
+   "mentions": 248,
+   "mentions_prev": 80,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [],
+   "analyst_rec": "BUY",
+   "analyst_target": 323.85947,
+   "earnings": null,
+   "headlines": [
+    "How John Ternus understood the assignment in the Apple launch event opener",
+    "Foldable iPhone Duo's software helps it 'shine' against competitors",
+    "Apple reveals the foldable iPhone Duo"
+   ],
+   "band": [
+    315.3399963378906,
+    328.2099914550781
+   ],
+   "spark": [
+    324.9599914550781,
+    328.2099914550781,
+    319.9700012207031,
+    316.2200012207031,
+    315.3399963378906
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$4.6T"
+    ],
+    [
+     "Float",
+     "14.6B"
+    ],
+    [
+     "Short interest",
+     "0.8%"
+    ],
+    [
+     "Avg vol",
+     "53.2M"
+    ],
+    [
+     "Vol today",
+     "64.9M"
+    ],
+    [
+     "52w range",
+     "$225.95 \u2013 $344.57"
+    ]
+   ],
+   "reason": "248 mentions today, 3x yesterday's 80. Price is -0.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $323.86 mean target (+3%).",
+   "tone": {
+    "label": "mixed",
+    "score": 0.13
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 1.98,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 5.3,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     233.21,
+     244.6,
+     254.52,
+     257.07,
+     244.37,
+     251.36,
+     261.85,
+     269.37,
+     267.48,
+     271.67,
+     270.75,
+     278.09,
+     278.02,
+     277.52,
+     272.93,
+     272.66,
+     270.27,
+     258.67,
+     254.84,
+     247.37,
+     258.78,
+     277.37,
+     255.32,
+     264.11,
+     263.71,
+     257.0,
+     249.67,
+     247.55,
+     248.36,
+     255.46,
+     260.02,
+     269.75,
+     270.58,
+     279.64,
+     292.8,
+     299.97,
+     308.55,
+     311.79,
+     307.08,
+     290.88,
+     297.75,
+     283.54,
+     308.36,
+     315.05,
+     333.45,
+     332.73,
+     308.64,
+     313.06,
+     305.93,
+     309.35,
+     319.7,
+     319.97,
+     315.34
     ],
     "dates": [
      "2025-09-08",
@@ -1800,10 +1997,10 @@
   {
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
-   "price": 655.4249877929688,
-   "pct": 6.6217119652799195,
-   "mentions": 245,
-   "mentions_prev": 28,
+   "price": 653.6900024414062,
+   "pct": 6.33947202651715,
+   "mentions": 247,
+   "mentions_prev": 88,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1815,18 +2012,18 @@
    "headlines": [
     "Meta stock surges with Wall Street bullish on new AI agent",
     "Bond yields tick higher as oil tops $100: AlphaCheck",
-    "Meta's Muse Arrives With Three Pricing Tiers and Payment Access"
+    "Stock Market Today, Sept. 9: Meta Surges Over 6.5% on Muse AI Agent Launch"
    ],
    "band": [
     592.8499755859375,
-    655.4600219726562
+    653.6900024414062
    ],
    "spark": [
     592.8499755859375,
     610.6799926757812,
     616.77001953125,
     613.47998046875,
-    655.4600219726562
+    653.6900024414062
    ],
    "stats": [
     [
@@ -1847,14 +2044,14 @@
     ],
     [
      "Vol today",
-     "28.6M"
+     "35.4M"
     ],
     [
      "52w range",
      "$520.26 \u2013 $790.80"
     ]
    ],
-   "reason": "245 mentions today, 9x yesterday's 28. Price is +6.6% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $754.15 mean target (+15%); the scan flagged squeeze/penny sub.",
+   "reason": "247 mentions today, 3x yesterday's 88. Price is +6.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $754.15 mean target (+15%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.17
@@ -1928,385 +2125,7 @@
      549.9,
      578.02,
      616.77,
-     655.48
-    ],
-    "dates": [
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07"
-    ]
-   }
-  },
-  {
-   "sym": "AAPL",
-   "name": "Apple",
-   "price": 315.57000732421875,
-   "pct": -0.2434066750272571,
-   "mentions": 204,
-   "mentions_prev": 94,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [],
-   "analyst_rec": "BUY",
-   "analyst_target": 323.85947,
-   "earnings": null,
-   "headlines": [
-    "Apple named its new foldable iPhone the Duo. Duolingo noticed.",
-    "Apple debuts its first foldable, the iPhone Duo, priced at $1,999",
-    "Apple launches iPhone 18 Pro and iPhone 18 Pro Max"
-   ],
-   "band": [
-    315.57000732421875,
-    328.2099914550781
-   ],
-   "spark": [
-    324.9599914550781,
-    328.2099914550781,
-    319.9700012207031,
-    316.2200012207031,
-    315.57000732421875
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$4.6T"
-    ],
-    [
-     "Float",
-     "14.6B"
-    ],
-    [
-     "Short interest",
-     "0.8%"
-    ],
-    [
-     "Avg vol",
-     "53.2M"
-    ],
-    [
-     "Vol today",
-     "52.9M"
-    ],
-    [
-     "52w range",
-     "$225.95 \u2013 $344.57"
-    ]
-   ],
-   "reason": "204 mentions today, 2x yesterday's 94. Price is -0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $323.86 mean target (+3%).",
-   "tone": {
-    "label": "mixed",
-    "score": 0.0
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": 1.98,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 5.3,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     233.21,
-     244.6,
-     254.52,
-     257.07,
-     244.37,
-     251.36,
-     261.85,
-     269.37,
-     267.48,
-     271.67,
-     270.75,
-     278.09,
-     278.02,
-     277.52,
-     272.93,
-     272.66,
-     270.27,
-     258.67,
-     254.84,
-     247.37,
-     258.78,
-     277.36,
-     255.32,
-     264.11,
-     263.71,
-     257.0,
-     249.67,
-     247.55,
-     248.36,
-     255.46,
-     260.02,
-     269.75,
-     270.58,
-     279.64,
-     292.8,
-     299.97,
-     308.55,
-     311.79,
-     307.08,
-     290.88,
-     297.75,
-     283.54,
-     308.36,
-     315.05,
-     333.45,
-     332.73,
-     308.64,
-     313.06,
-     305.93,
-     309.35,
-     319.7,
-     319.97,
-     315.62
-    ],
-    "dates": [
-     "2025-09-08",
-     "2025-09-15",
-     "2025-09-22",
-     "2025-09-29",
-     "2025-10-06",
-     "2025-10-13",
-     "2025-10-20",
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07"
-    ]
-   }
-  },
-  {
-   "sym": "NVDA",
-   "name": "NVIDIA",
-   "price": 224.14999389648438,
-   "pct": -0.5148489208271392,
-   "mentions": 161,
-   "mentions_prev": 246,
-   "mom": "\u2193",
-   "label": "",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 327.6544,
-   "earnings": null,
-   "headlines": [
-    "CoreWeave struggling to keep up with demand for Nvidia chips, CEO says",
-    "A foldable iPhone is nice, but Apple still needs to improve its AI user experience",
-    "Bank of America Spots a Major Semiconductor. Micron and AMD Are Big Winners"
-   ],
-   "band": [
-    224.14999389648438,
-    230.36000061035156
-   ],
-   "spark": [
-    224.41000366210938,
-    228.4499969482422,
-    230.36000061035156,
-    225.72999572753906,
-    224.14999389648438
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$5.4T"
-    ],
-    [
-     "Float",
-     "23.1B"
-    ],
-    [
-     "Short interest",
-     "1.2%"
-    ],
-    [
-     "Avg vol",
-     "134.6M"
-    ],
-    [
-     "Vol today",
-     "58.9M"
-    ],
-    [
-     "52w range",
-     "$164.27 \u2013 $236.54"
-    ]
-   ],
-   "reason": "161 mentions, cooling from 246. Price is -0.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $327.65 mean target (+46%); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "positive",
-    "score": 0.22
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": 2.47,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 5.1,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     177.59,
-     176.44,
-     177.96,
-     187.38,
-     182.93,
-     182.99,
-     186.02,
-     202.23,
-     187.91,
-     189.93,
-     178.65,
-     176.77,
-     182.19,
-     174.81,
-     180.77,
-     190.3,
-     188.62,
-     184.63,
-     186.0,
-     187.44,
-     190.9,
-     185.18,
-     182.59,
-     189.59,
-     176.97,
-     177.6,
-     180.04,
-     172.5,
-     167.32,
-     177.18,
-     188.41,
-     201.45,
-     208.03,
-     198.22,
-     214.95,
-     225.06,
-     215.08,
-     210.89,
-     205.1,
-     205.19,
-     210.69,
-     192.53,
-     194.83,
-     210.96,
-     202.81,
-     206.84,
-     200.75,
-     223.96,
-     225.16,
-     214.72,
-     217.55,
-     230.36,
-     224.16
+     653.69
     ],
     "dates": [
      "2025-09-08",
@@ -2368,10 +2187,10 @@
   {
    "sym": "GOOGL",
    "name": "Alphabet (Google)",
-   "price": 331.04010009765625,
-   "pct": -2.189363244893999,
-   "mentions": 137,
-   "mentions_prev": 58,
+   "price": 330.6499938964844,
+   "pct": -2.3046258246463625,
+   "mentions": 147,
+   "mentions_prev": 64,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2381,12 +2200,12 @@
    "analyst_target": 428.06668,
    "earnings": null,
    "headlines": [
+    "How it feels to handle Apple's foldable iPhone Duo",
     "A foldable iPhone is nice, but Apple still needs to improve its AI user experience",
-    "SpaceX Built AI Data Centers So Fast, Some Ran Without Backup Power for Months. Now It Faces a $920 Million Deadline.",
-    "Broadcom (AVGO) Faces Google Chip Risks, But Macquarie Sees a $40 Billion Anthropic Opportunity"
+    "Stock Market Today, Sept. 9: Meta Surges Over 6.5% on Muse AI Agent Launch"
    ],
    "band": [
-    331.04010009765625,
+    330.6499938964844,
     342.260009765625
    ],
    "spark": [
@@ -2394,7 +2213,7 @@
     342.260009765625,
     338.4599914550781,
     338.3599853515625,
-    331.04010009765625
+    330.6499938964844
    ],
    "stats": [
     [
@@ -2415,17 +2234,17 @@
     ],
     [
      "Vol today",
-     "22.7M"
+     "32.7M"
     ],
     [
      "52w range",
      "$235.84 \u2013 $408.61"
     ]
    ],
-   "reason": "137 mentions today, 2x yesterday's 58. Price is -2.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $428.07 mean target (+29%); the scan flagged squeeze/penny sub.",
+   "reason": "147 mentions today, 2x yesterday's 64. Price is -2.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $428.07 mean target (+29%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.39
+    "score": 0.23
    },
    "read": [
     "quiet",
@@ -2496,7 +2315,7 @@
      344.6,
      346.37,
      338.46,
-     331.03
+     330.65
     ],
     "dates": [
      "2025-09-08",
@@ -2556,117 +2375,137 @@
    }
   },
   {
-   "sym": "QQQ",
-   "name": "Invesco QQQ ETF",
-   "price": 716.280029296875,
-   "pct": -0.1588986511562208,
-   "mentions": 129,
-   "mentions_prev": 90,
-   "mom": "\u2191",
-   "label": "chatter rising",
+   "sym": "NVDA",
+   "name": "NVIDIA",
+   "price": 223.6699981689453,
+   "pct": -0.7278868363830676,
+   "mentions": 138,
+   "mentions_prev": 264,
+   "mom": "\u2193",
+   "label": "",
    "flags": [
     "squeeze/penny sub"
    ],
-   "analyst_rec": null,
-   "analyst_target": null,
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 327.6544,
    "earnings": null,
    "headlines": [
-    "Apple Unveils Its First Foldable iPhone Today: The ETFs That Will Feel It Most",
-    "AI Stocks Flash Powerful Signal as Model Costs Collapse",
-    "How to Research Any ETF in Five Minutes"
+    "CoreWeave struggling to keep up with demand for Nvidia chips, CEO says",
+    "A foldable iPhone is nice, but Apple still needs to improve its AI user experience",
+    "Why Argan Stock Swooned by Almost 8% Today"
    ],
    "band": [
-    709.239990234375,
-    718.9600219726562
+    223.6699981689453,
+    230.36000061035156
    ],
    "spark": [
-    709.239990234375,
-    717.6699829101562,
-    718.9600219726562,
-    718.3599853515625,
-    716.280029296875
+    224.41000366210938,
+    228.4499969482422,
+    230.36000061035156,
+    225.72999572753906,
+    223.6699981689453
    ],
    "stats": [
     [
+     "Market cap",
+     "$5.4T"
+    ],
+    [
+     "Float",
+     "23.1B"
+    ],
+    [
+     "Short interest",
+     "1.2%"
+    ],
+    [
      "Avg vol",
-     "39.6M"
+     "134.6M"
     ],
     [
      "Vol today",
-     "21.3M"
+     "79.2M"
     ],
     [
      "52w range",
-     "$555.60 \u2013 $748.65"
+     "$164.27 \u2013 $236.54"
     ]
    ],
-   "reason": "129 mentions, up from 90 yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "138 mentions, cooling from 264. Price is -0.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $327.65 mean target (+46%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": -0.03
+    "score": 0.06
    },
    "read": [
     "quiet",
     "muted",
     "No strong pattern between price and attention today."
    ],
-   "er": null,
+   "er": {
+    "eps_estimate": 2.47,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 5.1,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
    "chart": {
     "period": "1y",
     "closes": [
-     583.85,
-     596.48,
-     593.8,
-     600.98,
-     587.35,
-     601.73,
-     614.85,
-     626.78,
-     607.52,
-     606.64,
-     587.92,
-     617.0,
-     623.2,
-     611.39,
-     614.8,
-     622.42,
-     611.68,
-     625.17,
-     619.8,
-     621.25,
-     620.41,
-     608.21,
-     600.5,
-     607.38,
-     605.86,
-     598.34,
-     592.32,
-     580.69,
-     561.96,
-     584.34,
-     610.4,
-     648.14,
-     663.15,
-     673.41,
-     710.45,
-     708.15,
-     716.75,
-     737.5,
-     704.29,
-     720.55,
-     739.81,
-     706.52,
-     712.6,
-     725.51,
-     695.33,
-     684.23,
-     687.99,
-     723.03,
-     731.07,
-     713.44,
-     716.43,
-     718.96,
-     716.27
+     177.59,
+     176.44,
+     177.96,
+     187.38,
+     182.93,
+     182.99,
+     186.02,
+     202.23,
+     187.91,
+     189.93,
+     178.65,
+     176.77,
+     182.19,
+     174.81,
+     180.77,
+     190.3,
+     188.62,
+     184.63,
+     186.0,
+     187.44,
+     190.9,
+     185.18,
+     182.59,
+     189.59,
+     176.97,
+     177.6,
+     180.04,
+     172.5,
+     167.32,
+     177.18,
+     188.41,
+     201.45,
+     208.03,
+     198.22,
+     214.95,
+     225.06,
+     215.08,
+     210.89,
+     205.1,
+     205.19,
+     210.69,
+     192.53,
+     194.83,
+     210.96,
+     202.81,
+     206.84,
+     200.75,
+     223.96,
+     225.16,
+     214.72,
+     217.55,
+     230.36,
+     223.67
     ],
     "dates": [
      "2025-09-08",
@@ -2728,10 +2567,10 @@
   {
    "sym": "GOOG",
    "name": "Alphabet (Google)",
-   "price": 328.55999755859375,
-   "pct": -1.9721342725799642,
-   "mentions": 124,
-   "mentions_prev": 29,
+   "price": 328.3800048828125,
+   "pct": -2.025836177816486,
+   "mentions": 128,
+   "mentions_prev": 28,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2741,12 +2580,12 @@
    "analyst_target": 422.336,
    "earnings": null,
    "headlines": [
+    "How it feels to handle Apple's foldable iPhone Duo",
     "A foldable iPhone is nice, but Apple still needs to improve its AI user experience",
-    "SpaceX Built AI Data Centers So Fast, Some Ran Without Backup Power for Months. Now It Faces a $920 Million Deadline.",
-    "Broadcom (AVGO) Faces Google Chip Risks, But Macquarie Sees a $40 Billion Anthropic Opportunity"
+    "Stock Market Today, Sept. 9: Meta Surges Over 6.5% on Muse AI Agent Launch"
    ],
    "band": [
-    328.55999755859375,
+    328.3800048828125,
     338.8599853515625
    ],
    "spark": [
@@ -2754,7 +2593,7 @@
     338.8599853515625,
     335.30999755859375,
     335.3800048828125,
-    328.55999755859375
+    328.3800048828125
    ],
    "stats": [
     [
@@ -2771,17 +2610,17 @@
     ],
     [
      "Vol today",
-     "13.1M"
+     "18.9M"
     ],
     [
      "52w range",
      "$236.58 \u2013 $404.47"
     ]
    ],
-   "reason": "124 mentions today, 4x yesterday's 29. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $422.34 mean target (+29%); the scan flagged squeeze/penny sub.",
+   "reason": "128 mentions today, 5x yesterday's 28. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $422.34 mean target (+29%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.39
+    "score": 0.23
    },
    "read": [
     "quiet",
@@ -2852,7 +2691,7 @@
      341.53,
      342.66,
      335.31,
-     328.58
+     328.38
     ],
     "dates": [
      "2025-09-08",
@@ -2912,60 +2751,66 @@
    }
   },
   {
-   "sym": "AGI",
-   "name": "Alamos Gold",
-   "price": 36.974998474121094,
-   "pct": 0.6026595402372324,
-   "mentions": 123,
-   "mentions_prev": 392,
-   "mom": "\u2193",
-   "label": "",
-   "flags": [],
-   "analyst_rec": "NONE",
-   "analyst_target": 46.25,
-   "earnings": null,
+   "sym": "AEO",
+   "name": "American Eagle Outfitters",
+   "price": 16.889999389648438,
+   "pct": -1.9163798510543635,
+   "mentions": 120,
+   "mentions_prev": 4,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "vol 4x normal"
+   ],
+   "analyst_rec": "HOLD",
+   "analyst_target": 19.54545,
+   "earnings": "Sep 09 (0d)",
    "headlines": [
-    "Exchange-Traded Funds, Equity Futures Down Pre-Bell Wednesday as Brent Crude Exceeds $100 a Barrel",
-    "Social Buzz: Wallstreetbets Stocks Mostly Lower Premarket Wednesday; Meta Platforms to Advance, Intel to Decline",
-    "AGI (NYSE:AGI) Stock Looks Below Fair Value With Earnings Stronger Than Market Read"
+    "John Ternus's first Apple product launch as CEO: What to Watch",
+    "Aerie Powers American Eagle Outfitters With 19% Comp Sales Jump",
+    "American Eagle Outfitters (AEO) Beats Q2 Earnings and Revenue Estimates"
    ],
    "band": [
-    36.130001068115234,
-    37.689998626708984
+    16.65999984741211,
+    17.389999389648438
    ],
    "spark": [
-    36.130001068115234,
-    37.689998626708984,
-    36.970001220703125,
-    36.45000076293945,
-    36.970001220703125
+    16.65999984741211,
+    17.010000228881836,
+    17.389999389648438,
+    17.219999313354492,
+    16.889999389648438
    ],
    "stats": [
     [
      "Market cap",
-     "$15.5B"
+     "$2.8B"
     ],
     [
      "Float",
-     "417.1M"
+     "155.8M"
+    ],
+    [
+     "Short interest",
+     "12.8%"
     ],
     [
      "Avg vol",
-     "4.8M"
+     "4.7M"
     ],
     [
      "Vol today",
-     "1.6M"
+     "17.0M"
     ],
     [
      "52w range",
-     "$27.05 \u2013 $55.41"
+     "$14.06 \u2013 $28.46"
     ]
    ],
-   "reason": "123 mentions, cooling from 392. Price is +0.6% \u2014 the attention has moved further than the price; analyst consensus is none with a $46.25 mean target (+25%).",
+   "reason": "120 mentions today, 30x yesterday's 4. Price is -1.9% \u2014 the attention has moved further than the price; analyst consensus is hold with a $19.55 mean target (+16%); earnings land Sep 09 (0d); the scan flagged vol 4x normal.",
    "tone": {
     "label": "mixed",
-    "score": -0.04
+    "score": 0.0
    },
    "read": [
     "quiet",
@@ -2973,9 +2818,11 @@
     "No strong pattern between price and attention today."
    ],
    "er": {
-    "eps_estimate": 0.58,
+    "date": "Sep 09",
+    "days_away": 0,
+    "eps_estimate": 0.22,
     "beat_record": "beat 3 of last 4",
-    "avg_surprise": 5.6,
+    "avg_surprise": 0.3,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -2984,59 +2831,59 @@
    "chart": {
     "period": "1y",
     "closes": [
-     32.89,
-     32.27,
-     34.11,
-     33.94,
-     32.98,
-     34.45,
-     31.49,
-     30.73,
-     30.93,
-     33.28,
-     32.56,
-     37.42,
-     36.01,
-     38.41,
-     38.4,
-     40.69,
-     38.33,
-     41.73,
-     38.82,
-     43.33,
-     36.83,
-     40.09,
-     45.16,
-     47.74,
-     54.08,
-     49.79,
-     45.79,
-     38.22,
-     42.49,
-     45.95,
-     48.42,
-     49.29,
-     45.11,
-     39.37,
-     43.33,
-     40.18,
-     38.29,
-     40.75,
-     35.48,
-     35.2,
-     36.34,
-     31.32,
-     31.58,
-     29.46,
-     28.26,
-     29.58,
-     27.83,
-     33.15,
-     33.36,
-     37.86,
-     36.75,
-     36.97,
-     36.97
+     17.85,
+     18.37,
+     17.47,
+     16.49,
+     14.04,
+     14.67,
+     16.26,
+     16.4,
+     16.78,
+     17.23,
+     18.2,
+     20.02,
+     22.66,
+     24.99,
+     27.32,
+     25.87,
+     25.87,
+     26.44,
+     25.08,
+     23.8,
+     22.98,
+     23.42,
+     25.12,
+     24.9,
+     24.22,
+     18.2,
+     17.33,
+     16.98,
+     15.9,
+     16.6,
+     18.18,
+     19.27,
+     17.78,
+     16.81,
+     16.56,
+     15.18,
+     16.41,
+     15.68,
+     16.32,
+     18.65,
+     17.68,
+     17.75,
+     16.34,
+     16.81,
+     17.03,
+     17.0,
+     17.18,
+     17.97,
+     16.17,
+     16.17,
+     16.87,
+     17.39,
+     16.89
     ],
     "dates": [
      "2025-09-08",
@@ -3096,76 +2943,246 @@
    }
   },
   {
-   "sym": "DTE",
-   "name": "DTE Energy",
-   "price": 136.1699981689453,
-   "pct": -0.6058407525946624,
-   "mentions": 111,
-   "mentions_prev": 62,
+   "sym": "QQQ",
+   "name": "Invesco QQQ ETF",
+   "price": 716.3099975585938,
+   "pct": -0.15472142418753437,
+   "mentions": 109,
+   "mentions_prev": 115,
+   "mom": "\u2192",
+   "label": "",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
+   "headlines": [
+    "Apple Unveils Its First Foldable iPhone Today: The ETFs That Will Feel It Most",
+    "AI Stocks Flash Powerful Signal as Model Costs Collapse",
+    "How to Research Any ETF in Five Minutes"
+   ],
+   "band": [
+    709.239990234375,
+    718.9600219726562
+   ],
+   "spark": [
+    709.239990234375,
+    717.6699829101562,
+    718.9600219726562,
+    718.3599853515625,
+    716.3099975585938
+   ],
+   "stats": [
+    [
+     "Avg vol",
+     "39.6M"
+    ],
+    [
+     "Vol today",
+     "26.4M"
+    ],
+    [
+     "52w range",
+     "$555.60 \u2013 $748.65"
+    ]
+   ],
+   "reason": "109 mentions, flat against yesterday. Price is -0.2% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "mixed",
+    "score": -0.03
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": null,
+   "chart": {
+    "period": "1y",
+    "closes": [
+     583.85,
+     596.48,
+     593.8,
+     600.98,
+     587.35,
+     601.73,
+     614.85,
+     626.78,
+     607.52,
+     606.64,
+     587.92,
+     617.0,
+     623.2,
+     611.39,
+     614.8,
+     622.42,
+     611.68,
+     625.17,
+     619.8,
+     621.25,
+     620.41,
+     608.21,
+     600.5,
+     607.38,
+     605.86,
+     598.34,
+     592.32,
+     580.69,
+     561.96,
+     584.34,
+     610.4,
+     648.14,
+     663.15,
+     673.41,
+     710.45,
+     708.15,
+     716.75,
+     737.5,
+     704.29,
+     720.55,
+     739.81,
+     706.52,
+     712.6,
+     725.51,
+     695.33,
+     684.23,
+     687.99,
+     723.03,
+     731.07,
+     713.44,
+     716.43,
+     718.96,
+     716.31
+    ],
+    "dates": [
+     "2025-09-08",
+     "2025-09-15",
+     "2025-09-22",
+     "2025-09-29",
+     "2025-10-06",
+     "2025-10-13",
+     "2025-10-20",
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07"
+    ]
+   }
+  },
+  {
+   "sym": "RKLB",
+   "name": "Rocket Lab USA",
+   "price": 63.06999969482422,
+   "pct": -5.865672097277286,
+   "mentions": 99,
+   "mentions_prev": 27,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "BUY",
-   "analyst_target": 156.85715,
+   "analyst_target": 111.0,
    "earnings": null,
    "headlines": [
-    "DTE Energy (DTE) Down 4.1% Since Last Earnings Report: Can It Rebound?",
-    "Peter Thiel\u2019s $418 Million Bet On These 8 Companies Reveals AI\u2019s Biggest Bottleneck",
-    "Are Wall Street Analysts Predicting DTE Energy Stock Will Climb or Sink?"
+    "Bond yields tick higher as oil tops $100: AlphaCheck",
+    "SpaceX Sinks 5% as $47.2B Insider Share Unlock Hits the Tape, AST SpaceMobile Drops 4%, Rocket Lab Slips 2%",
+    "Rocket Lab Stock Climbs. Yet Neutron Launch Date Remains Out of Reach"
    ],
    "band": [
-    136.0500030517578,
-    137.25999450683594
+    63.06999969482422,
+    65.87000274658203
    ],
    "spark": [
-    136.0500030517578,
-    137.07000732421875,
-    136.0800018310547,
-    137.25999450683594,
-    136.1699981689453
+    63.099998474121094,
+    63.810001373291016,
+    64.26000213623047,
+    65.87000274658203,
+    63.06999969482422
    ],
    "stats": [
     [
      "Market cap",
-     "$28.3B"
+     "$40.3B"
     ],
     [
      "Float",
-     "206.9M"
+     "556.9M"
     ],
     [
      "Short interest",
-     "2.4%"
+     "7.5%"
     ],
     [
      "Avg vol",
-     "1.3M"
+     "21.9M"
     ],
     [
      "Vol today",
-     "426.4K"
+     "26.3M"
     ],
     [
      "52w range",
-     "$126.23 \u2013 $155.75"
+     "$37.57 \u2013 $151.00"
     ]
    ],
-   "reason": "111 mentions, up from 62 yesterday. Price is -0.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $156.86 mean target (+15%); the scan flagged squeeze/penny sub.",
+   "reason": "99 mentions today, 4x yesterday's 27. Price is -5.9% \u2014 the attention has moved further than the price; analyst consensus is buy with a $111.00 mean target (+76%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.18
+    "score": 0.28
    },
    "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
+    "falling knife",
+    "bad",
+    "Price is dropping while chatter climbs \u2014 the crowd is arriving into a decline."
    ],
    "er": {
-    "eps_estimate": 2.4,
+    "eps_estimate": -0.01,
     "beat_record": "beat 3 of last 4",
-    "avg_surprise": 6.7,
+    "avg_surprise": 21.5,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -3174,59 +3191,59 @@
    "chart": {
     "period": "1y",
     "closes": [
-     132.43,
-     132.35,
-     135.9,
-     136.59,
-     137.01,
-     138.48,
-     138.37,
-     132.22,
-     133.41,
-     133.75,
-     132.45,
-     133.68,
-     128.02,
-     126.63,
-     125.65,
-     127.03,
-     128.32,
-     127.86,
-     133.39,
-     132.23,
-     132.28,
-     132.71,
-     142.68,
-     142.73,
-     145.92,
-     147.78,
-     147.23,
-     140.45,
-     143.33,
-     146.87,
-     148.5,
-     145.82,
-     145.72,
-     147.62,
-     139.49,
-     138.68,
-     144.15,
-     141.74,
-     144.62,
-     146.26,
-     146.39,
-     154.43,
-     154.06,
-     150.27,
-     148.19,
-     149.46,
-     141.87,
-     139.87,
-     140.84,
-     135.22,
-     135.86,
-     136.08,
-     136.17
+     53.34,
+     47.79,
+     46.26,
+     56.16,
+     64.26,
+     66.27,
+     64.56,
+     62.98,
+     51.64,
+     45.54,
+     40.3,
+     42.14,
+     49.06,
+     61.49,
+     70.52,
+     70.65,
+     75.99,
+     84.85,
+     96.3,
+     88.9,
+     80.07,
+     72.32,
+     67.44,
+     70.86,
+     69.1,
+     70.11,
+     68.41,
+     67.23,
+     60.93,
+     67.73,
+     68.05,
+     84.8,
+     79.68,
+     78.81,
+     105.47,
+     124.77,
+     135.76,
+     143.48,
+     110.08,
+     102.39,
+     107.24,
+     84.54,
+     100.46,
+     81.04,
+     67.62,
+     63.91,
+     64.95,
+     82.83,
+     80.25,
+     72.57,
+     64.39,
+     64.26,
+     63.07
     ],
     "dates": [
      "2025-09-08",
@@ -3290,8 +3307,8 @@
   {
    "sym": "ASO",
    "name": "Academy Sports and Outdoors, In",
-   "price": 50.345,
-   "pct": 12.60345,
+   "price": 51.15,
+   "pct": 14.403942,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -3301,34 +3318,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Academy Sports and Outdoors Q2 Earnings Call Highlights",
-    "Academy Sports Lifts Earnings Outlook Despite Pressure on Consumer Spending"
-   ],
-   "band": null,
-   "spark": [],
-   "stats": [],
-   "reason": "",
-   "tone": null,
-   "read": null,
-   "er": null,
-   "chart": null
-  },
-  {
-   "sym": "PLSE",
-   "name": "Pulse Biosciences, Inc",
-   "price": 54.09,
-   "pct": 10.862881,
-   "mentions": null,
-   "mentions_prev": null,
-   "mom": null,
-   "label": "",
-   "flags": [],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [
-    "Pulse Biosciences (PLSE) Stock Looks Pricey On Book Value Yet Strong On Returns",
-    "Pulse Biosciences Eyes AFib Breakthrough With Nanosecond PFA Platform"
+    "Academy Sports and Outdoors Inc (ASO) (Q2 2026) Earnings Call Highlights: E-Commerce Surge and ...",
+    "Academy Sports and Outdoors Q2 Earnings Call Highlights"
    ],
    "band": null,
    "spark": [],
@@ -3342,8 +3333,8 @@
   {
    "sym": "NET",
    "name": "Cloudflare, Inc.",
-   "price": 314.755,
-   "pct": 10.71266,
+   "price": 314.18,
+   "pct": 10.51,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -3353,8 +3344,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Cloudflare (NET) Shares Skyrocket, What You Need To Know",
-    "Cloudflare Surges 9% on OpenAI Security Partnership, Zscaler Rises 3%"
+    "Dow Jones Futures: Oil Prices, Yields Hit Stocks, With Meta, SpaceX Key Movers. Apple Unfolds iPhone, Inflation Data Due",
+    "Cloudflare (NET) Shares Skyrocket, What You Need To Know"
    ],
    "band": null,
    "spark": [],
@@ -3368,8 +3359,8 @@
   {
    "sym": "SSL",
    "name": "Sasol Ltd.",
-   "price": 14.56,
-   "pct": 9.473686,
+   "price": 14.58,
+   "pct": 9.62406,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -3392,10 +3383,10 @@
    "chart": null
   },
   {
-   "sym": "MKC-V",
-   "name": "McCormick & Company, Incorporat",
-   "price": 57.37,
-   "pct": 9.089178,
+   "sym": "PLSE",
+   "name": "Pulse Biosciences, Inc",
+   "price": 52.97,
+   "pct": 8.567329,
    "mentions": null,
    "mentions_prev": null,
    "mom": null,
@@ -3405,8 +3396,34 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "2 Big Food Dividends Were Just Cut. 3 More Quietly Stopped Growing.",
-    "6 Safe Dividend Aristocrats Yielding Up to 4.7% to Buy as Tech Cools Off"
+    "Pulse Biosciences (PLSE) Stock Looks Pricey On Book Value Yet Strong On Returns",
+    "Pulse Biosciences Eyes AFib Breakthrough With Nanosecond PFA Platform"
+   ],
+   "band": null,
+   "spark": [],
+   "stats": [],
+   "reason": "",
+   "tone": null,
+   "read": null,
+   "er": null,
+   "chart": null
+  },
+  {
+   "sym": "AMBA",
+   "name": "Ambarella, Inc.",
+   "price": 68.8,
+   "pct": 8.380598,
+   "mentions": null,
+   "mentions_prev": null,
+   "mom": null,
+   "label": "",
+   "flags": [],
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
+   "headlines": [
+    "Ambarella (AMBA) Grew 2Q Revenue 13.2% and Signed 7-Year Channel Agreements. Can Edge-AI Scale Reverse Margin Compression?",
+    "Ambarella Beat Estimates but Fell as NXP Buyout Talk Lingered. Is the Edge-AI Upside Already Priced In?"
    ],
    "band": null,
    "spark": [],
@@ -3423,15 +3440,15 @@
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
    "why": [
-    "up +7% today",
-    "mentions 9x vs yesterday"
+    "up +6% today",
+    "mentions 3x vs yesterday"
    ]
   }
  ],
  "session": {
   "tracked": 10,
-  "up": 3,
-  "down": 7,
+  "up": 2,
+  "down": 8,
   "flagged": 8,
   "standouts": 1
  },
@@ -3441,8 +3458,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 761.9199829101562,
-   "last_price": 763.0900268554688,
-   "pct": 0.1535651999627983,
+   "last_price": 762.4000244140625,
+   "pct": 0.06300418871713137,
    "outcome": "flat",
    "note": "SanDisk at $1,740: The Price of Momentum.",
    "age_days": 0
@@ -3452,8 +3469,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 147.36,
-   "last_price": 146.77,
-   "pct": -0.4003800217155289,
+   "last_price": 147.55,
+   "pct": 0.12893593919652396,
    "outcome": "flat",
    "note": "An 'IPO stampede' is coming: Why one name will be an important test",
    "age_days": 0
@@ -3463,8 +3480,8 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "flag_price": 716.280029296875,
-   "last_price": 716.280029296875,
-   "pct": 0.0,
+   "last_price": 716.3099975585938,
+   "pct": 0.00418387508977011,
    "outcome": "flat",
    "note": "Apple Unveils Its First Foldable iPhone Today: The ETFs That Will Feel It Most",
    "age_days": 0
@@ -3474,8 +3491,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 224.3800048828125,
-   "last_price": 224.14999389648438,
-   "pct": -0.10250957363525035,
+   "last_price": 223.6699981689453,
+   "pct": -0.3164304743811751,
    "outcome": "flat",
    "note": "CoreWeave struggling to keep up with demand for Nvidia chips, CEO says",
    "age_days": 0
@@ -3485,8 +3502,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.825,
-   "last_price": 10.81,
-   "pct": -0.1385681293302429,
+   "last_price": 10.76,
+   "pct": -0.6004618937644296,
    "outcome": "flat",
    "note": "NOK Stock Eyes Third Winning Session Amid Google $15B AI Bet, Euro Stoxx 50 Return",
    "age_days": 0
@@ -3496,8 +3513,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 1024.010009765625,
-   "last_price": 1026.9150390625,
-   "pct": 0.2836914941427088,
+   "last_price": 1027.77001953125,
+   "pct": 0.36718486438287745,
    "outcome": "flat",
    "note": "Zacks.com featured highlights include The Allstate, Arista Networks, Ross Stores, Gartner ",
    "age_days": 0
@@ -3507,8 +3524,8 @@
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
    "flag_price": 657.4600219726562,
-   "last_price": 655.4249877929688,
-   "pct": -0.3095297222151307,
+   "last_price": 653.6900024414062,
+   "pct": -0.573421866768166,
    "outcome": "flat",
    "note": "Meta stock surges with Wall Street bullish on new AI agent",
    "age_days": 0
@@ -3518,8 +3535,8 @@
    "sym": "INTC",
    "name": "Intel Corporation",
    "flag_price": 104.99,
-   "last_price": 105.865,
-   "pct": 0.8334127059719973,
+   "last_price": 106.24,
+   "pct": 1.1905895799599961,
    "outcome": "flat",
    "note": "AMD Rises 3% as CFO Lifts AI Chip Market Forecast Toward $3 Trillion; Intel Ticks Up",
    "age_days": 0
@@ -3529,8 +3546,8 @@
    "sym": "GRAB",
    "name": "Grab Holdings Limited",
    "flag_price": 3.07,
-   "last_price": 3.02,
-   "pct": -1.6286644951140006,
+   "last_price": 3.04,
+   "pct": -0.9771986970683976,
    "outcome": "flat",
    "note": "Is Grab  (GRAB) a Buy as Wall Street Analysts Look Optimistic?",
    "age_days": 0
@@ -3540,8 +3557,8 @@
    "sym": "GOOGL",
    "name": "Alphabet (Google)",
    "flag_price": 331.04010009765625,
-   "last_price": 331.04010009765625,
-   "pct": 0.0,
+   "last_price": 330.6499938964844,
+   "pct": -0.11784258192792786,
    "outcome": "flat",
    "note": "A foldable iPhone is nice, but Apple still needs to improve its AI user experience",
    "age_days": 0
@@ -3551,8 +3568,8 @@
    "sym": "AAPL",
    "name": "Apple",
    "flag_price": 315.57000732421875,
-   "last_price": 315.57000732421875,
-   "pct": 0.0,
+   "last_price": 315.3399963378906,
+   "pct": -0.07288746743660279,
    "outcome": "flat",
    "note": "Apple named its new foldable iPhone the Duo. Duolingo noticed.",
    "age_days": 0
@@ -3573,8 +3590,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 768.1901245117188,
-   "last_price": 763.0900268554688,
-   "pct": -0.6639108592409662,
+   "last_price": 762.4000244140625,
+   "pct": -0.7537326910231481,
    "outcome": "flat",
    "note": "Bloom Energy Surges 8% as S&P 500 Swaps It In for Trade Desk; TTD Stock Slips 2%",
    "age_days": 1
@@ -3584,8 +3601,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 149.67,
-   "last_price": 146.77,
-   "pct": -1.9375960446315077,
+   "last_price": 147.55,
+   "pct": -1.4164495222823388,
    "outcome": "flat",
    "note": "Anthropic delays IPO to October: What that could mean for the AI player",
    "age_days": 1
@@ -3617,8 +3634,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 227.27999877929688,
-   "last_price": 224.14999389648438,
-   "pct": -1.3771580867755684,
+   "last_price": 223.6699981689453,
+   "pct": -1.5883494499034645,
    "outcome": "flat",
    "note": "What investors 'really' need to see from Oracle earnings this week",
    "age_days": 1
@@ -3639,8 +3656,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.6988,
-   "last_price": 10.81,
-   "pct": 1.0393689011851814,
+   "last_price": 10.76,
+   "pct": 0.5720267693573062,
    "outcome": "flat",
    "note": "Beyond the China Retreat: Whether Nokia\u2019s Surge Was Built on Substance",
    "age_days": 1
@@ -3661,8 +3678,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 1026.0400390625,
-   "last_price": 1026.9150390625,
-   "pct": 0.08527932309537294,
+   "last_price": 1027.77001953125,
+   "pct": 0.16860750096367538,
    "outcome": "flat",
    "note": "Stock Market Today: Dow Dives, Oil Spikes After Saudi Attacks; Amgen Swoons On These Resul",
    "age_days": 1
@@ -3672,8 +3689,8 @@
    "sym": "INTC",
    "name": "Intel Corporation",
    "flag_price": 104.0399,
-   "last_price": 105.865,
-   "pct": 1.7542308287493469,
+   "last_price": 106.24,
+   "pct": 2.1146694681559595,
    "outcome": "flat",
    "note": "Why Rigetti Computing Popped Today",
    "age_days": 1
@@ -3705,8 +3722,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 770.1900024414062,
-   "last_price": 763.0900268554688,
-   "pct": -0.9218472796883188,
+   "last_price": 762.4000244140625,
+   "pct": -1.0114358798024503,
    "outcome": "flat",
    "note": "IBB Just Beat the S&P 500 by 22 Points in Three Months. Are You Late to the Party?",
    "age_days": 2
@@ -3716,8 +3733,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 147.95,
-   "last_price": 146.77,
-   "pct": -0.7975667455221214,
+   "last_price": 147.55,
+   "pct": -0.2703616086515562,
    "outcome": "flat",
    "note": "SpaceX Is 34% Below Its High. Now 319 Million More Shares Are Coming",
    "age_days": 2
@@ -3727,8 +3744,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 230.36,
-   "last_price": 224.14999389648438,
-   "pct": -2.6957831670062675,
+   "last_price": 223.6699981689453,
+   "pct": -2.904150820912789,
    "outcome": "flat",
    "note": "Jensen Huang Declares \u201cAGI Has Arrived\u201d \u2014 Powered by 100,000+ Nvidia Grace Blackwell GPUs",
    "age_days": 2
@@ -3771,8 +3788,8 @@
    "sym": "INTC",
    "name": "Intel Corporation",
    "flag_price": 95.8,
-   "last_price": 105.865,
-   "pct": 10.506263048016699,
+   "last_price": 106.24,
+   "pct": 10.897703549060541,
    "outcome": "worked",
    "note": "Prediction: Intel Stock Is Up Big in 2026. But the Best May Still Be Ahead",
    "age_days": 2
@@ -3826,8 +3843,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 769.52001953125,
-   "last_price": 763.0900268554688,
-   "pct": -0.8355848467331694,
+   "last_price": 762.4000244140625,
+   "pct": -0.9252514471975162,
    "outcome": "flat",
    "note": "Adobe Sinks 7% as Internal CEO Pick Lands Ahead of Earnings, Workday Falls 4%",
    "age_days": 5
@@ -3837,8 +3854,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 148.9451,
-   "last_price": 146.77,
-   "pct": -1.4603367280964505,
+   "last_price": 147.55,
+   "pct": -0.9366538409118428,
    "outcome": "flat",
    "note": "Tesla launches Cybercab service in Austin",
    "age_days": 5
@@ -3859,8 +3876,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 232.1499,
-   "last_price": 224.14999389648438,
-   "pct": -3.4460088518304883,
+   "last_price": 223.6699981689453,
+   "pct": -3.6527699693407967,
    "outcome": "flat",
    "note": "Tech stocks today: Tesla's Cybercab event fails to impress, Feds launch investigation into",
    "age_days": 5
@@ -3881,8 +3898,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 998.2100219726562,
-   "last_price": 1026.9150390625,
-   "pct": 2.875649057611852,
+   "last_price": 1027.77001953125,
+   "pct": 2.961300418540927,
    "outcome": "flat",
    "note": "WDC Stock's Big Rally: Buy, Sell, or Hold After a 70% 6-Month Surge?",
    "age_days": 5
@@ -3903,8 +3920,8 @@
    "sym": "INTC",
    "name": "Intel Corporation",
    "flag_price": 94.4401,
-   "last_price": 105.865,
-   "pct": 12.097509426610088,
+   "last_price": 106.24,
+   "pct": 12.494586515685597,
    "outcome": "worked",
    "note": "Lone Star JV Acquires 2M SF Of R&D Space In Silicon Valley",
    "age_days": 5
@@ -3969,8 +3986,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 148.695,
-   "last_price": 146.77,
-   "pct": -1.2945963213288831,
+   "last_price": 147.55,
+   "pct": -0.7700326171021096,
    "outcome": "flat",
    "note": "Elon Musk sends a strong message to Tesla and SpaceX investors",
    "age_days": 6
@@ -3991,8 +4008,8 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "flag_price": 717.6699829101562,
-   "last_price": 716.280029296875,
-   "pct": -0.19367587420125607,
+   "last_price": 716.3099975585938,
+   "pct": -0.18950010226814154,
    "outcome": "flat",
    "note": "Retired Before Nvidia Made Everyone Rich? These 3 ETFs Put the Next Wave in Your IRA Witho",
    "age_days": 6
@@ -4002,8 +4019,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 226.5800018310547,
-   "last_price": 224.14999389648438,
-   "pct": -1.0724723783797143,
+   "last_price": 223.6699981689453,
+   "pct": -1.2843161967485406,
    "outcome": "flat",
    "note": "How Nvidia's latest deal continues to target all points of the AI trade",
    "age_days": 6
@@ -4112,8 +4129,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 226.9949951171875,
-   "last_price": 224.14999389648438,
-   "pct": -1.2533321359065104,
+   "last_price": 223.6699981689453,
+   "pct": -1.4647886604396887,
    "outcome": "flat",
    "note": "Dell's revenue guidance exceeded Wall Street forecasts and then some",
    "age_days": 7
@@ -4145,8 +4162,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 944.0599975585938,
-   "last_price": 1026.9150390625,
-   "pct": 8.776459305359328,
+   "last_price": 1027.77001953125,
+   "pct": 8.867023514303787,
    "outcome": "flat",
    "note": "Everyone\u2019s Talking About These Stocks. Here\u2019s What I See.",
    "age_days": 7
@@ -4200,8 +4217,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 763.5700073242188,
-   "last_price": 763.0900268554688,
-   "pct": -0.0628600474280017,
+   "last_price": 762.4000244140625,
+   "pct": -0.15322536230256417,
    "outcome": "flat",
    "note": "Stock Market Today: Nasdaq Sinks As Crude Prices Climb; These Oil Names Breakout (Live Cov",
    "age_days": 8
@@ -4222,8 +4239,8 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "flag_price": 710.2249755859375,
-   "last_price": 716.280029296875,
-   "pct": 0.8525543199803787,
+   "last_price": 716.3099975585938,
+   "pct": 0.8567738648779691,
    "outcome": "flat",
    "note": "Stock Market Today: Nasdaq Sinks As Crude Prices Climb; These Oil Names Breakout (Live Cov",
    "age_days": 8
@@ -4255,8 +4272,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 218.88,
-   "last_price": 224.14999389648438,
-   "pct": 2.407709199782703,
+   "last_price": 223.6699981689453,
+   "pct": 2.188412906133643,
    "outcome": "flat",
    "note": "Nvidia makes its biggest investment abroad with Mediatek: Why it's a uniquely important de",
    "age_days": 8
@@ -4277,8 +4294,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 9.8801,
-   "last_price": 10.81,
-   "pct": 9.411848058218034,
+   "last_price": 10.76,
+   "pct": 8.905780305867342,
    "outcome": "flat",
    "note": "European Equities Traded in the US as American Depositary Receipts Edge Higher in Tuesday ",
    "age_days": 8
@@ -4299,8 +4316,8 @@
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
    "flag_price": 578.5399780273438,
-   "last_price": 655.4249877929688,
-   "pct": 13.289489522881537,
+   "last_price": 653.6900024414062,
+   "pct": 12.989599209773306,
    "outcome": "worked",
    "note": "How Mark Zuckerberg and Elon Musk made the case for AI at the G20 meeting",
    "age_days": 8
@@ -4321,8 +4338,8 @@
    "sym": "AAPL",
    "name": "Apple",
    "flag_price": 325.4049987792969,
-   "last_price": 315.57000732421875,
-   "pct": -3.0223848717667128,
+   "last_price": 315.3399963378906,
+   "pct": -3.0930693994140976,
    "outcome": "flat",
    "note": "John Ternus's mission: Make Apple more than just an iPhone company",
    "age_days": 8
@@ -4343,8 +4360,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 766.6699829101562,
-   "last_price": 763.0900268554688,
-   "pct": -0.4669487699386066,
+   "last_price": 762.4000244140625,
+   "pct": -0.5569486990850578,
    "outcome": "flat",
    "note": "IREN Climbs 4% as Co-CEO Says Debt and Prepayments Can Fund FY27 Capex, TeraWulf Slips",
    "age_days": 9
@@ -4354,8 +4371,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 142.94,
-   "last_price": 146.77,
-   "pct": 2.679445921365617,
+   "last_price": 147.55,
+   "pct": 3.2251294249335483,
    "outcome": "flat",
    "note": "Here comes the AI capex shocker, Goldman Sachs says",
    "age_days": 9
@@ -4376,8 +4393,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 219.63009643554688,
-   "last_price": 224.14999389648438,
-   "pct": 2.0579590567469968,
+   "last_price": 223.6699981689453,
+   "pct": 1.8394117195062998,
    "outcome": "flat",
    "note": "Tech stocks today: Apple stock slips as Tim Cook prepares to step down",
    "age_days": 9
@@ -4398,8 +4415,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.13,
-   "last_price": 10.81,
-   "pct": 6.7127344521224055,
+   "last_price": 10.76,
+   "pct": 6.2191510365251625,
    "outcome": "flat",
    "note": "Nokia Oyj (HLSE:NOKIA) Following Strong Q2 And AI Demand Is It A Bargain",
    "age_days": 9
@@ -4409,8 +4426,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 948.77001953125,
-   "last_price": 1026.9150390625,
-   "pct": 8.236455402528254,
+   "last_price": 1027.77001953125,
+   "pct": 8.32657001946908,
    "outcome": "flat",
    "note": "Micron Is Stuck Below $971. A Breakout Could Open the Door to $1,057",
    "age_days": 9
@@ -4442,8 +4459,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 769.3499755859375,
-   "last_price": 763.0900268554688,
-   "pct": -0.813667242362771,
+   "last_price": 762.4000244140625,
+   "pct": -0.9033536611971571,
    "outcome": "flat",
    "note": "$40 Trillion US Debt Is 72 Times Mount Everest in Cash: Market Strategist Says the Number ",
    "age_days": 12
@@ -4486,8 +4503,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 227.98,
-   "last_price": 224.14999389648438,
-   "pct": -1.6799746045774258,
+   "last_price": 223.6699981689453,
+   "pct": -1.89051751515689,
    "outcome": "flat",
    "note": "Just how big of a problem area is China for Nvidia?",
    "age_days": 12
@@ -4508,8 +4525,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.59,
-   "last_price": 10.81,
-   "pct": 2.077431539187919,
+   "last_price": 10.76,
+   "pct": 1.605288007554296,
    "outcome": "flat",
    "note": "Nvidia is looking more like the central bank of AI: Chart of the Day",
    "age_days": 12
@@ -4519,8 +4536,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 935.3900146484375,
-   "last_price": 1026.9150390625,
-   "pct": 9.784691196266596,
+   "last_price": 1027.77001953125,
+   "pct": 9.876094830618129,
    "outcome": "flat",
    "note": "Why Nvidia probably just lit a new fire under these once-hot trades",
    "age_days": 12
@@ -4607,8 +4624,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 227.98,
-   "last_price": 224.14999389648438,
-   "pct": -1.6799746045774258,
+   "last_price": 223.6699981689453,
+   "pct": -1.89051751515689,
    "outcome": "flat",
    "note": "Just how big of a problem area is China for Nvidia?",
    "age_days": 13
@@ -4618,8 +4635,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.59,
-   "last_price": 10.81,
-   "pct": 2.077431539187919,
+   "last_price": 10.76,
+   "pct": 1.605288007554296,
    "outcome": "flat",
    "note": "Nvidia is looking more like the central bank of AI: Chart of the Day",
    "age_days": 13
@@ -4629,8 +4646,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 935.3900146484375,
-   "last_price": 1026.9150390625,
-   "pct": 9.784691196266596,
+   "last_price": 1027.77001953125,
+   "pct": 9.876094830618129,
    "outcome": "flat",
    "note": "Why Nvidia probably just lit a new fire under these once-hot trades",
    "age_days": 13
@@ -4673,8 +4690,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 765.6400756835938,
-   "last_price": 763.0900268554688,
-   "pct": -0.33306104383945884,
+   "last_price": 762.4000244140625,
+   "pct": -0.42318203715217023,
    "outcome": "flat",
    "note": "NuScale Power Tumbles 7% Despite Deploying AI Tools, Oklo Slides 6%, Uranium Energy Dips",
    "age_days": 14
@@ -4684,8 +4701,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 137.95,
-   "last_price": 146.77,
-   "pct": 6.39362087712941,
+   "last_price": 147.55,
+   "pct": 6.959043131569426,
    "outcome": "flat",
    "note": "The bond market warning and how to trade the AI hangover",
    "age_days": 14
@@ -4717,8 +4734,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 213.0500030517578,
-   "last_price": 224.14999389648438,
-   "pct": 5.210040218600682,
+   "last_price": 223.6699981689453,
+   "pct": 4.984743001673418,
    "outcome": "flat",
    "note": "Nvidia earnings, PCE data: What investors need to watch Wednesday",
    "age_days": 14
@@ -4739,8 +4756,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 938.4000244140625,
-   "last_price": 1026.9150390625,
-   "pct": 9.432546072631053,
+   "last_price": 1027.77001953125,
+   "pct": 9.523656520894718,
    "outcome": "flat",
    "note": "Why the sustainability of the AI boom could be in focus after Nvidia's earnings call",
    "age_days": 14
@@ -4761,8 +4778,8 @@
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
    "flag_price": 577.5150146484375,
-   "last_price": 655.4249877929688,
-   "pct": 13.490553694428009,
+   "last_price": 653.6900024414062,
+   "pct": 13.190131141324576,
    "outcome": "worked",
    "note": "Nvidia to report Q2 earnings amid chip stock struggles",
    "age_days": 14
@@ -4827,8 +4844,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 763.469970703125,
-   "last_price": 763.0900268554688,
-   "pct": -0.04976539513483904,
+   "last_price": 762.4000244140625,
+   "pct": -0.14014255047610094,
    "outcome": "flat",
    "note": "Intel\u2019s Skid Continues: One of The Biggest Global Banks Says It Will Provide 130% Returns ",
    "age_days": 15
@@ -4838,8 +4855,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 135.0,
-   "last_price": 146.77,
-   "pct": 8.718518518518525,
+   "last_price": 147.55,
+   "pct": 9.296296296296305,
    "outcome": "flat",
    "note": "What's at stake for Paramount, the Ellisons in Warner Bros. takeover bid",
    "age_days": 15
@@ -4860,8 +4877,8 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "flag_price": 709.969970703125,
-   "last_price": 716.280029296875,
-   "pct": 0.8887782376909235,
+   "last_price": 716.3099975585938,
+   "pct": 0.8929992981519838,
    "outcome": "flat",
    "note": "SpaceX Rises 3% as Musk Pulls the NVIDIA Orbital Data Center Into 2027, JPMorgan Sees 75% ",
    "age_days": 15
@@ -4871,8 +4888,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 208.47999572753906,
-   "last_price": 224.14999389648438,
-   "pct": 7.516307794549418,
+   "last_price": 223.6699981689453,
+   "pct": 7.2860719266600285,
    "outcome": "flat",
    "note": "Earnings live updates: Dick's Sporting Goods stock tanks after retailer slashes outlook am",
    "age_days": 15
@@ -4893,8 +4910,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 910.4299926757812,
-   "last_price": 1026.9150390625,
-   "pct": 12.794508894018932,
+   "last_price": 1027.77001953125,
+   "pct": 12.88841841760978,
    "outcome": "worked",
    "note": "Stock market today: S&P 500, Nasdaq fall as chip stocks sink, US unveils new Iran sanction",
    "age_days": 15
@@ -4970,8 +4987,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 765.719970703125,
-   "last_price": 763.0900268554688,
-   "pct": -0.3434602659300233,
+   "last_price": 762.4000244140625,
+   "pct": -0.4335718560420917,
    "outcome": "flat",
    "note": "This Fund Pays 400% of the S&P\u2019s Dividend and Still Beat Half of Wall Street This Year",
    "age_days": 16
@@ -5014,8 +5031,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 214.72000122070312,
-   "last_price": 224.14999389648438,
-   "pct": 4.391762584841127,
+   "last_price": 223.6699981689453,
+   "pct": 4.168217631036058,
    "outcome": "flat",
    "note": "Nvidia, software giants' earnings: What to watch the week of August 24th",
    "age_days": 16
@@ -5036,8 +5053,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 966.780029296875,
-   "last_price": 1026.9150390625,
-   "pct": 6.220133633641596,
+   "last_price": 1027.77001953125,
+   "pct": 6.308569518004228,
    "outcome": "flat",
    "note": "Prediction: If You Invest $10,000 in Micron Stock Today, It Will Be Worth This Much by 203",
    "age_days": 16
@@ -5102,8 +5119,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 762.5999755859375,
-   "last_price": 763.0900268554688,
-   "pct": 0.06426059339363643,
+   "last_price": 762.4000244140625,
+   "pct": -0.026219666702896122,
    "outcome": "flat",
    "note": "Dividend Tourists Find Way To Triple S&P 500's Puny Yield",
    "age_days": 19
@@ -5113,8 +5130,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 135.885,
-   "last_price": 146.77,
-   "pct": 8.010450012878552,
+   "last_price": 147.55,
+   "pct": 8.584464804798191,
    "outcome": "flat",
    "note": "Korea's crypto trading volume is surging. Why are these investors re-entering the market?",
    "age_days": 19
@@ -5135,8 +5152,8 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "flag_price": 710.9299926757812,
-   "last_price": 716.280029296875,
-   "pct": 0.752540570268728,
+   "last_price": 716.3099975585938,
+   "pct": 0.7567559307159579,
    "outcome": "flat",
    "note": "US Stock Indices End Lower As Trump\u2019s \u2018Economic Warfare\u2019 Threats Push Yields, Oil Higher \u2014",
    "age_days": 19
@@ -5157,8 +5174,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 216.85,
-   "last_price": 224.14999389648438,
-   "pct": 3.366379477281246,
+   "last_price": 223.6699981689453,
+   "pct": 3.1450302831198145,
    "outcome": "flat",
    "note": "Tech stocks today: Anthropic's IPO plans come into focus, Nvidia earnings provide next tes",
    "age_days": 19
@@ -5179,8 +5196,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.15,
-   "last_price": 10.81,
-   "pct": 6.502463054187194,
+   "last_price": 10.76,
+   "pct": 6.009852216748763,
    "outcome": "flat",
    "note": "Can ION Network's Adoption of WL6e Boost CIEN's Optical Momentum?",
    "age_days": 19
@@ -5190,8 +5207,8 @@
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
    "flag_price": 553.02001953125,
-   "last_price": 655.4249877929688,
-   "pct": 18.517407082029163,
+   "last_price": 653.6900024414062,
+   "pct": 18.203677869652168,
    "outcome": "worked",
    "note": "Tim Cook built Apple\u2019s $32M-an-hour growth machine: Can John Ternus keep it going?",
    "age_days": 19
@@ -5267,8 +5284,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 130.8387,
-   "last_price": 146.77,
-   "pct": 12.176290348344965,
+   "last_price": 147.55,
+   "pct": 12.772444238593033,
    "outcome": "worked",
    "note": "SpaceX stock slips as 319 million new shares come to market",
    "age_days": 20
@@ -5300,8 +5317,8 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "flag_price": 710.9299926757812,
-   "last_price": 716.280029296875,
-   "pct": 0.752540570268728,
+   "last_price": 716.3099975585938,
+   "pct": 0.7567559307159579,
    "outcome": "flat",
    "note": "SK Hynix Climbs 4% on Record Buyback, Micron Ticks Up as Memory Defies the Tech Selloff",
    "age_days": 20
@@ -5311,8 +5328,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 217.56,
-   "last_price": 224.14999389648438,
-   "pct": 3.0290466521807193,
+   "last_price": 223.6699981689453,
+   "pct": 2.8084198239314717,
    "outcome": "flat",
    "note": "Is Nvidia stock too cheap right now?",
    "age_days": 20
@@ -5333,8 +5350,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.13,
-   "last_price": 10.81,
-   "pct": 6.7127344521224055,
+   "last_price": 10.76,
+   "pct": 6.2191510365251625,
    "outcome": "flat",
    "note": "Nokia (HLSE:NOKIA) Stock May Be 23% Undervalued On AI Infrastructure News",
    "age_days": 20
@@ -5388,8 +5405,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 143.34,
-   "last_price": 146.77,
-   "pct": 2.392911957583373,
+   "last_price": 147.55,
+   "pct": 2.9370726942932945,
    "outcome": "flat",
    "note": "Bond yields surge, presenting challenge for Fed ahead of Jackson Hole",
    "age_days": 21
@@ -5410,8 +5427,8 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "flag_price": 717.510009765625,
-   "last_price": 716.280029296875,
-   "pct": -0.17142345779284301,
+   "last_price": 716.3099975585938,
+   "pct": -0.1672467548464215,
    "outcome": "flat",
    "note": "Volatility Is Falling. It\u2019s a Good Time to Buy Options Again.",
    "age_days": 21
@@ -5421,8 +5438,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 219.74,
-   "last_price": 224.14999389648438,
-   "pct": 2.0069144882517365,
+   "last_price": 223.6699981689453,
+   "pct": 1.7884764580619383,
    "outcome": "flat",
    "note": "Nvidia stock's deep discount creates a 'compelling opportunity,' BofA says",
    "age_days": 21
@@ -5443,8 +5460,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.39,
-   "last_price": 10.81,
-   "pct": 4.042348411934552,
+   "last_price": 10.76,
+   "pct": 3.5611164581328127,
    "outcome": "flat",
    "note": "Forget the Mag 7: The phase 2 AI trade is here",
    "age_days": 21
@@ -5476,8 +5493,8 @@
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
    "flag_price": 543.6699829101562,
-   "last_price": 655.4249877929688,
-   "pct": 20.55566950461572,
+   "last_price": 653.6900024414062,
+   "pct": 20.236544777097116,
    "outcome": "worked",
    "note": "Meta social media addiction trial kicks off with major implications for company's future",
    "age_days": 21
@@ -5498,8 +5515,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 772.67,
-   "last_price": 763.0900268554688,
-   "pct": -1.2398531254651028,
+   "last_price": 762.4000244140625,
+   "pct": -1.329154177842735,
    "outcome": "flat",
    "note": "Bitcoin Holds Near $64K, While Crypto Stocks Slide \u2013 Glassnode Says BTC Is Losing Ground T",
    "age_days": 22
@@ -5509,8 +5526,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 145.465,
-   "last_price": 146.77,
-   "pct": 0.8971230192829937,
+   "last_price": 147.55,
+   "pct": 1.4333344790843212,
    "outcome": "flat",
    "note": "Bond yields surge, presenting challenge for Fed ahead of Jackson Hole",
    "age_days": 22
@@ -5531,8 +5548,8 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "flag_price": 717.510009765625,
-   "last_price": 716.280029296875,
-   "pct": -0.17142345779284301,
+   "last_price": 716.3099975585938,
+   "pct": -0.1672467548464215,
    "outcome": "flat",
    "note": "Stock Market Today: Nasdaq Hit Hard By Chip Names; Sandisk, Micron Slide As Biotech Soars ",
    "age_days": 22
@@ -5553,8 +5570,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 220.1,
-   "last_price": 224.14999389648438,
-   "pct": 1.8400699211650982,
+   "last_price": 223.6699981689453,
+   "pct": 1.621989172623952,
    "outcome": "flat",
    "note": "Chip-stock bears are back in control. Here's how to play the downside with limited risk: A",
    "age_days": 22
@@ -5575,8 +5592,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.395,
-   "last_price": 10.81,
-   "pct": 3.9923039923040013,
+   "last_price": 10.76,
+   "pct": 3.5113035113035136,
    "outcome": "flat",
    "note": "European Equities Traded in the US as American Depositary Receipts Head Lower in Tuesday T",
    "age_days": 22
@@ -5608,8 +5625,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 1011.75,
-   "last_price": 1026.9150390625,
-   "pct": 1.4988919261181122,
+   "last_price": 1027.77001953125,
+   "pct": 1.5833970379293305,
    "outcome": "flat",
    "note": "Trump admin. urges Apple not to purchase Chinese memory chips, but this presents a problem",
    "age_days": 22
@@ -5619,8 +5636,8 @@
    "sym": "META",
    "name": "Meta Platforms (Facebook)",
    "flag_price": 568.97,
-   "last_price": 655.4249877929688,
-   "pct": 15.1949993484663,
+   "last_price": 653.6900024414062,
+   "pct": 14.890064931614358,
    "outcome": "worked",
    "note": "Meta to face massive social media addiction trial Tuesday",
    "age_days": 22
@@ -5652,8 +5669,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 776.3400268554688,
-   "last_price": 763.0900268554688,
-   "pct": -1.7067263752544803,
+   "last_price": 762.4000244140625,
+   "pct": -1.7956052707818786,
    "outcome": "flat",
    "note": "His Company Joined the S&P 500. His 401(k) Started Buying More of It Without Asking Him.",
    "age_days": 23
@@ -5663,8 +5680,8 @@
    "sym": "SPCX",
    "name": "SpaceX",
    "flag_price": 147.6750030517578,
-   "last_price": 146.77,
-   "pct": -0.612834286816038,
+   "last_price": 147.55,
+   "pct": -0.08464740082923139,
    "outcome": "flat",
    "note": "SpaceX shareholders include Google, Nvidia, BlackRock: Tracking the stock's volatility",
    "age_days": 23
@@ -5696,8 +5713,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 225.16000366210938,
-   "last_price": 224.14999389648438,
-   "pct": -0.4485742357424591,
+   "last_price": 223.6699981689453,
+   "pct": -0.6617540721841821,
    "outcome": "flat",
    "note": "Micron stock heats up again, crossing $1,000",
    "age_days": 23
@@ -5718,8 +5735,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.76,
-   "last_price": 10.81,
-   "pct": 0.4646840148698951,
+   "last_price": 10.76,
+   "pct": 0.0,
    "outcome": "flat",
    "note": "Nokia (NYSE:NOK) Stock Seems Undervalued During Its 201% Three Year Run",
    "age_days": 23
@@ -5729,8 +5746,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 971.6599731445312,
-   "last_price": 1026.9150390625,
-   "pct": 5.68666688400776,
+   "last_price": 1027.77001953125,
+   "pct": 5.774658619015951,
    "outcome": "flat",
    "note": "Micron stock heats up again, crossing $1,000",
    "age_days": 23
@@ -5773,8 +5790,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 777.8800048828125,
-   "last_price": 763.0900268554688,
-   "pct": -1.9013187039782387,
+   "last_price": 762.4000244140625,
+   "pct": -1.9900216449299346,
    "outcome": "flat",
    "note": "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
    "age_days": 26
@@ -5784,8 +5801,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 141.29,
-   "last_price": 146.77,
-   "pct": 3.8785476679170627,
+   "last_price": 147.55,
+   "pct": 4.430603722839564,
    "outcome": "flat",
    "note": "Wall Street's riskiest trades are suddenly back on top: Chart of the Day",
    "age_days": 26
@@ -5839,8 +5856,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 225.3,
-   "last_price": 224.14999389648438,
-   "pct": -0.5104332461232296,
+   "last_price": 223.6699981689453,
+   "pct": -0.7234806174233017,
    "outcome": "flat",
    "note": "Stock market today: Dow, S&P 500, Nasdaq futures waver after stocks hit record high",
    "age_days": 26
@@ -5861,8 +5878,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.56,
-   "last_price": 10.81,
-   "pct": 2.367424242424242,
+   "last_price": 10.76,
+   "pct": 1.8939393939393872,
    "outcome": "flat",
    "note": "Lumentum Puts The Insane Opportunity for Companies like Marvell and Ciena Into Focus With ",
    "age_days": 26
@@ -5905,8 +5922,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 776.719970703125,
-   "last_price": 763.0900268554688,
-   "pct": -1.754807956761786,
+   "last_price": 762.4000244140625,
+   "pct": -1.843643375887372,
    "outcome": "flat",
    "note": "Meta Remains a Deeply Discounted Giant: Wall Street Expects 30% Gains, One Analyst Expects",
    "age_days": 27
@@ -5916,8 +5933,8 @@
    "sym": "SPCX",
    "name": "SpaceX",
    "flag_price": 146.14999389648438,
-   "last_price": 146.77,
-   "pct": 0.42422588396053945,
+   "last_price": 147.55,
+   "pct": 0.9579241614660878,
    "outcome": "flat",
    "note": "Morgan Stanley's Adam Jonas lays out how SpaceX can unlock a long-term bullish stock move",
    "age_days": 27
@@ -5949,8 +5966,8 @@
    "sym": "QQQ",
    "name": "Invesco QQQ ETF",
    "flag_price": 732.0700073242188,
-   "last_price": 716.280029296875,
-   "pct": -2.1568945414192733,
+   "last_price": 716.3099975585938,
+   "pct": -2.1528009081029342,
    "outcome": "flat",
    "note": "Michael Burry Loads Up On QQQ Puts, Boosts MU Short As He Braces For \u2018Larger Fall\u2019 \u2014 Here\u2019",
    "age_days": 27
@@ -5971,8 +5988,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 224.09,
-   "last_price": 224.14999389648438,
-   "pct": 0.026772232801272517,
+   "last_price": 223.6699981689453,
+   "pct": -0.18742551254169793,
    "outcome": "flat",
    "note": "Nvidia partners with Goldman Sachs, BlackRock to fund AI build-out \u2014 but there's one big r",
    "age_days": 27
@@ -5982,8 +5999,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.32,
-   "last_price": 10.81,
-   "pct": 4.748062015503878,
+   "last_price": 10.76,
+   "pct": 4.263565891472863,
    "outcome": "flat",
    "note": "What the Coming 6G Trials With Nvidia, T-Mobile Could Mean for Nokia Investors",
    "age_days": 27
@@ -6004,8 +6021,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 911.2899780273438,
-   "last_price": 1026.9150390625,
-   "pct": 12.688064592287972,
+   "last_price": 1027.77001953125,
+   "pct": 12.781885493358427,
    "outcome": "worked",
    "note": "AI infrastructure stocks surge after strong earnings from CoreWeave, Supermicro",
    "age_days": 27
@@ -6059,8 +6076,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 133.29,
-   "last_price": 146.77,
-   "pct": 10.113286818215935,
+   "last_price": 147.55,
+   "pct": 10.69847700502665,
    "outcome": "worked",
    "note": "The lag factor: Why the real AI boom hasn't even started yet",
    "age_days": 28
@@ -6114,8 +6131,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 217.5,
-   "last_price": 224.14999389648438,
-   "pct": 3.057468458153736,
+   "last_price": 223.6699981689453,
+   "pct": 2.8367807673311782,
    "outcome": "flat",
    "note": "Forget big tech: the real AI money is in plumbing",
    "age_days": 28
@@ -6125,8 +6142,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 10.385,
-   "last_price": 10.81,
-   "pct": 4.092441020702943,
+   "last_price": 10.76,
+   "pct": 3.610977371208474,
    "outcome": "flat",
    "note": "European Equities Traded in the US as American Depositary Receipts Edge Lower in Wednesday",
    "age_days": 28
@@ -6147,8 +6164,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 932.0720825195312,
-   "last_price": 1026.9150390625,
-   "pct": 10.175495900123298,
+   "last_price": 1027.77001953125,
+   "pct": 10.267224907437718,
    "outcome": "worked",
    "note": "AI infrastructure stocks surge after strong earnings from CoreWeave, Supermicro",
    "age_days": 28
@@ -6191,8 +6208,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 773.030029296875,
-   "last_price": 763.0900268554688,
-   "pct": -1.2858494579372781,
+   "last_price": 762.4000244140625,
+   "pct": -1.3751089194401975,
    "outcome": "flat",
    "note": "This Wall Street Pro Makes a Compelling Argument for 70% Gains on NXP Semiconductors Which",
    "age_days": 29
@@ -6202,8 +6219,8 @@
    "sym": "SPCX",
    "name": "Space Exploration Technologies ",
    "flag_price": 132.3561,
-   "last_price": 146.77,
-   "pct": 10.890242308439136,
+   "last_price": 147.55,
+   "pct": 11.479561576685935,
    "outcome": "worked",
    "note": "OpenAI vs Anthropic IPOs: Why timing matters for AI investors",
    "age_days": 29
@@ -6224,8 +6241,8 @@
    "sym": "RKLB",
    "name": "Rocket Lab USA",
    "flag_price": 80.04000091552734,
-   "last_price": 63.720001220703125,
-   "pct": -20.389804482946005,
+   "last_price": 63.06999969482422,
+   "pct": -21.201900333075873,
    "outcome": "faded",
    "note": "Earnings To Watch: Rocket Lab (RKLB) Reports Q2 Results Tomorrow",
    "age_days": 29
@@ -6268,8 +6285,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 217.48,
-   "last_price": 224.14999389648438,
-   "pct": 3.066945878464404,
+   "last_price": 223.6699981689453,
+   "pct": 2.846237892654645,
    "outcome": "flat",
    "note": "Intel's huge rally is helping pay for its AI comeback",
    "age_days": 29
@@ -6279,8 +6296,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 852.510009765625,
-   "last_price": 1026.9150390625,
-   "pct": 20.457827743843502,
+   "last_price": 1027.77001953125,
+   "pct": 20.55811753035112,
    "outcome": "worked",
    "note": "Elon Musk\u2019s Newest Factory is 15X The Size of The Pentagon. Micron and Memory Stocks Shoul",
    "age_days": 29
@@ -6356,8 +6373,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 773.260009765625,
-   "last_price": 763.0900268554688,
-   "pct": -1.3152086984607894,
+   "last_price": 762.4000244140625,
+   "pct": -1.404441612705946,
    "outcome": "flat",
    "note": "3 Beaten-Down Healthcare Stocks to Buy in August",
    "age_days": 30
@@ -6367,8 +6384,8 @@
    "sym": "SPCX",
    "name": "SpaceX",
    "flag_price": 133.11000061035156,
-   "last_price": 146.77,
-   "pct": 10.262188661267386,
+   "last_price": 147.55,
+   "pct": 10.848170177624876,
    "outcome": "worked",
    "note": "Airbnb CEO: Why AI is the best thing to happen to us",
    "age_days": 30
@@ -6389,8 +6406,8 @@
    "sym": "RKLB",
    "name": "Rocket Lab USA",
    "flag_price": 81.0199966430664,
-   "last_price": 63.720001220703125,
-   "pct": -21.35274764152165,
+   "last_price": 63.06999969482422,
+   "pct": -22.15502060228526,
    "outcome": "faded",
    "note": "Stocks to Watch: Berkshire Hathaway, Super Micro Computer, Sunrise Energy",
    "age_days": 30
@@ -6433,8 +6450,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 223.96,
-   "last_price": 224.14999389648438,
-   "pct": 0.08483385268992992,
+   "last_price": 223.6699981689453,
+   "pct": -0.129488226046926,
    "outcome": "flat",
    "note": "3 Energy Stocks With Dividends That Have Never Been Cut",
    "age_days": 30
@@ -6444,8 +6461,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 877.5700073242188,
-   "last_price": 1026.9150390625,
-   "pct": 17.018019131447552,
+   "last_price": 1027.77001953125,
+   "pct": 17.115445030420208,
    "outcome": "worked",
    "note": "Schwab: Retail investors want AI stocks on the cheap",
    "age_days": 30
@@ -6532,8 +6549,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 219.22,
-   "last_price": 224.14999389648438,
-   "pct": 2.248879617044237,
+   "last_price": 223.6699981689453,
+   "pct": 2.02992344172307,
    "outcome": "flat",
    "note": "Nvidia stock rises after Musk says SpaceX will exclusively use company's chips",
    "age_days": 34
@@ -6543,8 +6560,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 9.58,
-   "last_price": 10.81,
-   "pct": 12.839248434238002,
+   "last_price": 10.76,
+   "pct": 12.317327766179538,
    "outcome": "worked",
    "note": "Inseego Q2 Earnings Call Highlights",
    "age_days": 34
@@ -6554,8 +6571,8 @@
    "sym": "GRAB",
    "name": "Grab Holdings Limited",
    "flag_price": 3.74,
-   "last_price": 3.02,
-   "pct": -19.251336898395728,
+   "last_price": 3.04,
+   "pct": -18.716577540106954,
    "outcome": "faded",
    "note": "Grab Holdings (GRAB) Raises 2026 Guidance, Is The Stock Still Below Fair Value?",
    "age_days": 34
@@ -6565,8 +6582,8 @@
    "sym": "GOOGL",
    "name": "Alphabet (Google)",
    "flag_price": 362.42999267578125,
-   "last_price": 331.04010009765625,
-   "pct": -8.660953346155718,
+   "last_price": 330.6499938964844,
+   "pct": -8.768589637040963,
    "outcome": "flat",
    "note": "Tech stocks today: Google shakes up AI leadership, SpaceX plunges",
    "age_days": 34
@@ -6598,8 +6615,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 771.3300170898438,
-   "last_price": 763.0900268554688,
-   "pct": -1.0682833614415415,
+   "last_price": 762.4000244140625,
+   "pct": -1.1577395508959032,
    "outcome": "flat",
    "note": "Exchange-Traded Funds Higher, Equity Futures Mixed Pre-Bell Amid Corporate Earnings, Hormu",
    "age_days": 35
@@ -6609,8 +6626,8 @@
    "sym": "SPCX",
    "name": "SpaceX",
    "flag_price": 125.33000183105469,
-   "last_price": 146.77,
-   "pct": 17.106836236902414,
+   "last_price": 147.55,
+   "pct": 17.729193205389056,
    "outcome": "worked",
    "note": "This SpaceX number is spooking already skittish investors",
    "age_days": 35
@@ -6653,8 +6670,8 @@
    "sym": "NVDA",
    "name": "NVIDIA",
    "flag_price": 211.94000244140625,
-   "last_price": 224.14999389648438,
-   "pct": 5.7610603540753225,
+   "last_price": 223.6699981689453,
+   "pct": 5.534583180342268,
    "outcome": "flat",
    "note": "Nvidia stock rises, as Musk says SpaceX will exclusively use company's chips",
    "age_days": 35
@@ -6675,8 +6692,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 9.92,
-   "last_price": 10.81,
-   "pct": 8.971774193548393,
+   "last_price": 10.76,
+   "pct": 8.467741935483868,
    "outcome": "flat",
    "note": "US Ban on Chinese Optical Parts Hurts Hyperscalers, Report Says",
    "age_days": 35
@@ -6686,8 +6703,8 @@
    "sym": "GRAB",
    "name": "Grab Holdings Limited",
    "flag_price": 3.72,
-   "last_price": 3.02,
-   "pct": -18.81720430107527,
+   "last_price": 3.04,
+   "pct": -18.27956989247312,
    "outcome": "faded",
    "note": "Grab Holdings Limited Q2 2026 Earnings Call Summary",
    "age_days": 35
@@ -6697,8 +6714,8 @@
    "sym": "GOOGL",
    "name": "Alphabet (Google)",
    "flag_price": 362.42999267578125,
-   "last_price": 331.04010009765625,
-   "pct": -8.660953346155718,
+   "last_price": 330.6499938964844,
+   "pct": -8.768589637040963,
    "outcome": "flat",
    "note": "Tech stocks today: Google shakes up AI leadership, SpaceX plunges",
    "age_days": 35
@@ -6730,8 +6747,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 757.6699829101562,
-   "last_price": 763.0900268554688,
-   "pct": 0.7153568265294737,
+   "last_price": 762.4000244140625,
+   "pct": 0.6242878311924802,
    "outcome": "flat",
    "note": "S&P500, Nasdaq End Higher, Dow Hits Record High On Strong Mag 7 Performance And Falling Oi",
    "age_days": 36
@@ -6741,8 +6758,8 @@
    "sym": "SPCX",
    "name": "SpaceX",
    "flag_price": 123.99819946289062,
-   "last_price": 146.77,
-   "pct": 18.364621934630897,
+   "last_price": 147.55,
+   "pct": 18.993663326666137,
    "outcome": "worked",
    "note": "Stock market today: Nasdaq surges, Dow and S&P 500 trade at record highs amid US-Iran opti",
    "age_days": 36
@@ -6774,8 +6791,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 211.89,
-   "last_price": 224.14999389648438,
-   "pct": 5.78601816814592,
+   "last_price": 223.6699981689453,
+   "pct": 5.559487549646197,
    "outcome": "flat",
    "note": "Marvell, Sandisk, SK Hynix lead semiconductor stock rally as S&P 500 trades at record high",
    "age_days": 36
@@ -6785,8 +6802,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 9.36,
-   "last_price": 10.81,
-   "pct": 15.491452991453002,
+   "last_price": 10.76,
+   "pct": 14.957264957264963,
    "outcome": "worked",
    "note": "NOK Stock In Focus: \u2018Multiple Catalysts' Have Retail Traders Eyeing A Return To $15",
    "age_days": 36
@@ -6796,8 +6813,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 829.5,
-   "last_price": 1026.9150390625,
-   "pct": 23.79928138185654,
+   "last_price": 1027.77001953125,
+   "pct": 23.902353168324293,
    "outcome": "worked",
    "note": "Semiconductor stocks pare losses amid fears of increased competition from China",
    "age_days": 36
@@ -6818,8 +6835,8 @@
    "sym": "GRAB",
    "name": "Grab Holdings Limited",
    "flag_price": 3.67,
-   "last_price": 3.02,
-   "pct": -17.711171662125338,
+   "last_price": 3.04,
+   "pct": -17.166212534059945,
    "outcome": "faded",
    "note": "Grab Holdings Limited (GRAB) Exceeds Market Returns: Some Facts to Consider",
    "age_days": 36
@@ -6851,8 +6868,8 @@
    "sym": "AAPL",
    "name": "Apple Inc.",
    "flag_price": 303.42,
-   "last_price": 315.57000732421875,
-   "pct": 4.004352819266606,
+   "last_price": 315.3399963378906,
+   "pct": 3.928546680472813,
    "outcome": "flat",
    "note": "This valuation signal shows how investors are rethinking tech stocks",
    "age_days": 36
@@ -6862,8 +6879,8 @@
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "flag_price": 747.030029296875,
-   "last_price": 763.0900268554688,
-   "pct": 2.1498463152424883,
+   "last_price": 762.4000244140625,
+   "pct": 2.0574802236068286,
    "outcome": "flat",
    "note": "What's Inside URA Decides This Dip's Fate",
    "age_days": 37
@@ -6928,8 +6945,8 @@
    "sym": "NVDA",
    "name": "NVIDIA Corporation",
    "flag_price": 200.75,
-   "last_price": 224.14999389648438,
-   "pct": 11.656285876206415,
+   "last_price": 223.6699981689453,
+   "pct": 11.417184642064914,
    "outcome": "worked",
    "note": "Why Microsoft Stock Is Surging",
    "age_days": 37
@@ -6939,8 +6956,8 @@
    "sym": "NOK",
    "name": "Nokia Corporation Sponsored",
    "flag_price": 9.14,
-   "last_price": 10.81,
-   "pct": 18.271334792122538,
+   "last_price": 10.76,
+   "pct": 17.724288840262574,
    "outcome": "worked",
    "note": "Is IDCC Stock a Buy After Strong Earnings and Higher Revenue Guidance?",
    "age_days": 37
@@ -6950,8 +6967,8 @@
    "sym": "MU",
    "name": "Micron Technology",
    "flag_price": 823.030029296875,
-   "last_price": 1026.9150390625,
-   "pct": 24.772487334369387,
+   "last_price": 1027.77001953125,
+   "pct": 24.87636938463679,
    "outcome": "worked",
    "note": "Micron Stock Falls. Here\u2019s What\u2019s Overshadowing Big Tech Spending.",
    "age_days": 37
@@ -6983,8 +7000,8 @@
    "sym": "GRAB",
    "name": "Grab Holdings Limited",
    "flag_price": 3.67,
-   "last_price": 3.02,
-   "pct": -17.711171662125338,
+   "last_price": 3.04,
+   "pct": -17.166212534059945,
    "outcome": "faded",
    "note": "Grab Holdings Limited (GRAB) Exceeds Market Returns: Some Facts to Consider",
    "age_days": 37
@@ -7005,8 +7022,8 @@
    "sym": "AAPL",
    "name": "Apple Inc.",
    "flag_price": 308.91,
-   "last_price": 315.57000732421875,
-   "pct": 2.1559701285872017,
+   "last_price": 315.3399963378906,
+   "pct": 2.081511229125182,
    "outcome": "flat",
    "note": "Why Retail Traders Couldn\u2019t Take Their Eyes Off These Stocks Last Week: AAPL, MSFT, AMZN, ",
    "age_days": 37
@@ -7028,8 +7045,8 @@
    "sym": "NVDA",
    "name": "",
    "flag_price": 196.22,
-   "last_price": 224.14999389648438,
-   "pct": 14.234019924821311,
+   "last_price": 223.6699981689453,
+   "pct": 13.989398720286065,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -7040,8 +7057,8 @@
    "sym": "NOK",
    "name": "",
    "flag_price": 9.095,
-   "last_price": 10.81,
-   "pct": 18.856514568444197,
+   "last_price": 10.76,
+   "pct": 18.306761957119285,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -7064,8 +7081,8 @@
    "sym": "AAPL",
    "name": "",
    "flag_price": 303.33,
-   "last_price": 315.57000732421875,
-   "pct": 4.035211592726986,
+   "last_price": 315.3399963378906,
+   "pct": 3.9593829617547365,
    "outcome": "flat",
    "simulated": false,
    "note": "from the sent digest",
@@ -7088,8 +7105,8 @@
    "sym": "SPY",
    "name": "",
    "flag_price": 736.05,
-   "last_price": 763.0900268554688,
-   "pct": 3.6736671225417834,
+   "last_price": 762.4000244140625,
+   "pct": 3.579923159304741,
    "outcome": "flat",
    "simulated": true,
    "note": "judged by hand to fit the rule \u2014 never sent, not re-derived",
@@ -7100,8 +7117,8 @@
    "sym": "QQQ",
    "name": "",
    "flag_price": 679.17,
-   "last_price": 716.280029296875,
-   "pct": 5.464026576096566,
+   "last_price": 716.3099975585938,
+   "pct": 5.468439059233151,
    "outcome": "flat",
    "simulated": true,
    "note": "judged by hand to fit the rule \u2014 never sent, not re-derived",
@@ -7112,8 +7129,8 @@
    "sym": "NVDA",
    "name": "",
    "flag_price": 194.89,
-   "last_price": 224.14999389648438,
-   "pct": 15.013594282151157,
+   "last_price": 223.6699981689453,
+   "pct": 14.767303693850545,
    "outcome": "worked",
    "simulated": true,
    "note": "judged by hand to fit the rule \u2014 never sent, not re-derived",
@@ -7124,8 +7141,8 @@
    "sym": "META",
    "name": "",
    "flag_price": 534.22,
-   "last_price": 655.4249877929688,
-   "pct": 22.68821605199519,
+   "last_price": 653.6900024414062,
+   "pct": 22.363446228408936,
    "outcome": "worked",
    "simulated": true,
    "note": "judged by hand to fit the rule \u2014 never sent, not re-derived",
@@ -7136,8 +7153,8 @@
    "sym": "AAPL",
    "name": "",
    "flag_price": 331.58,
-   "last_price": 315.57000732421875,
-   "pct": -4.828395161282717,
+   "last_price": 315.3399963378906,
+   "pct": -4.89776333376843,
    "outcome": "flat",
    "simulated": true,
    "note": "judged by hand to fit the rule \u2014 never sent, not re-derived",
@@ -7160,8 +7177,8 @@
    "sym": "SPY",
    "name": "",
    "flag_price": 729.46,
-   "last_price": 763.0900268554688,
-   "pct": 4.610263325674981,
+   "last_price": 762.4000244140625,
+   "pct": 4.515672471974126,
    "outcome": "flat",
    "simulated": false,
    "note": "from the sent digest",
@@ -7196,8 +7213,8 @@
    "sym": "NVDA",
    "name": "",
    "flag_price": 190.01,
-   "last_price": 224.14999389648438,
-   "pct": 17.967472183824214,
+   "last_price": 223.6699981689453,
+   "pct": 17.714856149121267,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -7208,8 +7225,8 @@
    "sym": "NOK",
    "name": "",
    "flag_price": 8.41,
-   "last_price": 10.81,
-   "pct": 28.537455410225927,
+   "last_price": 10.76,
+   "pct": 27.942925089179543,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -7220,8 +7237,8 @@
    "sym": "MU",
    "name": "",
    "flag_price": 739.0,
-   "last_price": 1026.9150390625,
-   "pct": 38.960086476657644,
+   "last_price": 1027.77001953125,
+   "pct": 39.07578072141407,
    "outcome": "worked",
    "simulated": false,
    "note": "from the sent digest",
@@ -7369,7 +7386,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
