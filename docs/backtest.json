@@ -1819,8 +1819,8 @@
   },
   {
    "date": "2026-09-11",
-   "picks": 2,
-   "flagged": 11,
+   "picks": 4,
+   "flagged": 13,
    "held_already": [
     "DTE",
     "INTC",
@@ -1834,12 +1834,14 @@
    ],
    "bought": [
     "SPCX",
+    "MU",
+    "DELL",
     "BMNR"
    ],
    "per_ticker": 554.8,
    "held_days": 0,
-   "return_pct": -0.3,
-   "invested": 1109.59,
+   "return_pct": -0.2,
+   "invested": 2219.18,
    "balance": 11095.92,
    "pnl": -3.75,
    "open": true
@@ -8126,6 +8128,23 @@
   },
   {
    "date": "2026-09-11",
+   "sym": "DELL",
+   "entry": 567.2899780273438,
+   "now": 567.29,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-09-11",
    "sym": "DTE",
    "entry": 133.13499450683594,
    "now": 132.58,
@@ -8157,6 +8176,23 @@
    "held_since": "2026-09-04",
    "buy_price": 94.4401,
    "ret_since_buy": 9.0
+  },
+  {
+   "date": "2026-09-11",
+   "sym": "MU",
+   "entry": 975.260009765625,
+   "now": 975.26,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-11",
@@ -9293,6 +9329,36 @@
    "value": 533.56,
    "pnl": -21.24,
    "ret": -3.8,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "DELL",
+   "bought": "2026-09-11",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 567.29,
+   "price": 567.29,
+   "shares": 0.978,
+   "alloc": 554.8,
+   "value": 554.8,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "MU",
+   "bought": "2026-09-11",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 975.26,
+   "price": 975.26,
+   "shares": 0.5689,
+   "alloc": 554.8,
+   "value": 554.8,
+   "pnl": 0.0,
+   "ret": 0.0,
    "spy_ret": null,
    "path": []
   },
