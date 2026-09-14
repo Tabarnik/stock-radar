@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-09-14T21:42:22.336879+00:00",
+ "generated_at": "2026-09-14T23:04:36.300598+00:00",
  "watch": [
   {
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "price": 760.8800048828125,
    "pct": -0.470907691134826,
-   "mentions": 417,
-   "mentions_prev": 81,
+   "mentions": 415,
+   "mentions_prev": 87,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -17,9 +17,9 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "TPAY Yields 10% With Full S&P 500 Exposure. Here\u2019s Exactly What You Give Up to Get It",
-    "Coca-Cola Stock Is Up 29% in 2026: What Will It Take to Break Through $100?",
-    "Texas Instruments Is Up 55% in 2026: This Is the Secret Tech Stock You\u2019re Missing Out On"
+    "Nobody Withheld Taxes From Your First Year of Retirement Income, and the April Bill Proves It. These 3 ETFs Cover It Every Year",
+    "S&P 500, Nasdaq, Dow Drop On Chipmaker Weakness, Treasury Yield Pressure \u2014 MSFT, NFLX, ORCL, CRWD, RBLX In Focus",
+    "TPAY Yields 10% With Full S&P 500 Exposure. Here\u2019s Exactly What You Give Up to Get It"
    ],
    "band": [
     757.8300170898438,
@@ -46,15 +46,15 @@
      "$629.28 \u2013 $779.37"
     ]
    ],
-   "reason": "417 mentions today, 5x yesterday's 81. Price is -0.5% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "415 mentions today, 5x yesterday's 87. Price is -0.5% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": -0.1
+    "label": "negative",
+    "score": -0.22
    },
    "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
+    "negative buzz",
+    "bad",
+    "Attention is rising but the coverage around it is negative."
    ],
    "er": null,
    "chart": {
@@ -178,8 +178,8 @@
    "name": "Micron Technology",
    "price": 924.030029296875,
    "pct": -5.271410190489009,
-   "mentions": 219,
-   "mentions_prev": 57,
+   "mentions": 216,
+   "mentions_prev": 60,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -190,7 +190,7 @@
    "earnings": null,
    "headlines": [
     "Tech pulls back on AI concerns, cybersecurity takes a step up",
-    "Update: Semiconductors Help Push US Equity Indexes Lower While Benchmark Treasury Yield Hits 5%",
+    "Tech stocks slump after AI execs call for industry slowdown",
     "Dow Jones Futures: Nvidia, Micron, Sandisk Dive On AI Fears; Fed Rate Hike Looms"
    ],
    "band": [
@@ -230,10 +230,10 @@
      "$154.65 \u2013 $1255.00"
     ]
    ],
-   "reason": "219 mentions today, 4x yesterday's 57. Price is -5.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,513.11 mean target (+64%); the scan flagged squeeze/penny sub.",
+   "reason": "216 mentions today, 4x yesterday's 60. Price is -5.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,513.11 mean target (+64%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": -0.07
+    "label": "negative",
+    "score": -0.18
    },
    "read": [
     "falling knife",
@@ -372,8 +372,8 @@
    "name": "Invesco QQQ ETF",
    "price": 709.1799926757812,
    "pct": -0.7982396260411556,
-   "mentions": 199,
-   "mentions_prev": 33,
+   "mentions": 189,
+   "mentions_prev": 51,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -383,9 +383,9 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "S&P 500 Faces $2 Trillion Moment of Truth",
-    "C3.ai Jumps 7% as Software Rally Lifts Beaten-Down AI Names; UiPath Climbs 8%, SoundHound AI Gains 5%",
-    "Exchange-Traded Funds Mixed as US Equities Fall After Midday"
+    "S&P 500, Nasdaq, Dow Drop On Chipmaker Weakness, Treasury Yield Pressure \u2014 MSFT, NFLX, ORCL, CRWD, RBLX In Focus",
+    "Forget JEPI: QQQ\u2019s Sponsor Sells an Equal-Weight S&P Income Fund That Charges Less and Is Beating It by 8 Points",
+    "S&P 500 Faces $2 Trillion Moment of Truth"
    ],
    "band": [
     708.6900024414062,
@@ -412,15 +412,15 @@
      "$555.60 \u2013 $748.65"
     ]
    ],
-   "reason": "199 mentions today, 6x yesterday's 33. Price is -0.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "189 mentions today, 4x yesterday's 51. Price is -0.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.22
+    "label": "negative",
+    "score": -0.34
    },
    "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
+    "negative buzz",
+    "bad",
+    "Attention is rising but the coverage around it is negative."
    ],
    "er": null,
    "chart": {
@@ -536,7 +536,7 @@
      "2026-09-14"
     ]
    },
-   "tag": "6x Reddit mentions",
+   "tag": "4x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -544,8 +544,8 @@
    "name": "NVIDIA",
    "price": 210.9600067138672,
    "pct": -3.3446317630957587,
-   "mentions": 169,
-   "mentions_prev": 53,
+   "mentions": 177,
+   "mentions_prev": 65,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -557,7 +557,7 @@
    "headlines": [
     "Tech pulls back on AI concerns, cybersecurity takes a step up",
     "Chip stocks fall as oil prices gain, Treasury yields stay elevated: AlphaCheck",
-    "Oklo Has Massive Potential Due to Artificial Intelligence, but the Stock Is Sinking. Here's What I'd Do"
+    "Tech stocks slump after AI execs call for industry slowdown"
    ],
    "band": [
     210.9600067138672,
@@ -596,10 +596,10 @@
      "$164.27 \u2013 $236.54"
     ]
    ],
-   "reason": "169 mentions today, 3x yesterday's 53. Price is -3.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $327.18 mean target (+55%); the scan flagged squeeze/penny sub.",
+   "reason": "177 mentions today, 3x yesterday's 65. Price is -3.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $327.18 mean target (+55%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.3
+    "score": 0.21
    },
    "read": [
     "quiet",
@@ -746,8 +746,8 @@
    "earnings": null,
    "headlines": [
     "Stocks pop when the Trump administration invests, but the gains often fade fast",
-    "Update: Wall Street Dips as AI Warnings Weigh on Tech Sector",
-    "Oracle, Corning, Alphabet, GE Vernova, CrowdStrike, SpaceX, and More Stocks That Explain Today\u2019s Market"
+    "Talk of AI pause slams Nvidia, AMD and Intel as fears of doomsday scenarios spread",
+    "Stocks to Watch Monday Recap: Nvidia, Oracle, SoftBank"
    ],
    "band": [
     97.19,
@@ -789,7 +789,7 @@
    "reason": "Price is -5.6% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $115.74 mean target (+19%).",
    "tone": {
     "label": "mixed",
-    "score": 0.06
+    "score": -0.1
    },
    "read": [
     "fading",
@@ -1321,7 +1321,7 @@
    "headlines": [
     "Trump dismisses calls to slow AI development, blames 'conspiracy' against AI and data centers",
     "Elon Musk: I've been 'sounding the alarm' on AI for a while",
-    "Tesla Roadster Reveal Could Be Musk's Biggest Test Yet"
+    "AI-linked stocks slide after tech bosses call for slowdown in \u2018reckless\u2019 development"
    ],
    "band": [
     147.5500030517578,
@@ -1426,8 +1426,8 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 760.8800048828125,
    "pct": -0.470907691134826,
-   "mentions": 417,
-   "mentions_prev": 81,
+   "mentions": 415,
+   "mentions_prev": 87,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1437,9 +1437,9 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "TPAY Yields 10% With Full S&P 500 Exposure. Here\u2019s Exactly What You Give Up to Get It",
-    "Coca-Cola Stock Is Up 29% in 2026: What Will It Take to Break Through $100?",
-    "Texas Instruments Is Up 55% in 2026: This Is the Secret Tech Stock You\u2019re Missing Out On"
+    "Nobody Withheld Taxes From Your First Year of Retirement Income, and the April Bill Proves It. These 3 ETFs Cover It Every Year",
+    "S&P 500, Nasdaq, Dow Drop On Chipmaker Weakness, Treasury Yield Pressure \u2014 MSFT, NFLX, ORCL, CRWD, RBLX In Focus",
+    "TPAY Yields 10% With Full S&P 500 Exposure. Here\u2019s Exactly What You Give Up to Get It"
    ],
    "band": [
     757.8300170898438,
@@ -1466,15 +1466,15 @@
      "$629.28 \u2013 $779.37"
     ]
    ],
-   "reason": "417 mentions today, 5x yesterday's 81. Price is -0.5% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "415 mentions today, 5x yesterday's 87. Price is -0.5% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": -0.1
+    "label": "negative",
+    "score": -0.22
    },
    "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
+    "negative buzz",
+    "bad",
+    "Attention is rising but the coverage around it is negative."
    ],
    "er": null,
    "chart": {
@@ -1596,8 +1596,8 @@
    "name": "Micron Technology",
    "price": 924.030029296875,
    "pct": -5.271410190489009,
-   "mentions": 219,
-   "mentions_prev": 57,
+   "mentions": 216,
+   "mentions_prev": 60,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1608,7 +1608,7 @@
    "earnings": null,
    "headlines": [
     "Tech pulls back on AI concerns, cybersecurity takes a step up",
-    "Update: Semiconductors Help Push US Equity Indexes Lower While Benchmark Treasury Yield Hits 5%",
+    "Tech stocks slump after AI execs call for industry slowdown",
     "Dow Jones Futures: Nvidia, Micron, Sandisk Dive On AI Fears; Fed Rate Hike Looms"
    ],
    "band": [
@@ -1648,10 +1648,10 @@
      "$154.65 \u2013 $1255.00"
     ]
    ],
-   "reason": "219 mentions today, 4x yesterday's 57. Price is -5.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,513.11 mean target (+64%); the scan flagged squeeze/penny sub.",
+   "reason": "216 mentions today, 4x yesterday's 60. Price is -5.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,513.11 mean target (+64%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "mixed",
-    "score": -0.07
+    "label": "negative",
+    "score": -0.18
    },
    "read": [
     "falling knife",
@@ -1788,8 +1788,8 @@
    "name": "Invesco QQQ ETF",
    "price": 709.1799926757812,
    "pct": -0.7982396260411556,
-   "mentions": 199,
-   "mentions_prev": 33,
+   "mentions": 189,
+   "mentions_prev": 51,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1799,9 +1799,9 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "S&P 500 Faces $2 Trillion Moment of Truth",
-    "C3.ai Jumps 7% as Software Rally Lifts Beaten-Down AI Names; UiPath Climbs 8%, SoundHound AI Gains 5%",
-    "Exchange-Traded Funds Mixed as US Equities Fall After Midday"
+    "S&P 500, Nasdaq, Dow Drop On Chipmaker Weakness, Treasury Yield Pressure \u2014 MSFT, NFLX, ORCL, CRWD, RBLX In Focus",
+    "Forget JEPI: QQQ\u2019s Sponsor Sells an Equal-Weight S&P Income Fund That Charges Less and Is Beating It by 8 Points",
+    "S&P 500 Faces $2 Trillion Moment of Truth"
    ],
    "band": [
     708.6900024414062,
@@ -1828,15 +1828,15 @@
      "$555.60 \u2013 $748.65"
     ]
    ],
-   "reason": "199 mentions today, 6x yesterday's 33. Price is -0.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "189 mentions today, 4x yesterday's 51. Price is -0.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.22
+    "label": "negative",
+    "score": -0.34
    },
    "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
+    "negative buzz",
+    "bad",
+    "Attention is rising but the coverage around it is negative."
    ],
    "er": null,
    "chart": {
@@ -1958,8 +1958,8 @@
    "name": "NVIDIA",
    "price": 210.9600067138672,
    "pct": -3.3446317630957587,
-   "mentions": 169,
-   "mentions_prev": 53,
+   "mentions": 177,
+   "mentions_prev": 65,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1971,7 +1971,7 @@
    "headlines": [
     "Tech pulls back on AI concerns, cybersecurity takes a step up",
     "Chip stocks fall as oil prices gain, Treasury yields stay elevated: AlphaCheck",
-    "Oklo Has Massive Potential Due to Artificial Intelligence, but the Stock Is Sinking. Here's What I'd Do"
+    "Tech stocks slump after AI execs call for industry slowdown"
    ],
    "band": [
     210.9600067138672,
@@ -2010,10 +2010,10 @@
      "$164.27 \u2013 $236.54"
     ]
    ],
-   "reason": "169 mentions today, 3x yesterday's 53. Price is -3.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $327.18 mean target (+55%); the scan flagged squeeze/penny sub.",
+   "reason": "177 mentions today, 3x yesterday's 65. Price is -3.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $327.18 mean target (+55%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.3
+    "score": 0.21
    },
    "read": [
     "quiet",
@@ -2148,7 +2148,7 @@
    "name": "iQIYI",
    "price": 0.9950000047683716,
    "pct": 4.505829720446554,
-   "mentions": 163,
+   "mentions": 169,
    "mentions_prev": 13,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2201,7 +2201,7 @@
      "$0.86 \u2013 $2.73"
     ]
    ],
-   "reason": "163 mentions today, 13x yesterday's 13. Price is +4.5% \u2014 the attention has moved further than the price; analyst consensus is none with a $1.40 mean target (+41%); the scan flagged penny <$5, squeeze/penny sub.",
+   "reason": "169 mentions today, 13x yesterday's 13. Price is +4.5% \u2014 the attention has moved further than the price; analyst consensus is none with a $1.40 mean target (+41%); the scan flagged penny <$5, squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.2
@@ -2339,7 +2339,7 @@
    "name": "Oracle",
    "price": 144.7899932861328,
    "pct": -2.043101790791541,
-   "mentions": 114,
+   "mentions": 112,
    "mentions_prev": 40,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2350,7 +2350,7 @@
    "headlines": [
     "What to expect ahead of the Fed's September interest rate decision",
     "Anthropic, OpenAI now want to tame the rapid pace of AI development",
-    "Big Tech Issued About $220 Billion of Bonds. Alphabet and Meta Show How AI Is Warping the Credit Market"
+    "S&P 500, Nasdaq, Dow Drop On Chipmaker Weakness, Treasury Yield Pressure \u2014 MSFT, NFLX, ORCL, CRWD, RBLX In Focus"
    ],
    "band": [
     144.7899932861328,
@@ -2389,10 +2389,10 @@
      "$114.50 \u2013 $329.50"
     ]
    ],
-   "reason": "114 mentions today, 3x yesterday's 40. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $239.10 mean target (+65%).",
+   "reason": "112 mentions today, 3x yesterday's 40. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $239.10 mean target (+65%).",
    "tone": {
-    "label": "positive",
-    "score": 0.31
+    "label": "mixed",
+    "score": -0.04
    },
    "read": [
     "quiet",
@@ -2527,8 +2527,8 @@
    "name": "Meta Platforms (Facebook)",
    "price": 665.5999755859375,
    "pct": 2.782664008452617,
-   "mentions": 108,
-   "mentions_prev": 16,
+   "mentions": 103,
+   "mentions_prev": 22,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2539,8 +2539,8 @@
    "earnings": null,
    "headlines": [
     "Big Tech Issued About $220 Billion of Bonds. Alphabet and Meta Show How AI Is Warping the Credit Market",
-    "Is META Stock\u2019s $130B AI Buildout Your Ticket to an 8.7% Yield?",
-    "Why Google and Meta Stocks Are the Big Winners From the Latest AI Concerns"
+    "Meta\u2019s AI Agents Are Coming for Your Shopping Cart. These ETFs Could Cash In",
+    "Is META Stock\u2019s $130B AI Buildout Your Ticket to an 8.7% Yield?"
    ],
    "band": [
     613.47998046875,
@@ -2579,10 +2579,10 @@
      "$520.26 \u2013 $790.80"
     ]
    ],
-   "reason": "108 mentions today, 7x yesterday's 16. Price is +2.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $758.28 mean target (+14%); the scan flagged squeeze/penny sub.",
+   "reason": "103 mentions today, 5x yesterday's 22. Price is +2.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $758.28 mean target (+14%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.29
+    "label": "mixed",
+    "score": 0.13
    },
    "read": [
     "moving with attention",
@@ -2719,8 +2719,8 @@
    "name": "Sandisk",
    "price": 1551.989990234375,
    "pct": -4.849063386604615,
-   "mentions": 102,
-   "mentions_prev": 28,
+   "mentions": 99,
+   "mentions_prev": 31,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2771,7 +2771,7 @@
      "$85.12 \u2013 $2354.39"
     ]
    ],
-   "reason": "102 mentions today, 4x yesterday's 28. Price is -4.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,125.09 mean target (+37%); the scan flagged squeeze/penny sub.",
+   "reason": "99 mentions today, 3x yesterday's 31. Price is -4.8% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,125.09 mean target (+37%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.04
@@ -2910,7 +2910,7 @@
    "price": 35.65999984741211,
    "pct": -0.6890419118364681,
    "mentions": 97,
-   "mentions_prev": 34,
+   "mentions_prev": 39,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [],
@@ -2955,7 +2955,7 @@
      "$27.05 \u2013 $55.41"
     ]
    ],
-   "reason": "97 mentions today, 3x yesterday's 34. Price is -0.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $46.25 mean target (+30%).",
+   "reason": "97 mentions today, 2x yesterday's 39. Price is -0.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $46.25 mean target (+30%).",
    "tone": {
     "label": "negative",
     "score": -0.39
@@ -3091,78 +3091,76 @@
    }
   },
   {
-   "sym": "GOOGL",
-   "name": "Alphabet (Google)",
-   "price": 349.3900146484375,
-   "pct": 3.250843967805592,
-   "mentions": 93,
-   "mentions_prev": 9,
+   "sym": "AVGO",
+   "name": "Broadcom",
+   "price": 344.7200012207031,
+   "pct": -4.704009021852365,
+   "mentions": 95,
+   "mentions_prev": 5,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "STRONG_BUY",
-   "analyst_target": 428.06668,
+   "analyst_target": 531.8468,
    "earnings": null,
    "headlines": [
     "Tech pulls back on AI concerns, cybersecurity takes a step up",
-    "Elon Musk: I've been 'sounding the alarm' on AI for a while",
-    "Big Tech Issued About $220 Billion of Bonds. Alphabet and Meta Show How AI Is Warping the Credit Market"
+    "Broadcom Drops Over 4% as $21.7 Billion AI Forecast Meets Slowdown Fears",
+    "Wall Street ends down, calls for AI slowdown pummel chipmakers"
    ],
    "band": [
-    330.6499938964844,
-    349.3900146484375
+    344.7200012207031,
+    368.55999755859375
    ],
    "spark": [
-    338.3599853515625,
-    330.6499938964844,
-    332.6000061035156,
-    338.5,
-    349.3900146484375
+    368.55999755859375,
+    364.3800048828125,
+    360.8299865722656,
+    361.989990234375,
+    344.7200012207031
    ],
    "stats": [
     [
      "Market cap",
-     "$4.3T"
+     "$1.6T"
     ],
     [
      "Float",
-     "10.9B"
+     "4.7B"
     ],
     [
      "Short interest",
-     "1.3%"
+     "1.1%"
     ],
     [
      "Avg vol",
-     "29.9M"
+     "23.8M"
     ],
     [
      "Vol today",
-     "35.1M"
+     "31.9M"
     ],
     [
      "52w range",
-     "$235.84 \u2013 $408.61"
+     "$289.96 \u2013 $495.00"
     ]
    ],
-   "reason": "93 mentions today, 10x yesterday's 9. Price is +3.3% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $428.07 mean target (+23%); the scan flagged squeeze/penny sub.",
+   "reason": "95 mentions today, 19x yesterday's 5. Price is -4.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $531.85 mean target (+54%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.01
+    "score": -0.14
    },
    "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
    ],
    "er": {
-    "date": "Oct 28",
-    "days_away": 44,
-    "eps_estimate": 3.01,
+    "eps_estimate": 3.83,
     "beat_record": "beat 4 of last 4",
-    "avg_surprise": 0.8,
+    "avg_surprise": 2.5,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -3171,59 +3169,59 @@
    "chart": {
     "period": "1y",
     "closes": [
-     254.06,
-     245.9,
-     244.71,
-     235.96,
-     252.64,
-     259.25,
-     280.46,
-     278.11,
-     275.69,
-     298.88,
-     319.35,
-     320.44,
-     308.69,
-     306.56,
-     312.9,
-     314.54,
-     327.93,
-     329.36,
-     327.29,
-     337.34,
-     322.23,
-     305.13,
-     314.37,
-     311.15,
-     297.94,
-     301.91,
-     300.63,
-     274.0,
-     295.4,
-     316.85,
-     341.26,
-     343.97,
-     385.21,
-     400.3,
-     396.29,
-     382.5,
-     379.87,
-     368.07,
-     359.45,
-     367.79,
-     337.17,
-     359.68,
-     356.95,
-     346.55,
-     319.53,
-     355.9,
-     354.07,
-     345.68,
-     344.6,
-     346.37,
+     342.43,
+     332.67,
+     336.48,
+     322.82,
+     347.38,
+     352.16,
+     367.57,
+     347.48,
+     340.55,
+     338.3,
+     400.71,
+     388.07,
+     357.92,
      338.46,
-     338.5,
-     349.39
+     350.84,
+     346.34,
+     343.7,
+     350.42,
+     318.88,
+     330.08,
+     331.7,
+     323.98,
+     331.43,
+     318.38,
+     329.27,
+     320.98,
+     309.37,
+     300.2,
+     314.05,
+     370.96,
+     405.9,
+     422.09,
+     420.61,
+     429.32,
+     424.52,
+     413.49,
+     446.06,
+     385.12,
+     381.47,
+     410.7,
+     365.02,
+     360.45,
+     399.97,
+     370.83,
+     381.92,
+     389.28,
+     427.76,
+     392.99,
+     368.45,
+     368.79,
+     357.9,
+     361.99,
+     344.72
     ],
     "dates": [
      "2025-09-15",
@@ -3429,24 +3427,16 @@
    "name": "Meta Platforms (Facebook)",
    "why": [
     "up +3% today",
-    "mentions 7x vs yesterday"
-   ]
-  },
-  {
-   "sym": "GOOGL",
-   "name": "Alphabet (Google)",
-   "why": [
-    "up +3% today",
-    "mentions 10x vs yesterday"
+    "mentions 5x vs yesterday"
    ]
   }
  ],
  "session": {
   "tracked": 10,
-  "up": 3,
-  "down": 7,
+  "up": 2,
+  "down": 8,
   "flagged": 8,
-  "standouts": 3
+  "standouts": 2
  },
  "history": [
   {
@@ -7641,7 +7631,7 @@
    "date": "2026-07-06",
    "sym": "CXAI",
    "name": "",
-   "flag_price": 1.1102230246251555e+96,
+   "flag_price": 5.5511151231257775e+97,
    "last_price": 2.690000057220459,
    "pct": -100.0,
    "outcome": "faded",
@@ -7666,7 +7656,7 @@
    "date": "2026-06-22",
    "sym": "CXAI",
    "name": "",
-   "flag_price": 1.595945597898661e+96,
+   "flag_price": 7.979727989493305e+97,
    "last_price": 2.690000057220459,
    "pct": -100.0,
    "outcome": "faded",
@@ -7703,7 +7693,7 @@
    "date": "2026-06-17",
    "sym": "CXAI",
    "name": "",
-   "flag_price": 1.4571677198205176e+96,
+   "flag_price": 7.285838599102588e+97,
    "last_price": 2.690000057220459,
    "pct": -100.0,
    "outcome": "faded",
@@ -7740,7 +7730,7 @@
    "date": "2026-06-15",
    "sym": "CXAI",
    "name": "",
-   "flag_price": 1.387778780781444e+96,
+   "flag_price": 6.93889390390722e+97,
    "last_price": 2.690000057220459,
    "pct": -100.0,
    "outcome": "faded",
@@ -7767,6 +7757,7 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100
+  "stocks": 100,
+  "tradingwithcongress": 0
  }
 }
