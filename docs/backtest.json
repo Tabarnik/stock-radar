@@ -1928,18 +1928,20 @@
   },
   {
    "date": "2026-09-17",
-   "picks": 4,
-   "flagged": 11,
+   "picks": 5,
+   "flagged": 13,
    "held_already": [
     "AAL",
     "INTC",
     "MU",
     "NOK",
+    "NU",
     "QQQ",
     "SPCX",
     "SPY"
    ],
    "bought": [
+    "RDDT",
     "NVDA",
     "NBIS",
     "CRWV",
@@ -1947,8 +1949,8 @@
    ],
    "per_ticker": 554.6,
    "held_days": 0,
-   "return_pct": 0.8,
-   "invested": 2218.41,
+   "return_pct": 0.6,
+   "invested": 2773.02,
    "balance": 11092.06,
    "pnl": 17.55,
    "open": true
@@ -9119,6 +9121,23 @@
   },
   {
    "date": "2026-09-17",
+   "sym": "NU",
+   "entry": 13.84,
+   "now": 13.84,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-16",
+   "buy_price": 13.7,
+   "ret_since_buy": 1.0
+  },
+  {
+   "date": "2026-09-17",
    "sym": "NVDA",
    "entry": 219.088,
    "now": 219.34,
@@ -9150,6 +9169,23 @@
    "held_since": "2026-09-16",
    "buy_price": 702.98,
    "ret_since_buy": 2.0
+  },
+  {
+   "date": "2026-09-17",
+   "sym": "RDDT",
+   "entry": 152.8300018310547,
+   "now": 152.83,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-17",
@@ -10167,6 +10203,21 @@
    "value": 555.24,
    "pnl": 0.64,
    "ret": 0.1,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "RDDT",
+   "bought": "2026-09-17",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 152.83,
+   "price": 152.83,
+   "shares": 3.6289,
+   "alloc": 554.6,
+   "value": 554.6,
+   "pnl": 0.0,
+   "ret": 0.0,
    "spy_ret": null,
    "path": []
   }
