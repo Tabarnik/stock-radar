@@ -1957,8 +1957,8 @@
   },
   {
    "date": "2026-09-18",
-   "picks": 5,
-   "flagged": 11,
+   "picks": 6,
+   "flagged": 12,
    "held_already": [
     "AMD",
     "CRWV",
@@ -1972,14 +1972,15 @@
     "SNDK",
     "NFLX",
     "MU",
-    "META"
+    "META",
+    "F"
    ],
-   "per_ticker": 557.86,
+   "per_ticker": 470.06,
    "held_days": 0,
-   "return_pct": 0.9,
-   "invested": 2789.28,
+   "return_pct": 0.8,
+   "invested": 2820.38,
    "balance": 11157.13,
-   "pnl": 25.79,
+   "pnl": 21.73,
    "open": true
   }
  ],
@@ -9284,6 +9285,23 @@
   },
   {
    "date": "2026-09-18",
+   "sym": "F",
+   "entry": 13.21,
+   "now": 13.21,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-09-18",
    "sym": "GRAB",
    "entry": 2.77,
    "now": 2.795,
@@ -10405,6 +10423,21 @@
      "cum_pct": -1.3
     }
    ]
+  },
+  {
+   "sym": "F",
+   "bought": "2026-09-18",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 13.21,
+   "price": 13.21,
+   "shares": 2.354,
+   "alloc": 31.1,
+   "value": 31.1,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
   },
   {
    "sym": "META",
