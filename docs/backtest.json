@@ -2039,10 +2039,12 @@
   {
    "date": "2026-09-23",
    "picks": 3,
-   "flagged": 10,
+   "flagged": 12,
    "held_already": [
+    "MSFT",
     "MU",
-    "NOK"
+    "NOK",
+    "NVDA"
    ],
    "bought": [
     "TSLA",
@@ -10073,6 +10075,23 @@
   },
   {
    "date": "2026-09-23",
+   "sym": "MSFT",
+   "entry": 500.5899963378906,
+   "now": 500.59,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-22",
+   "buy_price": 498.0,
+   "ret_since_buy": 0.5
+  },
+  {
+   "date": "2026-09-23",
    "sym": "MU",
    "entry": 1077.739990234375,
    "now": 1071.88,
@@ -10104,6 +10123,23 @@
    "held_since": "2026-09-22",
    "buy_price": 10.5465,
    "ret_since_buy": 0.8
+  },
+  {
+   "date": "2026-09-23",
+   "sym": "NVDA",
+   "entry": 225.51,
+   "now": 225.51,
+   "ret_total": -0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 1,
+   "held_since": "2026-09-17",
+   "buy_price": 219.088,
+   "ret_since_buy": 2.9
   },
   {
    "date": "2026-09-23",
