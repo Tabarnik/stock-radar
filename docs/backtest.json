@@ -2092,9 +2092,10 @@
   {
    "date": "2026-09-25",
    "picks": 6,
-   "flagged": 12,
+   "flagged": 13,
    "held_already": [
     "AAL",
+    "DTE",
     "INTC",
     "MSFT",
     "ONDS",
@@ -8367,8 +8368,8 @@
    "date": "2026-09-10",
    "sym": "USO",
    "entry": 158.05999755859375,
-   "now": 148.39,
-   "ret_total": -6.1,
+   "now": 148.33,
+   "ret_total": -6.2,
    "exit_date": "2026-09-17",
    "exit_price": 155.31,
    "ret_hold": -1.7,
@@ -8588,7 +8589,7 @@
    "date": "2026-09-11",
    "sym": "USO",
    "entry": 153.74000549316406,
-   "now": 148.39,
+   "now": 148.33,
    "ret_total": -3.5,
    "exit_date": "2026-09-18",
    "exit_price": 153.82,
@@ -8599,7 +8600,7 @@
    "days_left": 4,
    "held_since": "2026-09-10",
    "buy_price": 158.06,
-   "ret_since_buy": -6.1
+   "ret_since_buy": -6.2
   },
   {
    "date": "2026-09-14",
@@ -8962,7 +8963,7 @@
    "date": "2026-09-15",
    "sym": "USO",
    "entry": 161.84249877929688,
-   "now": 148.39,
+   "now": 148.33,
    "ret_total": -8.3,
    "exit_date": "2026-09-22",
    "exit_price": 144.08,
@@ -8973,7 +8974,7 @@
    "days_left": 2,
    "held_since": "2026-09-10",
    "buy_price": 158.06,
-   "ret_since_buy": -6.1
+   "ret_since_buy": -6.2
   },
   {
    "date": "2026-09-16",
@@ -9149,8 +9150,8 @@
    "date": "2026-09-16",
    "sym": "USO",
    "entry": 156.42999267578125,
-   "now": 148.39,
-   "ret_total": -5.1,
+   "now": 148.33,
+   "ret_total": -5.2,
    "exit_date": "2026-09-23",
    "exit_price": 148.83,
    "ret_hold": -4.9,
@@ -9160,7 +9161,7 @@
    "days_left": 1,
    "held_since": "2026-09-10",
    "buy_price": 158.06,
-   "ret_since_buy": -6.1
+   "ret_since_buy": -6.2
   },
   {
    "date": "2026-09-17",
@@ -10453,6 +10454,23 @@
    "held_since": null,
    "buy_price": null,
    "ret_since_buy": null
+  },
+  {
+   "date": "2026-09-25",
+   "sym": "DTE",
+   "entry": 121.44000244140625,
+   "now": 121.44,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-24",
+   "buy_price": 121.89,
+   "ret_since_buy": -0.4
   },
   {
    "date": "2026-09-25",
@@ -12958,10 +12976,10 @@
    "exited": 50,
    "avg_return": 3.6,
    "win_rate": 56.0,
-   "pnl": 360.51,
+   "pnl": 360.47,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10360.51,
+   "final": 10360.47,
    "avg_days_held": 14.2,
    "worst": -20.1,
    "best": 32.0,
@@ -13272,6 +13290,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -13280,18 +13310,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -13987,10 +14005,10 @@
    "exited": 21,
    "avg_return": 3.4,
    "win_rate": 47.6,
-   "pnl": 336.43,
+   "pnl": 336.39,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10336.43,
+   "final": 10336.39,
    "avg_days_held": 24.5,
    "worst": -20.1,
    "best": 75.0,
@@ -14373,6 +14391,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -14381,18 +14411,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -15016,10 +15034,10 @@
    "exited": 17,
    "avg_return": 3.4,
    "win_rate": 48.8,
-   "pnl": 344.85,
+   "pnl": 344.8,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10344.85,
+   "final": 10344.8,
    "avg_days_held": 25.3,
    "worst": -27.3,
    "best": 75.0,
@@ -15390,6 +15408,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -15398,18 +15428,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -16045,10 +16063,10 @@
    "exited": 26,
    "avg_return": 3.1,
    "win_rate": 46.4,
-   "pnl": 307.84,
+   "pnl": 307.8,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10307.84,
+   "final": 10307.8,
    "avg_days_held": 22.7,
    "worst": -23.7,
    "best": 75.0,
@@ -16419,6 +16437,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -16427,18 +16457,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -17074,10 +17092,10 @@
    "exited": 27,
    "avg_return": 3.1,
    "win_rate": 52.4,
-   "pnl": 306.44,
+   "pnl": 306.4,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10306.44,
+   "final": 10306.4,
    "avg_days_held": 21.7,
    "worst": -61.7,
    "best": 32.0,
@@ -17400,6 +17418,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -17408,18 +17438,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -19132,10 +19150,10 @@
    "exited": 17,
    "avg_return": 2.7,
    "win_rate": 47.6,
-   "pnl": 265.94,
+   "pnl": 265.9,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10265.94,
+   "final": 10265.9,
    "avg_days_held": 26.2,
    "worst": -27.0,
    "best": 75.0,
@@ -19518,6 +19536,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -19526,18 +19556,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -20161,10 +20179,10 @@
    "exited": 34,
    "avg_return": 2.7,
    "win_rate": 45.2,
-   "pnl": 270.83,
+   "pnl": 270.78,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10270.83,
+   "final": 10270.78,
    "avg_days_held": 20.1,
    "worst": -20.1,
    "best": 51.1,
@@ -20523,6 +20541,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -20531,18 +20561,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -21190,10 +21208,10 @@
    "exited": 9,
    "avg_return": 2.6,
    "win_rate": 50.0,
-   "pnl": 257.17,
+   "pnl": 257.13,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10257.17,
+   "final": 10257.13,
    "avg_days_held": 26.3,
    "worst": -61.7,
    "best": 51.1,
@@ -21528,6 +21546,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -21536,18 +21566,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -22219,10 +22237,10 @@
    "exited": 24,
    "avg_return": 2.4,
    "win_rate": 47.6,
-   "pnl": 244.49,
+   "pnl": 244.44,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10244.49,
+   "final": 10244.44,
    "avg_days_held": 24.1,
    "worst": -27.0,
    "best": 46.3,
@@ -22605,6 +22623,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -22613,18 +22643,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -23248,10 +23266,10 @@
    "exited": 36,
    "avg_return": 2.3,
    "win_rate": 41.7,
-   "pnl": 229.27,
+   "pnl": 229.23,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10229.27,
+   "final": 10229.23,
    "avg_days_held": 20.9,
    "worst": -20.1,
    "best": 75.0,
@@ -23718,6 +23736,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -23726,18 +23756,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -24277,10 +24295,10 @@
    "exited": 38,
    "avg_return": 2.3,
    "win_rate": 47.6,
-   "pnl": 233.82,
+   "pnl": 233.78,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10233.82,
+   "final": 10233.78,
    "avg_days_held": 19.6,
    "worst": -20.1,
    "best": 44.9,
@@ -24663,6 +24681,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -24671,18 +24701,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -25306,10 +25324,10 @@
    "exited": 0,
    "avg_return": 2.2,
    "win_rate": 48.8,
-   "pnl": 223.53,
+   "pnl": 223.49,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10223.53,
+   "final": 10223.49,
    "avg_days_held": 30.1,
    "worst": -75.7,
    "best": 75.0,
@@ -25668,6 +25686,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -25676,18 +25706,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
@@ -26335,17 +26353,17 @@
    "exited": 62,
    "avg_return": 1.8,
    "win_rate": 47.6,
-   "pnl": 184.04,
+   "pnl": 184.0,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10184.04,
+   "final": 10184.0,
    "avg_days_held": 17.7,
    "worst": -30.3,
    "best": 50.9,
    "avg_spy": 0.7,
    "avg_excess": 1.1,
    "positions_real": 75,
-   "avg_return_real": 2.8,
+   "avg_return_real": 2.7,
    "win_rate_real": 49.3,
    "detail": [
     {
@@ -26673,6 +26691,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "F",
      "date": "2026-08-17",
      "entry": 14.37,
@@ -26694,18 +26724,6 @@
      "spy_ret": 1.5,
      "excess": -7.6,
      "held_to_end": false,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
-     "held_to_end": true,
      "simulated": false
     },
     {
@@ -27364,10 +27382,10 @@
    "exited": 15,
    "avg_return": 1.7,
    "win_rate": 48.8,
-   "pnl": 171.19,
+   "pnl": 171.14,
    "invested": 10000.0,
    "per_ticker": 119.05,
-   "final": 10171.19,
+   "final": 10171.14,
    "avg_days_held": 26.8,
    "worst": -75.7,
    "best": 44.9,
@@ -27726,6 +27744,18 @@
      "simulated": false
     },
     {
+     "sym": "USO",
+     "date": "2026-09-10",
+     "entry": 158.06,
+     "exit": 148.33,
+     "ret": -6.2,
+     "days": 11,
+     "spy_ret": 2.0,
+     "excess": -8.2,
+     "held_to_end": true,
+     "simulated": false
+    },
+    {
      "sym": "NU",
      "date": "2026-08-05",
      "entry": 14.48,
@@ -27734,18 +27764,6 @@
      "days": 36,
      "spy_ret": 0.5,
      "excess": -6.6,
-     "held_to_end": true,
-     "simulated": false
-    },
-    {
-     "sym": "USO",
-     "date": "2026-09-10",
-     "entry": 158.06,
-     "exit": 148.39,
-     "ret": -6.1,
-     "days": 11,
-     "spy_ret": 2.0,
-     "excess": -8.1,
      "held_to_end": true,
      "simulated": false
     },
