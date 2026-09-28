@@ -1208,12 +1208,12 @@
     "APP"
    ],
    "per_ticker": 557.18,
-   "held_days": 53,
-   "return_pct": -26.2,
+   "held_days": 7,
+   "return_pct": -25.2,
    "invested": 557.18,
    "balance": 11143.52,
-   "pnl": -146.11,
-   "open": true
+   "pnl": -140.2,
+   "open": false
   },
   {
    "date": "2026-08-10",
@@ -1236,13 +1236,13 @@
     "HL",
     "ACHR"
    ],
-   "per_ticker": 566.28,
-   "held_days": 11,
-   "return_pct": 3.6,
-   "invested": 5662.77,
-   "balance": 11325.53,
-   "pnl": 202.21,
-   "open": true
+   "per_ticker": 561.02,
+   "held_days": 7,
+   "return_pct": 1.2,
+   "invested": 5610.22,
+   "balance": 11220.45,
+   "pnl": 67.44,
+   "open": false
   },
   {
    "date": "2026-08-11",
@@ -1264,12 +1264,12 @@
     "SPCX",
     "SMCI"
    ],
-   "per_ticker": 405.96,
+   "per_ticker": 432.24,
    "held_days": 7,
    "return_pct": 13.3,
-   "invested": 811.93,
-   "balance": 11400.52,
-   "pnl": 108.33,
+   "invested": 864.47,
+   "balance": 11244.79,
+   "pnl": 115.34,
    "open": false
   },
   {
@@ -1297,8 +1297,35 @@
    "held_days": 7,
    "return_pct": 2.4,
    "invested": 4410.51,
-   "balance": 11684.31,
+   "balance": 11516.6,
    "pnl": 107.66,
+   "open": false
+  },
+  {
+   "date": "2026-08-13",
+   "picks": 1,
+   "flagged": 13,
+   "held_already": [
+    "ACHR",
+    "HTZ",
+    "MU",
+    "NBIS",
+    "NOK",
+    "NVDA",
+    "ONDS",
+    "RIG",
+    "SNDK",
+    "SPCX"
+   ],
+   "bought": [
+    "SPY"
+   ],
+   "per_ticker": 416.98,
+   "held_days": 7,
+   "return_pct": -2.1,
+   "invested": 416.98,
+   "balance": 11772.0,
+   "pnl": -8.59,
    "open": false
   },
   {
@@ -1306,26 +1333,26 @@
    "picks": 5,
    "flagged": 11,
    "held_already": [
-    "MARA",
     "NOK",
     "NVDA",
     "ONDS",
     "SNDK",
-    "SPCX"
+    "SPCX",
+    "SPY"
    ],
    "bought": [
-    "SPY",
     "NU",
     "MU",
+    "MARA",
     "KEEL",
     "F"
    ],
-   "per_ticker": 604.99,
+   "per_ticker": 597.57,
    "held_days": 7,
-   "return_pct": -6.2,
-   "invested": 3024.96,
-   "balance": 12099.83,
-   "pnl": -188.93,
+   "return_pct": -2.6,
+   "invested": 2987.85,
+   "balance": 11951.39,
+   "pnl": -77.26,
    "open": false
   },
   {
@@ -1350,12 +1377,12 @@
     "META",
     "HL"
    ],
-   "per_ticker": 581.45,
+   "per_ticker": 572.08,
    "held_days": 7,
    "return_pct": 0.4,
-   "invested": 2907.27,
-   "balance": 11629.06,
-   "pnl": 12.21,
+   "invested": 2860.4,
+   "balance": 11441.59,
+   "pnl": 12.01,
    "open": false
   },
   {
@@ -1376,17 +1403,17 @@
     "MRVL",
     "AAL"
    ],
-   "per_ticker": 579.75,
+   "per_ticker": 572.46,
    "held_days": 7,
    "return_pct": -2.2,
-   "invested": 3478.52,
-   "balance": 11595.07,
-   "pnl": -74.94,
+   "invested": 3434.73,
+   "balance": 11449.11,
+   "pnl": -73.99,
    "open": false
   },
   {
    "date": "2026-08-20",
-   "picks": 3,
+   "picks": 4,
    "flagged": 12,
    "held_already": [
     "AAL",
@@ -1401,38 +1428,67 @@
    "bought": [
     "WMT",
     "RDDT",
-    "MRNA"
+    "MRNA",
+    "BULL"
    ],
-   "per_ticker": 400.43,
+   "per_ticker": 572.19,
    "held_days": 7,
-   "return_pct": -6.1,
-   "invested": 1201.28,
-   "balance": 11493.61,
-   "pnl": -72.99,
+   "return_pct": -1.9,
+   "invested": 2288.77,
+   "balance": 11443.85,
+   "pnl": -42.71,
+   "open": false
+  },
+  {
+   "date": "2026-08-21",
+   "picks": 1,
+   "flagged": 16,
+   "held_already": [
+    "AAL",
+    "MARA",
+    "META",
+    "NOK",
+    "NU",
+    "NVDA",
+    "QQQ",
+    "RDDT",
+    "SPCX",
+    "WMT"
+   ],
+   "bought": [
+    "TSLA"
+   ],
+   "per_ticker": 2.76,
+   "held_days": 7,
+   "return_pct": -3.9,
+   "invested": 2.76,
+   "balance": 11371.04,
+   "pnl": -0.11,
    "open": false
   },
   {
    "date": "2026-08-24",
-   "picks": 5,
+   "picks": 6,
    "flagged": 12,
    "held_already": [
     "AAL",
-    "MARA",
-    "NVDA"
+    "NVDA",
+    "TSLA"
    ],
    "bought": [
     "VALE",
-    "TSLA",
     "SPY",
     "SNDK",
-    "SLS"
+    "SLS",
+    "ONDS",
+    "NU"
    ],
-   "per_ticker": 567.21,
+   "per_ticker": 485.1,
    "held_days": 7,
-   "return_pct": -1.5,
-   "invested": 2836.03,
-   "balance": 11371.78,
-   "pnl": -41.55,
+   "return_pct": -2.7,
+   "invested": 2910.58,
+   "balance": 11211.44,
+   "pnl": -79.96,
    "open": false
   },
   {
@@ -1441,8 +1497,8 @@
    "flagged": 12,
    "held_already": [
     "AAL",
-    "MARA",
     "MRNA",
+    "NU",
     "NVDA",
     "SNDK",
     "SPY",
@@ -1451,50 +1507,50 @@
    "bought": [
     "SPCX",
     "QQQ",
-    "NU",
     "MU",
+    "MARA",
     "AVGO"
    ],
-   "per_ticker": 574.19,
+   "per_ticker": 571.46,
    "held_days": 7,
-   "return_pct": 1.7,
-   "invested": 2870.93,
-   "balance": 11483.74,
-   "pnl": 50.1,
+   "return_pct": 0.5,
+   "invested": 2857.32,
+   "balance": 11429.29,
+   "pnl": 13.67,
    "open": false
   },
   {
    "date": "2026-08-26",
-   "picks": 6,
+   "picks": 5,
    "flagged": 13,
    "held_already": [
     "MARA",
     "MRNA",
     "MU",
     "NU",
+    "ONDS",
     "SNDK",
     "SPCX",
     "SPY"
    ],
    "bought": [
-    "ONDS",
     "NVDA",
     "META",
     "INTU",
     "DKS",
     "AAL"
    ],
-   "per_ticker": 572.79,
+   "per_ticker": 567.82,
    "held_days": 7,
-   "return_pct": 0.1,
-   "invested": 3436.73,
-   "balance": 11455.76,
-   "pnl": 3.33,
+   "return_pct": 1.4,
+   "invested": 2839.08,
+   "balance": 11356.32,
+   "pnl": 40.6,
    "open": false
   },
   {
    "date": "2026-08-27",
-   "picks": 3,
+   "picks": 4,
    "flagged": 9,
    "held_already": [
     "AAL",
@@ -1506,25 +1562,52 @@
    "bought": [
     "PLTR",
     "NOK",
-    "MRVL"
+    "MRVL",
+    "IREN"
    ],
-   "per_ticker": 402.23,
+   "per_ticker": 578.45,
    "held_days": 7,
-   "return_pct": -7.7,
-   "invested": 1206.69,
-   "balance": 11615.52,
-   "pnl": -92.84,
+   "return_pct": -5.1,
+   "invested": 2313.78,
+   "balance": 11568.91,
+   "pnl": -117.53,
+   "open": false
+  },
+  {
+   "date": "2026-08-28",
+   "picks": 1,
+   "flagged": 12,
+   "held_already": [
+    "AAL",
+    "IREN",
+    "MRVL",
+    "MU",
+    "NOK",
+    "NU",
+    "NVDA",
+    "ONDS",
+    "PLTR",
+    "SPY"
+   ],
+   "bought": [
+    "PCG"
+   ],
+   "per_ticker": 471.68,
+   "held_days": 7,
+   "return_pct": -13.9,
+   "invested": 471.68,
+   "balance": 11209.6,
+   "pnl": -65.35,
    "open": false
   },
   {
    "date": "2026-08-31",
-   "picks": 4,
+   "picks": 5,
    "flagged": 10,
    "held_already": [
     "AAL",
     "MU",
     "NOK",
-    "NU",
     "NVDA",
     "SPCX"
    ],
@@ -1532,77 +1615,77 @@
     "TSLA",
     "SPY",
     "SNDK",
+    "NU",
     "CNH"
    ],
-   "per_ticker": 574.7,
+   "per_ticker": 558.72,
    "held_days": 8,
-   "return_pct": 6.5,
-   "invested": 2298.8,
-   "balance": 11494.02,
-   "pnl": 148.44,
+   "return_pct": 6.3,
+   "invested": 2793.61,
+   "balance": 11174.45,
+   "pnl": 176.09,
    "open": false
   },
   {
    "date": "2026-09-01",
-   "picks": 6,
+   "picks": 5,
    "flagged": 13,
    "held_already": [
     "META",
     "NOK",
+    "NU",
     "NVDA",
-    "ONDS",
+    "PCG",
     "SNDK",
     "SPY",
     "TSLA"
    ],
    "bought": [
     "QQQ",
-    "PCG",
-    "NU",
+    "ONDS",
     "NIO",
     "DELL",
     "AAPL"
    ],
-   "per_ticker": 566.43,
+   "per_ticker": 552.13,
    "held_days": 8,
-   "return_pct": 3.6,
-   "invested": 3398.57,
-   "balance": 11328.58,
-   "pnl": 122.55,
+   "return_pct": 3.2,
+   "invested": 2760.66,
+   "balance": 11042.64,
+   "pnl": 88.27,
    "open": false
   },
   {
    "date": "2026-09-02",
-   "picks": 5,
+   "picks": 4,
    "flagged": 9,
    "held_already": [
     "DELL",
     "NIO",
     "NU",
+    "ONDS",
     "PCG"
    ],
    "bought": [
-    "ONDS",
     "NVDA",
     "MU",
     "AVGO",
     "AAL"
    ],
-   "per_ticker": 576.5,
+   "per_ticker": 563.02,
    "held_days": 8,
-   "return_pct": -1.4,
-   "invested": 2882.51,
-   "balance": 11530.04,
-   "pnl": -41.46,
+   "return_pct": -1.2,
+   "invested": 2252.07,
+   "balance": 11260.33,
+   "pnl": -27.22,
    "open": false
   },
   {
    "date": "2026-09-03",
-   "picks": 3,
+   "picks": 6,
    "flagged": 13,
    "held_already": [
     "AVGO",
-    "MARA",
     "NIO",
     "NU",
     "NVDA",
@@ -1612,47 +1695,77 @@
    "bought": [
     "ZS",
     "SPCX",
-    "SNOW"
+    "SNOW",
+    "MARA",
+    "LULU",
+    "HPE"
    ],
-   "per_ticker": 573.84,
+   "per_ticker": 493.28,
    "held_days": 8,
-   "return_pct": -5.7,
-   "invested": 1721.53,
-   "balance": 11696.51,
-   "pnl": -98.1,
+   "return_pct": -0.9,
+   "invested": 2959.7,
+   "balance": 11435.89,
+   "pnl": -27.99,
+   "open": false
+  },
+  {
+   "date": "2026-09-04",
+   "picks": 1,
+   "flagged": 12,
+   "held_already": [
+    "AAL",
+    "LULU",
+    "MU",
+    "NIO",
+    "NVDA",
+    "SNDK",
+    "SPCX",
+    "SPY",
+    "TSLA"
+   ],
+   "bought": [
+    "INTC"
+   ],
+   "per_ticker": 406.33,
+   "held_days": 10,
+   "return_pct": 2.9,
+   "invested": 406.33,
+   "balance": 11336.55,
+   "pnl": 11.83,
    "open": false
   },
   {
    "date": "2026-09-08",
-   "picks": 5,
+   "picks": 6,
    "flagged": 12,
    "held_already": [
+    "INTC",
     "MU",
-    "NU",
     "NVDA",
-    "PCG",
     "SPCX"
    ],
    "bought": [
     "TSLA",
     "SPY",
     "SNDK",
-    "NOK",
-    "NBIS"
+    "PCG",
+    "NU",
+    "NOK"
    ],
-   "per_ticker": 489.45,
+   "per_ticker": 494.95,
    "held_days": 7,
-   "return_pct": -8.1,
-   "invested": 2447.24,
-   "balance": 11696.64,
-   "pnl": -197.55,
+   "return_pct": -7.4,
+   "invested": 2969.7,
+   "balance": 11387.43,
+   "pnl": -219.3,
    "open": false
   },
   {
    "date": "2026-09-09",
-   "picks": 7,
+   "picks": 6,
    "flagged": 12,
    "held_already": [
+    "INTC",
     "MU",
     "NOK",
     "NVDA",
@@ -1662,18 +1775,17 @@
    "bought": [
     "QQQ",
     "META",
-    "INTC",
     "GRAB",
     "GOOGL",
     "AEO",
     "AAPL"
    ],
-   "per_ticker": 503.02,
+   "per_ticker": 474.82,
    "held_days": 7,
-   "return_pct": -1.9,
-   "invested": 3521.13,
-   "balance": 11608.07,
-   "pnl": -65.69,
+   "return_pct": -1.6,
+   "invested": 2848.93,
+   "balance": 11301.17,
+   "pnl": -44.19,
    "open": false
   },
   {
@@ -1686,6 +1798,7 @@
     "GRAB",
     "INTC",
     "NOK",
+    "NU",
     "SPCX",
     "SPY"
    ],
@@ -1693,20 +1806,20 @@
     "USO",
     "ORCL",
     "NVDA",
-    "NU",
-    "DTE"
+    "DTE",
+    "AVAV"
    ],
-   "per_ticker": 568.16,
+   "per_ticker": 444.97,
    "held_days": 7,
-   "return_pct": -3.2,
-   "invested": 2840.79,
-   "balance": 11363.15,
-   "pnl": -92.06,
+   "return_pct": -0.7,
+   "invested": 2224.85,
+   "balance": 11025.26,
+   "pnl": -16.25,
    "open": false
   },
   {
    "date": "2026-09-11",
-   "picks": 3,
+   "picks": 4,
    "flagged": 13,
    "held_already": [
     "DTE",
@@ -1722,19 +1835,43 @@
    "bought": [
     "SPCX",
     "MU",
-    "DELL"
+    "DELL",
+    "BMNR"
    ],
-   "per_ticker": 541.85,
+   "per_ticker": 553.51,
    "held_days": 7,
-   "return_pct": 2.8,
-   "invested": 1625.55,
-   "balance": 11391.29,
-   "pnl": 45.88,
+   "return_pct": 2.1,
+   "invested": 2214.04,
+   "balance": 11070.18,
+   "pnl": 46.1,
+   "open": false
+  },
+  {
+   "date": "2026-09-14",
+   "picks": 2,
+   "flagged": 8,
+   "held_already": [
+    "MU",
+    "NVDA",
+    "QQQ",
+    "SPCX",
+    "SPY"
+   ],
+   "bought": [
+    "ONDS",
+    "INTC"
+   ],
+   "per_ticker": 501.78,
+   "held_days": 7,
+   "return_pct": 12.3,
+   "invested": 1003.56,
+   "balance": 10913.63,
+   "pnl": 123.05,
    "open": false
   },
   {
    "date": "2026-09-15",
-   "picks": 5,
+   "picks": 6,
    "flagged": 14,
    "held_already": [
     "DTE",
@@ -1742,60 +1879,63 @@
     "INTC",
     "META",
     "NVDA",
+    "ONDS",
     "SPCX",
     "USO"
    ],
    "bought": [
     "SPY",
     "PLTR",
-    "ONDS",
     "NOK",
-    "IQ"
+    "IQ",
+    "AVGO",
+    "AAL"
    ],
-   "per_ticker": 456.52,
+   "per_ticker": 458.88,
    "held_days": 7,
-   "return_pct": 5.1,
-   "invested": 2282.59,
-   "balance": 11103.61,
-   "pnl": 116.69,
+   "return_pct": 5.5,
+   "invested": 2753.27,
+   "balance": 10766.63,
+   "pnl": 152.21,
    "open": false
   },
   {
    "date": "2026-09-16",
-   "picks": 4,
+   "picks": 3,
    "flagged": 11,
    "held_already": [
+    "AAL",
     "DTE",
+    "INTC",
     "MU",
     "NOK",
-    "NU",
     "SPCX",
     "SPY",
     "USO"
    ],
    "bought": [
     "QQQ",
-    "INTC",
-    "GRAB",
-    "AAL"
+    "NU",
+    "GRAB"
    ],
-   "per_ticker": 557.73,
+   "per_ticker": 542.15,
    "held_days": 7,
-   "return_pct": 9.2,
-   "invested": 2230.91,
-   "balance": 11154.57,
-   "pnl": 205.9,
+   "return_pct": 4.3,
+   "invested": 1626.45,
+   "balance": 10842.99,
+   "pnl": 69.48,
    "open": false
   },
   {
    "date": "2026-09-17",
-   "picks": 6,
+   "picks": 5,
    "flagged": 13,
    "held_already": [
     "AAL",
     "INTC",
     "MU",
     "NOK",
+    "NU",
     "QQQ",
     "SPCX",
     "SPY"
@@ -1803,22 +1943,21 @@
    "bought": [
     "RDDT",
     "NVDA",
-    "NU",
     "NBIS",
     "CRWV",
     "AMD"
    ],
-   "per_ticker": 566.63,
+   "per_ticker": 553.49,
    "held_days": 7,
-   "return_pct": 7.3,
-   "invested": 3399.8,
-   "balance": 11332.67,
-   "pnl": 248.1,
+   "return_pct": 9.2,
+   "invested": 2767.47,
+   "balance": 11069.88,
+   "pnl": 253.54,
    "open": false
   },
   {
    "date": "2026-09-18",
-   "picks": 4,
+   "picks": 6,
    "flagged": 12,
    "held_already": [
     "AMD",
@@ -1832,25 +1971,51 @@
     "SPCX",
     "SNDK",
     "NFLX",
-    "MU"
+    "MU",
+    "META",
+    "F"
    ],
-   "per_ticker": 552.03,
+   "per_ticker": 468.8,
    "held_days": 7,
-   "return_pct": 2.0,
-   "invested": 2208.1,
-   "balance": 11385.24,
-   "pnl": 43.79,
+   "return_pct": 2.7,
+   "invested": 2812.78,
+   "balance": 11136.46,
+   "pnl": 74.91,
    "open": false
   },
   {
-   "date": "2026-09-22",
-   "picks": 5,
-   "flagged": 16,
+   "date": "2026-09-21",
+   "picks": 1,
+   "flagged": 9,
    "held_already": [
     "AAL",
     "AMD",
     "GRAB",
-    "INTC",
+    "META",
+    "MU",
+    "NOK",
+    "SPCX",
+    "SPY"
+   ],
+   "bought": [
+    "MARA"
+   ],
+   "per_ticker": 577.86,
+   "held_days": 7,
+   "return_pct": -9.9,
+   "invested": 577.86,
+   "balance": 11557.27,
+   "pnl": -56.99,
+   "open": false
+  },
+  {
+   "date": "2026-09-22",
+   "picks": 6,
+   "flagged": 16,
+   "held_already": [
+    "AMD",
+    "GRAB",
+    "META",
     "MU",
     "NVDA",
     "QQQ",
@@ -1861,21 +2026,23 @@
     "RKLB",
     "ONDS",
     "NOK",
-    "MSFT"
+    "MSFT",
+    "INTC"
    ],
-   "per_ticker": 483.68,
+   "per_ticker": 573.17,
    "held_days": 6,
-   "return_pct": -0.2,
-   "invested": 2418.39,
-   "balance": 11961.57,
-   "pnl": -5.06,
+   "return_pct": -1.2,
+   "invested": 3439.01,
+   "balance": 11719.08,
+   "pnl": -42.44,
    "open": true
   },
   {
    "date": "2026-09-23",
-   "picks": 5,
+   "picks": 3,
    "flagged": 12,
    "held_already": [
+    "INTC",
     "MSFT",
     "MU",
     "NOK",
@@ -1884,24 +2051,23 @@
    "bought": [
     "TSLA",
     "MCD",
-    "IONQ",
-    "INTC",
-    "HL"
+    "IONQ"
    ],
-   "per_ticker": 487.36,
+   "per_ticker": 565.31,
    "held_days": 5,
-   "return_pct": -2.9,
-   "invested": 2436.81,
-   "balance": 11773.54,
-   "pnl": -70.13,
+   "return_pct": -1.2,
+   "invested": 1695.93,
+   "balance": 11542.87,
+   "pnl": -20.82,
    "open": true
   },
   {
    "date": "2026-09-24",
-   "picks": 7,
+   "picks": 6,
    "flagged": 12,
    "held_already": [
     "INTC",
+    "META",
     "NOK",
     "ONDS",
     "SNDK",
@@ -1910,29 +2076,27 @@
    "bought": [
     "ORCL",
     "NBIS",
-    "META",
     "GOOGL",
     "DTE",
     "BB",
     "AAL"
    ],
-   "per_ticker": 521.13,
+   "per_ticker": 503.5,
    "held_days": 4,
-   "return_pct": -1.9,
-   "invested": 3647.9,
-   "balance": 11924.62,
-   "pnl": -68.12,
+   "return_pct": -1.1,
+   "invested": 3021.01,
+   "balance": 11688.26,
+   "pnl": -32.77,
    "open": true
   },
   {
    "date": "2026-09-25",
-   "picks": 4,
+   "picks": 6,
    "flagged": 13,
    "held_already": [
     "AAL",
     "DTE",
     "INTC",
-    "META",
     "MSFT",
     "ONDS",
     "SPY",
@@ -1942,19 +2106,45 @@
     "SNDK",
     "NVDA",
     "MU",
-    "GRAB"
+    "META",
+    "GRAB",
+    "AMD"
    ],
-   "per_ticker": 561.73,
+   "per_ticker": 486.96,
    "held_days": 3,
-   "return_pct": -1.6,
-   "invested": 2246.94,
-   "balance": 11858.39,
-   "pnl": -35.48,
+   "return_pct": -2.3,
+   "invested": 2921.75,
+   "balance": 11620.17,
+   "pnl": -66.9,
+   "open": true
+  },
+  {
+   "date": "2026-09-28",
+   "picks": 1,
+   "flagged": 9,
+   "held_already": [
+    "AAL",
+    "GRAB",
+    "INTC",
+    "META",
+    "MU",
+    "NVDA",
+    "SPY"
+   ],
+   "bought": [
+    "SPCX"
+   ],
+   "per_ticker": 520.87,
+   "held_days": 0,
+   "return_pct": -1.2,
+   "invested": 520.87,
+   "balance": 11429.83,
+   "pnl": -6.33,
    "open": true
   }
  ],
  "start_cash": 10000.0,
- "final_balance": 11651.53,
+ "final_balance": 11423.5,
  "position_frac": 0.05,
  "curve_rule": "Sell after 5 days",
  "curve_days": 5,
@@ -3121,10 +3311,10 @@
    "entry": 417.79998779296875,
    "now": 308.24,
    "ret_total": -26.2,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-08-13",
+   "exit_price": 312.67,
+   "ret_hold": -25.2,
+   "still_open": false,
    "simulated": false,
    "already_held": false,
    "days_left": null,
@@ -3308,10 +3498,10 @@
    "entry": 10.09,
    "now": 12.11,
    "ret_total": 20.0,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-08-17",
+   "exit_price": 9.72,
+   "ret_hold": -3.7,
+   "still_open": false,
    "simulated": false,
    "already_held": false,
    "days_left": null,
@@ -4367,11 +4557,11 @@
    "ret_hold": -1.8,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-08-13",
+   "buy_price": 776.72,
+   "ret_since_buy": -1.4
   },
   {
    "date": "2026-08-17",
@@ -4413,16 +4603,16 @@
    "entry": 9.605,
    "now": 12.11,
    "ret_total": 26.1,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-08-24",
+   "exit_price": 11.18,
+   "ret_hold": 16.4,
+   "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 5,
-   "held_since": "2026-08-10",
-   "buy_price": 10.09,
-   "ret_since_buy": 20.0
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-08-17",
@@ -4554,11 +4744,11 @@
    "ret_hold": -1.9,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 3,
+   "held_since": "2026-08-13",
+   "buy_price": 776.72,
+   "ret_since_buy": -1.4
   },
   {
    "date": "2026-08-18",
@@ -4583,16 +4773,16 @@
    "entry": 9.715,
    "now": 12.11,
    "ret_total": 24.7,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-08-25",
+   "exit_price": 11.83,
+   "ret_hold": 21.8,
+   "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 5,
-   "held_since": "2026-08-10",
-   "buy_price": 10.09,
-   "ret_since_buy": 20.0
+   "days_left": 4,
+   "held_since": "2026-08-17",
+   "buy_price": 9.605,
+   "ret_since_buy": 26.1
   },
   {
    "date": "2026-08-18",
@@ -4793,9 +4983,9 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-08-17",
-   "buy_price": 776.34,
+   "days_left": 2,
+   "held_since": "2026-08-13",
+   "buy_price": 776.72,
    "ret_since_buy": -1.4
   },
   {
@@ -5008,16 +5198,16 @@
    "entry": 10.7414,
    "now": 12.11,
    "ret_total": 12.7,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-08-27",
+   "exit_price": 11.87,
+   "ret_hold": 10.5,
+   "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 5,
-   "held_since": "2026-08-10",
-   "buy_price": 10.09,
-   "ret_since_buy": 20.0
+   "days_left": 2,
+   "held_since": "2026-08-17",
+   "buy_price": 9.605,
+   "ret_since_buy": 26.1
   },
   {
    "date": "2026-08-20",
@@ -5246,16 +5436,16 @@
    "entry": 11.22,
    "now": 12.11,
    "ret_total": 7.9,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-08-28",
+   "exit_price": 10.67,
+   "ret_hold": -4.9,
+   "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 5,
-   "held_since": "2026-08-10",
-   "buy_price": 10.09,
-   "ret_since_buy": 20.0
+   "days_left": 1,
+   "held_since": "2026-08-17",
+   "buy_price": 9.605,
+   "ret_since_buy": 26.1
   },
   {
    "date": "2026-08-21",
@@ -5404,11 +5594,11 @@
    "ret_hold": 0.6,
    "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 1,
-   "held_since": "2026-08-17",
-   "buy_price": 776.34,
-   "ret_since_buy": -1.4
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-08-21",
@@ -5484,16 +5674,16 @@
    "entry": 11.26,
    "now": 12.11,
    "ret_total": 7.5,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-08-31",
+   "exit_price": 10.77,
+   "ret_hold": -4.4,
+   "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 5,
-   "held_since": "2026-08-10",
-   "buy_price": 10.09,
-   "ret_since_buy": 20.0
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-08-24",
@@ -5625,11 +5815,11 @@
    "ret_hold": 1.4,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-08-21",
+   "buy_price": 362.86,
+   "ret_since_buy": -1.5
   },
   {
    "date": "2026-08-24",
@@ -5688,16 +5878,16 @@
    "entry": 11.18,
    "now": 12.11,
    "ret_total": 8.3,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-09-01",
+   "exit_price": 10.23,
+   "ret_hold": -8.5,
+   "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 5,
-   "held_since": "2026-08-10",
-   "buy_price": 10.09,
-   "ret_since_buy": 20.0
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-08-25",
@@ -5744,11 +5934,11 @@
    "ret_hold": -2.2,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-08-24",
+   "buy_price": 14.58,
+   "ret_since_buy": -16.1
   },
   {
    "date": "2026-08-25",
@@ -5909,16 +6099,16 @@
    "entry": 11.83,
    "now": 12.11,
    "ret_total": 2.4,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-09-02",
+   "exit_price": 10.47,
+   "ret_hold": -11.5,
+   "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 5,
-   "held_since": "2026-08-10",
-   "buy_price": 10.09,
-   "ret_since_buy": 20.0
+   "days_left": 4,
+   "held_since": "2026-08-25",
+   "buy_price": 11.18,
+   "ret_since_buy": 8.3
   },
   {
    "date": "2026-08-26",
@@ -5983,10 +6173,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-08-25",
-   "buy_price": 14.78,
-   "ret_since_buy": -17.3
+   "days_left": 3,
+   "held_since": "2026-08-24",
+   "buy_price": 14.58,
+   "ret_since_buy": -16.1
   },
   {
    "date": "2026-08-26",
@@ -6016,11 +6206,11 @@
    "ret_hold": -6.6,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 3,
+   "held_since": "2026-08-24",
+   "buy_price": 8.28,
+   "ret_since_buy": -7.2
   },
   {
    "date": "2026-08-26",
@@ -6187,10 +6377,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-08-26",
-   "buy_price": 8.145,
-   "ret_since_buy": -5.7
+   "days_left": 2,
+   "held_since": "2026-08-24",
+   "buy_price": 8.28,
+   "ret_since_buy": -7.2
   },
   {
    "date": "2026-08-27",
@@ -6271,11 +6461,11 @@
    "ret_hold": 10.2,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-08-27",
+   "buy_price": 40.53,
+   "ret_since_buy": 2.9
   },
   {
    "date": "2026-08-28",
@@ -6340,10 +6530,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 2,
-   "held_since": "2026-08-25",
-   "buy_price": 14.78,
-   "ret_since_buy": -17.3
+   "days_left": 1,
+   "held_since": "2026-08-24",
+   "buy_price": 14.58,
+   "ret_since_buy": -16.1
   },
   {
    "date": "2026-08-28",
@@ -6374,10 +6564,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 3,
-   "held_since": "2026-08-26",
-   "buy_price": 8.145,
-   "ret_since_buy": -5.7
+   "days_left": 1,
+   "held_since": "2026-08-24",
+   "buy_price": 8.28,
+   "ret_since_buy": -7.2
   },
   {
    "date": "2026-08-28",
@@ -6509,11 +6699,11 @@
    "ret_hold": 5.7,
    "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 1,
-   "held_since": "2026-08-25",
-   "buy_price": 14.78,
-   "ret_since_buy": -17.3
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-08-31",
@@ -6696,11 +6886,11 @@
    "ret_hold": 3.7,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-08-31",
+   "buy_price": 14.505,
+   "ret_since_buy": -15.7
   },
   {
    "date": "2026-09-01",
@@ -6730,11 +6920,11 @@
    "ret_hold": 3.6,
    "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 1,
-   "held_since": "2026-08-26",
-   "buy_price": 8.145,
-   "ret_since_buy": -5.7
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-01",
@@ -6747,11 +6937,11 @@
    "ret_hold": 5.5,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 3,
+   "held_since": "2026-08-28",
+   "buy_price": 16.6,
+   "ret_since_buy": -28.0
   },
   {
    "date": "2026-09-01",
@@ -6918,10 +7108,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-09-01",
-   "buy_price": 14.465,
-   "ret_since_buy": -15.5
+   "days_left": 3,
+   "held_since": "2026-08-31",
+   "buy_price": 14.505,
+   "ret_since_buy": -15.7
   },
   {
    "date": "2026-09-02",
@@ -6951,11 +7141,11 @@
    "ret_hold": -2.4,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-01",
+   "buy_price": 7.04,
+   "ret_since_buy": 9.1
   },
   {
    "date": "2026-09-02",
@@ -6969,10 +7159,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-09-01",
-   "buy_price": 13.45,
-   "ret_since_buy": -11.2
+   "days_left": 2,
+   "held_since": "2026-08-28",
+   "buy_price": 16.6,
+   "ret_since_buy": -28.0
   },
   {
    "date": "2026-09-03",
@@ -7048,16 +7238,16 @@
    "entry": 11.63,
    "now": 12.11,
    "ret_total": 4.1,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-09-11",
+   "exit_price": 11.98,
+   "ret_hold": 3.0,
+   "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 5,
-   "held_since": "2026-08-10",
-   "buy_price": 10.09,
-   "ret_since_buy": 20.0
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-03",
@@ -7088,10 +7278,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 3,
-   "held_since": "2026-09-01",
-   "buy_price": 14.465,
-   "ret_since_buy": -15.5
+   "days_left": 2,
+   "held_since": "2026-08-31",
+   "buy_price": 14.505,
+   "ret_since_buy": -15.7
   },
   {
    "date": "2026-09-03",
@@ -7274,11 +7464,11 @@
    "ret_hold": 1.7,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-03",
+   "buy_price": 121.77,
+   "ret_since_buy": -17.4
   },
   {
    "date": "2026-09-04",
@@ -7461,11 +7651,11 @@
    "ret_hold": 1.5,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 5,
+   "held_since": "2026-09-04",
+   "buy_price": 94.4401,
+   "ret_since_buy": 22.9
   },
   {
    "date": "2026-09-07",
@@ -7614,11 +7804,11 @@
    "ret_hold": -6.6,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-04",
+   "buy_price": 94.4401,
+   "ret_since_buy": 22.9
   },
   {
    "date": "2026-09-08",
@@ -7682,11 +7872,11 @@
    "ret_hold": -7.7,
    "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 1,
-   "held_since": "2026-09-01",
-   "buy_price": 14.465,
-   "ret_since_buy": -15.5
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-08",
@@ -7716,11 +7906,11 @@
    "ret_hold": -11.2,
    "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 1,
-   "held_since": "2026-09-01",
-   "buy_price": 13.45,
-   "ret_since_buy": -11.2
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-08",
@@ -7869,11 +8059,11 @@
    "ret_hold": -3.8,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 3,
+   "held_since": "2026-09-04",
+   "buy_price": 94.4401,
+   "ret_since_buy": 22.9
   },
   {
    "date": "2026-09-09",
@@ -8091,10 +8281,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-09-09",
-   "buy_price": 104.99,
-   "ret_since_buy": 10.5
+   "days_left": 2,
+   "held_since": "2026-09-04",
+   "buy_price": 94.4401,
+   "ret_since_buy": 22.9
   },
   {
    "date": "2026-09-10",
@@ -8124,11 +8314,11 @@
    "ret_hold": -7.7,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 3,
+   "held_since": "2026-09-08",
+   "buy_price": 15.37,
+   "ret_since_buy": -20.4
   },
   {
    "date": "2026-09-10",
@@ -8278,10 +8468,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 3,
-   "held_since": "2026-09-09",
-   "buy_price": 104.99,
-   "ret_since_buy": 10.5
+   "days_left": 1,
+   "held_since": "2026-09-04",
+   "buy_price": 94.4401,
+   "ret_since_buy": 22.9
   },
   {
    "date": "2026-09-11",
@@ -8464,11 +8654,11 @@
    "ret_hold": 24.1,
    "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 2,
-   "held_since": "2026-09-09",
-   "buy_price": 104.99,
-   "ret_since_buy": 10.5
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-14",
@@ -8652,10 +8842,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 1,
-   "held_since": "2026-09-09",
-   "buy_price": 104.99,
-   "ret_since_buy": 10.5
+   "days_left": 4,
+   "held_since": "2026-09-14",
+   "buy_price": 98.12,
+   "ret_since_buy": 18.3
   },
   {
    "date": "2026-09-15",
@@ -8736,11 +8926,11 @@
    "ret_hold": 6.4,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-14",
+   "buy_price": 7.3499,
+   "ret_since_buy": 4.5
   },
   {
    "date": "2026-09-15",
@@ -8821,11 +9011,11 @@
    "ret_hold": 3.4,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-15",
+   "buy_price": 12.775,
+   "ret_since_buy": 5.8
   },
   {
    "date": "2026-09-16",
@@ -8872,11 +9062,11 @@
    "ret_hold": 20.1,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 3,
+   "held_since": "2026-09-14",
+   "buy_price": 98.12,
+   "ret_since_buy": 18.3
   },
   {
    "date": "2026-09-16",
@@ -8923,11 +9113,11 @@
    "ret_hold": -0.6,
    "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 1,
-   "held_since": "2026-09-10",
-   "buy_price": 15.0,
-   "ret_since_buy": -18.5
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-16",
@@ -9009,10 +9199,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-09-16",
-   "buy_price": 12.915,
-   "ret_since_buy": 4.7
+   "days_left": 3,
+   "held_since": "2026-09-15",
+   "buy_price": 12.775,
+   "ret_since_buy": 5.8
   },
   {
    "date": "2026-09-17",
@@ -9060,10 +9250,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-09-16",
-   "buy_price": 102.04,
-   "ret_since_buy": 13.7
+   "days_left": 2,
+   "held_since": "2026-09-14",
+   "buy_price": 98.12,
+   "ret_since_buy": 18.3
   },
   {
    "date": "2026-09-17",
@@ -9127,11 +9317,11 @@
    "ret_hold": -2.0,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-16",
+   "buy_price": 13.7,
+   "ret_since_buy": -10.7
   },
   {
    "date": "2026-09-17",
@@ -9298,10 +9488,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 3,
-   "held_since": "2026-09-16",
-   "buy_price": 102.04,
-   "ret_since_buy": 13.7
+   "days_left": 1,
+   "held_since": "2026-09-14",
+   "buy_price": 98.12,
+   "ret_since_buy": 18.3
   },
   {
    "date": "2026-09-18",
@@ -9434,10 +9624,10 @@
    "still_open": false,
    "simulated": false,
    "already_held": true,
-   "days_left": 2,
-   "held_since": "2026-09-16",
-   "buy_price": 12.915,
-   "ret_since_buy": 4.7
+   "days_left": 1,
+   "held_since": "2026-09-15",
+   "buy_price": 12.775,
+   "ret_since_buy": 5.8
   },
   {
    "date": "2026-09-21",
@@ -9479,16 +9669,16 @@
    "entry": 13.435,
    "now": 12.11,
    "ret_total": -9.9,
-   "exit_date": null,
-   "exit_price": null,
-   "ret_hold": null,
-   "still_open": true,
+   "exit_date": "2026-09-28",
+   "exit_price": 12.11,
+   "ret_hold": -9.9,
+   "still_open": false,
    "simulated": false,
-   "already_held": true,
-   "days_left": 5,
-   "held_since": "2026-08-10",
-   "buy_price": 10.09,
-   "ret_since_buy": 20.0
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-21",
@@ -9501,11 +9691,11 @@
    "ret_hold": -2.5,
    "still_open": false,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-18",
+   "buy_price": 672.13,
+   "ret_since_buy": 6.5
   },
   {
    "date": "2026-09-21",
@@ -9586,11 +9776,11 @@
    "ret_hold": null,
    "still_open": true,
    "simulated": false,
-   "already_held": true,
-   "days_left": 1,
-   "held_since": "2026-09-16",
-   "buy_price": 12.915,
-   "ret_since_buy": 4.7
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-22",
@@ -9671,11 +9861,11 @@
    "ret_hold": null,
    "still_open": true,
    "simulated": false,
-   "already_held": true,
-   "days_left": 1,
-   "held_since": "2026-09-16",
-   "buy_price": 102.04,
-   "ret_since_buy": 13.7
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-22",
@@ -9688,11 +9878,11 @@
    "ret_hold": null,
    "still_open": true,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 3,
+   "held_since": "2026-09-18",
+   "buy_price": 672.13,
+   "ret_since_buy": 6.5
   },
   {
    "date": "2026-09-22",
@@ -9926,11 +10116,11 @@
    "ret_hold": null,
    "still_open": true,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-09-22",
+   "buy_price": 123.91,
+   "ret_since_buy": -6.4
   },
   {
    "date": "2026-09-23",
@@ -10131,10 +10321,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-09-23",
-   "buy_price": 121.1099,
-   "ret_since_buy": -4.2
+   "days_left": 3,
+   "held_since": "2026-09-22",
+   "buy_price": 123.91,
+   "ret_since_buy": -6.4
   },
   {
    "date": "2026-09-24",
@@ -10147,11 +10337,11 @@
    "ret_hold": null,
    "still_open": true,
    "simulated": false,
-   "already_held": false,
-   "days_left": null,
-   "held_since": null,
-   "buy_price": null,
-   "ret_since_buy": null
+   "already_held": true,
+   "days_left": 1,
+   "held_since": "2026-09-18",
+   "buy_price": 672.13,
+   "ret_since_buy": 6.5
   },
   {
    "date": "2026-09-24",
@@ -10335,10 +10525,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 3,
-   "held_since": "2026-09-23",
-   "buy_price": 121.1099,
-   "ret_since_buy": -4.2
+   "days_left": 2,
+   "held_since": "2026-09-22",
+   "buy_price": 123.91,
+   "ret_since_buy": -6.4
   },
   {
    "date": "2026-09-25",
@@ -10351,11 +10541,11 @@
    "ret_hold": null,
    "still_open": true,
    "simulated": false,
-   "already_held": true,
-   "days_left": 4,
-   "held_since": "2026-09-24",
-   "buy_price": 765.885,
-   "ret_since_buy": -6.6
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-09-25",
@@ -10522,10 +10712,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 2,
-   "held_since": "2026-09-23",
-   "buy_price": 121.1099,
-   "ret_since_buy": -4.2
+   "days_left": 1,
+   "held_since": "2026-09-22",
+   "buy_price": 123.91,
+   "ret_since_buy": -6.4
   },
   {
    "date": "2026-09-28",
@@ -10539,10 +10729,10 @@
    "still_open": true,
    "simulated": false,
    "already_held": true,
-   "days_left": 3,
-   "held_since": "2026-09-24",
-   "buy_price": 765.885,
-   "ret_since_buy": -6.6
+   "days_left": 4,
+   "held_since": "2026-09-25",
+   "buy_price": 749.22,
+   "ret_since_buy": -4.5
   },
   {
    "date": "2026-09-28",
@@ -10677,9 +10867,6 @@
    "2026-09-24": 629.26,
    "2026-09-25": 630.63,
    "2026-09-28": 607.87
-  },
-  "APP": {
-   "2026-09-28": 308.24
   },
   "BB": {
    "2026-09-10": 7.54,
@@ -10860,9 +11047,6 @@
    "2026-09-24": 14.03,
    "2026-09-25": 15.37,
    "2026-09-28": 17.95
-  },
-  "MARA": {
-   "2026-09-28": 12.11
   },
   "MCD": {
    "2026-09-10": 253.05,
@@ -11152,16 +11336,60 @@
  },
  "open_positions": [
   {
+   "sym": "INTC",
+   "bought": "2026-09-22",
+   "days_left": 1,
+   "exit_on": null,
+   "entry": 123.91,
+   "price": 116.03,
+   "shares": 4.1098,
+   "alloc": 509.24,
+   "value": 476.86,
+   "pnl": -32.38,
+   "ret": -6.4,
+   "spy_ret": -1.0,
+   "path": [
+    {
+     "day": 1,
+     "date": "2026-09-23",
+     "close": 122.6,
+     "day_pct": -1.1,
+     "cum_pct": -1.1
+    },
+    {
+     "day": 2,
+     "date": "2026-09-24",
+     "close": 127.39,
+     "day_pct": 3.9,
+     "cum_pct": 2.8
+    },
+    {
+     "day": 3,
+     "date": "2026-09-25",
+     "close": 123.0,
+     "day_pct": -3.4,
+     "cum_pct": -0.7
+    },
+    {
+     "day": 4,
+     "date": "2026-09-28",
+     "close": 116.03,
+     "day_pct": -5.7,
+     "cum_pct": -6.4
+    }
+   ]
+  },
+  {
    "sym": "MSFT",
    "bought": "2026-09-22",
    "days_left": 1,
    "exit_on": null,
    "entry": 498.0,
    "price": 509.22,
-   "shares": 0.0524,
-   "alloc": 26.07,
-   "value": 26.66,
-   "pnl": 0.59,
+   "shares": 1.1766,
+   "alloc": 585.95,
+   "value": 599.16,
+   "pnl": 13.2,
    "ret": 2.3,
    "spy_ret": -1.0,
    "path": [
@@ -11202,10 +11430,10 @@
    "exit_on": null,
    "entry": 10.5465,
    "price": 10.12,
-   "shares": 56.7087,
-   "alloc": 598.08,
-   "value": 573.89,
-   "pnl": -24.19,
+   "shares": 55.5591,
+   "alloc": 585.95,
+   "value": 562.26,
+   "pnl": -23.7,
    "ret": -4.0,
    "spy_ret": -1.0,
    "path": [
@@ -11246,10 +11474,10 @@
    "exit_on": null,
    "entry": 7.56,
    "price": 7.68,
-   "shares": 79.1109,
-   "alloc": 598.08,
-   "value": 607.57,
-   "pnl": 9.49,
+   "shares": 77.5071,
+   "alloc": 585.95,
+   "value": 595.25,
+   "pnl": 9.3,
    "ret": 1.6,
    "spy_ret": -1.0,
    "path": [
@@ -11290,10 +11518,10 @@
    "exit_on": null,
    "entry": 72.1222,
    "price": 72.19,
-   "shares": 8.2926,
-   "alloc": 598.08,
-   "value": 598.64,
-   "pnl": 0.56,
+   "shares": 8.1245,
+   "alloc": 585.95,
+   "value": 586.5,
+   "pnl": 0.55,
    "ret": 0.1,
    "spy_ret": -1.0,
    "path": [
@@ -11334,10 +11562,10 @@
    "exit_on": null,
    "entry": 772.84,
    "price": 765.61,
-   "shares": 0.7739,
-   "alloc": 598.08,
-   "value": 592.48,
-   "pnl": -5.6,
+   "shares": 0.7582,
+   "alloc": 585.95,
+   "value": 580.47,
+   "pnl": -5.48,
    "ret": -0.9,
    "spy_ret": -1.0,
    "path": [
@@ -11372,90 +11600,16 @@
    ]
   },
   {
-   "sym": "HL",
-   "bought": "2026-09-23",
-   "days_left": 2,
-   "exit_on": null,
-   "entry": 18.195,
-   "price": 17.01,
-   "shares": 4.5125,
-   "alloc": 82.11,
-   "value": 76.76,
-   "pnl": -5.35,
-   "ret": -6.5,
-   "spy_ret": -0.3,
-   "path": [
-    {
-     "day": 1,
-     "date": "2026-09-24",
-     "close": 17.94,
-     "day_pct": -1.4,
-     "cum_pct": -1.4
-    },
-    {
-     "day": 2,
-     "date": "2026-09-25",
-     "close": 18.19,
-     "day_pct": 1.4,
-     "cum_pct": -0.0
-    },
-    {
-     "day": 3,
-     "date": "2026-09-28",
-     "close": 17.01,
-     "day_pct": -6.5,
-     "cum_pct": -6.5
-    }
-   ]
-  },
-  {
-   "sym": "INTC",
-   "bought": "2026-09-23",
-   "days_left": 2,
-   "exit_on": null,
-   "entry": 121.1099,
-   "price": 116.03,
-   "shares": 4.8607,
-   "alloc": 588.68,
-   "value": 563.99,
-   "pnl": -24.69,
-   "ret": -4.2,
-   "spy_ret": -0.3,
-   "path": [
-    {
-     "day": 1,
-     "date": "2026-09-24",
-     "close": 127.39,
-     "day_pct": 5.2,
-     "cum_pct": 5.2
-    },
-    {
-     "day": 2,
-     "date": "2026-09-25",
-     "close": 123.0,
-     "day_pct": -3.4,
-     "cum_pct": 1.6
-    },
-    {
-     "day": 3,
-     "date": "2026-09-28",
-     "close": 116.03,
-     "day_pct": -5.7,
-     "cum_pct": -4.2
-    }
-   ]
-  },
-  {
    "sym": "IONQ",
    "bought": "2026-09-23",
    "days_left": 2,
    "exit_on": null,
    "entry": 42.76,
    "price": 44.58,
-   "shares": 13.767,
-   "alloc": 588.68,
-   "value": 613.73,
-   "pnl": 25.06,
+   "shares": 12.6671,
+   "alloc": 541.65,
+   "value": 564.7,
+   "pnl": 23.05,
    "ret": 4.3,
    "spy_ret": -0.3,
    "path": [
@@ -11489,10 +11643,10 @@
    "exit_on": null,
    "entry": 238.115,
    "price": 233.6,
-   "shares": 2.4722,
-   "alloc": 588.68,
-   "value": 577.51,
-   "pnl": -11.16,
+   "shares": 2.4238,
+   "alloc": 577.14,
+   "value": 566.2,
+   "pnl": -10.94,
    "ret": -1.9,
    "spy_ret": -0.3,
    "path": [
@@ -11526,10 +11680,10 @@
    "exit_on": null,
    "entry": 380.44,
    "price": 357.45,
-   "shares": 1.5474,
-   "alloc": 588.68,
-   "value": 553.1,
-   "pnl": -35.57,
+   "shares": 1.517,
+   "alloc": 577.14,
+   "value": 542.27,
+   "pnl": -34.88,
    "ret": -6.0,
    "spy_ret": -0.3,
    "path": [
@@ -11563,10 +11717,10 @@
    "exit_on": null,
    "entry": 13.35,
    "price": 13.52,
-   "shares": 5.2821,
-   "alloc": 70.52,
-   "value": 71.41,
-   "pnl": 0.9,
+   "shares": 7.412,
+   "alloc": 98.95,
+   "value": 100.21,
+   "pnl": 1.26,
    "ret": 1.3,
    "spy_ret": -0.2,
    "path": [
@@ -11593,10 +11747,10 @@
    "exit_on": null,
    "entry": 8.73,
    "price": 8.8,
-   "shares": 68.2968,
-   "alloc": 596.23,
-   "value": 601.01,
-   "pnl": 4.78,
+   "shares": 66.9431,
+   "alloc": 584.41,
+   "value": 589.1,
+   "pnl": 4.69,
    "ret": 0.8,
    "spy_ret": -0.2,
    "path": [
@@ -11623,10 +11777,10 @@
    "exit_on": null,
    "entry": 121.89,
    "price": 120.83,
-   "shares": 4.8916,
-   "alloc": 596.23,
-   "value": 591.05,
-   "pnl": -5.19,
+   "shares": 4.7946,
+   "alloc": 584.41,
+   "value": 579.33,
+   "pnl": -5.08,
    "ret": -0.9,
    "spy_ret": -0.2,
    "path": [
@@ -11653,10 +11807,10 @@
    "exit_on": null,
    "entry": 338.515,
    "price": 342.75,
-   "shares": 1.7613,
-   "alloc": 596.23,
-   "value": 603.69,
-   "pnl": 7.46,
+   "shares": 1.7264,
+   "alloc": 584.41,
+   "value": 591.72,
+   "pnl": 7.31,
    "ret": 1.3,
    "spy_ret": -0.2,
    "path": [
@@ -11677,46 +11831,16 @@
    ]
   },
   {
-   "sym": "META",
-   "bought": "2026-09-24",
-   "days_left": 3,
-   "exit_on": null,
-   "entry": 765.885,
-   "price": 715.62,
-   "shares": 0.7785,
-   "alloc": 596.23,
-   "value": 557.1,
-   "pnl": -39.13,
-   "ret": -6.6,
-   "spy_ret": -0.2,
-   "path": [
-    {
-     "day": 1,
-     "date": "2026-09-25",
-     "close": 751.66,
-     "day_pct": -1.9,
-     "cum_pct": -1.9
-    },
-    {
-     "day": 2,
-     "date": "2026-09-28",
-     "close": 715.62,
-     "day_pct": -4.8,
-     "cum_pct": -6.6
-    }
-   ]
-  },
-  {
    "sym": "NBIS",
    "bought": "2026-09-24",
    "days_left": 3,
    "exit_on": null,
    "entry": 243.48,
    "price": 231.88,
-   "shares": 2.4488,
-   "alloc": 596.23,
-   "value": 567.83,
-   "pnl": -28.41,
+   "shares": 2.4003,
+   "alloc": 584.41,
+   "value": 556.57,
+   "pnl": -27.84,
    "ret": -4.8,
    "spy_ret": -0.2,
    "path": [
@@ -11743,10 +11867,10 @@
    "exit_on": null,
    "entry": 138.415,
    "price": 132.6,
-   "shares": 4.3076,
-   "alloc": 596.23,
-   "value": 571.18,
-   "pnl": -25.05,
+   "shares": 4.2222,
+   "alloc": 584.41,
+   "value": 559.86,
+   "pnl": -24.55,
    "ret": -4.2,
    "spy_ret": -0.2,
    "path": [
@@ -11767,25 +11891,25 @@
    ]
   },
   {
-   "sym": "APP",
-   "bought": "2026-08-06",
+   "sym": "AMD",
+   "bought": "2026-09-25",
    "days_left": 4,
    "exit_on": null,
-   "entry": 417.8,
-   "price": 308.24,
-   "shares": 1.3336,
-   "alloc": 557.18,
-   "value": 411.07,
-   "pnl": -146.11,
-   "ret": -26.2,
-   "spy_ret": 0.6,
+   "entry": 626.27,
+   "price": 607.87,
+   "shares": 0.0267,
+   "alloc": 16.7,
+   "value": 16.21,
+   "pnl": -0.49,
+   "ret": -2.9,
+   "spy_ret": -0.7,
    "path": [
     {
      "day": 1,
      "date": "2026-09-28",
-     "close": 308.24,
-     "day_pct": -26.2,
-     "cum_pct": -26.2
+     "close": 607.87,
+     "day_pct": -2.9,
+     "cum_pct": -2.9
     }
    ]
   },
@@ -11796,10 +11920,10 @@
    "exit_on": null,
    "entry": 3.19,
    "price": 3.095,
-   "shares": 146.7654,
-   "alloc": 468.18,
-   "value": 454.24,
-   "pnl": -13.94,
+   "shares": 182.1344,
+   "alloc": 581.01,
+   "value": 563.71,
+   "pnl": -17.3,
    "ret": -3.0,
    "spy_ret": -0.7,
    "path": [
@@ -11813,25 +11937,25 @@
    ]
   },
   {
-   "sym": "MARA",
-   "bought": "2026-08-10",
+   "sym": "META",
+   "bought": "2026-09-25",
    "days_left": 4,
    "exit_on": null,
-   "entry": 10.09,
-   "price": 12.11,
-   "shares": 56.1226,
-   "alloc": 566.28,
-   "value": 679.64,
-   "pnl": 113.37,
-   "ret": 20.0,
-   "spy_ret": -0.3,
+   "entry": 749.22,
+   "price": 715.62,
+   "shares": 0.7755,
+   "alloc": 581.01,
+   "value": 554.95,
+   "pnl": -26.06,
+   "ret": -4.5,
+   "spy_ret": -0.7,
    "path": [
     {
      "day": 1,
      "date": "2026-09-28",
-     "close": 12.11,
-     "day_pct": 20.0,
-     "cum_pct": 20.0
+     "close": 715.62,
+     "day_pct": -4.5,
+     "cum_pct": -4.5
     }
    ]
   },
@@ -11842,10 +11966,10 @@
    "exit_on": null,
    "entry": 1082.28,
    "price": 1053.98,
-   "shares": 0.5478,
-   "alloc": 592.92,
-   "value": 577.42,
-   "pnl": -15.5,
+   "shares": 0.5368,
+   "alloc": 581.01,
+   "value": 565.82,
+   "pnl": -15.19,
    "ret": -2.6,
    "spy_ret": -0.7,
    "path": [
@@ -11865,10 +11989,10 @@
    "exit_on": null,
    "entry": 224.395,
    "price": 228.86,
-   "shares": 2.6423,
-   "alloc": 592.92,
-   "value": 604.72,
-   "pnl": 11.8,
+   "shares": 2.5892,
+   "alloc": 581.01,
+   "value": 592.57,
+   "pnl": 11.56,
    "ret": 2.0,
    "spy_ret": -0.7,
    "path": [
@@ -11888,10 +12012,10 @@
    "exit_on": null,
    "entry": 1760.665,
    "price": 1712.89,
-   "shares": 0.3368,
-   "alloc": 592.92,
-   "value": 576.83,
-   "pnl": -16.09,
+   "shares": 0.33,
+   "alloc": 581.01,
+   "value": 565.24,
+   "pnl": -15.77,
    "ret": -2.7,
    "spy_ret": -0.7,
    "path": [
@@ -11903,6 +12027,21 @@
      "cum_pct": -2.7
     }
    ]
+  },
+  {
+   "sym": "SPCX",
+   "bought": "2026-09-28",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 147.26,
+   "price": 145.47,
+   "shares": 3.5371,
+   "alloc": 520.87,
+   "value": 514.54,
+   "pnl": -6.33,
+   "ret": -1.2,
+   "spy_ret": null,
+   "path": []
   }
  ],
  "starved_days": [
@@ -11910,247 +12049,239 @@
   "2026-08-11",
   "2026-08-13",
   "2026-08-14",
-  "2026-08-20",
   "2026-08-21",
   "2026-08-24",
-  "2026-08-27",
   "2026-08-28",
   "2026-09-03",
   "2026-09-04",
   "2026-09-07",
   "2026-09-08",
-  "2026-09-10",
-  "2026-09-11",
   "2026-09-14",
-  "2026-09-15",
-  "2026-09-18",
-  "2026-09-21",
   "2026-09-22",
   "2026-09-23",
-  "2026-09-25",
   "2026-09-28"
  ],
  "exit_rules": [
   {
    "rule": "Stop -15% / target +15%",
-   "positions": 67,
+   "positions": 68,
    "exited": 55,
    "avg_return": -1.4,
-   "win_rate": 44.8,
-   "pnl": -142.86,
+   "win_rate": 44.1,
+   "pnl": -141.27,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9857.14,
-   "avg_days_held": 15.7,
+   "per_ticker": 147.06,
+   "final": 9858.73,
+   "avg_days_held": 16.1,
    "worst": -25.6,
    "best": 27.1
   },
   {
    "rule": "Stop loss -10%",
-   "positions": 67,
+   "positions": 68,
    "exited": 42,
    "avg_return": -2.1,
-   "win_rate": 26.9,
-   "pnl": -208.39,
+   "win_rate": 26.5,
+   "pnl": -205.83,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9791.61,
-   "avg_days_held": 23.6,
+   "per_ticker": 147.06,
+   "final": 9794.17,
+   "avg_days_held": 23.8,
    "worst": -25.6,
    "best": 68.6
   },
   {
    "rule": "Trailing stop -15%",
-   "positions": 67,
+   "positions": 68,
    "exited": 47,
    "avg_return": -2.8,
-   "win_rate": 32.8,
-   "pnl": -280.01,
+   "win_rate": 32.4,
+   "pnl": -276.4,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9719.99,
-   "avg_days_held": 20.7,
+   "per_ticker": 147.06,
+   "final": 9723.6,
+   "avg_days_held": 21.0,
    "worst": -25.6,
    "best": 49.2
   },
   {
    "rule": "Sell after 5 days",
-   "positions": 67,
-   "exited": 67,
-   "avg_return": -3.1,
-   "win_rate": 31.3,
-   "pnl": -306.4,
+   "positions": 68,
+   "exited": 68,
+   "avg_return": -3.0,
+   "win_rate": 30.9,
+   "pnl": -302.16,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9693.6,
+   "per_ticker": 147.06,
+   "final": 9697.84,
    "avg_days_held": 5.0,
    "worst": -43.5,
    "best": 80.7
   },
   {
    "rule": "Stop -15% / target +25%",
-   "positions": 67,
+   "positions": 68,
    "exited": 51,
    "avg_return": -3.9,
-   "win_rate": 31.3,
-   "pnl": -393.51,
+   "win_rate": 30.9,
+   "pnl": -388.23,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9606.49,
-   "avg_days_held": 21.3,
+   "per_ticker": 147.06,
+   "final": 9611.77,
+   "avg_days_held": 21.6,
    "worst": -25.6,
    "best": 44.9
   },
   {
    "rule": "Trailing stop -20%",
-   "positions": 67,
+   "positions": 68,
    "exited": 43,
-   "avg_return": -4.2,
-   "win_rate": 31.3,
-   "pnl": -416.78,
+   "avg_return": -4.1,
+   "win_rate": 30.9,
+   "pnl": -411.16,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9583.22,
-   "avg_days_held": 25.2,
+   "per_ticker": 147.06,
+   "final": 9588.84,
+   "avg_days_held": 25.5,
    "worst": -30.4,
    "best": 68.6
   },
   {
    "rule": "Stop loss -15%",
-   "positions": 67,
+   "positions": 68,
    "exited": 38,
    "avg_return": -4.6,
-   "win_rate": 28.4,
-   "pnl": -463.14,
+   "win_rate": 27.9,
+   "pnl": -456.84,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9536.86,
-   "avg_days_held": 28.3,
+   "per_ticker": 147.06,
+   "final": 9543.16,
+   "avg_days_held": 28.5,
    "worst": -25.6,
    "best": 68.6
   },
   {
    "rule": "Take profit +20%",
-   "positions": 67,
+   "positions": 68,
    "exited": 25,
    "avg_return": -4.7,
-   "win_rate": 47.8,
-   "pnl": -474.54,
+   "win_rate": 47.1,
+   "pnl": -468.07,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9525.46,
-   "avg_days_held": 44.1,
+   "per_ticker": 147.06,
+   "final": 9531.93,
+   "avg_days_held": 44.0,
    "worst": -93.4,
    "best": 111.8
   },
   {
    "rule": "Sell after 10 days",
-   "positions": 67,
-   "exited": 67,
-   "avg_return": -5.1,
-   "win_rate": 31.3,
-   "pnl": -507.73,
+   "positions": 68,
+   "exited": 68,
+   "avg_return": -5.0,
+   "win_rate": 30.9,
+   "pnl": -501.12,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9492.27,
+   "per_ticker": 147.06,
+   "final": 9498.88,
    "avg_days_held": 10.0,
    "worst": -44.4,
    "best": 74.9
   },
   {
    "rule": "Stop loss -20%",
-   "positions": 67,
+   "positions": 68,
    "exited": 36,
-   "avg_return": -6.9,
-   "win_rate": 28.4,
-   "pnl": -685.5,
+   "avg_return": -6.8,
+   "win_rate": 27.9,
+   "pnl": -675.93,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9314.5,
-   "avg_days_held": 31.0,
+   "per_ticker": 147.06,
+   "final": 9324.07,
+   "avg_days_held": 31.2,
    "worst": -30.4,
    "best": 68.6
   },
   {
    "rule": "Trailing stop -25%",
-   "positions": 67,
+   "positions": 68,
    "exited": 41,
-   "avg_return": -6.9,
-   "win_rate": 26.9,
-   "pnl": -693.39,
+   "avg_return": -6.8,
+   "win_rate": 26.5,
+   "pnl": -683.7,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9306.61,
-   "avg_days_held": 29.5,
+   "per_ticker": 147.06,
+   "final": 9316.3,
+   "avg_days_held": 29.7,
    "worst": -34.5,
    "best": 68.6
   },
   {
    "rule": "Stop -20% / target +40%",
-   "positions": 67,
+   "positions": 68,
    "exited": 40,
-   "avg_return": -7.3,
-   "win_rate": 28.4,
-   "pnl": -728.61,
+   "avg_return": -7.2,
+   "win_rate": 27.9,
+   "pnl": -718.4,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9271.39,
-   "avg_days_held": 28.7,
+   "per_ticker": 147.06,
+   "final": 9281.6,
+   "avg_days_held": 28.9,
    "worst": -30.4,
    "best": 46.3
   },
   {
    "rule": "Run then trail -15% (+20%)",
-   "positions": 67,
+   "positions": 68,
    "exited": 13,
-   "avg_return": -7.4,
-   "win_rate": 41.8,
-   "pnl": -744.0,
+   "avg_return": -7.3,
+   "win_rate": 41.2,
+   "pnl": -733.57,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9256.0,
-   "avg_days_held": 49.6,
+   "per_ticker": 147.06,
+   "final": 9266.43,
+   "avg_days_held": 49.5,
    "worst": -93.4,
    "best": 111.8
   },
   {
    "rule": "Take profit +30%",
-   "positions": 67,
+   "positions": 68,
    "exited": 13,
-   "avg_return": -7.9,
-   "win_rate": 38.8,
-   "pnl": -790.44,
+   "avg_return": -7.8,
+   "win_rate": 38.2,
+   "pnl": -779.33,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9209.56,
-   "avg_days_held": 53.6,
+   "per_ticker": 147.06,
+   "final": 9220.67,
+   "avg_days_held": 53.4,
    "worst": -93.4,
    "best": 111.8
   },
   {
    "rule": "Hold, never sell",
-   "positions": 67,
+   "positions": 68,
    "exited": 0,
-   "avg_return": -9.3,
-   "win_rate": 35.8,
-   "pnl": -934.25,
+   "avg_return": -9.2,
+   "win_rate": 35.3,
+   "pnl": -921.02,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 9065.75,
-   "avg_days_held": 59.1,
+   "per_ticker": 147.06,
+   "final": 9078.98,
+   "avg_days_held": 58.9,
    "worst": -93.4,
    "best": 111.8
   },
   {
    "rule": "Sell after 20 days",
-   "positions": 67,
-   "exited": 67,
-   "avg_return": -10.0,
-   "win_rate": 34.3,
-   "pnl": -1004.08,
+   "positions": 68,
+   "exited": 68,
+   "avg_return": -9.9,
+   "win_rate": 33.8,
+   "pnl": -989.74,
    "invested": 10000.0,
-   "per_ticker": 149.25,
-   "final": 8995.92,
+   "per_ticker": 147.06,
+   "final": 9010.26,
    "avg_days_held": 20.0,
    "worst": -62.7,
    "best": 50.9
