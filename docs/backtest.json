@@ -2145,8 +2145,9 @@
   {
    "date": "2026-09-29",
    "picks": 6,
-   "flagged": 9,
+   "flagged": 10,
    "held_already": [
+    "MU",
     "NVDA",
     "SPCX"
    ],
@@ -10893,6 +10894,23 @@
    "held_since": null,
    "buy_price": null,
    "ret_since_buy": null
+  },
+  {
+   "date": "2026-09-29",
+   "sym": "MU",
+   "entry": 1065.0799560546875,
+   "now": 1065.08,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 3,
+   "held_since": "2026-09-25",
+   "buy_price": 1082.28,
+   "ret_since_buy": -1.6
   },
   {
    "date": "2026-09-29",
