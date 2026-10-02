@@ -2221,8 +2221,8 @@
   },
   {
    "date": "2026-10-02",
-   "picks": 3,
-   "flagged": 9,
+   "picks": 4,
+   "flagged": 10,
    "held_already": [
     "INTC",
     "NKE",
@@ -2234,12 +2234,13 @@
    "bought": [
     "WDC",
     "SNDK",
-    "NVDA"
+    "NVDA",
+    "AAL"
    ],
    "per_ticker": 582.19,
    "held_days": 0,
-   "return_pct": 0.9,
-   "invested": 1746.57,
+   "return_pct": 0.7,
+   "invested": 2328.76,
    "balance": 11643.8,
    "pnl": 15.49,
    "open": true
@@ -11433,6 +11434,23 @@
   },
   {
    "date": "2026-10-02",
+   "sym": "AAL",
+   "entry": 12.94,
+   "now": 12.94,
+   "ret_total": -0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-10-02",
    "sym": "INTC",
    "entry": 121.3503,
    "now": 119.33,
@@ -12419,6 +12437,21 @@
      "cum_pct": 1.8
     }
    ]
+  },
+  {
+   "sym": "AAL",
+   "bought": "2026-10-02",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 12.94,
+   "price": 12.94,
+   "shares": 44.9915,
+   "alloc": 582.19,
+   "value": 582.19,
+   "pnl": -0.0,
+   "ret": -0.0,
+   "spy_ret": null,
+   "path": []
   },
   {
    "sym": "NVDA",
