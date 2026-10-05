@@ -2247,8 +2247,8 @@
   },
   {
    "date": "2026-10-05",
-   "picks": 4,
-   "flagged": 8,
+   "picks": 5,
+   "flagged": 9,
    "held_already": [
     "INTC",
     "NU",
@@ -2259,14 +2259,15 @@
     "VALE",
     "SPCX",
     "MU",
-    "GRAB"
+    "GRAB",
+    "CTVA"
    ],
-   "per_ticker": 591.63,
+   "per_ticker": 491.83,
    "held_days": 0,
    "return_pct": -0.0,
-   "invested": 2366.54,
+   "invested": 2459.17,
    "balance": 11832.69,
-   "pnl": -0.82,
+   "pnl": -0.68,
    "open": true
   }
  ],
@@ -11628,6 +11629,23 @@
   },
   {
    "date": "2026-10-05",
+   "sym": "CTVA",
+   "entry": 12.39,
+   "now": 12.39,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-10-05",
    "sym": "GRAB",
    "entry": 3.18,
    "now": 3.17,
@@ -12789,6 +12807,21 @@
      "cum_pct": 9.6
     }
    ]
+  },
+  {
+   "sym": "CTVA",
+   "bought": "2026-10-05",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 12.39,
+   "price": 12.39,
+   "shares": 7.4767,
+   "alloc": 92.64,
+   "value": 92.64,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
   },
   {
    "sym": "GRAB",
