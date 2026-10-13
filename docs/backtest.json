@@ -2406,9 +2406,10 @@
   {
    "date": "2026-10-13",
    "picks": 5,
-   "flagged": 11,
+   "flagged": 12,
    "held_already": [
     "ASTS",
+    "META",
     "MU",
     "NBIS",
     "NOK",
@@ -12925,6 +12926,23 @@
    "held_since": null,
    "buy_price": null,
    "ret_since_buy": null
+  },
+  {
+   "date": "2026-10-13",
+   "sym": "META",
+   "entry": 762.5,
+   "now": 762.5,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 2,
+   "held_since": "2026-10-08",
+   "buy_price": 716.84,
+   "ret_since_buy": 6.4
   },
   {
    "date": "2026-10-13",
