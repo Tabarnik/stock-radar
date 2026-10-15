@@ -2460,8 +2460,8 @@
   },
   {
    "date": "2026-10-15",
-   "picks": 3,
-   "flagged": 8,
+   "picks": 5,
+   "flagged": 10,
    "held_already": [
     "INTC",
     "MU",
@@ -2470,14 +2470,16 @@
     "SPY"
    ],
    "bought": [
+    "WULF",
+    "NBIS",
     "IREN",
     "CRWV",
     "CCC"
    ],
    "per_ticker": 553.26,
    "held_days": 0,
-   "return_pct": 6.3,
-   "invested": 1659.78,
+   "return_pct": 3.8,
+   "invested": 2766.3,
    "balance": 11065.19,
    "pnl": 104.55,
    "open": true
@@ -13422,6 +13424,23 @@
   },
   {
    "date": "2026-10-15",
+   "sym": "NBIS",
+   "entry": 188.41000366210938,
+   "now": 188.41,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-10-15",
    "sym": "QQQ",
    "entry": 723.75,
    "now": 728.0,
@@ -13470,6 +13489,23 @@
    "held_since": "2026-10-13",
    "buy_price": 777.92,
    "ret_since_buy": -0.8
+  },
+  {
+   "date": "2026-10-15",
+   "sym": "WULF",
+   "entry": 12.62,
+   "now": 12.62,
+   "ret_total": -0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   }
  ],
  "my_positions": [],
@@ -14526,6 +14562,36 @@
    "value": 602.85,
    "pnl": 49.59,
    "ret": 9.0,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "NBIS",
+   "bought": "2026-10-15",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 188.41,
+   "price": 188.41,
+   "shares": 2.9365,
+   "alloc": 553.26,
+   "value": 553.26,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "WULF",
+   "bought": "2026-10-15",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 12.62,
+   "price": 12.62,
+   "shares": 43.8399,
+   "alloc": 553.26,
+   "value": 553.26,
+   "pnl": -0.0,
+   "ret": -0.0,
    "spy_ret": null,
    "path": []
   }
