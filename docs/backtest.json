@@ -2723,7 +2723,7 @@
   {
    "date": "2026-10-29",
    "picks": 3,
-   "flagged": 10,
+   "flagged": 11,
    "held_already": [
     "BBD",
     "GOOG",
@@ -2736,7 +2736,7 @@
    "bought": [
     "RDDT",
     "NOW",
-    "AAL"
+    "AMZN"
    ],
    "per_ticker": 386.71,
    "held_days": 0,
@@ -15386,6 +15386,23 @@
   },
   {
    "date": "2026-10-29",
+   "sym": "AMZN",
+   "entry": 243.7899932861328,
+   "now": 243.79,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-10-29",
    "sym": "BBD",
    "entry": 2.625,
    "now": 2.63,
@@ -16605,17 +16622,17 @@
    ]
   },
   {
-   "sym": "AAL",
+   "sym": "AMZN",
    "bought": "2026-10-29",
    "days_left": 5,
    "exit_on": null,
-   "entry": 12.78,
-   "price": 12.78,
-   "shares": 8.8314,
+   "entry": 243.79,
+   "price": 243.79,
+   "shares": 0.463,
    "alloc": 112.87,
    "value": 112.87,
-   "pnl": -0.0,
-   "ret": -0.0,
+   "pnl": 0.0,
+   "ret": 0.0,
    "spy_ret": null,
    "path": []
   },
@@ -16669,7 +16686,8 @@
   "2026-09-29",
   "2026-10-08",
   "2026-10-14",
-  "2026-10-26"
+  "2026-10-26",
+  "2026-10-29"
  ],
  "exit_rules": [
   {
