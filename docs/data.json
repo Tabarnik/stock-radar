@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-29T21:28:00.429848+00:00",
+ "generated_at": "2026-10-29T22:51:29.688294+00:00",
  "watch": [
   {
    "sym": "GOOG",
    "name": "Alphabet (Google)",
    "price": 282.32000732421875,
    "pct": -2.822522606285706,
-   "mentions": 1099,
-   "mentions_prev": 338,
+   "mentions": 1002,
+   "mentions_prev": 605,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -51,7 +51,7 @@
      "$271.41 \u2013 $404.47"
     ]
    ],
-   "reason": "1,099 mentions today, 3x yesterday's 338. Price is -2.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $405.53 mean target (+44%); the scan flagged vol 5x normal, squeeze/penny sub.",
+   "reason": "1,002 mentions, up from 605 yesterday. Price is -2.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $405.53 mean target (+44%); the scan flagged vol 5x normal, squeeze/penny sub.",
    "tone": null,
    "read": [
     "quiet",
@@ -180,7 +180,7 @@
      "2026-10-26"
     ]
    },
-   "tag": "3x Reddit mentions",
+   "tag": "2x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -188,8 +188,8 @@
    "name": "Alphabet (Google)",
    "price": 283.82000732421875,
    "pct": -2.9675188635149574,
-   "mentions": 592,
-   "mentions_prev": 165,
+   "mentions": 571,
+   "mentions_prev": 263,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -236,7 +236,7 @@
      "$270.70 \u2013 $408.61"
     ]
    ],
-   "reason": "592 mentions today, 4x yesterday's 165. Price is -3.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $419.92 mean target (+48%); the scan flagged vol 5x normal.",
+   "reason": "571 mentions today, 2x yesterday's 263. Price is -3.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $419.92 mean target (+48%); the scan flagged vol 5x normal.",
    "tone": null,
    "read": [
     "quiet",
@@ -365,7 +365,7 @@
      "2026-10-26"
     ]
    },
-   "tag": "4x Reddit mentions",
+   "tag": "2x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -373,8 +373,8 @@
    "name": "Reddit",
    "price": 129.60000610351562,
    "pct": -2.483065384864094,
-   "mentions": 384,
-   "mentions_prev": 87,
+   "mentions": 490,
+   "mentions_prev": 83,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -421,7 +421,7 @@
      "$119.27 \u2013 $263.50"
     ]
    ],
-   "reason": "384 mentions today, 4x yesterday's 87. Price is -2.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $212.95 mean target (+64%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "490 mentions today, 6x yesterday's 83. Price is -2.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $212.95 mean target (+64%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
    "tone": null,
    "read": [
     "quiet",
@@ -431,9 +431,9 @@
    "er": {
     "date": "Oct 29",
     "days_away": 0,
-    "eps_estimate": 1.95,
+    "eps_estimate": 2.42,
     "beat_record": "beat 4 of last 4",
-    "avg_surprise": 48.9,
+    "avg_surprise": 36.9,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -552,42 +552,44 @@
      "2026-10-26"
     ]
    },
-   "tag": "4x Reddit mentions",
+   "tag": "6x Reddit mentions",
    "source": "reddit"
   },
   {
-   "sym": "MSFT",
-   "name": "Microsoft",
-   "price": 530.1400146484375,
-   "pct": -2.958078958733746,
-   "mentions": 346,
-   "mentions_prev": 208,
+   "sym": "AMZN",
+   "name": "Amazon",
+   "price": 243.7899932861328,
+   "pct": -3.952038153592112,
+   "mentions": 336,
+   "mentions_prev": 44,
    "mom": "\u2191",
    "label": "chatter rising",
-   "flags": [],
+   "flags": [
+    "squeeze/penny sub"
+   ],
    "analyst_rec": "STRONG_BUY",
-   "analyst_target": 605.1243,
-   "earnings": null,
+   "analyst_target": 332.4093,
+   "earnings": "Oct 29 (0d)",
    "headlines": [],
    "band": [
-    524.510009765625,
-    532.5999755859375
+    243.7899932861328,
+    254.60000610351562
    ],
    "spark": [
-    524.510009765625,
-    532.5999755859375,
-    531.3300170898438,
-    531.010009765625,
-    530.1400146484375
+    248.0,
+    249.08999633789062,
+    253.10000610351562,
+    254.60000610351562,
+    243.7899932861328
    ],
    "stats": [
     [
      "Market cap",
-     "$3.9T"
+     "$2.6T"
     ],
     [
      "Float",
-     "7.4B"
+     "9.8B"
     ],
     [
      "Short interest",
@@ -595,18 +597,18 @@
     ],
     [
      "Avg vol",
-     "25.3M"
+     "38.6M"
     ],
     [
      "Vol today",
-     "39.1M"
+     "79.8M"
     ],
     [
      "52w range",
-     "$349.20 \u2013 $551.15"
+     "$196.00 \u2013 $287.20"
     ]
    ],
-   "reason": "346 mentions, up from 208 yesterday. Price is -3.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $605.12 mean target (+14%).",
+   "reason": "336 mentions today, 8x yesterday's 44. Price is -4.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $332.41 mean target (+36%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
    "tone": null,
    "read": [
     "quiet",
@@ -614,9 +616,11 @@
     "No strong pattern between price and attention today."
    ],
    "er": {
-    "eps_estimate": 4.82,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 6.5,
+    "date": "Oct 29",
+    "days_away": 0,
+    "eps_estimate": 1.99,
+    "beat_record": "beat 3 of last 4",
+    "avg_surprise": 0.8,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -625,59 +629,59 @@
    "chart": {
     "period": "1y",
     "closes": [
-     513.58,
-     492.77,
-     506.02,
-     469.14,
-     488.91,
-     480.11,
-     475.51,
-     482.86,
-     484.64,
-     469.96,
-     476.26,
-     456.96,
-     463.01,
-     427.58,
-     398.61,
-     398.79,
-     395.63,
-     391.15,
-     407.31,
-     393.95,
-     380.33,
-     355.33,
-     371.95,
-     369.37,
-     421.08,
-     422.91,
-     412.77,
-     413.44,
-     420.22,
-     417.78,
-     449.39,
-     415.89,
-     390.01,
-     378.69,
-     372.27,
-     389.76,
-     384.38,
-     393.08,
-     380.98,
-     463.85,
-     499.05,
-     494.47,
-     483.24,
-     513.53,
-     499.7,
-     495.63,
-     493.78,
-     516.17,
-     517.53,
-     535.07,
-     529.05,
-     524.51,
-     530.14
+     244.22,
+     244.41,
+     234.69,
+     220.69,
+     233.22,
+     229.53,
+     226.19,
+     227.35,
+     232.52,
+     226.5,
+     247.38,
+     239.12,
+     239.16,
+     239.3,
+     210.32,
+     198.79,
+     210.11,
+     210.0,
+     213.21,
+     207.67,
+     205.37,
+     199.34,
+     209.77,
+     238.38,
+     250.56,
+     263.99,
+     268.26,
+     272.68,
+     264.14,
+     266.32,
+     270.64,
+     246.03,
+     238.55,
+     244.39,
+     232.69,
+     242.67,
+     245.34,
+     247.23,
+     232.11,
+     271.58,
+     274.48,
+     262.65,
+     258.63,
+     266.43,
+     258.51,
+     256.78,
+     253.71,
+     249.67,
+     251.52,
+     262.43,
+     250.0,
+     248.0,
+     243.79
     ],
     "dates": [
      "2025-10-27",
@@ -735,7 +739,7 @@
      "2026-10-26"
     ]
    },
-   "tag": "2x Reddit mentions",
+   "tag": "8x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -1479,8 +1483,8 @@
    "name": "Alphabet (Google)",
    "price": 282.32000732421875,
    "pct": -2.822522606285706,
-   "mentions": 1099,
-   "mentions_prev": 338,
+   "mentions": 1002,
+   "mentions_prev": 605,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1524,7 +1528,7 @@
      "$271.41 \u2013 $404.47"
     ]
    ],
-   "reason": "1,099 mentions today, 3x yesterday's 338. Price is -2.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $405.53 mean target (+44%); the scan flagged vol 5x normal, squeeze/penny sub.",
+   "reason": "1,002 mentions, up from 605 yesterday. Price is -2.8% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $405.53 mean target (+44%); the scan flagged vol 5x normal, squeeze/penny sub.",
    "tone": null,
    "read": [
     "quiet",
@@ -1659,8 +1663,8 @@
    "name": "Alphabet (Google)",
    "price": 283.82000732421875,
    "pct": -2.9675188635149574,
-   "mentions": 592,
-   "mentions_prev": 165,
+   "mentions": 571,
+   "mentions_prev": 263,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1707,7 +1711,7 @@
      "$270.70 \u2013 $408.61"
     ]
    ],
-   "reason": "592 mentions today, 4x yesterday's 165. Price is -3.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $419.92 mean target (+48%); the scan flagged vol 5x normal.",
+   "reason": "571 mentions today, 2x yesterday's 263. Price is -3.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $419.92 mean target (+48%); the scan flagged vol 5x normal.",
    "tone": null,
    "read": [
     "quiet",
@@ -1842,8 +1846,8 @@
    "name": "Reddit",
    "price": 129.60000610351562,
    "pct": -2.483065384864094,
-   "mentions": 384,
-   "mentions_prev": 87,
+   "mentions": 490,
+   "mentions_prev": 83,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1890,7 +1894,7 @@
      "$119.27 \u2013 $263.50"
     ]
    ],
-   "reason": "384 mentions today, 4x yesterday's 87. Price is -2.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $212.95 mean target (+64%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "490 mentions today, 6x yesterday's 83. Price is -2.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $212.95 mean target (+64%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
    "tone": null,
    "read": [
     "quiet",
@@ -1900,9 +1904,9 @@
    "er": {
     "date": "Oct 29",
     "days_away": 0,
-    "eps_estimate": 1.95,
+    "eps_estimate": 2.42,
     "beat_record": "beat 4 of last 4",
-    "avg_surprise": 48.9,
+    "avg_surprise": 36.9,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -2023,193 +2027,12 @@
    }
   },
   {
-   "sym": "MSFT",
-   "name": "Microsoft",
-   "price": 530.1400146484375,
-   "pct": -2.958078958733746,
-   "mentions": 346,
-   "mentions_prev": 208,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 605.1243,
-   "earnings": null,
-   "headlines": [],
-   "band": [
-    524.510009765625,
-    532.5999755859375
-   ],
-   "spark": [
-    524.510009765625,
-    532.5999755859375,
-    531.3300170898438,
-    531.010009765625,
-    530.1400146484375
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$3.9T"
-    ],
-    [
-     "Float",
-     "7.4B"
-    ],
-    [
-     "Short interest",
-     "0.9%"
-    ],
-    [
-     "Avg vol",
-     "25.3M"
-    ],
-    [
-     "Vol today",
-     "39.1M"
-    ],
-    [
-     "52w range",
-     "$349.20 \u2013 $551.15"
-    ]
-   ],
-   "reason": "346 mentions, up from 208 yesterday. Price is -3.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $605.12 mean target (+14%).",
-   "tone": null,
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": 4.82,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 6.5,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     513.58,
-     492.77,
-     506.02,
-     469.14,
-     488.91,
-     480.11,
-     475.51,
-     482.86,
-     484.64,
-     469.96,
-     476.26,
-     456.96,
-     463.01,
-     427.58,
-     398.61,
-     398.79,
-     395.63,
-     391.15,
-     407.31,
-     393.95,
-     380.33,
-     355.33,
-     371.95,
-     369.37,
-     421.08,
-     422.91,
-     412.77,
-     413.44,
-     420.22,
-     417.78,
-     449.39,
-     415.89,
-     390.01,
-     378.69,
-     372.27,
-     389.76,
-     384.38,
-     393.08,
-     380.98,
-     463.85,
-     499.05,
-     494.47,
-     483.24,
-     513.53,
-     499.7,
-     495.63,
-     493.78,
-     516.17,
-     517.53,
-     535.07,
-     529.05,
-     524.51,
-     530.14
-    ],
-    "dates": [
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07",
-     "2026-09-14",
-     "2026-09-21",
-     "2026-09-28",
-     "2026-10-05",
-     "2026-10-12",
-     "2026-10-19",
-     "2026-10-26"
-    ]
-   }
-  },
-  {
    "sym": "AMZN",
    "name": "Amazon",
    "price": 243.7899932861328,
    "pct": -3.952038153592112,
-   "mentions": 303,
-   "mentions_prev": 36,
+   "mentions": 336,
+   "mentions_prev": 44,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2256,7 +2079,7 @@
      "$196.00 \u2013 $287.20"
     ]
    ],
-   "reason": "303 mentions today, 8x yesterday's 36. Price is -4.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $332.41 mean target (+36%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "336 mentions today, 8x yesterday's 44. Price is -4.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $332.41 mean target (+36%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
    "tone": null,
    "read": [
     "quiet",
@@ -2389,14 +2212,195 @@
    }
   },
   {
+   "sym": "MSFT",
+   "name": "Microsoft",
+   "price": 530.1400146484375,
+   "pct": -2.958078958733746,
+   "mentions": 297,
+   "mentions_prev": 280,
+   "mom": "\u2192",
+   "label": "",
+   "flags": [],
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 605.1243,
+   "earnings": null,
+   "headlines": [],
+   "band": [
+    524.510009765625,
+    532.5999755859375
+   ],
+   "spark": [
+    524.510009765625,
+    532.5999755859375,
+    531.3300170898438,
+    531.010009765625,
+    530.1400146484375
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$3.9T"
+    ],
+    [
+     "Float",
+     "7.4B"
+    ],
+    [
+     "Short interest",
+     "0.9%"
+    ],
+    [
+     "Avg vol",
+     "25.3M"
+    ],
+    [
+     "Vol today",
+     "39.1M"
+    ],
+    [
+     "52w range",
+     "$349.20 \u2013 $551.15"
+    ]
+   ],
+   "reason": "297 mentions, flat against yesterday. Price is -3.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $605.12 mean target (+14%).",
+   "tone": null,
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 4.82,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 6.5,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     513.58,
+     492.77,
+     506.02,
+     469.14,
+     488.91,
+     480.11,
+     475.51,
+     482.86,
+     484.64,
+     469.96,
+     476.26,
+     456.96,
+     463.01,
+     427.58,
+     398.61,
+     398.79,
+     395.63,
+     391.15,
+     407.31,
+     393.95,
+     380.33,
+     355.33,
+     371.95,
+     369.37,
+     421.08,
+     422.91,
+     412.77,
+     413.44,
+     420.22,
+     417.78,
+     449.39,
+     415.89,
+     390.01,
+     378.69,
+     372.27,
+     389.76,
+     384.38,
+     393.08,
+     380.98,
+     463.85,
+     499.05,
+     494.47,
+     483.24,
+     513.53,
+     499.7,
+     495.63,
+     493.78,
+     516.17,
+     517.53,
+     535.07,
+     529.05,
+     524.51,
+     530.14
+    ],
+    "dates": [
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07",
+     "2026-09-14",
+     "2026-09-21",
+     "2026-09-28",
+     "2026-10-05",
+     "2026-10-12",
+     "2026-10-19",
+     "2026-10-26"
+    ]
+   }
+  },
+  {
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "price": 769.3599853515625,
    "pct": 0.004820518349641719,
-   "mentions": 248,
-   "mentions_prev": 238,
-   "mom": "\u2192",
-   "label": "",
+   "mentions": 274,
+   "mentions_prev": 232,
+   "mom": "\u2191",
+   "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
@@ -2429,7 +2433,7 @@
      "$629.28 \u2013 $781.62"
     ]
    ],
-   "reason": "248 mentions, flat against yesterday. Price is +0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "274 mentions, up from 232 yesterday. Price is +0.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": null,
    "read": [
     "quiet",
@@ -2552,12 +2556,197 @@
    }
   },
   {
+   "sym": "INTC",
+   "name": "Intel",
+   "price": 92.06999969482422,
+   "pct": -1.0212860730765183,
+   "mentions": 227,
+   "mentions_prev": 28,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "BUY",
+   "analyst_target": 117.71429,
+   "earnings": "Oct 29 (0d)",
+   "headlines": [],
+   "band": [
+    86.95999908447266,
+    95.52999877929688
+   ],
+   "spark": [
+    86.95999908447266,
+    90.47000122070312,
+    93.73999786376953,
+    95.52999877929688,
+    92.06999969482422
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$486.7B"
+    ],
+    [
+     "Float",
+     "4.6B"
+    ],
+    [
+     "Short interest",
+     "2.8%"
+    ],
+    [
+     "Avg vol",
+     "102.3M"
+    ],
+    [
+     "Vol today",
+     "112.1M"
+    ],
+    [
+     "52w range",
+     "$32.89 \u2013 $142.35"
+    ]
+   ],
+   "reason": "227 mentions today, 8x yesterday's 28. Price is -1.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $117.71 mean target (+28%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
+   "tone": null,
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "date": "Oct 29",
+    "days_away": 0,
+    "eps_estimate": 0.44,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 5.8,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     39.99,
+     38.13,
+     35.52,
+     34.5,
+     40.56,
+     41.41,
+     37.81,
+     36.82,
+     36.2,
+     39.38,
+     45.55,
+     46.96,
+     45.07,
+     46.47,
+     50.59,
+     46.79,
+     44.11,
+     45.61,
+     43.42,
+     45.77,
+     43.87,
+     43.13,
+     50.38,
+     62.38,
+     68.5,
+     82.54,
+     99.62,
+     124.92,
+     108.77,
+     119.84,
+     114.68,
+     99.17,
+     124.57,
+     133.99,
+     128.32,
+     120.35,
+     109.84,
+     95.04,
+     92.32,
+     90.2,
+     101.65,
+     102.5,
+     90.07,
+     89.47,
+     95.8,
+     102.94,
+     108.6,
+     123.0,
+     119.33,
+     104.7,
+     89.85,
+     86.96,
+     92.07
+    ],
+    "dates": [
+     "2025-10-27",
+     "2025-11-03",
+     "2025-11-10",
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07",
+     "2026-09-14",
+     "2026-09-21",
+     "2026-09-28",
+     "2026-10-05",
+     "2026-10-12",
+     "2026-10-19",
+     "2026-10-26"
+    ]
+   }
+  },
+  {
    "sym": "NOW",
    "name": "ServiceNow",
    "price": 109.66999816894531,
    "pct": -10.801140163525572,
-   "mentions": 221,
-   "mentions_prev": 51,
+   "mentions": 203,
+   "mentions_prev": 99,
    "mom": "\u2191",
    "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
    "flags": [
@@ -2605,7 +2794,7 @@
      "$81.24 \u2013 $192.97"
     ]
    ],
-   "reason": "221 mentions today, 4x yesterday's 51. Down 11% today while chatter keeps climbing; analyst consensus is strong buy with a $155.67 mean target (+42%); the scan flagged vol 5x normal, squeeze/penny sub.",
+   "reason": "203 mentions today, 2x yesterday's 99. Down 11% today while chatter keeps climbing; analyst consensus is strong buy with a $155.67 mean target (+42%); the scan flagged vol 5x normal, squeeze/penny sub.",
    "tone": null,
    "read": [
     "falling knife",
@@ -2736,175 +2925,12 @@
    }
   },
   {
-   "sym": "QQQ",
-   "name": "Invesco QQQ ETF",
-   "price": 715.3400268554688,
-   "pct": -0.3704697972884749,
-   "mentions": 161,
-   "mentions_prev": 124,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": null,
-   "analyst_target": null,
-   "earnings": null,
-   "headlines": [],
-   "band": [
-    704.4000244140625,
-    725.6099853515625
-   ],
-   "spark": [
-    704.4000244140625,
-    712.2000122070312,
-    721.25,
-    725.6099853515625,
-    715.3400268554688
-   ],
-   "stats": [
-    [
-     "Avg vol",
-     "35.0M"
-    ],
-    [
-     "Vol today",
-     "36.9M"
-    ],
-    [
-     "52w range",
-     "$555.60 \u2013 $762.86"
-    ]
-   ],
-   "reason": "161 mentions, up from 124 yesterday. Price is -0.4% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
-   "tone": null,
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": null,
-   "chart": {
-    "period": "1y",
-    "closes": [
-     626.13,
-     606.89,
-     606.01,
-     587.31,
-     616.35,
-     622.55,
-     610.75,
-     614.16,
-     621.77,
-     611.04,
-     624.52,
-     619.15,
-     620.61,
-     619.76,
-     607.58,
-     599.88,
-     606.74,
-     605.23,
-     597.71,
-     591.7,
-     580.08,
-     561.38,
-     583.73,
-     609.76,
-     647.46,
-     662.46,
-     672.71,
-     709.71,
-     707.41,
-     716.01,
-     736.73,
-     703.55,
-     719.8,
-     739.04,
-     705.78,
-     711.86,
-     724.75,
-     694.61,
-     683.52,
-     687.27,
-     722.28,
-     730.31,
-     712.7,
-     715.68,
-     718.21,
-     714.14,
-     720.7,
-     744.5,
-     749.58,
-     751.27,
-     709.8,
-     704.4,
-     715.34
-    ],
-    "dates": [
-     "2025-10-27",
-     "2025-11-03",
-     "2025-11-10",
-     "2025-11-17",
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07",
-     "2026-09-14",
-     "2026-09-21",
-     "2026-09-28",
-     "2026-10-05",
-     "2026-10-12",
-     "2026-10-19",
-     "2026-10-26"
-    ]
-   }
-  },
-  {
    "sym": "SNDK",
    "name": "Sandisk",
    "price": 1330.050048828125,
    "pct": -2.4809561765083297,
-   "mentions": 151,
-   "mentions_prev": 63,
+   "mentions": 165,
+   "mentions_prev": 59,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2951,7 +2977,7 @@
      "$183.00 \u2013 $2354.39"
     ]
    ],
-   "reason": "151 mentions today, 2x yesterday's 63. Price is -2.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,143.83 mean target (+61%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "165 mentions today, 3x yesterday's 59. Price is -2.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $2,143.83 mean target (+61%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
    "tone": null,
    "read": [
     "quiet",
@@ -3084,132 +3110,110 @@
    }
   },
   {
-   "sym": "INTC",
-   "name": "Intel",
-   "price": 92.06999969482422,
-   "pct": -1.0212860730765183,
-   "mentions": 148,
-   "mentions_prev": 26,
+   "sym": "QQQ",
+   "name": "Invesco QQQ ETF",
+   "price": 715.3400268554688,
+   "pct": -0.3704697972884749,
+   "mentions": 157,
+   "mentions_prev": 130,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
-   "analyst_rec": "BUY",
-   "analyst_target": 117.71429,
-   "earnings": "Oct 29 (0d)",
+   "analyst_rec": null,
+   "analyst_target": null,
+   "earnings": null,
    "headlines": [],
    "band": [
-    86.95999908447266,
-    95.52999877929688
+    704.4000244140625,
+    725.6099853515625
    ],
    "spark": [
-    86.95999908447266,
-    90.47000122070312,
-    93.73999786376953,
-    95.52999877929688,
-    92.06999969482422
+    704.4000244140625,
+    712.2000122070312,
+    721.25,
+    725.6099853515625,
+    715.3400268554688
    ],
    "stats": [
     [
-     "Market cap",
-     "$486.7B"
-    ],
-    [
-     "Float",
-     "4.6B"
-    ],
-    [
-     "Short interest",
-     "2.8%"
-    ],
-    [
      "Avg vol",
-     "102.3M"
+     "35.0M"
     ],
     [
      "Vol today",
-     "112.1M"
+     "36.9M"
     ],
     [
      "52w range",
-     "$32.89 \u2013 $142.35"
+     "$555.60 \u2013 $762.86"
     ]
    ],
-   "reason": "148 mentions today, 6x yesterday's 26. Price is -1.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $117.71 mean target (+28%); earnings land Oct 29 (0d); the scan flagged squeeze/penny sub.",
+   "reason": "157 mentions, up from 130 yesterday. Price is -0.4% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": null,
    "read": [
     "quiet",
     "muted",
     "No strong pattern between price and attention today."
    ],
-   "er": {
-    "date": "Oct 29",
-    "days_away": 0,
-    "eps_estimate": 0.44,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 5.8,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
+   "er": null,
    "chart": {
     "period": "1y",
     "closes": [
-     39.99,
-     38.13,
-     35.52,
-     34.5,
-     40.56,
-     41.41,
-     37.81,
-     36.82,
-     36.2,
-     39.38,
-     45.55,
-     46.96,
-     45.07,
-     46.47,
-     50.59,
-     46.79,
-     44.11,
-     45.61,
-     43.42,
-     45.77,
-     43.87,
-     43.13,
-     50.38,
-     62.38,
-     68.5,
-     82.54,
-     99.62,
-     124.92,
-     108.77,
-     119.84,
-     114.68,
-     99.17,
-     124.57,
-     133.99,
-     128.32,
-     120.35,
-     109.84,
-     95.04,
-     92.32,
-     90.2,
-     101.65,
-     102.5,
-     90.07,
-     89.47,
-     95.8,
-     102.94,
-     108.6,
-     123.0,
-     119.33,
-     104.7,
-     89.85,
-     86.96,
-     92.07
+     626.13,
+     606.89,
+     606.01,
+     587.31,
+     616.35,
+     622.55,
+     610.75,
+     614.16,
+     621.77,
+     611.04,
+     624.52,
+     619.15,
+     620.61,
+     619.76,
+     607.58,
+     599.88,
+     606.74,
+     605.23,
+     597.71,
+     591.7,
+     580.08,
+     561.38,
+     583.73,
+     609.76,
+     647.46,
+     662.46,
+     672.71,
+     709.71,
+     707.41,
+     716.01,
+     736.73,
+     703.55,
+     719.8,
+     739.04,
+     705.78,
+     711.86,
+     724.75,
+     694.61,
+     683.52,
+     687.27,
+     722.28,
+     730.31,
+     712.7,
+     715.68,
+     718.21,
+     714.14,
+     720.7,
+     744.5,
+     749.58,
+     751.27,
+     709.8,
+     704.4,
+     715.34
     ],
     "dates": [
      "2025-10-27",
@@ -11706,7 +11710,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
