@@ -2773,9 +2773,10 @@
   },
   {
    "date": "2026-11-02",
-   "picks": 4,
-   "flagged": 8,
+   "picks": 6,
+   "flagged": 11,
    "held_already": [
+    "NU",
     "NVDA",
     "QQQ",
     "SPCX",
@@ -2783,14 +2784,16 @@
    ],
    "bought": [
     "RIVN",
+    "PLTR",
     "MU",
+    "GRAB",
     "AAPL",
     "AAL"
    ],
    "per_ticker": 478.13,
    "held_days": 0,
    "return_pct": 0.1,
-   "invested": 1912.54,
+   "invested": 2868.81,
    "balance": 9562.7,
    "pnl": 2.35,
    "open": true
@@ -15792,6 +15795,23 @@
   },
   {
    "date": "2026-11-02",
+   "sym": "GRAB",
+   "entry": 2.86,
+   "now": 2.86,
+   "ret_total": -0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-11-02",
    "sym": "MU",
    "entry": 833.0050048828125,
    "now": 833.59,
@@ -15809,6 +15829,23 @@
   },
   {
    "date": "2026-11-02",
+   "sym": "NU",
+   "entry": 11.62,
+   "now": 11.62,
+   "ret_total": -0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 4,
+   "held_since": "2026-10-30",
+   "buy_price": 11.695,
+   "ret_since_buy": -0.6
+  },
+  {
+   "date": "2026-11-02",
    "sym": "NVDA",
    "entry": 202.38,
    "now": 202.06,
@@ -15823,6 +15860,23 @@
    "held_since": "2026-10-27",
    "buy_price": 218.05,
    "ret_since_buy": -7.3
+  },
+  {
+   "date": "2026-11-02",
+   "sym": "PLTR",
+   "entry": 178.33999633789062,
+   "now": 178.34,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-11-02",
@@ -16060,21 +16114,6 @@
    "2026-10-29": 92.07,
    "2026-10-30": 65.76,
    "2026-11-02": 59.97
-  },
-  "LITE": {
-   "2026-10-15": 869.54,
-   "2026-10-16": 824.13,
-   "2026-10-19": 834.51,
-   "2026-10-20": 822.51,
-   "2026-10-21": 850.7,
-   "2026-10-22": 752.54,
-   "2026-10-23": 756.17,
-   "2026-10-26": 818.1,
-   "2026-10-27": 866.18,
-   "2026-10-28": 913.95,
-   "2026-10-29": 919.53,
-   "2026-10-30": 840.7,
-   "2026-11-02": 684.4
   },
   "MSFT": {
    "2026-10-15": 539.44,
@@ -16934,6 +16973,21 @@
    "path": []
   },
   {
+   "sym": "GRAB",
+   "bought": "2026-11-02",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 2.86,
+   "price": 2.86,
+   "shares": 167.18,
+   "alloc": 478.13,
+   "value": 478.13,
+   "pnl": -0.0,
+   "ret": -0.0,
+   "spy_ret": null,
+   "path": []
+  },
+  {
    "sym": "MU",
    "bought": "2026-11-02",
    "days_left": 5,
@@ -16945,6 +16999,21 @@
    "value": 478.47,
    "pnl": 0.34,
    "ret": 0.1,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "PLTR",
+   "bought": "2026-11-02",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 178.34,
+   "price": 178.34,
+   "shares": 2.681,
+   "alloc": 478.13,
+   "value": 478.13,
+   "pnl": 0.0,
+   "ret": 0.0,
    "spy_ret": null,
    "path": []
   },
