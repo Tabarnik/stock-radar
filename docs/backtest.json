@@ -2800,8 +2800,8 @@
   },
   {
    "date": "2026-11-03",
-   "picks": 4,
-   "flagged": 10,
+   "picks": 6,
+   "flagged": 12,
    "held_already": [
     "AAPL",
     "BBD",
@@ -2812,14 +2812,16 @@
    ],
    "bought": [
     "SPCX",
+    "SMCI",
     "ORCL",
     "GOOGL",
+    "DTE",
     "AMD"
    ],
    "per_ticker": 484.57,
    "held_days": 1,
-   "return_pct": -0.5,
-   "invested": 1938.26,
+   "return_pct": -0.3,
+   "invested": 2907.39,
    "balance": 9691.3,
    "pnl": -9.74,
    "open": true
@@ -16025,6 +16027,23 @@
   },
   {
    "date": "2026-11-03",
+   "sym": "DTE",
+   "entry": 134.25999450683594,
+   "now": 134.26,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-11-03",
    "sym": "GOOGL",
    "entry": 280.0299987792969,
    "now": 280.03,
@@ -16124,6 +16143,23 @@
    "held_since": "2026-11-02",
    "buy_price": 178.34,
    "ret_since_buy": -1.6
+  },
+  {
+   "date": "2026-11-03",
+   "sym": "SMCI",
+   "entry": 31.389999389648438,
+   "now": 31.39,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
   },
   {
    "date": "2026-11-03",
@@ -16250,6 +16286,21 @@
    "2026-10-30": 7.29,
    "2026-11-02": 6.86,
    "2026-11-03": 8.12
+  },
+  "DTE": {
+   "2026-10-16": 129.73,
+   "2026-10-19": 126.93,
+   "2026-10-20": 129.32,
+   "2026-10-21": 129.65,
+   "2026-10-22": 133.06,
+   "2026-10-23": 131.89,
+   "2026-10-26": 131.74,
+   "2026-10-27": 132.67,
+   "2026-10-28": 131.96,
+   "2026-10-29": 134.52,
+   "2026-10-30": 135.49,
+   "2026-11-02": 135.85,
+   "2026-11-03": 134.26
   },
   "GOOG": {
    "2026-10-16": 336.91,
@@ -17040,6 +17091,21 @@
    "path": []
   },
   {
+   "sym": "DTE",
+   "bought": "2026-11-03",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 134.26,
+   "price": 134.26,
+   "shares": 3.6092,
+   "alloc": 484.57,
+   "value": 484.57,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
+  },
+  {
    "sym": "GOOGL",
    "bought": "2026-11-03",
    "days_left": 5,
@@ -17066,6 +17132,21 @@
    "value": 482.27,
    "pnl": -2.29,
    "ret": -0.5,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "SMCI",
+   "bought": "2026-11-03",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 31.39,
+   "price": 31.39,
+   "shares": 15.4369,
+   "alloc": 484.57,
+   "value": 484.57,
+   "pnl": 0.0,
+   "ret": 0.0,
    "spy_ret": null,
    "path": []
   },
