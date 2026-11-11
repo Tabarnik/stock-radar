@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-11T00:14:00.926460+00:00",
+ "generated_at": "2026-11-11T00:33:35.651774+00:00",
  "watch": [
   {
    "sym": "CRWV",
    "name": "CoreWeave",
    "price": 48.72999954223633,
    "pct": -2.282417367708627,
-   "mentions": 629,
-   "mentions_prev": 35,
+   "mentions": 633,
+   "mentions_prev": 31,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [],
@@ -56,7 +56,7 @@
      "$40.58 \u2013 $138.25"
     ]
    ],
-   "reason": "629 mentions today, 18x yesterday's 35. Price is -2.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $131.53 mean target (+170%).",
+   "reason": "633 mentions today, 20x yesterday's 31. Price is -2.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $131.53 mean target (+170%).",
    "tone": {
     "label": "mixed",
     "score": 0.07
@@ -188,7 +188,7 @@
      "2026-11-09"
     ]
    },
-   "tag": "18x Reddit mentions",
+   "tag": "20x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -197,7 +197,7 @@
    "price": 533.1599731445312,
    "pct": -2.0862460250254777,
    "mentions": 201,
-   "mentions_prev": 101,
+   "mentions_prev": 99,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [],
@@ -246,7 +246,7 @@
      "$349.20 \u2013 $559.15"
     ]
    ],
-   "reason": "201 mentions, up from 101 yesterday. Price is -2.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $636.12 mean target (+19%).",
+   "reason": "201 mentions today, 2x yesterday's 99. Price is -2.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $636.12 mean target (+19%).",
    "tone": {
     "label": "mixed",
     "score": 0.07
@@ -382,143 +382,11 @@
    "source": "reddit"
   },
   {
-   "sym": "SPCX",
-   "name": "SpaceX",
-   "price": 143.08999633789062,
-   "pct": 0.484547990091727,
-   "mentions": 143,
-   "mentions_prev": 46,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "BUY",
-   "analyst_target": 255.0627,
-   "earnings": null,
-   "headlines": [
-    "Nvidia in the hot seat, Anthropic to test the IPO market, hotter-than-expected US inflation",
-    "Here's How Much a $5,000 Investment in SpaceX Stock Could Be Worth by November 2027",
-    "Nvidia's trillion-dollar bind: Can it afford to lose Jensen Huang?"
-   ],
-   "band": [
-    123.62000274658203,
-    143.08999633789062
-   ],
-   "spark": [
-    135.9199981689453,
-    123.62000274658203,
-    134.27000427246094,
-    142.07000732421875,
-    143.08999633789062
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$1.9T"
-    ],
-    [
-     "Float",
-     "3.0B"
-    ],
-    [
-     "Short interest",
-     "2.4%"
-    ],
-    [
-     "Avg vol",
-     "96.9M"
-    ],
-    [
-     "Vol today",
-     "81.7M"
-    ],
-    [
-     "52w range",
-     "$104.83 \u2013 $225.64"
-    ]
-   ],
-   "reason": "143 mentions today, 3x yesterday's 46. Price is +0.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $255.06 mean target (+78%); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "mixed",
-    "score": -0.06
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": 0.32,
-    "beat_record": "beat 2 of last 2",
-    "avg_surprise": 0.9,
-    "expect": [
-     "mixed",
-     "Mixed record against estimates"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     160.95,
-     185.0,
-     153.23,
-     162.0,
-     145.3,
-     123.99,
-     115.07,
-     108.37,
-     133.11,
-     140.0,
-     136.97,
-     141.5,
-     147.95,
-     151.21,
-     152.71,
-     148.68,
-     158.96,
-     162.57,
-     146.03,
-     147.49,
-     134.72,
-     134.27,
-     143.09
-    ],
-    "dates": [
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07",
-     "2026-09-14",
-     "2026-09-21",
-     "2026-09-28",
-     "2026-10-05",
-     "2026-10-12",
-     "2026-10-19",
-     "2026-10-26",
-     "2026-11-02",
-     "2026-11-09"
-    ]
-   },
-   "tag": "3x Reddit mentions",
-   "source": "reddit"
-  },
-  {
    "sym": "NBIS",
    "name": "Nebius Group",
    "price": 134.0,
    "pct": -6.623072184546261,
-   "mentions": 142,
+   "mentions": 144,
    "mentions_prev": 76,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -570,7 +438,7 @@
      "$73.52 \u2013 $299.86"
     ]
    ],
-   "reason": "142 mentions, up from 76 yesterday. Price is -6.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $278.05 mean target (+108%); earnings land Nov 12 (1d); the scan flagged squeeze/penny sub.",
+   "reason": "144 mentions, up from 76 yesterday. Price is -6.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $278.05 mean target (+108%); earnings land Nov 12 (1d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.04
@@ -705,6 +573,138 @@
     ]
    },
    "tag": "2x Reddit mentions",
+   "source": "reddit"
+  },
+  {
+   "sym": "SPCX",
+   "name": "SpaceX",
+   "price": 143.08999633789062,
+   "pct": 0.484547990091727,
+   "mentions": 143,
+   "mentions_prev": 45,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "BUY",
+   "analyst_target": 255.0627,
+   "earnings": null,
+   "headlines": [
+    "Nvidia in the hot seat, Anthropic to test the IPO market, hotter-than-expected US inflation",
+    "AST SpaceMobile Has Fallen for 3 Straight Weeks and Sits More Than 75% Below Its High. Here's What $5,000 Invested Today Will Be Worth If It Gets Back There.",
+    "Here's How Much a $5,000 Investment in SpaceX Stock Could Be Worth by November 2027"
+   ],
+   "band": [
+    123.62000274658203,
+    143.08999633789062
+   ],
+   "spark": [
+    135.9199981689453,
+    123.62000274658203,
+    134.27000427246094,
+    142.07000732421875,
+    143.08999633789062
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$1.9T"
+    ],
+    [
+     "Float",
+     "3.0B"
+    ],
+    [
+     "Short interest",
+     "2.4%"
+    ],
+    [
+     "Avg vol",
+     "96.9M"
+    ],
+    [
+     "Vol today",
+     "81.7M"
+    ],
+    [
+     "52w range",
+     "$104.83 \u2013 $225.64"
+    ]
+   ],
+   "reason": "143 mentions today, 3x yesterday's 45. Price is +0.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $255.06 mean target (+78%); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "mixed",
+    "score": 0.1
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 0.32,
+    "beat_record": "beat 2 of last 2",
+    "avg_surprise": 0.9,
+    "expect": [
+     "mixed",
+     "Mixed record against estimates"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     160.95,
+     185.0,
+     153.23,
+     162.0,
+     145.3,
+     123.99,
+     115.07,
+     108.37,
+     133.11,
+     140.0,
+     136.97,
+     141.5,
+     147.95,
+     151.21,
+     152.71,
+     148.68,
+     158.96,
+     162.57,
+     146.03,
+     147.49,
+     134.72,
+     134.27,
+     143.09
+    ],
+    "dates": [
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07",
+     "2026-09-14",
+     "2026-09-21",
+     "2026-09-28",
+     "2026-10-05",
+     "2026-10-12",
+     "2026-10-19",
+     "2026-10-26",
+     "2026-11-02",
+     "2026-11-09"
+    ]
+   },
+   "tag": "3x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -1476,8 +1476,8 @@
    "name": "NVIDIA",
    "price": 168.88999938964844,
    "pct": -6.246912520998036,
-   "mentions": 2464,
-   "mentions_prev": 2666,
+   "mentions": 2455,
+   "mentions_prev": 2644,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -1529,7 +1529,7 @@
      "$164.27 \u2013 $243.37"
     ]
    ],
-   "reason": "2,464 mentions, flat against yesterday. Price is -6.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $325.78 mean target (+93%); earnings land Nov 17 (6d); the scan flagged vol 3x normal, squeeze/penny sub.",
+   "reason": "2,455 mentions, flat against yesterday. Price is -6.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $325.78 mean target (+93%); earnings land Nov 17 (6d); the scan flagged vol 3x normal, squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.15
@@ -1669,8 +1669,8 @@
    "name": "CoreWeave",
    "price": 48.72999954223633,
    "pct": -2.282417367708627,
-   "mentions": 629,
-   "mentions_prev": 35,
+   "mentions": 633,
+   "mentions_prev": 31,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [],
@@ -1719,7 +1719,7 @@
      "$40.58 \u2013 $138.25"
     ]
    ],
-   "reason": "629 mentions today, 18x yesterday's 35. Price is -2.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $131.53 mean target (+170%).",
+   "reason": "633 mentions today, 20x yesterday's 31. Price is -2.3% \u2014 the attention has moved further than the price; analyst consensus is buy with a $131.53 mean target (+170%).",
    "tone": {
     "label": "mixed",
     "score": 0.07
@@ -1857,8 +1857,8 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 749.9199829101562,
    "pct": -0.4804014504662943,
-   "mentions": 583,
-   "mentions_prev": 823,
+   "mentions": 572,
+   "mentions_prev": 830,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -1897,7 +1897,7 @@
      "$629.28 \u2013 $781.62"
     ]
    ],
-   "reason": "583 mentions, cooling from 823. Price is -0.5% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "572 mentions, cooling from 830. Price is -0.5% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.22
@@ -2027,8 +2027,8 @@
    "name": "AMD",
    "price": 515.2100219726562,
    "pct": 0.21591557530757194,
-   "mentions": 358,
-   "mentions_prev": 467,
+   "mentions": 354,
+   "mentions_prev": 474,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2079,7 +2079,7 @@
      "$188.22 \u2013 $658.52"
     ]
    ],
-   "reason": "358 mentions, cooling from 467. Price is +0.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $657.49 mean target (+28%); the scan flagged squeeze/penny sub.",
+   "reason": "354 mentions, cooling from 474. Price is +0.2% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $657.49 mean target (+28%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.0
@@ -2217,8 +2217,8 @@
    "name": "Invesco QQQ ETF",
    "price": 674.760009765625,
    "pct": -0.8420388594064585,
-   "mentions": 325,
-   "mentions_prev": 391,
+   "mentions": 326,
+   "mentions_prev": 393,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2257,7 +2257,7 @@
      "$555.60 \u2013 $762.86"
     ]
    ],
-   "reason": "325 mentions, cooling from 391. Price is -0.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "326 mentions, cooling from 393. Price is -0.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.31
@@ -2388,7 +2388,7 @@
    "price": 533.1599731445312,
    "pct": -2.0862460250254777,
    "mentions": 201,
-   "mentions_prev": 101,
+   "mentions_prev": 99,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [],
@@ -2437,7 +2437,7 @@
      "$349.20 \u2013 $559.15"
     ]
    ],
-   "reason": "201 mentions, up from 101 yesterday. Price is -2.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $636.12 mean target (+19%).",
+   "reason": "201 mentions today, 2x yesterday's 99. Price is -2.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $636.12 mean target (+19%).",
    "tone": {
     "label": "mixed",
     "score": 0.07
@@ -2575,8 +2575,8 @@
    "name": "Micron Technology",
    "price": 725.1099853515625,
    "pct": -1.9939005726117818,
-   "mentions": 181,
-   "mentions_prev": 233,
+   "mentions": 173,
+   "mentions_prev": 231,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2627,7 +2627,7 @@
      "$192.59 \u2013 $1255.00"
     ]
    ],
-   "reason": "181 mentions, cooling from 233. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,561.91 mean target (+115%); the scan flagged squeeze/penny sub.",
+   "reason": "173 mentions, cooling from 231. Price is -2.0% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,561.91 mean target (+115%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.2
@@ -2768,7 +2768,7 @@
    "price": 33.689998626708984,
    "pct": -8.730108698384061,
    "mentions": 144,
-   "mentions_prev": 153,
+   "mentions_prev": 155,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -2778,9 +2778,9 @@
    "analyst_target": 74.68333,
    "earnings": null,
    "headlines": [
+    "AST SpaceMobile Has Fallen for 3 Straight Weeks and Sits More Than 75% Below Its High. Here's What $5,000 Invested Today Will Be Worth If It Gets Back There.",
     "AST SpaceMobile (ASTS) Stock Price Faces Q3 Results And Cash Burn",
-    "Why AST SpaceMobile Plunged Today",
-    "AST SpaceMobile Inc (ASTS) (Q3 2026) Earnings Call Highlights: $3. ..."
+    "Why AST SpaceMobile Plunged Today"
    ],
    "band": [
     30.200000762939453,
@@ -2822,7 +2822,7 @@
    "reason": "144 mentions, flat against yesterday. Price is -8.7% \u2014 the attention has moved further than the price; analyst consensus is hold with a $74.68 mean target (+122%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.0
+    "score": 0.03
    },
    "read": [
     "fading",
@@ -2953,141 +2953,11 @@
    }
   },
   {
-   "sym": "SPCX",
-   "name": "SpaceX",
-   "price": 143.08999633789062,
-   "pct": 0.484547990091727,
-   "mentions": 143,
-   "mentions_prev": 46,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "BUY",
-   "analyst_target": 255.0627,
-   "earnings": null,
-   "headlines": [
-    "Nvidia in the hot seat, Anthropic to test the IPO market, hotter-than-expected US inflation",
-    "Here's How Much a $5,000 Investment in SpaceX Stock Could Be Worth by November 2027",
-    "Nvidia's trillion-dollar bind: Can it afford to lose Jensen Huang?"
-   ],
-   "band": [
-    123.62000274658203,
-    143.08999633789062
-   ],
-   "spark": [
-    135.9199981689453,
-    123.62000274658203,
-    134.27000427246094,
-    142.07000732421875,
-    143.08999633789062
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$1.9T"
-    ],
-    [
-     "Float",
-     "3.0B"
-    ],
-    [
-     "Short interest",
-     "2.4%"
-    ],
-    [
-     "Avg vol",
-     "96.9M"
-    ],
-    [
-     "Vol today",
-     "81.7M"
-    ],
-    [
-     "52w range",
-     "$104.83 \u2013 $225.64"
-    ]
-   ],
-   "reason": "143 mentions today, 3x yesterday's 46. Price is +0.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $255.06 mean target (+78%); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "mixed",
-    "score": -0.06
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": 0.32,
-    "beat_record": "beat 2 of last 2",
-    "avg_surprise": 0.9,
-    "expect": [
-     "mixed",
-     "Mixed record against estimates"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     160.95,
-     185.0,
-     153.23,
-     162.0,
-     145.3,
-     123.99,
-     115.07,
-     108.37,
-     133.11,
-     140.0,
-     136.97,
-     141.5,
-     147.95,
-     151.21,
-     152.71,
-     148.68,
-     158.96,
-     162.57,
-     146.03,
-     147.49,
-     134.72,
-     134.27,
-     143.09
-    ],
-    "dates": [
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07",
-     "2026-09-14",
-     "2026-09-21",
-     "2026-09-28",
-     "2026-10-05",
-     "2026-10-12",
-     "2026-10-19",
-     "2026-10-26",
-     "2026-11-02",
-     "2026-11-09"
-    ]
-   }
-  },
-  {
    "sym": "NBIS",
    "name": "Nebius Group",
    "price": 134.0,
    "pct": -6.623072184546261,
-   "mentions": 142,
+   "mentions": 144,
    "mentions_prev": 76,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -3139,7 +3009,7 @@
      "$73.52 \u2013 $299.86"
     ]
    ],
-   "reason": "142 mentions, up from 76 yesterday. Price is -6.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $278.05 mean target (+108%); earnings land Nov 12 (1d); the scan flagged squeeze/penny sub.",
+   "reason": "144 mentions, up from 76 yesterday. Price is -6.6% \u2014 the attention has moved further than the price; analyst consensus is buy with a $278.05 mean target (+108%); earnings land Nov 12 (1d); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.04
@@ -3248,6 +3118,136 @@
      "2026-05-18",
      "2026-05-25",
      "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07",
+     "2026-09-14",
+     "2026-09-21",
+     "2026-09-28",
+     "2026-10-05",
+     "2026-10-12",
+     "2026-10-19",
+     "2026-10-26",
+     "2026-11-02",
+     "2026-11-09"
+    ]
+   }
+  },
+  {
+   "sym": "SPCX",
+   "name": "SpaceX",
+   "price": 143.08999633789062,
+   "pct": 0.484547990091727,
+   "mentions": 143,
+   "mentions_prev": 45,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "BUY",
+   "analyst_target": 255.0627,
+   "earnings": null,
+   "headlines": [
+    "Nvidia in the hot seat, Anthropic to test the IPO market, hotter-than-expected US inflation",
+    "AST SpaceMobile Has Fallen for 3 Straight Weeks and Sits More Than 75% Below Its High. Here's What $5,000 Invested Today Will Be Worth If It Gets Back There.",
+    "Here's How Much a $5,000 Investment in SpaceX Stock Could Be Worth by November 2027"
+   ],
+   "band": [
+    123.62000274658203,
+    143.08999633789062
+   ],
+   "spark": [
+    135.9199981689453,
+    123.62000274658203,
+    134.27000427246094,
+    142.07000732421875,
+    143.08999633789062
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$1.9T"
+    ],
+    [
+     "Float",
+     "3.0B"
+    ],
+    [
+     "Short interest",
+     "2.4%"
+    ],
+    [
+     "Avg vol",
+     "96.9M"
+    ],
+    [
+     "Vol today",
+     "81.7M"
+    ],
+    [
+     "52w range",
+     "$104.83 \u2013 $225.64"
+    ]
+   ],
+   "reason": "143 mentions today, 3x yesterday's 45. Price is +0.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $255.06 mean target (+78%); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "mixed",
+    "score": 0.1
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 0.32,
+    "beat_record": "beat 2 of last 2",
+    "avg_surprise": 0.9,
+    "expect": [
+     "mixed",
+     "Mixed record against estimates"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     160.95,
+     185.0,
+     153.23,
+     162.0,
+     145.3,
+     123.99,
+     115.07,
+     108.37,
+     133.11,
+     140.0,
+     136.97,
+     141.5,
+     147.95,
+     151.21,
+     152.71,
+     148.68,
+     158.96,
+     162.57,
+     146.03,
+     147.49,
+     134.72,
+     134.27,
+     143.09
+    ],
+    "dates": [
      "2026-06-08",
      "2026-06-15",
      "2026-06-22",
@@ -3458,6 +3458,17 @@
    "pct": 0.41959921348186413,
    "outcome": "flat",
    "note": "Alleged plot to spy on Jensen Huang: Why it's bullish for AI.",
+   "age_days": 1
+  },
+  {
+   "date": "2026-11-10",
+   "sym": "NBIS",
+   "name": "Nebius Group",
+   "flag_price": 134.0,
+   "last_price": 134.0,
+   "pct": 0.0,
+   "outcome": "flat",
+   "note": "What Nebius Group Buyers Were Betting On",
    "age_days": 1
   },
   {
@@ -12514,7 +12525,7 @@
    "date": "2026-07-06",
    "sym": "CXAI",
    "name": "",
-   "flag_price": 4.1761948595190414e+301,
+   "flag_price": 2.0880974297595206e+303,
    "last_price": 1.409999966621399,
    "pct": -100.0,
    "outcome": "faded",
@@ -12539,7 +12550,7 @@
    "date": "2026-06-22",
    "sym": "CXAI",
    "name": "",
-   "flag_price": 6.003280110558622e+301,
+   "flag_price": 3.001640055279311e+303,
    "last_price": 1.409999966621399,
    "pct": -100.0,
    "outcome": "faded",
@@ -12576,7 +12587,7 @@
    "date": "2026-06-17",
    "sym": "CXAI",
    "name": "",
-   "flag_price": 5.481255753118749e+301,
+   "flag_price": 2.7406278765593742e+303,
    "last_price": 1.409999966621399,
    "pct": -100.0,
    "outcome": "faded",
@@ -12613,7 +12624,7 @@
    "date": "2026-06-15",
    "sym": "CXAI",
    "name": "",
-   "flag_price": 5.2202435743988e+301,
+   "flag_price": 2.6101217871994e+303,
    "last_price": 1.409999966621399,
    "pct": -100.0,
    "outcome": "faded",
@@ -12640,6 +12651,7 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100
+  "stocks": 100,
+  "tradingwithcongress": 0
  }
 }
