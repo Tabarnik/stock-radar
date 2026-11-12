@@ -2957,13 +2957,14 @@
   {
    "date": "2026-11-11",
    "picks": 3,
-   "flagged": 11,
+   "flagged": 12,
    "held_already": [
     "CRWV",
     "GRAB",
     "IREN",
     "MSFT",
     "NBIS",
+    "NOK",
     "NVDA",
     "QQQ",
     "SPCX"
@@ -17318,6 +17319,23 @@
    "held_since": "2026-11-05",
    "buy_price": 120.37,
    "ret_since_buy": 28.5
+  },
+  {
+   "date": "2026-11-11",
+   "sym": "NOK",
+   "entry": 8.44,
+   "now": 8.44,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": true,
+   "days_left": 2,
+   "held_since": "2026-11-05",
+   "buy_price": 7.5021,
+   "ret_since_buy": 12.5
   },
   {
    "date": "2026-11-11",
