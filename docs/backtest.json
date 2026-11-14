@@ -3010,8 +3010,8 @@
   },
   {
    "date": "2026-11-13",
-   "picks": 1,
-   "flagged": 6,
+   "picks": 2,
+   "flagged": 7,
    "held_already": [
     "CRWV",
     "MSFT",
@@ -3020,12 +3020,13 @@
     "SPCX"
    ],
    "bought": [
-    "TSLA"
+    "TSLA",
+    "QQQ"
    ],
    "per_ticker": 484.62,
    "held_days": 1,
-   "return_pct": -0.1,
-   "invested": 484.62,
+   "return_pct": -0.0,
+   "invested": 969.25,
    "balance": 9692.47,
    "pnl": -0.46,
    "open": true
@@ -17693,6 +17694,23 @@
   },
   {
    "date": "2026-11-13",
+   "sym": "QQQ",
+   "entry": 679.8900146484375,
+   "now": 679.89,
+   "ret_total": 0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-11-13",
    "sym": "SPCX",
    "entry": 140.0,
    "now": 139.11,
@@ -18620,6 +18638,21 @@
      "cum_pct": -0.6
     }
    ]
+  },
+  {
+   "sym": "QQQ",
+   "bought": "2026-11-13",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 679.89,
+   "price": 679.89,
+   "shares": 0.7128,
+   "alloc": 484.62,
+   "value": 484.62,
+   "pnl": 0.0,
+   "ret": 0.0,
+   "spy_ret": null,
+   "path": []
   },
   {
    "sym": "TSLA",
