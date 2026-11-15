@@ -931,15 +931,23 @@ def update_history(watch, results):
             # Rescale the recorded price for any split since it was flagged, and
             # keep the correction: leaving it would mean recomputing a wrong
             # percentage on every run for the rest of the record's life.
+            # `split_factor` records what has already been applied, so only a
+            # split that is new since then rescales. Without it the same split
+            # was re-applied on every run: CXAI's x50 compounded to Infinity and
+            # the NaN/Infinity it wrote made data.json unparseable.
             f = split_factor(e["sym"], e["date"])
-            if f != 1.0:
-                e["flag_price"] = round(e["flag_price"] / f, 6)
+            new = f / e.get("split_factor", 1.0)
+            if abs(new - 1.0) > 1e-9:
+                e["flag_price"] = round(e["flag_price"] / new, 6)
+                e["split_factor"] = f
                 e["split_adjusted"] = True
-                print(f"[history] {e['sym']} {e['date']}: split x{1/f:.4g} — "
+                print(f"[history] {e['sym']} {e['date']}: split x{1/new:.4g} — "
                       f"entry rescaled to {e['flag_price']}")
             e["last_price"] = now
-            e["pct"] = (now - e["flag_price"]) / e["flag_price"] * 100
-            e["outcome"] = _outcome(e["pct"])
+            pct = (now - e["flag_price"]) / e["flag_price"] * 100
+            if math.isfinite(pct):
+                e["pct"] = pct
+                e["outcome"] = _outcome(pct)
         e["age_days"] = age
         kept.append(e)
 
