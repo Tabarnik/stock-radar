@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-19T01:50:36.874423+00:00",
+ "generated_at": "2026-11-19T01:55:15.328824+00:00",
  "watch": [
   {
    "sym": "AMD",
    "name": "AMD",
    "price": 530.14,
    "pct": 1.539934878375783,
-   "mentions": 376,
+   "mentions": 378,
    "mentions_prev": 240,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -57,7 +57,7 @@
      "$188.22 \u2013 $658.52"
     ]
    ],
-   "reason": "376 mentions, up from 240 yesterday. Price is +1.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $657.74 mean target (+24%); the scan flagged squeeze/penny sub.",
+   "reason": "378 mentions, up from 240 yesterday. Price is +1.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $657.74 mean target (+24%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.19
@@ -197,7 +197,7 @@
    "name": "SpaceX",
    "price": 143.5,
    "pct": 0.17452006980802792,
-   "mentions": 231,
+   "mentions": 237,
    "mentions_prev": 129,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -248,7 +248,7 @@
      "$104.83 \u2013 $225.64"
     ]
    ],
-   "reason": "231 mentions, up from 129 yesterday. Price is +0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $257.50 mean target (+79%); the scan flagged squeeze/penny sub.",
+   "reason": "237 mentions, up from 129 yesterday. Price is +0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $257.50 mean target (+79%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.2
@@ -895,6 +895,195 @@
    "source": "yahoo"
   },
   {
+   "sym": "GRAB",
+   "name": "Grab Holdings Limited",
+   "price": 3.14,
+   "pct": -1.25786,
+   "mentions": null,
+   "mentions_prev": null,
+   "mom": null,
+   "label": "",
+   "flags": [],
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 5.39227,
+   "earnings": null,
+   "headlines": [
+    "BC-Most Active Stocks",
+    "3 Penny Stocks With Revenue Growth Up To 70%",
+    "Grab vs. Uber Technologies: Which Gig Economy Stock Is a Better Buy for 2027?"
+   ],
+   "band": [
+    3.14,
+    3.240000009536743
+   ],
+   "spark": [
+    3.240000009536743,
+    3.240000009536743,
+    3.2100000381469727,
+    3.180000066757202
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$12.7B"
+    ],
+    [
+     "Float",
+     "3.0B"
+    ],
+    [
+     "Short interest",
+     "5.1%"
+    ],
+    [
+     "Avg vol",
+     "67.5M"
+    ],
+    [
+     "Vol today",
+     "94.1M"
+    ],
+    [
+     "52w range",
+     "$2.67 \u2013 $5.50"
+    ]
+   ],
+   "reason": "Price is -1.3% \u2014 the attention has moved further than the price. Analyst consensus is strong buy with a $5.39 mean target (+72%).",
+   "tone": {
+    "label": "positive",
+    "score": 0.41
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 0.03,
+    "beat_record": "beat 3 of last 4",
+    "avg_surprise": 2.1,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     4.9,
+     5.45,
+     5.19,
+     5.15,
+     4.93,
+     5.15,
+     5.08,
+     4.85,
+     4.38,
+     4.58,
+     4.3,
+     4.27,
+     4.13,
+     4.38,
+     4.22,
+     3.98,
+     3.71,
+     3.56,
+     3.57,
+     3.62,
+     3.68,
+     4.21,
+     3.9,
+     3.67,
+     3.72,
+     3.55,
+     3.51,
+     3.54,
+     3.34,
+     3.3,
+     3.57,
+     3.55,
+     3.9,
+     3.93,
+     3.57,
+     3.31,
+     3.5,
+     3.66,
+     3.62,
+     3.48,
+     3.61,
+     3.42,
+     3.05,
+     2.8,
+     3.13,
+     3.08,
+     3.19,
+     2.94,
+     2.79,
+     2.71,
+     3.41,
+     3.24,
+     3.14
+    ],
+    "dates": [
+     "2025-11-17",
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07",
+     "2026-09-14",
+     "2026-09-21",
+     "2026-09-28",
+     "2026-10-05",
+     "2026-10-12",
+     "2026-10-19",
+     "2026-10-26",
+     "2026-11-02",
+     "2026-11-09",
+     "2026-11-16"
+    ]
+   },
+   "tag": "Yahoo most-active",
+   "source": "yahoo"
+  },
+  {
    "sym": "IREN",
    "name": "IREN LIMITED",
    "price": 15.24,
@@ -1271,187 +1460,6 @@
    },
    "tag": "Yahoo most-active",
    "source": "yahoo"
-  },
-  {
-   "sym": "MDLN",
-   "name": "Medline Inc.",
-   "price": 39.16,
-   "pct": 3.92781,
-   "mentions": null,
-   "mentions_prev": null,
-   "mom": null,
-   "label": "",
-   "flags": [],
-   "analyst_rec": "BUY",
-   "analyst_target": 45.6087,
-   "earnings": null,
-   "headlines": [
-    "Medline stock falls as shareholders price secondary offering",
-    "A $6.2 Billion Hedge Fund Dumps These 2 Stocks",
-    "Medical supply giant recalls hospital beds amid reports of 7 deaths"
-   ],
-   "band": [
-    37.68000030517578,
-    39.97999954223633
-   ],
-   "spark": [
-    39.97999954223633,
-    39.470001220703125,
-    39.16999816894531,
-    37.68000030517578
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$51.5B"
-    ],
-    [
-     "Float",
-     "382.0M"
-    ],
-    [
-     "Short interest",
-     "8.9%"
-    ],
-    [
-     "Avg vol",
-     "8.9M"
-    ],
-    [
-     "Vol today",
-     "40.7M"
-    ],
-    [
-     "52w range",
-     "$31.37 \u2013 $50.88"
-    ]
-   ],
-   "reason": "Price is +3.9% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $45.61 mean target (+16%).",
-   "tone": {
-    "label": "mixed",
-    "score": -0.13
-   },
-   "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
-   ],
-   "er": {
-    "eps_estimate": 0.4,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 31.2,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     41.65,
-     44.13,
-     40.62,
-     40.52,
-     44.12,
-     46.0,
-     44.2,
-     47.3,
-     44.55,
-     49.8,
-     47.51,
-     43.83,
-     41.46,
-     42.73,
-     41.36,
-     44.28,
-     45.6,
-     47.64,
-     44.76,
-     44.75,
-     39.52,
-     36.19,
-     37.01,
-     36.56,
-     33.61,
-     36.61,
-     35.94,
-     38.87,
-     43.19,
-     41.04,
-     39.79,
-     38.75,
-     39.28,
-     35.23,
-     35.74,
-     34.26,
-     35.28,
-     36.59,
-     32.53,
-     31.64,
-     34.7,
-     35.61,
-     36.26,
-     35.96,
-     34.09,
-     32.12,
-     39.64,
-     39.47,
-     39.16
-    ],
-    "dates": [
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07",
-     "2026-09-14",
-     "2026-09-21",
-     "2026-09-28",
-     "2026-10-05",
-     "2026-10-12",
-     "2026-10-19",
-     "2026-10-26",
-     "2026-11-02",
-     "2026-11-09",
-     "2026-11-16"
-    ]
-   },
-   "tag": "Yahoo most-active",
-   "source": "yahoo"
   }
  ],
  "buzz": [
@@ -1460,7 +1468,7 @@
    "name": "NVIDIA",
    "price": 150.96,
    "pct": -6.501768885453521,
-   "mentions": 2777,
+   "mentions": 2782,
    "mentions_prev": 4239,
    "mom": "\u2193",
    "label": "",
@@ -1511,7 +1519,7 @@
      "$148.80 \u2013 $243.37"
     ]
    ],
-   "reason": "2,777 mentions, cooling from 4,239. Price is -6.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $253.67 mean target (+68%); the scan flagged squeeze/penny sub.",
+   "reason": "2,782 mentions, cooling from 4,239. Price is -6.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $253.67 mean target (+68%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.07
@@ -1649,7 +1657,7 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 730.2,
    "pct": -0.9898305084745701,
-   "mentions": 622,
+   "mentions": 624,
    "mentions_prev": 708,
    "mom": "\u2192",
    "label": "",
@@ -1688,7 +1696,7 @@
      "$629.28 \u2013 $781.62"
     ]
    ],
-   "reason": "622 mentions, flat against yesterday. Price is -1.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "624 mentions, flat against yesterday. Price is -1.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.0
@@ -1818,7 +1826,7 @@
    "name": "AMD",
    "price": 530.14,
    "pct": 1.539934878375783,
-   "mentions": 376,
+   "mentions": 378,
    "mentions_prev": 240,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -1869,7 +1877,7 @@
      "$188.22 \u2013 $658.52"
     ]
    ],
-   "reason": "376 mentions, up from 240 yesterday. Price is +1.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $657.74 mean target (+24%); the scan flagged squeeze/penny sub.",
+   "reason": "378 mentions, up from 240 yesterday. Price is +1.5% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $657.74 mean target (+24%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.19
@@ -2007,7 +2015,7 @@
    "name": "Invesco QQQ ETF",
    "price": 659.51,
    "pct": -0.9534010464388587,
-   "mentions": 354,
+   "mentions": 356,
    "mentions_prev": 402,
    "mom": "\u2192",
    "label": "",
@@ -2046,7 +2054,7 @@
      "$555.60 \u2013 $762.86"
     ]
    ],
-   "reason": "354 mentions, flat against yesterday. Price is -1.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "356 mentions, flat against yesterday. Price is -1.0% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.0
@@ -2176,7 +2184,7 @@
    "name": "SpaceX",
    "price": 143.5,
    "pct": 0.17452006980802792,
-   "mentions": 231,
+   "mentions": 237,
    "mentions_prev": 129,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2227,7 +2235,7 @@
      "$104.83 \u2013 $225.64"
     ]
    ],
-   "reason": "231 mentions, up from 129 yesterday. Price is +0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $257.50 mean target (+79%); the scan flagged squeeze/penny sub.",
+   "reason": "237 mentions, up from 129 yesterday. Price is +0.2% \u2014 the attention has moved further than the price; analyst consensus is buy with a $257.50 mean target (+79%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.2
@@ -13304,7 +13312,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
