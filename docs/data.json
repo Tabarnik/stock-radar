@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-23T22:55:40.038093+00:00",
+ "generated_at": "2026-11-23T23:37:38.248322+00:00",
  "watch": [
   {
    "sym": "SPY",
    "name": "SPDR S&P 500 ETF Trust",
    "price": 722.2899780273438,
    "pct": 3.668562861846588,
-   "mentions": 798,
-   "mentions_prev": 219,
+   "mentions": 780,
+   "mentions_prev": 229,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -18,8 +18,8 @@
    "earnings": null,
    "headlines": [
     "Why stocks had their best Monday since 2020",
-    "Stocks Roar as the S&P 500 Jumps About 4.5% on News Jensen Huang Is Returning as NVIDIA CEO",
-    "Trump Admits Falling Stocks Pushed Him to Phone Into Nvidia\u2019s Board Meeting Himself"
+    "EEM Now Moves Like A Chip Fund",
+    "Own Gold As A Hedge? BND Rose More Often"
    ],
    "band": [
     689.8099975585938,
@@ -46,10 +46,10 @@
      "$629.28 \u2013 $781.62"
     ]
    ],
-   "reason": "798 mentions today, 4x yesterday's 219. Price is +3.7% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "780 mentions today, 3x yesterday's 229. Price is +3.7% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.26
+    "score": 0.33
    },
    "read": [
     "moving with attention",
@@ -170,7 +170,7 @@
      "2026-11-23"
     ]
    },
-   "tag": "4x Reddit mentions",
+   "tag": "3x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -178,8 +178,8 @@
    "name": "Invesco QQQ ETF",
    "price": 651.030029296875,
    "pct": 5.592414126490155,
-   "mentions": 444,
-   "mentions_prev": 136,
+   "mentions": 435,
+   "mentions_prev": 139,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -218,7 +218,7 @@
      "$555.60 \u2013 $762.86"
     ]
    ],
-   "reason": "444 mentions today, 3x yesterday's 136. Price is +5.6% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "435 mentions today, 3x yesterday's 139. Price is +5.6% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.21
@@ -346,203 +346,11 @@
    "source": "reddit"
   },
   {
-   "sym": "AMD",
-   "name": "AMD",
-   "price": 453.4599914550781,
-   "pct": 3.903898505479922,
-   "mentions": 244,
-   "mentions_prev": 85,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 657.74286,
-   "earnings": null,
-   "headlines": [
-    "Nvidia soars 31% as board reinstates Jensen Huang as CEO, chip stocks jump",
-    "Why Jensen Huang is the 'key man' behind the market rally",
-    "Jensen Huang back at Nvidia, stock soars; Anthropic slides"
-   ],
-   "band": [
-    424.3900146484375,
-    530.1400146484375
-   ],
-   "spark": [
-    503.4100036621094,
-    530.1400146484375,
-    489.19000244140625,
-    424.3900146484375,
-    453.4599914550781
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$750.5B"
-    ],
-    [
-     "Float",
-     "1.6B"
-    ],
-    [
-     "Short interest",
-     "2.4%"
-    ],
-    [
-     "Avg vol",
-     "27.1M"
-    ],
-    [
-     "Vol today",
-     "53.7M"
-    ],
-    [
-     "52w range",
-     "$188.22 \u2013 $658.52"
-    ]
-   ],
-   "reason": "244 mentions today, 3x yesterday's 85. Price is +3.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $657.74 mean target (+45%); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "mixed",
-    "score": 0.0
-   },
-   "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
-   ],
-   "er": {
-    "eps_estimate": 2.93,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 8.0,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     217.53,
-     217.97,
-     210.78,
-     213.43,
-     214.99,
-     223.47,
-     203.17,
-     231.83,
-     259.68,
-     236.73,
-     208.44,
-     207.32,
-     200.15,
-     200.21,
-     192.43,
-     193.39,
-     201.33,
-     201.99,
-     217.5,
-     245.04,
-     278.39,
-     347.81,
-     360.54,
-     455.19,
-     424.1,
-     467.51,
-     516.1,
-     466.38,
-     511.57,
-     537.37,
-     521.58,
-     517.82,
-     557.89,
-     495.76,
-     521.95,
-     476.15,
-     483.36,
-     514.39,
-     473.25,
-     465.58,
-     477.57,
-     516.13,
-     559.82,
-     630.63,
-     633.91,
-     608.1,
-     528.75,
-     516.79,
-     504.8,
-     449.04,
-     534.06,
-     424.39,
-     453.46
-    ],
-    "dates": [
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07",
-     "2026-09-14",
-     "2026-09-21",
-     "2026-09-28",
-     "2026-10-05",
-     "2026-10-12",
-     "2026-10-19",
-     "2026-10-26",
-     "2026-11-02",
-     "2026-11-09",
-     "2026-11-16",
-     "2026-11-23"
-    ]
-   },
-   "tag": "3x Reddit mentions",
-   "source": "reddit"
-  },
-  {
    "sym": "NYT",
    "name": "New York Times",
    "price": 68.31999969482422,
    "pct": -0.4371907682538412,
-   "mentions": 241,
+   "mentions": 245,
    "mentions_prev": 19,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -552,8 +360,8 @@
    "earnings": null,
    "headlines": [
     "Jensen Huang back at Nvidia, stock soars; Anthropic slides",
-    "Trump\u2019s Latest Media Lawsuit Can Proceed, Judge Rules. What Could Happen If He Prevails.",
-    "What Citi Is Watching at The New York Times (NYT)"
+    "Why NYT's Multiple Fell As Its Stock Rose",
+    "Trump\u2019s Latest Media Lawsuit Can Proceed, Judge Rules. What Could Happen If He Prevails."
    ],
    "band": [
     68.31999969482422,
@@ -592,7 +400,7 @@
      "$58.87 \u2013 $87.10"
     ]
    ],
-   "reason": "241 mentions today, 13x yesterday's 19. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $76.00 mean target (+11%).",
+   "reason": "245 mentions today, 13x yesterday's 19. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $76.00 mean target (+11%).",
    "tone": {
     "label": "mixed",
     "score": -0.08
@@ -728,6 +536,198 @@
    "source": "reddit"
   },
   {
+   "sym": "AMD",
+   "name": "AMD",
+   "price": 453.4599914550781,
+   "pct": 3.903898505479922,
+   "mentions": 243,
+   "mentions_prev": 82,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 656.2122,
+   "earnings": null,
+   "headlines": [
+    "Nvidia soars 31% as board reinstates Jensen Huang as CEO, chip stocks jump",
+    "Why Jensen Huang is the 'key man' behind the market rally",
+    "Jensen Huang back at Nvidia, stock soars; Anthropic slides"
+   ],
+   "band": [
+    424.3900146484375,
+    530.1400146484375
+   ],
+   "spark": [
+    503.4100036621094,
+    530.1400146484375,
+    489.19000244140625,
+    424.3900146484375,
+    453.4599914550781
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$750.5B"
+    ],
+    [
+     "Float",
+     "1.6B"
+    ],
+    [
+     "Short interest",
+     "2.4%"
+    ],
+    [
+     "Avg vol",
+     "27.1M"
+    ],
+    [
+     "Vol today",
+     "53.7M"
+    ],
+    [
+     "52w range",
+     "$188.22 \u2013 $658.52"
+    ]
+   ],
+   "reason": "243 mentions today, 3x yesterday's 82. Price is +3.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $656.21 mean target (+45%); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "mixed",
+    "score": 0.0
+   },
+   "read": [
+    "moving with attention",
+    "good",
+    "Up on the day with attention still building."
+   ],
+   "er": {
+    "eps_estimate": 2.93,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 8.0,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     217.53,
+     217.97,
+     210.78,
+     213.43,
+     214.99,
+     223.47,
+     203.17,
+     231.83,
+     259.68,
+     236.73,
+     208.44,
+     207.32,
+     200.15,
+     200.21,
+     192.43,
+     193.39,
+     201.33,
+     201.99,
+     217.5,
+     245.04,
+     278.39,
+     347.81,
+     360.54,
+     455.19,
+     424.1,
+     467.51,
+     516.1,
+     466.38,
+     511.57,
+     537.37,
+     521.58,
+     517.82,
+     557.89,
+     495.76,
+     521.95,
+     476.15,
+     483.36,
+     514.39,
+     473.25,
+     465.58,
+     477.57,
+     516.13,
+     559.82,
+     630.63,
+     633.91,
+     608.1,
+     528.75,
+     516.79,
+     504.8,
+     449.04,
+     534.06,
+     424.39,
+     453.46
+    ],
+    "dates": [
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07",
+     "2026-09-14",
+     "2026-09-21",
+     "2026-09-28",
+     "2026-10-05",
+     "2026-10-12",
+     "2026-10-19",
+     "2026-10-26",
+     "2026-11-02",
+     "2026-11-09",
+     "2026-11-16",
+     "2026-11-23"
+    ]
+   },
+   "tag": "3x Reddit mentions",
+   "source": "reddit"
+  },
+  {
    "sym": "ANT",
    "name": "Anthropic, PBC",
    "price": 87.64,
@@ -804,7 +804,7 @@
    "label": "",
    "flags": [],
    "analyst_rec": "STRONG_BUY",
-   "analyst_target": 248.1823,
+   "analyst_target": 248.15105,
    "earnings": null,
    "headlines": [
     "Jensen Huang back as Nvidia CEO after 12 days: Shares surge 30%",
@@ -847,7 +847,7 @@
      "$23.46 \u2013 $294.30"
     ]
    ],
-   "reason": "Already up 11% today \u2014 the crowd is arriving after the move. Analyst consensus is strong buy with a $248.18 mean target (+183%).",
+   "reason": "Already up 11% today \u2014 the crowd is arriving after the move. Analyst consensus is strong buy with a $248.15 mean target (+183%).",
    "tone": {
     "label": "mixed",
     "score": 0.1
@@ -1313,8 +1313,8 @@
    "name": "NVIDIA",
    "price": 165.0500030517578,
    "pct": 27.560092010014554,
-   "mentions": 3318,
-   "mentions_prev": 550,
+   "mentions": 3346,
+   "mentions_prev": 581,
    "mom": "\u2191",
    "label": "\ud83d\udcc8 running today + chatter rising",
    "flags": [
@@ -1323,12 +1323,12 @@
     "squeeze/penny sub"
    ],
    "analyst_rec": "BUY",
-   "analyst_target": 244.18286,
+   "analyst_target": 244.54807,
    "earnings": null,
    "headlines": [
+    "Jensen Huang is back: Does Washington have a seat in the boardroom?",
     "Ex-Nvidia employee: 'Stability and accountability can coexist'",
-    "Nvidia's stability is a systemic issue for the US now, this AI CEO says",
-    "Nvidia gains nearly $1T as Trump says nobody could 'revive the stock like it's being revived'"
+    "Nvidia's stability is a systemic issue for the US now, this AI CEO says"
    ],
    "band": [
     125.52999877929688,
@@ -1367,10 +1367,10 @@
      "$124.50 \u2013 $243.37"
     ]
    ],
-   "reason": "3,318 mentions today, 6x yesterday's 550. Already up 28% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $244.18 mean target (+48%); the scan flagged already +28% (chasing risk), vol 5x normal, squeeze/penny sub.",
+   "reason": "3,346 mentions today, 6x yesterday's 581. Already up 28% today \u2014 the crowd is arriving after the move; analyst consensus is buy with a $244.55 mean target (+48%); the scan flagged already +28% (chasing risk), vol 5x normal, squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.25
+    "label": "mixed",
+    "score": 0.0
    },
    "read": [
     "chasing",
@@ -1505,8 +1505,8 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 722.2899780273438,
    "pct": 3.668562861846588,
-   "mentions": 798,
-   "mentions_prev": 219,
+   "mentions": 780,
+   "mentions_prev": 229,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1517,8 +1517,8 @@
    "earnings": null,
    "headlines": [
     "Why stocks had their best Monday since 2020",
-    "Stocks Roar as the S&P 500 Jumps About 4.5% on News Jensen Huang Is Returning as NVIDIA CEO",
-    "Trump Admits Falling Stocks Pushed Him to Phone Into Nvidia\u2019s Board Meeting Himself"
+    "EEM Now Moves Like A Chip Fund",
+    "Own Gold As A Hedge? BND Rose More Often"
    ],
    "band": [
     689.8099975585938,
@@ -1545,10 +1545,10 @@
      "$629.28 \u2013 $781.62"
     ]
    ],
-   "reason": "798 mentions today, 4x yesterday's 219. Price is +3.7% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "780 mentions today, 3x yesterday's 229. Price is +3.7% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.26
+    "score": 0.33
    },
    "read": [
     "moving with attention",
@@ -1675,8 +1675,8 @@
    "name": "Invesco QQQ ETF",
    "price": 651.030029296875,
    "pct": 5.592414126490155,
-   "mentions": 444,
-   "mentions_prev": 136,
+   "mentions": 435,
+   "mentions_prev": 139,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1715,7 +1715,7 @@
      "$555.60 \u2013 $762.86"
     ]
    ],
-   "reason": "444 mentions today, 3x yesterday's 136. Price is +5.6% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "435 mentions today, 3x yesterday's 139. Price is +5.6% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.21
@@ -1841,201 +1841,11 @@
    }
   },
   {
-   "sym": "AMD",
-   "name": "AMD",
-   "price": 453.4599914550781,
-   "pct": 3.903898505479922,
-   "mentions": 244,
-   "mentions_prev": 85,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 657.74286,
-   "earnings": null,
-   "headlines": [
-    "Nvidia soars 31% as board reinstates Jensen Huang as CEO, chip stocks jump",
-    "Why Jensen Huang is the 'key man' behind the market rally",
-    "Jensen Huang back at Nvidia, stock soars; Anthropic slides"
-   ],
-   "band": [
-    424.3900146484375,
-    530.1400146484375
-   ],
-   "spark": [
-    503.4100036621094,
-    530.1400146484375,
-    489.19000244140625,
-    424.3900146484375,
-    453.4599914550781
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$750.5B"
-    ],
-    [
-     "Float",
-     "1.6B"
-    ],
-    [
-     "Short interest",
-     "2.4%"
-    ],
-    [
-     "Avg vol",
-     "27.1M"
-    ],
-    [
-     "Vol today",
-     "53.7M"
-    ],
-    [
-     "52w range",
-     "$188.22 \u2013 $658.52"
-    ]
-   ],
-   "reason": "244 mentions today, 3x yesterday's 85. Price is +3.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $657.74 mean target (+45%); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "mixed",
-    "score": 0.0
-   },
-   "read": [
-    "moving with attention",
-    "good",
-    "Up on the day with attention still building."
-   ],
-   "er": {
-    "eps_estimate": 2.93,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 8.0,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     217.53,
-     217.97,
-     210.78,
-     213.43,
-     214.99,
-     223.47,
-     203.17,
-     231.83,
-     259.68,
-     236.73,
-     208.44,
-     207.32,
-     200.15,
-     200.21,
-     192.43,
-     193.39,
-     201.33,
-     201.99,
-     217.5,
-     245.04,
-     278.39,
-     347.81,
-     360.54,
-     455.19,
-     424.1,
-     467.51,
-     516.1,
-     466.38,
-     511.57,
-     537.37,
-     521.58,
-     517.82,
-     557.89,
-     495.76,
-     521.95,
-     476.15,
-     483.36,
-     514.39,
-     473.25,
-     465.58,
-     477.57,
-     516.13,
-     559.82,
-     630.63,
-     633.91,
-     608.1,
-     528.75,
-     516.79,
-     504.8,
-     449.04,
-     534.06,
-     424.39,
-     453.46
-    ],
-    "dates": [
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07",
-     "2026-09-14",
-     "2026-09-21",
-     "2026-09-28",
-     "2026-10-05",
-     "2026-10-12",
-     "2026-10-19",
-     "2026-10-26",
-     "2026-11-02",
-     "2026-11-09",
-     "2026-11-16",
-     "2026-11-23"
-    ]
-   }
-  },
-  {
    "sym": "NYT",
    "name": "New York Times",
    "price": 68.31999969482422,
    "pct": -0.4371907682538412,
-   "mentions": 241,
+   "mentions": 245,
    "mentions_prev": 19,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2045,8 +1855,8 @@
    "earnings": null,
    "headlines": [
     "Jensen Huang back at Nvidia, stock soars; Anthropic slides",
-    "Trump\u2019s Latest Media Lawsuit Can Proceed, Judge Rules. What Could Happen If He Prevails.",
-    "What Citi Is Watching at The New York Times (NYT)"
+    "Why NYT's Multiple Fell As Its Stock Rose",
+    "Trump\u2019s Latest Media Lawsuit Can Proceed, Judge Rules. What Could Happen If He Prevails."
    ],
    "band": [
     68.31999969482422,
@@ -2085,7 +1895,7 @@
      "$58.87 \u2013 $87.10"
     ]
    ],
-   "reason": "241 mentions today, 13x yesterday's 19. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $76.00 mean target (+11%).",
+   "reason": "245 mentions today, 13x yesterday's 19. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $76.00 mean target (+11%).",
    "tone": {
     "label": "mixed",
     "score": -0.08
@@ -2219,11 +2029,201 @@
    }
   },
   {
+   "sym": "AMD",
+   "name": "AMD",
+   "price": 453.4599914550781,
+   "pct": 3.903898505479922,
+   "mentions": 243,
+   "mentions_prev": 82,
+   "mom": "\u2191",
+   "label": "chatter rising",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "STRONG_BUY",
+   "analyst_target": 656.2122,
+   "earnings": null,
+   "headlines": [
+    "Nvidia soars 31% as board reinstates Jensen Huang as CEO, chip stocks jump",
+    "Why Jensen Huang is the 'key man' behind the market rally",
+    "Jensen Huang back at Nvidia, stock soars; Anthropic slides"
+   ],
+   "band": [
+    424.3900146484375,
+    530.1400146484375
+   ],
+   "spark": [
+    503.4100036621094,
+    530.1400146484375,
+    489.19000244140625,
+    424.3900146484375,
+    453.4599914550781
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$750.5B"
+    ],
+    [
+     "Float",
+     "1.6B"
+    ],
+    [
+     "Short interest",
+     "2.4%"
+    ],
+    [
+     "Avg vol",
+     "27.1M"
+    ],
+    [
+     "Vol today",
+     "53.7M"
+    ],
+    [
+     "52w range",
+     "$188.22 \u2013 $658.52"
+    ]
+   ],
+   "reason": "243 mentions today, 3x yesterday's 82. Price is +3.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $656.21 mean target (+45%); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "mixed",
+    "score": 0.0
+   },
+   "read": [
+    "moving with attention",
+    "good",
+    "Up on the day with attention still building."
+   ],
+   "er": {
+    "eps_estimate": 2.93,
+    "beat_record": "beat 4 of last 4",
+    "avg_surprise": 8.0,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     217.53,
+     217.97,
+     210.78,
+     213.43,
+     214.99,
+     223.47,
+     203.17,
+     231.83,
+     259.68,
+     236.73,
+     208.44,
+     207.32,
+     200.15,
+     200.21,
+     192.43,
+     193.39,
+     201.33,
+     201.99,
+     217.5,
+     245.04,
+     278.39,
+     347.81,
+     360.54,
+     455.19,
+     424.1,
+     467.51,
+     516.1,
+     466.38,
+     511.57,
+     537.37,
+     521.58,
+     517.82,
+     557.89,
+     495.76,
+     521.95,
+     476.15,
+     483.36,
+     514.39,
+     473.25,
+     465.58,
+     477.57,
+     516.13,
+     559.82,
+     630.63,
+     633.91,
+     608.1,
+     528.75,
+     516.79,
+     504.8,
+     449.04,
+     534.06,
+     424.39,
+     453.46
+    ],
+    "dates": [
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07",
+     "2026-09-14",
+     "2026-09-21",
+     "2026-09-28",
+     "2026-10-05",
+     "2026-10-12",
+     "2026-10-19",
+     "2026-10-26",
+     "2026-11-02",
+     "2026-11-09",
+     "2026-11-16",
+     "2026-11-23"
+    ]
+   }
+  },
+  {
    "sym": "HR",
    "name": "Healthcare Realty",
    "price": 19.760000228881836,
    "pct": 2.06611688472023,
-   "mentions": 212,
+   "mentions": 222,
    "mentions_prev": 2,
    "mom": "\u2191",
    "label": "chatter rising",
@@ -2275,7 +2275,7 @@
      "$16.31 \u2013 $22.04"
     ]
    ],
-   "reason": "212 mentions today, 106x yesterday's 2. Price is +2.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $21.50 mean target (+9%); the scan flagged squeeze/penny sub.",
+   "reason": "222 mentions today, 111x yesterday's 2. Price is +2.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $21.50 mean target (+9%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.34
@@ -2413,15 +2413,15 @@
    "name": "Micron Technology",
    "price": 707.7000122070312,
    "pct": 16.489994108347258,
-   "mentions": 162,
-   "mentions_prev": 72,
+   "mentions": 171,
+   "mentions_prev": 76,
    "mom": "\u2191",
    "label": "\ud83d\udcc8 running today + chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "STRONG_BUY",
-   "analyst_target": 1561.9111,
+   "analyst_target": 1550.2444,
    "earnings": null,
    "headlines": [
     "Jensen Huang's return to Nvidia: Long or short accountability?",
@@ -2465,7 +2465,7 @@
      "$212.36 \u2013 $1255.00"
     ]
    ],
-   "reason": "162 mentions today, 2x yesterday's 72. Already up 16% today \u2014 the crowd is arriving after the move; analyst consensus is strong buy with a $1,561.91 mean target (+121%); the scan flagged squeeze/penny sub.",
+   "reason": "171 mentions today, 2x yesterday's 76. Already up 16% today \u2014 the crowd is arriving after the move; analyst consensus is strong buy with a $1,550.24 mean target (+119%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.1
@@ -2478,7 +2478,7 @@
    "er": {
     "date": "Dec 17",
     "days_away": 24,
-    "eps_estimate": 38.22,
+    "eps_estimate": 38.24,
     "beat_record": "beat 4 of last 4",
     "avg_surprise": 20.1,
     "expect": [
@@ -2605,8 +2605,8 @@
    "name": "DTE Energy",
    "price": 137.13999938964844,
    "pct": 0.897586366721932,
-   "mentions": 143,
-   "mentions_prev": 53,
+   "mentions": 146,
+   "mentions_prev": 61,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2657,7 +2657,7 @@
      "$119.68 \u2013 $155.75"
     ]
    ],
-   "reason": "143 mentions today, 3x yesterday's 53. Price is +0.9% \u2014 the attention has moved further than the price; analyst consensus is buy with a $151.75 mean target (+11%); the scan flagged squeeze/penny sub.",
+   "reason": "146 mentions today, 2x yesterday's 61. Price is +0.9% \u2014 the attention has moved further than the price; analyst consensus is buy with a $151.75 mean target (+11%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.13
@@ -2794,9 +2794,9 @@
    "sym": "SOXL",
    "name": "Direxion Shares ETF Trust - Direxion Daily Semiconductor Bull 3X Share",
    "price": 43.209999084472656,
-   "pct": 31.177896431307406,
-   "mentions": 128,
-   "mentions_prev": 48,
+   "pct": 31.098298193181602,
+   "mentions": 130,
+   "mentions_prev": 49,
    "mom": "\u2191",
    "label": "\ud83d\udcc8 running today + chatter rising",
    "flags": [
@@ -2837,7 +2837,7 @@
      "$29.82 \u2013 $302.00"
     ]
    ],
-   "reason": "128 mentions today, 3x yesterday's 48. Already up 31% today \u2014 the crowd is arriving after the move; the scan flagged already +31% (chasing risk), vol 3x normal, squeeze/penny sub.",
+   "reason": "130 mentions today, 3x yesterday's 49. Already up 31% today \u2014 the crowd is arriving after the move; the scan flagged already +31% (chasing risk), vol 3x normal, squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.0
@@ -2967,8 +2967,8 @@
    "name": "Antero Midstream",
    "price": 19.790000915527344,
    "pct": 0.30411006349388403,
-   "mentions": 121,
-   "mentions_prev": 19,
+   "mentions": 119,
+   "mentions_prev": 21,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -3019,7 +3019,7 @@
      "$17.12 \u2013 $23.84"
     ]
    ],
-   "reason": "121 mentions today, 6x yesterday's 19. Price is +0.3% \u2014 the attention has moved further than the price; analyst consensus is hold with a $23.57 mean target (+19%); the scan flagged squeeze/penny sub.",
+   "reason": "119 mentions today, 6x yesterday's 21. Price is +0.3% \u2014 the attention has moved further than the price; analyst consensus is hold with a $23.57 mean target (+19%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.16
@@ -3168,8 +3168,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Ex-Nvidia employee: 'Stability and accountability can coexist'",
-    "Nvidia's stability is a systemic issue for the US now, this AI CEO says"
+    "Jensen Huang is back: Does Washington have a seat in the boardroom?",
+    "Ex-Nvidia employee: 'Stability and accountability can coexist'"
    ],
    "band": null,
    "spark": [],
@@ -3300,7 +3300,7 @@
    "name": "SPDR S&P 500 ETF Trust",
    "why": [
     "up +4% today",
-    "mentions 4x vs yesterday"
+    "mentions 3x vs yesterday"
    ]
   },
   {
@@ -3324,7 +3324,7 @@
    "name": "Healthcare Realty",
    "why": [
     "up +2% today",
-    "mentions 106x vs yesterday"
+    "mentions 111x vs yesterday"
    ]
   },
   {
@@ -13576,7 +13576,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
