@@ -1,204 +1,12 @@
 {
- "generated_at": "2026-11-24T21:31:47.743867+00:00",
+ "generated_at": "2026-11-24T22:07:52.458071+00:00",
  "watch": [
-  {
-   "sym": "AMD",
-   "name": "AMD",
-   "price": 413.2699890136719,
-   "pct": -7.700748919168997,
-   "mentions": 249,
-   "mentions_prev": 216,
-   "mom": "\u2191",
-   "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 656.2122,
-   "earnings": null,
-   "headlines": [
-    "Nvidia, AMD, Broadcom lead chip stocks lower as AI trade comes under pressure",
-    "Stocks give back gains as Anthropic dips below IPO price",
-    "Jensen Huang is back at Nvidia. Should AMD be worried?"
-   ],
-   "band": [
-    413.2699890136719,
-    530.1400146484375
-   ],
-   "spark": [
-    530.1400146484375,
-    489.19000244140625,
-    424.3900146484375,
-    453.4599914550781,
-    413.2699890136719
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$684.0B"
-    ],
-    [
-     "Float",
-     "1.6B"
-    ],
-    [
-     "Short interest",
-     "2.4%"
-    ],
-    [
-     "Avg vol",
-     "27.7M"
-    ],
-    [
-     "Vol today",
-     "45.7M"
-    ],
-    [
-     "52w range",
-     "$188.22 \u2013 $658.52"
-    ]
-   ],
-   "reason": "249 mentions, up from 216 yesterday. Price is -7.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $656.21 mean target (+59%); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "negative",
-    "score": -0.16
-   },
-   "read": [
-    "falling knife",
-    "bad",
-    "Price is dropping while chatter climbs \u2014 the crowd is arriving into a decline."
-   ],
-   "er": {
-    "eps_estimate": 2.93,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 8.0,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     217.53,
-     217.97,
-     210.78,
-     213.43,
-     214.99,
-     223.47,
-     203.17,
-     231.83,
-     259.68,
-     236.73,
-     208.44,
-     207.32,
-     200.15,
-     200.21,
-     192.43,
-     193.39,
-     201.33,
-     201.99,
-     217.5,
-     245.04,
-     278.39,
-     347.81,
-     360.54,
-     455.19,
-     424.1,
-     467.51,
-     516.1,
-     466.38,
-     511.57,
-     537.37,
-     521.58,
-     517.82,
-     557.89,
-     495.76,
-     521.95,
-     476.15,
-     483.36,
-     514.39,
-     473.25,
-     465.58,
-     477.57,
-     516.13,
-     559.82,
-     630.63,
-     633.91,
-     608.1,
-     528.75,
-     516.79,
-     504.8,
-     449.04,
-     534.06,
-     424.39,
-     413.27
-    ],
-    "dates": [
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07",
-     "2026-09-14",
-     "2026-09-21",
-     "2026-09-28",
-     "2026-10-05",
-     "2026-10-12",
-     "2026-10-19",
-     "2026-10-26",
-     "2026-11-02",
-     "2026-11-09",
-     "2026-11-16",
-     "2026-11-23"
-    ]
-   },
-   "tag": "1x Reddit mentions",
-   "source": "reddit"
-  },
   {
    "sym": "DELL",
    "name": "Dell",
    "price": 295.2799987792969,
    "pct": -11.561040260184233,
-   "mentions": 216,
+   "mentions": 226,
    "mentions_prev": 36,
    "mom": "\u2191",
    "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
@@ -207,9 +15,9 @@
    "analyst_target": 568.88,
    "earnings": "Nov 24 (0d)",
    "headlines": [
+    "Dell's Q3 earnings crush estimates as AI server demand roars",
     "Dell handily tops estimates, lifts sales and profit guidance",
-    "Dell Technologies Smashes Q3 Estimates, Guides Above Views",
-    "The Biggest Earnings Winners Grind Dell And Sandisk Into The Dust"
+    "Dow Jones Futures: Nvidia, Anthropic Lead AI Retreat But Many Sectors Strong; Fed Inflation Data Due"
    ],
    "band": [
     278.0199890136719,
@@ -241,17 +49,17 @@
     ],
     [
      "Vol today",
-     "17.2M"
+     "19.8M"
     ],
     [
      "52w range",
      "$110.22 \u2013 $595.51"
     ]
    ],
-   "reason": "216 mentions today, 6x yesterday's 36. Down 12% today while chatter keeps climbing; analyst consensus is buy with a $568.88 mean target (+93%); earnings land Nov 24 (0d).",
+   "reason": "226 mentions today, 6x yesterday's 36. Down 12% today while chatter keeps climbing; analyst consensus is buy with a $568.88 mean target (+93%); earnings land Nov 24 (0d).",
    "tone": {
     "label": "positive",
-    "score": 0.4
+    "score": 0.39
    },
    "read": [
     "falling knife",
@@ -390,8 +198,8 @@
    "name": "Micron Technology",
    "price": 629.7899780273438,
    "pct": -10.628143440090206,
-   "mentions": 185,
-   "mentions_prev": 159,
+   "mentions": 191,
+   "mentions_prev": 165,
    "mom": "\u2191",
    "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
    "flags": [
@@ -402,8 +210,8 @@
    "earnings": null,
    "headlines": [
     "Stocks give back gains as Anthropic dips below IPO price",
-    "Nvidia, AMD, Broadcom lead chip stocks lower as AI trade comes under pressure",
-    "Stock market today: Dow rises, S&P 500 and Nasdaq decline as chip sector tumbles, Nvidia stock falls 6%"
+    "Nvidia, Chip Stocks Fall As Data Center Spending Fears Return",
+    "5 High-Conviction Stocks Billionaire Philippe Laffont Is Betting On for 2027"
    ],
    "band": [
     594.510009765625,
@@ -435,17 +243,17 @@
     ],
     [
      "Vol today",
-     "38.4M"
+     "38.7M"
     ],
     [
      "52w range",
      "$216.00 \u2013 $1255.00"
     ]
    ],
-   "reason": "185 mentions, up from 159 yesterday. Down 11% today while chatter keeps climbing; analyst consensus is strong buy with a $1,529.69 mean target (+143%); the scan flagged squeeze/penny sub.",
+   "reason": "191 mentions, up from 165 yesterday. Down 11% today while chatter keeps climbing; analyst consensus is strong buy with a $1,529.69 mean target (+143%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": -0.06
+    "score": -0.03
    },
    "read": [
     "falling knife",
@@ -584,8 +392,8 @@
    "name": "Apple",
    "price": 354.07000732421875,
    "pct": 1.4730769278132414,
-   "mentions": 164,
-   "mentions_prev": 25,
+   "mentions": 172,
+   "mentions_prev": 23,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -595,9 +403,9 @@
    "analyst_target": 345.6313,
    "earnings": null,
    "headlines": [
+    "Why the Jensen Huang rally faded so quickly",
     "Stocks give back gains as Anthropic dips below IPO price",
-    "Who is holding Jensen Huang accountable? It sure looks like nobody",
-    "Jensen Huang's return revives an old Wall Street trade: Bet on the comeback CEO"
+    "Who is holding Jensen Huang accountable? It sure looks like nobody"
    ],
    "band": [
     342.55999755859375,
@@ -629,17 +437,17 @@
     ],
     [
      "Vol today",
-     "39.9M"
+     "40.2M"
     ],
     [
      "52w range",
      "$243.42 \u2013 $360.83"
     ]
    ],
-   "reason": "164 mentions today, 7x yesterday's 25. Price is +1.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $345.63 mean target (-2%); the scan flagged squeeze/penny sub.",
+   "reason": "172 mentions today, 7x yesterday's 23. Price is +1.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $345.63 mean target (-2%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.44
+    "score": 0.31
    },
    "read": [
     "quiet",
@@ -785,9 +593,9 @@
    "analyst_target": 244.71103,
    "earnings": null,
    "headlines": [
-    "Why HubSpot's CEO thinks Jensen Huang came back to Nvidia too soon",
-    "Wall Street's 2027 earnings hopes may be dead on arrival unless the Fed blinks in December",
-    "Bitcoin now counts as collateral: From the CFTC to the ECB"
+    "Why Nvidia is 'bar none' the 'cheapest growth stock in the market'",
+    "Why the Jensen Huang rally faded so quickly",
+    "Why HubSpot's CEO thinks Jensen Huang came back to Nvidia too soon"
    ],
    "band": [
     125.52999877929688,
@@ -819,7 +627,7 @@
     ],
     [
      "Vol today",
-     "379.2M"
+     "382.1M"
     ],
     [
      "52w range",
@@ -829,7 +637,7 @@
    "reason": "Price is -5.9% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $244.71 mean target (+57%).",
    "tone": {
     "label": "mixed",
-    "score": -0.12
+    "score": -0.1
    },
    "read": [
     "fading",
@@ -975,9 +783,9 @@
    "analyst_target": 136.32571,
    "earnings": null,
    "headlines": [
-    "Anthropic and 'Grand Theft Auto VI' launched on the same day. The video game trade is winning for now.",
-    "Anthropic stock drops below $83 IPO price as day-one pop vanishes",
-    "Stocks give back gains as Anthropic dips below IPO price"
+    "The blunt reality for post-IPO Anthropic investors should be aware of",
+    "Why the Jensen Huang rally faded so quickly",
+    "Anthropic and 'Grand Theft Auto VI' launched on the same day. The video game trade is winning for now."
    ],
    "band": [
     81.90499877929688,
@@ -1004,7 +812,7 @@
     ],
     [
      "Vol today",
-     "311.3M"
+     "311.6M"
     ],
     [
      "52w range",
@@ -1014,7 +822,7 @@
    "reason": "Price is -6.5% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $136.33 mean target (+66%).",
    "tone": {
     "label": "positive",
-    "score": 0.37
+    "score": 0.26
    },
    "read": [
     "fading",
@@ -1043,8 +851,8 @@
    "earnings": null,
    "headlines": [
     "Tesla and SpaceX assemble deal teams for a merger that could give Musk majority control",
-    "Billionaire Philippe Laffont\u2019s 10 High-Conviction Stock Bets for 2027",
-    "Tesla, SpaceX Reportedly Pick Board Members To Negotiate Elon Musk's Mega Merger"
+    "RBC Expects SpaceX-Tesla Deal Announcement By Early 2027 \u2014 Notes TSLA Shareholders May Accept Combination Without Large Premium",
+    "Anthropic IPO: Here's What a $5,000 Investment Could Look Like in 5 Years"
    ],
    "band": [
     125.80999755859375,
@@ -1076,7 +884,7 @@
     ],
     [
      "Vol today",
-     "101.8M"
+     "103.2M"
     ],
     [
      "52w range",
@@ -1085,8 +893,8 @@
    ],
    "reason": "Price is -5.7% \u2014 the attention has moved further than the price. Analyst consensus is buy with a $256.25 mean target (+104%).",
    "tone": {
-    "label": "mixed",
-    "score": 0.0
+    "label": "positive",
+    "score": 0.25
    },
    "read": [
     "fading",
@@ -1210,7 +1018,7 @@
     ],
     [
      "Vol today",
-     "78.3M"
+     "78.9M"
     ],
     [
      "52w range",
@@ -1359,8 +1167,8 @@
    "name": "NVIDIA",
    "price": 155.3800048828125,
    "pct": -5.97822765950511,
-   "mentions": 1901,
-   "mentions_prev": 3082,
+   "mentions": 1836,
+   "mentions_prev": 3225,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -1370,9 +1178,9 @@
    "analyst_target": 244.71103,
    "earnings": null,
    "headlines": [
-    "Why HubSpot's CEO thinks Jensen Huang came back to Nvidia too soon",
-    "Wall Street's 2027 earnings hopes may be dead on arrival unless the Fed blinks in December",
-    "Bitcoin now counts as collateral: From the CFTC to the ECB"
+    "Why Nvidia is 'bar none' the 'cheapest growth stock in the market'",
+    "Why the Jensen Huang rally faded so quickly",
+    "Why HubSpot's CEO thinks Jensen Huang came back to Nvidia too soon"
    ],
    "band": [
     125.52999877929688,
@@ -1404,17 +1212,17 @@
     ],
     [
      "Vol today",
-     "379.2M"
+     "382.1M"
     ],
     [
      "52w range",
      "$124.50 \u2013 $243.37"
     ]
    ],
-   "reason": "1,901 mentions, cooling from 3,082. Price is -6.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $244.71 mean target (+57%); the scan flagged squeeze/penny sub.",
+   "reason": "1,836 mentions, cooling from 3,225. Price is -6.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $244.71 mean target (+57%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": -0.12
+    "score": -0.1
    },
    "read": [
     "fading",
@@ -1549,9 +1357,9 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 718.780029296875,
    "pct": -0.4432490950755946,
-   "mentions": 642,
-   "mentions_prev": 742,
-   "mom": "\u2192",
+   "mentions": 624,
+   "mentions_prev": 769,
+   "mom": "\u2193",
    "label": "",
    "flags": [
     "squeeze/penny sub"
@@ -1582,14 +1390,14 @@
     ],
     [
      "Vol today",
-     "60.6M"
+     "63.4M"
     ],
     [
      "52w range",
      "$629.28 \u2013 $781.62"
     ]
    ],
-   "reason": "642 mentions, flat against yesterday. Price is -0.4% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "624 mentions, cooling from 769. Price is -0.4% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.12
@@ -1719,8 +1527,8 @@
    "name": "Invesco QQQ ETF",
    "price": 638.0999755859375,
    "pct": -1.7567126624782516,
-   "mentions": 277,
-   "mentions_prev": 426,
+   "mentions": 272,
+   "mentions_prev": 440,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -1752,14 +1560,14 @@
     ],
     [
      "Vol today",
-     "55.6M"
+     "56.3M"
     ],
     [
      "52w range",
      "$555.60 \u2013 $762.86"
     ]
    ],
-   "reason": "277 mentions, cooling from 426. Price is -1.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "272 mentions, cooling from 440. Price is -1.8% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.19
@@ -1889,10 +1697,10 @@
    "name": "AMD",
    "price": 413.2699890136719,
    "pct": -7.700748919168997,
-   "mentions": 249,
-   "mentions_prev": 216,
-   "mom": "\u2191",
-   "label": "chatter rising",
+   "mentions": 250,
+   "mentions_prev": 241,
+   "mom": "\u2192",
+   "label": "",
    "flags": [
     "squeeze/penny sub"
    ],
@@ -1934,22 +1742,22 @@
     ],
     [
      "Vol today",
-     "45.7M"
+     "45.9M"
     ],
     [
      "52w range",
      "$188.22 \u2013 $658.52"
     ]
    ],
-   "reason": "249 mentions, up from 216 yesterday. Price is -7.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $656.21 mean target (+59%); the scan flagged squeeze/penny sub.",
+   "reason": "250 mentions, flat against yesterday. Price is -7.7% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $656.21 mean target (+59%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "negative",
     "score": -0.16
    },
    "read": [
-    "falling knife",
-    "bad",
-    "Price is dropping while chatter climbs \u2014 the crowd is arriving into a decline."
+    "fading",
+    "muted",
+    "Down on the day and the chatter is cooling with it."
    ],
    "er": {
     "eps_estimate": 2.93,
@@ -2079,7 +1887,7 @@
    "name": "Dell",
    "price": 295.2799987792969,
    "pct": -11.561040260184233,
-   "mentions": 216,
+   "mentions": 226,
    "mentions_prev": 36,
    "mom": "\u2191",
    "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
@@ -2088,9 +1896,9 @@
    "analyst_target": 568.88,
    "earnings": "Nov 24 (0d)",
    "headlines": [
+    "Dell's Q3 earnings crush estimates as AI server demand roars",
     "Dell handily tops estimates, lifts sales and profit guidance",
-    "Dell Technologies Smashes Q3 Estimates, Guides Above Views",
-    "The Biggest Earnings Winners Grind Dell And Sandisk Into The Dust"
+    "Dow Jones Futures: Nvidia, Anthropic Lead AI Retreat But Many Sectors Strong; Fed Inflation Data Due"
    ],
    "band": [
     278.0199890136719,
@@ -2122,17 +1930,17 @@
     ],
     [
      "Vol today",
-     "17.2M"
+     "19.8M"
     ],
     [
      "52w range",
      "$110.22 \u2013 $595.51"
     ]
    ],
-   "reason": "216 mentions today, 6x yesterday's 36. Down 12% today while chatter keeps climbing; analyst consensus is buy with a $568.88 mean target (+93%); earnings land Nov 24 (0d).",
+   "reason": "226 mentions today, 6x yesterday's 36. Down 12% today while chatter keeps climbing; analyst consensus is buy with a $568.88 mean target (+93%); earnings land Nov 24 (0d).",
    "tone": {
     "label": "positive",
-    "score": 0.4
+    "score": 0.39
    },
    "read": [
     "falling knife",
@@ -2269,8 +2077,8 @@
    "name": "Micron Technology",
    "price": 629.7899780273438,
    "pct": -10.628143440090206,
-   "mentions": 185,
-   "mentions_prev": 159,
+   "mentions": 191,
+   "mentions_prev": 165,
    "mom": "\u2191",
    "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
    "flags": [
@@ -2281,8 +2089,8 @@
    "earnings": null,
    "headlines": [
     "Stocks give back gains as Anthropic dips below IPO price",
-    "Nvidia, AMD, Broadcom lead chip stocks lower as AI trade comes under pressure",
-    "Stock market today: Dow rises, S&P 500 and Nasdaq decline as chip sector tumbles, Nvidia stock falls 6%"
+    "Nvidia, Chip Stocks Fall As Data Center Spending Fears Return",
+    "5 High-Conviction Stocks Billionaire Philippe Laffont Is Betting On for 2027"
    ],
    "band": [
     594.510009765625,
@@ -2314,17 +2122,17 @@
     ],
     [
      "Vol today",
-     "38.4M"
+     "38.7M"
     ],
     [
      "52w range",
      "$216.00 \u2013 $1255.00"
     ]
    ],
-   "reason": "185 mentions, up from 159 yesterday. Down 11% today while chatter keeps climbing; analyst consensus is strong buy with a $1,529.69 mean target (+143%); the scan flagged squeeze/penny sub.",
+   "reason": "191 mentions, up from 165 yesterday. Down 11% today while chatter keeps climbing; analyst consensus is strong buy with a $1,529.69 mean target (+143%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": -0.06
+    "score": -0.03
    },
    "read": [
     "falling knife",
@@ -2461,8 +2269,8 @@
    "name": "Apple",
    "price": 354.07000732421875,
    "pct": 1.4730769278132414,
-   "mentions": 164,
-   "mentions_prev": 25,
+   "mentions": 172,
+   "mentions_prev": 23,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2472,9 +2280,9 @@
    "analyst_target": 345.6313,
    "earnings": null,
    "headlines": [
+    "Why the Jensen Huang rally faded so quickly",
     "Stocks give back gains as Anthropic dips below IPO price",
-    "Who is holding Jensen Huang accountable? It sure looks like nobody",
-    "Jensen Huang's return revives an old Wall Street trade: Bet on the comeback CEO"
+    "Who is holding Jensen Huang accountable? It sure looks like nobody"
    ],
    "band": [
     342.55999755859375,
@@ -2506,17 +2314,17 @@
     ],
     [
      "Vol today",
-     "39.9M"
+     "40.2M"
     ],
     [
      "52w range",
      "$243.42 \u2013 $360.83"
     ]
    ],
-   "reason": "164 mentions today, 7x yesterday's 25. Price is +1.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $345.63 mean target (-2%); the scan flagged squeeze/penny sub.",
+   "reason": "172 mentions today, 7x yesterday's 23. Price is +1.5% \u2014 the attention has moved further than the price; analyst consensus is buy with a $345.63 mean target (-2%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
-    "score": 0.44
+    "score": 0.31
    },
    "read": [
     "quiet",
@@ -2647,12 +2455,202 @@
    }
   },
   {
+   "sym": "DTE",
+   "name": "DTE Energy",
+   "price": 137.6999969482422,
+   "pct": 0.4083396151685877,
+   "mentions": 123,
+   "mentions_prev": 145,
+   "mom": "\u2193",
+   "label": "",
+   "flags": [
+    "squeeze/penny sub"
+   ],
+   "analyst_rec": "BUY",
+   "analyst_target": 152.32143,
+   "earnings": null,
+   "headlines": [
+    "DTE Energy Stock Outlook: Is Wall Street Bullish or Bearish?",
+    "Inside Peter Thiel\u2019s Portfolio: Every Move He Made in the Third Quarter",
+    "Peter Thiel Sold Every Utility Stock He Owned and Bet $161 Million on One Chip ETF. It\u2019s Down $37 Million Since"
+   ],
+   "band": [
+    135.9199981689453,
+    137.6999969482422
+   ],
+   "spark": [
+    136.86000061035156,
+    136.1300048828125,
+    135.9199981689453,
+    137.13999938964844,
+    137.6999969482422
+   ],
+   "stats": [
+    [
+     "Market cap",
+     "$28.7B"
+    ],
+    [
+     "Float",
+     "207.0M"
+    ],
+    [
+     "Short interest",
+     "3.5%"
+    ],
+    [
+     "Avg vol",
+     "1.5M"
+    ],
+    [
+     "Vol today",
+     "1.0M"
+    ],
+    [
+     "52w range",
+     "$119.68 \u2013 $155.75"
+    ]
+   ],
+   "reason": "123 mentions, cooling from 145. Price is +0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $152.32 mean target (+11%); the scan flagged squeeze/penny sub.",
+   "tone": {
+    "label": "mixed",
+    "score": 0.09
+   },
+   "read": [
+    "quiet",
+    "muted",
+    "No strong pattern between price and attention today."
+   ],
+   "er": {
+    "eps_estimate": 2.25,
+    "beat_record": "beat 3 of last 4",
+    "avg_surprise": 6.9,
+    "expect": [
+     "good",
+     "Beaten estimates in most recent quarters"
+    ]
+   },
+   "chart": {
+    "period": "1y",
+    "closes": [
+     132.47,
+     126.86,
+     125.48,
+     124.51,
+     125.88,
+     127.16,
+     126.7,
+     132.18,
+     131.03,
+     131.08,
+     131.51,
+     141.38,
+     141.44,
+     144.6,
+     146.44,
+     145.9,
+     139.18,
+     142.03,
+     145.54,
+     147.15,
+     144.5,
+     144.4,
+     146.28,
+     138.23,
+     137.42,
+     142.85,
+     140.46,
+     143.31,
+     144.93,
+     145.07,
+     153.03,
+     152.66,
+     148.91,
+     146.85,
+     148.11,
+     140.58,
+     138.6,
+     139.56,
+     133.99,
+     134.63,
+     134.85,
+     131.38,
+     127.36,
+     121.44,
+     124.45,
+     126.9,
+     129.73,
+     131.89,
+     135.49,
+     135.08,
+     139.72,
+     135.92,
+     137.7
+    ],
+    "dates": [
+     "2025-11-24",
+     "2025-12-01",
+     "2025-12-08",
+     "2025-12-15",
+     "2025-12-22",
+     "2025-12-29",
+     "2026-01-05",
+     "2026-01-12",
+     "2026-01-19",
+     "2026-01-26",
+     "2026-02-02",
+     "2026-02-09",
+     "2026-02-16",
+     "2026-02-23",
+     "2026-03-02",
+     "2026-03-09",
+     "2026-03-16",
+     "2026-03-23",
+     "2026-03-30",
+     "2026-04-06",
+     "2026-04-13",
+     "2026-04-20",
+     "2026-04-27",
+     "2026-05-04",
+     "2026-05-11",
+     "2026-05-18",
+     "2026-05-25",
+     "2026-06-01",
+     "2026-06-08",
+     "2026-06-15",
+     "2026-06-22",
+     "2026-06-29",
+     "2026-07-06",
+     "2026-07-13",
+     "2026-07-20",
+     "2026-07-27",
+     "2026-08-03",
+     "2026-08-10",
+     "2026-08-17",
+     "2026-08-24",
+     "2026-08-31",
+     "2026-09-07",
+     "2026-09-14",
+     "2026-09-21",
+     "2026-09-28",
+     "2026-10-05",
+     "2026-10-12",
+     "2026-10-19",
+     "2026-10-26",
+     "2026-11-02",
+     "2026-11-09",
+     "2026-11-16",
+     "2026-11-23"
+    ]
+   }
+  },
+  {
    "sym": "HR",
    "name": "Healthcare Realty",
    "price": 20.170000076293945,
    "pct": 2.074899171528055,
-   "mentions": 128,
-   "mentions_prev": 176,
+   "mentions": 120,
+   "mentions_prev": 185,
    "mom": "\u2193",
    "label": "",
    "flags": [
@@ -2703,7 +2701,7 @@
      "$16.31 \u2013 $22.04"
     ]
    ],
-   "reason": "128 mentions, cooling from 176. Price is +2.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $21.50 mean target (+7%); the scan flagged squeeze/penny sub.",
+   "reason": "120 mentions, cooling from 185. Price is +2.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $21.50 mean target (+7%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.34
@@ -2837,325 +2835,118 @@
    }
   },
   {
-   "sym": "SNDK",
-   "name": "Sandisk",
-   "price": 77.94999694824219,
-   "pct": -11.52100232889649,
-   "mentions": 121,
-   "mentions_prev": 71,
-   "mom": "\u2191",
-   "label": "\ud83d\udd3b already dumped today (crowd still piling in)",
-   "flags": [
-    "squeeze/penny sub"
-   ],
-   "analyst_rec": "STRONG_BUY",
-   "analyst_target": 247.10938,
-   "earnings": null,
-   "headlines": [
-    "Nvidia, AMD, Broadcom lead chip stocks lower as AI trade comes under pressure",
-    "The Biggest Earnings Winners Grind Dell And Sandisk Into The Dust",
-    "Why Is Everpure (P) Stock Down Today? AI Chip, Storage Selloff Weighs"
-   ],
-   "band": [
-    77.94999694824219,
-    97.02749633789062
-   ],
-   "spark": [
-    97.02749633789062,
-    94.3949966430664,
-    77.94999694824219
-   ],
-   "stats": [
-    [
-     "Market cap",
-     "$88.7B"
-    ],
-    [
-     "Float",
-     "1.1B"
-    ],
-    [
-     "Short interest",
-     "3.5%"
-    ],
-    [
-     "Avg vol",
-     "85.6M"
-    ],
-    [
-     "Vol today",
-     "95.8M"
-    ],
-    [
-     "52w range",
-     "$23.46 \u2013 $294.30"
-    ]
-   ],
-   "reason": "121 mentions, up from 71 yesterday. Down 12% today while chatter keeps climbing; analyst consensus is strong buy with a $247.11 mean target (+217%); the scan flagged squeeze/penny sub.",
-   "tone": {
-    "label": "mixed",
-    "score": -0.02
-   },
-   "read": [
-    "falling knife",
-    "bad",
-    "Price is dropping while chatter climbs \u2014 the crowd is arriving into a decline."
-   ],
-   "er": {
-    "eps_estimate": 7.14,
-    "beat_record": "beat 4 of last 4",
-    "avg_surprise": 38.8,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
-   "chart": {
-    "period": "1y",
-    "closes": [
-     27.91,
-     28.56,
-     25.77,
-     29.7,
-     31.26,
-     34.4,
-     47.18,
-     51.7,
-     59.23,
-     72.03,
-     74.74,
-     78.32,
-     81.25,
-     79.42,
-     65.92,
-     82.7,
-     88.71,
-     76.98,
-     87.7,
-     106.47,
-     115.12,
-     123.74,
-     148.38,
-     195.29,
-     175.95,
-     184.84,
-     211.87,
-     194.91,
-     247.51,
-     273.09,
-     261.34,
-     218.12,
-     239.49,
-     169.35,
-     179.57,
-     151.85,
-     151.53,
-     205.14,
-     199.51,
-     185.62,
-     217.5,
-     204.17,
-     223.98,
-     222.23,
-     215.0,
-     197.73,
-     162.41,
-     154.75,
-     143.86,
-     104.38,
-     110.63,
-     94.39,
-     77.95
-    ],
-    "dates": [
-     "2025-11-24",
-     "2025-12-01",
-     "2025-12-08",
-     "2025-12-15",
-     "2025-12-22",
-     "2025-12-29",
-     "2026-01-05",
-     "2026-01-12",
-     "2026-01-19",
-     "2026-01-26",
-     "2026-02-02",
-     "2026-02-09",
-     "2026-02-16",
-     "2026-02-23",
-     "2026-03-02",
-     "2026-03-09",
-     "2026-03-16",
-     "2026-03-23",
-     "2026-03-30",
-     "2026-04-06",
-     "2026-04-13",
-     "2026-04-20",
-     "2026-04-27",
-     "2026-05-04",
-     "2026-05-11",
-     "2026-05-18",
-     "2026-05-25",
-     "2026-06-01",
-     "2026-06-08",
-     "2026-06-15",
-     "2026-06-22",
-     "2026-06-29",
-     "2026-07-06",
-     "2026-07-13",
-     "2026-07-20",
-     "2026-07-27",
-     "2026-08-03",
-     "2026-08-10",
-     "2026-08-17",
-     "2026-08-24",
-     "2026-08-31",
-     "2026-09-07",
-     "2026-09-14",
-     "2026-09-21",
-     "2026-09-28",
-     "2026-10-05",
-     "2026-10-12",
-     "2026-10-19",
-     "2026-10-26",
-     "2026-11-02",
-     "2026-11-09",
-     "2026-11-16",
-     "2026-11-23"
-    ]
-   }
-  },
-  {
-   "sym": "DTE",
-   "name": "DTE Energy",
-   "price": 137.6999969482422,
-   "pct": 0.4083396151685877,
+   "sym": "SOXL",
+   "name": "Direxion Shares ETF Trust - Direxion Daily Semiconductor Bull 3X Share",
+   "price": 32.599998474121094,
+   "pct": -23.629969676596115,
    "mentions": 120,
-   "mentions_prev": 146,
-   "mom": "\u2193",
-   "label": "",
+   "mentions_prev": 129,
+   "mom": "\u2192",
+   "label": "\ud83d\udd3b already dumped today",
    "flags": [
+    "vol 3x normal",
     "squeeze/penny sub"
    ],
-   "analyst_rec": "BUY",
-   "analyst_target": 152.32143,
+   "analyst_rec": null,
+   "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "DTE Energy Stock Outlook: Is Wall Street Bullish or Bearish?",
-    "Inside Peter Thiel\u2019s Portfolio: Every Move He Made in the Third Quarter",
-    "Peter Thiel Sold Every Utility Stock He Owned and Bet $161 Million on One Chip ETF. It\u2019s Down $37 Million Since"
+    "Nvidia and SanDisk Bets Joined Bitcoin in a $1.76 Billion Liquidation Wave",
+    "SOXL Crashes 32% in Its Third-Worst Day Ever and Is Down 90% From Its June Record. The Chip Index It Tracks Is Down 43%",
+    "2 Leveraged ETFs Draw Options Traders as Tech Stocks Rebound"
    ],
    "band": [
-    135.9199981689453,
-    137.6999969482422
+    30.8799991607666,
+    49.2599983215332
    ],
    "spark": [
-    136.86000061035156,
-    136.1300048828125,
-    135.9199981689453,
-    137.13999938964844,
-    137.6999969482422
+    49.2599983215332,
+    45.29999923706055,
+    30.8799991607666,
+    43.209999084472656,
+    32.599998474121094
    ],
    "stats": [
     [
-     "Market cap",
-     "$28.7B"
-    ],
-    [
-     "Float",
-     "207.0M"
-    ],
-    [
-     "Short interest",
-     "3.5%"
-    ],
-    [
      "Avg vol",
-     "1.5M"
+     "124.8M"
     ],
     [
      "Vol today",
-     "1.0M"
+     "398.8M"
     ],
     [
      "52w range",
-     "$119.68 \u2013 $155.75"
+     "$29.82 \u2013 $302.00"
     ]
    ],
-   "reason": "120 mentions, cooling from 146. Price is +0.4% \u2014 the attention has moved further than the price; analyst consensus is buy with a $152.32 mean target (+11%); the scan flagged squeeze/penny sub.",
+   "reason": "120 mentions, flat against yesterday. Down 24% today while chatter keeps climbing; the scan flagged vol 3x normal, squeeze/penny sub.",
    "tone": {
     "label": "mixed",
-    "score": 0.09
+    "score": 0.0
    },
    "read": [
-    "quiet",
+    "fading",
     "muted",
-    "No strong pattern between price and attention today."
+    "Down on the day and the chatter is cooling with it."
    ],
-   "er": {
-    "eps_estimate": 2.25,
-    "beat_record": "beat 3 of last 4",
-    "avg_surprise": 6.9,
-    "expect": [
-     "good",
-     "Beaten estimates in most recent quarters"
-    ]
-   },
+   "er": null,
    "chart": {
     "period": "1y",
     "closes": [
-     132.47,
-     126.86,
-     125.48,
-     124.51,
-     125.88,
-     127.16,
-     126.7,
-     132.18,
-     131.03,
-     131.08,
-     131.51,
-     141.38,
-     141.44,
-     144.6,
-     146.44,
-     145.9,
-     139.18,
-     142.03,
-     145.54,
-     147.15,
-     144.5,
-     144.4,
-     146.28,
-     138.23,
-     137.42,
-     142.85,
-     140.46,
-     143.31,
-     144.93,
-     145.07,
-     153.03,
-     152.66,
-     148.91,
-     146.85,
-     148.11,
-     140.58,
-     138.6,
-     139.56,
-     133.99,
-     134.63,
-     134.85,
-     131.38,
-     127.36,
-     121.44,
-     124.45,
-     126.9,
-     129.73,
-     131.89,
-     135.49,
-     135.08,
-     139.72,
-     135.92,
-     137.7
+     41.23,
+     46.47,
+     41.68,
+     41.69,
+     44.18,
+     47.21,
+     53.91,
+     60.71,
+     61.56,
+     61.75,
+     61.71,
+     64.55,
+     67.07,
+     62.73,
+     47.86,
+     50.69,
+     51.11,
+     46.58,
+     52.72,
+     76.34,
+     94.62,
+     128.24,
+     130.31,
+     176.82,
+     164.07,
+     190.44,
+     224.19,
+     182.42,
+     234.53,
+     279.11,
+     215.46,
+     181.35,
+     192.13,
+     135.38,
+     136.72,
+     114.64,
+     140.16,
+     144.86,
+     120.52,
+     111.27,
+     117.2,
+     121.74,
+     123.59,
+     151.45,
+     163.71,
+     139.76,
+     93.67,
+     83.56,
+     77.05,
+     45.97,
+     58.32,
+     30.88,
+     32.6
     ],
     "dates": [
      "2025-11-24",
@@ -3256,8 +3047,8 @@
    "analyst_target": null,
    "earnings": null,
    "headlines": [
-    "Why Abercrombie & Fitch Stock Is In Focus After Earnings Beat And Higher Outlook",
-    "Abercrombie & Fitch (ANF) Raised Full Year Guidance After An Earnings Beat"
+    "Abercrombie & Fitch Co. Q3 2026 Earnings Call Summary",
+    "Why Abercrombie & Fitch Stock Is In Focus After Earnings Beat And Higher Outlook"
    ],
    "band": null,
    "spark": [],
@@ -3352,7 +3143,7 @@
   "tracked": 10,
   "up": 3,
   "down": 7,
-  "flagged": 8,
+  "flagged": 7,
   "standouts": 0
  },
  "history": [
@@ -13679,7 +13470,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
