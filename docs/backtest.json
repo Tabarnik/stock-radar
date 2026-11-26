@@ -3127,7 +3127,7 @@
     "SPY"
    ],
    "per_ticker": 442.56,
-   "held_days": 6,
+   "held_days": 7,
    "return_pct": -0.6,
    "invested": 442.56,
    "balance": 8851.24,
@@ -3152,7 +3152,7 @@
     "ANT"
    ],
    "per_ticker": 415.78,
-   "held_days": 5,
+   "held_days": 6,
    "return_pct": -1.6,
    "invested": 1247.33,
    "balance": 8315.52,
@@ -3177,7 +3177,7 @@
     "HR"
    ],
    "per_ticker": 446.22,
-   "held_days": 2,
+   "held_days": 3,
    "return_pct": -2.5,
    "invested": 1338.66,
    "balance": 8924.43,
@@ -3202,7 +3202,7 @@
     "AAPL"
    ],
    "per_ticker": 437.31,
-   "held_days": 1,
+   "held_days": 2,
    "return_pct": 0.6,
    "invested": 1749.24,
    "balance": 8746.18,
@@ -3211,8 +3211,8 @@
   },
   {
    "date": "2026-11-25",
-   "picks": 2,
-   "flagged": 8,
+   "picks": 4,
+   "flagged": 10,
    "held_already": [
     "ANT",
     "DELL",
@@ -3222,13 +3222,15 @@
     "SPY"
    ],
    "bought": [
+    "SOXL",
     "RIG",
-    "NVDA"
+    "NVDA",
+    "GRAB"
    ],
    "per_ticker": 431.72,
-   "held_days": 0,
-   "return_pct": 0.6,
-   "invested": 863.45,
+   "held_days": 1,
+   "return_pct": 0.3,
+   "invested": 1726.9,
    "balance": 8634.48,
    "pnl": 5.56,
    "open": true
@@ -19103,6 +19105,23 @@
   },
   {
    "date": "2026-11-25",
+   "sym": "GRAB",
+   "entry": 2.84,
+   "now": 2.84,
+   "ret_total": -0.0,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-11-25",
    "sym": "MU",
    "entry": 592.0800170898438,
    "now": 601.25,
@@ -19158,6 +19177,23 @@
    "entry": 5.025,
    "now": 5.03,
    "ret_total": 0.1,
+   "exit_date": null,
+   "exit_price": null,
+   "ret_hold": null,
+   "still_open": true,
+   "simulated": false,
+   "already_held": false,
+   "days_left": null,
+   "held_since": null,
+   "buy_price": null,
+   "ret_since_buy": null
+  },
+  {
+   "date": "2026-11-25",
+   "sym": "SOXL",
+   "entry": 32.02000045776367,
+   "now": 32.02,
+   "ret_total": 0.0,
    "exit_date": null,
    "exit_price": null,
    "ret_hold": null,
@@ -19558,6 +19594,21 @@
    "2026-11-23": 722.29,
    "2026-11-24": 718.78,
    "2026-11-25": 716.7
+  },
+  "VOO": {
+   "2026-11-09": 691.87,
+   "2026-11-10": 689.5,
+   "2026-11-11": 698.35,
+   "2026-11-12": 696.0,
+   "2026-11-13": 693.38,
+   "2026-11-16": 680.26,
+   "2026-11-17": 673.19,
+   "2026-11-18": 671.31,
+   "2026-11-19": 658.01,
+   "2026-11-20": 635.54,
+   "2026-11-23": 663.91,
+   "2026-11-24": 660.71,
+   "2026-11-25": 658.87
   }
  },
  "open_positions": [
@@ -19892,6 +19943,21 @@
    ]
   },
   {
+   "sym": "GRAB",
+   "bought": "2026-11-25",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 2.84,
+   "price": 2.84,
+   "shares": 152.0156,
+   "alloc": 431.72,
+   "value": 431.72,
+   "pnl": -0.0,
+   "ret": -0.0,
+   "spy_ret": null,
+   "path": []
+  },
+  {
    "sym": "NVDA",
    "bought": "2026-11-25",
    "days_left": 5,
@@ -19918,6 +19984,21 @@
    "value": 432.15,
    "pnl": 0.43,
    "ret": 0.1,
+   "spy_ret": null,
+   "path": []
+  },
+  {
+   "sym": "SOXL",
+   "bought": "2026-11-25",
+   "days_left": 5,
+   "exit_on": null,
+   "entry": 32.02,
+   "price": 32.02,
+   "shares": 13.483,
+   "alloc": 431.72,
+   "value": 431.72,
+   "pnl": 0.0,
+   "ret": 0.0,
    "spy_ret": null,
    "path": []
   }
@@ -27477,7 +27558,7 @@
      "sym": "MSFT",
      "date": "2026-07-29",
      "entry": 390.54,
-     "exit": 490.9356,
+     "exit": 490.9357,
      "ret": 25.7,
      "days": 4,
      "spy_ret": 5.7,
