@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-27T20:19:05.430902+00:00",
+ "generated_at": "2026-11-27T20:54:07.286034+00:00",
  "watch": [
   {
    "sym": "NVDA",
    "name": "NVIDIA",
    "price": 150.49000549316406,
    "pct": -0.019927256733954114,
-   "mentions": 663,
-   "mentions_prev": 491,
+   "mentions": 666,
+   "mentions_prev": 459,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -58,7 +58,7 @@
      "$124.50 \u2013 $243.37"
     ]
    ],
-   "reason": "663 mentions, up from 491 yesterday. Price is -0.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $242.43 mean target (+61%); the scan flagged squeeze/penny sub.",
+   "reason": "666 mentions, up from 459 yesterday. Price is -0.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $242.43 mean target (+61%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.04
@@ -198,8 +198,8 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 728.3200073242188,
    "pct": 1.3202019008971118,
-   "mentions": 387,
-   "mentions_prev": 315,
+   "mentions": 394,
+   "mentions_prev": 257,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -238,7 +238,7 @@
      "$629.28 \u2013 $781.62"
     ]
    ],
-   "reason": "387 mentions, up from 315 yesterday. Price is +1.3% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "394 mentions, up from 257 yesterday. Price is +1.3% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.25
@@ -362,7 +362,7 @@
      "2026-11-23"
     ]
    },
-   "tag": "1x Reddit mentions",
+   "tag": "2x Reddit mentions",
    "source": "reddit"
   },
   {
@@ -370,8 +370,8 @@
    "name": "Invesco QQQ ETF",
    "price": 650.989990234375,
    "pct": 2.6281713513823552,
-   "mentions": 197,
-   "mentions_prev": 157,
+   "mentions": 194,
+   "mentions_prev": 145,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -410,7 +410,7 @@
      "$555.60 \u2013 $762.86"
     ]
    ],
-   "reason": "197 mentions, up from 157 yesterday. Price is +2.6% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "194 mentions, up from 145 yesterday. Price is +2.6% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.29
@@ -538,36 +538,40 @@
    "source": "reddit"
   },
   {
-   "sym": "SNDK",
-   "name": "Sandisk",
-   "price": 85.36000061035156,
-   "pct": 14.2910708231763,
-   "mentions": 99,
-   "mentions_prev": 80,
+   "sym": "MU",
+   "name": "Micron Technology",
+   "price": 646.9500122070312,
+   "pct": 6.8711767817282805,
+   "mentions": 110,
+   "mentions_prev": 90,
    "mom": "\u2191",
-   "label": "\ud83d\udcc8 running today + chatter rising",
+   "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
    "analyst_rec": "STRONG_BUY",
-   "analyst_target": 244.95833,
+   "analyst_target": 1529.6888,
    "earnings": null,
    "headlines": [
-    "How Leopold Aschenbrenner made a $225 million bet on AI infrastructure",
-    "Stock Market Today: Indexes Log Best Thanksgiving Week In 18 Years",
-    "SanDisk Stocks Jump 12.85% After Kioxia and Nvidia Stretch GPU Memory With SSDs"
+    "Stocks snap from a $6 trillion washout to a $3.5 trillion surge as Nvidia, Micron, and SpaceX bounce back",
+    "He was right about AI and still lost $35 billion",
+    "Micron Stocks Climb 4.29% as Chip Rebound Meets Tight 2027 Memory Supply"
    ],
    "band": [
-    85.36000061035156,
-    86.22360061645509
+    594.510009765625,
+    707.7000122070312
    ],
    "spark": [
-    85.36000061035156
+    594.510009765625,
+    707.7000122070312,
+    629.7899780273438,
+    601.25,
+    646.9500122070312
    ],
    "stats": [
     [
      "Market cap",
-     "$97.2B"
+     "$734.2B"
     ],
     [
      "Float",
@@ -575,35 +579,37 @@
     ],
     [
      "Short interest",
-     "3.8%"
+     "2.1%"
     ],
     [
      "Avg vol",
-     "87.1M"
+     "29.5M"
     ],
     [
      "Vol today",
-     "96.2M"
+     "26.5M"
     ],
     [
      "52w range",
-     "$23.46 \u2013 $294.30"
+     "$221.69 \u2013 $1255.00"
     ]
    ],
-   "reason": "99 mentions, up from 80 yesterday. Already up 14% today \u2014 the crowd is arriving after the move; analyst consensus is strong buy with a $244.96 mean target (+187%); the scan flagged squeeze/penny sub.",
+   "reason": "110 mentions, up from 90 yesterday. Price is +6.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,529.69 mean target (+136%); the scan flagged squeeze/penny sub.",
    "tone": {
-    "label": "positive",
-    "score": 0.21
+    "label": "mixed",
+    "score": -0.11
    },
    "read": [
-    "chasing",
-    "warn",
-    "Already run hard today and the crowd is still piling in \u2014 late-arrival risk."
+    "moving with attention",
+    "good",
+    "Up on the day with attention still building."
    ],
    "er": {
-    "eps_estimate": 7.14,
+    "date": "Dec 17",
+    "days_away": 20,
+    "eps_estimate": 38.25,
     "beat_record": "beat 4 of last 4",
-    "avg_surprise": 38.8,
+    "avg_surprise": 20.1,
     "expect": [
      "good",
      "Beaten estimates in most recent quarters"
@@ -612,59 +618,59 @@
    "chart": {
     "period": "1y",
     "closes": [
-     27.91,
-     28.56,
-     25.77,
-     29.7,
-     31.26,
-     34.4,
-     47.18,
-     51.7,
-     59.23,
-     72.03,
-     74.74,
-     78.32,
-     81.25,
-     79.42,
-     65.92,
-     82.7,
-     88.71,
-     76.98,
-     87.7,
-     106.47,
-     115.12,
-     123.74,
-     148.38,
-     195.29,
-     175.95,
-     184.84,
-     211.87,
-     194.91,
-     247.51,
-     273.09,
-     261.34,
-     218.12,
-     239.49,
-     169.35,
-     179.57,
-     151.85,
-     151.53,
-     205.14,
-     199.51,
-     185.62,
-     217.5,
-     204.17,
-     223.98,
-     222.23,
-     215.0,
-     197.73,
-     162.41,
-     154.75,
-     143.86,
-     104.38,
-     110.63,
-     94.39,
-     85.36
+     236.21,
+     236.95,
+     240.87,
+     265.62,
+     284.47,
+     315.19,
+     344.84,
+     362.48,
+     399.36,
+     414.58,
+     394.4,
+     411.36,
+     427.86,
+     412.07,
+     370.03,
+     425.82,
+     422.59,
+     356.96,
+     366.13,
+     420.46,
+     454.93,
+     496.57,
+     542.04,
+     746.58,
+     724.43,
+     750.77,
+     970.7,
+     863.74,
+     981.3,
+     1133.64,
+     1131.98,
+     975.26,
+     979.15,
+     848.82,
+     920.81,
+     822.9,
+     877.43,
+     971.51,
+     966.63,
+     932.71,
+     1016.43,
+     975.11,
+     1015.64,
+     1082.11,
+     1074.72,
+     1028.84,
+     878.84,
+     877.55,
+     884.74,
+     690.0,
+     778.31,
+     594.51,
+     646.95
     ],
     "dates": [
      "2025-11-24",
@@ -741,7 +747,7 @@
    "headlines": [
     "Anthropic's Dario and Daniela Amodei may have just made a $560 million misstep",
     "Was investor Leopold Aschenbrenner right about AI, but wrong on risk?",
-    "Dow Jones Futures: Stock Market Makes Bullish Move, Tesla Leads 7 New Buys; Nvidia's Jensen Huang Heads To Capitol Hill"
+    "How Cathie Wood's Ark Played Wednesday's Whipsaw Action"
    ],
    "band": [
     81.91000366210938,
@@ -778,8 +784,8 @@
    ],
    "reason": "Already up 11% today \u2014 the crowd is arriving after the move. Analyst consensus is strong buy with a $136.33 mean target (+48%).",
    "tone": {
-    "label": "negative",
-    "score": -0.26
+    "label": "mixed",
+    "score": -0.15
    },
    "read": [
     "quiet",
@@ -1314,8 +1320,8 @@
    "name": "NVIDIA",
    "price": 150.49000549316406,
    "pct": -0.019927256733954114,
-   "mentions": 663,
-   "mentions_prev": 491,
+   "mentions": 666,
+   "mentions_prev": 459,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1366,7 +1372,7 @@
      "$124.50 \u2013 $243.37"
     ]
    ],
-   "reason": "663 mentions, up from 491 yesterday. Price is -0.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $242.43 mean target (+61%); the scan flagged squeeze/penny sub.",
+   "reason": "666 mentions, up from 459 yesterday. Price is -0.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $242.43 mean target (+61%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.04
@@ -1504,8 +1510,8 @@
    "name": "SPDR S&P 500 ETF Trust",
    "price": 728.3200073242188,
    "pct": 1.3202019008971118,
-   "mentions": 387,
-   "mentions_prev": 315,
+   "mentions": 394,
+   "mentions_prev": 257,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1544,7 +1550,7 @@
      "$629.28 \u2013 $781.62"
     ]
    ],
-   "reason": "387 mentions, up from 315 yesterday. Price is +1.3% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "394 mentions, up from 257 yesterday. Price is +1.3% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.25
@@ -1674,8 +1680,8 @@
    "name": "Invesco QQQ ETF",
    "price": 650.989990234375,
    "pct": 2.6281713513823552,
-   "mentions": 197,
-   "mentions_prev": 157,
+   "mentions": 194,
+   "mentions_prev": 145,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -1714,7 +1720,7 @@
      "$555.60 \u2013 $762.86"
     ]
    ],
-   "reason": "197 mentions, up from 157 yesterday. Price is +2.6% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
+   "reason": "194 mentions, up from 145 yesterday. Price is +2.6% \u2014 the attention has moved further than the price; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.29
@@ -1844,10 +1850,10 @@
    "name": "Micron Technology",
    "price": 646.9500122070312,
    "pct": 6.8711767817282805,
-   "mentions": 113,
-   "mentions_prev": 99,
-   "mom": "\u2192",
-   "label": "",
+   "mentions": 110,
+   "mentions_prev": 90,
+   "mom": "\u2191",
+   "label": "chatter rising",
    "flags": [
     "squeeze/penny sub"
    ],
@@ -1896,15 +1902,15 @@
      "$221.69 \u2013 $1255.00"
     ]
    ],
-   "reason": "113 mentions, flat against yesterday. Price is +6.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,529.69 mean target (+136%); the scan flagged squeeze/penny sub.",
+   "reason": "110 mentions, up from 90 yesterday. Price is +6.9% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $1,529.69 mean target (+136%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.11
    },
    "read": [
-    "quiet",
-    "muted",
-    "No strong pattern between price and attention today."
+    "moving with attention",
+    "good",
+    "Up on the day with attention still building."
    ],
    "er": {
     "date": "Dec 17",
@@ -2036,8 +2042,8 @@
    "name": "Sandisk",
    "price": 85.36000061035156,
    "pct": 14.2910708231763,
-   "mentions": 99,
-   "mentions_prev": 80,
+   "mentions": 105,
+   "mentions_prev": 83,
    "mom": "\u2191",
    "label": "\ud83d\udcc8 running today + chatter rising",
    "flags": [
@@ -2084,7 +2090,7 @@
      "$23.46 \u2013 $294.30"
     ]
    ],
-   "reason": "99 mentions, up from 80 yesterday. Already up 14% today \u2014 the crowd is arriving after the move; analyst consensus is strong buy with a $244.96 mean target (+187%); the scan flagged squeeze/penny sub.",
+   "reason": "105 mentions, up from 83 yesterday. Already up 14% today \u2014 the crowd is arriving after the move; analyst consensus is strong buy with a $244.96 mean target (+187%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.21
@@ -2222,8 +2228,8 @@
    "name": "Tesla",
    "price": 400.0,
    "pct": 5.047534009139143,
-   "mentions": 96,
-   "mentions_prev": 24,
+   "mentions": 98,
+   "mentions_prev": 21,
    "mom": "\u2191",
    "label": "chatter rising",
    "flags": [
@@ -2274,7 +2280,7 @@
      "$297.38 \u2013 $498.83"
     ]
    ],
-   "reason": "96 mentions today, 4x yesterday's 24. Price is +5.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $419.05 mean target (+5%); the scan flagged squeeze/penny sub.",
+   "reason": "98 mentions today, 5x yesterday's 21. Price is +5.0% \u2014 the attention has moved further than the price; analyst consensus is buy with a $419.05 mean target (+5%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "positive",
     "score": 0.21
@@ -2412,8 +2418,8 @@
    "name": "AMD",
    "price": 424.5400085449219,
    "pct": 4.051373384211633,
-   "mentions": 95,
-   "mentions_prev": 108,
+   "mentions": 89,
+   "mentions_prev": 100,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -2464,7 +2470,7 @@
      "$188.22 \u2013 $658.52"
     ]
    ],
-   "reason": "95 mentions, flat against yesterday. Price is +4.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $649.89 mean target (+53%); the scan flagged squeeze/penny sub.",
+   "reason": "89 mentions, flat against yesterday. Price is +4.1% \u2014 the attention has moved further than the price; analyst consensus is strong buy with a $649.89 mean target (+53%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.15
@@ -2602,8 +2608,8 @@
    "name": "DTE Energy",
    "price": 137.89999389648438,
    "pct": 0.10162158571746813,
-   "mentions": 87,
-   "mentions_prev": 83,
+   "mentions": 82,
+   "mentions_prev": 82,
    "mom": "\u2192",
    "label": "",
    "flags": [
@@ -2654,7 +2660,7 @@
      "$119.68 \u2013 $155.75"
     ]
    ],
-   "reason": "87 mentions, flat against yesterday. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $152.04 mean target (+10%); the scan flagged squeeze/penny sub.",
+   "reason": "82 mentions, flat against yesterday. Price is +0.1% \u2014 the attention has moved further than the price; analyst consensus is buy with a $152.04 mean target (+10%); the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": 0.09
@@ -2792,8 +2798,8 @@
    "name": "Direxion Shares ETF Trust - Direxion Daily Semiconductor Bull 3X Share",
    "price": 36.56999969482422,
    "pct": 13.230680637535547,
-   "mentions": 76,
-   "mentions_prev": 55,
+   "mentions": 74,
+   "mentions_prev": 57,
    "mom": "\u2191",
    "label": "\ud83d\udcc8 running today + chatter rising",
    "flags": [
@@ -2832,7 +2838,7 @@
      "$24.61 \u2013 $302.00"
     ]
    ],
-   "reason": "76 mentions, up from 55 yesterday. Already up 13% today \u2014 the crowd is arriving after the move; the scan flagged squeeze/penny sub.",
+   "reason": "74 mentions, up from 57 yesterday. Already up 13% today \u2014 the crowd is arriving after the move; the scan flagged squeeze/penny sub.",
    "tone": {
     "label": "mixed",
     "score": -0.1
@@ -2962,13 +2968,11 @@
    "name": "Pluralsight",
    "price": 33.349998474121094,
    "pct": -0.44776574889225745,
-   "mentions": 69,
-   "mentions_prev": 10,
+   "mentions": 68,
+   "mentions_prev": 8,
    "mom": "\u2191",
    "label": "chatter rising",
-   "flags": [
-    "squeeze/penny sub"
-   ],
+   "flags": [],
    "analyst_rec": "NONE",
    "analyst_target": 45.0,
    "earnings": null,
@@ -3010,7 +3014,7 @@
      "$22.01 \u2013 $60.40"
     ]
    ],
-   "reason": "69 mentions today, 7x yesterday's 10. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is none with a $45.00 mean target (+35%); the scan flagged squeeze/penny sub.",
+   "reason": "68 mentions today, 8x yesterday's 8. Price is -0.4% \u2014 the attention has moved further than the price; analyst consensus is none with a $45.00 mean target (+35%).",
    "tone": {
     "label": "negative",
     "score": -0.27
@@ -3242,6 +3246,14 @@
    ]
   },
   {
+   "sym": "MU",
+   "name": "Micron Technology",
+   "why": [
+    "up +7% today",
+    "mentions rising"
+   ]
+  },
+  {
    "sym": "SNDK",
    "name": "Sandisk",
    "why": [
@@ -3255,7 +3267,7 @@
    "name": "Tesla",
    "why": [
     "up +5% today",
-    "mentions 4x vs yesterday"
+    "mentions 5x vs yesterday"
    ]
   },
   {
@@ -3272,7 +3284,7 @@
   "up": 8,
   "down": 2,
   "flagged": 8,
-  "standouts": 4
+  "standouts": 5
  },
  "history": [
   {
@@ -13862,7 +13874,6 @@
   "pennystocks": 100,
   "wallstreetbets": 100,
   "all-stocks": 100,
-  "stocks": 100,
-  "tradingwithcongress": 0
+  "stocks": 100
  }
 }
